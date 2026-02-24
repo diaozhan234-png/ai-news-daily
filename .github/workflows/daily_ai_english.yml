@@ -1,30 +1,54 @@
-name: Daily AI English Digest (中英对照)
+# AI资讯日报定时推送配置（北京时间9:30自动执行）
+name: Daily AI English Digest (多渠道中英对照版)
+
+# 触发条件：定时+手动（手动仅应急用，核心靠定时）
 on:
+  # 定时触发：UTC 1:30 = 北京时间 9:30（每天自动执行）
   schedule:
-    - cron: '30 1 * * *'  # 北京时间 9:30 自动执行（UTC+8时区转换）
-  workflow_dispatch:      # 手动触发开关（测试用）
+    - cron: '30 1 * * *'
+  # 手动触发（应急/测试用，不影响定时）
+  workflow_dispatch:
 
+# 核心执行任务
 jobs:
-  push_ai_news:
-    runs-on: ubuntu-latest  # 使用GitHub的Ubuntu服务器运行
+  push_ai_news_daily:
+    # 使用GitHub免费Ubuntu运行环境
+    runs-on: ubuntu-latest
+    # 设置超时时间（防止卡死，30分钟足够）
+    timeout-minutes: 30
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4  # 拉取仓库代码到服务器
+      # 步骤1：拉取仓库代码到运行环境
+      - name: Checkout repository code
+        uses: actions/checkout@v4
 
-      - name: Set up Python
+      # 步骤2：配置Python环境（适配脚本依赖）
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'  # 适配脚本的Python版本
+          python-version: '3.11'
+          cache: 'pip' # 缓存依赖，加速执行
 
-      - name: Install dependencies
+      # 步骤3：安装脚本所需依赖（多渠道抓取/翻译/推送）
+      - name: Install required packages
         run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 feedparser urllib3  # 安装脚本依赖
+          pip install --upgrade pip
+          pip install requests beautifulsoup4 feedparser python-dotenv urllib3
 
-      - name: Run AI news script
+      # 步骤4：执行AI资讯推送脚本（核心步骤）
+      - name: Run AI news push script
         env:
-          # 从GitHub Secrets读取配置（已帮你填好对应名称）
+          # 飞书群Webhook（需在仓库Secrets中配置）
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          # 百度翻译API（需在仓库Secrets中配置）
           BAIDU_APP_ID: ${{ secrets.BAIDU_APP_ID }}
           BAIDU_SECRET_KEY: ${{ secrets.BAIDU_SECRET_KEY }}
-        run: python ai_news_english.py  # 执行核心脚本
+          # Gist令牌（适配多渠道中英对照页面托管，需在仓库Secrets中配置）
+          AI_NEWS_GIST_TOKEN: ${{ secrets.AI_NEWS_GIST_TOKEN }}
+        # 执行核心脚本（确保脚本文件名与仓库中一致）
+        run: python daily_ai_english.py
+
+      # 步骤5：输出执行日志（方便排查问题）
+      - name: Print execution log
+        if: always() # 无论成功/失败都输出日志
+        run: echo "AI资讯日报推送任务执行完成，时间：$(date +'%Y-%m-%d %H:%M:%S')"
