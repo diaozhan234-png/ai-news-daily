@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # 缓存依赖，加速执行
+          # 移除了 cache: 'pip'，避免因缺少 requirements.txt 而失败
 
       # 步骤3：安装脚本所需依赖（多渠道抓取/翻译/推送）
       - name: Install required packages
