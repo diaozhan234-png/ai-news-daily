@@ -154,83 +154,24 @@ def fetch_article_content(url):
         return "Latest AI industry trends, stay tuned."
 
 def generate_bilingual_html(article, index):
-    """核心修复：强制渲染中文内容，新增调试日志"""
-    # 强制打印调试信息（关键：确认翻译后的中文是否传递到这里）
+    # 保留调试日志
     logging.info(f"\n=== 生成第{index}条资讯HTML - 调试信息 ===")
     logging.info(f"标题(英): {article.get('title', {}).get('en', 'N/A')[:50]}...")
     logging.info(f"标题(中): {article.get('title', {}).get('zh', 'N/A')[:50]}...")
-    logging.info(f"摘要(英): {article.get('content', {}).get('en', 'N/A')[:50]}...")
-    logging.info(f"摘要(中): {article.get('content', {}).get('zh', 'N/A')[:50]}...")
-
-    # 强制获取所有字段，确保非空（即使字段缺失也显示默认中文）
+    
+    # 极简模板（只保留核心变量）
     title_en = article.get("title", {}).get("en", "No Title")
     title_zh = article.get("title", {}).get("zh", "未获取到中文标题")
-    content_en = article.get("content", {}).get("en", "No Content")
-    content_zh = article.get("content", {}).get("zh", "未获取到中文摘要")
-    source = article.get("source", "Unknown Source")
-    hot_score = article.get("hot_score", "N/A")
-    link = article.get("link", "#")
-    today = get_today()
-
-    # 完整的中英对照HTML模板（强制渲染所有中文字段）
     html = f"""
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>AI资讯日报 - {today} | 第{index}条</title>
-    <style>
-        body{{font-family:'Microsoft YaHei',Arial,sans-serif;max-width:900px;margin:20px auto;padding:0 20px;line-height:1.8;}}
-        .header{{text-align:center;border-bottom:2px solid #0066cc;padding-bottom:15px;margin-bottom:20px;}}
-        .block{{margin:25px 0;padding:18px;border-left:4px solid #0066cc;background:#f8f9fa;border-radius:4px;}}
-        .en{{border-left-color:#666;background:#f5f5f5;}}
-        h3{{color:#0066cc;margin:0 0 10px 0;font-size:18px;}}
-        .meta{{color:#666;font-size:14px;margin-bottom:10px;}}
-        p{{margin:0 0 10px 0;line-height:1.8;font-size:16px;}}
-        a{{color:#0066cc;text-decoration:none;}}
-        a:hover{{text-decoration:underline;}}
-        .divider{{border:none;border-top:1px solid #eee;margin:20px 0;}}
-    </style>
-</head>
 <body>
-    <div class="header">
-        <h1 style="color:#0066cc;margin-bottom:10px;">AI资讯日报 | {today}</h1>
-        <div class="meta">第{index}条 | 来源：{source} | 热度：{hot_score}</div>
-    </div>
-
-    <!-- 英文标题 -->
-    <div class="block en">
-        <h3>📝 English Title</h3>
-        <p>{title_en}</p>
-    </div>
-
-    <!-- 中文标题 -->
-    <div class="block">
-        <h3>📝 中文标题</h3>
-        <p>{title_zh}</p>
-    </div>
-
-    <hr class="divider">
-
-    <!-- 英文摘要 -->
-    <div class="block en">
-        <h3>📖 English Abstract</h3>
-        <p>{content_en}</p>
-    </div>
-
-    <!-- 中文摘要 -->
-    <div class="block">
-        <h3>📖 中文摘要</h3>
-        <p>{content_zh}</p>
-    </div>
-
-    <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #eee;">
-        <a href="{link}" target="_blank" style="font-size:16px;">🔗 点击查看英文原文</a>
-    </div>
+  <h1>英文标题：{title_en}</h1>
+  <h1>中文标题：{title_zh}</h1>
 </body>
 </html>"""
     return html
-
+    
 @retry_wrapper
 def upload_to_gist(html, index):
     """Gist上传函数（确保生成有效链接）"""
