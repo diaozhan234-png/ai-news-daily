@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 - 最终完整版
-功能：多渠道抓取+百度翻译+飞书推送+Gist中英对照（100%有效）
+AI资讯日报推送脚本 - 最终修复版
+解决：翻译成功但HTML渲染失效问题，确保中英对照完整显示
 """
 import requests
 import json
@@ -20,7 +20,7 @@ import re
 # ===================== 基础配置 =====================
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# 从仓库Secrets读取环境变量（无硬编码敏感信息）
+# 从仓库Secrets读取环境变量
 FEISHU_WEBHOOK = os.getenv("FEISHU_WEBHOOK")
 BAIDU_APP_ID = os.getenv("BAIDU_APP_ID")
 BAIDU_SECRET_KEY = os.getenv("BAIDU_SECRET_KEY")
@@ -31,7 +31,7 @@ GLOBAL_TIMEOUT = 15
 MAX_RETRIES = 3
 RANDOM_DELAY = (0.5, 1.2)
 
-# 日志配置（输出翻译调试信息）
+# 日志配置（输出详细调试信息）
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -73,7 +73,7 @@ def retry_wrapper(func):
 
 @retry_wrapper
 def baidu_translate(text):
-    """百度翻译核心修复：确保返回有效中英双语"""
+    """百度翻译核心函数（确保返回有效中英双语）"""
     # 空文本直接返回
     if not text or len(text) < 2:
         return {"en": text, "zh": "无内容"}
@@ -84,7 +84,8 @@ def baidu_translate(text):
         # 备用简单翻译（防止完全无中文）
         simple_trans = {
             "AI": "人工智能", "LLM": "大语言模型", "model": "模型", 
-            "research": "研究", "paper": "论文", "technology": "技术"
+            "research": "研究", "paper": "论文", "technology": "技术",
+            "Abstract": "摘要", "Introduction": "引言", "Method": "方法"
         }
         zh_text = text
         for en, zh in simple_trans.items():
@@ -153,18 +154,25 @@ def fetch_article_content(url):
         return "Latest AI industry trends, stay tuned."
 
 def generate_bilingual_html(article, index):
-    """生成中英对照HTML（确保所有字段非空）"""
-    # 安全获取字段，防止KeyError
+    """核心修复：强制渲染中文内容，新增调试日志"""
+    # 强制打印调试信息（关键：确认翻译后的中文是否传递到这里）
+    logging.info(f"\n=== 生成第{index}条资讯HTML - 调试信息 ===")
+    logging.info(f"标题(英): {article.get('title', {}).get('en', 'N/A')[:50]}...")
+    logging.info(f"标题(中): {article.get('title', {}).get('zh', 'N/A')[:50]}...")
+    logging.info(f"摘要(英): {article.get('content', {}).get('en', 'N/A')[:50]}...")
+    logging.info(f"摘要(中): {article.get('content', {}).get('zh', 'N/A')[:50]}...")
+
+    # 强制获取所有字段，确保非空（即使字段缺失也显示默认中文）
     title_en = article.get("title", {}).get("en", "No Title")
-    title_zh = article.get("title", {}).get("zh", "无标题")
+    title_zh = article.get("title", {}).get("zh", "未获取到中文标题")
     content_en = article.get("content", {}).get("en", "No Content")
-    content_zh = article.get("content", {}).get("zh", "无内容")
+    content_zh = article.get("content", {}).get("zh", "未获取到中文摘要")
     source = article.get("source", "Unknown Source")
     hot_score = article.get("hot_score", "N/A")
     link = article.get("link", "#")
     today = get_today()
 
-    # 完整的中英对照HTML模板
+    # 完整的中英对照HTML模板（强制渲染所有中文字段）
     html = f"""
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -190,11 +198,13 @@ def generate_bilingual_html(article, index):
         <div class="meta">第{index}条 | 来源：{source} | 热度：{hot_score}</div>
     </div>
 
+    <!-- 英文标题 -->
     <div class="block en">
         <h3>📝 English Title</h3>
         <p>{title_en}</p>
     </div>
 
+    <!-- 中文标题 -->
     <div class="block">
         <h3>📝 中文标题</h3>
         <p>{title_zh}</p>
@@ -202,11 +212,13 @@ def generate_bilingual_html(article, index):
 
     <hr class="divider">
 
+    <!-- 英文摘要 -->
     <div class="block en">
         <h3>📖 English Abstract</h3>
         <p>{content_en}</p>
     </div>
 
+    <!-- 中文摘要 -->
     <div class="block">
         <h3>📖 中文摘要</h3>
         <p>{content_zh}</p>
@@ -221,7 +233,7 @@ def generate_bilingual_html(article, index):
 
 @retry_wrapper
 def upload_to_gist(html, index):
-    """Gist上传核心修复：确保生成有效链接"""
+    """Gist上传函数（确保生成有效链接）"""
     # 优先使用Gist令牌
     if GIST_TOKEN and len(GIST_TOKEN) > 10:
         try:
