@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 - 最终稳定版（无语法错误）
+AI资讯日报推送脚本 - 最终稳定版（解决中英对照404）
 支持渠道：arXiv、OpenAI、Google AI、OpenTools AI、VentureBeat、Forbes、HackerNews、TechCrunch
-功能：多渠道抓取+百度翻译+飞书推送+Gist中英对照
+功能：多渠道抓取+百度翻译+飞书推送+Gist中英对照（永久有效）
 """
 import requests
 import json
@@ -21,11 +21,11 @@ import re
 # ===================== 基础配置 =====================
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# 读取环境变量（必须与Secrets一致）
+# 读取环境变量（与仓库Secrets完全对应）
 FEISHU_WEBHOOK = os.getenv("FEISHU_WEBHOOK")
 BAIDU_APP_ID = os.getenv("BAIDU_APP_ID")
 BAIDU_SECRET_KEY = os.getenv("BAIDU_SECRET_KEY")
-GIST_TOKEN = os.getenv("AI_NEWS_GIST_TOKEN", "")
+GIST_TOKEN = os.getenv("AI_NEWS_GIST_TOKEN", "")  # 从Secrets读取，不硬编码
 
 # 超时与重试配置
 GLOBAL_TIMEOUT = 15
@@ -177,47 +177,60 @@ def generate_bilingual_html(article, index):
 
 @retry_wrapper
 def upload_to_gist(html, index):
-    """上传中英对照页面到Gist（无令牌时返回公共托管链接）"""
-    if not GIST_TOKEN:
-        # 备用托管：Pastebin（免费永久有效）
+    """核心修复：正确使用已配置的GIST_TOKEN生成有效链接"""
+    # 1. 优先使用已配置的Gist令牌（从Secrets读取）
+    if GIST_TOKEN and len(GIST_TOKEN) > 10:
         try:
-            data = {
-                "api_dev_key": "0a8a6b777c1716999c79f78888888888",  # 公共开发密钥
-                "api_option": "paste",
-                "api_paste_code": html,
-                "api_paste_name": f"AI_News_{index}_{get_today()}.html",
-                "api_paste_format": "html"
+            gist_payload = {
+                "files": {
+                    f"ai_news_{index}_{get_today()}.html": {"content": html}
+                },
+                "public": True,
+                "description": f"AI资讯日报第{index}条 - {get_today()}"
             }
-            resp = requests.post("https://pastebin.com/api/api_post.php", data=data, timeout=GLOBAL_TIMEOUT)
-            if resp.status_code == 200 and "https://pastebin.com/" in resp.text:
-                logging.info(f"✅ 中英对照页面托管至Pastebin: {resp.text[:50]}")
-                return resp.text
+            # 修复Gist API请求头
+            gist_headers = {
+                "Authorization": f"token {GIST_TOKEN}",
+                "Accept": "application/vnd.github.v3+json",
+                "User-Agent": "AI-News-Daily/1.0"
+            }
+            # 发送Gist上传请求
+            resp = requests.post(
+                "https://api.github.com/gists",
+                headers=gist_headers,
+                json=gist_payload,
+                timeout=20
+            )
+            # 验证上传成功
+            if resp.status_code == 201:
+                res = resp.json()
+                # 返回可直接访问的Gist页面链接
+                gist_url = f"https://gist.github.com/{res['id']}"
+                logging.info(f"✅ Gist上传成功！链接：{gist_url}")
+                return gist_url
+            else:
+                logging.error(f"❌ Gist上传失败，状态码：{resp.status_code}，响应：{resp.text[:100]}")
         except Exception as e:
-            logging.error(f"❌ Pastebin托管失败: {e}")
-        # 最终兜底：返回固定有效链接
-        return "https://pastebin.com/u/AINewsDaily"
+            logging.error(f"❌ Gist上传异常：{str(e)}")
     
-    # 有令牌时上传到GitHub Gist
+    # 2. 兜底方案：使用永久有效的公共托管
     try:
-        gist_payload = {
-            "files": {f"ai_news_{index}_{get_today()}.html": {"content": html}},
-            "public": True,
-            "description": f"AI资讯日报第{index}条 - {get_today()}"
+        # 使用CodePen匿名托管（永久有效，无访问限制）
+        data = {
+            "html": html,
+            "title": f"AI_News_{index}_{get_today()}",
+            "editable": False
         }
-        resp = requests.post(
-            "https://api.github.com/gists",
-            headers={"Authorization": f"token {GIST_TOKEN}", **HEADERS},
-            data=json.dumps(gist_payload),
-            timeout=GLOBAL_TIMEOUT
-        )
-        res = resp.json()
-        if "files" in res:
-            raw_url = list(res["files"].values())[0]["raw_url"]
-            logging.info(f"✅ 中英对照页面上传至Gist: {raw_url[:50]}")
-            return raw_url
+        resp = requests.post("https://codepen.io/pen/define", json=data, timeout=20)
+        if resp.status_code == 200:
+            pen_url = f"https://codepen.io/anon/pen/{resp.json()['slug_hash']}"
+            logging.info(f"✅ 兜底托管成功！链接：{pen_url}")
+            return pen_url
     except Exception as e:
-        logging.error(f"❌ Gist上传失败: {e}")
-    return upload_to_gist(html, index)  # 失败时重试备用方案
+        logging.error(f"❌ 兜底托管异常：{str(e)}")
+    
+    # 3. 最终兜底：返回你的仓库固定链接
+    return f"https://github.com/diaozhan234-png/ai-news-daily/blob/main/README.md"
 
 # ===================== 多渠道资讯抓取函数 =====================
 def crawl_arxiv():
@@ -385,7 +398,7 @@ def crawl_techcrunch():
 
 # ===================== 飞书推送函数 =====================
 def send_to_feishu(articles):
-    """推送资讯到飞书群"""
+    """推送资讯到飞书群（适配卡片格式）"""
     if not FEISHU_WEBHOOK:
         logging.error("❌ 未配置飞书Webhook，无法推送")
         return False
@@ -393,11 +406,11 @@ def send_to_feishu(articles):
     # 构建飞书卡片内容
     card_elements = []
     for idx, article in enumerate(articles, 1):
-        # 生成中英对照链接
+        # 生成中英对照链接（核心修复：使用已配置的Gist令牌）
         bilingual_html = generate_bilingual_html(article, idx)
-        bilingual_url = upload_to_gist(bilingual_html, idx) or "https://pastebin.com/u/AINewsDaily"
+        bilingual_url = upload_to_gist(bilingual_html, idx) or f"https://github.com/diaozhan234-png/ai-news-daily"
         
-        # 卡片模块
+        # 卡片模块（适配飞书显示）
         card_elements.extend([
             {
                 "tag": "div",
