@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 v4 - 彻底修复版
+AI资讯日报推送脚本 v5
 ==============================================================
-修复清单：
-  Fix-1  baidu_translate 返回 None 时防护 → safe_translate()
-  Fix-2  百度翻译 2000字限制 → 超长文本自动分段翻译
-  Fix-3  fetch_article_content 精准段落提取，过滤广告/导航噪声
-  Fix-4  get_rich_content 增加 HTML 清洗 + 最终非空校验
-  Fix-5  generate_bilingual_html 字段空值全面兜底
+v5 新增修复：
+  Fix-A  TechCrunch/VentureBeat/Forbes 等截断型站点 →
+         强制抓取原文页面，不依赖仅有2句的 RSS summary
+  Fix-B  MIT Tech Review 非AI文章 →
+         严格关键词过滤前15条，无匹配直接跳过
+  Fix-C  飞书卡片标题"###" → 数字emoji + 来源图标，更美观
 
-新增：
-  + 定时运行说明（北京时间 09:30，GitHub Actions cron）
-  + 消息来源全面优化，聚焦 AI 技术/应用/投融资
-  + 新增 The Information AI / MIT Tech Review / AI News
+继承 v4 修复：
+  safe_translate / translate_long_text（翻译不崩溃 + 分段翻译）
+  fetch_article_content（精准段落提取 + 去广告噪声）
+  generate_bilingual_html（字段全面空值防护）
+  htmlpreview.github.io 渲染链接（非Raw源码链接）
+  window.close() 关闭按钮
 """
 
 import requests
@@ -250,40 +252,54 @@ def fetch_article_content(url):
 # ===================== Fix-4：多级内容获取 =====================
 def get_rich_content(entry, url):
     """
-    Fix-4：多级兜底，确保翻译输入有实质内容。
-    级别：RSS full content → RSS summary（HTML剥离）→ 抓取正文 → 标题兜底
+    多级兜底获取正文，确保翻译有实质内容。
+
+    Fix-A 核心逻辑：
+    - 对"截断型"站点（TechCrunch/VentureBeat/Forbes/MIT Tech Review），
+      RSS summary 通常只有1-2句，直接跳过 summary，强制抓取原文页面。
+    - 其他站点走正常优先级：full content → summary → 抓取 → 兜底。
     """
-    # 1️⃣ RSS content:encoded（部分站点提供全文）
-    if hasattr(entry, "content") and entry.content:
-        raw = entry.content[0].get("value", "")
-        text = strip_html(raw)
-        if len(text) >= CONTENT_MIN_LEN:
-            logging.info(f"  [内容] RSS full content ({len(text)}字)")
-            return text
+    # 截断型站点：RSS summary 不可信，直接抓取原文
+    FORCE_FETCH_DOMAINS = [
+        "techcrunch.com", "venturebeat.com", "forbes.com",
+        "technologyreview.com", "reuters.com", "bloomberg.com"
+    ]
+    force_fetch = any(d in url for d in FORCE_FETCH_DOMAINS)
 
-    # 2️⃣ RSS summary / description（HTML剥离）
-    raw_summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
-    summary = strip_html(raw_summary)
-    if len(summary) >= CONTENT_MIN_LEN:
-        logging.info(f"  [内容] RSS summary ({len(summary)}字)")
-        return summary
+    if not force_fetch:
+        # 1️⃣ RSS content:encoded（部分站点提供全文，如 arXiv）
+        if hasattr(entry, "content") and entry.content:
+            raw  = entry.content[0].get("value", "")
+            text = strip_html(raw)
+            if len(text) >= CONTENT_MIN_LEN:
+                logging.info(f"  [内容] RSS full content ({len(text)}字)")
+                return text
 
-    # 3️⃣ 抓取原文正文
-    logging.info(f"  [内容] RSS不足({len(summary)}字)，抓取原文...")
+        # 2️⃣ RSS summary（HTML剥离后需要足够长）
+        raw_summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
+        summary = strip_html(raw_summary)
+        # 只有 summary 足够长（>= 200字）才直接使用，避免截断内容
+        if len(summary) >= 200:
+            logging.info(f"  [内容] RSS summary ({len(summary)}字)")
+            return summary
+
+    # 3️⃣ 强制抓取原文页面（截断型站点或summary不足）
+    logging.info(f"  [内容] 抓取原文页面: {url[:60]}")
     fetched = fetch_article_content(url) or ""
     if len(fetched) >= CONTENT_MIN_LEN:
-        logging.info(f"  [内容] 抓取正文 ({len(fetched)}字)")
+        logging.info(f"  [内容] 抓取成功 ({len(fetched)}字)")
         return fetched
 
-    # 4️⃣ 拼接已有内容
-    combined = (summary or fetched).strip()
-    if combined:
-        logging.warning(f"  [内容] 拼接兜底 ({len(combined)}字)")
-        return combined
+    # 4️⃣ 降级回 RSS summary（抓取也失败时）
+    raw_summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
+    summary = strip_html(raw_summary)
+    if summary:
+        logging.warning(f"  [内容] 降级用RSS summary ({len(summary)}字)")
+        return summary
 
-    # 5️⃣ 标题扩展（绝对兜底，保证不翻译空字符串）
-    title = clean_text(getattr(entry, "title", ""))
-    fallback = f"{title}. For more details, please visit the original article." if title else "AI industry latest update."
+    # 5️⃣ 标题兜底（绝对保底）
+    title    = clean_text(getattr(entry, "title", ""))
+    fallback = f"{title}. Visit the original article for more details." if title else "AI industry latest update."
     logging.warning(f"  [内容] 标题兜底")
     return fallback
 
@@ -489,6 +505,24 @@ def upload_to_gist(html, index):
 #   ⑤ 工具聚合：OpenTools AI、AI News（ainews.io）
 #   ⑥ 社区热点：HackerNews（AI/LLM相关）
 #
+# AI相关性关键词（用于过滤所有来源的非AI文章）
+AI_FILTER_KEYWORDS = [
+    "artificial intelligence", " ai ", "machine learning", "deep learning",
+    "large language model", "llm", "chatgpt", "gpt-", "claude", "gemini",
+    "neural network", "generative ai", "openai", "anthropic", "deepmind",
+    "nvidia", "foundation model", "transformer", "diffusion model",
+    "autonomous", "robotics", "computer vision", "natural language",
+    "reinforcement learning", "fine-tun", "inference", "multimodal",
+    "rag", "agent", "copilot", "hugging face", "mistral", "llama",
+    "funding", "investment", "startup", "raises", "valued",  # 投融资关键词
+]
+
+def is_ai_related(title, summary=""):
+    """判断文章是否与AI相关"""
+    text = (title + " " + summary).lower()
+    return any(kw in text for kw in AI_FILTER_KEYWORDS)
+
+
 def _make_article(entry, source, hot_range):
     """通用文章构建：title翻译 + 正文获取翻译"""
     title   = safe_translate(clean_text(entry.title))
@@ -570,21 +604,29 @@ def crawl_google_deepmind():
 
 
 def crawl_mit_tech_review():
-    """MIT Technology Review AI — 深度技术分析"""
+    """MIT Technology Review AI — 深度技术分析（严格过滤非AI文章）"""
+    # Fix-B：严格AI关键词，无匹配则直接跳过，不取第一条兜底
+    AI_KEYWORDS = [
+        "artificial intelligence", " ai ", "machine learning", "deep learning",
+        "large language model", "llm", "chatgpt", "gpt", "claude", "gemini",
+        "neural network", "generative", "robot", "automation", "computer vision",
+        "natural language", "openai", "anthropic", "deepmind", "nvidia", "chips",
+        "foundation model", "transformer", "diffusion", "autonomous"
+    ]
     try:
         feed = feedparser.parse("https://www.technologyreview.com/feed/")
-        # 过滤 AI 相关文章
-        ai_entries = [e for e in feed.entries
-                      if any(kw in (e.title + getattr(e, "summary", "")).lower()
-                             for kw in ["ai", "artificial intelligence", "machine learning",
-                                        "llm", "model", "neural", "robot", "generative"])]
-        if not ai_entries:
-            ai_entries = feed.entries[:1]
-        if not ai_entries:
+        if not feed.entries:
             return []
-        entry = ai_entries[0]
-        logging.info(f"MIT Tech Review: {entry.title[:50]}")
-        return [_make_article(entry, "MIT Technology Review", (85, 90))]
+
+        for entry in feed.entries[:15]:   # 最多检查前15条
+            text_to_check = (entry.title + " " + getattr(entry, "summary", "")).lower()
+            if any(kw in text_to_check for kw in AI_KEYWORDS):
+                logging.info(f"MIT Tech Review (AI匹配): {entry.title[:50]}")
+                return [_make_article(entry, "MIT Technology Review", (85, 90))]
+
+        # 15条内无AI相关 → 跳过，不推送非AI内容
+        logging.warning("⚠️ MIT Tech Review: 当前15条内无AI相关文章，跳过")
+        return []
     except Exception as e:
         logging.error(f"❌ MIT Tech Review: {e}")
         return []
@@ -699,11 +741,26 @@ def send_to_feishu(articles):
         logging.error("❌ 未配置 FEISHU_WEBHOOK")
         return False
 
+    # Fix-C：用数字emoji替代 ### 标题语法，飞书卡片直接渲染更美观
+    IDX_EMOJI = {1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣"}
+    # 来源对应的图标
+    SOURCE_ICON = {
+        "arXiv 学术论文":      "📐",
+        "OpenAI 官方博客":     "🤖",
+        "Anthropic 官方":      "🧠",
+        "Google DeepMind":     "🔬",
+        "MIT Technology Review": "🎓",
+        "VentureBeat":         "📊",
+        "TechCrunch":          "💡",
+        "Forbes":              "💰",
+        "OpenTools AI":        "🛠️",
+        "HackerNews":          "🔥",
+    }
+
     elements = []
     for idx, article in enumerate(articles, 1):
         rendered_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
 
-        # 安全取值
         title_zh   = (article.get("title")   or {}).get("zh") or (article.get("title")   or {}).get("en") or "无标题"
         title_en   = (article.get("title")   or {}).get("en") or ""
         content_zh = (article.get("content") or {}).get("zh") or (article.get("content") or {}).get("en") or "暂无摘要"
@@ -711,14 +768,17 @@ def send_to_feishu(articles):
         hot_score  = article.get("hot_score", "N/A")
         orig_link  = article.get("link", "#")
 
+        num_emoji   = IDX_EMOJI.get(idx, f"{idx}.")
+        src_icon    = SOURCE_ICON.get(source, "📰")
+
         elements.extend([
             {
                 "tag": "div",
                 "text": {
                     "tag": "lark_md",
                     "content": (
-                        f"### {idx}. {title_zh}\n"
-                        f"🔥 热度: {hot_score} | 📡 来源: {source}\n\n"
+                        f"**{num_emoji} {title_zh}**\n"
+                        f"{src_icon} {source}　🔥 热度 {hot_score}\n\n"
                         f"**英文标题**：{title_en[:90]}{'...' if len(title_en) > 90 else ''}\n\n"
                         f"**中文摘要**：{content_zh[:150]}{'...' if len(content_zh) > 150 else ''}"
                     )
