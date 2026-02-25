@@ -111,6 +111,8 @@ def _call_baidu_api(text):
     """
     单次调用百度翻译 API，返回中文字符串或 None。
     text 长度调用方保证 <= TRANSLATE_MAX。
+    百度错误码说明：52003=未授权 54001=签名错误 54004=余额不足
+    error_code=-27 等非标准错误也需要拦截。
     """
     url  = "https://fanyi-api.baidu.com/api/trans/vip/translate"
     salt = str(random.randint(32768, 65536))
@@ -119,8 +121,22 @@ def _call_baidu_api(text):
               "appid": BAIDU_APP_ID, "salt": salt, "sign": sign}
     resp = requests.get(url, params=params, timeout=GLOBAL_TIMEOUT, verify=False)
     res  = resp.json()
+
+    # 明确有翻译结果才返回
     if "trans_result" in res and res["trans_result"]:
-        return res["trans_result"][0]["dst"]
+        translated = res["trans_result"][0]["dst"]
+        # 过滤百度返回的错误提示文字（错误时有时会把错误信息翻译出来）
+        ERROR_PATTERNS = ["服务错误", "服务目前不可用", "那是个错误", "错误-", "error_code"]
+        if any(p in translated for p in ERROR_PATTERNS):
+            logging.error(f"百度翻译返回错误文本: {translated[:50]}")
+            return None
+        return translated
+
+    # 有 error_code 字段说明翻译失败
+    if "error_code" in res:
+        logging.error(f"百度翻译错误码: {res.get('error_code')} - {res.get('error_msg', '')}")
+        return None
+
     logging.error(f"百度翻译异常响应: {res}")
     return None
 
@@ -592,15 +608,51 @@ def _make_article(entry, source, hot_range):
 
 
 def crawl_arxiv():
-    """arXiv AI/ML 论文 — 技术前沿"""
+    """
+    arXiv AI核心论文 — 只抓 AI/ML/NLP 本身的研究，不要把ML当工具的其他学科论文。
+    策略：
+      - 使用 cs.AI（人工智能）、cs.LG（机器学习）、cs.CL（自然语言处理）分类
+      - 对每条论文做双重校验：标题+摘要必须以AI为主题，而非以ML为工具
+      - 排除：医学、生物、社会科学等把ML当方法的跨学科论文
+    """
+    # 必须包含的AI核心词（论文主题必须是AI本身）
+    ARXIV_MUST_HAVE = [
+        "language model", "llm", "large language", "neural network",
+        "deep learning", "transformer", "diffusion model", "generative model",
+        "reinforcement learning", "fine-tuning", "pre-train", "foundation model",
+        "prompt", "chatgpt", "gpt", "bert", "attention mechanism",
+        "multimodal", "text generation", "image generation", "reasoning",
+        "alignment", "rlhf", "in-context learning", "chain-of-thought",
+        "ai agent", "llm agent", "retrieval augmented", "embedding model",
+    ]
+    # 如果标题含有这些词且没有核心AI词，说明只是用ML做工具，排除
+    ARXIV_EXCLUDE_IF_NO_CORE = [
+        "obesity", "overweight", "health", "medical", "clinical", "patient",
+        "cancer", "disease", "diagnosis", "hospital", "drug", "genomic",
+        "covid", "pandemic", "social media", "education", "finance",
+        "traffic", "weather", "earthquake", "flood", "agriculture",
+        "children", "adolescent", "elderly", "population",
+    ]
     try:
-        # cs.AI + cs.LG（机器学习）+ cs.CL（自然语言处理）
-        for category in ["cs.AI", "cs.LG", "cs.CL"]:
+        for category in ["cs.AI", "cs.CL", "cs.LG"]:
             feed = feedparser.parse(f"http://export.arxiv.org/rss/{category}")
-            if feed.entries:
-                entry = feed.entries[0]
-                logging.info(f"arXiv [{category}]: {entry.title[:50]}")
-                return [_make_article(entry, "arXiv 学术论文", (88, 93))]
+            if not feed.entries:
+                continue
+            for entry in feed.entries[:10]:  # 每个分类最多检查10篇
+                title   = entry.title.lower()
+                summary = strip_html(getattr(entry, "summary", "")).lower()
+                combined = title + " " + summary[:300]
+
+                has_core = any(kw in combined for kw in ARXIV_MUST_HAVE)
+                has_exclude = any(kw in title for kw in ARXIV_EXCLUDE_IF_NO_CORE)
+
+                if has_core and not has_exclude:
+                    logging.info(f"arXiv [{category}] ✅: {entry.title[:60]}")
+                    return [_make_article(entry, "arXiv 学术论文", (88, 93))]
+                elif has_exclude:
+                    logging.warning(f"arXiv [{category}] 🚫跨学科排除: {entry.title[:50]}")
+
+        logging.warning("⚠️ arXiv: 未找到符合条件的AI核心论文")
         return []
     except Exception as e:
         logging.error(f"❌ arXiv: {e}")
@@ -744,37 +796,69 @@ def crawl_opentools_ai():
 
 
 def crawl_hackernews():
-    """HackerNews — 社区热点（AI/LLM/模型相关）"""
-    AI_KEYWORDS = {
-        "ai", "llm", "gpt", "claude", "gemini", "mistral", "llama",
-        "machine learning", "neural", "transformer", "model", "openai",
-        "anthropic", "deepmind", "diffusion", "generative", "rag",
-        "inference", "fine.tun", "embedding", "agent", "multimodal"
-    }
+    """
+    HackerNews — 只抓有实质内容的AI相关外链文章。
+    过滤规则：
+      1. 标题必须 >= 20 字符（排除 "LLM=True" 这类无意义标题）
+      2. 必须有外部链接 URL（排除纯 HN 讨论帖）
+      3. 标题必须包含 AI 核心关键词
+      4. 排除纯技术代码/库发布（这类内容意义不大）
+    """
+    AI_KEYWORDS = [
+        "llm", "large language model", "gpt", "claude", "gemini", "mistral",
+        "llama", "machine learning", "neural", "transformer", "openai",
+        "anthropic", "deepmind", "diffusion", "generative ai", "ai model",
+        "artificial intelligence", "chatbot", "foundation model",
+        "multimodal", "ai agent", "rag", "fine-tuning", "inference",
+        "ai startup", "ai funding", "raises", "ai tool", "copilot",
+    ]
+    # 排除纯代码库/框架发布（标题特征）
+    EXCLUDE_PATTERNS = [
+        "show hn", "ask hn", "tell hn",   # HN 内部帖
+        "=true", "=false", "= true", "= false",  # 代码片段
+        "[pdf]", "[video]",
+    ]
     try:
         resp = requests.get(
             "https://hacker-news.firebaseio.com/v0/topstories.json",
             timeout=GLOBAL_TIMEOUT
         )
-        ids = resp.json()[:20]  # 搜索前20条确保命中
+        ids = resp.json()[:30]  # 检查前30条提高命中率
+
         for story_id in ids:
             item = requests.get(
                 f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json",
                 timeout=GLOBAL_TIMEOUT
             ).json()
+
             title = item.get("title", "")
-            if any(kw in title.lower() for kw in AI_KEYWORDS):
-                link    = item.get("url") or f"https://news.ycombinator.com/item?id={story_id}"
-                body    = strip_html(item.get("text", "")) or title
+            url   = item.get("url", "")
+
+            # 质量门槛
+            if len(title) < 20:
+                continue  # 标题太短，无实质内容
+            if not url:
+                continue  # 没有外部链接，是纯讨论帖
+            if any(p in title.lower() for p in EXCLUDE_PATTERNS):
+                continue  # 排除特定类型
+
+            title_lower = title.lower()
+            if any(kw in title_lower for kw in AI_KEYWORDS):
+                # 抓取外链正文
+                body = fetch_article_content(url) or strip_html(item.get("text", "")) or title
+                if len(body) < 50:
+                    body = title  # 正文太短也不翻译空内容
                 content = safe_translate(body)
-                logging.info(f"HackerNews: {title[:50]}")
+                logging.info(f"HackerNews ✅: {title[:60]}")
                 return [{
                     "title":     safe_translate(title),
                     "content":   content,
-                    "link":      link,
+                    "link":      url,
                     "source":    "HackerNews",
                     "hot_score": round(random.uniform(80, 86), 1)
                 }]
+
+        logging.warning("⚠️ HackerNews: 前30条内无符合条件的AI文章")
         return []
     except Exception as e:
         logging.error(f"❌ HackerNews: {e}")
@@ -923,17 +1007,37 @@ def main():
             logging.error(f"❌ {crawler.__name__} 崩溃: {e}")
 
     # 过滤1：必须有标题
-    # 过滤2：全局AI相关性检查（防止任何来源混入非AI内容）
+    # 过滤2：全局AI相关性检查
+    # 过滤3：内容质量检查（排除翻译错误文本、内容过短）
+    QUALITY_BLACKLIST = [
+        "服务错误", "服务目前不可用", "那是个错误", "错误-27",
+        "error_code", "unauthorized", "rate limit",
+    ]
     valid = []
     for a in all_articles:
         if not (a and isinstance(a.get("title"), dict) and a["title"].get("en")):
             continue
         title_en   = a["title"].get("en", "")
+        title_zh   = a["title"].get("zh", "") or title_en
         content_en = (a.get("content") or {}).get("en", "")
-        if is_ai_related(title_en, content_en[:300]):
-            valid.append(a)
-        else:
+        content_zh = (a.get("content") or {}).get("zh", "") or content_en
+
+        # AI相关性检查
+        if not is_ai_related(title_en, content_en[:300]):
             logging.warning(f"🚫 全局过滤非AI内容: {title_en[:50]}")
+            continue
+
+        # 内容质量检查
+        if any(p in content_zh for p in QUALITY_BLACKLIST):
+            logging.warning(f"🚫 内容含错误文本，丢弃: {title_en[:50]}")
+            continue
+
+        # 标题质量检查（太短的标题说明内容无意义）
+        if len(title_en.strip()) < 10:
+            logging.warning(f"🚫 标题过短，丢弃: {title_en}")
+            continue
+
+        valid.append(a)
 
     if not valid:
         logging.warning("⚠️ 未获取到任何有效资讯，使用兜底占位")
