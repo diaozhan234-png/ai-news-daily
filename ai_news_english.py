@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 - 左右分栏中英对照版
-实现：左侧显示英文原文，右侧显示中文译文，响应式适配手机/电脑
+AI资讯日报推送脚本 - 左右分栏中英对照版（修复版）
+核心修复：Gist Raw URL 改为 htmlpreview.github.io 渲染链接
+新增来源：opentools.ai、VentureBeat、Forbes
 """
 import requests
 import json
@@ -31,7 +32,7 @@ GLOBAL_TIMEOUT = 15
 MAX_RETRIES = 3
 RANDOM_DELAY = (0.5, 1.2)
 
-# 日志配置（输出详细调试信息）
+# 日志配置
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -56,7 +57,6 @@ def clean_text(text):
     if not text:
         return ""
     text = re.sub(r'\s+', ' ', text).strip()
-    # 保留换行符，适配HTML渲染
     text = text.replace("\n", " ").replace("\r", "")
     return text[:800] if len(text) > 800 else text
 
@@ -75,44 +75,32 @@ def retry_wrapper(func):
 
 @retry_wrapper
 def baidu_translate(text):
-    """百度翻译核心函数（确保返回有效中英双语）"""
-    # 空文本直接返回
+    """百度翻译核心函数"""
     if not text or len(text) < 2:
         return {"en": text, "zh": "无内容"}
-    
-    # 检查翻译API配置
+
     if not (BAIDU_APP_ID and BAIDU_SECRET_KEY):
         logging.warning("⚠️ 未配置百度翻译API，使用备用翻译")
-        # 备用简单翻译（防止完全无中文）
         simple_trans = {
-            "AI": "人工智能", "LLM": "大语言模型", "model": "模型", 
+            "AI": "人工智能", "LLM": "大语言模型", "model": "模型",
             "research": "研究", "paper": "论文", "technology": "技术",
             "Abstract": "摘要", "Introduction": "引言", "Method": "方法",
-            "Observation": "观察", "Semantics": "语义", "Dynamics": "动态"
         }
         zh_text = text
         for en, zh in simple_trans.items():
             zh_text = zh_text.replace(en, zh)
         return {"en": text, "zh": zh_text}
-    
-    # 百度翻译API调用
+
     url = "https://fanyi-api.baidu.com/api/trans/vip/translate"
     salt = str(random.randint(32768, 65536))
     sign = hashlib.md5((BAIDU_APP_ID + text + salt + BAIDU_SECRET_KEY).encode()).hexdigest()
-    
     params = {
-        "q": text,
-        "from": "en",
-        "to": "zh",
-        "appid": BAIDU_APP_ID,
-        "salt": salt,
-        "sign": sign
+        "q": text, "from": "en", "to": "zh",
+        "appid": BAIDU_APP_ID, "salt": salt, "sign": sign
     }
-    
     try:
         resp = requests.get(url, params=params, timeout=GLOBAL_TIMEOUT, verify=False)
         res = resp.json()
-        
         if "trans_result" in res and res["trans_result"]:
             zh_text = res["trans_result"][0]["dst"]
             logging.info(f"✅ 翻译成功: {text[:20]} -> {zh_text[:20]}")
@@ -131,18 +119,17 @@ def fetch_article_content(url):
         resp = requests.get(url, headers=HEADERS, timeout=GLOBAL_TIMEOUT, verify=False, allow_redirects=True)
         resp.encoding = resp.apparent_encoding
         soup = BeautifulSoup(resp.text, "html.parser")
-        
-        # 按站点匹配正文
+
         if "arxiv.org" in url:
             content = soup.find("blockquote", class_="abstract mathjax")
         elif "openai.com" in url:
             content = soup.find("div", class_="post-content") or soup.find("main")
         elif "venturebeat.com" in url:
-            content = soup.find("div", class_="article-content")
+            content = soup.find("div", class_="article-content") or soup.find("article")
         elif "forbes.com" in url:
             content = soup.find("div", class_="article-body") or soup.find("div", class_="content-body")
         elif "opentools.ai" in url:
-            content = soup.find("div", class_="post-content")
+            content = soup.find("div", class_="post-content") or soup.find("article")
         elif "techcrunch.com" in url:
             content = soup.find("article")
         elif "news.ycombinator.com" in url:
@@ -150,173 +137,162 @@ def fetch_article_content(url):
         else:
             paragraphs = soup.find_all("p")[:3]
             content = "\n".join([p.get_text() for p in paragraphs])
-        
-        return clean_text(content.get_text()) if content else "Latest AI industry trends, stay tuned."
+
+        return clean_text(content.get_text()) if hasattr(content, 'get_text') else clean_text(str(content)) if content else "Latest AI industry trends, stay tuned."
     except Exception as e:
         logging.error(f"❌ 抓取正文失败: {e}")
         return "Latest AI industry trends, stay tuned."
 
+# ===================== 生成渲染友好的HTML =====================
 def generate_bilingual_html(article, index):
-    """核心重构：生成左右分栏的中英对照HTML页面"""
-    # 强制打印调试信息（关键：确认数据是否正确传递）
-    logging.info(f"\n=== 生成第{index}条资讯HTML - 调试信息 ===")
-    logging.info(f"标题(英): {article.get('title', {}).get('en', 'N/A')[:50]}...")
-    logging.info(f"标题(中): {article.get('title', {}).get('zh', 'N/A')[:50]}...")
-    logging.info(f"摘要(英): {article.get('content', {}).get('en', 'N/A')[:50]}...")
-    logging.info(f"摘要(中): {article.get('content', {}).get('zh', 'N/A')[:50]}...")
-
-    # 强制获取所有字段，确保非空（即使字段缺失也显示默认中文）
-    title_en = article.get("title", {}).get("en", "No Title")
-    title_zh = article.get("title", {}).get("zh", "未获取到中文标题")
+    """
+    生成左右分栏的中英对照HTML。
+    注意：此HTML将上传至Gist，并通过 htmlpreview.github.io 渲染，
+    所以必须是完整自包含的HTML（无外部依赖或只用CDN字体）。
+    """
+    logging.info(f"\n=== 生成第{index}条资讯HTML ===")
+    title_en  = article.get("title",   {}).get("en", "No Title")
+    title_zh  = article.get("title",   {}).get("zh", "未获取到中文标题")
     content_en = article.get("content", {}).get("en", "No Content")
     content_zh = article.get("content", {}).get("zh", "未获取到中文摘要")
-    source = article.get("source", "Unknown Source")
+    source    = article.get("source",    "Unknown Source")
     hot_score = article.get("hot_score", "N/A")
-    link = article.get("link", "#")
-    today = get_today()
+    link      = article.get("link",      "#")
+    today     = get_today()
 
-    # 左右分栏的HTML模板（核心适配你的需求）
-    html = f"""
-<!DOCTYPE html>
+    html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>AI资讯日报 - {today} | 第{index}条</title>
-    <style>
-        * {{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }}
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.8;
-        }}
-        .container {{
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }}
-        .header {{
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #0066cc;
-        }}
-        .header h1 {{
-            color: #0066cc;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }}
-        .meta {{
-            color: #666;
-            font-size: 14px;
-        }}
-        .bilingual-wrapper {{
-            display: flex;
-            gap: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            min-height: 400px;
-        }}
-        .column {{
-            flex: 1;
-            padding: 25px;
-        }}
-        .column.en {{
-            background-color: #f8f9fa;
-            border-right: 1px solid #eee;
-        }}
-        .column h2 {{
-            font-size: 20px;
-            color: #0066cc;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }}
-        .title {{
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #222;
-        }}
-        .content {{
-            font-size: 16px;
-            line-height: 1.8;
-            color: #444;
-        }}
-        .footer {{
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }}
-        .footer a {{
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 16px;
-        }}
-        .footer a:hover {{
-            text-decoration: underline;
-        }}
-        /* 响应式适配：手机端自动切换为上下布局 */
-        @media (max-width: 768px) {{
-            .bilingual-wrapper {{
-                flex-direction: column;
-            }}
-            .column.en {{
-                border-right: none;
-                border-bottom: 1px solid #eee;
-            }}
-        }}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 - {today} | 第{index}条</title>
+<style>
+  *{{margin:0;padding:0;box-sizing:border-box}}
+  body{{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;
+    display:flex;flex-direction:column;
+  }}
+  /* ── 顶部 header ── */
+  .header{{
+    background:linear-gradient(135deg,#0052cc 0%,#0066ff 100%);
+    color:#fff;padding:24px 32px;
+  }}
+  .header-inner{{max-width:1100px;margin:0 auto;}}
+  .header h1{{font-size:22px;font-weight:700;margin-bottom:6px;letter-spacing:0.02em;}}
+  .header-meta{{font-size:13px;opacity:.85;display:flex;gap:16px;flex-wrap:wrap;}}
+  .badge{{
+    background:rgba(255,255,255,0.22);border-radius:20px;
+    padding:2px 10px;font-size:12px;
+  }}
+  /* ── 分栏容器 ── */
+  .main{{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 40px;}}
+  .bilingual-wrapper{{
+    display:grid;grid-template-columns:1fr 1fr;
+    background:#fff;border-radius:12px;
+    box-shadow:0 4px 24px rgba(0,0,0,0.10);
+    overflow:hidden;
+  }}
+  /* ── 每一列 ── */
+  .col{{padding:28px 30px;}}
+  .col.en{{background:#f8f9fc;border-right:1px solid #e8ecf0;}}
+  .col.zh{{background:#ffffff;}}
+  .col-lang-tag{{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+    color:#0052cc;background:#e8efff;border-radius:4px;
+    padding:3px 10px;margin-bottom:16px;
+  }}
+  .col.zh .col-lang-tag{{color:#c0392b;background:#fdecea;}}
+  .col-title{{
+    font-size:17px;font-weight:700;line-height:1.55;
+    color:#111;margin-bottom:16px;
+  }}
+  .col-content{{
+    font-size:15px;line-height:1.9;color:#444;
+  }}
+  /* ── 底部 footer ── */
+  .footer{{
+    max-width:1100px;width:100%;margin:0 auto;padding:0 16px 32px;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }}
+  .btn{{
+    display:inline-block;padding:10px 22px;border-radius:8px;
+    font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;
+    transition:all .15s ease;
+  }}
+  .btn-primary{{background:#0052cc;color:#fff;}}
+  .btn-primary:hover{{background:#003d99;}}
+  .btn-ghost{{background:#fff;color:#444;border:1px solid #d0d5dd;}}
+  .btn-ghost:hover{{background:#f5f5f5;}}
+  .footer-note{{font-size:12px;color:#999;}}
+  /* ── 响应式：手机竖屏自动堆叠 ── */
+  @media(max-width:680px){{
+    .bilingual-wrapper{{grid-template-columns:1fr;}}
+    .col.en{{border-right:none;border-bottom:1px solid #e8ecf0;}}
+    .header{{padding:18px 16px;}}
+    .col{{padding:20px 18px;}}
+  }}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>AI资讯日报 | {today}</h1>
-            <div class="meta">第{index}条 | 来源：{source} | 热度：{hot_score}</div>
-        </div>
-
-        <!-- 核心：左右分栏布局 -->
-        <div class="bilingual-wrapper">
-            <!-- 左侧：英文原文 -->
-            <div class="column en">
-                <h2>📝 English</h2>
-                <div class="title">{title_en}</div>
-                <div class="content">{content_en}</div>
-            </div>
-            <!-- 右侧：中文译文 -->
-            <div class="column zh">
-                <h2>📝 中文翻译</h2>
-                <div class="title">{title_zh}</div>
-                <div class="content">{content_zh}</div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <a href="{link}" target="_blank">🔗 点击查看英文原文</a>
-        </div>
+  <div class="header">
+    <div class="header-inner">
+      <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+      <div class="header-meta">
+        <span class="badge">📅 {today}</span>
+        <span class="badge">第 {index} 条</span>
+        <span class="badge">📡 {source}</span>
+        <span class="badge">🔥 热度 {hot_score}</span>
+      </div>
     </div>
+  </div>
+
+  <div class="main">
+    <div class="bilingual-wrapper">
+      <!-- 左：英文 -->
+      <div class="col en">
+        <div class="col-lang-tag">📝 English Original</div>
+        <div class="col-title">{title_en}</div>
+        <div class="col-content">{content_en}</div>
+      </div>
+      <!-- 右：中文 -->
+      <div class="col zh">
+        <div class="col-lang-tag">📝 中文翻译</div>
+        <div class="col-title">{title_zh}</div>
+        <div class="col-content">{content_zh}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="{link}" target="_blank">🔗 查看英文原文</a>
+      <a class="btn btn-ghost" onclick="window.history.back()">← 返回</a>
+    </div>
+    <span class="footer-note">来源：{source} · AI资讯日报自动推送</span>
+  </div>
 </body>
 </html>"""
     return html
 
+
+# ===================== 核心修复：Gist 上传 + 生成可渲染 URL =====================
 @retry_wrapper
 def upload_to_gist(html, index):
-    """Gist上传函数（返回Raw渲染链接，无需手动点击）"""
-    # 优先使用Gist令牌
+    """
+    ✅ 核心修复：
+    上传HTML至GitHub Gist后，不再直接使用 Raw URL（会显示源码），
+    而是转换为 htmlpreview.github.io 前缀的渲染链接，点击后直接看到渲染页面。
+
+    渲染URL格式：
+      https://htmlpreview.github.io/?https://gist.githubusercontent.com/{user}/{gist_id}/raw/{filename}
+    """
     if GIST_TOKEN and len(GIST_TOKEN) > 10:
         try:
             file_name = f"ai_news_{index}_{get_today()}.html"
             gist_payload = {
-                "files": {
-                    file_name: {"content": html}
-                },
+                "files": {file_name: {"content": html}},
                 "public": True,
                 "description": f"AI资讯日报第{index}条 - {get_today()}"
             }
@@ -333,28 +309,37 @@ def upload_to_gist(html, index):
             )
             if resp.status_code == 201:
                 res = resp.json()
-                # 直接返回Raw渲染链接（点击即看可视化页面）
-                gist_raw_url = f"https://gist.githubusercontent.com/{res['owner']['login']}/{res['id']}/raw/{file_name}"
-                logging.info(f"✅ Gist上传成功: {gist_raw_url}")
-                return gist_raw_url
+                gist_id   = res["id"]
+                username  = res["owner"]["login"]
+                # ✅ 关键修复：Raw URL → htmlpreview 渲染 URL
+                raw_url      = f"https://gist.githubusercontent.com/{username}/{gist_id}/raw/{file_name}"
+                rendered_url = f"https://htmlpreview.github.io/?{raw_url}"
+                logging.info(f"✅ Gist上传成功，渲染链接: {rendered_url}")
+                return rendered_url
             else:
-                logging.error(f"❌ Gist上传失败: {resp.status_code} - {resp.text[:100]}")
+                logging.error(f"❌ Gist上传失败: {resp.status_code} - {resp.text[:150]}")
         except Exception as e:
             logging.error(f"❌ Gist上传异常: {e}")
-    
-    # 兜底方案：使用永久免费托管
+
+    # 兜底：使用 codepen 风格的 paste 服务
     try:
-        data = {"content": html, "title": f"AI_News_{index}_{get_today()}"}
-        resp = requests.post("https://paste.centos.org/api/create", data=data, timeout=20)
+        resp = requests.post(
+            "https://api.paste.fo/",
+            headers={"X-Auth-Token": "public"},
+            json={"content": html, "title": f"AI_News_{index}_{get_today()}", "syntax": "html"},
+            timeout=15
+        )
         if resp.status_code == 200:
-            paste_url = f"https://paste.centos.org/view/{resp.text.strip()}"
-            logging.info(f"✅ 兜底托管成功: {paste_url}")
-            return paste_url
+            paste_url = resp.json().get("url", "")
+            if paste_url:
+                logging.info(f"✅ 兜底托管成功: {paste_url}")
+                return paste_url
     except Exception as e:
         logging.error(f"❌ 兜底托管失败: {e}")
-    
-    # 最终兜底
-    return "https://paste.centos.org/view/raw/999999"
+
+    # 最终兜底：返回一个通用链接
+    return "https://htmlpreview.github.io/"
+
 
 # ===================== 多渠道抓取函数 =====================
 def crawl_arxiv():
@@ -364,12 +349,10 @@ def crawl_arxiv():
         if not feed.entries:
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
+        title   = baidu_translate(clean_text(entry.title))
         content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "arXiv (AI学术论文)", "hot_score": round(random.uniform(87, 92), 1)
-        }]
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "arXiv (AI学术论文)", "hot_score": round(random.uniform(87, 92), 1)}]
     except Exception as e:
         logging.error(f"❌ arXiv抓取失败: {e}")
         return []
@@ -381,12 +364,10 @@ def crawl_openai():
         if not feed.entries:
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
+        title   = baidu_translate(clean_text(entry.title))
         content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "OpenAI Blog", "hot_score": round(random.uniform(85, 90), 1)
-        }]
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "OpenAI Blog", "hot_score": round(random.uniform(85, 90), 1)}]
     except Exception as e:
         logging.error(f"❌ OpenAI抓取失败: {e}")
         return []
@@ -398,127 +379,158 @@ def crawl_google_ai():
         if not feed.entries:
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
+        title   = baidu_translate(clean_text(entry.title))
         content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "Google AI", "hot_score": round(random.uniform(84, 89), 1)
-        }]
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "Google AI", "hot_score": round(random.uniform(84, 89), 1)}]
     except Exception as e:
         logging.error(f"❌ Google AI抓取失败: {e}")
         return []
 
 def crawl_opentools_ai():
-    """抓取OpenTools AI"""
+    """
+    抓取 OpenTools AI — 工具资讯聚合平台
+    RSS: https://opentools.ai/rss  (备用: /feed)
+    """
     try:
         feed = feedparser.parse("https://opentools.ai/rss")
         if not feed.entries:
+            feed = feedparser.parse("https://opentools.ai/feed")
+        if not feed.entries:
+            logging.warning("⚠️ OpenTools AI RSS 无条目")
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "OpenTools AI", "hot_score": round(random.uniform(82, 87), 1)
-        }]
+        title   = baidu_translate(clean_text(entry.title))
+        summary = clean_text(getattr(entry, "summary", "Latest AI tools update"))
+        content = baidu_translate(summary or fetch_article_content(entry.link))
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "OpenTools AI", "hot_score": round(random.uniform(82, 87), 1)}]
     except Exception as e:
         logging.error(f"❌ OpenTools AI抓取失败: {e}")
         return []
 
 def crawl_venturebeat():
-    """抓取VentureBeat"""
+    """
+    抓取 VentureBeat AI 频道
+    RSS: https://venturebeat.com/category/ai/feed/
+    """
     try:
-        feed = feedparser.parse("https://venturebeat.com/category/artificial-intelligence/feed/")
+        feed = feedparser.parse("https://venturebeat.com/category/ai/feed/")
         if not feed.entries:
+            # 备用路径
+            feed = feedparser.parse("https://venturebeat.com/category/artificial-intelligence/feed/")
+        if not feed.entries:
+            logging.warning("⚠️ VentureBeat RSS 无条目")
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "VentureBeat", "hot_score": round(random.uniform(83, 88), 1)
-        }]
+        title   = baidu_translate(clean_text(entry.title))
+        # 优先用 RSS 中的 summary，减少一次 HTTP 抓取
+        summary = clean_text(getattr(entry, "summary", ""))
+        if len(summary) < 80:
+            summary = fetch_article_content(entry.link)
+        content = baidu_translate(summary)
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "VentureBeat", "hot_score": round(random.uniform(83, 88), 1)}]
     except Exception as e:
         logging.error(f"❌ VentureBeat抓取失败: {e}")
         return []
 
 def crawl_forbes():
-    """抓取Forbes"""
+    """
+    抓取 Forbes AI 频道
+    RSS: https://www.forbes.com/innovation/artificial-intelligence/feed/
+    """
     try:
-        feed = feedparser.parse("https://www.forbes.com/technology/artificial-intelligence/feed/")
-        if not feed.entries:
+        # Forbes 提供多条 RSS，逐一尝试
+        rss_urls = [
+            "https://www.forbes.com/innovation/artificial-intelligence/feed/",
+            "https://www.forbes.com/technology/artificial-intelligence/feed/",
+            "https://www.forbes.com/sites/technology/feed/",
+        ]
+        feed = None
+        for rss in rss_urls:
+            feed = feedparser.parse(rss)
+            if feed.entries:
+                break
+        if not feed or not feed.entries:
+            logging.warning("⚠️ Forbes RSS 无条目")
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "Forbes", "hot_score": round(random.uniform(86, 91), 1)
-        }]
+        title   = baidu_translate(clean_text(entry.title))
+        summary = clean_text(getattr(entry, "summary", ""))
+        if len(summary) < 80:
+            summary = fetch_article_content(entry.link)
+        content = baidu_translate(summary)
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "Forbes", "hot_score": round(random.uniform(86, 91), 1)}]
     except Exception as e:
         logging.error(f"❌ Forbes抓取失败: {e}")
         return []
 
 def crawl_hackernews():
-    """抓取HackerNews"""
+    """抓取 HackerNews AI 相关热帖"""
     try:
         resp = requests.get("https://hacker-news.firebaseio.com/v0/topstories.json", timeout=GLOBAL_TIMEOUT)
-        ids = resp.json()[:5]
-        for id in ids:
-            item = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{id}.json", timeout=GLOBAL_TIMEOUT).json()
-            if "title" in item and ("AI" in item["title"] or "LLM" in item["title"]):
+        ids = resp.json()[:10]   # 扩大搜索范围以提高命中率
+        for story_id in ids:
+            item = requests.get(
+                f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json",
+                timeout=GLOBAL_TIMEOUT
+            ).json()
+            if "title" in item and any(kw in item["title"] for kw in ("AI", "LLM", "GPT", "model", "machine learning")):
                 title = baidu_translate(clean_text(item["title"]))
-                link = item.get("url", f"https://news.ycombinator.com/item?id={id}")
-                content = baidu_translate(item.get("text", "Latest AI technology trends"))
-                return [{
-                    "title": title, "content": content, "link": link,
-                    "source": "HackerNews", "hot_score": round(random.uniform(81, 86), 1)
-                }]
+                link  = item.get("url", f"https://news.ycombinator.com/item?id={story_id}")
+                text  = clean_text(item.get("text", "Latest AI technology trends"))
+                content = baidu_translate(text if text else "Trending AI discussion on HackerNews")
+                return [{"title": title, "content": content, "link": link,
+                         "source": "HackerNews", "hot_score": round(random.uniform(81, 86), 1)}]
         return []
     except Exception as e:
         logging.error(f"❌ HackerNews抓取失败: {e}")
         return []
 
 def crawl_techcrunch():
-    """抓取TechCrunch"""
+    """抓取 TechCrunch AI 频道"""
     try:
         feed = feedparser.parse("https://techcrunch.com/category/artificial-intelligence/feed/")
         if not feed.entries:
             return []
         entry = feed.entries[0]
-        title = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
-        return [{
-            "title": title, "content": content, "link": entry.link,
-            "source": "TechCrunch", "hot_score": round(random.uniform(82, 87), 1)
-        }]
+        title   = baidu_translate(clean_text(entry.title))
+        summary = clean_text(getattr(entry, "summary", ""))
+        if len(summary) < 80:
+            summary = fetch_article_content(entry.link)
+        content = baidu_translate(summary)
+        return [{"title": title, "content": content, "link": entry.link,
+                 "source": "TechCrunch", "hot_score": round(random.uniform(82, 87), 1)}]
     except Exception as e:
         logging.error(f"❌ TechCrunch抓取失败: {e}")
         return []
 
+
 # ===================== 飞书推送函数 =====================
 def send_to_feishu(articles):
-    """推送至飞书群"""
+    """推送至飞书群（卡片消息）"""
     if not FEISHU_WEBHOOK:
         logging.error("❌ 未配置飞书Webhook")
         return False
-    
+
     card_elements = []
     for idx, article in enumerate(articles, 1):
-        # 生成左右分栏的中英对照链接（直接返回Raw渲染链接）
         bilingual_html = generate_bilingual_html(article, idx)
-        bilingual_url = upload_to_gist(bilingual_html, idx)
-        
-        # 构建飞书卡片
+        rendered_url   = upload_to_gist(bilingual_html, idx)   # ← 已是渲染链接
+
         card_elements.extend([
             {
                 "tag": "div",
                 "text": {
                     "tag": "lark_md",
-                    "content": f"### {idx}. {article['title']['zh']}\n"
-                               f"📈 热度: {article['hot_score']} | 来源: {article['source']}\n\n"
-                               f"**英文标题**: {article['title']['en'][:80]}...\n\n"
-                               f"**中文摘要**: {article['content']['zh'][:120]}..."
+                    "content": (
+                        f"### {idx}. {article['title']['zh']}\n"
+                        f"📈 热度: {article['hot_score']} | 来源: {article['source']}\n\n"
+                        f"**英文标题**: {article['title']['en'][:80]}{'...' if len(article['title']['en'])>80 else ''}\n\n"
+                        f"**中文摘要**: {article['content']['zh'][:120]}{'...' if len(article['content']['zh'])>120 else ''}"
+                    )
                 }
             },
             {
@@ -526,36 +538,40 @@ def send_to_feishu(articles):
                 "actions": [
                     {
                         "tag": "button",
-                        "text": {"tag": "plain_text", "content": "查看中英对照"},
+                        "text": {"tag": "plain_text", "content": "📄 查看中英对照"},
                         "type": "primary",
-                        "url": bilingual_url  # 直接打开渲染后的页面
+                        "url": rendered_url          # ✅ 直接打开渲染后的双语页面
                     },
                     {
                         "tag": "button",
-                        "text": {"tag": "plain_text", "content": "查看英文原文"},
+                        "text": {"tag": "plain_text", "content": "🔗 查看英文原文"},
                         "type": "default",
-                        "url": article['link']
+                        "url": article["link"]
                     }
                 ]
             },
             {"tag": "hr"}
         ])
-    
-    # 飞书卡片主体
+
+    # 移除最后多余的分割线
+    if card_elements and card_elements[-1].get("tag") == "hr":
+        card_elements.pop()
+
     card = {
         "config": {"wide_screen_mode": True},
         "header": {
-            "title": {"tag": "plain_text", "content": f"AI资讯日报 | {get_today()}"},
+            "title": {"tag": "plain_text", "content": f"🤖 AI资讯日报 | {get_today()}"},
             "template": "blue"
         },
-        "elements": card_elements[:-1]
+        "elements": card_elements
     }
-    
-    # 发送请求
+
     payload = {"msg_type": "interactive", "card": card}
     try:
         resp = requests.post(FEISHU_WEBHOOK, json=payload, timeout=GLOBAL_TIMEOUT)
-        if resp.status_code == 200 and resp.json().get("StatusCode") == 0:
+        result = resp.json()
+        # 飞书成功响应：StatusCode==0 或 code==0
+        if resp.status_code == 200 and (result.get("StatusCode") == 0 or result.get("code") == 0):
             logging.info("✅ 飞书推送成功")
             return True
         logging.error(f"❌ 飞书推送失败: {resp.text}")
@@ -564,37 +580,53 @@ def send_to_feishu(articles):
         logging.error(f"❌ 飞书推送异常: {e}")
         return False
 
+
 # ===================== 主函数 =====================
 def main():
-    """主执行逻辑"""
-    logging.info("🚀 开始执行AI资讯日报推送任务（左右分栏版）")
-    
-    # 执行所有渠道抓取
+    logging.info("🚀 开始执行AI资讯日报推送任务")
+
+    # 执行所有渠道抓取（顺序 = 优先级）
+    crawlers = [
+        crawl_arxiv,
+        crawl_openai,
+        crawl_venturebeat,    # ✅ 新增
+        crawl_forbes,         # ✅ 新增
+        crawl_opentools_ai,   # ✅ 新增（已有，加强）
+        crawl_google_ai,
+        crawl_hackernews,
+        crawl_techcrunch,
+    ]
+
     all_articles = []
-    all_articles.extend(crawl_arxiv())
-    all_articles.extend(crawl_openai())
-    all_articles.extend(crawl_google_ai())
-    all_articles.extend(crawl_opentools_ai())
-    all_articles.extend(crawl_venturebeat())
-    all_articles.extend(crawl_forbes())
-    all_articles.extend(crawl_hackernews())
-    all_articles.extend(crawl_techcrunch())
-    
-    # 过滤有效资讯
-    valid_articles = [art for art in all_articles if art]
+    for crawler in crawlers:
+        try:
+            results = crawler()
+            if results:
+                all_articles.extend(results)
+                logging.info(f"✅ [{crawler.__name__}] 获取 {len(results)} 条")
+        except Exception as e:
+            logging.error(f"❌ [{crawler.__name__}] 抓取出错: {e}")
+
+    # 过滤无效条目
+    valid_articles = [a for a in all_articles if a and a.get("title")]
+
     if not valid_articles:
-        logging.warning("⚠️ 未抓取到有效资讯")
+        logging.warning("⚠️ 未抓取到有效资讯，使用默认占位内容")
         valid_articles = [{
-            "title": {"en": "No AI news today", "zh": "今日暂无AI资讯"},
-            "content": {"en": "No AI news available today.", "zh": "今日暂无AI资讯可推送。"},
-            "link": "https://ai.google/",
-            "source": "AI Trends", "hot_score": 0.0
+            "title":   {"en": "No AI news today", "zh": "今日暂无AI资讯"},
+            "content": {"en": "No AI news available today.", "zh": "今日暂无AI资讯可推送，请明天再来查看。"},
+            "link":    "https://ai.google/",
+            "source":  "AI Trends",
+            "hot_score": 0.0
         }]
-    valid_articles = valid_articles[:5]
-    
-    # 推送至飞书
+
+    # 最多推送5条，按热度降序排列
+    valid_articles = sorted(valid_articles, key=lambda x: float(x.get("hot_score", 0)), reverse=True)[:5]
+    logging.info(f"📋 共推送 {len(valid_articles)} 条资讯")
+
     send_to_feishu(valid_articles)
-    logging.info("🏁 任务执行完成（左右分栏版）")
+    logging.info("🏁 任务执行完成")
+
 
 if __name__ == "__main__":
     main()
