@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 - 最终修复版
-解决：翻译成功但HTML渲染失效问题，确保中英对照完整显示
+AI资讯日报推送脚本 - 左右分栏中英对照版
+实现：左侧显示英文原文，右侧显示中文译文，响应式适配手机/电脑
 """
 import requests
 import json
@@ -56,7 +56,9 @@ def clean_text(text):
     if not text:
         return ""
     text = re.sub(r'\s+', ' ', text).strip()
-    return text[:600] if len(text) > 600 else text
+    # 保留换行符，适配HTML渲染
+    text = text.replace("\n", " ").replace("\r", "")
+    return text[:800] if len(text) > 800 else text
 
 def retry_wrapper(func):
     """通用重试装饰器"""
@@ -85,7 +87,8 @@ def baidu_translate(text):
         simple_trans = {
             "AI": "人工智能", "LLM": "大语言模型", "model": "模型", 
             "research": "研究", "paper": "论文", "technology": "技术",
-            "Abstract": "摘要", "Introduction": "引言", "Method": "方法"
+            "Abstract": "摘要", "Introduction": "引言", "Method": "方法",
+            "Observation": "观察", "Semantics": "语义", "Dynamics": "动态"
         }
         zh_text = text
         for en, zh in simple_trans.items():
@@ -154,33 +157,165 @@ def fetch_article_content(url):
         return "Latest AI industry trends, stay tuned."
 
 def generate_bilingual_html(article, index):
-    # 保留调试日志
+    """核心重构：生成左右分栏的中英对照HTML页面"""
+    # 强制打印调试信息（关键：确认数据是否正确传递）
     logging.info(f"\n=== 生成第{index}条资讯HTML - 调试信息 ===")
     logging.info(f"标题(英): {article.get('title', {}).get('en', 'N/A')[:50]}...")
     logging.info(f"标题(中): {article.get('title', {}).get('zh', 'N/A')[:50]}...")
-    
-    # 极简模板（只保留核心变量）
+    logging.info(f"摘要(英): {article.get('content', {}).get('en', 'N/A')[:50]}...")
+    logging.info(f"摘要(中): {article.get('content', {}).get('zh', 'N/A')[:50]}...")
+
+    # 强制获取所有字段，确保非空（即使字段缺失也显示默认中文）
     title_en = article.get("title", {}).get("en", "No Title")
     title_zh = article.get("title", {}).get("zh", "未获取到中文标题")
+    content_en = article.get("content", {}).get("en", "No Content")
+    content_zh = article.get("content", {}).get("zh", "未获取到中文摘要")
+    source = article.get("source", "Unknown Source")
+    hot_score = article.get("hot_score", "N/A")
+    link = article.get("link", "#")
+    today = get_today()
+
+    # 左右分栏的HTML模板（核心适配你的需求）
     html = f"""
 <!DOCTYPE html>
 <html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>AI资讯日报 - {today} | 第{index}条</title>
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.8;
+        }}
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }}
+        .header {{
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0066cc;
+        }}
+        .header h1 {{
+            color: #0066cc;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }}
+        .meta {{
+            color: #666;
+            font-size: 14px;
+        }}
+        .bilingual-wrapper {{
+            display: flex;
+            gap: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            min-height: 400px;
+        }}
+        .column {{
+            flex: 1;
+            padding: 25px;
+        }}
+        .column.en {{
+            background-color: #f8f9fa;
+            border-right: 1px solid #eee;
+        }}
+        .column h2 {{
+            font-size: 20px;
+            color: #0066cc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }}
+        .title {{
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #222;
+        }}
+        .content {{
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+        }}
+        .footer {{
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }}
+        .footer a {{
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+        }}
+        .footer a:hover {{
+            text-decoration: underline;
+        }}
+        /* 响应式适配：手机端自动切换为上下布局 */
+        @media (max-width: 768px) {{
+            .bilingual-wrapper {{
+                flex-direction: column;
+            }}
+            .column.en {{
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }}
+        }}
+    </style>
+</head>
 <body>
-  <h1>英文标题：{title_en}</h1>
-  <h1>中文标题：{title_zh}</h1>
+    <div class="container">
+        <div class="header">
+            <h1>AI资讯日报 | {today}</h1>
+            <div class="meta">第{index}条 | 来源：{source} | 热度：{hot_score}</div>
+        </div>
+
+        <!-- 核心：左右分栏布局 -->
+        <div class="bilingual-wrapper">
+            <!-- 左侧：英文原文 -->
+            <div class="column en">
+                <h2>📝 English</h2>
+                <div class="title">{title_en}</div>
+                <div class="content">{content_en}</div>
+            </div>
+            <!-- 右侧：中文译文 -->
+            <div class="column zh">
+                <h2>📝 中文翻译</h2>
+                <div class="title">{title_zh}</div>
+                <div class="content">{content_zh}</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="{link}" target="_blank">🔗 点击查看英文原文</a>
+        </div>
+    </div>
 </body>
 </html>"""
     return html
-    
+
 @retry_wrapper
 def upload_to_gist(html, index):
-    """Gist上传函数（确保生成有效链接）"""
+    """Gist上传函数（返回Raw渲染链接，无需手动点击）"""
     # 优先使用Gist令牌
     if GIST_TOKEN and len(GIST_TOKEN) > 10:
         try:
+            file_name = f"ai_news_{index}_{get_today()}.html"
             gist_payload = {
                 "files": {
-                    f"ai_news_{index}_{get_today()}.html": {"content": html}
+                    file_name: {"content": html}
                 },
                 "public": True,
                 "description": f"AI资讯日报第{index}条 - {get_today()}"
@@ -198,9 +333,10 @@ def upload_to_gist(html, index):
             )
             if resp.status_code == 201:
                 res = resp.json()
-                gist_url = f"https://gist.github.com/{res['id']}"
-                logging.info(f"✅ Gist上传成功: {gist_url}")
-                return gist_url
+                # 直接返回Raw渲染链接（点击即看可视化页面）
+                gist_raw_url = f"https://gist.githubusercontent.com/{res['owner']['login']}/{res['id']}/raw/{file_name}"
+                logging.info(f"✅ Gist上传成功: {gist_raw_url}")
+                return gist_raw_url
             else:
                 logging.error(f"❌ Gist上传失败: {resp.status_code} - {resp.text[:100]}")
         except Exception as e:
@@ -369,11 +505,11 @@ def send_to_feishu(articles):
     
     card_elements = []
     for idx, article in enumerate(articles, 1):
-        # 生成中英对照链接
+        # 生成左右分栏的中英对照链接（直接返回Raw渲染链接）
         bilingual_html = generate_bilingual_html(article, idx)
         bilingual_url = upload_to_gist(bilingual_html, idx)
         
-        # 构建卡片
+        # 构建飞书卡片
         card_elements.extend([
             {
                 "tag": "div",
@@ -392,7 +528,7 @@ def send_to_feishu(articles):
                         "tag": "button",
                         "text": {"tag": "plain_text", "content": "查看中英对照"},
                         "type": "primary",
-                        "url": bilingual_url
+                        "url": bilingual_url  # 直接打开渲染后的页面
                     },
                     {
                         "tag": "button",
@@ -431,7 +567,7 @@ def send_to_feishu(articles):
 # ===================== 主函数 =====================
 def main():
     """主执行逻辑"""
-    logging.info("🚀 开始执行AI资讯日报推送任务")
+    logging.info("🚀 开始执行AI资讯日报推送任务（左右分栏版）")
     
     # 执行所有渠道抓取
     all_articles = []
@@ -458,7 +594,7 @@ def main():
     
     # 推送至飞书
     send_to_feishu(valid_articles)
-    logging.info("🏁 任务执行完成")
+    logging.info("🏁 任务执行完成（左右分栏版）")
 
 if __name__ == "__main__":
     main()
