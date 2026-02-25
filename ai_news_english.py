@@ -206,16 +206,37 @@ def safe_translate(text):
 @retry
 def fetch_article_content(url):
     """
-    Fix-3：按站点使用精准 CSS 选择器，失败返回空字符串（不返回占位符）。
-    通用兜底：取正文段落（过滤 < 40字的噪声段）。
+    精准正文抓取。
+    防线1：HTTP 状态码非 200 直接返回空（不处理错误页面）
+    防线2：识别常见错误页面特征文字，返回空
     """
+    # 错误页面特征（避免把服务器错误页当正文）
+    ERROR_PAGE_SIGNS = [
+        "503", "502", "500", "404",
+        "that's an error", "service error", "not available at this time",
+        "access denied", "forbidden", "cloudflare", "just a moment",
+        "please enable cookies", "enable javascript",
+        "our systems have detected unusual traffic",
+    ]
     try:
         resp = requests.get(
             url, headers=HEADERS, timeout=GLOBAL_TIMEOUT,
             verify=False, allow_redirects=True
         )
+
+        # 防线1：状态码检查
+        if resp.status_code != 200:
+            logging.warning(f"⚠️ 抓取返回 {resp.status_code}: {url[:60]}")
+            return ""
+
         resp.encoding = resp.apparent_encoding
         soup = BeautifulSoup(resp.text, "html.parser")
+
+        # 防线2：检测错误页面特征（在正文提取前）
+        page_text_sample = soup.get_text()[:500].lower()
+        if any(sign in page_text_sample for sign in ERROR_PAGE_SIGNS):
+            logging.warning(f"⚠️ 检测到错误页面: {url[:60]}")
+            return ""
 
         # 移除干扰元素（广告、导航、侧边栏、脚注）
         for tag in soup.find_all(["script", "style", "nav", "header",
@@ -1010,8 +1031,13 @@ def main():
     # 过滤2：全局AI相关性检查
     # 过滤3：内容质量检查（排除翻译错误文本、内容过短）
     QUALITY_BLACKLIST = [
+        # 百度翻译错误（中文）
         "服务错误", "服务目前不可用", "那是个错误", "错误-27",
         "error_code", "unauthorized", "rate limit",
+        # 服务器错误页（英文，翻译前被当正文抓取）
+        "that's an error", "service error -27", "not available at this time",
+        "503 service", "access denied", "enable javascript",
+        "our systems have detected", "cloudflare",
     ]
     valid = []
     for a in all_articles:
