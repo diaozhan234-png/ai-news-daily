@@ -41,7 +41,8 @@ GIST_TOKEN      = os.getenv("AI_NEWS_GIST_TOKEN", "")
 GLOBAL_TIMEOUT  = 20
 MAX_RETRIES     = 3
 RANDOM_DELAY    = (0.8, 1.5)
-TRANSLATE_MAX   = 1800   # 百度翻译单次最大字符数（官方上限2000，留余量）
+TRANSLATE_MAX   = 1800   # 百度翻译单次最大字符数
+CONTENT_MAX     = 6000   # 正文抓取最大保留字符（足够完整，不截断文章）
 CONTENT_MIN_LEN = 80     # 内容低于此长度则继续尝试下一级
 
 logging.basicConfig(
@@ -65,15 +66,28 @@ HEADERS = {
 def get_today():
     return datetime.date.today().strftime("%Y-%m-%d")
 
-def clean_text(text):
-    """清理文本：去除多余空白、控制长度"""
+def clean_text(text, max_len=None):
+    """清理文本：去除多余空白。max_len=None 时不截断（正文获取用）"""
     if not text:
         return ""
     text = re.sub(r'\s+', ' ', str(text)).strip()
-    return text[:TRANSLATE_MAX] if len(text) > TRANSLATE_MAX else text
+    if max_len and len(text) > max_len:
+        # 在句子边界截断，避免半句话
+        truncated = text[:max_len]
+        last_period = max(truncated.rfind('. '), truncated.rfind('。'))
+        return truncated[:last_period + 1] if last_period > max_len * 0.7 else truncated
+    return text
+
+def clean_content(text):
+    """正文清理：保留完整内容，最多 CONTENT_MAX 字符（在句子边界截断）"""
+    return clean_text(text, max_len=CONTENT_MAX)
+
+def clean_title(text):
+    """标题清理：限制在合理长度"""
+    return clean_text(text, max_len=300)
 
 def strip_html(raw_html):
-    """将 HTML 字符串转为纯文本"""
+    """将 HTML 字符串转为纯文本（不截断）"""
     if not raw_html:
         return ""
     return clean_text(BeautifulSoup(str(raw_html), "html.parser").get_text())
@@ -146,25 +160,23 @@ def translate_long_text(text):
 
 def safe_translate(text):
     """
-    Fix-1 + Fix-2：安全翻译函数，始终返回 {"en": ..., "zh": ...}，绝不返回 None。
-    - 未配置 API → 返回原文作为 zh（保留英文可读）
-    - API 调用失败 → 返回原文作为 zh
-    - 超长文本 → 分段翻译后拼接
+    安全翻译函数，始终返回 {"en": ..., "zh": ...}，绝不返回 None。
+    - en 字段保存完整原文（供 HTML 展示）
+    - zh 字段是完整翻译（translate_long_text 内部分段，无长度损失）
     """
-    en_text = clean_text(text) if text else ""
+    en_text = clean_text(text) if text else ""   # 只清理空白，不截断
 
     if not en_text or len(en_text) < 3:
         return {"en": en_text, "zh": en_text or "暂无内容"}
 
-    # 未配置翻译 API
     if not (BAIDU_APP_ID and BAIDU_SECRET_KEY):
         logging.warning("⚠️ 未配置百度翻译API，中文栏显示英文原文")
         return {"en": en_text, "zh": en_text}
 
     try:
-        zh_text = translate_long_text(en_text)
+        zh_text = translate_long_text(en_text)   # 内部自动分段，覆盖全文
         if zh_text and zh_text.strip():
-            logging.info(f"✅ 翻译完成: {en_text[:25]}... → {zh_text[:25]}...")
+            logging.info(f"✅ 翻译完成({len(en_text)}字→{len(zh_text)}字): {en_text[:20]}...")
             return {"en": en_text, "zh": zh_text}
         else:
             logging.warning("⚠️ 翻译结果为空，使用原文")
@@ -218,12 +230,11 @@ def fetch_article_content(url):
             content_el = (soup.find("div", class_=re.compile(r"post.?content|entry.?content", re.I))
                           or soup.find("article"))
         elif "techcrunch.com" in url:
-            # TechCrunch: 取 <article> 内的 <p> 段落，跳过图片说明等
             article = soup.find("article")
             if article:
                 paras = [p.get_text(" ", strip=True) for p in article.find_all("p")
                          if len(p.get_text(strip=True)) > 40]
-                return clean_text(" ".join(paras[:8]))   # 取前8段
+                return clean_content(" ".join(paras))   # ✅ 取全部段落，不限8段
         elif "technologyreview.com" in url:
             content_el = (soup.find("div", class_=re.compile(r"article.?body|content.?body", re.I))
                           or soup.find("article"))
@@ -232,17 +243,17 @@ def fetch_article_content(url):
         elif "reuters.com" in url or "bloomberg.com" in url:
             content_el = soup.find("div", attrs={"data-testid": re.compile(r"body|article", re.I)})
 
-        # 有精准容器 → 取段落
+        # 有精准容器 → 取全部段落
         if content_el:
             paras = [p.get_text(" ", strip=True) for p in content_el.find_all("p")
                      if len(p.get_text(strip=True)) > 30]
-            text  = " ".join(paras[:8]) if paras else content_el.get_text(" ", strip=True)
-            return clean_text(text)
+            text  = " ".join(paras) if paras else content_el.get_text(" ", strip=True)
+            return clean_content(text)   # ✅ 用 clean_content，在句子边界截断
 
-        # 通用兜底：全文搜索 <p>，过滤短段
+        # 通用兜底：全文搜索 <p>，过滤短段，取前10段
         paras = [p.get_text(" ", strip=True) for p in soup.find_all("p")
-                 if len(p.get_text(strip=True)) > 40][:6]
-        return clean_text(" ".join(paras))
+                 if len(p.get_text(strip=True)) > 40][:10]
+        return clean_content(" ".join(paras))
 
     except Exception as e:
         logging.error(f"❌ 抓取正文失败 [{url[:50]}]: {e}")
@@ -518,16 +529,59 @@ AI_FILTER_KEYWORDS = [
 ]
 
 def is_ai_related(title, summary=""):
-    """判断文章是否与AI相关"""
+    """
+    判断文章是否与AI/科技发展相关。
+    两层过滤：
+    1. 必须包含正向AI关键词
+    2. 不能被负向关键词（医学/政治/社会）否决
+       ——除非同时含有 AI/model/LLM 等核心词（如"AI用于癌症检测"这类是合理的）
+    """
     text = (title + " " + summary).lower()
-    return any(kw in text for kw in AI_FILTER_KEYWORDS)
+
+    # 负向关键词：纯医学/政治/社会话题（与AI技术无关时排除）
+    NON_AI_TOPICS = [
+        "cancer", "tumor", "protein", "gene", "vaccine", "drug trial",
+        "surgery", "clinical", "diagnosis", "treatment", "patient",
+        "election", "congress", "senate", "trump", "biden", "policy",
+        "immigration", "ice agent", "deportat", "climate change",
+        "earthquake", "hurricane", "flood", "wildfire",
+        "stock market", "interest rate", "inflation", "gdp",
+        "retinal", "ophthalmol", "amblyopia", "neuroscience",
+    ]
+    # 核心AI词（有这些词时，即使涉及医学也属于AI应用，保留）
+    CORE_AI_WORDS = [
+        "artificial intelligence", "machine learning", "deep learning",
+        "llm", "large language model", "neural network", "generative",
+        "openai", "anthropic", "deepmind", "gpt", "claude", "gemini",
+        "foundation model", "transformer", "diffusion",
+    ]
+
+    has_core_ai = any(kw in text for kw in CORE_AI_WORDS)
+    has_non_ai  = any(kw in text for kw in NON_AI_TOPICS)
+
+    # 有核心AI词 → 保留（即使涉及医学，如"AI诊断癌症"）
+    if has_core_ai:
+        return True
+    # 有负向话题且无核心AI词 → 排除
+    if has_non_ai:
+        return False
+    # 检查宽泛AI词
+    BROAD_AI_WORDS = [
+        " ai ", "machine learning", "llm", "gpt", "claude", "gemini",
+        "mistral", "llama", "neural", "robot", "automation",
+        "openai", "anthropic", "deepmind", "nvidia", "chips",
+        "inference", "fine-tun", "embedding", "agent", "multimodal",
+        "rag ", "copilot", "hugging face", "funding", "raises $",
+        "series a", "series b", "valued at", "ai startup",
+    ]
+    return any(kw in text for kw in BROAD_AI_WORDS)
 
 
 def _make_article(entry, source, hot_range):
     """通用文章构建：title翻译 + 正文获取翻译"""
-    title   = safe_translate(clean_text(entry.title))
-    raw_content = get_rich_content(entry, entry.link)
-    content = safe_translate(raw_content)
+    title       = safe_translate(clean_title(entry.title))
+    raw_content = get_rich_content(entry, entry.link)   # 完整正文，不截断
+    content     = safe_translate(raw_content)           # 分段翻译全文
     return {
         "title":     title,
         "content":   content,
@@ -604,28 +658,20 @@ def crawl_google_deepmind():
 
 
 def crawl_mit_tech_review():
-    """MIT Technology Review AI — 深度技术分析（严格过滤非AI文章）"""
-    # Fix-B：严格AI关键词，无匹配则直接跳过，不取第一条兜底
-    AI_KEYWORDS = [
-        "artificial intelligence", " ai ", "machine learning", "deep learning",
-        "large language model", "llm", "chatgpt", "gpt", "claude", "gemini",
-        "neural network", "generative", "robot", "automation", "computer vision",
-        "natural language", "openai", "anthropic", "deepmind", "nvidia", "chips",
-        "foundation model", "transformer", "diffusion", "autonomous"
-    ]
+    """MIT Technology Review — 严格过滤，只推AI/科技相关文章"""
     try:
         feed = feedparser.parse("https://www.technologyreview.com/feed/")
         if not feed.entries:
             return []
 
-        for entry in feed.entries[:15]:   # 最多检查前15条
-            text_to_check = (entry.title + " " + getattr(entry, "summary", "")).lower()
-            if any(kw in text_to_check for kw in AI_KEYWORDS):
-                logging.info(f"MIT Tech Review (AI匹配): {entry.title[:50]}")
+        for entry in feed.entries[:20]:
+            title   = entry.title
+            summary = getattr(entry, "summary", "")
+            if is_ai_related(title, summary):
+                logging.info(f"MIT Tech Review (AI匹配): {title[:50]}")
                 return [_make_article(entry, "MIT Technology Review", (85, 90))]
 
-        # 15条内无AI相关 → 跳过，不推送非AI内容
-        logging.warning("⚠️ MIT Tech Review: 当前15条内无AI相关文章，跳过")
+        logging.warning("⚠️ MIT Tech Review: 前20条内无AI相关文章，跳过")
         return []
     except Exception as e:
         logging.error(f"❌ MIT Tech Review: {e}")
@@ -876,9 +922,18 @@ def main():
         except Exception as e:
             logging.error(f"❌ {crawler.__name__} 崩溃: {e}")
 
-    # 过滤：必须有标题
-    valid = [a for a in all_articles
-             if a and isinstance(a.get("title"), dict) and a["title"].get("en")]
+    # 过滤1：必须有标题
+    # 过滤2：全局AI相关性检查（防止任何来源混入非AI内容）
+    valid = []
+    for a in all_articles:
+        if not (a and isinstance(a.get("title"), dict) and a["title"].get("en")):
+            continue
+        title_en   = a["title"].get("en", "")
+        content_en = (a.get("content") or {}).get("en", "")
+        if is_ai_related(title_en, content_en[:300]):
+            valid.append(a)
+        else:
+            logging.warning(f"🚫 全局过滤非AI内容: {title_en[:50]}")
 
     if not valid:
         logging.warning("⚠️ 未获取到任何有效资讯，使用兜底占位")
