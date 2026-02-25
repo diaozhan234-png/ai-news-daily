@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-AI资讯日报推送脚本 - 左右分栏中英对照版（修复版）
-核心修复：Gist Raw URL 改为 htmlpreview.github.io 渲染链接
+AI资讯日报推送脚本 - 左右分栏中英对照版（v3修复版）
+修复1：新增 get_rich_content() 多级兜底，确保每篇文章都有完整正文翻译
+修复2：关闭按钮改为 window.close()，兼容飞书内置浏览器无历史栈的情况
 新增来源：opentools.ai、VentureBeat、Forbes
 """
 import requests
@@ -114,7 +115,7 @@ def baidu_translate(text):
 
 @retry_wrapper
 def fetch_article_content(url):
-    """抓取文章正文（多站点适配）"""
+    """抓取文章正文（多站点适配），失败返回空字符串而非占位符"""
     try:
         resp = requests.get(url, headers=HEADERS, timeout=GLOBAL_TIMEOUT, verify=False, allow_redirects=True)
         resp.encoding = resp.apparent_encoding
@@ -135,13 +136,62 @@ def fetch_article_content(url):
         elif "news.ycombinator.com" in url:
             content = soup.find("div", class_="storytext")
         else:
-            paragraphs = soup.find_all("p")[:3]
-            content = "\n".join([p.get_text() for p in paragraphs])
+            # 通用：取前5段，过滤过短的广告段落
+            paragraphs = [p.get_text() for p in soup.find_all("p") if len(p.get_text().strip()) > 40][:5]
+            content = " ".join(paragraphs)
 
-        return clean_text(content.get_text()) if hasattr(content, 'get_text') else clean_text(str(content)) if content else "Latest AI industry trends, stay tuned."
+        text = clean_text(content.get_text()) if hasattr(content, 'get_text') else clean_text(str(content)) if content else ""
+        logging.info(f"📄 抓取正文: {len(text)} 字符 from {url[:60]}")
+        return text
     except Exception as e:
         logging.error(f"❌ 抓取正文失败: {e}")
-        return "Latest AI industry trends, stay tuned."
+        return ""
+
+
+def get_rich_content(entry, url):
+    """
+    ✅ 修复问题1：多级兜底获取足够长度的正文，确保翻译有实质内容。
+    优先级：RSS full content → RSS summary → 抓取原文正文 → 标题兜底
+    只要任意一级达到 MIN_LEN 字符就停止，不再继续。
+    """
+    MIN_LEN = 80  # 低于此长度认为内容不足，继续向下尝试
+
+    # 1️⃣ RSS content:encoded 字段（部分站点提供全文）
+    content_detail = ""
+    if hasattr(entry, "content") and entry.content:
+        raw = entry.content[0].get("value", "")
+        content_detail = clean_text(BeautifulSoup(raw, "html.parser").get_text())
+    if len(content_detail) >= MIN_LEN:
+        logging.info(f"✅ 使用 RSS full content ({len(content_detail)}字)")
+        return content_detail
+
+    # 2️⃣ RSS summary 字段
+    summary = ""
+    raw_summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
+    if raw_summary:
+        summary = clean_text(BeautifulSoup(raw_summary, "html.parser").get_text())
+    if len(summary) >= MIN_LEN:
+        logging.info(f"✅ 使用 RSS summary ({len(summary)}字)")
+        return summary
+
+    # 3️⃣ 抓取原文页面正文
+    logging.info(f"⚠️ RSS内容不足({len(summary)}字)，尝试抓取原文: {url[:60]}")
+    fetched = fetch_article_content(url) or ""
+    if len(fetched) >= MIN_LEN:
+        logging.info(f"✅ 使用抓取正文 ({len(fetched)}字)")
+        return fetched
+
+    # 4️⃣ 拼接已有内容 + 兜底提示（避免完全空白）
+    combined = (summary or fetched or "").strip()
+    if combined:
+        logging.warning(f"⚠️ 内容较短，使用拼接结果({len(combined)}字)")
+        return combined
+
+    # 5️⃣ 最终兜底：用标题扩展描述，保证不翻译空字符串
+    title_text = clean_text(getattr(entry, "title", ""))
+    fallback = f"{title_text}. Latest update from AI industry." if title_text else "Latest AI industry update."
+    logging.warning(f"⚠️ 使用标题兜底内容")
+    return fallback
 
 # ===================== 生成渲染友好的HTML =====================
 def generate_bilingual_html(article, index):
@@ -268,7 +318,7 @@ def generate_bilingual_html(article, index):
   <div class="footer">
     <div style="display:flex;gap:10px;flex-wrap:wrap;">
       <a class="btn btn-primary" href="{link}" target="_blank">🔗 查看英文原文</a>
-      <a class="btn btn-ghost" onclick="window.history.back()">← 返回</a>
+      <a class="btn btn-ghost" onclick="try{{if(window.history.length>1){{window.history.back();}}else{{window.close();}}}}catch(e){{window.close();}}">← 关闭</a>
     </div>
     <span class="footer-note">来源：{source} · AI资讯日报自动推送</span>
   </div>
@@ -350,7 +400,7 @@ def crawl_arxiv():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "arXiv (AI学术论文)", "hot_score": round(random.uniform(87, 92), 1)}]
     except Exception as e:
@@ -365,7 +415,7 @@ def crawl_openai():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "OpenAI Blog", "hot_score": round(random.uniform(85, 90), 1)}]
     except Exception as e:
@@ -380,7 +430,7 @@ def crawl_google_ai():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        content = baidu_translate(fetch_article_content(entry.link))
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "Google AI", "hot_score": round(random.uniform(84, 89), 1)}]
     except Exception as e:
@@ -401,8 +451,7 @@ def crawl_opentools_ai():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        summary = clean_text(getattr(entry, "summary", "Latest AI tools update"))
-        content = baidu_translate(summary or fetch_article_content(entry.link))
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "OpenTools AI", "hot_score": round(random.uniform(82, 87), 1)}]
     except Exception as e:
@@ -417,18 +466,13 @@ def crawl_venturebeat():
     try:
         feed = feedparser.parse("https://venturebeat.com/category/ai/feed/")
         if not feed.entries:
-            # 备用路径
             feed = feedparser.parse("https://venturebeat.com/category/artificial-intelligence/feed/")
         if not feed.entries:
             logging.warning("⚠️ VentureBeat RSS 无条目")
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        # 优先用 RSS 中的 summary，减少一次 HTTP 抓取
-        summary = clean_text(getattr(entry, "summary", ""))
-        if len(summary) < 80:
-            summary = fetch_article_content(entry.link)
-        content = baidu_translate(summary)
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "VentureBeat", "hot_score": round(random.uniform(83, 88), 1)}]
     except Exception as e:
@@ -441,7 +485,6 @@ def crawl_forbes():
     RSS: https://www.forbes.com/innovation/artificial-intelligence/feed/
     """
     try:
-        # Forbes 提供多条 RSS，逐一尝试
         rss_urls = [
             "https://www.forbes.com/innovation/artificial-intelligence/feed/",
             "https://www.forbes.com/technology/artificial-intelligence/feed/",
@@ -457,10 +500,7 @@ def crawl_forbes():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        summary = clean_text(getattr(entry, "summary", ""))
-        if len(summary) < 80:
-            summary = fetch_article_content(entry.link)
-        content = baidu_translate(summary)
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "Forbes", "hot_score": round(random.uniform(86, 91), 1)}]
     except Exception as e:
@@ -497,10 +537,7 @@ def crawl_techcrunch():
             return []
         entry = feed.entries[0]
         title   = baidu_translate(clean_text(entry.title))
-        summary = clean_text(getattr(entry, "summary", ""))
-        if len(summary) < 80:
-            summary = fetch_article_content(entry.link)
-        content = baidu_translate(summary)
+        content = baidu_translate(get_rich_content(entry, entry.link))
         return [{"title": title, "content": content, "link": entry.link,
                  "source": "TechCrunch", "hot_score": round(random.uniform(82, 87), 1)}]
     except Exception as e:
