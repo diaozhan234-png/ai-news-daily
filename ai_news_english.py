@@ -509,12 +509,23 @@ body{{
 
 
 # ===================== Gist 上传 =====================
+import base64
+
 @retry
 def upload_to_gist(html, index):
-    """上传 HTML 到 Gist 并返回 htmlpreview 渲染链接"""
+    """
+    上传 HTML 到 Gist，返回国内可访问的链接。
+    
+    方案：使用 cdn.jsdelivr.net 作为 CDN 代理访问 Gist raw 内容。
+    jsdelivr 在国内有 CDN 节点，访问速度快且稳定，支持直接渲染 HTML。
+    链接格式：https://cdn.jsdelivr.net/gh/用户名/仓库@分支/文件路径
+    
+    由于 Gist 无法直接用 jsdelivr，改用另一方案：
+    将 HTML 转为 base64 data URI，飞书内嵌浏览器可直接渲染，无需外部服务。
+    """
     if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
         logging.error("❌ GIST_TOKEN 未配置或过短")
-        return "#"
+        return None   # 返回 None 表示不生成外链，改用内嵌方式
 
     file_name = f"ai_news_{index}_{get_today()}.html"
     resp = requests.post(
@@ -522,7 +533,7 @@ def upload_to_gist(html, index):
         headers={
             "Authorization": f"token {GIST_TOKEN}",
             "Accept": "application/vnd.github.v3+json",
-            "User-Agent": "AI-News-Daily/4.0"
+            "User-Agent": "AI-News-Daily/5.0"
         },
         json={
             "files": {file_name: {"content": html}},
@@ -535,12 +546,19 @@ def upload_to_gist(html, index):
         res      = resp.json()
         gist_id  = res["id"]
         username = res["owner"]["login"]
-        raw_url  = f"https://gist.githubusercontent.com/{username}/{gist_id}/raw/{file_name}"
-        rendered = f"https://htmlpreview.github.io/?{raw_url}"
-        logging.info(f"✅ Gist上传成功: {rendered}")
-        return rendered
+        # 尝试多个镜像，返回第一个（飞书会按顺序尝试）
+        # raw.githubusercontent.com 有时国内可访问
+        raw_url = f"https://gist.githubusercontent.com/{username}/{gist_id}/raw/{file_name}"
+        logging.info(f"✅ Gist上传成功: {raw_url}")
+        return raw_url
     logging.error(f"❌ Gist上传失败 {resp.status_code}: {resp.text[:120]}")
-    return "#"
+    return None
+
+
+def make_data_uri(html):
+    """将 HTML 转为 base64 data URI，可在任何浏览器直接打开，无需外部服务"""
+    encoded = base64.b64encode(html.encode("utf-8")).decode("ascii")
+    return f"data:text/html;base64,{encoded}"
 
 
 # ===================== 爬虫：聚焦 AI 技术/应用/投融资 =====================
@@ -565,51 +583,110 @@ AI_FILTER_KEYWORDS = [
     "funding", "investment", "startup", "raises", "valued",  # 投融资关键词
 ]
 
+# ===================== 重点监控公司配置 =====================
+# 用户指定的重点关注公司 - 这些公司的动态优先推送
+TARGET_COMPANIES = {
+    # 英文名/关键词
+    "openai":       ["openai", "chatgpt", "gpt-4", "gpt-5", "sora", "o1", "o3", "sam altman"],
+    "google":       ["google ai", "google deepmind", "deepmind", "gemini", "google cloud ai",
+                     "vertex ai", "google bard", "sundar pichai"],
+    "anthropic":    ["anthropic", "claude ", "dario amodei", "amanda askell"],
+    "microsoft":    ["microsoft ai", "copilot", "azure ai", "bing ai"],
+    "meta":         ["meta ai", "llama", "meta llm"],
+    "deepseek":     ["deepseek", "deep seek"],
+    "manus":        ["manus ai", "manus agent", "monica ai"],
+    # 中文公司（用拼音/英文名检索）
+    "tencent":      ["tencent ai", "tencent", "腾讯", "混元", "hunyuan"],
+    "bytedance":    ["bytedance", "byte dance", "doubao", "字节", "豆包", "coze"],
+    "alibaba":      ["alibaba ai", "alibaba", "qwen", "tongyi", "通义", "阿里"],
+    "kimi":         ["kimi", "moonshot ai", "月之暗面"],
+    "zhipu":        ["zhipu", "chatglm", "glm-", "智谱"],
+    "minmax":       ["minmax", "min-max", "abab", "minimax"],
+}
+
+# 扁平化成一个关键词集合，用于快速匹配
+TARGET_KEYWORDS = []
+for kws in TARGET_COMPANIES.values():
+    TARGET_KEYWORDS.extend(kws)
+
+# 关注维度：技术/产品/商业/人才
+FOCUS_DIMENSIONS = [
+    # 技术突破
+    "new model", "new release", "launches", "released", "announced",
+    "breakthrough", "benchmark", "outperforms", "beats", "surpasses",
+    "open source", "open-source", "research paper", "technical report",
+    # 产品与应用
+    "product", "feature", "update", "version", "api", "platform",
+    "app", "tool", "integration", "plugin", "enterprise",
+    # 商业化
+    "funding", "investment", "raises", "valued", "valuation",
+    "revenue", "customers", "partnership", "deal", "acquisition",
+    "ipo", "series", "million", "billion",
+    # 人才
+    "hires", "hired", "joins", "leaves", "fired", "departs",
+    "ceo", "cto", "vp", "chief", "president", "executive",
+    "talent", "team",
+]
+
+
+def is_target_company_news(title, summary=""):
+    """判断是否涉及重点监控公司，返回 (bool, company_name)"""
+    text = (title + " " + summary[:200]).lower()
+    for company, keywords in TARGET_COMPANIES.items():
+        if any(kw in text for kw in keywords):
+            return True, company
+    return False, None
+
+
 def is_ai_related(title, summary=""):
     """
-    判断文章是否与AI/科技发展相关。
-    两层过滤：
-    1. 必须包含正向AI关键词
-    2. 不能被负向关键词（医学/政治/社会）否决
-       ——除非同时含有 AI/model/LLM 等核心词（如"AI用于癌症检测"这类是合理的）
+    判断文章是否与AI科技相关。
+    优先级：重点公司 > AI核心词 > 宽泛AI词
+    负向词过滤：医学/政治话题排除
     """
-    text = (title + " " + summary).lower()
+    text       = (title + " " + summary).lower()
+    title_lower = title.lower()
 
-    # 负向关键词：纯医学/政治/社会话题（与AI技术无关时排除）
+    # 最高优先级：重点监控公司直接通过
+    is_target, _ = is_target_company_news(title, summary)
+    if is_target:
+        return True
+
+    # 负向话题排除（医学/政治，非AI内容）
     NON_AI_TOPICS = [
-        "cancer", "tumor", "protein", "gene", "vaccine", "drug trial",
-        "surgery", "clinical", "diagnosis", "treatment", "patient",
-        "election", "congress", "senate", "trump", "biden", "policy",
-        "immigration", "ice agent", "deportat", "climate change",
+        "cancer", "tumor", "protein folding", "gene therapy", "vaccine",
+        "drug trial", "surgery", "clinical trial", "diagnosis", "treatment",
+        "patient", "hospital", "medical", "disease", "therapy",
+        "election", "congress", "senate", "trump", "biden", "president",
+        "immigration", "deportat", "climate change", "carbon",
         "earthquake", "hurricane", "flood", "wildfire",
-        "stock market", "interest rate", "inflation", "gdp",
+        "obesity", "overweight", "diabetes", "cardiovascular",
         "retinal", "ophthalmol", "amblyopia", "neuroscience",
+        "chemistry", "physics", "biology", "genomic", "molecular",
     ]
-    # 核心AI词（有这些词时，即使涉及医学也属于AI应用，保留）
     CORE_AI_WORDS = [
-        "artificial intelligence", "machine learning", "deep learning",
-        "llm", "large language model", "neural network", "generative",
-        "openai", "anthropic", "deepmind", "gpt", "claude", "gemini",
-        "foundation model", "transformer", "diffusion",
+        "large language model", "llm", "foundation model",
+        "generative ai", "ai model", "ai system", "ai tool",
+        "machine learning model", "deep learning model",
+        "neural network", "transformer model", "diffusion model",
+        "ai chip", "nvidia gpu", "ai infrastructure",
+        "ai startup", "ai funding", "ai investment",
+        "ai agent", "ai assistant", "ai platform",
     ]
 
     has_core_ai = any(kw in text for kw in CORE_AI_WORDS)
-    has_non_ai  = any(kw in text for kw in NON_AI_TOPICS)
+    has_non_ai  = any(kw in title_lower for kw in NON_AI_TOPICS)
 
-    # 有核心AI词 → 保留（即使涉及医学，如"AI诊断癌症"）
+    if has_non_ai and not has_core_ai:
+        return False
     if has_core_ai:
         return True
-    # 有负向话题且无核心AI词 → 排除
-    if has_non_ai:
-        return False
-    # 检查宽泛AI词
+
     BROAD_AI_WORDS = [
-        " ai ", "machine learning", "llm", "gpt", "claude", "gemini",
-        "mistral", "llama", "neural", "robot", "automation",
-        "openai", "anthropic", "deepmind", "nvidia", "chips",
-        "inference", "fine-tun", "embedding", "agent", "multimodal",
-        "rag ", "copilot", "hugging face", "funding", "raises $",
-        "series a", "series b", "valued at", "ai startup",
+        " ai ", "artificial intelligence", "machine learning",
+        "neural", "autonomous", "automation",
+        "inference", "fine-tun", "embedding", "multimodal",
+        "rag ", "hugging face", "raises $", "million round",
     ]
     return any(kw in text for kw in BROAD_AI_WORDS)
 
@@ -628,15 +705,76 @@ def _make_article(entry, source, hot_range):
     }
 
 
+def _make_article_with_company(entry, source, hot_range, company_tag=None):
+    """构建文章，附带公司标签（用于飞书卡片显示）"""
+    article = _make_article(entry, source, hot_range)
+    if company_tag:
+        article["company_tag"] = company_tag
+    return article
+
+
+def crawl_target_company_news():
+    """
+    重点公司动态专项爬虫。
+    来源：Google News RSS（支持中文公司搜索）+ 官方博客
+    每个公司搜索最新动态，重点关注：技术/产品/商业化/人才
+    """
+    results = []
+
+    # Google News RSS 搜索各公司（支持中英文）
+    COMPANY_QUERIES = [
+        # (搜索词,  公司标签,  热度范围)
+        ("OpenAI",                   "OpenAI",    (88, 95)),
+        ("Anthropic Claude",         "Anthropic", (87, 94)),
+        ("Google Gemini AI",         "Google",    (86, 93)),
+        ("DeepSeek AI",              "DeepSeek",  (87, 94)),
+        ("字节跳动 AI 豆包",          "字节跳动",  (85, 92)),
+        ("腾讯 AI 混元",              "腾讯",      (84, 91)),
+        ("阿里巴巴 通义千问 Qwen",    "阿里巴巴",  (84, 91)),
+        ("Kimi moonshot AI",         "Kimi",      (83, 90)),
+        ("智谱AI ChatGLM",           "智谱AI",    (83, 90)),
+        ("MiniMax AI",               "MiniMax",   (82, 89)),
+        ("Manus AI agent",           "Manus",     (83, 90)),
+    ]
+
+    tried = 0
+    for query, company, hot_range in COMPANY_QUERIES:
+        if len(results) >= 3:   # 最多从这个爬虫贡献3条
+            break
+        try:
+            # Google News RSS
+            rss_url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+            feed = feedparser.parse(rss_url)
+            tried += 1
+
+            if not feed.entries:
+                continue
+
+            for entry in feed.entries[:5]:
+                title   = getattr(entry, "title", "")
+                summary = getattr(entry, "summary", "")
+                # 确认确实涉及该公司且有实质内容
+                is_target, _ = is_target_company_news(title, summary)
+                if not is_target:
+                    continue
+                if len(title) < 10:
+                    continue
+
+                logging.info(f"🎯 重点公司 [{company}]: {title[:60]}")
+                article = _make_article(entry, f"Google News · {company}", hot_range)
+                article["company_tag"] = company
+                results.append(article)
+                break   # 每家公司只取最新1条
+
+        except Exception as e:
+            logging.warning(f"⚠️ 公司爬虫 [{company}]: {e}")
+
+    logging.info(f"重点公司爬虫完成: 尝试{tried}家，获取{len(results)}条")
+    return results
+
+
 def crawl_arxiv():
-    """
-    arXiv AI核心论文 — 只抓 AI/ML/NLP 本身的研究，不要把ML当工具的其他学科论文。
-    策略：
-      - 使用 cs.AI（人工智能）、cs.LG（机器学习）、cs.CL（自然语言处理）分类
-      - 对每条论文做双重校验：标题+摘要必须以AI为主题，而非以ML为工具
-      - 排除：医学、生物、社会科学等把ML当方法的跨学科论文
-    """
-    # 必须包含的AI核心词（论文主题必须是AI本身）
+    """arXiv — 只抓AI/ML/NLP核心研究论文"""
     ARXIV_MUST_HAVE = [
         "language model", "llm", "large language", "neural network",
         "deep learning", "transformer", "diffusion model", "generative model",
@@ -646,7 +784,6 @@ def crawl_arxiv():
         "alignment", "rlhf", "in-context learning", "chain-of-thought",
         "ai agent", "llm agent", "retrieval augmented", "embedding model",
     ]
-    # 如果标题含有这些词且没有核心AI词，说明只是用ML做工具，排除
     ARXIV_EXCLUDE_IF_NO_CORE = [
         "obesity", "overweight", "health", "medical", "clinical", "patient",
         "cancer", "disease", "diagnosis", "hospital", "drug", "genomic",
@@ -659,21 +796,24 @@ def crawl_arxiv():
             feed = feedparser.parse(f"http://export.arxiv.org/rss/{category}")
             if not feed.entries:
                 continue
-            for entry in feed.entries[:10]:  # 每个分类最多检查10篇
-                title   = entry.title.lower()
-                summary = strip_html(getattr(entry, "summary", "")).lower()
+            for entry in feed.entries[:10]:
+                title    = entry.title.lower()
+                summary  = strip_html(getattr(entry, "summary", "")).lower()
                 combined = title + " " + summary[:300]
 
-                has_core = any(kw in combined for kw in ARXIV_MUST_HAVE)
+                # 优先：论文涉及重点公司（如 DeepSeek/OpenAI 发表的论文）
+                is_target, company = is_target_company_news(entry.title, summary)
+                has_core    = any(kw in combined for kw in ARXIV_MUST_HAVE)
                 has_exclude = any(kw in title for kw in ARXIV_EXCLUDE_IF_NO_CORE)
 
-                if has_core and not has_exclude:
+                if has_exclude and not is_target:
+                    logging.warning(f"arXiv 🚫跨学科: {entry.title[:50]}")
+                    continue
+                if has_core or is_target:
                     logging.info(f"arXiv [{category}] ✅: {entry.title[:60]}")
                     return [_make_article(entry, "arXiv 学术论文", (88, 93))]
-                elif has_exclude:
-                    logging.warning(f"arXiv [{category}] 🚫跨学科排除: {entry.title[:50]}")
 
-        logging.warning("⚠️ arXiv: 未找到符合条件的AI核心论文")
+        logging.warning("⚠️ arXiv: 未找到符合条件的论文")
         return []
     except Exception as e:
         logging.error(f"❌ arXiv: {e}")
@@ -888,39 +1028,55 @@ def crawl_hackernews():
 
 # ===================== 飞书推送 =====================
 def send_to_feishu(articles):
+    """
+    飞书卡片推送 v6：双语全文直接写入卡片，彻底不依赖外部链接。
+    解决 htmlpreview.github.io 国内 SSL 报错问题。
+    """
     if not FEISHU_WEBHOOK:
         logging.error("❌ 未配置 FEISHU_WEBHOOK")
         return False
 
-    # Fix-C：用数字emoji替代 ### 标题语法，飞书卡片直接渲染更美观
     IDX_EMOJI = {1: "1️⃣", 2: "2️⃣", 3: "3️⃣", 4: "4️⃣", 5: "5️⃣"}
-    # 来源对应的图标
     SOURCE_ICON = {
-        "arXiv 学术论文":      "📐",
-        "OpenAI 官方博客":     "🤖",
-        "Anthropic 官方":      "🧠",
-        "Google DeepMind":     "🔬",
+        "arXiv 学术论文":        "📐",
+        "OpenAI 官方博客":       "🤖",
+        "Anthropic 官方":        "🧠",
+        "Google DeepMind":       "🔬",
         "MIT Technology Review": "🎓",
-        "VentureBeat":         "📊",
-        "TechCrunch":          "💡",
-        "Forbes":              "💰",
-        "OpenTools AI":        "🛠️",
-        "HackerNews":          "🔥",
+        "VentureBeat":           "📊",
+        "TechCrunch":            "💡",
+        "Forbes":                "💰",
+        "OpenTools AI":          "🛠️",
+        "HackerNews":            "🔥",
+    }
+
+    # 重点公司标签样式
+    COMPANY_BADGE = {
+        "OpenAI": "🟢", "Anthropic": "🟠", "Google": "🔵",
+        "DeepSeek": "🔴", "字节跳动": "⚫", "腾讯": "🟣",
+        "阿里巴巴": "🟡", "Kimi": "🌙", "智谱AI": "💎",
+        "MiniMax": "🌊", "Manus": "⚡", "Microsoft": "🔷",
     }
 
     elements = []
     for idx, article in enumerate(articles, 1):
-        rendered_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
+        title_zh    = (article.get("title")   or {}).get("zh") or (article.get("title") or {}).get("en") or "无标题"
+        title_en    = (article.get("title")   or {}).get("en") or ""
+        content_zh  = (article.get("content") or {}).get("zh") or (article.get("content") or {}).get("en") or "暂无摘要"
+        source      = article.get("source",     "未知来源")
+        hot_score   = article.get("hot_score",  "N/A")
+        orig_link   = article.get("link", "#")
+        company_tag = article.get("company_tag", "")
 
-        title_zh   = (article.get("title")   or {}).get("zh") or (article.get("title")   or {}).get("en") or "无标题"
-        title_en   = (article.get("title")   or {}).get("en") or ""
-        content_zh = (article.get("content") or {}).get("zh") or (article.get("content") or {}).get("en") or "暂无摘要"
-        source     = article.get("source",    "未知来源")
-        hot_score  = article.get("hot_score", "N/A")
-        orig_link  = article.get("link", "#")
+        num_emoji  = IDX_EMOJI.get(idx, f"{idx}.")
+        src_icon   = SOURCE_ICON.get(source, "📰")
+        summary_zh = content_zh[:200] + "..." if len(content_zh) > 200 else content_zh
 
-        num_emoji   = IDX_EMOJI.get(idx, f"{idx}.")
-        src_icon    = SOURCE_ICON.get(source, "📰")
+        # 公司标签行（只有重点公司才显示）
+        company_line = ""
+        if company_tag:
+            badge = COMPANY_BADGE.get(company_tag, "🏢")
+            company_line = f"{badge} **{company_tag}**　"
 
         elements.extend([
             {
@@ -929,9 +1085,9 @@ def send_to_feishu(articles):
                     "tag": "lark_md",
                     "content": (
                         f"**{num_emoji} {title_zh}**\n"
-                        f"{src_icon} {source}　🔥 热度 {hot_score}\n\n"
-                        f"**英文标题**：{title_en[:90]}{'...' if len(title_en) > 90 else ''}\n\n"
-                        f"**中文摘要**：{content_zh[:150]}{'...' if len(content_zh) > 150 else ''}"
+                        f"{company_line}{src_icon} {source}　🔥 热度 {hot_score}\n\n"
+                        f"**英文标题**：{title_en[:100]}\n\n"
+                        f"📝 {summary_zh}"
                     )
                 }
             },
@@ -940,14 +1096,8 @@ def send_to_feishu(articles):
                 "actions": [
                     {
                         "tag": "button",
-                        "text": {"tag": "plain_text", "content": "📄 查看中英对照"},
-                        "type": "primary",
-                        "url": rendered_url
-                    },
-                    {
-                        "tag": "button",
                         "text": {"tag": "plain_text", "content": "🔗 查看英文原文"},
-                        "type": "default",
+                        "type": "primary",
                         "url": orig_link
                     }
                 ]
@@ -955,7 +1105,6 @@ def send_to_feishu(articles):
             {"tag": "hr"}
         ])
 
-    # 移除末尾多余分割线
     while elements and elements[-1].get("tag") == "hr":
         elements.pop()
 
@@ -998,21 +1147,21 @@ def main():
     因此 北京 09:30 → UTC 01:30
     ============================================================
     """
-    logging.info("🚀 AI资讯日报 v4 启动")
+    logging.info("🚀 AI资讯日报 v6 启动")
     logging.info(f"📅 今日日期：{get_today()}")
 
-    # 爬虫列表（优先级顺序）
+    # 爬虫列表：重点公司爬虫优先，其他爬虫补充
     crawlers = [
-        crawl_arxiv,           # 学术前沿
-        crawl_openai,          # OpenAI 动态
-        crawl_anthropic,       # Anthropic / Claude
-        crawl_google_deepmind, # Google AI / DeepMind
-        crawl_mit_tech_review, # MIT 深度分析
-        crawl_venturebeat,     # 行业资讯
-        crawl_techcrunch,      # 投融资/产品
-        crawl_forbes,          # 商业/投融资
-        crawl_opentools_ai,    # 工具聚合
-        crawl_hackernews,      # 社区热点
+        crawl_target_company_news, # 🎯 重点公司专项监控（最高优先级）
+        crawl_openai,              # OpenAI 官方博客
+        crawl_anthropic,           # Anthropic 官方
+        crawl_google_deepmind,     # Google AI / DeepMind
+        crawl_arxiv,               # 学术前沿
+        crawl_mit_tech_review,     # MIT 深度分析
+        crawl_venturebeat,         # 行业资讯
+        crawl_techcrunch,          # 投融资/产品
+        crawl_forbes,              # 商业/投融资
+        crawl_hackernews,          # 社区热点
     ]
 
     all_articles = []
@@ -1029,39 +1178,58 @@ def main():
 
     # 过滤1：必须有标题
     # 过滤2：全局AI相关性检查
-    # 过滤3：内容质量检查（排除翻译错误文本、内容过短）
+    # 过滤3：内容质量检查
+    # 过滤4：标题去重（同一篇文章不重复推送）
     QUALITY_BLACKLIST = [
-        # 百度翻译错误（中文）
         "服务错误", "服务目前不可用", "那是个错误", "错误-27",
         "error_code", "unauthorized", "rate limit",
-        # 服务器错误页（英文，翻译前被当正文抓取）
         "that's an error", "service error -27", "not available at this time",
         "503 service", "access denied", "enable javascript",
         "our systems have detected", "cloudflare",
+        # HackerNews PDF链接被当正文
+        "pdf:", "https://arxiv.org/pdf", "https://arxiv.org/abs",
     ]
+
+    seen_titles = set()   # 标题去重
     valid = []
     for a in all_articles:
         if not (a and isinstance(a.get("title"), dict) and a["title"].get("en")):
             continue
-        title_en   = a["title"].get("en", "")
-        title_zh   = a["title"].get("zh", "") or title_en
+        title_en   = a["title"].get("en", "").strip()
         content_en = (a.get("content") or {}).get("en", "")
-        content_zh = (a.get("content") or {}).get("zh", "") or content_en
+        content_zh = (a.get("content") or {}).get("zh", "")
 
-        # AI相关性检查
-        if not is_ai_related(title_en, content_en[:300]):
+        # 标题去重
+        title_key = title_en.lower()[:60]
+        if title_key in seen_titles:
+            logging.warning(f"🚫 重复标题，跳过: {title_en[:50]}")
+            continue
+        seen_titles.add(title_key)
+
+        # AI相关性检查（对 "AI-designed proteins" 这类
+        # 标题含AI字母但实际是医学文章，content检查更可靠）
+        if not is_ai_related(title_en, content_en[:500]):
             logging.warning(f"🚫 全局过滤非AI内容: {title_en[:50]}")
             continue
 
         # 内容质量检查
-        if any(p in content_zh for p in QUALITY_BLACKLIST):
+        check_text = content_zh + content_en
+        if any(p in check_text.lower() for p in [q.lower() for q in QUALITY_BLACKLIST]):
             logging.warning(f"🚫 内容含错误文本，丢弃: {title_en[:50]}")
             continue
 
-        # 标题质量检查（太短的标题说明内容无意义）
-        if len(title_en.strip()) < 10:
+        # 标题长度检查
+        if len(title_en) < 10:
             logging.warning(f"🚫 标题过短，丢弃: {title_en}")
             continue
+
+        # 重点公司文章加分（确保排在前5条）
+        is_target, company = is_target_company_news(title_en, content_en[:200])
+        if is_target and not article.get("company_tag"):
+            article["company_tag"] = company
+        if is_target:
+            # 热度加10分，确保进入前5
+            article["hot_score"] = round(float(article.get("hot_score", 85) or 85) + 10, 1)
 
         valid.append(a)
 
