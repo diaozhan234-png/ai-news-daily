@@ -314,14 +314,8 @@ def resolve_google_news_url(url):
         if "google.com" in final_url:
             return url  # 重定向未成功，返回原链接
 
-        # 检测落地页是否为中文页面（中文站点域名特征）
-        CHINESE_DOMAINS = [
-            "sina.com.cn", "sohu.com", "163.com", "qq.com", "baidu.com",
-            "weibo.com", "zhihu.com", "36kr.com", "ifeng.com", "xinhua",
-            "people.com.cn", "cnbeta", "sspai.com", "jiemian.com",
-            "jiqizhixin.com", "leiphone.com", "infoq.cn", "oschina.net",
-        ]
-        if any(d in final_url for d in CHINESE_DOMAINS):
+        # 检测落地页是否为中文页面
+        if is_chinese_url(final_url):
             logging.warning(f"  [URL过滤] 中文落地页跳过: {final_url[:60]}")
             return None  # None 表示跳过这篇文章
 
@@ -898,8 +892,26 @@ def save_pushed_titles(titles):
         logging.warning(f"⚠️ 保存去重缓存失败: {e}")
 
 
+CHINESE_DOMAINS = [
+    "sina.com.cn", "sina.cn", "sohu.com", "163.com", "qq.com",
+    "weibo.com", "zhihu.com", "36kr.com", "ifeng.com", "xinhua",
+    "people.com.cn", "cnbeta", "sspai.com", "jiemian.com",
+    "jiqizhixin.com", "leiphone.com", "infoq.cn", "oschina.net",
+    "baidu.com", "toutiao.com", "csdn.net", "juejin.cn",
+]
+
+
+def is_chinese_url(url):
+    """判断 URL 是否指向中文站点"""
+    return any(d in url for d in CHINESE_DOMAINS)
+
+
 def _make_article(entry, source, hot_range):
-    """通用文章构建：title翻译 + 正文获取翻译"""
+    """通用文章构建：title翻译 + 正文获取翻译。中文站点返回 None。"""
+    link = getattr(entry, "link", "") or ""
+    if is_chinese_url(link):
+        logging.warning(f"  🚫 中文站点跳过: {link[:60]}")
+        return None
     title       = safe_translate(clean_title(entry.title))
     raw_content = get_rich_content(entry, entry.link)   # 完整正文，不截断
     content     = safe_translate(raw_content)           # 分段翻译全文
@@ -978,6 +990,9 @@ def crawl_target_company_news():
                     logging.warning(f"  ⚠️ 中文落地页，跳过: {title[:40]}")
                     continue
                 article = _make_article(entry, f"Google News · {company}", hot_range)
+                if article is None:
+                    logging.warning(f"  ⚠️ 中文站点，跳过: {title[:40]}")
+                    continue
                 article["link"]        = real_link
 
                 # 内容质量检查：正文太短说明抓取失败，换下一条
@@ -1438,6 +1453,12 @@ def main():
         title_en   = a["title"].get("en", "").strip()
         content_en = (a.get("content") or {}).get("en", "")
         content_zh = (a.get("content") or {}).get("zh", "")
+
+        # 中文站点过滤
+        article_link = a.get("link", "")
+        if is_chinese_url(article_link):
+            logging.warning(f"🚫 中文站点过滤: {article_link[:60]}")
+            continue
 
         # 标题去重
         title_key = title_en.lower()[:60]
