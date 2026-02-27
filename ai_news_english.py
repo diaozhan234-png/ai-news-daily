@@ -768,10 +768,10 @@ def is_ai_related(title, summary=""):
         "disinformation", "propaganda", "influence operation",
         "election interference", "congressional", "senate hearing",
         "geopolitical", "sanctions", "export ban", "trade war",
-        "national security", "military", "warfare", "weapon",
+        "national security", "warfare", "bioweapon", "nuclear weapon",
         "chinese government", "chinese official", "beijing government",
         "cia", "nsa", "fbi", "doj ", "white house",
-        "lawmaker", "legislat", "regulat",
+        "lawmaker", "legislat",
         # 纯政治
         "election", "congress", "senate", "trump", "biden",
         "immigration", "deportat",
@@ -896,6 +896,9 @@ def save_pushed_titles(titles):
         logging.info(f"💾 去重缓存已保存: {len(titles_list)} 条")
     except Exception as e:
         logging.warning(f"⚠️ 保存去重缓存失败: {e}")
+
+
+def _make_article(entry, source, hot_range):
     """通用文章构建：title翻译 + 正文获取翻译"""
     title       = safe_translate(clean_title(entry.title))
     raw_content = get_rich_content(entry, entry.link)   # 完整正文，不截断
