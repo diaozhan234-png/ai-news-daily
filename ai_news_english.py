@@ -957,18 +957,18 @@ def crawl_target_company_news():
 
     tried = 0
     for query, company, hot_range in COMPANY_QUERIES:
-        if len(results) >= 3:   # 最多从这个爬虫贡献3条
+        if len(results) >= 5:   # 最多贡献5条
             break
         try:
-            # Google News RSS
-            rss_url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+            # 强制使用英文版 Google News，避免返回中文落地页
+            rss_url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=en-US&gl=US&ceid=US:en"
             feed = feedparser.parse(rss_url)
             tried += 1
 
             if not feed.entries:
                 continue
 
-            for entry in feed.entries[:5]:
+            for entry in feed.entries[:8]:  # 每家公司最多检查8条
                 title   = getattr(entry, "title", "")
                 summary = getattr(entry, "summary", "")
 
