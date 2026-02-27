@@ -174,32 +174,17 @@ def translate_long_text(text):
     return "".join(zh_parts)
 
 
-def is_chinese(text):
-    """判断文本是否主要为中文（中文字符占比超过30%）"""
-    if not text:
-        return False
-    chinese_chars = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
-    return chinese_chars / max(len(text), 1) > 0.3
-
-
 def safe_translate(text):
     """
     安全翻译函数，始终返回 {"en": ..., "zh": ...}，绝不返回 None。
-    - 中文文本直接返回，不调用翻译API
-    - 英文文本分段翻译后拼接
+    - en 字段保存完整原文
+    - zh 字段是完整翻译
     """
-    raw_text = clean_text(text) if text else ""
+    en_text = clean_text(text) if text else ""
 
-    if not raw_text or len(raw_text) < 3:
-        return {"en": raw_text, "zh": raw_text or "暂无内容"}
+    if not en_text or len(en_text) < 3:
+        return {"en": en_text, "zh": en_text or "暂无内容"}
 
-    # 中文文章：直接返回原文，en/zh 都是中文
-    if is_chinese(raw_text):
-        logging.info(f"  [中文内容] 跳过翻译直接使用")
-        return {"en": raw_text, "zh": raw_text}
-
-    # 英文文章：调用翻译API
-    en_text = raw_text
     if not (BAIDU_APP_ID and BAIDU_SECRET_KEY):
         logging.warning("⚠️ 未配置百度翻译API，中文栏显示英文原文")
         return {"en": en_text, "zh": en_text}
@@ -837,18 +822,17 @@ def crawl_target_company_news():
 
     # Google News RSS 搜索各公司（支持中英文）
     COMPANY_QUERIES = [
-        # (搜索词,  公司标签,  热度范围)
-        ("OpenAI",                   "OpenAI",    (88, 95)),
-        ("Anthropic Claude",         "Anthropic", (87, 94)),
-        ("Google Gemini AI",         "Google",    (86, 93)),
-        ("DeepSeek AI",              "DeepSeek",  (87, 94)),
-        ("字节跳动 AI 豆包",          "字节跳动",  (85, 92)),
-        ("腾讯 AI 混元",              "腾讯",      (84, 91)),
-        ("阿里巴巴 通义千问 Qwen",    "阿里巴巴",  (84, 91)),
-        ("Kimi moonshot AI",         "Kimi",      (83, 90)),
-        ("智谱AI ChatGLM",           "智谱AI",    (83, 90)),
-        ("MiniMax AI",               "MiniMax",   (82, 89)),
-        ("Manus AI agent",           "Manus",     (83, 90)),
+        ("OpenAI",                      "OpenAI",    (88, 95)),
+        ("Anthropic Claude AI",         "Anthropic", (87, 94)),
+        ("Google Gemini AI",            "Google",    (86, 93)),
+        ("DeepSeek AI model",           "DeepSeek",  (87, 94)),
+        ("ByteDance AI Doubao",         "字节跳动",  (85, 92)),
+        ("Tencent AI Hunyuan",          "腾讯",      (84, 91)),
+        ("Alibaba Qwen AI model",       "阿里巴巴",  (84, 91)),
+        ("Kimi Moonshot AI",            "Kimi",      (83, 90)),
+        ("Zhipu AI ChatGLM",            "智谱AI",    (83, 90)),
+        ("MiniMax AI model",            "MiniMax",   (82, 89)),
+        ("Manus AI agent",              "Manus",     (83, 90)),
     ]
 
     tried = 0
@@ -1195,16 +1179,11 @@ def send_to_feishu(articles):
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        # 判断是否中文文章
-        article_is_chinese = is_chinese(title_en + content_en[:100])
+        # 所有文章统一上传 Gist 生成中英对照链接
+        bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
 
-        # 英文文章：上传 Gist 生成中英对照链接
-        bilingual_url = None
-        if not article_is_chinese:
-            bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
-
-        # 标题行：中文文章不显示"英文标题"标签
-        title_line = f"**英文标题**：{title_en[:100]}\n\n" if (title_en and not article_is_chinese) else ""
+        # 标题行
+        title_line = f"**英文标题**：{title_en[:100]}\n\n" if title_en else ""
 
         # 按钮
         action_buttons = []
