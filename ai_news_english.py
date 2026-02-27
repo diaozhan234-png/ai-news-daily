@@ -174,23 +174,38 @@ def translate_long_text(text):
     return "".join(zh_parts)
 
 
+def is_chinese(text):
+    """判断文本是否主要为中文（中文字符占比超过30%）"""
+    if not text:
+        return False
+    chinese_chars = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
+    return chinese_chars / max(len(text), 1) > 0.3
+
+
 def safe_translate(text):
     """
     安全翻译函数，始终返回 {"en": ..., "zh": ...}，绝不返回 None。
-    - en 字段保存完整原文（供 HTML 展示）
-    - zh 字段是完整翻译（translate_long_text 内部分段，无长度损失）
+    - 中文文本直接返回，不调用翻译API
+    - 英文文本分段翻译后拼接
     """
-    en_text = clean_text(text) if text else ""   # 只清理空白，不截断
+    raw_text = clean_text(text) if text else ""
 
-    if not en_text or len(en_text) < 3:
-        return {"en": en_text, "zh": en_text or "暂无内容"}
+    if not raw_text or len(raw_text) < 3:
+        return {"en": raw_text, "zh": raw_text or "暂无内容"}
 
+    # 中文文章：直接返回原文，en/zh 都是中文
+    if is_chinese(raw_text):
+        logging.info(f"  [中文内容] 跳过翻译直接使用")
+        return {"en": raw_text, "zh": raw_text}
+
+    # 英文文章：调用翻译API
+    en_text = raw_text
     if not (BAIDU_APP_ID and BAIDU_SECRET_KEY):
         logging.warning("⚠️ 未配置百度翻译API，中文栏显示英文原文")
         return {"en": en_text, "zh": en_text}
 
     try:
-        zh_text = translate_long_text(en_text)   # 内部自动分段，覆盖全文
+        zh_text = translate_long_text(en_text)
         if zh_text and zh_text.strip():
             logging.info(f"✅ 翻译完成({len(en_text)}字→{len(zh_text)}字): {en_text[:20]}...")
             return {"en": en_text, "zh": zh_text}
@@ -509,10 +524,48 @@ body{{
 
 
 # ===================== Gist 上传 =====================
-import base64
-
 @retry
-def upload_to_gist(html, index):
+def upload_to_github_pages(html, index):
+    """
+    将 HTML 写入仓库 docs/ 目录，通过 GitHub Pages 访问。
+    URL 格式：https://diaozhan234-png.github.io/ai-news-daily/文件名.html
+    GitHub Pages 在国内访问稳定，解决 htmlpreview SSL 问题。
+    """
+    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        return None
+
+    file_name = f"news_{index}_{get_today()}.html"
+    api_url   = f"https://api.github.com/repos/diaozhan234-png/ai-news-daily/contents/docs/{file_name}"
+    headers   = {
+        "Authorization": f"token {GIST_TOKEN}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "AI-News-Daily/6.0"
+    }
+
+    import base64
+    content_b64 = base64.b64encode(html.encode("utf-8")).decode("ascii")
+
+    # 检查文件是否已存在（更新需要 sha）
+    sha = None
+    check = requests.get(api_url, headers=headers, timeout=15)
+    if check.status_code == 200:
+        sha = check.json().get("sha")
+
+    body = {
+        "message": f"Add news {index} for {get_today()}",
+        "content": content_b64,
+    }
+    if sha:
+        body["sha"] = sha
+
+    resp = requests.put(api_url, headers=headers, json=body, timeout=25)
+    if resp.status_code in (200, 201):
+        pages_url = f"https://diaozhan234-png.github.io/ai-news-daily/{file_name}"
+        logging.info(f"✅ GitHub Pages 上传成功: {pages_url}")
+        return pages_url
+
+    logging.error(f"❌ GitHub Pages 上传失败 {resp.status_code}: {resp.text[:100]}")
+    return None
     """
     上传 HTML 到 Gist，返回国内可访问的链接。
     
@@ -1063,6 +1116,7 @@ def send_to_feishu(articles):
         title_zh    = (article.get("title")   or {}).get("zh") or (article.get("title") or {}).get("en") or "无标题"
         title_en    = (article.get("title")   or {}).get("en") or ""
         content_zh  = (article.get("content") or {}).get("zh") or (article.get("content") or {}).get("en") or "暂无摘要"
+        content_en  = (article.get("content") or {}).get("en") or ""
         source      = article.get("source",     "未知来源")
         hot_score   = article.get("hot_score",  "N/A")
         orig_link   = article.get("link", "#")
@@ -1072,13 +1126,40 @@ def send_to_feishu(articles):
         src_icon   = SOURCE_ICON.get(source, "📰")
         summary_zh = content_zh[:200] + "..." if len(content_zh) > 200 else content_zh
 
-        # 公司标签行（只有重点公司才显示）
         company_line = ""
         if company_tag:
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        elements.extend([
+        # 判断是否中文文章
+        article_is_chinese = is_chinese(title_en + content_en[:100])
+
+        # 英文文章：上传 Gist 生成中英对照链接
+        bilingual_url = None
+        if not article_is_chinese:
+            bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
+
+        # 标题行：中文文章不显示"英文标题"标签
+        title_line = f"**英文标题**：{title_en[:100]}\n\n" if (title_en and not article_is_chinese) else ""
+
+        # 按钮
+        action_buttons = []
+        if bilingual_url:
+            action_buttons.append({
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "📄 查看中英对照"},
+                "type": "primary",
+                "url": bilingual_url
+            })
+        if orig_link and orig_link != "#":
+            action_buttons.append({
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "🔗 查看原文"},
+                "type": "default",
+                "url": orig_link
+            })
+
+        card_elements = [
             {
                 "tag": "div",
                 "text": {
@@ -1086,24 +1167,16 @@ def send_to_feishu(articles):
                     "content": (
                         f"**{num_emoji} {title_zh}**\n"
                         f"{company_line}{src_icon} {source}　🔥 热度 {hot_score}\n\n"
-                        f"**英文标题**：{title_en[:100]}\n\n"
+                        f"{title_line}"
                         f"📝 {summary_zh}"
                     )
                 }
             },
-            {
-                "tag": "action",
-                "actions": [
-                    {
-                        "tag": "button",
-                        "text": {"tag": "plain_text", "content": "🔗 查看英文原文"},
-                        "type": "primary",
-                        "url": orig_link
-                    }
-                ]
-            },
-            {"tag": "hr"}
-        ])
+        ]
+        if action_buttons:
+            card_elements.append({"tag": "action", "actions": action_buttons})
+        card_elements.append({"tag": "hr"})
+        elements.extend(card_elements)
 
     while elements and elements[-1].get("tag") == "hr":
         elements.pop()
@@ -1216,6 +1289,12 @@ def main():
         check_text = content_zh + content_en
         if any(p in check_text.lower() for p in [q.lower() for q in QUALITY_BLACKLIST]):
             logging.warning(f"🚫 内容含错误文本，丢弃: {title_en[:50]}")
+            continue
+
+        # 内容长度检查：摘要太短（少于50字）说明正文没抓到，丢弃
+        content_len = len(content_zh.strip())
+        if content_len < 50:
+            logging.warning(f"🚫 内容过短({content_len}字)，丢弃: {title_en[:50]}")
             continue
 
         # 标题长度检查
