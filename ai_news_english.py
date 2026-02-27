@@ -313,6 +313,28 @@ def fetch_article_content(url):
 
 
 # ===================== Fix-4：多级内容获取 =====================
+def resolve_google_news_url(url):
+    """
+    Google News RSS 的链接是跳转链接，需要解析出真实文章 URL。
+    方法：跟随重定向，拿到最终落地 URL。
+    """
+    if "news.google.com" not in url:
+        return url
+    try:
+        resp = requests.get(
+            url, headers=HEADERS, timeout=GLOBAL_TIMEOUT,
+            allow_redirects=True, verify=False
+        )
+        final_url = resp.url
+        # 过滤掉仍然是 Google 域名的 URL（重定向未成功）
+        if "google.com" not in final_url:
+            logging.info(f"  [URL解析] Google News → {final_url[:80]}")
+            return final_url
+    except Exception as e:
+        logging.warning(f"  [URL解析] 失败: {e}")
+    return url
+
+
 def get_rich_content(entry, url):
     """
     多级兜底获取正文，确保翻译有实质内容。
@@ -320,12 +342,17 @@ def get_rich_content(entry, url):
     Fix-A 核心逻辑：
     - 对"截断型"站点（TechCrunch/VentureBeat/Forbes/MIT Tech Review），
       RSS summary 通常只有1-2句，直接跳过 summary，强制抓取原文页面。
+    - Google News 链接先解析真实 URL 再抓取。
     - 其他站点走正常优先级：full content → summary → 抓取 → 兜底。
     """
+    # Google News 链接先解析真实 URL
+    real_url = resolve_google_news_url(url)
+
     # 截断型站点：RSS summary 不可信，直接抓取原文
     FORCE_FETCH_DOMAINS = [
         "techcrunch.com", "venturebeat.com", "forbes.com",
-        "technologyreview.com", "reuters.com", "bloomberg.com"
+        "technologyreview.com", "reuters.com", "bloomberg.com",
+        "news.google.com",  # Google News 统一强制抓取
     ]
     force_fetch = any(d in url for d in FORCE_FETCH_DOMAINS)
 
@@ -347,8 +374,9 @@ def get_rich_content(entry, url):
             return summary
 
     # 3️⃣ 强制抓取原文页面（截断型站点或summary不足）
-    logging.info(f"  [内容] 抓取原文页面: {url[:60]}")
-    fetched = fetch_article_content(url) or ""
+    fetch_target = real_url if real_url != url else url
+    logging.info(f"  [内容] 抓取原文页面: {fetch_target[:60]}")
+    fetched = fetch_article_content(fetch_target) or ""
     if len(fetched) >= CONTENT_MIN_LEN:
         logging.info(f"  [内容] 抓取成功 ({len(fetched)}字)")
         return fetched
@@ -847,7 +875,10 @@ def crawl_target_company_news():
                     continue
 
                 logging.info(f"🎯 重点公司 [{company}]: {title[:60]}")
+                # 解析真实 URL（Google News 是跳转链接）
+                real_link = resolve_google_news_url(entry.link)
                 article = _make_article(entry, f"Google News · {company}", hot_range)
+                article["link"]        = real_link   # 用真实 URL 替换跳转链接
                 article["company_tag"] = company
                 results.append(article)
                 break   # 每家公司只取最新1条
