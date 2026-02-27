@@ -743,26 +743,45 @@ def is_ai_related(title, summary=""):
     优先级：重点公司 > AI核心词 > 宽泛AI词
     负向词过滤：医学/政治话题排除
     """
-    text       = (title + " " + summary).lower()
+    text        = (title + " " + summary).lower()
     title_lower = title.lower()
 
-    # 最高优先级：重点监控公司直接通过
+    # 政治/安全/军事类负向词 — 即使涉及重点公司也排除
+    # 用户只关注技术、产品、商业化、人才，不需要政治新闻
+    HARD_EXCLUDE = [
+        # 政治对抗
+        "cyberwar", "cyber war", "espionage", "surveillance state",
+        "disinformation", "propaganda", "influence operation",
+        "election interference", "congressional", "senate hearing",
+        "geopolitical", "sanctions", "export ban", "trade war",
+        "national security", "military", "warfare", "weapon",
+        "chinese government", "chinese official", "beijing government",
+        "cia", "nsa", "fbi", "doj ", "white house",
+        "lawmaker", "legislat", "regulat",
+        # 纯政治
+        "election", "congress", "senate", "trump", "biden",
+        "immigration", "deportat",
+        # 医学
+        "cancer", "tumor", "gene therapy", "vaccine", "drug trial",
+        "surgery", "clinical trial", "patient", "hospital",
+        "obesity", "diabetes", "cardiovascular",
+        # 自然灾害/环境
+        "earthquake", "hurricane", "flood", "wildfire", "climate change",
+    ]
+
+    has_hard_exclude = any(kw in title_lower for kw in HARD_EXCLUDE)
+
+    # 硬排除：无论涉及哪家公司，政治/军事/医学内容一律过滤
+    if has_hard_exclude:
+        logging.debug(f"  [硬排除] {title[:50]}")
+        return False
+
+    # 重点监控公司（排除政治内容后）
     is_target, _ = is_target_company_news(title, summary)
     if is_target:
         return True
 
-    # 负向话题排除（医学/政治，非AI内容）
-    NON_AI_TOPICS = [
-        "cancer", "tumor", "protein folding", "gene therapy", "vaccine",
-        "drug trial", "surgery", "clinical trial", "diagnosis", "treatment",
-        "patient", "hospital", "medical", "disease", "therapy",
-        "election", "congress", "senate", "trump", "biden", "president",
-        "immigration", "deportat", "climate change", "carbon",
-        "earthquake", "hurricane", "flood", "wildfire",
-        "obesity", "overweight", "diabetes", "cardiovascular",
-        "retinal", "ophthalmol", "amblyopia", "neuroscience",
-        "chemistry", "physics", "biology", "genomic", "molecular",
-    ]
+    # 技术类核心AI词
     CORE_AI_WORDS = [
         "large language model", "llm", "foundation model",
         "generative ai", "ai model", "ai system", "ai tool",
@@ -772,12 +791,7 @@ def is_ai_related(title, summary=""):
         "ai startup", "ai funding", "ai investment",
         "ai agent", "ai assistant", "ai platform",
     ]
-
     has_core_ai = any(kw in text for kw in CORE_AI_WORDS)
-    has_non_ai  = any(kw in title_lower for kw in NON_AI_TOPICS)
-
-    if has_non_ai and not has_core_ai:
-        return False
     if has_core_ai:
         return True
 
@@ -851,18 +865,30 @@ def crawl_target_company_news():
             for entry in feed.entries[:5]:
                 title   = getattr(entry, "title", "")
                 summary = getattr(entry, "summary", "")
-                # 确认确实涉及该公司且有实质内容
+
+                # 确认涉及该公司且有实质内容
                 is_target, _ = is_target_company_news(title, summary)
                 if not is_target:
                     continue
                 if len(title) < 10:
+                    continue
+                # 政治/军事类内容过滤（即使涉及重点公司）
+                if not is_ai_related(title, summary):
+                    logging.warning(f"  🚫 公司爬虫政治内容过滤: {title[:50]}")
                     continue
 
                 logging.info(f"🎯 重点公司 [{company}]: {title[:60]}")
                 # 解析真实 URL（Google News 是跳转链接）
                 real_link = resolve_google_news_url(entry.link)
                 article = _make_article(entry, f"Google News · {company}", hot_range)
-                article["link"]        = real_link   # 用真实 URL 替换跳转链接
+                article["link"]        = real_link
+
+                # 内容质量检查：正文太短说明抓取失败，换下一条
+                content_en = (article.get("content") or {}).get("en", "")
+                if len(content_en.strip()) < 80:
+                    logging.warning(f"  ⚠️ 正文过短({len(content_en)}字)，尝试下一条: {title[:40]}")
+                    continue
+
                 article["company_tag"] = company
                 results.append(article)
                 break   # 每家公司只取最新1条
