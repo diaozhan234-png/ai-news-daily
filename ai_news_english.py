@@ -301,7 +301,7 @@ def fetch_article_content(url):
 def resolve_google_news_url(url):
     """
     Google News RSS 的链接是跳转链接，需要解析出真实文章 URL。
-    方法：跟随重定向，拿到最终落地 URL。
+    同时检测落地页语言，中文页面返回 None 表示跳过。
     """
     if "news.google.com" not in url:
         return url
@@ -311,10 +311,22 @@ def resolve_google_news_url(url):
             allow_redirects=True, verify=False
         )
         final_url = resp.url
-        # 过滤掉仍然是 Google 域名的 URL（重定向未成功）
-        if "google.com" not in final_url:
-            logging.info(f"  [URL解析] Google News → {final_url[:80]}")
-            return final_url
+        if "google.com" in final_url:
+            return url  # 重定向未成功，返回原链接
+
+        # 检测落地页是否为中文页面（中文站点域名特征）
+        CHINESE_DOMAINS = [
+            "sina.com.cn", "sohu.com", "163.com", "qq.com", "baidu.com",
+            "weibo.com", "zhihu.com", "36kr.com", "ifeng.com", "xinhua",
+            "people.com.cn", "cnbeta", "sspai.com", "jiemian.com",
+            "jiqizhixin.com", "leiphone.com", "infoq.cn", "oschina.net",
+        ]
+        if any(d in final_url for d in CHINESE_DOMAINS):
+            logging.warning(f"  [URL过滤] 中文落地页跳过: {final_url[:60]}")
+            return None  # None 表示跳过这篇文章
+
+        logging.info(f"  [URL解析] Google News → {final_url[:80]}")
+        return final_url
     except Exception as e:
         logging.warning(f"  [URL解析] 失败: {e}")
     return url
@@ -330,8 +342,10 @@ def get_rich_content(entry, url):
     - Google News 链接先解析真实 URL 再抓取。
     - 其他站点走正常优先级：full content → summary → 抓取 → 兜底。
     """
-    # Google News 链接先解析真实 URL
+    # Google News 链接先解析真实 URL，None 表示中文页面
     real_url = resolve_google_news_url(url)
+    if real_url is None:
+        real_url = url  # 降级用原链接（理论上公司爬虫已提前过滤）
 
     # 截断型站点：RSS summary 不可信，直接抓取原文
     FORCE_FETCH_DOMAINS = [
@@ -804,7 +818,84 @@ def is_ai_related(title, summary=""):
     return any(kw in text for kw in BROAD_AI_WORDS)
 
 
-def _make_article(entry, source, hot_range):
+PUSHED_TITLES_FILE = "/tmp/ai_news_pushed_titles.txt"  # GitHub Actions 每次运行是全新环境，改用 Gist 持久化
+
+
+def load_pushed_titles():
+    """从 Gist 加载历史推送标题（跨天去重）"""
+    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        return set()
+    try:
+        resp = requests.get(
+            "https://api.github.com/gists",
+            headers={
+                "Authorization": f"token {GIST_TOKEN}",
+                "Accept": "application/vnd.github.v3+json",
+            },
+            params={"per_page": 30},
+            timeout=15
+        )
+        for gist in resp.json():
+            if gist.get("description") == "AI_NEWS_DEDUP_CACHE":
+                gist_id = gist["id"]
+                detail  = requests.get(
+                    f"https://api.github.com/gists/{gist_id}",
+                    headers={"Authorization": f"token {GIST_TOKEN}"},
+                    timeout=15
+                ).json()
+                content = list(detail["files"].values())[0]["content"]
+                titles  = set(line.strip() for line in content.splitlines() if line.strip())
+                logging.info(f"📚 加载历史推送记录: {len(titles)} 条")
+                return titles
+    except Exception as e:
+        logging.warning(f"⚠️ 加载去重缓存失败: {e}")
+    return set()
+
+
+def save_pushed_titles(titles):
+    """将推送标题保存到 Gist（最近7天，约35条）"""
+    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        return
+    # 只保留最近35条，防止无限增长
+    titles_list = list(titles)[-35:]
+    content     = "\n".join(titles_list)
+    try:
+        # 先查找已有的缓存 Gist
+        resp = requests.get(
+            "https://api.github.com/gists",
+            headers={"Authorization": f"token {GIST_TOKEN}"},
+            params={"per_page": 30},
+            timeout=15
+        )
+        existing_id = None
+        for gist in resp.json():
+            if gist.get("description") == "AI_NEWS_DEDUP_CACHE":
+                existing_id = gist["id"]
+                break
+
+        headers = {
+            "Authorization": f"token {GIST_TOKEN}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+        body = {
+            "description": "AI_NEWS_DEDUP_CACHE",
+            "files": {"dedup_cache.txt": {"content": content}},
+            "public": False
+        }
+
+        if existing_id:
+            requests.patch(
+                f"https://api.github.com/gists/{existing_id}",
+                headers=headers, json=body, timeout=15
+            )
+        else:
+            requests.post(
+                "https://api.github.com/gists",
+                headers=headers, json=body, timeout=15
+            )
+        logging.info(f"💾 去重缓存已保存: {len(titles_list)} 条")
+    except Exception as e:
+        logging.warning(f"⚠️ 保存去重缓存失败: {e}")
     """通用文章构建：title翻译 + 正文获取翻译"""
     title       = safe_translate(clean_title(entry.title))
     raw_content = get_rich_content(entry, entry.link)   # 完整正文，不截断
@@ -878,8 +969,11 @@ def crawl_target_company_news():
                     continue
 
                 logging.info(f"🎯 重点公司 [{company}]: {title[:60]}")
-                # 解析真实 URL（Google News 是跳转链接）
+                # 解析真实 URL，None 表示中文落地页，跳过
                 real_link = resolve_google_news_url(entry.link)
+                if real_link is None:
+                    logging.warning(f"  ⚠️ 中文落地页，跳过: {title[:40]}")
+                    continue
                 article = _make_article(entry, f"Google News · {company}", hot_range)
                 article["link"]        = real_link
 
@@ -1237,7 +1331,7 @@ def send_to_feishu(articles):
                         f"**{num_emoji} {title_zh}**\n"
                         f"{company_line}{src_icon} {source}　🔥 热度 {hot_score}\n\n"
                         f"{title_line}"
-                        f"📝 {summary_zh}"
+                        f"**中文摘要**：{summary_zh}"
                     )
                 }
             },
@@ -1332,7 +1426,8 @@ def main():
         "pdf:", "https://arxiv.org/pdf", "https://arxiv.org/abs",
     ]
 
-    seen_titles = set()   # 标题去重
+    seen_titles = load_pushed_titles()   # 加载历史推送记录（跨天去重）
+    logging.info(f"📚 历史去重记录: {len(seen_titles)} 条")
     valid = []
     for a in all_articles:
         if not (a and isinstance(a.get("title"), dict) and a["title"].get("en")):
@@ -1395,6 +1490,15 @@ def main():
     logging.info(f"📋 最终推送 {len(valid)} 条资讯")
 
     send_to_feishu(valid)
+
+    # 推送成功后保存标题到持久化缓存，供明天去重
+    for a in valid:
+        title_en  = (a.get("title") or {}).get("en", "").strip()
+        title_key = title_en.lower()[:60]
+        if title_key:
+            seen_titles.add(title_key)
+    save_pushed_titles(seen_titles)
+
     logging.info("🏁 任务完成")
 
 
