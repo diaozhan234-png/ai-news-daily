@@ -525,7 +525,40 @@ body{{
 
 # ===================== Gist 上传 =====================
 @retry
-def upload_to_github_pages(html, index):
+def upload_to_gist(html, index):
+    """上传 HTML 到 Gist，返回 htmlpreview 渲染链接（Wi-Fi 环境下可访问）"""
+    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        logging.error("❌ GIST_TOKEN 未配置或过短")
+        return None
+
+    file_name = f"ai_news_{index}_{get_today()}.html"
+    resp = requests.post(
+        "https://api.github.com/gists",
+        headers={
+            "Authorization": f"token {GIST_TOKEN}",
+            "Accept": "application/vnd.github.v3+json",
+            "User-Agent": "AI-News-Daily/6.0"
+        },
+        json={
+            "files": {file_name: {"content": html}},
+            "public": True,
+            "description": f"AI资讯日报第{index}条 - {get_today()}"
+        },
+        timeout=25
+    )
+    if resp.status_code == 201:
+        res      = resp.json()
+        gist_id  = res["id"]
+        username = res["owner"]["login"]
+        raw_url  = f"https://gist.githubusercontent.com/{username}/{gist_id}/raw/{file_name}"
+        rendered = f"https://htmlpreview.github.io/?{raw_url}"
+        logging.info(f"✅ Gist上传成功")
+        return rendered
+    logging.error(f"❌ Gist上传失败 {resp.status_code}: {resp.text[:100]}")
+    return None
+
+
+
     """
     将 HTML 写入仓库 docs/ 目录，通过 GitHub Pages 访问。
     URL 格式：https://diaozhan234-png.github.io/ai-news-daily/文件名.html
