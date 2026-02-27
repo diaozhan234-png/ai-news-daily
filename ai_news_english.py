@@ -1499,19 +1499,50 @@ def main():
 
         valid.append(a)
 
-    if not valid:
-        logging.warning("⚠️ 未获取到任何有效资讯，使用兜底占位")
-        valid = [{
-            "title":   {"en": "No AI news today", "zh": "今日暂无AI资讯"},
-            "content": {"en": "No AI news available today.", "zh": "今日暂无AI资讯可推送，请明日再查看。"},
-            "link":    "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB",
-            "source":  "占位",
-            "hot_score": 0.0
-        }]
+    # 按热度降序
+    valid = sorted(valid, key=lambda x: float(x.get("hot_score", 0) or 0), reverse=True)
 
-    # 按热度降序，取前5条
-    valid = sorted(valid, key=lambda x: float(x.get("hot_score", 0) or 0), reverse=True)[:5]
+    # ── 不足5条时，降低门槛从 all_articles 里补足 ──────────────────
+    if len(valid) < 5:
+        logging.warning(f"⚠️ 有效文章仅 {len(valid)} 条，尝试降低门槛补足至5条")
+        used_keys = {a["title"].get("en","").lower()[:60] for a in valid}
+
+        for a in all_articles:
+            if len(valid) >= 5:
+                break
+            if not (a and isinstance(a.get("title"), dict) and a["title"].get("en")):
+                continue
+
+            title_en  = a["title"].get("en", "").strip()
+            title_key = title_en.lower()[:60]
+
+            # 去重
+            if title_key in used_keys or title_key in seen_titles:
+                continue
+            # 中文站点仍然不要
+            if is_chinese_url(a.get("link", "")):
+                continue
+            # 标题太短不要
+            if len(title_en) < 10:
+                continue
+            # 内容完全为空不要
+            content_en = (a.get("content") or {}).get("en", "")
+            content_zh = (a.get("content") or {}).get("zh", "")
+            if not (content_en or content_zh).strip():
+                continue
+
+            used_keys.add(title_key)
+            logging.info(f"  ➕ 降级补充: {title_en[:60]}")
+            valid.append(a)
+
+        valid = sorted(valid, key=lambda x: float(x.get("hot_score", 0) or 0), reverse=True)
+
+    # 还不够5条就记录警告（不再用占位填充）
     logging.info(f"📋 最终推送 {len(valid)} 条资讯")
+    if len(valid) < 5:
+        logging.warning(f"⚠️ 最终只有 {len(valid)} 条，来源不足")
+
+    valid = valid[:5]
 
     send_to_feishu(valid)
 
