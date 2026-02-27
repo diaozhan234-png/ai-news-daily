@@ -1225,11 +1225,10 @@ def main():
 
         # 重点公司文章加分（确保排在前5条）
         is_target, company = is_target_company_news(title_en, content_en[:200])
-        if is_target and not article.get("company_tag"):
-            article["company_tag"] = company
+        if is_target and not a.get("company_tag"):
+            a["company_tag"] = company
         if is_target:
-            # 热度加10分，确保进入前5
-            article["hot_score"] = round(float(article.get("hot_score", 85) or 85) + 10, 1)
+            a["hot_score"] = round(float(a.get("hot_score", 85) or 85) + 10, 1)
 
         valid.append(a)
 
