@@ -839,19 +839,19 @@ def is_chinese_url(url):
     return any(d in url for d in CHINESE_DOMAINS)
 
 
-def _make_article(entry, source, hot_range):
+def _make_article(entry, source, hot_range, real_link=None):
     """通用文章构建：title翻译 + 正文获取翻译。中文站点返回 None。"""
-    link = getattr(entry, "link", "") or ""
+    link = real_link or getattr(entry, "link", "") or ""
     if is_chinese_url(link):
         logging.warning(f"  🚫 中文站点跳过: {link[:60]}")
         return None
     title       = safe_translate(clean_title(entry.title))
-    raw_content = get_rich_content(entry, entry.link)   # 完整正文，不截断
-    content     = safe_translate(raw_content)           # 分段翻译全文
+    raw_content = get_rich_content(entry, link)   # 用真实 URL 抓正文
+    content     = safe_translate(raw_content)
     return {
         "title":     title,
         "content":   content,
-        "link":      entry.link,
+        "link":      link,
         "source":    source,
         "hot_score": round(random.uniform(*hot_range), 1)
     }
@@ -922,11 +922,10 @@ def crawl_target_company_news():
                 if real_link is None:
                     logging.warning(f"  ⚠️ 中文落地页，跳过: {title[:40]}")
                     continue
-                article = _make_article(entry, f"Google News · {company}", hot_range)
+                article = _make_article(entry, f"Google News · {company}", hot_range, real_link=real_link)
                 if article is None:
                     logging.warning(f"  ⚠️ 中文站点，跳过: {title[:40]}")
                     continue
-                article["link"]        = real_link
 
                 # 内容质量检查：正文太短说明抓取失败，换下一条
                 content_en = (article.get("content") or {}).get("en", "")
@@ -1252,9 +1251,27 @@ def send_to_feishu(articles):
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        title_line = f"**英文标题**：{title_en[:100]}\n\n" if title_en else ""
+        # 飞书卡片：只显示摘要，中英对照上传Gist后用按钮跳转
+        # （飞书不支持折叠块，直接展示会使卡片过长）
+        bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
 
-        # 主卡片内容
+        # 按钮
+        action_buttons = []
+        if bilingual_url:
+            action_buttons.append({
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "📄 查看中英对照"},
+                "type": "primary",
+                "url": bilingual_url
+            })
+        if orig_link and orig_link != "#":
+            action_buttons.append({
+                "tag": "button",
+                "text": {"tag": "plain_text", "content": "🔗 查看原文"},
+                "type": "default",
+                "url": orig_link
+            })
+
         card_elements = [
             {
                 "tag": "div",
@@ -1269,40 +1286,8 @@ def send_to_feishu(articles):
                 }
             },
         ]
-
-        # 中英对照内容直接嵌入卡片（飞书不支持collapse，用note块展示）
-        bilingual_elements = []
-        if full_en:
-            bilingual_elements.append({
-                "tag": "div",
-                "text": {
-                    "tag": "lark_md",
-                    "content": f"**📰 English Original**\n\n{full_en}"
-                }
-            })
-        if full_zh:
-            bilingual_elements.append({
-                "tag": "div",
-                "text": {
-                    "tag": "lark_md",
-                    "content": f"**📝 中文翻译**\n\n{full_zh}"
-                }
-            })
-
-        card_elements.extend(bilingual_elements)
-
-        # 查看原文按钮
-        if orig_link and orig_link != "#":
-            card_elements.append({
-                "tag": "action",
-                "actions": [{
-                    "tag": "button",
-                    "text": {"tag": "plain_text", "content": "🔗 查看原文"},
-                    "type": "default",
-                    "url": orig_link
-                }]
-            })
-
+        if action_buttons:
+            card_elements.append({"tag": "action", "actions": action_buttons})
         card_elements.append({"tag": "hr"})
         elements.extend(card_elements)
 
