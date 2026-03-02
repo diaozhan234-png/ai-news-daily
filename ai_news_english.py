@@ -1253,6 +1253,7 @@ def send_to_feishu(articles):
 
         # 飞书卡片：只显示摘要，中英对照上传Gist后用按钮跳转
         # （飞书不支持折叠块，直接展示会使卡片过长）
+        title_line = f"**英文标题**：{title_en[:100]}\n\n" if title_en else ""
         bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
 
         # 按钮
