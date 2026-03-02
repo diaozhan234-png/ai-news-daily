@@ -742,19 +742,33 @@ def crawl_arxiv():
         return []
 
 
-def crawl_mit_tech_review():
+def crawl_the_verge():
     try:
-        feed = feedparser.parse("https://www.technologyreview.com/feed/")
+        feed = feedparser.parse("https://www.theverge.com/rss/index.xml")
         for entry in feed.entries[:15]:
             title   = getattr(entry, "title", "")
             summary = getattr(entry, "summary", "")
             if is_ai_related(title, summary):
-                logging.info(f"MIT Tech Review (AI匹配): {title[:60]}")
-                return [_make_article(entry, "MIT Technology Review", (83, 89))]
-        logging.warning("⚠️ MIT: 未找到AI文章")
+                logging.info(f"The Verge: {title[:60]}")
+                return [_make_article(entry, "The Verge", (83, 89))]
         return []
     except Exception as e:
-        logging.error(f"❌ MIT: {e}")
+        logging.error(f"❌ The Verge: {e}")
+        return []
+
+
+def crawl_ars_technica():
+    try:
+        feed = feedparser.parse("https://feeds.arstechnica.com/arstechnica/index")
+        for entry in feed.entries[:15]:
+            title   = getattr(entry, "title", "")
+            summary = getattr(entry, "summary", "")
+            if is_ai_related(title, summary):
+                logging.info(f"Ars Technica: {title[:60]}")
+                return [_make_article(entry, "Ars Technica", (83, 89))]
+        return []
+    except Exception as e:
+        logging.error(f"❌ Ars Technica: {e}")
         return []
 
 
@@ -788,21 +802,6 @@ def crawl_techcrunch():
         return []
 
 
-def crawl_forbes():
-    try:
-        feed = feedparser.parse("https://www.forbes.com/innovation/feed/")
-        for entry in feed.entries[:15]:
-            title   = getattr(entry, "title", "")
-            summary = getattr(entry, "summary", "")
-            if is_ai_related(title, summary):
-                logging.info(f"Forbes: {title[:60]}")
-                return [_make_article(entry, "Forbes", (80, 86))]
-        return []
-    except Exception as e:
-        logging.error(f"❌ Forbes: {e}")
-        return []
-
-
 def crawl_hackernews():
     try:
         feed = feedparser.parse("https://news.ycombinator.com/rss")
@@ -826,15 +825,15 @@ def send_to_feishu(articles):
 
     IDX_EMOJI = {1:"1️⃣", 2:"2️⃣", 3:"3️⃣", 4:"4️⃣", 5:"5️⃣"}
     SOURCE_ICON = {
-        "arXiv 学术论文":        "📐",
-        "OpenAI 官方博客":       "🤖",
-        "Anthropic 官方":        "🧠",
-        "Google DeepMind":       "🔬",
-        "MIT Technology Review": "🎓",
-        "VentureBeat":           "📊",
-        "TechCrunch":            "💡",
-        "Forbes":                "💰",
-        "HackerNews":            "🔥",
+        "arXiv 学术论文":  "📐",
+        "OpenAI 官方博客": "🤖",
+        "Anthropic 官方":  "🧠",
+        "Google DeepMind": "🔬",
+        "The Verge":       "⚡",
+        "Ars Technica":    "🛠️",
+        "VentureBeat":     "📊",
+        "TechCrunch":      "💡",
+        "HackerNews":      "🔥",
     }
 
     elements = []
@@ -935,10 +934,10 @@ def main():
         crawl_anthropic,
         crawl_google_deepmind,
         crawl_arxiv,
-        crawl_mit_tech_review,
+        crawl_the_verge,
+        crawl_ars_technica,
         crawl_venturebeat,
         crawl_techcrunch,
-        crawl_forbes,
         crawl_hackernews,
     ]
 
