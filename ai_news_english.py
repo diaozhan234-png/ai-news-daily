@@ -472,35 +472,51 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Mic
     return html
 
 
-# ===================== Gist 上传 =====================
-@retry
-def upload_to_gist(html, index):
+# ===================== GitHub Pages 上传 =====================
+def upload_to_github_pages(html, index):
+    """
+    将 HTML 写入仓库 docs/ 目录，通过 GitHub Pages 访问。
+    URL 格式：https://diaozhan234-png.github.io/ai-news-daily/文件名.html
+    """
     if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        logging.error("❌ AI_NEWS_GIST_TOKEN 未配置")
         return None
+
     file_name = f"ai_news_{index}_{get_today()}.html"
-    resp = requests.post(
-        "https://api.github.com/gists",
-        headers={
-            "Authorization": f"token {GIST_TOKEN}",
-            "Accept": "application/vnd.github.v3+json",
-            "User-Agent": "AI-News-Daily/7.0"
-        },
-        json={
-            "files": {file_name: {"content": html}},
-            "public": True,
-            "description": f"AI资讯日报第{index}条 - {get_today()}"
-        },
-        timeout=25
-    )
-    if resp.status_code == 201:
-        res     = resp.json()
-        gist_id = res["id"]
-        username = res["owner"]["login"]
-        raw_url  = f"https://gist.githubusercontent.com/{username}/{gist_id}/raw/{file_name}"
-        rendered = f"https://htmlpreview.github.io/?{raw_url}"
-        logging.info(f"✅ Gist上传成功")
-        return rendered
-    logging.error(f"❌ Gist上传失败 {resp.status_code}")
+    api_url   = f"https://api.github.com/repos/diaozhan234-png/ai-news-daily/contents/docs/{file_name}"
+    headers   = {
+        "Authorization": f"token {GIST_TOKEN}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "AI-News-Daily/7.0"
+    }
+
+    content_b64 = base64.b64encode(html.encode("utf-8")).decode("ascii")
+
+    # 检查文件是否已存在（更新需要 sha）
+    sha = None
+    try:
+        check = requests.get(api_url, headers=headers, timeout=15)
+        if check.status_code == 200:
+            sha = check.json().get("sha")
+    except Exception:
+        pass
+
+    body = {
+        "message": f"Add news {index} for {get_today()}",
+        "content": content_b64,
+    }
+    if sha:
+        body["sha"] = sha
+
+    try:
+        resp = requests.put(api_url, headers=headers, json=body, timeout=25)
+        if resp.status_code in (200, 201):
+            pages_url = f"https://diaozhan234-png.github.io/ai-news-daily/{file_name}"
+            logging.info(f"✅ GitHub Pages 上传成功: {pages_url}")
+            return pages_url
+        logging.error(f"❌ GitHub Pages 上传失败 {resp.status_code}: {resp.text[:100]}")
+    except Exception as e:
+        logging.error(f"❌ GitHub Pages 上传异常: {e}")
     return None
 
 
@@ -858,7 +874,7 @@ def send_to_feishu(articles):
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        bilingual_url = upload_to_gist(generate_bilingual_html(article, idx), idx)
+        bilingual_url = upload_to_github_pages(generate_bilingual_html(article, idx), idx)
 
         action_buttons = []
         if bilingual_url:
