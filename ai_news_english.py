@@ -481,59 +481,26 @@ OSS_BASE_URL          = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}"
 
 def upload_to_oss(html, index):
     """
-    上传 HTML 到阿里云 OSS，返回公网可访问的 URL。
-    使用 OSS REST API + HMAC-SHA1 签名。
+    上传 HTML 到阿里云 OSS，使用官方 oss2 SDK。
     """
     if not (OSS_ACCESS_KEY_ID and OSS_ACCESS_KEY_SECRET):
         logging.error("❌ OSS_ACCESS_KEY_ID 或 OSS_ACCESS_KEY_SECRET 未配置")
         return None
-
-    import hmac
-    import hashlib
-    import base64
-    from datetime import datetime, timezone
-
-    file_name    = f"ai_news_{index}_{get_today()}.html"
-    object_key   = file_name
-    content      = html.encode("utf-8")
-    content_type = "text/html; charset=utf-8"
-
-    # GMT 时间格式（OSS 要求）
-    date_str = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
-
-    # 签名字符串：PUT\n\ncontent-type\ndate\n/bucket/key
-    # content-md5 留空（不传则为空行）
-    string_to_sign = "\n".join([
-        "PUT",
-        "",               # Content-MD5 留空
-        content_type,
-        date_str,
-        f"/{OSS_BUCKET}/{object_key}"
-    ])
-
-    signature = base64.b64encode(
-        hmac.new(
-            OSS_ACCESS_KEY_SECRET.encode("utf-8"),
-            string_to_sign.encode("utf-8"),
-            hashlib.sha1
-        ).digest()
-    ).decode()
-
-    url = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}/{object_key}"
-    headers = {
-        "Authorization": f"OSS {OSS_ACCESS_KEY_ID}:{signature}",
-        "Content-Type":  content_type,
-        "Date":          date_str,
-    }
-
     try:
-        resp = requests.put(url, data=content, headers=headers, timeout=25)
-        if resp.status_code == 200:
-            logging.info(f"✅ OSS上传成功: {url}")
-            return url
-        logging.error(f"❌ OSS上传失败 {resp.status_code}: {resp.text[:200]}")
+        import oss2
+        auth   = oss2.Auth(OSS_ACCESS_KEY_ID, OSS_ACCESS_KEY_SECRET)
+        bucket = oss2.Bucket(auth, f"https://{OSS_ENDPOINT}", OSS_BUCKET)
+        file_name = f"ai_news_{index}_{get_today()}.html"
+        content   = html.encode("utf-8")
+        bucket.put_object(
+            file_name, content,
+            headers={"Content-Type": "text/html; charset=utf-8"}
+        )
+        url = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}/{file_name}"
+        logging.info(f"✅ OSS上传成功: {url}")
+        return url
     except Exception as e:
-        logging.error(f"❌ OSS上传异常: {e}")
+        logging.error(f"❌ OSS上传失败: {e}")
     return None
 
 
