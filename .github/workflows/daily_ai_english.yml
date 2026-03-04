@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests feedparser beautifulsoup4 urllib3 lxml
+          pip install requests feedparser beautifulsoup4 urllib3 lxml oss2
 
       - name: Run AI News Push
         env:
