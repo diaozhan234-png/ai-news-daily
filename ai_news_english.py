@@ -479,32 +479,45 @@ OSS_ENDPOINT          = "oss-cn-beijing.aliyuncs.com"
 OSS_BASE_URL          = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}"
 
 
-def upload_to_oss(html, index):
+def upload_to_github_pages(html, index):
     """
-    上传 HTML 到阿里云 OSS，使用官方 oss2 SDK。
+    将 HTML 写入仓库 docs/ 目录，通过 GitHub Pages 访问。
+    URL：https://diaozhan234-png.github.io/ai-news-daily/文件名.html
     """
-    if not (OSS_ACCESS_KEY_ID and OSS_ACCESS_KEY_SECRET):
-        logging.error("❌ OSS_ACCESS_KEY_ID 或 OSS_ACCESS_KEY_SECRET 未配置")
+    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
+        logging.error("❌ AI_NEWS_GIST_TOKEN 未配置")
         return None
+
+    file_name   = f"ai_news_{index}_{get_today()}.html"
+    api_url     = f"https://api.github.com/repos/diaozhan234-png/ai-news-daily/contents/docs/{file_name}"
+    req_headers = {
+        "Authorization": f"token {GIST_TOKEN}",
+        "Accept":        "application/vnd.github.v3+json",
+        "User-Agent":    "AI-News-Daily/7.0"
+    }
+    content_b64 = base64.b64encode(html.encode("utf-8")).decode("ascii")
+
+    sha = None
     try:
-        import oss2
-        auth   = oss2.Auth(OSS_ACCESS_KEY_ID, OSS_ACCESS_KEY_SECRET)
-        bucket = oss2.Bucket(auth, f"https://{OSS_ENDPOINT}", OSS_BUCKET)
-        file_name = f"ai_news_{index}_{get_today()}.html"
-        content   = html.encode("utf-8")
-        bucket.put_object(
-            file_name, content,
-            headers={
-                "Content-Type":        "text/html; charset=utf-8",
-                "x-oss-object-acl":    "public-read",
-                "Cache-Control":       "no-cache",
-            }
-        )
-        url = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}/{file_name}"
-        logging.info(f"✅ OSS上传成功: {url}")
-        return url
+        check = requests.get(api_url, headers=req_headers, timeout=15)
+        if check.status_code == 200:
+            sha = check.json().get("sha")
+    except Exception:
+        pass
+
+    body = {"message": f"Add news {index} for {get_today()}", "content": content_b64}
+    if sha:
+        body["sha"] = sha
+
+    try:
+        resp = requests.put(api_url, headers=req_headers, json=body, timeout=25)
+        if resp.status_code in (200, 201):
+            url = f"https://diaozhan234-png.github.io/ai-news-daily/{file_name}"
+            logging.info(f"✅ GitHub Pages 上传成功: {url}")
+            return url
+        logging.error(f"❌ GitHub Pages 上传失败 {resp.status_code}: {resp.text[:100]}")
     except Exception as e:
-        logging.error(f"❌ OSS上传失败: {e}")
+        logging.error(f"❌ GitHub Pages 上传异常: {e}")
     return None
 
 
@@ -862,7 +875,7 @@ def send_to_feishu(articles):
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        bilingual_url = upload_to_oss(generate_bilingual_html(article, idx), idx)
+        bilingual_url = upload_to_github_pages(generate_bilingual_html(article, idx), idx)
 
         action_buttons = []
         if bilingual_url:
