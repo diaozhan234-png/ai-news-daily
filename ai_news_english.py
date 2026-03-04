@@ -472,51 +472,61 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Mic
     return html
 
 
-# ===================== GitHub Pages 上传 =====================
-def upload_to_github_pages(html, index):
+OSS_ACCESS_KEY_ID     = os.getenv("OSS_ACCESS_KEY_ID", "")
+OSS_ACCESS_KEY_SECRET = os.getenv("OSS_ACCESS_KEY_SECRET", "")
+OSS_BUCKET            = "ai-news-daily"
+OSS_ENDPOINT          = "oss-cn-beijing.aliyuncs.com"
+OSS_BASE_URL          = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}"
+
+
+def upload_to_oss(html, index):
     """
-    将 HTML 写入仓库 docs/ 目录，通过 GitHub Pages 访问。
-    URL 格式：https://diaozhan234-png.github.io/ai-news-daily/文件名.html
+    上传 HTML 到阿里云 OSS，返回公网可访问的 URL。
+    使用 OSS REST API + HMAC-SHA1 签名，无需安装额外依赖。
     """
-    if not (GIST_TOKEN and len(GIST_TOKEN) > 10):
-        logging.error("❌ AI_NEWS_GIST_TOKEN 未配置")
+    if not (OSS_ACCESS_KEY_ID and OSS_ACCESS_KEY_SECRET):
+        logging.error("❌ OSS_ACCESS_KEY_ID 或 OSS_ACCESS_KEY_SECRET 未配置")
         return None
 
-    file_name = f"ai_news_{index}_{get_today()}.html"
-    api_url   = f"https://api.github.com/repos/diaozhan234-png/ai-news-daily/contents/docs/{file_name}"
-    headers   = {
-        "Authorization": f"token {GIST_TOKEN}",
-        "Accept": "application/vnd.github.v3+json",
-        "User-Agent": "AI-News-Daily/7.0"
+    import hmac
+    import hashlib
+    import base64
+    from email.utils import formatdate
+
+    file_name   = f"ai_news_{index}_{get_today()}.html"
+    object_key  = file_name
+    content     = html.encode("utf-8")
+    content_md5 = base64.b64encode(hashlib.md5(content).digest()).decode()
+    content_type = "text/html; charset=utf-8"
+    date_str    = formatdate(usegmt=True)
+
+    # OSS 签名
+    string_to_sign = f"PUT\n{content_md5}\n{content_type}\n{date_str}\n/{OSS_BUCKET}/{object_key}"
+    signature = base64.b64encode(
+        hmac.new(
+            OSS_ACCESS_KEY_SECRET.encode("utf-8"),
+            string_to_sign.encode("utf-8"),
+            hashlib.sha1
+        ).digest()
+    ).decode()
+
+    url = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}/{object_key}"
+    headers = {
+        "Authorization":  f"OSS {OSS_ACCESS_KEY_ID}:{signature}",
+        "Content-Type":   content_type,
+        "Content-MD5":    content_md5,
+        "Date":           date_str,
+        "x-oss-object-acl": "public-read",
     }
 
-    content_b64 = base64.b64encode(html.encode("utf-8")).decode("ascii")
-
-    # 检查文件是否已存在（更新需要 sha）
-    sha = None
     try:
-        check = requests.get(api_url, headers=headers, timeout=15)
-        if check.status_code == 200:
-            sha = check.json().get("sha")
-    except Exception:
-        pass
-
-    body = {
-        "message": f"Add news {index} for {get_today()}",
-        "content": content_b64,
-    }
-    if sha:
-        body["sha"] = sha
-
-    try:
-        resp = requests.put(api_url, headers=headers, json=body, timeout=25)
-        if resp.status_code in (200, 201):
-            pages_url = f"https://diaozhan234-png.github.io/ai-news-daily/{file_name}"
-            logging.info(f"✅ GitHub Pages 上传成功: {pages_url}")
-            return pages_url
-        logging.error(f"❌ GitHub Pages 上传失败 {resp.status_code}: {resp.text[:100]}")
+        resp = requests.put(url, data=content, headers=headers, timeout=25)
+        if resp.status_code == 200:
+            logging.info(f"✅ OSS上传成功: {url}")
+            return url
+        logging.error(f"❌ OSS上传失败 {resp.status_code}: {resp.text[:100]}")
     except Exception as e:
-        logging.error(f"❌ GitHub Pages 上传异常: {e}")
+        logging.error(f"❌ OSS上传异常: {e}")
     return None
 
 
@@ -874,7 +884,7 @@ def send_to_feishu(articles):
             badge = COMPANY_BADGE.get(company_tag, "🏢")
             company_line = f"{badge} **{company_tag}**　"
 
-        bilingual_url = upload_to_github_pages(generate_bilingual_html(article, idx), idx)
+        bilingual_url = upload_to_oss(generate_bilingual_html(article, idx), idx)
 
         action_buttons = []
         if bilingual_url:
