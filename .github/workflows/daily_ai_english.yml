@@ -23,9 +23,11 @@ jobs:
 
       - name: Run AI News Push
         env:
-          FEISHU_WEBHOOK:     ${{ secrets.FEISHU_WEBHOOK }}
-          BAIDU_APP_ID:       ${{ secrets.BAIDU_APP_ID }}
-          BAIDU_SECRET_KEY:   ${{ secrets.BAIDU_SECRET_KEY }}
-          AI_NEWS_GIST_TOKEN: ${{ secrets.AI_NEWS_GIST_TOKEN }}
+          FEISHU_WEBHOOK:       ${{ secrets.FEISHU_WEBHOOK }}
+          BAIDU_APP_ID:         ${{ secrets.BAIDU_APP_ID }}
+          BAIDU_SECRET_KEY:     ${{ secrets.BAIDU_SECRET_KEY }}
+          AI_NEWS_GIST_TOKEN:   ${{ secrets.AI_NEWS_GIST_TOKEN }}
+          OSS_ACCESS_KEY_ID:    ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
         run: |
           python ai_news_english.py
