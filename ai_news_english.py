@@ -494,7 +494,11 @@ def upload_to_oss(html, index):
         content   = html.encode("utf-8")
         bucket.put_object(
             file_name, content,
-            headers={"Content-Type": "text/html; charset=utf-8"}
+            headers={
+                "Content-Type":        "text/html; charset=utf-8",
+                "x-oss-object-acl":    "public-read",
+                "Cache-Control":       "no-cache",
+            }
         )
         url = f"https://{OSS_BUCKET}.{OSS_ENDPOINT}/{file_name}"
         logging.info(f"✅ OSS上传成功: {url}")
