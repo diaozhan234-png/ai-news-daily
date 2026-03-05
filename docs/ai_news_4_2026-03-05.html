@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-05 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-05</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 85.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Large genome model: Open source AI trained on trillions of bases</div>
+      <div class="col-content">Late in 2025, we covered the development of an AI system called Evo that was trained on massive numbers of bacterial genomes. So many that, when prompted with sequences from a cluster of related genes, it could correctly identify the next one or suggest a completely novel protein. That system worked because bacteria tend to cluster related genes together—something that’s not true in organisms with complex cells, which tend to have equally complex genome structures. Given that, our coverage noted, “It’s not clear that this approach will work with more complex genomes.” Apparently, the team behind Evo viewed that as a challenge, because today it is describing Evo 2, an open source AI that has been trained on genomes from all three domains of life (bacteria, archaea, and eukaryotes). After training on trillions of base pairs of DNA, Evo 2 developed internal representations of key features in even complex genomes like ours, including things like regulatory DNA and splice sites, which can be challenging for humans to spot. Bacterial genomes are organized along relatively straightforward principles. Any genes that encode proteins or RNAs are contiguous, with no interruptions in the coding sequence. Genes that perform related functions, like metabolizing a sugar or producing an amino acid, tend to be clustered together, allowing them to be controlled by a single, compact regulatory system. It’s all straightforward and efficient. Eukaryotes are not like that. The coding sections of genes are interrupted by introns, which don’t encode for anything. They’re regulated by a sequence that can be scattered across hundreds of thousands of base pairs. The sequences that define the edges of introns or the binding sites of regulatory proteins are all weakly defined—while they have a few bases that are absolutely required, there are a lot of bases that just have an above-average tendency to have a specific base (something like “45 percent of the time it’s a T”). Surrounding all of this in most eukaryotic genomes is a huge amount of DNA that has been termed junk: inactive viruses, terminally damaged genes, and so on. That complexity has made eukaryotic genomes more difficult to interpret. And, while a lot of specialized tools have been developed to identify things like splice sites, they’re all sufficiently error-prone that it becomes a problem when you’re analyzing something as large as a 3 billion-base-long genome. We can learn a lot more by making evolutionary comparisons and looking for sequences that have been conserved, but there are limits to that, and we’re often as interested in the differences between species. These sorts of statistical probabilities, however, are well-suited to neural networks, which are great at recognizing subtle patterns that can be impossible to pick out by eye. But you’d need absolutely massive amounts of data and computing time to process it and pick out some of these subtle features. We now have the raw genome data that the process needs. Putting together a system to feed it into an effective AI training program, however, remained a challenge. That’s the challenge the team behind Evo took on. The foundation of the Evo 2 system is a convolutional neural network called StripedHyena 2 . The training took place in two stages. The initial stage focused on teaching the system to identify important genome features by feeding it sequences rich in them in chunks about 8,000 bases long. After that, there was a second stage in which sequences were fed a million bases at a time to provide the system the opportunity to identify large-scale genome features. The researchers trained two versions of their system using a dataset called OpenGenome2, which contains 8.8 trillion bases from all three domains of life, as well as viruses that infect bacteria. They did not include viruses that attack eukaryotes, given that they were concerned that the system could be misused to create threats to humans. Two versions were trained: one that had 7 billion parameters tuned using 2.4 trillion bases, and the full version with 40 billion parameters trained on the full open genome dataset. The logic behind the training is pretty simple: if something’s important enough to have been evolutionarily conserved across a lot of species, it will show up in multiple contexts, and the system should see it repeatedly during training. “By learning the likelihood of sequences across vast evolutionary datasets, biological sequence models capture conserved sequence patterns that often reflect functional importance,” the researchers behind the work write. “These constraints allow the models to perform zero-shot prediction without any task-specific fine-tuning or supervision.” That last aspect is important. We could, for example, tell it about what known splice sites look like, which might help it pick out additional ones. But that might make it harder for it to recognize any unusual splice sites that we haven’t recognized yet. Skipping the fine-tuning might also help it identify genome features that we’re not aware of at all at the moment, but which could become apparent through future research. All of this has now been made available to the public. “We have made Evo 2 fully open, including model parameters, training code, inference code, and the OpenGenome2 dataset,” the paper announces. The researchers also used a system that can identify internal features in neural networks to poke around inside of Evo 2 and figure out what things it had learned to recognize. They trained a separate neural network to recognize the firing patterns in Evo 2 and identify high-level features in it. It clearly recognized protein-coding regions and the boundaries of the introns that flanked them. It was also able to recognize some structural features of proteins within the coding regions (alpha helices and beta sheets), as well as mutations that disrupt their coding sequence.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">大基因组模型：在数万亿个碱基上训练的开源AI</div>
+      <div class="col-content">2025年末，我们报道了一种名为Evo的人工智能系统的开发，该系统在大量细菌基因组上进行了训练。如此之多，以至于当用一组相关基因的序列提示时，它可以正确地识别下一个基因或提出一种全新的蛋白质。该系统之所以有效，是因为细菌倾向于将相关基因聚集在一起——这在具有复杂细胞的生物体中是不正确的，这些生物体往往具有同样复杂的基因组结构。鉴于此，我们的报道指出，“尚不清楚这种方法是否适用于更复杂的基因组。”显然，Evo背后的团队认为这是一个挑战，因为今天它描述的是Evo 2，这是一种开源人工智能，已经在生命的三个领域（细菌、古菌和真核生物）的基因组上进行了训练。在对数万亿个碱基对的DNA进行训练后，Evo 2开发了像我们这样复杂的基因组中关键特征的内部表示，包括调控DNA和剪接位点等，这对人类来说可能很难发现。细菌基因组是按照相对简单的原则组织的。任何编码蛋白质或RNA的基因都是连续的，编码序列中没有中断。执行相关功能的基因，如代谢糖或产生氨基酸，往往聚集在一起，使它们能够由一个单一的、紧凑的调控系统控制。这一切都很简单高效。真核生物不是这样的。基因的编码部分被内含子打断，内含子不编码任何东西。它们受一个序列的调控，该序列可以分散在数十万个碱基对中。定义内含子边缘或调控蛋白结合位点的序列都是弱定义的——虽然它们有一些绝对需要的碱基，但有很多碱基只是具有高于平均水平的特定碱基倾向（比如“45%的时间是T”）。在大多数真核生物基因组中，围绕着这一切的是大量被称为垃圾的DNA：无活性病毒、末端受损基因等。这种复杂性使真核生物的基因组更难解释。而且，虽然已经开发了许多专门的工具来识别剪接位点等，但它们都很容易出错，以至于当你分析30亿个碱基长的基因组时，这会成为一个问题。通过进行进化比较和寻找保守的序列，我们可以学到更多，但这是有局限性的，我们通常对物种之间的差异同样感兴趣。然而，这些统计概率非常适合神经网络，神经网络非常擅长识别肉眼无法识别的微妙模式。但你需要绝对大量的数据和计算时间来处理它，并找出其中一些微妙的特征。我们现在有了该过程所需的原始基因组数据。然而，将其整合到一个有效的人工智能培训计划中仍然是一个挑战。这就是Evo背后的团队所面临的挑战。Evo 2系统的基础是一个名为StripedHyena 2的卷积神经网络。培训分两个阶段进行。初始阶段的重点是通过将富含基因组特征的序列分为约8000个碱基长的块来教导系统识别重要的基因组特征。在那之后，有第二个阶段，一次给序列输入一百万个碱基，为系统提供识别大规模基因组特征的机会。研究人员使用名为OpenGenome2的数据集训练了他们系统的两个版本，该数据集包含来自生命所有三个领域的8.8万亿个碱基，以及感染细菌的病毒。他们不包括攻击真核生物的病毒，因为他们担心该系统可能被滥用来对人类构成威胁。训练了两个版本：一个版本使用2.4万亿个碱基调整了70亿个参数，另一个版本在完全开放的基因组数据集上训练了400亿个参数。训练背后的逻辑很简单：如果某样东西足够重要，在许多物种中都得到了进化保护，它就会出现在多种环境中，系统应该在训练过程中反复看到它。这项工作背后的研究人员写道：“通过学习庞大进化数据集中序列的可能性，生物序列模型捕捉到了通常反映功能重要性的保守序列模式。”。“这些限制使模型能够在没有任何特定任务的微调或监督的情况下执行零样本预测。”最后一个方面很重要。例如，我们可以告诉它已知的剪接位点是什么样子的，这可能有助于它挑选出更多的剪接位点。但这可能会使它更难识别我们尚未识别的任何异常剪接位点。跳过微调也可能有助于它识别我们目前根本不知道的基因组特征，但这些特征可能会通过未来的研究变得明显。所有这些现在都已向公众开放。该论文宣布：“我们已经使Evo 2完全开放，包括模型参数、训练代码、推理代码和OpenGenome2数据集。”。研究人员还使用了一个可以识别神经网络内部特征的系统来探索Evo 2的内部，并找出它已经学会识别的东西。他们训练了一个单独的神经网络来识别Evo 2中的放电模式，并识别其中的高级特征。它清楚地识别了蛋白质编码区和两侧内含子的边界。它还能够识别编码区（α螺旋和β折叠）内蛋白质的一些结构特征，以及破坏其编码序列的突变。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/science/2026/03/large-genome-model-open-source-ai-trained-on-trillions-of-bases/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
