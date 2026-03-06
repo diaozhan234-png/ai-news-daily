@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-06 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-06</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Google Workspace CLI brings Gmail, Docs, Sheets and more into a common interface for AI agents</div>
+      <div class="col-content">What's old is new: the command line — the original, clunky non-graphical interface for interacting with and controlling PCs, where the user just typed in raw commands in code — has become one of the most important interfaces in agentic AI. That shift has been driven in part by the rise of coding-native tools such as Claude Code and Kilo CLI , which have helped establish a model where AI agents do not just answer questions in chat windows but execute real tasks through a shared, scriptable interface already familiar to developers — and which can still be found on virtually all PCs. For developers, the appeal is practical: the CLI is inspectable, composable and easier to control than a patchwork of custom app integrations. Now, Google Workspace — the umbrella term for Google's suite of enterprise cloud apps including Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin — is moving into that pattern with a new CLI that lets them access these applications and the data within them directly, without relying on third-party connectors. The project, googleworkspace/cli , describes itself as “one CLI for all of Google Workspace — built for humans and AI agents,” with structured JSON output and agent-oriented workflows included. In an X post yesterday, Google Cloud director Addy Osmani introduced the Google Workspace CLI as “built for humans and agents,” adding that it covers “Google Drive, Gmail, Calendar, and every Workspace API.” While not officially supported by Google, other posts cast the release as a broader turning point for automation and agent access to enterprise productivity software. Now, instead of having to set up third-party connectors like Zapier to access data and use AI agents to automate work across the Google Workspace suite of apps, enterprise developers (or indie devs and users, for that matter) can easily install the open source (Apache 2.0) Google Workspace CLI from Github and begin setting up automated agentic workflows directly in terminal, asking their AI model to sort email, respond, edit docs and files, and more. For enterprise developers, the importance of the release is not that Google suddenly made Workspace programmable. Workspace APIs have long been available. What changes here is the interface. Instead of forcing teams to build and maintain separate wrappers around individual APIs, the CLI offers a unified command surface with structured output. Installation is straightforward — npm install -g @googleworkspace/cli — and the repo says the package includes prebuilt binaries, with releases also available through GitHub. The repo also says gws reads Google’s Discovery Service at runtime and dynamically builds its command surface, allowing new Workspace API methods to appear without waiting for a manually maintained static tool definition to catch up. For teams building agents or internal automation, that is a meaningful operational advantage. It reduces glue code, lowers maintenance overhead and makes Workspace easier to treat as a programmable runtime rather than a collection of separate SaaS applications. The CLI is designed for both direct human use and agent-driven workflows. For developers working in the terminal, the README highlights features such as per-resource help, dry-run previews, schema inspection and auto-pagination. For agents, the value is clearer still: structured JSON output, reusable commands and built-in skills that let models interact with Workspace data and actions without a custom integration layer. That creates immediate utility for internal enterprise workflows. Teams can use the tool to list Drive files, create spreadsheets, inspect request and response schemas, send Chat messages and paginate through large result sets from the terminal. The README also says the repo ships more than 100 agent skills, including helpers and curated recipes for Gmail, Drive, Docs, Calendar and Sheets. That matters because Workspace remains one of the most common systems of record for day-to-day business work. Email, calendars, internal docs, spreadsheets and shared files are often where operational context lives. A CLI that exposes those surfaces through a common, agent-friendly interface makes it easier to build assistants that retrieve information, trigger actions and automate repetitive processes with less bespoke plumbing. The social-media response has been enthusiastic, but enterprises should read the repo carefully before treating the project as a formal Google platform commitment. The README explicitly says: “This is not an officially supported Google product”. It also says the project is under active development and warns users to expect breaking changes as it moves toward v1.0. That does not diminish the technical relevance of the release. It does, however, shape how enterprise teams should think about adoption. Today, this looks more like a promising developer tool with strong momentum than a production platform that large organizations should standardize on immediately. The other key point is that the CLI does not bypass the underlying controls that govern Workspace access. The documentation says users still need a Google Cloud project for OAuth credentials and a Google account with Workspace access. It also outlines multiple authentication patterns for local development, CI and service accounts, along with instructions for enabling APIs and handling setup issues. For enterprises, that is the right way to interpret the tool. It is not magic access to Gmail, Docs or Sheets. It is a more usable abstraction over the same permissions, scopes and admin controls companies already manage. Some of the early commentary around the tool frames it as a cleaner alternative to Model Context Protocol (MCP)-heavy setups, arguing that CLI-driven execution can avoid wasting context window on large tool definitions. There is some logic to that argument, especially for agent systems that can call shell commands directly and parse JSON responses.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Google Workspace CLI将Gmail、Docs、Sheets等带入AI代理的通用界面</div>
+      <div class="col-content">旧的是新的：命令行——原始的、笨重的非图形界面，用于与PC交互和控制PC，用户只需在代码中键入原始命令——已成为代理人工智能中最重要的界面之一。这种转变在一定程度上是由Claude code和Kilo CLI等编码原生工具的兴起推动的，这些工具帮助建立了一个模型，在这个模型中，人工智能代理不仅在聊天窗口中回答问题，而且通过开发人员已经熟悉的共享、可脚本化的界面执行实际任务，而且几乎在所有PC上都可以找到。对于开发人员来说，吸引力是实用的：CLI是可检查的、可组合的，比拼凑的自定义应用程序集成更容易控制。现在，谷歌工作区——谷歌企业云应用程序套件的总称，包括Drive、Gmail、Calendar、Sheets、Docs、Chat、Admin——正在通过新的CLI进入这种模式，该CLI允许他们直接访问这些应用程序及其内的数据，而无需依赖第三方连接器。该项目名为googleworkspace/cli，将自己描述为“所有谷歌工作区的一个cli——为人类和人工智能代理构建”，包括结构化的JSON输出和面向代理的工作流。在昨天的X帖子中，谷歌云主管Addy Osmani介绍了谷歌工作区CLI是“为人类和代理构建的”，并补充说它涵盖了“谷歌硬盘、Gmail、日历和每个工作区API”。虽然谷歌没有正式支持，但其他帖子将此次发布视为自动化和代理访问企业生产力软件的更广泛转折点。现在，企业开发人员（或独立开发人员和用户）不必设置Zapier等第三方连接器来访问数据，也不必使用AI代理来自动化整个Google Workspace应用程序套件的工作，他们可以从Github轻松安装开源（Apache 2.0）Google Workspace CLI，并开始直接在终端中设置自动化代理工作流，要求他们的AI模型对电子邮件进行排序、回复、编辑文档和文件等。对于企业开发人员来说，此次发布的重要性并不在于谷歌突然让Workspace可编程。工作区API早就可用了。这里的变化是界面。CLI提供了一个具有结构化输出的统一命令界面，而不是强迫团队围绕单个API构建和维护单独的包装器。安装很简单——npm install-g@googleworkspace/cli——仓库说该包包括预构建的二进制文件，也可以通过GitHub发布。回购还表示，gws在运行时读取谷歌的发现服务，并动态构建其命令表面，允许新的工作区API方法出现，而无需等待手动维护的静态工具定义。对于构建代理或内部自动化的团队来说，这是一个有意义的运营优势。它减少了粘合代码，降低了维护开销，使Workspace更容易被视为可编程运行时，而不是单独的SaaS应用程序的集合。CLI设计用于直接人工使用和代理驱动的工作流。对于在终端中工作的开发人员，README强调了按资源帮助、模拟运行预览、模式检查和自动分页等功能。对于代理，其价值更为明确：结构化的JSON输出、可重用的命令和内置技能，使模型能够在没有自定义集成层的情况下与工作区数据和操作进行交互。这为内部企业工作流创造了即时的实用性。团队可以使用该工具列出Drive文件，创建电子表格，检查请求和响应模式，发送聊天消息，并从终端对大型结果集进行分页。README还表示，该仓库提供了100多种代理技能，包括Gmail、Drive、Docs、Calendar和Sheets的助手和精心策划的食谱。这很重要，因为Workspace仍然是日常业务工作中最常见的记录系统之一。电子邮件、日历、内部文档、电子表格和共享文件通常是运营环境的所在。通过一个通用的、对代理友好的界面公开这些表面的CLI，可以更容易地构建检索信息、触发操作和自动化重复流程的助手，而无需定制管道。社交媒体的反应非常热烈，但企业在将该项目视为正式的谷歌平台承诺之前，应该仔细阅读该仓库。README明确表示：“这不是官方支持的谷歌产品”。它还表示，该项目正在积极开发中，并警告用户，随着它向v1.0迈进，预计会有突破性的变化。这并没有削弱该版本的技术相关性。然而，它确实塑造了企业团队应该如何考虑采用。今天，这看起来更像是一个有前景的开发工具，势头强劲，而不是大型组织应该立即标准化的生产平台。另一个关键点是，CLI不会绕过管理工作区访问的底层控件。文档显示，用户仍然需要一个Google Cloud项目来获取OAuth凭据和一个具有工作区访问权限的Google帐户。它还概述了本地开发、CI和服务帐户的多种身份验证模式，以及启用API和处理设置问题的说明。对于企业来说，这是解释工具的正确方式。这不是对Gmail、文档或表格的神奇访问。它是对公司已经管理的相同权限、范围和管理控制的更有用的抽象。围绕该工具的一些早期评论将其视为模型上下文协议（MCP）繁重设置的更清洁的替代方案，认为CLI驱动的执行可以避免在大型工具定义上浪费上下文窗口。这个论点有一些逻辑，特别是对于可以直接调用shell命令并解析JSON响应的代理系统。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/google-workspace-cli-brings-gmail-docs-sheets-and-more-into-a-common" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
