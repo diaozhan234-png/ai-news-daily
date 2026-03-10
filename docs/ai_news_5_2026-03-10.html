@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-10 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-10</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Is legal the same as legitimate: AI reimplementation and the erosion of copyleft</div>
+      <div class="col-content">Last week, Dan Blanchard, the maintainer of chardet—a Python library for detecting text encodings used by roughly 130 million projects a month— released a new version . Version 7.0 is 48 times faster than its predecessor, supports multiple cores, and was redesigned from the ground up. Anthropic's Claude is listed as a contributor. The license changed from LGPL to MIT. Blanchard's account is that he never looked at the existing source code directly. He fed only the API and the test suite to Claude and asked it to reimplement the library from scratch. The resulting code shares less than 1.3% similarity with any prior version, as measured by JPlag. His conclusion: this is an independent new work, and he is under no obligation to carry forward the LGPL. Mark Pilgrim, the library's original author, opened a GitHub issue to object . The LGPL requires that modifications be distributed under the same license, and a reimplementation produced with ample exposure to the original codebase cannot, in Pilgrim's view, pass as a clean-room effort. The dispute drew responses from two prominent figures in the open source world. Armin Ronacher, the creator of Flask, welcomed the relicensing . Salvatore Sanfilippo (antirez), the creator of Redis, published a broader defense of AI reimplementation , grounding it in copyright law and the history of the GNU project. Both conclude, by different routes, that what Blanchard did is legitimate. I respect both writers, and I think both are wrong—or more precisely, both are evading the question that actually matters. That question is this: does legal mean legitimate? Neither piece answers it. Both move from “this is legally permissible” to “this is therefore fine,” without pausing at the gap between those two claims. Law sets a floor; clearing it does not mean the conduct is right. That gap is where this essay begins. Antirez builds his case on history. When the GNU project reimplemented the UNIX userspace, it was lawful. So was Linux. Copyright law prohibits copying “protected expressions”—the actual code, its structure, its specific mechanisms—but it does not protect ideas or behavior. AI-assisted reimplementation occupies the same legal ground. Therefore, it is lawful. The legal analysis is largely correct, and I am not disputing it. The problem lies in what antirez does next: he presents the legal conclusion as if it were also a social one, and uses a historical analogy that, examined more carefully, argues against his own position. When GNU reimplemented the UNIX userspace, the vector ran from proprietary to free. Stallman was using the limits of copyright law to turn proprietary software into free software. The ethical force of that project did not come from its legal permissibility—it came from the direction it was moving, from the fact that it was expanding the commons. That is why people cheered. The vector in the chardet case runs the other way. Software protected by a copyleft license—one that guarantees users the right to study, modify, and redistribute derivative works under the same terms—has been reimplemented under a permissive license that carries no such guarantee. This is not a reimplementation that expands the commons. It is one that removes the fencing that protected the commons. Derivative works built on chardet 7.0 are under no obligation to share their source code. That obligation, which applied to a library downloaded 130 million times a month, is now gone. Antirez does not address this directional difference. He invokes the GNU precedent, but that precedent is a counterexample to his conclusion, not a supporting one. Ronacher's argument is different. He discloses upfront that he has a stake in the outcome: “I personally have a horse in the race here because I too wanted chardet to be under a non-GPL license for many years. So consider me a very biased person in that regard.” He goes on to write that he considers “the GPL to run against that spirit by restricting what can be done with it”—the spirit being that society is better off when we share. This claim rests on a fundamental misreading of what the GPL does. Start with what the GPL actually prohibits. It does not prohibit keeping source code private. It imposes no constraint on privately modifying GPL software and using it yourself. The GPL's conditions are triggered only by distribution . If you distribute modified code, or offer it as a networked service, you must make the source available under the same terms. This is not a restriction on sharing. It is a condition placed on sharing: if you share, you must share in kind. The requirement that improvements be returned to the commons is not a mechanism that suppresses sharing. It is a mechanism that makes sharing recursive and self-reinforcing. The claim that imposing contribution obligations on users of a commons undermines sharing culture does not hold together logically. The contrast with the MIT license clarifies the point. Under MIT, anyone may take code, improve it, and close it off into a proprietary product. You can receive from the commons without giving back. If Ronacher calls this structure “more share-friendly,” he is using a concept of sharing with a specific directionality built in: sharing flows toward whoever has more capital and more engineers to take advantage of it. The historical record bears this out. In the 1990s, companies routinely absorbed GPL code into proprietary products—not because they had chosen permissive licenses, but because copyleft enforcement was slack. The strengthening of copyleft mechanisms closed that gap. For individual developers and small projects without the resources to compete on anything but reciprocity, copyleft was what made the exchange approximately fair.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">合法与合法：人工智能的重新实施和copyleft的侵蚀</div>
+      <div class="col-content">上周，chardet的维护者Dan Blanchard发布了一个新版本。chardet是一个Python库，用于检测每月约1.3亿个项目使用的文本编码。7.0版本比其前身快48倍，支持多核，并从头开始重新设计。Anthropic的克劳德被列为贡献者。许可证从LGPL变更为MIT。Blanchard的说法是，他从未直接查看过现有的源代码。他只将API和测试套件提供给Claude，并要求它从头开始重新实现库。根据JPlag的测量，生成的代码与任何先前版本的相似性都不到1.3%。他的结论是：这是一部独立的新作品，他没有义务推进LGPL。该图书馆的原作者Mark Pilgrim在GitHub上发布了一期文章表示反对。LGPL要求修改在相同的许可证下分发，在Pilgrim看来，在充分暴露于原始代码库的情况下重新实现不能被视为无尘室工作。这场争论引起了开源界两位知名人士的回应。Flask的创建者Armin Ronacher对重新授权表示欢迎。Redis的创建者Salvatore Sanfilippo（antirez）发表了对AI重新实现的更广泛的辩护，将其建立在版权法和GNU项目历史的基础上。两人都通过不同的途径得出结论，布兰查德所做的是合法的。我尊重这两位作家，我认为他们都错了——或者更确切地说，他们都在回避真正重要的问题。这个问题是：合法意味着合法吗？这两篇文章都没有回答这个问题。两者都从“这在法律上是允许的”转变为“因此这很好”，而没有停留在这两种说法之间的差距上。法律规定了底线；清除它并不意味着行为是正确的。这个差距就是这篇文章的开始。Antirez以历史为基础。当GNU项目重新实现UNIX用户空间时，这是合法的。Linux也是如此。版权法禁止复制“受保护的表达”——实际的代码、结构、具体机制——但它不保护思想或行为。人工智能辅助的重新实施具有相同的法律依据。因此，这是合法的。法律分析在很大程度上是正确的，我对此没有异议。问题在于安雷兹接下来要做什么：他把法律结论当作社会结论来呈现，并使用了一个历史类比，经过更仔细的研究，这个类比反驳了他自己的立场。当GNU重新实现UNIX用户空间时，向量从专有变为免费。斯托曼利用版权法的限制将专有软件转变为自由软件。该项目的伦理力量不是来自其法律允许性，而是来自其前进的方向，来自其扩大公地的事实。这就是人们欢呼的原因。chardet案例中的向量则相反。受copyleft许可证保护的软件——保证用户有权在相同的条款下研究、修改和重新分发衍生作品——已在没有此类保证的许可证下重新实施。这不是扩大公地的重新实施。它拆除了保护公地的围栏。基于chardet 7.0构建的衍生作品没有义务共享其源代码。适用于每月下载1.3亿次的图书馆的这一义务现在已经消失了。Antirez没有解决这种方向差异。他援引了GNU先例，但这一先例是对他结论的反例，而不是支持他的先例。罗纳彻的论点不同。他事先透露，他与结果有利害关系：“我个人在这场比赛中有一匹马，因为我也希望chardet在非GPL许可证下多年。所以在这方面，请把我看作一个非常有偏见的人。”他接着写道，他认为“GPL通过限制可以用它做什么来违背这种精神”——这种精神是，当我们分享时，社会会变得更好。这一说法基于对GPL作用的根本误读。从GPL实际禁止的内容开始。它并不禁止将源代码保密。它对私下修改GPL软件和自己使用它没有任何限制。GPL的条件仅由分发触发。如果您分发修改后的代码，或将其作为网络服务提供，则必须以相同的条款提供源代码。这不是对分享的限制。这是对分享的一个条件：如果你分享，你必须以实物形式分享。将改进返还给公共资源的要求不是一种抑制共享的机制。这是一种使共享递归和自我强化的机制。将贡献义务强加给公地用户会破坏共享文化的说法在逻辑上并不成立。与麻省理工学院许可证的对比阐明了这一点。在麻省理工学院，任何人都可以获取代码，对其进行改进，并将其封闭为专有产品。你可以从公共资源中获得，而无需回馈。如果罗纳彻称这种结构“对共享更友好”，他是在使用一种内置特定方向性的共享概念：共享流向拥有更多资本和更多工程师的人，以利用它。历史记录证明了这一点。在20世纪90年代，公司经常将GPL代码吸收到专有产品中——不是因为他们选择了宽松的许可证，而是因为copyleft的执行不力。copyleft机制的加强缩小了这一差距。对于除了互惠之外没有资源进行竞争的个人开发人员和小型项目来说，copyleft使交换大致公平。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://writings.hongminhee.org/2026/03/legal-vs-legitimate/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
