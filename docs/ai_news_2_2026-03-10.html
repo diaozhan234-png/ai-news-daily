@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-10 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-10</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Andrej Karpathy's new open source 'autoresearch' lets you run hundreds of AI experiments a night — with revolutionary implications</div>
+      <div class="col-content">Over the weekend, Andrej Karpathy—the influential former Tesla AI lead and co-founder and former member of OpenAI who coined the term "vibe coding"— posted on X about his new open source project, autoresearch . It wasn't a finished model or a massive corporate product: it was by his own admission a simple, 630-line script made available on Github under a permissive, enterprise-friendly MIT License. But the ambition was massive: automating the scientific method with AI agents while us humans sleep. "The goal is to engineer your agents to make the fastest research progress indefinitely and without any of your own involvement," he stated on X. The system functions as an autonomous optimization loop. An AI agent is given a training script and a fixed compute budget (typically 5 minutes on a GPU). It reads its own source code, forms a hypothesis for improvement (such as changing a learning rate or an architecture depth), modifies the code, runs the experiment, and evaluates the results. If the validation loss—measured in bits per byte ( val_bpb )—improves, it keeps the change; if not, it reverts and tries again. In one overnight run, Karpathy’s agent completed 126 experiments , driving loss down from 0.9979 to 0.9697. Today, Karpathy reported that after leaving the agent to tune a "depth=12" model for two days, it successfully processed approximately 700 autonomous changes. The agent found roughly 20 additive improvements that transferred perfectly to larger models. Stacking these changes dropped the "Time to GPT-2" metric on the leaderboard from 2.02 hours to 1.80 hours—an 11% efficiency gain on a project Karpathy believed was already well-tuned. "Seeing the agent do this entire workflow end-to-end and all by itself... is wild," Karpathy remarked, noting that the agent caught oversights in attention scaling and regularization that he had missed manually over two decades of work. This is more than just a productivity hack; it is a fundamental shift in how intelligence is refined. By automating the "scientific method" for code, Karpathy has turned machine learning into an evolutionary process that runs at the speed of silicon rather than the speed of human thought. And more than this, it showed the broader AI and machine learning community on X that this type of process could be applied far beyond computer science, to fields like marketing, health, and, well, basically anything that requires research. The reaction was swift and viral, with Karpathy's post garnering more than 8.6 million views in the intervening two days as builders and researchers scrambled to scale the "Karpathy loop". Varun Mathur, CEO of AI tool aggregator platform Hyperspace AI, took the single-agent loop and distributed it across a peer-to-peer network. Every node running the Hyperspace agent became an autonomous researcher. On the night of March 8–9, 35 autonomous agents on the Hyperspace network ran 333 experiments completely unsupervised. The results were a masterclass in emergent strategy: Hardware Diversity as a Feature : Mathur noted that while H100 GPUs used "brute force" to find aggressive learning rates, CPU-only agents on laptops were forced to be clever. These "underdog" agents focused on initialization strategies (like Kaiming and Xavier init) and normalization choices because they couldn't rely on raw throughput. Gossip-Based Discovery : Using the GossipSub protocol, agents shared their wins in real-time. When one agent found that Kaiming initialization dropped loss by 21%, the idea spread through the network like a digital virus. Within hours, 23 other agents had incorporated the discovery into their own hypotheses. The Compression of History : In just 17 hours, these agents independently rediscovered ML milestones—such as RMSNorm and tied embeddings—that took human researchers at labs like Google Brain and OpenAI nearly eight years to formalize. While the ML purists focused on loss curves, the business world saw a different kind of revolution. Eric Siu, founder of ad agency Single Grain , applied autoresearch to the "Experiment Loop" of marketing. "Most marketing teams run ~30 experiments a year," Siu wrote on X. "The next generation will run 36,500+. Easily." He continued: "They'll run experiments while they sleep. Current marketing teams run 20-30 experiments a year. Maybe 52 if they're 'good'. New landing page. New ad creative. Maybe a subject line test. That's considered "data-driven marketing." But the next generation of marketing systems will run 36,500+ experiments per year." Siu’s framework replaces the training script with a marketing asset—a landing page, an ad creative, or a cold email. The agent modifies a variable (the subject line or the CTA), deploys it, measures the "positive reply rate," and keeps or discards. Siu argues that this creates a "proprietary map" of what resonates with a specific audience—a moat built not of code, but of experiment history. "The companies that win won't have better marketers," he wrote, "they'll have faster experiment loops". Despite the fervor, the GitHub Discussions revealed a community grappling with the implications of such rapid, automated progress. The Over-Optimization Trap : Researcher alexisthual raised a poignant concern: "Aren't you concerned that launching that many experiments will eventually 'spoil' the validation set?". The fear is that with enough agents, parameters will be optimized for the specific quirks of the test data rather than general intelligence. The Meaning of the Gains : User samionb questioned whether a drop from 0.9979 to 0.9697 was truly noticeable. Karpathy’s response was characteristically direct: "All we're doing is optimizing performance per compute...</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Andrej Karpathy的新开源“autoresearch”可以让你每晚运行数百个人工智能实验，具有革命性的意义</div>
+      <div class="col-content">上周末，Andrej Karpathy——有影响力的前特斯拉人工智能负责人、OpenAI联合创始人和前成员，创造了“氛围编码”一词——在X上发布了他的新开源项目autoresearch。这不是一个完成的模型，也不是一个大型的企业产品：他自己承认，这是一个简单的630行脚本，在宽松的、对企业友好的MIT许可证下在Github上提供。但这一雄心壮志是巨大的：在我们人类睡觉的时候，用人工智能代理实现科学方法的自动化。他在X上表示：“我们的目标是设计你的代理，使其在没有你自己参与的情况下无限期地取得最快的研究进展。”该系统作为一个自主优化循环运行。给AI代理一个训练脚本和一个固定的计算预算（通常在GPU上为5分钟）。它读取自己的源代码，形成改进的假设（如改变学习率或架构深度），修改代码，运行实验，并评估结果。如果验证损失（以每字节比特数（val_bpb）衡量）有所改善，则保持不变；如果没有，它将返回并再次尝试。在一夜之间，Karpathy的代理人完成了126个实验，将损失从0.9979降至0.9697。今天，Karpathy报告说，在让代理对“深度=12”模型进行两天的调整后，它成功地处理了大约700个自主更改。该试剂发现了大约20种添加剂改进，这些改进完美地转移到了更大的模型上。叠加这些变化，排行榜上的“GPT-2时间”指标从2.02小时下降到1.80小时，Karpathy认为这个项目已经调整得很好，效率提高了11%。“看到代理端到端地独自完成整个工作流程。。。Karpathy表示：“这是疯狂的。”他指出，该代理在注意力扩展和正则化方面出现了疏忽，而他在20多年的工作中手动错过了这些疏忽。这不仅仅是一次生产力黑客攻击；这是智能改进方式的根本转变。通过自动化代码的“科学方法”，Karpathy将机器学习变成了一个以硅的速度而不是人类思维的速度运行的进化过程。更重要的是，它向X上更广泛的人工智能和机器学习社区表明，这种过程可以应用于远超计算机科学的领域，如营销、健康，以及基本上任何需要研究的领域。反应迅速而迅速，Karpathi的帖子获得了8.6以上的关注。在这两天里，随着建设者和研究人员争先恐后地扩大“Karpathy循环”，浏览量达到了100万次。人工智能工具聚合平台Hyperspace AI的首席执行官Varun Mathur采用了单代理循环，并将其分布在点对点网络中。运行Hyperspace代理的每个节点都成为了自主研究人员。3月8日至9日晚，Hyperspace网络上的35个自主代理在完全无监督的情况下进行了333次实验。结果是应急策略的大师班：硬件多样性作为一个特征：Mathur指出，虽然H100 GPU使用“蛮力”来寻找激进的学习率，但笔记本电脑上仅使用CPU的代理被迫变得聪明。这些“弱势”代理专注于初始化策略（如Kaiming和Xavier init）和规范化选择，因为它们不能依赖于原始吞吐量。基于八卦的发现：使用八卦子协议，特工实时分享他们的胜利。当一个代理发现开明初始化损失下降了21%时，这个想法像数字病毒一样在网络上传播开来。在几个小时内，其他23名特工将这一发现纳入了他们自己的假设。历史的压缩：在短短17个小时内，这些代理独立地重新发现了机器学习的里程碑，如RMSNorm和绑定嵌入，这些里程碑花了谷歌大脑和OpenAI等实验室的人类研究人员近八年的时间才正式确定。当机器学习纯粹主义者专注于损失曲线时，商业世界看到了一场不同的革命。广告公司Single Grain的创始人Eric Siu将自动搜索应用于营销的“实验循环”。“大多数营销团队每年进行约30次实验，”萧在X上写道。“下一代将进行36500多次实验。这很容易。”他继续说道：“他们会在睡觉的时候进行实验。目前的营销团队每年会进行20-30次实验。如果“好”，可能会进行52次。新的登录页面。新的广告创意。可能是主题行测试。这被认为是“数据驱动营销”。“但下一代营销系统每年将运行36500多次实验。”萧的框架用营销资产（登录页面、广告创意或冷电子邮件）取代了培训脚本。代理修改变量（主题行或CTA），部署它，测量“肯定回复率”，并保留或丢弃。Siu认为，这创建了一个与特定受众产生共鸣的“专有地图”——一条不是由代码而是由实验历史构建的护城河。他写道：“获胜的公司不会有更好的营销人员，他们会有更快的实验循环”。尽管热情高涨，但GitHub讨论揭示了一个社区正在努力应对如此快速、自动化的进展所带来的影响。过度优化陷阱：研究员alexisthual提出了一个尖锐的担忧：“你不担心启动那么多实验最终会‘破坏’验证集吗？”。令人担忧的是，有了足够的代理，参数将针对测试数据的特定怪癖而不是一般智能进行优化。收益的意义：用户samionb质疑从0.9979下降到0.9697是否真的很明显。Karpathy的回应非常直接：“我们所做的就是优化每台计算的性能。。。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/andrej-karpathys-new-open-source-autoresearch-lets-you-run-hundreds-of-ai" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
