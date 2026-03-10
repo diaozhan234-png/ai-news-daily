@@ -94,6 +94,101 @@ def retry(func):
     return wrapper
 
 
+# ===================== 去重：Gist 存储已推送 URL =====================
+DEDUP_GIST_FILENAME = "ai_news_pushed_urls.json"
+DEDUP_KEEP_DAYS = 7
+
+def _get_gist_id():
+    """从 Gist 列表里找到存去重数据的 Gist ID"""
+    if not GIST_TOKEN:
+        return None
+    try:
+        resp = requests.get(
+            "https://api.github.com/gists",
+            headers={"Authorization": f"token {GIST_TOKEN}", "Accept": "application/vnd.github.v3+json"},
+            timeout=15
+        )
+        for gist in resp.json():
+            if DEDUP_GIST_FILENAME in gist.get("files", {}):
+                return gist["id"]
+    except Exception as e:
+        logging.warning(f"[去重] 获取Gist列表失败: {e}")
+    return None
+
+def load_pushed_urls():
+    """从 Gist 加载已推送 URL 集合（只保留最近7天）"""
+    if not GIST_TOKEN:
+        return set(), None
+    gist_id = _get_gist_id()
+    if not gist_id:
+        return set(), None
+    try:
+        resp = requests.get(
+            f"https://api.github.com/gists/{gist_id}",
+            headers={"Authorization": f"token {GIST_TOKEN}", "Accept": "application/vnd.github.v3+json"},
+            timeout=15
+        )
+        raw = resp.json()["files"][DEDUP_GIST_FILENAME]["content"]
+        data = json.loads(raw)
+        cutoff = (datetime.date.today() - datetime.timedelta(days=DEDUP_KEEP_DAYS)).strftime("%Y-%m-%d")
+        # 过滤掉7天前的记录
+        filtered = {date: urls for date, urls in data.items() if date >= cutoff}
+        all_urls = set()
+        for urls in filtered.values():
+            all_urls.update(urls)
+        logging.info(f"[去重] 已加载 {len(all_urls)} 条历史URL（近{DEDUP_KEEP_DAYS}天）")
+        return all_urls, gist_id
+    except Exception as e:
+        logging.warning(f"[去重] 加载历史URL失败: {e}")
+        return set(), gist_id
+
+def save_pushed_urls(new_urls, gist_id):
+    """把今天推送的 URL 追加写回 Gist"""
+    if not GIST_TOKEN or not new_urls:
+        return
+    today = get_today()
+    # 先读现有数据
+    existing = {}
+    if gist_id:
+        try:
+            resp = requests.get(
+                f"https://api.github.com/gists/{gist_id}",
+                headers={"Authorization": f"token {GIST_TOKEN}", "Accept": "application/vnd.github.v3+json"},
+                timeout=15
+            )
+            existing = json.loads(resp.json()["files"][DEDUP_GIST_FILENAME]["content"])
+        except Exception:
+            pass
+    # 追加今天的 URL
+    existing.setdefault(today, [])
+    for url in new_urls:
+        if url and url not in existing[today]:
+            existing[today].append(url)
+    # 清理7天前的数据
+    cutoff = (datetime.date.today() - datetime.timedelta(days=DEDUP_KEEP_DAYS)).strftime("%Y-%m-%d")
+    existing = {d: v for d, v in existing.items() if d >= cutoff}
+
+    content = json.dumps(existing, ensure_ascii=False, indent=2)
+    try:
+        if gist_id:
+            requests.patch(
+                f"https://api.github.com/gists/{gist_id}",
+                headers={"Authorization": f"token {GIST_TOKEN}", "Accept": "application/vnd.github.v3+json"},
+                json={"files": {DEDUP_GIST_FILENAME: {"content": content}}},
+                timeout=15
+            )
+        else:
+            requests.post(
+                "https://api.github.com/gists",
+                headers={"Authorization": f"token {GIST_TOKEN}", "Accept": "application/vnd.github.v3+json"},
+                json={"public": False, "files": {DEDUP_GIST_FILENAME: {"content": content}}},
+                timeout=15
+            )
+        logging.info(f"[去重] 已保存今日 {len(new_urls)} 条URL到Gist")
+    except Exception as e:
+        logging.warning(f"[去重] 保存URL失败: {e}")
+
+
 # ===================== Google News URL 解码 =====================
 def decode_google_news_url(google_url):
     """
@@ -639,9 +734,10 @@ COMPANY_BADGE = {
 }
 
 
-def crawl_target_company_news():
+def crawl_target_company_news(pushed_urls=None):
     """重点公司新闻：Google News RSS + Base64解码获取真实URL + 抓全文"""
-    results = []
+    pushed_urls = pushed_urls or set()
+    candidates = []  # 收集所有候选文章，最后取最优2条
     COMPANY_QUERIES = [
         ("OpenAI",            "OpenAI",   (88, 95)),
         ("Anthropic Claude",  "Anthropic",(87, 94)),
@@ -656,14 +752,14 @@ def crawl_target_company_news():
     ]
 
     for query, company, hot_range in COMPANY_QUERIES:
-        if len(results) >= 2:
-            break
         try:
             rss_url = f"https://news.google.com/rss/search?q={requests.utils.quote(query)}&hl=en-US&gl=US&ceid=US:en"
             feed = feedparser.parse(rss_url)
             if not feed.entries:
+                logging.warning(f"⚠️ 公司爬虫 [{company}]: RSS无内容")
                 continue
 
+            got_one = False
             for entry in feed.entries[:15]:
                 title   = getattr(entry, "title", "")
                 summary = getattr(entry, "summary", "")
@@ -676,6 +772,12 @@ def crawl_target_company_news():
                 if article is None:
                     continue
 
+                # 去重检查
+                link = article.get("link", "")
+                if link and link in pushed_urls:
+                    logging.info(f"  [去重] 跳过已推送: {title[:40]}")
+                    continue
+
                 content_en = (article.get("content") or {}).get("en", "")
                 if len(content_en.strip()) < 20:
                     logging.warning(f"  ⚠️ 内容过短，跳过: {title[:40]}")
@@ -683,13 +785,20 @@ def crawl_target_company_news():
 
                 article["company_tag"] = company
                 logging.info(f"🎯 重点公司 [{company}]: {title[:60]}")
-                results.append(article)
-                break
+                candidates.append(article)
+                got_one = True
+                break  # 每个公司取1条候选即可
+
+            if not got_one:
+                logging.warning(f"⚠️ 公司爬虫 [{company}]: 无合格文章")
 
         except Exception as e:
             logging.warning(f"⚠️ 公司爬虫 [{company}]: {e}")
 
-    logging.info(f"重点公司爬虫: 获取{len(results)}条")
+    # 按热度排序，取最优2条
+    candidates = sorted(candidates, key=lambda x: float(x.get("hot_score", 0) or 0), reverse=True)
+    results = candidates[:2]
+    logging.info(f"重点公司爬虫: 候选{len(candidates)}条，最终取{len(results)}条")
     return results
 
 
@@ -945,6 +1054,9 @@ def main():
     logging.info("🚀 AI资讯日报 v7 启动")
     logging.info(f"📅 今日日期：{get_today()}")
 
+    # 加载历史已推送 URL（用于去重）
+    pushed_urls, gist_id = load_pushed_urls()
+
     # 爬虫列表（顺序决定优先级）
     editorial_crawlers = [
         crawl_openai,
@@ -973,11 +1085,22 @@ def main():
 
     company_articles = []
     try:
-        company_articles = crawl_target_company_news() or []
+        company_articles = crawl_target_company_news(pushed_urls=pushed_urls) or []
     except Exception as e:
         logging.error(f"❌ crawl_target_company_news 崩溃: {e}")
 
     all_articles = editorial_articles + company_articles
+
+    # 去重过滤：剔除近7天已推送过的文章
+    def is_pushed(article):
+        link = article.get("link", "")
+        if link and link in pushed_urls:
+            logging.info(f"  [去重] 跳过已推送: {(article.get('title') or {}).get('en','')[:50]}")
+            return True
+        return False
+
+    editorial_articles = [a for a in editorial_articles if not is_pushed(a)]
+    # company_articles 已在爬虫内部去重
 
     # 过滤
     QUALITY_BLACKLIST = [
@@ -1034,7 +1157,7 @@ def main():
     # 互补：优质渠道不足3条，用公司文章补
     if len(top3) < 3:
         used = {(a.get("title") or {}).get("en","").lower().strip() for a in top3}
-        for a in valid_company[len(top2):]:
+        for a in valid_company:
             if len(top3) >= 3:
                 break
             key = (a.get("title") or {}).get("en","").lower().strip()
@@ -1044,8 +1167,10 @@ def main():
 
     # 互补：公司文章不足2条，用优质渠道补
     if len(top2) < 2:
-        used = {(a.get("title") or {}).get("en","").lower().strip() for a in top2}
-        for a in valid_editorial[len(top3):]:
+        used_top2 = {(a.get("title") or {}).get("en","").lower().strip() for a in top2}
+        used_top3 = {(a.get("title") or {}).get("en","").lower().strip() for a in top3}
+        used = used_top2 | used_top3
+        for a in valid_editorial:
             if len(top2) >= 2:
                 break
             key = (a.get("title") or {}).get("en","").lower().strip()
@@ -1073,6 +1198,11 @@ def main():
         logging.warning(f"⚠️ 最终只有 {len(final)} 条")
 
     send_to_feishu(final)
+
+    # 推送完成后，保存本次推送的 URL 到 Gist（用于明天去重）
+    today_urls = [a.get("link", "") for a in final if a.get("link")]
+    save_pushed_urls(today_urls, gist_id)
+
     logging.info("🏁 任务完成")
 
 
