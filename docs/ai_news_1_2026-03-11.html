@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-11 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-11</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 86.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI can rewrite open source code—but can it rewrite the license, too?</div>
+      <div class="col-content">Computer engineers and programmers have long relied on reverse engineering as a way to copy the functionality of a computer program without copying that program’s copyright-protected code directly. Now, AI coding tools are raising new issues with how that “clean room” rewrite process plays out both legally, ethically, and practically. Those issues came to the forefront last week with the release of a new version of chardet , a popular open source python library for automatically detecting character encoding. The repository was originally written by coder Mark Pilgrim in 2006 and released under an LGPL license that placed strict limits on how it could be reused and redistributed. Dan Blanchard took over maintenance of the repository in 2012 but waded into some controversy with the release of version 7.0 of chardet last week. Blanchard described that overhaul as “a ground-up, MIT-licensed rewrite” of the entire library built with the help of Claude Code to be “much faster and more accurate” than what came before. Speaking to The Register , Blanchard said that he has long wanted to get chardet added to the Python standard library but that he didn’t have the time to fix problems with “its license, its speed, and its accuracy” that were getting in the way of that goal. With the help of Claude Code, though, Blanchard said he was able to overhaul the library “in roughly five days” and get a 48x performance boost to boot. Not everyone has been happy with that outcome, though. A poster using the name Mark Pilgrim surfaced on GitHub to argue that this new version amounts to an illegitimate relicensing of Pilgrim’s original code under a more permissive MIT license (which, among other things, allows for its use in closed-source projects). As a modification of his original LGPL-licensed code, Pilgrim argues this new version of chardet must also maintain the same LGPL license. “Their claim that it is a ‘complete rewrite’ is irrelevant, since they had ample exposure to the originally licensed code (i.e., this is not a ‘clean room’ implementation),” Pilgrim wrote. “Adding a fancy code generator into the mix does not somehow grant them any additional rights. I respectfully insist that they revert the project to its original license.” In his own response to Pilgrim , Blanchard admits that he has had “extensive exposure to the original codebase,” meaning he didn’t have the traditional “strict separation” usually used for “clean room” reverse engineering. But that tradition was set up for human coders as a way “to ensure the resulting code is not a derivative work of the original,” Blanchard argues. In this case, Blanchard said that the new AI-generated code is “qualitatively different” from what came before it and “is structurally independent of the old code.” As evidence, he cites JPlag similarity statistics showing that a maximum of 1.29 percent of any chardet version 7.0.0 file is structurally similar to the corresponding file in version 6.0.0. Comparing version 5.2.0 to version 6.0.0, on the other hand, finds up to 80 percent similarity in some corresponding files. “No file in the 7.0.0 codebase structurally resembles any file from any prior release,” Blanchard writes. “This is not a case of ‘rewrote most of it but carried some files forward.’ Nothing was carried forward.” Blanchard says he was able to accomplish this “AI clean room” process by first specifying an architecture in a design document and writing out some requirements to Claude Code. After that, Blanchard “started in an empty repository with no access to the old source tree and explicitly instructed Claude not to base anything on LGPL/GPL-licensed code.” There are a few complicating factors to this straightforward story, though. For one, Claude explicitly relied on some metadata files from previous versions of chardet , raising direct questions about whether this version is actually “derivative.” For another, Claude’s models are trained on reams of data pulled from the public Internet , which means it’s overwhelmingly likely that Claude has ingested the open source code of previous chardet versions in its training. Whether that prior “knowledge” means that Claude’s creation is a “derivative” of Pilgrim’s work is an open question, even if the new code is structurally different from the old. And then there’s the remaining human factor. While the code for this new version was generated by Claude, Blanchard said he “reviewed, tested, and iterated on every piece of the result using Claude. … I did not write the code by hand, but I was deeply involved in designing, reviewing, and iterating on every aspect of it.” Having someone with intimate knowledge of earlier chardet code take such a heavy hand in reviewing the new code could also have an impact on whether this version can be considered a wholly new project. All of these issues have predictably led to a huge debate over legalities of chardet version 7.0.0 across the open source community. “There is nothing ‘clean’ about a Large Language Model which has ingested the code it is being asked to reimplement,” Free Software Foundation Executive Director Zoë Kooyman told The Register . But others think the “Ship of Theseus”-style arguments that can often emerge in code licensing dust-ups don’t apply as much here. “If you throw away all code and start from scratch, even if the end result behaves the same, it’s a new ship,” Open source developer Armin Ronacher said in a blog post analyzing the situation . Old code licenses aside, using AI to create new code from whole cloth could also create its own legal complications going forward. Courts have already said that AI can’t be the author on a patent or the copyright holder on a piece of art but have yet to rule on what that means for the licensing of software created in whole or in part by AI. The issues surrounding potential “tainting” of an open source license with this kind of generated code can get remarkably complex remarkably quickly .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">人工智能可以重写开源代码，但它也可以重写许可证吗？</div>
+      <div class="col-content">计算机工程师和程序员长期以来一直依赖逆向工程来复制计算机程序的功能，而无需直接复制该程序受版权保护的代码。现在，人工智能编码工具正在提出新的问题，即“洁净室”重写过程在法律、道德和实践上是如何进行的。上周，随着chardet新版本的发布，这些问题变得尤为突出，chardet是一个流行的开源python库，用于自动检测字符编码。该存储库最初由程序员Mark Pilgrim于2006年编写，并在LGPL许可证下发布，该许可证对其重用和重新分发的方式进行了严格限制。Dan Blanchard于2012年接管了存储库的维护工作，但上周chardet 7.0版本的发布引发了一些争议。Blanchard将此次大修描述为对整个库的“彻底的、麻省理工学院许可的重写”，该库是在Claude Code的帮助下构建的，比以前“更快、更准确”。Blanchard在接受The Register采访时表示，他一直希望将chardet添加到Python标准库中，但他没有时间解决阻碍实现这一目标的“许可证、速度和准确性”问题。不过，在Claude Code的帮助下，Blanchard表示，他能够“在大约五天内”彻底检查库，并获得48倍的性能提升。然而，并非所有人都对这一结果感到满意。GitHub上出现了一张使用Mark Pilgrim这个名字的海报，认为这个新版本相当于在更宽松的MIT许可证下非法重新许可Pilgrim的原始代码（除其他外，该许可证允许在闭源项目中使用）。作为对原始LGPL许可代码的修改，Pilgrim认为这个新版本的chardet也必须保持相同的LGPL许可。Pilgrim写道：“他们声称这是一次‘完全重写’是不相关的，因为他们充分接触了最初许可的代码（即，这不是一个‘干净的房间’实现）。”。“在组合中添加一个花哨的代码生成器并不会以某种方式授予他们任何额外的权利。我恭敬地坚持要求他们将项目恢复到原始许可证。”在他自己对Pilgrim的回应中，Blanchard承认他“广泛接触了原始代码库”，这意味着他没有通常用于“洁净室”逆向工程的传统“严格分离”。但Blanchard认为，这一传统是为人类程序员建立的，是为了“确保生成的代码不是原始代码的衍生作品”。在这种情况下，Blanchard表示，新的人工智能生成的代码与之前的代码“在性质上不同”，并且“在结构上独立于旧代码”。作为证据，他引用了JPlag相似性统计数据，表明任何chardet 7.0.0版本文件中最多有1.29%的文件在结构上与6.0.0版本中的相应文件相似。另一方面，将5.2.0版本与6.0.0版本进行比较，可以发现一些相应文件中的相似性高达80%。Blanchard写道：“7.0.0代码库中没有任何文件在结构上与任何先前版本的文件相似。”。“这不是‘重写了大部分内容，但转发了一些文件’的情况。没有任何东西被转发。”Blanchard说，他能够通过首先在设计文档中指定一个架构并向Claude Code写下一些要求来完成这个“AI洁净室”过程。在那之后，Blanchard“从一个空的存储库开始，无法访问旧的源代码树，并明确指示Claude不要基于LGPL/GPL许可的代码。”不过，这个简单的故事有一些复杂的因素。首先，Claude明确依赖于以前版本的chardet的一些元数据文件，这引发了人们对这个版本是否真的是“衍生”的直接质疑。另一方面，Claude的模型是在从公共互联网上提取的大量数据上训练的，这意味着Claude在训练中极有可能摄入了以前chardet版本的开源代码。先前的“知识”是否意味着克劳德的创作是朝圣者作品的“衍生”是一个悬而未决的问题，即使新代码在结构上与旧代码不同。然后还有剩下的人为因素。虽然这个新版本的代码是由Claude生成的，但Blanchard表示，他“使用Claude对结果的每一部分进行了审查、测试和迭代……我没有手工编写代码，但我深入参与了设计、审查和迭代的各个方面。”让一个熟悉早期chardet代码的人在审查新代码时采取如此强硬的态度，也会影响这个版本是否可以被视为一个全新的项目。不出所料，所有这些问题都导致了开源社区对chardet 7.0.0版本合法性的巨大争论。自由软件基金会执行董事ZoëKooyman告诉the Register：“一个大型语言模型摄入了它被要求重新实现的代码，这并没有什么‘干净’的地方。”。但其他人认为，在代码许可纠纷中经常出现的“忒修斯之船”式论点在这里并不适用。开源开发人员Armin Ronacher在一篇分析这种情况的博客文章中说：“如果你扔掉所有代码，从头开始，即使最终结果表现相同，这也是一艘新船。”。撇开旧的代码许可证不谈，使用人工智能从头开始创建新代码也可能会在未来产生自己的法律复杂性。法院已经表示，人工智能不能成为专利的作者或艺术品的版权所有者，但尚未就这对人工智能全部或部分创建的软件的许可意味着什么做出裁决。围绕这种生成代码对开源许可证的潜在“污染”问题可能会非常复杂。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/03/ai-can-rewrite-open-source-code-but-can-it-rewrite-the-license-too/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
