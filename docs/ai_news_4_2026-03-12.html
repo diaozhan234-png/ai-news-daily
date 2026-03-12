@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-12 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-12</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Nvidia's new open weights Nemotron 3 super combines three different architectures to beat gpt-oss and Qwen in throughput</div>
+      <div class="col-content">Multi-agent systems, designed to handle long-horizon tasks like software engineering or cybersecurity triaging, can generate up to 15 times the token volume of standard chats — threatening their cost-effectiveness in handling enterprise tasks. But today, Nvidia sought to help solve this problem with the release of Nemotron 3 Super , a 120-billion-parameter hybrid model, with weights posted on Hugging Face . By merging disparate architectural philosophies—state-space models, transformers, and a novel "Latent" mixture-of-experts design—Nvidia is attempting to provide the specialized depth required for agentic workflows without the bloat typical of dense reasoning models, and all available for commercial usage under mostly open weights. At the core of Nemotron 3 Super is a sophisticated architectural triad that balances memory efficiency with precision reasoning. The model utilizes a Hybrid Mamba-Transformer backbone , which interleaves Mamba-2 layers with strategic Transformer attention layers. To understand the implications for enterprise production, consider the "needle in a haystack" problem. Mamba-2 layers act like a "fast-travel" highway system, handling the vast majority of sequence processing with linear-time complexity. This allows the model to maintain a massive 1-million-token context window without the memory footprint of the KV cache exploding. However, pure state-space models often struggle with associative recall. To fix this, Nvidia strategically inserts Transformer attention layers as "global anchors," ensuring the model can precisely retrieve specific facts buried deep within a codebase or a stack of financial reports. Beyond the backbone, the model introduces Latent Mixture-of-Experts (LatentMoE) . Traditional Mixture-of-Experts (MoE) designs route tokens to experts in their full hidden dimension, which creates a computational bottleneck as models scale. LatentMoE solves this by projecting tokens into a compressed space before routing them to specialists. This "expert compression" allows the model to consult four times as many specialists for the exact same computational cost. This granularity is vital for agents that must switch between Python syntax, SQL logic, and conversational reasoning within a single turn. Further accelerating the model is Multi-Token Prediction (MTP). While standard models predict a single next token, MTP predicts several future tokens simultaneously. This serves as a "built-in draft model," enabling native speculative decoding that can deliver up to 3x wall-clock speedups for structured generation tasks like code or tool calls. For enterprises, the most significant technical leap in Nemotron 3 Super is its optimization for the Nvidia Blackwell GPU platform. By pre-training natively in NVFP4 (4-bit floating point), Nvidia has achieved a breakthrough in production efficiency. On Blackwell, the model delivers 4x faster inference than 8-bit models running on the previous Hopper architecture, with no loss in accuracy. In practical performance, Nemotron 3 Super is a specialized tool for agentic reasoning. It currently holds the No. 1 position on the DeepResearch Bench, a benchmark measuring an AI's ability to conduct thorough, multi-step research across large document sets. LiveCodeBench (v5 2024-07↔2024-12) SWE-Bench Multilingual (OpenHands) It also demonstrates significant throughput advantages, achieving up to 2.2x higher throughput than gpt-oss-120B and 7.5x higher than Qwen3.5-122B in high-volume settings. The release of Nemotron 3 Super under the Nvidia Open Model License Agreement (updated October 2025) provides a permissive framework for enterprise adoption, though it carries distinct "safeguard" clauses that differentiate it from pure open-source licenses like MIT or Apache 2.0. Key Provisions for Enterprise Users: Commercial Usability: The license explicitly states that models are "commercially usable" and grants a perpetual, worldwide, royalty-free license to sell and distribute products built on the model. Ownership of Output: Nvidia makes no claim to the outputs generated by the model; the responsibility for those outputs—and the ownership of them—rests entirely with the user. Derivative Works: Enterprises are free to create and own "Derivative Models" (fine-tuned versions), provided they include the required attribution notice: "Licensed by Nvidia Corporation under the Nvidia Open Model License." The license includes two critical termination triggers that production teams must monitor: Safety Guardrails: The license automatically terminates if a user bypasses or circumvents the model's "Guardrails" (technical limitations or safety hyperparameters) without implementing a "substantially similar" replacement appropriate for the use case. Litigation Trigger: If a user institutes copyright or patent litigation against Nvidia alleging that the model infringes on their IP, their license to use the model terminates immediately. This structure allows Nvidia to foster a commercial ecosystem while protecting itself from "IP trolling" and ensuring that the model isn't stripped of its safety features for malicious use. The release has generated significant buzz within the developer community. Chris Alexiuk, a Senior Product Research Enginner at Nvidia, heralded the launch on X under his handle @llm_wizard as a "SUPER DAY," emphasizing the model's speed and transparency. "Model is: FAST. Model is: SMART. Model is: THE MOST OPEN MODEL WE'VE DONE YET," Chris posted, highlighting the release of not just weights, but 10 trillion tokens of training data and recipes. The industry adoption reflects this enthusiasm: Cloud and Hardware: The model is being deployed as an Nvidia NIM microservice , allowing it to run on-premises via the Dell AI Factory or HPE , as well as across Google Cloud, Oracle, and shortly, AWS and Azure.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Nvidia的新开放权重Nemotron 3 super结合了三种不同的架构，在吞吐量上击败了gpt-oss和Qwen</div>
+      <div class="col-content">多代理系统旨在处理软件工程或网络安全分类等长期任务，可以产生高达标准聊天令牌量15倍的令牌量，这威胁到它们在处理企业任务时的成本效益。但今天，Nvidia试图通过发布Nemotron 3 Super来帮助解决这个问题，这是一个1200亿参数的混合模型，权重发布在Hugging Face上。通过融合不同的架构哲学——状态空间模型、变压器和一种新颖的“潜在”专家混合设计——Nvidia正试图提供代理工作流程所需的专业深度，而不会像密集推理模型那样臃肿，并且所有这些都可以在大多数开放权重下用于商业用途。Nemotron 3 Super的核心是一个复杂的架构三元组，它平衡了内存效率和精确推理。该模型利用了混合曼巴-变形金刚骨干网，该骨干网将曼巴-2层与战略变形金刚注意力层交织在一起。要了解对企业生产的影响，请考虑“大海捞针”问题。Mamba-2层就像一个“快速旅行”的高速公路系统，处理绝大多数具有线性时间复杂度的序列处理。这使得该模型能够维护一个庞大的100万个令牌上下文窗口，而不会出现KV缓存爆炸的内存占用。然而，纯状态空间模型往往难以进行联想回忆。为了解决这个问题，Nvidia战略性地将Transformer注意力层作为“全局锚点”插入，确保模型能够精确地检索深藏在代码库或一堆财务报告中的特定事实。除了主干之外，该模型还引入了潜在专家混合（LatentMoE）。传统的混合专家（MoE）设计将令牌路由到完全隐藏维度的专家，这在模型扩展时造成了计算瓶颈。LatentMoE通过在将令牌路由给专家之前将其投影到压缩空间中来解决这个问题。这种“专家压缩”允许模型以完全相同的计算成本咨询四倍的专家。这种粒度对于必须在一个回合内在Python语法、SQL逻辑和会话推理之间切换的代理至关重要。进一步加速该模型的是多令牌预测（MTP）。标准模型预测单个下一个令牌，而MTP同时预测多个未来令牌。这是一个“内置的草稿模型”，支持本地推测解码，可以为代码或工具调用等结构化生成任务提供高达3倍的时钟加速。对于企业来说，Nemotron 3 Super最重大的技术飞跃是其对英伟达Blackwell GPU平台的优化。通过在NVFP4（4位浮点）中进行本机预训练，Nvidia在生产效率方面取得了突破。在Blackwell上，该模型的推理速度比在之前的Hopper架构上运行的8位模型快4倍，而且准确性没有损失。在实际操作中，Nemotron 3 Super是一个用于代理推理的专用工具。它目前在DeepResearch Bench上排名第一，这是一个衡量人工智能在大型文档集上进行彻底、多步骤研究的能力的基准。LiveCodeBench（v5 2024-07）↔2024-12）SWE Bench多语言（OpenHands）它还显示出显著的吞吐量优势，在高容量设置下，吞吐量比gpt-oss-120B高2.2倍，比Qwen3.5-122B高7.5倍。根据英伟达开放式模型许可协议（更新于2025年10月）发布的Nemotron 3 Super为企业采用提供了一个宽松的框架，尽管它带有不同于MIT或Apache 2.0等纯开源许可的“保障”条款。企业用户的关键条款：商业可用性：许可证明确规定模型是“商业可用的”，并授予永久的、全球性的、免版税的许可证，以销售和分销基于该模型构建的产品。输出的所有权：Nvidia对模型生成的输出不享有任何权利；这些输出的责任和所有权完全在于用户。衍生作品：企业可以自由创建和拥有“衍生模型”（微调版本），前提是它们包括所需的归属通知：“由Nvidia Corporation根据英伟达开放模型许可证授权。”该许可证包括生产团队必须监控的两个关键终止触发因素：安全护栏：如果用户绕过或规避模型的“护栏”（技术限制或安全超参数），而没有实施适用于用例的“基本相似”替换，则许可证自动终止。诉讼触发：如果用户对Nvidia提起版权或专利诉讼，声称该型号侵犯了他们的知识产权，他们使用该型号的许可将立即终止。这种结构使Nvidia能够培育一个商业生态系统，同时保护自己免受“IP恶意攻击”，并确保该模型不会因恶意使用而失去安全功能。该版本在开发人员社区中引起了极大的轰动。英伟达的高级产品研究工程师Chris Alexiuk将X在他的@llm_wizard下的发布称为“超级日”，强调了该模型的速度和透明度。Chris发帖称：“模型是：快速。模型是：智能。模型是我们迄今为止做过的最开放的模型。”他强调不仅要发布权重，还要发布10万亿个训练数据和食谱。业界的采用反映了这种热情：云和硬件：该模型正被部署为Nvidia NIM微服务，允许它通过Dell AI Factory或HPE在本地运行，也可以在Google Cloud、Oracle以及AWS和Azure上运行。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/nvidias-new-open-weights-nemotron-3-super-combines-three-different" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
