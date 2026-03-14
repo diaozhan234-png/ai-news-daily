@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-14 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-14</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">NanoClaw and Docker partner to make sandboxes the safest way for enterprises to deploy AI agents</div>
+      <div class="col-content">NanoClaw , the open-source AI agent platform created by Gavriel Cohen, is partnering with the containerized development platform Docker to let teams run agents inside Docker Sandboxes , a move aimed at one of the biggest obstacles to enterprise adoption: how to give agents room to act without giving them room to damage the systems around them. The announcement matters because the market for AI agents is shifting from novelty to deployment. It is no longer enough for an agent to write code, answer questions or automate a task. For CIOs, CTOs and platform leaders, the harder question is whether that agent can safely connect to live data, modify files, install packages and operate across business systems without exposing the host machine, adjacent workloads or other agents. That is the problem NanoClaw and Docker say they are solving together. NanoClaw launched as a security-first alternative in the rapidly growing “claw” ecosystem, where agent frameworks promise broad autonomy across local and cloud environments. The project’s core argument has been that many agent systems rely too heavily on software-level guardrails while running too close to the host machine. This Docker integration pushes that argument down into infrastructure. “The partnership with Docker is integrating NanoClaw with Docker Sandboxes,” Cohen said in an interview. “The initial version of NanoClaw used Docker containers for isolating each agent, but Docker Sandboxes is the proper enterprise-ready solution for rolling out agents securely.” That progression matters because the central issue in enterprise agent deployment is isolation. Agents do not behave like traditional applications. They mutate their environments, install dependencies, create files, launch processes and connect to outside systems. That breaks many of the assumptions underlying ordinary container workflows. Cohen framed the issue in direct terms: “You want to unlock the full potential of these highly capable agents, but you don’t want security to be based on trust. You have to have isolated environments and hard boundaries.” That line gets at the broader challenge facing enterprises now experimenting with agents in production-like settings. The more useful agents become, the more access they need. They need tools, memory, external connections and the freedom to take actions on behalf of users and teams. But each gain in capability raises the stakes around containment. A compromised or badly behaving agent cannot be allowed to spill into the host environment, expose credentials or access another agent’s state. Docker president and COO Mark Cavage said that reality forced the company to rethink some of the assumptions built into standard developer infrastructure. “Fundamentally, we had to change the isolation and security model to work in the world of agents,” Cavage said. “It feels like normal Docker, but it’s not.” He explained why the old model no longer holds. “Agents break effectively every model we’ve ever known,” Cavage said. “Containers assume immutability, but agents break that on the very first call. The first thing they want to do is install packages, modify files, spin up processes, spin up databases — they want full mutability and a full machine to run in.” That is a useful framing for enterprise technical decision-makers. The promise of agents is not that they behave like static software with a chatbot front end. The promise is that they can perform open-ended work. But open-ended work is exactly what creates new security and governance problems. An agent that can install a package, rewrite a file tree, start a database process or access credentials is more operationally useful than a static assistant. It is also more dangerous if it is running in the wrong environment. Docker’s answer is Docker Sandboxes, which use MicroVM-based isolation while preserving familiar Docker packaging and workflows. According to the companies, NanoClaw can now run inside that infrastructure with a single command, giving teams a more secure execution layer without forcing them to redesign their agent stack from scratch. Cavage put the value proposition plainly: “What that gets you is a much stronger security boundary. When something breaks out — because agents do bad things — it’s truly bounded in something provably secure.” That emphasis on containment rather than trust lines up closely with NanoClaw’s original thesis. In earlier coverage of the project, NanoClaw was positioned as a leaner, more auditable alternative to broader and more permissive frameworks. The argument was not just that it was open source, but that its simplicity made it easier to reason about, secure and customize for production use. Cavage extended that argument beyond any single product. “Security is defense in depth,” he said. “You need every layer of the stack: a secure foundation, a secure framework to run in, and secure things users build on top.” That is likely to resonate with enterprise infrastructure teams that are less interested in model novelty than in blast radius, auditability and layered control. Agents may still rely on the intelligence of frontier models, but what matters operationally is whether the surrounding system can absorb mistakes, misfires or adversarial behavior without turning one compromised process into a wider incident. The NanoClaw-Docker partnership also reflects a broader shift in how vendors are beginning to think about agent deployment at scale. Instead of one central AI system doing everything, the model emerging here is many bounded agents operating across teams, channels and tasks. “What OpenClaw and the claws have shown is how to get tremendous value from coding agents and general-purpose agents that are available today,” Cohen said.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">NanoClaw和Docker合作，使沙盒成为企业部署AI代理的最安全方式</div>
+      <div class="col-content">Gavriel Cohen创建的开源人工智能代理平台NanoClaw正在与容器化开发平台Docker合作，让团队在Docker Sandboxes中运行代理，此举旨在解决企业采用的最大障碍之一：如何给代理行动的空间，同时又不给他们破坏周围系统的空间。这一公告很重要，因为人工智能代理的市场正在从新奇转向部署。代理编写代码、回答问题或自动化任务已经不够了。对于首席信息官、首席技术官和平台领导者来说，更难的问题是，该代理是否可以安全地连接到实时数据、修改文件、安装软件包并跨业务系统运行，而不会暴露主机、相邻工作负载或其他代理。这就是NanoClaw和Docker共同解决的问题。NanoClaw作为快速增长的“爪”生态系统中的安全第一替代品推出，其中代理框架承诺在本地和云环境中具有广泛的自主权。该项目的核心论点是，许多代理系统在运行时离主机太近，过于依赖软件级护栏。这种Docker集成将这一论点推向了基础设施。科恩在接受采访时表示：“与Docker的合作关系是将NanoClaw与Docker Sandboxes集成在一起。”。“NanoClaw的初始版本使用Docker容器来隔离每个代理，但Docker Sandboxes是安全推出代理的合适的企业就绪解决方案。”这一进展很重要，因为企业代理部署的核心问题是隔离。代理的行为与传统应用程序不同。他们改变环境，安装依赖关系，创建文件，启动进程并连接到外部系统。这打破了普通容器工作流的许多假设。Cohen直接阐述了这个问题：“你想释放这些能力强大的代理的全部潜力，但你不想让安全建立在信任的基础上。你必须有隔离的环境和硬边界。”这条线触及了企业现在在类似生产环境中试验代理所面临的更广泛的挑战。代理越有用，他们需要的访问权限就越多。他们需要工具、内存、外部连接以及代表用户和团队采取行动的自由。但每一次能力的提升都会增加遏制的风险。不能允许受感染或行为不良的代理泄露到主机环境中，暴露凭据或访问其他代理的状态。Docker总裁兼首席运营官Mark Cavage表示，现实迫使该公司重新思考标准开发人员基础设施中的一些假设。卡瓦奇说：“从根本上说，我们必须改变隔离和安全模式，以适应特工的世界。”。“这感觉就像普通的Docker，但事实并非如此。”他解释了为什么旧模式不再适用。卡瓦奇说：“特工们有效地打破了我们所知道的每一种模式。”。“容器假设不可变，但代理在第一次调用时就打破了这一点。他们想做的第一件事是安装包、修改文件、启动进程、启动数据库——他们想要完全的可变性和一台完整的机器来运行。”这对企业技术决策者来说是一个有用的框架。代理的承诺并不是说它们的行为就像带有聊天机器人前端的静态软件。承诺是他们可以执行开放式工作。但开放式工作正是造成新的安全和治理问题的原因。可以安装包、重写文件树、启动数据库进程或访问凭据的代理在操作上比静态助手更有用。如果它在错误的环境中运行，也会更加危险。Docker的答案是Docker沙盒，它使用基于MicroVM的隔离，同时保留熟悉的Docker打包和工作流。据这些公司称，NanoClaw现在可以通过一个命令在该基础设施内运行，为团队提供了一个更安全的执行层，而无需强迫他们从头开始重新设计代理堆栈。Cavage明确地阐述了这一价值主张：“这会给你带来一个更强大的安全边界。当事情发生时——因为代理做了坏事——它真正受到了可证明安全的东西的约束。”这种对遏制而不是信任的强调与NanoClaw的原始论点非常吻合。在该项目的早期报道中，NanoClaw被定位为更精简、更可审计的替代方案，以取代更广泛、更宽松的框架。争论的焦点不仅是它是开源的，而且它的简单性使其更容易推理、安全和定制，以供生产使用。Cavage将这一论点扩展到任何单一产品之外。他说：“安全就是纵深防御。”。“你需要堆栈的每一层：一个安全的基础、一个运行的安全框架，以及用户在其上构建的安全东西。”这可能会引起企业基础设施团队的共鸣，他们对模型新颖性的兴趣不如对爆炸半径、可审计性和分层控制的兴趣。代理可能仍然依赖于前沿模型的智能，但在操作上重要的是周围的系统是否能够吸收错误、失误或对抗行为，而不会将一个受损的过程变成更广泛的事件。NanoClaw与Docker的合作也反映了供应商开始考虑大规模部署代理的方式发生了更广泛的转变。这里出现的模型不是由一个中央人工智能系统来做所有事情，而是由许多跨团队、跨渠道和跨任务的有界代理来操作。Cohen说：“OpenClaw和爪子所展示的是如何从当今可用的编码代理和通用代理中获得巨大的价值。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/infrastructure/nanoclaw-and-docker-partner-to-make-sandboxes-the-safest-way-for-enterprises" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
