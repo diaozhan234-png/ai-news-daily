@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-17 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-17</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Launch HN: Voygr (YC W26) – A better maps API for agents and AI apps</div>
+      <div class="col-content">Google Maps can tell you a restaurant is "4.2 stars, open till 10." Their API can't tell you the chef left last month, wait times doubled, and locals moved on. Maps APIs today just give you a fixed snapshot. We're building an infinite, queryable place profile that combines accurate place data with fresh web context like news, articles, and events. Vlad worked on the Google Maps APIs as well as in ridesharing and travel. Yarik led ML/Search infrastructure at Apple, Google, and Meta powering products used by hundreds of millions of users daily. We realized nobody was treating place data freshness as infrastructure, so we're building it. We started with one of the hardest parts - knowing whether a place is even real. Our Business Validation API ( https://github.com/voygr-tech/dev-tools ) tells you whether a business is actually operating, closed, rebranded, or invalid. We aggregate multiple data sources, detect conflicting signals, and return a structured verdict. Think of it as continuous integration, but for the physical world. The problem: ~40% of Google searches and up to 20% of LLM prompts involve local context. 25-30% of places churn every year. The world doesn't emit structured "I closed" events - you have to actively detect it. As agents start searching, booking, and shopping in the real world, this problem gets 10x bigger - and nobody's building the infrastructure for it. We recently benchmarked how well LLMs handle local place queries ( https://news.ycombinator.com/item?id=47366423 ) - the results were bad: even the best gets 1 in 12 local queries wrong We're processing tens of thousands of places per day for enterprise customers, including leading mapping and tech companies. Today we're opening API access to the developer community. Please find details here: https://github.com/voygr-tech/dev-tools We'd love honest feedback - whether it's about the problem, our approach, or where you think we're wrong. If you're dealing with stale place data in your own products, we'd especially love to hear what breaks. We're here all day, AMA. Vlad worked on the Google Maps APIs as well as in ridesharing and travel. Yarik led ML/Search infrastructure at Apple, Google, and Meta powering products used by hundreds of millions of users daily. We realized nobody was treating place data freshness as infrastructure, so we're building it. We started with one of the hardest parts - knowing whether a place is even real. Our Business Validation API ( https://github.com/voygr-tech/dev-tools ) tells you whether a business is actually operating, closed, rebranded, or invalid. We aggregate multiple data sources, detect conflicting signals, and return a structured verdict. Think of it as continuous integration, but for the physical world. The problem: ~40% of Google searches and up to 20% of LLM prompts involve local context. 25-30% of places churn every year. The world doesn't emit structured "I closed" events - you have to actively detect it. As agents start searching, booking, and shopping in the real world, this problem gets 10x bigger - and nobody's building the infrastructure for it. We recently benchmarked how well LLMs handle local place queries ( https://news.ycombinator.com/item?id=47366423 ) - the results were bad: even the best gets 1 in 12 local queries wrong We're processing tens of thousands of places per day for enterprise customers, including leading mapping and tech companies. Today we're opening API access to the developer community. Please find details here: https://github.com/voygr-tech/dev-tools We'd love honest feedback - whether it's about the problem, our approach, or where you think we're wrong. If you're dealing with stale place data in your own products, we'd especially love to hear what breaks. We're here all day, AMA. We started with one of the hardest parts - knowing whether a place is even real. Our Business Validation API ( https://github.com/voygr-tech/dev-tools ) tells you whether a business is actually operating, closed, rebranded, or invalid. We aggregate multiple data sources, detect conflicting signals, and return a structured verdict. Think of it as continuous integration, but for the physical world. The problem: ~40% of Google searches and up to 20% of LLM prompts involve local context. 25-30% of places churn every year. The world doesn't emit structured "I closed" events - you have to actively detect it. As agents start searching, booking, and shopping in the real world, this problem gets 10x bigger - and nobody's building the infrastructure for it. We recently benchmarked how well LLMs handle local place queries ( https://news.ycombinator.com/item?id=47366423 ) - the results were bad: even the best gets 1 in 12 local queries wrong We're processing tens of thousands of places per day for enterprise customers, including leading mapping and tech companies. Today we're opening API access to the developer community. Please find details here: https://github.com/voygr-tech/dev-tools We'd love honest feedback - whether it's about the problem, our approach, or where you think we're wrong. If you're dealing with stale place data in your own products, we'd especially love to hear what breaks. We're here all day, AMA. The problem: ~40% of Google searches and up to 20% of LLM prompts involve local context. 25-30% of places churn every year. The world doesn't emit structured "I closed" events - you have to actively detect it. As agents start searching, booking, and shopping in the real world, this problem gets 10x bigger - and nobody's building the infrastructure for it. We recently benchmarked how well LLMs handle local place queries ( https://news.ycombinator.com/item?id=47366423 ) - the results were bad: even the best gets 1 in 12 local queries wrong We're processing tens of thousands of places per day for enterprise customers, including leading mapping and tech companies. Today we're opening API access to the developer community.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">推出HN:Voygr（YC W26）-为代理商和人工智能应用程序提供更好的API地图</div>
+      <div class="col-content">谷歌地图可以告诉你一家餐厅是“4.2星，营业到10点”。他们的API无法告诉你上个月离开了厨师，等待时间翻了一番，当地人继续前行。今天的地图API只会给你一个固定的快照。我们正在构建一个无限的、可查询的地点配置文件，将准确的地点数据与新闻、文章和事件等新鲜的网络上下文相结合。Vlad从事谷歌地图API以及拼车和旅行方面的工作。Yarik领导了苹果、谷歌和Meta的ML/搜索基础设施，为每天数亿用户使用的产品提供动力。我们意识到没有人将地点数据新鲜度视为基础设施，所以我们正在构建它。我们从最困难的部分之一开始——知道一个地点是否真实。我们的业务验证API（https://github.com/voygr-tech/dev-tools）告诉你一家企业是否真的在运营、关闭、品牌重塑或无效。我们聚合多个数据源，检测冲突的信号，并返回结构化的判断。把它看作是持续的整合，但对于物理世界来说。问题是：大约40%的谷歌搜索和高达20%的LLM提示涉及本地上下文。每年有25-30%的地方流失。世界不会发出结构化的“我关闭”事件，你必须积极地检测它。随着代理开始在现实世界中搜索、预订和购物，这个问题会变得更大10倍，而且没有人为此建立基础设施。我们最近对LLM处理本地查询的能力进行了基准测试（https://news.ycombinator.com/item?id=47366423）-结果很糟糕：即使是最好的也会出现1/12的本地查询错误。我们每天为企业客户处理数万个位置，包括领先的地图和科技公司。今天，我们将向开发者社区开放API访问权限。请在此处查看详细信息：https://github.com/voygr-tech/dev-tools我们希望得到诚实的反馈——无论是关于问题、我们的方法，还是你认为我们错了的地方。如果你在自己的产品中处理过时的位置数据，我们特别想知道是什么导致了数据中断。我们整天都在这里，AMA。Vlad从事谷歌地图API以及拼车和旅行方面的工作。Yarik领导了苹果、谷歌和Meta的ML/搜索基础设施，为每天数亿用户使用的产品提供动力。我们意识到没有人将地点数据新鲜度视为基础设施，所以我们正在构建它。我们从最困难的部分之一开始——知道一个地点是否真实。我们的业务验证API（https://github.com/voygr-tech/dev-tools）告诉你一家企业是否真的在运营、关闭、品牌重塑或无效。我们聚合多个数据源，检测冲突的信号，并返回结构化的判断。把它看作是持续的整合，但对于物理世界来说。问题是：大约40%的谷歌搜索和高达20%的LLM提示涉及本地上下文。每年有25-30%的地方流失。世界不会发出结构化的“我关闭”事件，你必须积极地检测它。随着代理开始在现实世界中搜索、预订和购物，这个问题会变得更大10倍，而且没有人为此建立基础设施。我们最近对LLM处理本地查询的能力进行了基准测试（https://news.ycombinator.com/item?id=47366423）-结果很糟糕：即使是最好的也会出现1/12的本地查询错误。我们每天为企业客户处理数万个位置，包括领先的地图和科技公司。今天，我们将向开发者社区开放API访问权限。请在此处查看详细信息：https://github.com/voygr-tech/dev-tools我们希望得到诚实的反馈——无论是关于问题、我们的方法，还是你认为我们错了的地方。如果你在自己的产品中处理过时的位置数据，我们特别想知道是什么导致了数据中断。我们整天都在这里，AMA。我们从最难的部分之一开始——知道一个地方是否真实。我们的业务验证API（https://github.com/voygr-tech/dev-tools）告诉你一家企业是否真的在运营、关闭、品牌重塑或无效。我们聚合多个数据源，检测冲突的信号，并返回结构化的判断。把它看作是持续的整合，但对于物理世界来说。问题是：大约40%的谷歌搜索和高达20%的LLM提示涉及本地上下文。每年有25-30%的地方流失。世界不会发出结构化的“我关闭”事件，你必须积极地检测它。随着代理开始在现实世界中搜索、预订和购物，这个问题会变得更大10倍，而且没有人为此建立基础设施。我们最近对LLM处理本地查询的能力进行了基准测试（https://news.ycombinator.com/item?id=47366423）-结果很糟糕：即使是最好的也会出现1/12的本地查询错误。我们每天为企业客户处理数万个位置，包括领先的地图和科技公司。今天，我们将向开发者社区开放API访问权限。请在此处查看详细信息：https://github.com/voygr-tech/dev-tools我们希望得到诚实的反馈——无论是关于问题、我们的方法，还是你认为我们错了的地方。如果你在自己的产品中处理过时的位置数据，我们特别想知道是什么导致了数据中断。我们整天都在这里，AMA。问题是：大约40%的谷歌搜索和高达20%的LLM提示涉及本地上下文。每年有25-30%的地方流失。世界不会发出结构化的“我关闭”事件，你必须积极地检测它。随着代理开始在现实世界中搜索、预订和购物，这个问题会变得更大10倍，而且没有人为此建立基础设施。我们最近对LLM处理本地查询的能力进行了基准测试（https://news.ycombinator.com/item?id=47366423）-结果很糟糕：即使是最好的也会出现1/12的本地查询错误。我们每天为企业客户处理数万个位置，包括领先的地图和科技公司。今天，我们将向开发者社区开放API访问权限。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://news.ycombinator.com/item?id=47401042" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
