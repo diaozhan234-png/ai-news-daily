@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-18 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-18</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Open source Mamba 3 arrives to surpass Transformer architecture with nearly 4% improved language modeling, reduced latency</div>
+      <div class="col-content">The generative AI era began for most people with the launch of OpenAI's ChatGPT in late 2022 , but the underlying technology — the "Transformer" neural network architecture that allows AI models to weigh the importance of different words in a sentence (or pixels in an image) differently and train on information in parallel — dates back to Google's seminal 2017 paper " Attention Is All You Need ." Yet while Transformers deliver unparalleled model quality and have underpinned most of the major generative AI models used today, they are computationally gluttonous. They are burdened by quadratic compute and linear memory demands that make large-scale inference an expensive, often prohibitive, endeavor. Hence, the desire by some researchers to improve on them by developing a new architecture, Mamba, in 2023, which has gone on to be included in hybrid Mamba-Transformer models like Nvidia's Nemotron 3 Super. Now, the same researchers behind the original Mamba architecture including leaders Albert Gu of Carnegie Mellon and Tri Dao of Princeton have released the latest version of their new architecture, Mamba-3 , as a language model under a permissive Apache 2.0 open source license — making it immediately available to developers, including enterprises for commercial purposes. A technical paper has also been published on arXiv.org . This model signals a paradigm shift from training efficiency to an "inference-first" design. As Gu noted in the official announcement, while Mamba-2 focused on breaking pretraining bottlenecks, Mamba-3 aims to solve the "cold GPU" problem: the reality that during decoding, modern hardware often remains idle, waiting for memory movement rather than performing computation. Mamba, including Mamba 3, is a type of State Space Model (SSM). These are effectively a high-speed "summary machine" for AI. While many popular models (like the ones behind ChatGPT) have to re-examine every single word they’ve already seen to understand what comes next—which gets slower and more expensive the longer the conversation lasts—an SSM maintains a compact, ever-changing internal state. This state is essentially a digital "mental snapshot" of the entire history of the data. As new information flows in, the model simply updates this snapshot instead of re-reading everything from the beginning. This allows the AI to process massive amounts of information, like entire libraries of books or long strands of DNA, with incredible speed and much lower memory requirements. To appreciate the leap Mamba-3 represents, one must first understand perplexity, the primary metric used in the research to measure model quality. In the context of language modeling, perplexity is a measure of how "surprised" a model is by new data. Think of a model as a professional gambler. If a model has high perplexity, it is unsure where to place its bets; it sees many possible next words as equally likely. A lower perplexity score indicates that the model is more "certain"—it has a better grasp of the underlying patterns of human language. For AI builders, perplexity serves as a high-fidelity proxy for intelligence. The breakthrough reported in the Mamba-3 research is that it achieves comparable perplexity to its predecessor, Mamba-2, while using only half the state size. This means a model can be just as smart while being twice as efficient to run. The philosophy guiding Mamba-3 is a fundamental shift in how we think about AI "intelligence" versus the speed of the hardware it runs on. While the previous generation, Mamba-2, was designed to be trained at record-breaking speeds, Mamba-3 is an "inference-first" architecture — inference referring to the way AI models are served to end users, through websites like ChatGPT or Google Gemini, or through application programming interfaces (APIs). Mamba 3's primary goal is to maximize every second the computer chip (GPU) is active, ensuring that the model is thinking as hard as possible without making the user wait for an answer. In the world of language models, every point of accuracy is hard-won. At the 1.5-billion-parameter scale, the most advanced "MIMO" variant of Mamba-3 achieved a 57.6% average accuracy across benchmarks, representing a 2.2-percentage-point leap over the industry-standard Transformer. While a two-point jump might sound modest, it actually represents a nearly 4% relative increase in language modeling capability compared to the Transformer baseline. Even more impressively, as alluded to above, Mamba-3 can match the predictive quality of its predecessor while using only half the internal "state size," effectively delivering the same level of intelligence with significantly less memory lag. For years, efficient alternatives to Transformers suffered from a "logic gap"—they often failed at simple reasoning tasks, like keeping track of patterns or solving basic arithmetic, because their internal math was too rigid. Mamba-3 solves this by introducing complex-valued states. This mathematical upgrade acts like an internal compass, allowing the model to represent "rotational" logic. By using this "rotary" approach, Mamba-3 can near-perfectly solve logic puzzles and state-tracking tasks that its predecessors could only guess at, finally bringing the reasoning power of linear models on par with the most advanced systems. The final piece of the puzzle is how Mamba-3 interacts with physical hardware. Most AI models today are "memory-bound," meaning the computer chip spends most of its time idle, waiting for data to move from memory to the processor. Mamba-3 introduces a Multi-Input, Multi-Output (MIMO) formulation that fundamentally changes this dynamic. By performing up to four times more mathematical operations in parallel during each step, Mamba-3 utilizes that previously "idle" power. This allows the model to do significantly more "thinking" for every word it generates without increasing the actual time a user spends waiting for a response. More on these below.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">开源Mamba 3超越了Transformer架构，语言建模提高了近4%，延迟降低了</div>
+      <div class="col-content">对于大多数人来说，生成性人工智能时代始于2022年底OpenAI的ChatGPT的推出，但底层技术——“Transformer”神经网络架构，允许人工智能模型以不同的方式衡量句子中不同单词（或图像中的像素）的重要性，并并行训练信息——可以追溯到谷歌2017年的开创性论文《Attention Is All You Need》。然而，尽管Transformer提供了无与伦比的模型质量，并支撑了当今使用的大多数主要生成性人工智能模型，但它们在计算上是贪吃的。他们承受着二次计算和线性内存需求的负担，这使得大规模推理成为一项昂贵且往往令人望而却步的努力。因此，一些研究人员希望在2023年通过开发一种新的架构Mamba来改进它们，该架构已被纳入英伟达的Nemotron 3 Super等混合Mamba Transformer型号中。现在，原始Mamba架构背后的研究人员，包括卡内基梅隆大学的Albert Gu和普林斯顿大学的Tri-Dao，已经发布了他们新架构的最新版本Mamba-3，作为Apache 2.0开源许可证下的语言模型，使其可立即供开发人员使用，包括用于商业目的的企业。一篇技术论文也发表在arXiv.org上。该模型标志着从训练效率到“推理优先”设计的范式转变。正如顾在官方公告中指出的那样，虽然Mamba-2专注于打破预训练瓶颈，但Mamba-3旨在解决“冷GPU”问题：在解码过程中，现代硬件经常处于空闲状态，等待内存移动而不是执行计算。Mamba，包括Mamba 3，是一种状态空间模型（SSM）。这些实际上是人工智能的高速“摘要机”。虽然许多流行的模型（如ChatGPT背后的模型）必须重新检查他们已经看到的每一个单词，以了解接下来会发生什么——对话持续的时间越长，速度越慢，成本越高——但SSM保持了一个紧凑、不断变化的内部状态。这种状态本质上是整个数据历史的数字“心理快照”。随着新信息的流入，模型只需更新此快照，而不是从头重新读取所有内容。这使得人工智能能够以惊人的速度和更低的内存要求处理大量信息，如整个图书馆的书籍或长链DNA。要理解曼巴-3所代表的飞跃，首先必须理解困惑，这是研究中用来衡量模型质量的主要指标。在语言建模的背景下，困惑度是衡量模型对新数据有多“惊讶”的指标。把模特想象成职业赌徒。如果一个模型有高度的困惑，它不确定在哪里下注；它认为许多可能的下一个单词同样有可能。较低的困惑度得分表明该模型更“确定”——它更好地掌握了人类语言的潜在模式。对于人工智能构建者来说，困惑是智能的高保真代理。曼巴-3研究报告的突破是，它实现了与其前身曼巴-2相当的困惑，同时只使用了一半的州规模。这意味着模型可以同样智能，同时运行效率是原来的两倍。指导Mamba-3的哲学是我们如何看待人工智能“智能”与它运行的硬件速度的根本转变。虽然上一代的Mamba-2旨在以破纪录的速度进行训练，但Mamba-3是一种“推理优先”的架构——推理是指通过ChatGPT或Google Gemini等网站或应用程序编程接口（API）向最终用户提供AI模型的方式。Mamba 3的主要目标是最大限度地利用计算机芯片（GPU）的每一秒活动时间，确保模型尽可能地思考，而不会让用户等待答案。在语言模型的世界里，每一点准确性都来之不易。在15亿参数范围内，Mamba-3最先进的“MIMO”变体在基准测试中实现了57.6%的平均精度，比行业标准Transformer提高了2.2个百分点。虽然两点跳跃听起来可能不大，但与Transformer基线相比，它实际上代表了语言建模能力的相对增长近4%。更令人印象深刻的是，如上所述，Mamba-3可以在只使用一半内部“状态大小”的情况下达到其前身的预测质量，有效地提供相同水平的智能，同时显著减少内存延迟。多年来，变形金刚的高效替代品都存在“逻辑缺口”——它们经常在简单的推理任务中失败，比如跟踪模式或解决基本算术问题，因为它们的内部数学过于僵化。Mamba-3通过引入复值状态来解决这个问题。这种数学升级就像一个内部指南针，使模型能够表示“旋转”逻辑。通过使用这种“旋转”方法，Mamba-3可以近乎完美地解决其前辈只能猜测的逻辑谜题和状态跟踪任务，最终使线性模型的推理能力与最先进的系统相媲美。最后一个难题是Mamba-3如何与物理硬件交互。如今，大多数人工智能模型都是“内存受限”的，这意味着计算机芯片大部分时间都处于空闲状态，等待数据从内存转移到处理器。Mamba-3引入了多输入多输出（MIMO）公式，从根本上改变了这种动态。通过在每个步骤中并行执行多达四倍的数学运算，Mamba-3利用了以前“空闲”的功率。这允许模型对它生成的每个单词进行更多的“思考”，而不会增加用户等待响应的实际时间。下面将详细介绍这些内容。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/open-source-mamba-3-arrives-to-surpass-transformer-architecture-with-nearly" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
