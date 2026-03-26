@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-26 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-26</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 86.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Google's TurboQuant AI-compression algorithm can reduce LLM memory usage by 6x</div>
+      <div class="col-content">Even if you don’t know much about the inner workings of generative AI models, you probably know they need a lot of memory. Hence, it is currently almost impossible to buy a measly stick of RAM without getting fleeced . Google Research recently revealed TurboQuant , a compression algorithm that reduces the memory footprint of large language models (LLMs) while also boosting speed and maintaining accuracy. TurboQuant is aimed at reducing the size of the key-value cache, which Google likens to a “digital cheat sheet” that stores important information so it doesn’t have to be recomputed. This cheat sheet is necessary because, as we say all the time, LLMs don’t actually know anything; they can do a good impression of knowing things through the use of vectors, which map the semantic meaning of tokenized text. When two vectors are similar, that means they have conceptual similarity. High-dimensional vectors, which can have hundreds or thousands of embeddings, may describe complex information like the pixels in an image or a large data set. They also occupy a lot of memory and inflate the size of the key-value cache, bottlenecking performance. To make models smaller and more efficient, developers employ quantization techniques to run them at lower precision . The drawback is that the outputs get worse—the quality of token estimation goes down. With TurboQuant, Google’s early results show an 8x performance increase and 6x reduction in memory usage in some tests without a loss of quality. Applying TurboQuant to an AI model is a two-step process. To achieve high-quality compression, Google has devised a system called PolarQuant. Usually, vectors in AI models are encoded using standard XYZ coordinates, but PolarQuant converts vectors into polar coordinates in a Cartesian system. On this circular grid, the vectors are reduced to two pieces of information: a radius (core data strength) and a direction (the data’s meaning). Google offers an interesting real-world analogy to explain this process. The vector coordinates are like directions, so the traditional encoding might be “Go 3 blocks East, 4 blocks North.” But using Cartesian coordinates, it’s simply “Go 5 blocks at 37-degrees.” This takes up less space and saves the system from performing expensive data normalization steps. PolarQuant is doing most of the compression, but the second step cleans up the rough spots. While PolarQuant is effective, it can create residual errors. Google proposes smoothing that out with a technique called Quantized Johnson-Lindenstrauss (QJL). This applies a 1-bit error-correction layer to the model, reducing each vector to a single bit (+1 or -1) while preserving the essential vector data that describes relationships. The result is a more accurate attention score—that’s the fundamental process by which neural networks decide what data is important. If you’re interested in more detail, the pre-print paper is available for download. So does all this math work? Google says it tested the new algorithmic compression across a suite of long-context benchmarks using both Gemma and Mistral open models. TurboQuant apparently had perfect downstream results in all tests while reducing memory usage in the key-value cache by 6x. The algorithm can quantize the cache to just 3 bits with no additional training, so it can be applied to existing models. Computing the attention score with 4-bit TurboQuant is also 8x faster compared to 32-bit unquantized keys on Nvidia H100 accelerators. If implemented, TurboQuant could make AI models less expensive to run and less hungry for memory. However, the companies creating this technology could also use the newly freed-up memory to run more complex models. It’ll probably be a mix of both, but mobile AI could see more benefit. With the hardware limitations of a smartphone, compression techniques like TurboQuant could improve the quality of outputs without sending your data to the cloud.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">谷歌的TurboQuant AI压缩算法可以将LLM内存使用量减少6倍</div>
+      <div class="col-content">即使你对生成式人工智能模型的内部运作知之甚少，你可能也知道它们需要大量的内存。因此，目前几乎不可能在不被欺骗的情况下购买一小块RAM。谷歌研究最近公布了TurboQuant，这是一种压缩算法，可以减少大型语言模型（LLM）的内存占用，同时提高速度并保持准确性。TurboQuant旨在减小键值缓存的大小，谷歌将其比作存储重要信息的“数字备忘单”，这样就不必重新计算。这份备忘单是必要的，因为正如我们一直说的那样，LLMs实际上什么都不知道；他们可以通过使用向量来给人留下了解事物的良好印象，向量映射了标记化文本的语义意义。当两个向量相似时，这意味着它们具有概念相似性。高维向量可以有数百或数千个嵌入，可以描述复杂的信息，如图像或大型数据集中的像素。它们还占用了大量内存，并扩大了键值缓存的大小，从而成为性能的瓶颈。为了使模型更小、更高效，开发人员采用量化技术以较低的精度运行它们。缺点是输出变差——令牌估计的质量下降。使用TurboQuant，谷歌的早期结果显示，在某些测试中，性能提高了8倍，内存使用量减少了6倍，而质量没有损失。将TurboQuant应用于AI模型是一个两步过程。为了实现高质量的压缩，谷歌设计了一个名为PolarQuant的系统。通常，AI模型中的向量使用标准XYZ坐标进行编码，但PolarQuant将向量转换为笛卡尔坐标系中的极坐标。在这个圆形网格上，向量被简化为两条信息：半径（核心数据强度）和方向（数据的含义）。谷歌提供了一个有趣的现实世界类比来解释这一过程。矢量坐标类似于方向，因此传统的编码可能是“向东走3个块，向北走4个块”。但使用笛卡尔坐标，它只是“在37度角上走5个块。”这占用了更少的空间，并节省了系统执行昂贵的数据归一化步骤的时间。PolarQuant正在进行大部分压缩，但第二步是清理粗糙点。虽然PolarQuant是有效的，但它会产生残余误差。谷歌建议用一种称为量化约翰逊-林登斯特劳斯（QJL）的技术来平滑这一点。这将向模型应用1位纠错层，将每个向量减少到单个位（+1或-1），同时保留描述关系的基本向量数据。结果是更准确的注意力得分——这是神经网络决定哪些数据重要的基本过程。如果您对更多细节感兴趣，可以下载预印本。那么，所有这些数学都有效吗？谷歌表示，它使用Gemma和Mistral开放模型在一套长上下文基准测试中测试了新的算法压缩。TurboQuant在所有测试中都有完美的下游结果，同时将键值缓存中的内存使用量减少了6倍。该算法可以将缓存量化到3位，而无需额外的训练，因此可以应用于现有的模型。与Nvidia H100加速器上的32位未量化按键相比，使用4位TurboQuant计算注意力得分的速度也快8倍。如果实施，TurboQuant可以使AI模型运行成本更低，内存需求更少。然而，创建这项技术的公司也可以使用新释放的内存来运行更复杂的模型。这可能是两者的结合，但移动AI可能会看到更多的好处。由于智能手机的硬件限制，像TurboQuant这样的压缩技术可以在不将数据发送到云端的情况下提高输出质量。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/03/google-says-new-turboquant-compression-can-lower-ai-memory-usage-without-sacrificing-quality/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
