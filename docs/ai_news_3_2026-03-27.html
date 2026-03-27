@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-27 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-27</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Intercom's new post-trained Fin Apex 1.0 beats GPT-5.4 and Claude Sonnet 4.6 at customer service resolutions</div>
+      <div class="col-content">Intercom is taking an unusual gamble for a legacy software company: building its own AI model. The 15-year-old massive customer service platform announced Fin Apex 1.0 on Thursday, a small, purpose-built AI model that the company claims outperforms leading frontier models from OpenAI and Anthropic on the metrics that matter most for customer support. The model powers Intercom's existing Fin AI agent , which already handles over two million customer conversations weekly. According to benchmarks shared with VentureBeat, Fin Apex 1.0 achieves a 73.1% resolution rate—the percentage of customer issues fully resolved without human intervention—compared to 71.1% for both GPT-5.4 and Claude Opus 4.5, and 69.6% for Claude Sonnet 4.6. That roughly 2 percentage point margin may sound modest, but it's wider than the typical gap between successive generations of frontier models. "If you're running large service operations at scale and you've got 10 million customers or a billion dollars in revenue, a delta of 2% or 3% is a really large amount of customers and interactions and revenue," Intercom CEO Eoghan McCabe told VentureBeat in a video call interview earlier this week. The model also shows significant improvements in speed and accuracy. Fin Apex delivers responses in 3.7 seconds—0.6 seconds faster than the next-fastest competitor—and demonstrates a 65% reduction in hallucinations compared to Claude Sonnet 4.6. Perhaps most striking for enterprise buyers: it runs at roughly one-fifth the cost of using frontier models directly, and is included in Intercom's existing "per-outcome"-based pricing structure for its existing customer plans. But there's a catch. When asked to specify which base model Apex was built on—and its parameter size—Intercom declined. "We're not sharing the base model we used for Apex 1.0—for competitive reasons and also because we plan to switch base models over time," a company spokesperson told VentureBeat. The company would only confirm that the model is "in the size of hundreds of billions of parameters." F or comparison, Meta's Llama 3.1 ranges from 8 billion to 405 billion parameters, and larger frontier models like GPT-5.4 are suspected to be in the trillions. Whether Apex's performance claims hold up against that context—or whether the benchmarks reflect optimizations possible only in narrow, domain-specific applications—remains an open question. Intercom says it learned from the backlash AI coding startup Cursor faced when critics accused the coding assistant of burying the fact that its Composer 2 model was built on fine-tuned open-weights models rather than proprietary technology. But the lesson Intercom drew may not satisfy skeptics: the company is transparent that it used an open-weights base, just not which one. "We are very transparent that we have" used an open-weights model, the spokesperson said. Yet declining to name the model while claiming transparency is a contradiction that will likely draw scrutiny—particularly as more companies tout "proprietary" AI that amounts to post-trained open-source foundations. Intercom's argument is that the base model simply doesn't matter much anymore. "Pre-training is kind of a commodity now," McCabe said. "The frontier, if you will, is actually in post-training. Post-training is the hard part. You need proprietary data. You need proprietary sources of truth." The company post-trained its chosen foundation using years of proprietary customer service data accumulated through Fin, which now resolves 2 million customer queries per week. That process involved more than just feeding transcripts into a model. Intercom built reinforcement learning systems grounded in real resolution outcomes, teaching the model what successful customer service actually looks like—the appropriate tone, judgment calls, conversational structure, and critically, how to recognize when an issue is truly resolved versus when a customer is still frustrated. "The generic models are trained on generic data on the internet. The specific models are trained on hyper-specific domain data," McCabe explained. "It stands to reason therefore that the intelligence of the generic models is generic, and the intelligence of the specific models is domain-specific and therefore operates in a far superior way for that use case." If McCabe is right that the magic is entirely in post-training, the reluctance to name the base becomes harder to justify. If the foundation is truly interchangeable, what competitive advantage does secrecy protect? The announcement comes as Intercom's AI-first pivot appears to be working. Fin is approaching $100 million in annual recurring revenue and growing at 3.5x, making it the fastest-growing segment of the company's $400 million ARR business. Fin is projected to represent half of Intercom's total revenue early next year. That trajectory represents a remarkable turnaround. When Fin launched, its resolution rate was just 23%. Today it averages 67% across customers, with some large enterprise deployments seeing rates as high as 75%. To make this happen, Intercom grew its AI team from roughly 6 researchers to 60 over the past three years—a significant investment for a company that McCabe admits was "in a really bad place" before its AI pivot. The average growth rate for public software companies sits around 11%; Intercom expects to hit 37% growth this year. "We're by far the first in the category to train our own model," McCabe said. "There's no one else that's going to have this for a year or more." McCabe's thesis aligns with a broader trend that Andrej Karpathy, former AI leader at Tesla and OpenAI, recently described as the "speciation" of AI models—a proliferation of specialized systems optimized for narrow tasks rather than general intelligence. Customer service, McCabe argues, is uniquely suited for this approach.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Intercom的新培训后Fin Apex 1.0在客户服务解决方案上击败了GPT-5.4和Claude Sonnet 4.6</div>
+      <div class="col-content">Intercom正在为一家传统软件公司进行一场不同寻常的赌博：建立自己的人工智能模型。这家拥有15年历史的大型客户服务平台周四宣布了Fin Apex 1.0，这是一个专门构建的小型人工智能模型，该公司声称，在对客户支持最重要的指标上，该模型优于OpenAI和Anthropic的领先前沿模型。该模型为Intercom现有的Fin-AI代理提供支持，该代理每周已经处理了200多万次客户对话。根据与VentureBeat共享的基准，Fin Apex 1.0的解决率为73.1%，即在没有人为干预的情况下完全解决客户问题的百分比，而GPT-5.4和Claude Opus 4.5的解决率均为71.1%，Claude Sonnet 4.6的解决率则为69.6%。大约2个百分点的差距听起来可能不大，但它比连续几代前沿模型之间的典型差距要大。Intercom首席执行官Eoghan McCabe在本周早些时候的一次视频通话采访中告诉VentureBeat：“如果你正在大规模运营大型服务业务，并且拥有1000万客户或10亿美元的收入，那么2%或3%的增量就是一笔非常大的客户、互动和收入。”。该模型还显示了速度和精度的显著提高。Fin Apex的反应时间为3.7秒，比第二快的竞争对手快0.6秒，与克劳德·索内特4.6相比，幻觉减少了65%。也许对企业买家来说最引人注目的是：它的成本大约是直接使用前沿模型的五分之一，并且包含在Intercom现有客户计划的基于“按结果”的定价结构中。但有一个问题。当被要求指定Apex是基于哪个基础模型构建的，以及它的参数大小时，Intercom拒绝了。一位公司发言人告诉VentureBeat：“出于竞争原因，我们不会分享我们用于Apex 1.0的基础型号，也因为我们计划随着时间的推移更换基础型号。”。该公司只会确认该模型“有数千亿个参数”。相比之下，Meta的Llama 3.1的参数范围在80亿到4050亿之间，而GPT-5.4等更大的前沿模型可能有数万亿个参数。Apex的性能声明是否符合这种情况，或者基准测试是否反映了仅在狭窄的特定领域应用程序中可能的优化，仍然是一个悬而未决的问题。Intercom表示，它从AI编码初创公司Cursor面临的强烈反对中吸取了教训，当时批评者指责Cursor掩盖了其Composer 2模型是基于微调的开放权重模型而不是专有技术构建的事实。但Intercom吸取的教训可能无法让怀疑论者满意：该公司很清楚它使用了一个开放的权重基础，只是不知道是哪一个。发言人说：“我们非常透明，我们使用了开放权重模型。”。然而，在声称透明度的同时拒绝透露模型的名称是一个矛盾，这可能会引起审查——特别是随着越来越多的公司吹捧“专有”人工智能，这相当于经过培训的开源基金会。Intercom的论点是，基础模型根本不再重要。麦凯布说：“现在，预训练是一种商品。”。“如果你愿意的话，前沿实际上是岗位培训。岗位培训是最难的部分。你需要专有数据。你需要私有的真相来源。”该公司使用Fin积累的多年专有客户服务数据对其选定的基础进行了岗位培训，Fin现在每周解决200万个客户查询。这个过程不仅仅涉及将成绩单输入模型。Intercom构建了基于真实解决结果的强化学习系统，向模型传授成功的客户服务实际是什么样子的——适当的语气、判断电话、对话结构，以及如何批判性地识别问题何时真正得到解决，何时客户仍然感到沮丧。McCabe解释说：“通用模型是在互联网上的通用数据上训练的。特定模型是在超特定领域数据上训练。”。“因此，通用模型的智能是通用的，而特定模型的智能则是特定于领域的，因此对于该用例来说，其运作方式要优越得多。”。如果基础真的可以互换，那么保密保护了什么竞争优势？这一消息发布之际，Intercom的人工智能第一支点似乎正在发挥作用。Fin的年经常性收入接近1亿美元，并以3.5倍的速度增长，使其成为该公司4亿美元ARR业务中增长最快的部分。Fin预计将占Intercom明年初总收入的一半。这一轨迹代表了一个显著的转变。Fin推出时，其分辨率仅为23%。如今，客户的平均比率为67%，一些大型企业部署的比率高达75%。为了实现这一目标，Intercom在过去三年中将其人工智能团队从大约6名研究人员增加到60名——对于一家麦卡贝承认在人工智能转型之前“处境非常糟糕”的公司来说，这是一项重大投资。公共软件公司的平均增长率约为11%；Intercom预计今年将实现37%的增长。麦凯布说：“到目前为止，我们是该类别中第一个训练自己模型的人。”。“没有其他人会在一年或更长时间内拥有这种能力。”McCabe的论文与特斯拉和OpenAI前人工智能负责人Andrej Karpathy最近描述的更广泛的趋势相一致，即人工智能模型的“物种形成”——为狭义任务而非通用智能优化的专用系统的激增。麦凯布认为，客户服务非常适合这种方法。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/intercoms-new-post-trained-fin-apex-1-0-beats-gpt-5-4-and-claude-sonnet-4-6" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
