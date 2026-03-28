@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-28 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-28</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 92.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">When Is Collective Intelligence a Lottery? Multi-Agent Scaling Laws for Memetic Drift in LLMs</div>
+      <div class="col-content">arXiv:2603.24676v1 Announce Type: new Abstract: Multi-agent systems powered by large language models (LLMs) are increasingly deployed in settings that shape consequential decisions, both directly and indirectly. Yet it remains unclear whether their outcomes reflect collective reasoning, systematic bias, or mere chance. Recent work has sharpened this question with naming games, showing that even when no individual agent favors any label a priori, populations rapidly break symmetry and reach consensus. Here, we reveal the mechanism by introducing a minimal model, Quantized Simplex Gossip (QSG), and trace the microscopic origin of this agreement to mutual in-context learning. In QSG, agents maintain internal belief states but learn from one another's sampled outputs, so one agent's arbitrary choice becomes the next agent's evidence and can compound toward agreement. By analogy with neutral evolution, we call this sampling-driven regime memetic drift. QSG predicts a crossover from a drift-dominated regime, where consensus is effectively a lottery, to a selection regime, where weak biases are amplified and shape the outcome. We derive scaling laws for drift-induced polarization as a function of population size, communication bandwidth, in-context adaptation rate, and agents' internal uncertainty, and we validate them in both QSG simulations and naming-game experiments with LLM populations. Together, these results provide a framework for studying the collective mechanisms of social representation formation in multi-agent systems.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">什么时候集体智慧是彩票？LLM中模漂移的多智能体标度律</div>
+      <div class="col-content">arXiv:2603.24676v1公告类型：new摘要：由大型语言模型（LLM）驱动的多代理系统越来越多地部署在直接和间接影响重大决策的环境中。然而，目前尚不清楚他们的结果是反映了集体推理、系统偏见，还是仅仅是偶然。最近的工作通过命名游戏使这个问题更加尖锐，表明即使没有单个代理先验地支持任何标签，群体也会迅速打破对称并达成共识。在这里，我们通过引入一个最小模型——量化单纯形八卦（QSG）来揭示这一机制，并将这一协议的微观起源追溯到上下文学习中的相互作用。在QSG中，智能体保持内部信念状态，但从彼此的采样输出中学习，因此一个智能体的任意选择成为下一个智能方的证据，并可以朝着一致的方向发展。通过与中性进化的类比，我们称之为抽样驱动的制度模因漂移。QSG预测，从漂移主导的制度（共识实际上是彩票）到选择制度（弱偏见被放大并塑造结果）的交叉。我们推导了漂移诱导极化的缩放定律，该定律是种群大小、通信带宽、上下文适应率和代理内部不确定性的函数，并在QSG模拟和LLM种群命名游戏实验中验证了它们。这些结果共同为研究多智能体系统中社会表征形成的集体机制提供了一个框架。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2603.24676" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
