@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-03-28 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-03-28</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">IndexCache, a new sparse attention optimizer, delivers 1.82x faster inference on long-context AI models</div>
+      <div class="col-content">Processing 200,000 tokens through a large language model is expensive and slow: the longer the context, the faster the costs spiral. Researchers at Tsinghua University and Z.ai have built a technique called IndexCache that cuts up to 75% of the redundant computation in sparse attention models, delivering up to 1.82x faster time-to-first-token and 1.48x faster generation throughput at that context length. The technique applies to models using the DeepSeek Sparse Attention architecture, including the latest DeepSeek and GLM families. It can help enterprises provide faster user experiences for production-scale, long-context models, a capability already proven in preliminary tests on the 744-billion-parameter GLM-5 model. Large language models rely on the self-attention mechanism, a process where the model computes the relationship between every token in its context and all the preceding ones to predict the next token. However, self-attention has a severe limitation. Its computational complexity scales quadratically with sequence length. For applications requiring extended context windows (e.g., large document processing, multi-step agentic workflows, or long chain-of-thought reasoning), this quadratic scaling leads to sluggish inference speeds and significant compute and memory costs. Sparse attention offers a principled solution to this scaling problem. Instead of calculating the relationship between every token and all preceding ones, sparse attention optimizes the process by having each query select and attend to only the most relevant subset of tokens. DeepSeek Sparse Attention (DSA) is a highly efficient implementation of this concept, first introduced in DeepSeek-V3.2 . To determine which tokens matter most, DSA introduces a lightweight "lightning indexer module" at every layer of the model. This indexer scores all preceding tokens and selects a small batch for the main core attention mechanism to process. By doing this, DSA slashes the heavy core attention computation from quadratic to linear, dramatically speeding up the model while preserving output quality. But the researchers identified a lingering flaw: the DSA indexer itself still operates at a quadratic complexity at every single layer. Even though the indexer is computationally cheaper than the main attention process, as context lengths grow, the time the model spends running these indexers skyrockets. This severely slows down the model, especially during the initial "prefill" stage where the prompt is first processed. To solve the indexer bottleneck, the research team discovered a crucial characteristic of how DSA models process data. The subset of important tokens an indexer selects remains remarkably stable as data moves through consecutive transformer layers. Empirical tests on DSA models revealed that adjacent layers share between 70% and 100% of their selected tokens. To capitalize on this cross-layer redundancy, the researchers developed IndexCache. The technique partitions the model’s layers into two categories. A small number of full (F) layers retain their indexers, actively scoring the tokens and choosing the most important ones to cache. The rest of the layers become shared (S), performing no indexing and reusing the cached indices from the nearest preceding F layer. During inference, the model simply checks the layer type. If it reaches an F layer, it calculates and caches fresh indices. If it is an S layer, it skips the math and copies the cached data. There is a wide range of optimization techniques that try to address the attention bottleneck by compressing the KV cache , where the computed attention values are stored. Instead of shrinking the memory footprint like standard KV cache compression, IndexCache attacks the compute bottleneck. “IndexCache is not a traditional KV cache compression or sharing technique,” Yushi Bai, co-author of the paper, told VentureBeat. “It eliminates this redundancy by reusing indices across layers, thereby reducing computation rather than just memory footprint. It is complementary to existing approaches and can be combined with them.” The researchers developed two deployment approaches for IndexCache. (It is worth noting that IndexCache only applies to models that use the DSA architecture, such as the latest DeepSeek models and the latest family of GLM models.) For developers working with off-the-shelf DSA models where retraining is unfeasible or too expensive, they created a training-free method relying on a “greedy layer selection” algorithm. By running a small calibration dataset through the model, this algorithm automatically determines the optimal placement of F and S layers without any weight updates. Empirical evidence shows that the greedy algorithm can safely remove 75% of the indexers while matching the downstream performance of the original model. For teams pre-training or heavily fine-tuning their own foundation models, the researchers propose a training-aware version that optimizes the network parameters to natively support cross-layer sharing. This approach introduces a “multi-layer distillation loss” during training. It forces each retained indexer to learn how to select a consensus subset of tokens that will be highly relevant for all the subsequent layers it serves. To test the impact of IndexCache, the researchers applied it to the 30-billion-parameter GLM-4.7 Flash model and compared it against the standard baseline. At a 200K context length, removing 75% of the indexers slashed the prefill latency from 19.5 seconds down to just 10.7 seconds, delivering a 1.82x speedup. The researchers note these speedups are expected to be even greater in longer contexts. During the decoding phase, where the model generates its response, IndexCache boosted per-request throughput from 58 tokens per second to 86 tokens per second at the 200K context mark, yielding a 1.48x speedup.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">IndexCache是一种新的稀疏注意力优化器，对长上下文AI模型的推理速度提高了1.82倍</div>
+      <div class="col-content">通过大型语言模型处理200000个令牌既昂贵又缓慢：上下文越长，成本螺旋式上升得越快。清华大学和Z.ai的研究人员建立了一种名为IndexCache的技术，该技术可以减少稀疏注意力模型中高达75%的冗余计算，在该上下文长度下，第一个令牌的时间缩短了1.82倍，生成吞吐量提高了1.48倍。该技术适用于使用DeepSeek稀疏注意力架构的模型，包括最新的DeepSeek和GLM系列。它可以帮助企业为生产规模的长上下文模型提供更快的用户体验，这一能力已经在7440亿参数的GLM-5模型的初步测试中得到了验证。大型语言模型依赖于自我注意机制，在这个过程中，模型计算其上下文中的每个标记与所有先前标记之间的关系，以预测下一个标记。然而，自我关注存在严重的局限性。其计算复杂度与序列长度呈二次方关系。对于需要扩展上下文窗口的应用程序（例如，大型文档处理、多步骤代理工作流或长链思维推理），这种二次缩放会导致推理速度缓慢，计算和内存成本巨大。稀疏的注意力为这个缩放问题提供了一个有原则的解决方案。稀疏注意力不是计算每个令牌和所有先前令牌之间的关系，而是通过让每个查询只选择和关注最相关的令牌子集来优化过程。DeepSeek稀疏注意力（DSA）是这一概念的高效实现，首次在DeepSeek-V3.2中引入。为了确定哪些令牌最重要，DSA在模型的每一层都引入了一个轻量级的“闪电索引器模块”。该索引器对所有前面的令牌进行评分，并选择一小部分供主核心注意力机制处理。通过这样做，DSA将繁重的核心注意力计算从二次减少到线性，大大加快了模型的速度，同时保持了输出质量。但研究人员发现了一个挥之不去的缺陷：DSA索引器本身在每一层上仍然以二次复杂度运行。尽管索引器在计算上比主要注意力过程便宜，但随着上下文长度的增长，模型运行这些索引器的时间会飙升。这严重减慢了模型的速度，尤其是在首次处理提示的初始“预填充”阶段。为了解决索引器瓶颈，研究团队发现了DSA模型处理数据的一个关键特征。当数据在连续的变换器层中移动时，索引器选择的重要标记子集保持非常稳定。对DSA模型的实证测试表明，相邻层共享其选定令牌的70%至100%。为了利用这种跨层冗余，研究人员开发了IndexCache。该技术将模型的层分为两类。少数完整（F）层保留了它们的索引器，主动对令牌进行评分，并选择最重要的令牌进行缓存。其余层变为共享层（S），不执行索引，而是重用最近的前一个F层的缓存索引。在推理过程中，模型只是检查层类型。如果它到达F层，它会计算并缓存新的索引。如果是S层，它将跳过数学运算并复制缓存的数据。有各种各样的优化技术试图通过压缩存储计算出的注意力值的KV缓存来解决注意力瓶颈问题。IndexCache没有像标准的KV缓存压缩那样缩小内存占用，而是攻击了计算瓶颈。“IndexCache不是一种传统的KV缓存压缩或共享技术，”该论文的合著者Yushi Bai告诉VentureBeat。“它通过跨层重用索引来消除这种冗余，从而减少计算，而不仅仅是内存占用。它是对现有方法的补充，可以与它们结合。”研究人员为IndexCache开发了两种部署方法。（值得注意的是，IndexCache仅适用于使用DSA架构的模型，如最新的DeepSeek模型和最新的GLM模型系列。）对于使用现成DSA模型的开发人员来说，再训练不可行或成本太高，他们创建了一种依赖于“贪婪层选择”算法的无训练方法。通过在模型中运行一个小型校准数据集，该算法自动确定F和S层的最佳位置，而无需任何权重更新。经验证据表明，贪婪算法可以安全地删除75%的索引器，同时与原始模型的下游性能相匹配。对于预先训练或大量微调自己的基础模型的团队，研究人员提出了一种训练感知版本，该版本优化了网络参数，以原生支持跨层共享。这种方法在训练过程中引入了“多层蒸馏损失”。它迫使每个保留的索引器学习如何选择与它所服务的所有后续层高度相关的令牌共识子集。为了测试IndexCache的影响，研究人员将其应用于300亿参数的GLM-4.7 Flash模型，并将其与标准基线进行了比较。在200K的上下文长度下，删除75%的索引器将预填充延迟从19.5秒缩短到10.7秒，速度提高了1.82倍。研究人员指出，在更长的时间内，这些加速预计会更大。在模型生成响应的解码阶段，IndexCache在200K上下文标记处将每个请求的吞吐量从每秒58个令牌提高到每秒86个令牌，从而实现了1.48倍的加速。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/indexcache-a-new-sparse-attention-optimizer-delivers-1-82x-faster-inference" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
