@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-01 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-01</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The Claude Code Source Leak: fake tools, frustration regexes, undercover mode</div>
+      <div class="col-content">Update: see HN discussions about this post: https://news.ycombinator.com/item?id=47586778 I use Claude Code daily, so when Chaofan Shou noticed earlier today that Anthropic had shipped a .map file alongside their Claude Code npm package, one containing the full, readable source code of the CLI tool, I immediately wanted to look inside. The package has since been pulled, but not before the code was widely mirrored, including myself and picked apart on Hacker News . This is Anthropic’s second accidental exposure in a week (the model spec leak was just days ago), and some people on Twitter are starting to wonder if someone inside is doing this on purpose. Probably not, but it’s a bad look either way. The timing is hard to ignore: just ten days ago, Anthropic sent legal threats to OpenCode , forcing them to remove built-in Claude authentication because third-party tools were using Claude Code’s internal APIs to access Opus at subscription rates instead of pay-per-token pricing. That whole saga makes some of the findings below more pointed. So I spent my morning reading through the HN comments and leaked source. Here’s what I found, roughly ordered by how “spicy” I thought it was. In claude.ts (line 301-313) , there’s a flag called ANTI_DISTILLATION_CC . When enabled, Claude Code sends anti_distillation: ['fake_tools'] in its API requests. This tells the server to silently inject decoy tool definitions into the system prompt. The idea: if someone is recording Claude Code’s API traffic to train a competing model, the fake tools pollute that training data. It’s gated behind a GrowthBook feature flag ( tengu_anti_distill_fake_tool_injection ) and only active for first-party CLI sessions. This was one of the first things people noticed on HN. There’s also a second anti-distillation mechanism in betas.ts (lines 279-298) , server-side connector-text summarization. When enabled, the API buffers the assistant’s text between tool calls, summarizes it, and returns the summary with a cryptographic signature. On subsequent turns, the original text can be restored from the signature. If you’re recording API traffic, you only get the summaries, not the full reasoning chain. How hard would it be to work around these? Not very. Looking at the activation logic in claude.ts , the fake tools injection requires all four conditions to be true: the ANTI_DISTILLATION_CC compile-time flag, the cli entrypoint, a first-party API provider, and the tengu_anti_distill_fake_tool_injection GrowthBook flag returning true. A MITM proxy that strips the anti_distillation field from request bodies before they reach the API would bypass it entirely, since the injection is server-side and opt-in. The shouldIncludeFirstPartyOnlyBetas() function also checks for CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS , so setting that env var to a truthy value disables the whole thing. And if you’re using a third-party API provider or the SDK entrypoint instead of the CLI, the check never fires at all. The connector-text summarization is even more narrowly scoped, Anthropic-internal-only ( USER_TYPE === 'ant' ), so external users won’t encounter it regardless. Anyone serious about distilling from Claude Code traffic would find the workarounds in about an hour of reading the source. The real protection is probably legal, not technical. The file undercover.ts (about 90 lines) implements a mode that strips all traces of Anthropic internals when Claude Code is used in non-internal repos. It instructs the model to never mention internal codenames like “Capybara” or “Tengu,” internal Slack channels, repo names, or the phrase “Claude Code” itself. “There is NO force-OFF. This guards against model codename leaks.” You can force it ON with CLAUDE_CODE_UNDERCOVER=1 , but there’s no way to force it off. In external builds, the entire function gets dead-code-eliminated to trivial returns. This is a one-way door. This means AI-authored commits and PRs from Anthropic employees in open source projects will have no indication that an AI wrote them. Hiding internal codenames is reasonable. Having the AI actively pretend to be human is a different thing. userPromptKeywords.ts contains a regex pattern that detects user frustration:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">克劳德代码源代码泄漏：假工具、挫折规则、卧底模式</div>
+      <div class="col-content">更新：请参阅HN关于此帖子的讨论：https://news.ycombinator.com/item?id=47586778我每天都在使用Claude Code，所以当Chaofan Shou今天早些时候注意到Anthropic在他们的Claude Code npm包旁边附带了一个.map文件时，我立刻想看看里面。该软件包已被撤回，但在此之前，代码被广泛镜像，包括我自己，并在Hacker News上被拆分。这是Anthropic在一周内第二次意外曝光（型号规格泄漏就在几天前），推特上的一些人开始怀疑内部是否有人故意这样做。可能不会，但不管怎样，这看起来都很糟糕。时机很难忽视：就在十天前，Anthropic向OpenCode发送了法律威胁，迫使他们删除内置的Claude身份验证，因为第三方工具正在使用Claude Code的内部API以订阅费率而不是按令牌付费的价格访问Opus。整个故事使下面的一些发现更加尖锐。所以我花了一上午的时间阅读了HN的评论和泄露的消息来源。这是我发现的，大致按照我认为它有多“辣”来排序。在claude.ts（第301-313行）中，有一个名为ANTI_DISTILATION_CC的标志。启用时，Claude Code会在其API请求中发送anti_disation:[‘fake_tools’]。这告诉服务器在系统提示中静默地注入诱饵工具定义。这个想法是：如果有人记录Claude Code的API流量来训练一个竞争模型，那么伪造的工具就会污染训练数据。它位于GrowthBook功能标志（tengu_anti_distill_fake_tool_injection）后面，仅对第一方CLI会话有效。这是人们在HN上注意到的第一件事。betas.ts中还有第二种反蒸馏机制（第279-298行），即服务器端连接器文本摘要。启用时，API在工具调用之间缓冲助手的文本，对其进行汇总，并返回带有加密签名的摘要。在后续的回合中，可以从签名中恢复原始文本。如果你正在记录API流量，你只得到摘要，而不是完整的推理链。解决这些问题有多难？不太好。从claude.ts中的激活逻辑来看，伪工具注入需要所有四个条件都为真：ANTI_DISTINATION_CC compile-time标志、cli入口点、第一方API提供程序，以及返回真的tengu_ANTI_disall_fake_tool_injection GrowthBook标志。MITM代理在请求体到达API之前从请求体中剥离anti_disalization字段，这将完全绕过它，因为注入是服务器端的，并且是选择性的。shouldIncludeFirstPartyOnlyBetas（）函数还检查CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS，因此将env var设置为truthy值将禁用整个过程。如果您使用第三方API提供程序或SDK入口点而不是CLI，则根本不会触发检查。连接器文本摘要的范围更窄，仅限于Anthropic内部（USER_TYPE==='ant'），因此外部用户无论如何都不会遇到它。任何认真考虑从Claude Code中提取流量的人都会在阅读源代码大约一个小时后找到解决方法。真正的保护可能是法律上的，而不是技术上的。underver.ts文件（约90行）实现了一种模式，当在非内部存储库中使用Claude Code时，该模式会剥离Anthropic内部的所有痕迹。它指示模型永远不要提及内部代号，如“Capybara”或“Tengu”，内部Slack频道，回购名称或短语“Claude Code”本身。“没有强制关闭。这可以防止模型代号泄漏。”您可以使用CLAUDE_CODE_UNDERCOVER=1强制打开它，但无法强制关闭它。在外部构建中，整个函数会消除死代码，返回微不足道的代码。这是一扇单向门。这意味着人工智能撰写的开源项目中Anthropic员工的提交和PR将没有迹象表明是人工智能编写的。隐藏内部代号是合理的。让人工智能主动假装成人类是另一回事。userPromptKeywords.ts包含一个检测用户挫折感的正则表达式模式：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://alex000kim.com/posts/2026-03-31-claude-code-source-leak/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
