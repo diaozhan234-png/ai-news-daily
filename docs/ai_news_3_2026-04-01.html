@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-01 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-01</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">CrowdStrike, Cisco and Palo Alto Networks all shipped agentic SOC tools at RSAC 2026 — the agent behavioral baseline gap survived all three</div>
+      <div class="col-content">CrowdStrike CEO George Kurtz highlighted in his RSA Conference 2026 keynote that the fastest recorded adversary breakout time has dropped to 27 seconds. The average is now 29 minutes, down from 48 minutes in 2024. That is how much time defenders have before a threat spreads. Now CrowdStrike sensors detect more than 1,800 distinct AI applications running on enterprise endpoints, representing nearly 160 million unique application instances. Every one generates detection events, identity events, and data access logs flowing into SIEM systems architected for human-speed workflows. Cisco found that 85% of surveyed enterprise customers have AI agent pilots underway . Only 5% moved agents into production, according to Cisco President and Chief Product Officer Jeetu Patel in his RSAC blog post . That 80-point gap exists because security teams cannot answer the basic questions agents force. Which agents are running, what are they authorized to do, and who is accountable when one goes wrong. “The number one threat is security complexity. But we’re running towards that direction in AI as well,” Etay Maor, VP of Threat Intelligence at Cato Networks, told VentureBeat at RSAC 2026. Maor has attended the conference for 16 consecutive years. “We’re going with multiple point solutions for AI. And now you’re creating the next wave of security complexity.” In most default logging configurations, agent-initiated activity looks identical to human-initiated activity in security logs. “It looks indistinguishable if an agent runs Louis’s web browser versus if Louis runs his browser,” Elia Zaitsev, CTO of CrowdStrike, told VentureBeat in an exclusive interview at RSAC 2026. Distinguishing the two requires walking the process tree. “I can actually walk up that process tree and say, this Chrome process was launched by Louis from the desktop. This Chrome process was launched from Louis’s Claude Cowork or ChatGPT application. Thus, it’s agentically controlled.” Without that depth of endpoint visibility, a compromised agent executing a sanctioned API call with valid credentials fires zero alerts. The exploit surface is already being tested. During his keynote, Kurtz described ClawHavoc, the first major supply chain attack on an AI agent ecosystem, targeting ClawHub, OpenClaw's public skills registry. Koi Security's February audit found 341 malicious skills out of 2,857; a follow-up analysis by Antiy CERT identified 1,184 compromised packages historically across the platform . Kurtz noted ClawHub now hosts 13,000 skills in its registry. The infected skills contained backdoors, reverse shells, and credential harvesters; Kurtz said in his keynote that some erased their own memory after installation and could remain latent before activating. "The frontier AI creators will not secure itself," Kurtz said. "The frontier labs are following the same playbook. They're building it. They're not securing it." Approach A: AI agents inside the SIEM. Cisco and Splunk announced six specialized AI agents for Splunk Enterprise Security: Detection Builder, Triage, Guided Response, Standard Operating Procedures (SOP), Malware Threat Reversing, and Automation Builder. Malware Threat Reversing is currently available in Splunk Attack Analyzer and Detection Studio is generally available as a unified workspace; the remaining five agents are in alpha or prerelease through June 2026. Exposure Analytics and Federated Search follow the same timeline. Upstream of the SOC, Cisco's DefenseClaw framework scans OpenClaw skills and MCP servers before deployment, while new Duo IAM capabilities extend zero trust to agents with verified identities and time-bound permissions. “The biggest impediment to scaled adoption in enterprises for business-critical tasks is establishing a sufficient amount of trust,” Patel told VentureBeat. “Delegating and trusted delegating, the difference between those two, one leads to bankruptcy. The other leads to market dominance.” Approach B: Upstream pipeline detection. CrowdStrike pushed analytics into the data ingestion pipeline itself, integrating its Onum acquisition natively into Falcon’s ingestion system for real-time analytics, detection, and enrichment before events reach the analyst’s queue. Falcon Next-Gen SIEM now ingests Microsoft Defender for Endpoint telemetry natively, so Defender shops do not need additional sensors. CrowdStrike also introduced federated search across third-party data stores and a Query Translation Agent that converts legacy Splunk queries to accelerate SIEM migration. Falcon Data Security for the Agentic Enterprise applies cross-domain data loss prevention to data agents' access at runtime. CrowdStrike’s adversary-informed cloud risk prioritization connects agent activity in cloud workloads to the same detection pipeline. Agentic MDR through Falcon Complete adds machine-speed managed detection for teams that cannot build the capability internally. “The agentic SOC is all about, how do we keep up?” Zaitsev said. “There’s almost no conceivable way they can do it if they don’t have their own agentic assistance.” CrowdStrike opened its platform to external AI providers through Charlotte AI AgentWorks, announced at RSAC 2026, letting customers build custom security agents on Falcon using frontier AI models. Launch partners include Accenture, Anthropic, AWS, Deloitte, Kroll, NVIDIA, OpenAI, Salesforce, and Telefónica Tech. IBM validated buyer demand through a collaboration integrating Charlotte AI with its Autonomous Threat Operations Machine for coordinated, machine-speed investigation and containment. The ecosystem contenders. Palo Alto Networks, in an exclusive pre-RSAC briefing with VentureBeat, outlined Prisma AIRS 3.0, extending its AI security platform to agents with artifact scanning, agent red teaming, and a runtime that catches memory poisoning and excessive permissions. The company introduced an agentic identity provider for agent discovery and credential validation.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">CrowdStrike、思科和Palo Alto Networks都在RSAC 2026上发布了代理SOC工具——代理行为基线差距在这三个方面都存在</div>
+      <div class="col-content">CrowdStrike首席执行官George Kurtz在其2026年RSA大会主题演讲中强调，有记录以来最快的对手突破时间已降至27秒。现在的平均时长为29分钟，低于2024年的48分钟。这就是防守队员在威胁蔓延之前有多少时间。现在，CrowdStrike传感器检测到在企业端点上运行的1800多个不同的AI应用程序，代表了近1.6亿个独特的应用程序实例。每个人都会生成检测事件、身份事件和数据访问日志，这些日志流入为人类速度工作流而构建的SIEM系统。思科发现，85%的受访企业客户正在进行人工智能代理试点。思科总裁兼首席产品官Jeetu Patel在其RSAC博客文章中表示，只有5%的公司将代理商投入生产。之所以存在80分的差距，是因为安全团队无法回答特工们提出的基本问题。哪些代理正在运行，他们被授权做什么，当一个人出错时谁要负责。卡托网络公司威胁情报副总裁Etay Maor在RSAC 2026上告诉VentureBeat：“头号威胁是安全复杂性。但我们在人工智能领域也在朝着这个方向发展。”。毛已经连续16年参加会议。“我们将为人工智能提供多点解决方案。现在，你正在创造下一波安全复杂性。”在大多数默认日志配置中，代理发起的活动在安全日志中看起来与人类发起的活动完全相同。CrowdStrike的首席技术官Elia Zaitsev在RSAC 2026的一次独家采访中告诉VentureBeat：“如果代理运行Louis的网络浏览器，与Louis运行他的浏览器，看起来没有区别。”。区分这两者需要遍历流程树。“实际上，我可以走上进程树，说这个Chrome进程是由Louis从桌面启动的。这个Chrome进程从Louis的Claude Cowork或ChatGPT应用程序启动。因此，它受到代理控制。”如果没有深度的端点可见性，一个使用有效凭据执行受制裁的API调用的受损代理将不会发出任何警报。漏洞表面已经在测试中。Kurtz在主题演讲中描述了ClawHavoc，这是针对人工智能代理生态系统的第一次重大供应链攻击，目标是OpenClaw的公共技能注册中心ClawHub。Koi Security 2月份的审计发现，2857项技能中有341项是恶意技能；Antiy CERT的后续分析确定了整个平台历史上1184个受损包。Kurtz指出，ClawHub现在在其注册表中拥有13000项技能。受感染的技能包括后门、反向外壳和凭证采集器；Kurtz在他的主题演讲中说，一些人在安装后擦除了自己的记忆，并可能在激活前保持潜伏状态。库尔茨说：“前沿人工智能创造者将无法保护自己。”。“前沿实验室也在遵循同样的剧本。他们正在构建它。他们没有保护它。”方法A：SIEM内部的人工智能代理。思科和Splunk宣布了Splunk企业安全的六个专业人工智能代理：检测生成器、分类、引导响应、标准操作程序（SOP）、恶意软件威胁逆转和自动化生成器。恶意软件威胁逆转目前可在Splunk攻击分析器中使用，检测工作室通常作为一个统一的工作区使用；其余五个代理处于alpha或预发布状态，将持续到2026年6月。曝光分析和联合搜索遵循相同的时间线。在SOC的上游，思科的DefenseLaw框架在部署前扫描OpenClaw技能和MCP服务器，而新的Duo IAM功能将零信任扩展到具有经过验证的身份和有时限的权限的代理。Patel告诉VentureBeat：“企业大规模采用关键业务任务的最大障碍是建立足够的信任。”。“委托和信任委托，两者之间的区别，一个导致破产。另一个导致市场主导地位。”方法B：上游管道检测。CrowdStrike将分析推向数据摄入管道本身，将其对Onum的收购原生集成到Falcon的摄入系统中，以便在事件到达分析师队列之前进行实时分析、检测和富集。Falcon下一代SIEM现在原生采用Microsoft Defender进行端点遥测，因此Defender商店不需要额外的传感器。CrowdStrike还引入了跨第三方数据存储的联合搜索，以及一个查询转换代理，该代理可以转换传统的Splunk查询，以加速SIEM迁移。Falcon Data Security for the Agentic Enterprise在运行时对数据代理的访问应用了跨域数据丢失防护。CrowdStrike的对手通知云风险优先级将云工作负载中的代理活动连接到相同的检测管道。通过Falcon Complete的代理MDR为无法在内部建立能力的团队增加了机器速度管理检测。扎伊采夫说：“代理SOC的意义在于，我们如何跟上？”。“如果他们没有自己的代理协助，他们几乎无法想象。”CrowdStrike通过在RSAC 2026上宣布的Charlotte AI AgentWorks向外部AI提供商开放了平台，让客户使用前沿AI模型在Falcon上构建自定义安全代理。发布合作伙伴包括埃森哲、Anthropic、AWS、德勤、Kroll、NVIDIA、OpenAI、Salesforce和Telefónica Tech。IBM通过将Charlotte AI与其自主威胁操作机器集成，以协调、机器速度的调查和遏制，验证了买家的需求。生态系统竞争者。Palo Alto Networks在与VentureBeat的RSAC前独家简报中概述了Prisma AIRS 3.0，将其人工智能安全平台扩展到具有工件扫描、代理红队和捕获内存中毒和过度权限的运行时的代理。该公司推出了一个代理身份提供商，用于代理发现和凭证验证。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/rsac-2026-agentic-soc-agent-telemetry-security-gap" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
