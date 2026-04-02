@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-02 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-02</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 86.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Here's what that Claude Code source leak reveals about Anthropic's plans</div>
+      <div class="col-content">Yesterday’s surprise leak of the source code for Anthropic’s Claude Code revealed a lot about the vibe-coding scaffolding the company has built around its proprietary Claude model. But observers digging through over 512,000 lines of code across more than 2,000 files have also discovered references to disabled, hidden, or inactive features that provide a peek into the potential roadmap for future features. Chief among these features is Kairos , a persistent daemon that can operate in the background even when the Claude Code terminal window is closed. The system would use periodic “<tick>” prompts to regularly review whether new actions are needed and a “PROACTIVE” flag for “surfacing something the user hasn’t asked for and needs to see now.” Kairos makes use of a file-based “memory system” designed to allow for persistent operation across user sessions. A prompt hidden behind a disabled “KAIROS” flag in the code explains that the system is designed to “have a complete picture of who the user is, how they’d like to collaborate with you, what behaviors to avoid or repeat, and the context behind the work the user gives you.” To organize and consolidate this memory system across sessions, the Claude Code source code includes references to an evocatively named AutoDream system . When a user goes idle or manually tells Anthropic to sleep at the end of a session, the AutoDream system would tell Claude Code that “you are performing a dream—a reflective pass over your memory files.” This prompt describing this AI “dream” process asks Claude Code to scan the day’s transcripts for “new information worth persisting,” consolidate that new information in a way that avoids “near-duplicates” and “contradictions,” and prune existing memories that are overly verbose or newly outdated. Claude Code would also be instructed to watch out for “existing memories that drifted,” an issue we’ve seen previously when Claude users have tried to graft memory systems onto their harnesses . The overall goal would be to “synthesize what you’ve learned recently into durable, well-organized memories so that future sessions can orient quickly,” according to the prompt. While the Kairos daemon doesn’t seem to have been fully implemented in code yet, a separate “Undercover mode” appears to be inactive, letting Anthropic employees contribute to public open source repositories without revealing themselves as AI agents. The reference prompts for this mode focus primarily on protecting “internal model codenames, project names, or other Anthropic-internal information” from becoming accidentally public through open source commits. But the prompt also explicitly tells the system that its commits should “never include… the phrase ‘Claude Code’ or any mention that you are an AI,” and to omit any “co-Authored-By lines or any other attribution.” That kind of obfuscation seems especially relevant given recent controversies surrounding AI coding tools being used on popular repositories. On the lighter side, the Claude Code source code also describes Buddy , a Clippy-like “separate watcher” that “sits beside the user’s input box and occasionally comments in a speech bubble.” These virtual creatures would come in 18 randomized “species” forms ranging from blob to axolotl and appear as five-line-by-12-column ASCII art animations with tiny hats. A comment suggests that Buddy was planned for a “teaser window” launch between April 1 and 7 before a full launch in May. It’s unclear how the source code leak has impacted those plans. Other potential planned Claude Code features referenced in the source code leak include:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">以下是Claude Code源代码泄露所揭示的关于Anthropic计划的内容</div>
+      <div class="col-content">昨天Anthropic的Claude code的源代码意外泄露，揭示了该公司围绕其专有的Claude模型构建的氛围编码框架的很多信息。但是，观察者在2000多个文件中挖掘了512000多行代码，还发现了对禁用、隐藏或非活动功能的引用，这些功能为未来功能的潜在路线图提供了线索。这些功能中最主要的是Kairos，这是一个持久的守护进程，即使在Claude Code终端窗口关闭时，它也可以在后台运行。该系统将使用定期的“<tick>”提示来定期检查是否需要新的操作，并使用“PROACTIVE”标志来“显示用户没有要求但现在需要看到的东西”。Kairos使用基于文件的“内存系统”，旨在允许跨用户会话的持久操作。代码中禁用的“KAIROS”标志后面隐藏的提示解释说，该系统旨在“全面了解用户是谁，他们想如何与你合作，避免或重复哪些行为，以及用户给你的工作背后的上下文。”为了在会话中组织和巩固这个记忆系统，Claude code源代码包括对一个令人回味的AutoDream系统的引用。当用户空闲或手动地告诉Anthropic在会话结束时睡眠时，AutoDream系统会告诉Claude Code“你正在做一个梦——对你的记忆文件进行反思。”这个描述人工智能“梦”过程的提示要求Claude Code扫描当天的记录，寻找“值得坚持的新信息”，以避免“接近重复”和“矛盾”的方式整合新信息，并修剪过于冗长或新过时的现有记忆。Claude Code还将被指示注意“漂移的现有记忆”，这是我们之前在Claude用户试图将记忆系统移植到他们的安全带上时看到的问题。根据提示，总体目标是“将你最近学到的知识综合成持久、组织良好的记忆，以便未来的课程能够快速确定方向”。虽然Kairos守护进程似乎还没有完全在代码中实现，但一个单独的“卧底模式”似乎处于非活动状态，让Anthropic员工为公共开源存储库做出贡献，而不会将自己暴露为人工智能代理。此模式的参考提示主要侧重于保护“内部模型代号、项目名称或其他Anthropic内部信息”，防止其通过开源提交意外公开。但提示也明确地告诉系统，其提交“永远不应该包括……‘克劳德代码’或任何提及你是人工智能的内容”，并省略任何“共同署名或任何其他归因”。鉴于最近围绕流行存储库中使用的人工智能编码工具的争议，这种模糊似乎尤其相关。从更轻松的方面来看，Claude Code源代码还描述了Buddy，一个类似Clippy的“独立观察者”，“坐在用户的输入框旁边，偶尔在语音气泡中发表评论”。这些虚拟生物将以18种随机的“物种”形式出现，从blob到axolotl，并以五行乘十二列的ASCII艺术动画形式出现，戴着小帽子。一条评论表明，Buddy计划在4月1日至7日期间推出“预告窗口”，然后在5月全面推出。目前尚不清楚源代码泄漏对这些计划有何影响。源代码泄漏中引用的其他潜在计划的Claude Code功能包括：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/04/heres-what-that-claude-code-source-leak-reveals-about-anthropics-plans/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
