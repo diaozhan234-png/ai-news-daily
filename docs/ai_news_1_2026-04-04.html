@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-04 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-04</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Karpathy shares 'LLM Knowledge Base' architecture that bypasses RAG with an evolving markdown library maintained by AI</div>
+      <div class="col-content">AI vibe coders have yet another reason to thank Andrej Karpathy , the coiner of the term. The former Director of AI at Tesla and co-founder of OpenAI, now running his own independent AI project, recently posted on X describing a "LLM Knowledge Bases" approach he's using to manage various topics of research interest. By building a persistent, LLM-maintained record of his projects, Karpathy is solving the core frustration of "stateless" AI development: the dreaded context-limit reset. As anyone who has vibe coded can attest, hitting a usage limit or ending a session often feels like a lobotomy for your project. You’re forced to spend valuable tokens (and time) reconstructing context for the AI, hoping it "remembers" the architectural nuances you just established. Karpathy proposes something simpler and more loosely, messily elegant than the typical enterprise solution of a vector database and RAG pipeline. Instead, he outlines a system where the LLM itself acts as a full-time "research librarian"—actively compiling, linting, and interlinking Markdown (.md) files, the most LLM-friendly and compact data format. By diverting a significant portion of his "token throughput" into the manipulation of structured knowledge rather than boilerplate code, Karpathy has surfaced a blueprint for the next phase of the "Second Brain"—one that is self-healing, auditable, and entirely human-readable. For the past three years, the dominant paradigm for giving LLMs access to proprietary data has been Retrieval-Augmented Generation (RAG) . In a standard RAG setup, documents are chopped into arbitrary "chunks," converted into mathematical vectors (embeddings), and stored in a specialized database. When a user asks a question, the system performs a "similarity search" to find the most relevant chunks and feeds them into the LLM.Karpathy’s approach, which he calls LLM Knowledge Bases , rejects the complexity of vector databases for mid-sized datasets. Instead, it relies on the LLM’s increasing ability to reason over structured text. The system architecture, as visualized by X user @himanshu in part of the wider reactions to Karpathy's post, functions in three distinct stages: Data Ingest: Raw materials—research papers, GitHub repositories, datasets, and web articles—are dumped into a raw/ directory. Karpathy utilizes the Obsidian Web Clipper to convert web content into Markdown ( .md ) files, ensuring even images are stored locally so the LLM can reference them via vision capabilities. The Compilation Step: This is the core innovation. Instead of just indexing the files, the LLM "compiles" them. It reads the raw data and writes a structured wiki. This includes generating summaries, identifying key concepts, authoring encyclopedia-style articles, and—crucially—creating backlinks between related ideas. Active Maintenance (Linting): The system isn't static. Karpathy describes running "health checks" or "linting" passes where the LLM scans the wiki for inconsistencies, missing data, or new connections. As community member Charly Wargnier observed, "It acts as a living AI knowledge base that actually heals itself." By treating Markdown files as the "source of truth," Karpathy avoids the "black box" problem of vector embeddings. Every claim made by the AI can be traced back to a specific .md file that a human can read, edit, or delete. While Karpathy’s setup is currently described as a "hacky collection of scripts," the implications for the enterprise are immediate. As entrepreneur Vamshi Reddy (@tammireddy) noted in response to the announcement: "Every business has a raw/ directory. Nobody’s ever compiled it. That’s the product." Karpathy agreed, suggesting that this methodology represents an "incredible new product" category. Most companies currently "drown" in unstructured data—Slack logs, internal wikis, and PDF reports that no one has the time to synthesize. A "Karpathy-style" enterprise layer wouldn't just search these documents; it would actively author a "Company Bible" that updates in real-time. As AI educator and newsletter author Ole Lehmann put it on X : "i think whoever packages this for normal people is sitting on something massive. one app that syncs with the tools you already use, your bookmarks, your read-later app, your podcast app, your saved threads." Eugen Alpeza, co-founder and CEO of AI enterprise agent builder and orchestration startup Edra, noted in an X post that: "The jump from personal research wiki to enterprise operations is where it gets brutal. Thousands of employees, millions of records, tribal knowledge that contradicts itself across teams. Indeed, there is room for a new product and we’re building it in the enterprise." As the community explores the "Karpathy Pattern," the focus is already shifting from personal research to multi-agent orchestration. A recent architectural breakdown by @jumperz , founder of AI agent creation platform Secondmate , illustrates this evolution through a "Swarm Knowledge Base" that scales the wiki workflow to a 10-agent system managed via OpenClaw. The core challenge of a multi-agent swarm—where one hallucination can compound and "infect" the collective memory—is addressed here by a dedicated "Quality Gate." Using the Hermes model (trained by Nous Research for structured evaluation) as an independent supervisor, every draft article is scored and validated before being promoted to the "live" wiki. This system creates a "Compound Loop": agents dump raw outputs, the compiler organizes them, Hermes validates the truth, and verified briefings are fed back to agents at the start of each session. This ensures that the swarm never "wakes up blank," but instead begins every task with a filtered, high-integrity briefing of everything the collective has learned A common critique of non-vector approaches is scalability.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Karpathy共享“LLM知识库”架构，该架构绕过RAG，并由AI维护不断发展的降价库</div>
+      <div class="col-content">AI氛围程序员还有另一个理由感谢该术语的发明者Andrej Karpathy。特斯拉前人工智能总监和OpenAI的联合创始人，现在正在运行自己的独立人工智能项目，最近在X上发布了一篇文章，描述了他用来管理各种研究兴趣主题的“LLM知识库”方法。通过建立一个持久的、由法学硕士维护的项目记录，Karpathy正在解决“无状态”人工智能开发的核心挫折：可怕的上下文限制重置。正如任何有氛围编码的人都可以证明的那样，达到使用限制或结束会话通常会让你的项目感觉像是脑白质切除术。你被迫花费宝贵的代币（和时间）为人工智能重建上下文，希望它“记住”你刚刚建立的架构细微差别。Karpathy提出了一种比矢量数据库和RAG管道的典型企业解决方案更简单、更松散、更优雅的解决方案。相反，他概述了一个系统，在这个系统中，法学硕士本身充当全职的“研究图书馆员”——积极编译、整理和链接Markdown（.md）文件，这是法学硕士最友好、最紧凑的数据格式。通过将他的“令牌吞吐量”的很大一部分转移到结构化知识的操纵上，而不是样板代码，Karpathy为“第二大脑”的下一阶段描绘了蓝图——一个自我修复、可审计、完全人类可读的大脑。在过去的三年里，让LLM访问专有数据的主要范式是检索增强生成（RAG）。在标准的RAG设置中，文档被切成任意的“块”，转换为数学向量（嵌入），并存储在专门的数据库中。当用户提出问题时，系统会执行“相似性搜索”以找到最相关的块并将其输入LLM。Karpathy的方法，他称之为LLM知识库，拒绝了中型数据集的矢量数据库的复杂性。相反，它依赖于法学硕士对结构化文本推理能力的增强。X用户@himanshu在对Karpathy帖子的广泛反应中展示了系统架构，该架构分为三个不同的阶段：数据摄入：原始材料——研究论文、GitHub存储库、数据集和网络文章——被转储到一个原始/目录中。Karpathy利用Obsidian Web Clipper将Web内容转换为Markdown（.md）文件，确保甚至图像都存储在本地，以便LLM可以通过视觉功能引用它们。编译步骤：这是核心创新。LLM不仅对文件进行索引，还对其进行“编译”。它读取原始数据并编写一个结构化的维基。这包括生成摘要、确定关键概念、撰写百科全书式的文章，以及——至关重要的是——在相关想法之间创建反向链接。主动维护（Linting）：系统不是静态的。Karpathy描述了运行“健康检查”或“linting”过程，LLM在其中扫描维基是否存在不一致、缺失数据或新连接。正如社区成员Charly Warnier所观察到的那样，“它就像一个活生生的人工智能知识库，实际上可以自我修复。”通过将Markdown文件视为“真理之源”，Karpathy避免了向量嵌入的“黑匣子”问题。AI提出的每一项声明都可以追溯到一个特定的.md文件，人类可以读取、编辑或删除该文件。虽然Karpathy的设置目前被描述为“一系列古怪的脚本”，但对企业的影响是立竿见影的。正如企业家Vamshi Reddy（@tammireddy）在回应这一公告时所指出的那样：“每家企业都有一个原始/目录。从来没有人编译过。这就是产品。”Karpathy表示赞同，认为这种方法代表了一种“令人难以置信的新产品”类别。目前，大多数公司都“淹没”在非结构化数据中——Slack日志、内部维基和PDF报告，没有人有时间进行综合。“Karpathy风格”的企业层不会只搜索这些文档；它将积极撰写一本实时更新的“公司圣经”。正如人工智能教育者和时事通讯作者Ole Lehmann在X上所说：“我认为，任何为普通人打包这些东西的人都坐在一个巨大的东西上。一个与你已经使用的工具、书签、稍后阅读的应用程序、播客应用程序、保存的线程同步的应用程序。”人工智能企业代理构建器和编排初创公司Edra的联合创始人兼首席执行官Eugen Alpeza在一篇X帖子中指出：“从个人研究维基到企业运营的跳跃是残酷的。成千上万的员工、数百万条记录、跨团队相互矛盾的部落知识。事实上，新产品还有空间，我们正在企业中构建它。”随着社区探索“Karpathy模式”，重点已经从个人研究转向多代理编排。人工智能代理创建平台Secondmate的创始人@jumperz最近的一项架构分解通过“Swarm知识库”说明了这一演变，该知识库将维基工作流程扩展到通过OpenClaw管理的10个代理系统。多智能体群体的核心挑战——一个幻觉可以复合并“感染”集体记忆——在这里由一个专门的“质量门”来解决。使用Hermes模型（由Nous Research训练用于结构化评估）作为独立的监督者，每一篇文章草案在被推广到“实时”维基之前都要经过评分和验证。该系统创建了一个“复合循环”：代理转储原始输出，编译器组织它们，Hermes验证真相，并在每个会话开始时将经过验证的简报反馈给代理。这确保了群体永远不会“醒来时一片空白”，而是以一个经过过滤的、高度完整的简报开始每一项任务，介绍集体学到的一切。对非矢量方法的一个常见批评是可扩展性。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/data/karpathy-shares-llm-knowledge-base-architecture-that-bypasses-rag-with-an" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
