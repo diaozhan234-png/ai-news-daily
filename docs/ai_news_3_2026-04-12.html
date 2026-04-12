@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-12 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-12</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 82.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">How We Broke Top AI Agent Benchmarks: And What Comes Next</div>
+      <div class="col-content">Our agent hacked every major one. Here’s how — and what the field needs to fix. Every week, a new AI model climbs to the top of a benchmark leaderboard. Companies cite these numbers in press releases. Investors use them to justify valuations. Engineers use them to pick which model to deploy. The implicit promise is simple: a higher score means a more capable system. We built an automated scanning agent that systematically audited eight among the most prominent AI agent benchmarks — SWE-bench, WebArena, OSWorld, GAIA, Terminal-Bench, FieldWorkArena, and CAR-bench — and discovered that every single one can be exploited to achieve near-perfect scores without solving a single task. No reasoning. No capability. Just exploitation of how the score is computed. These aren’t theoretical attacks. Our agent builds working exploits for each benchmark, runs them through the official evaluation pipelines, and watches the scores roll in. The benchmarks aren’t measuring what you think they’re measuring. Benchmark scores are actively being gamed, inflated, or rendered meaningless, not in theory, but in practice: IQuest-Coder-V1 claimed 81.4% on SWE-bench — then researchers found that 24.4% of its trajectories simply ran git log to copy the answer from commit history. Corrected score: 76.2%. The benchmark’s shared environment made the cheat trivial. METR found that o3 and Claude 3.7 Sonnet reward-hack in 30%+ of evaluation runs — using stack introspection, monkey-patching graders, and operator overloading to manipulate scores rather than solve tasks. OpenAI dropped SWE-bench Verified after an internal audit found that 59.4% of audited problems had flawed tests — meaning models were being scored against broken ground truth. In KernelBench , torch.empty() returns stale GPU memory that happens to contain the reference answer from the evaluator’s prior computation — zero computation, full marks. Anthropic’s Mythos Preview showed that frontier models can actively try to hack the environment and succeed. In one episode, the model needed to edit files it lacked permissions for; after searching for workarounds, it found a way to inject code into a config file that would run with elevated privileges, and designed the exploit to delete itself after running . If a model can independently craft self-erasing privilege escalation exploits, it can find the holes in an evaluation harness. These are not isolated incidents. They are symptoms of a systemic problem: the benchmarks we rely on to measure AI capability are themselves vulnerable to the very capabilities they claim to measure. Zero tasks solved. Zero LLM calls (in most cases). Near-perfect scores. Terminal-Bench evaluates agents on 89 complex terminal tasks (from building COBOL chess engines to configuring distributed systems). It uses Harbor, a sandboxing framework that re-uploads protected test files before verification. Containers have full internet access — Harbor’s allow_internet config defaults to True and no task overrides it. Harbor correctly protects /tests/ — but it doesn’t protect system binaries.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">我们如何打破顶级AI代理基准：接下来会发生什么</div>
+      <div class="col-content">我们的特工入侵了每一个主要目标。以下是该领域需要解决的问题和方法。每周，一个新的人工智能模型都会登上基准排行榜的榜首。公司在新闻稿中引用了这些数字。投资者用它们来证明估值的合理性。工程师使用它们来选择要部署的模型。隐含的承诺很简单：更高的分数意味着更有能力的系统。我们构建了一个自动扫描代理，系统地审核了八个最著名的人工智能代理基准测试——SWE bench、WebArena、OSWorld、GAIA、Terminal bench、FieldWorkArena和CAR bench——并发现每一个都可以在不解决任何任务的情况下获得近乎完美的分数。没有道理。没有能力。只是利用分数是如何计算的。这些不是理论上的攻击。我们的代理为每个基准构建工作漏洞，通过官方评估管道运行它们，并观察分数的滚动。基准并没有衡量你认为它们在衡量什么。基准分数正在被积极地游戏、夸大或变得毫无意义，不是在理论上，而是在实践中：IQuest-Coder-V1在SWE测试台上声称81.4%，然后研究人员发现，24.4%的轨迹只是运行git log来复制提交历史中的答案。修正得分：76.2%。基准测试的共享环境使作弊变得微不足道。METR发现，o3和Claude 3.7 Sonnet在30%以上的评估运行中奖励黑客攻击——使用堆栈自检、猴子补丁评分器和运算符重载来操纵分数，而不是解决任务。OpenAI放弃了SWE bench Verified，因为内部审计发现59.4%的审计问题都有缺陷的测试，这意味着模型是根据突破性的事实进行评分的。在KernelBench中，torch.empty（）返回过时的GPU内存，该内存恰好包含计算器先前计算的参考答案——零计算，满分。Anthropic的Mythos Preview表明，前沿模型可以积极尝试破解环境并取得成功。在一集中，模型需要编辑它没有权限的文件；在寻找解决方法后，它找到了一种将代码注入到以提升权限运行的配置文件中的方法，并将漏洞设计为在运行后自行删除。如果一个模型可以独立地制造自擦除权限升级漏洞，它就可以找到评估工具中的漏洞。这些不是孤立的事件。它们是系统性问题的症状：我们用来衡量人工智能能力的基准本身就容易受到他们声称要衡量的能力的影响。未解决任何任务。零LLM调用（在大多数情况下）。近乎完美的分数。Terminal Bench评估89个复杂终端任务（从构建COBOL国际象棋引擎到配置分布式系统）上的代理。它使用Harbor，这是一个沙盒框架，在验证之前重新上传受保护的测试文件。容器具有完全的互联网访问权限——Harbor的allow_internet配置默认为True，没有任务覆盖它。Harbor正确地保护/tests/，但它不保护系统二进制文件。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
