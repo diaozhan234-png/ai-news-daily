@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-12 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-12</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI agent credentials live in the same box as untrusted code. Two new architectures show where the blast radius actually stops.</div>
+      <div class="col-content">Four separate RSAC 2026 keynotes arrived at the same conclusion without coordinating. Microsoft's Vasu Jakkal told attendees that zero trust must extend to AI. Cisco's Jeetu Patel called for a shift from access control to action control, saying in an exclusive interview with VentureBeat that agents behave "more like teenagers, supremely intelligent, but with no fear of consequence." CrowdStrike's George Kurtz identified AI governance as the biggest gap in enterprise technology. Splunk's John Morgan called for an agentic trust and governance model. Four companies. Four stages. One problem . Matt Caulfield, VP of Product for Identity and Duo at Cisco, put it bluntly in an exclusive VentureBeat interview at RSAC. "While the concept of zero trust is good, we need to take it a step further," Caulfield said. "It's not just about authenticating once and then letting the agent run wild. It's about continuously verifying and scrutinizing every single action the agent's trying to take, because at any moment, that agent can go rogue." Seventy-nine percent of organizations already use AI agents, according to PwC's 2025 AI Agent Survey . Only 14.4% reported full security approval for their entire agent fleet, per the Gravitee State of AI Agent Security 2026 report of 919 organizations in February 2026. A CSA survey presented at RSAC found that only 26% have AI governance policies. CSA's Agentic Trust Framework describes the resulting gap between deployment velocity and security readiness as a governance emergency. Cybersecurity leaders and industry executives at RSAC agreed on the problem. Then two companies shipped architectures that answer the question differently. The gap between their designs reveals where the real risk sits. The default enterprise agent pattern is a monolithic container. The model reasons, calls tools, executes generated code, and holds credentials in one process. Every component trusts every other component. OAuth tokens, API keys, and git credentials sit in the same environment where the agent runs code it wrote seconds ago. A prompt injection gives the attacker everything. Tokens are exfiltrable. Sessions are spawnable. The blast radius is not the agent. It is the entire container and every connected service. The CSA and Aembit survey of 228 IT and security professionals quantifies how common this remains: 43% use shared service accounts for agents, 52% rely on workload identities rather than agent-specific credentials, and 68% cannot distinguish agent activity from human activity in their logs. No single function claimed ownership of AI agent access. Security said it was a developer's responsibility. Developers said it was a security responsibility. Nobody owned it. CrowdStrike CTO Elia Zaitsev, in an exclusive VentureBeat interview, said the pattern should look familiar. "A lot of what securing agents look like would be very similar to what it looks like to secure highly privileged users. They have identities, they have access to underlying systems, they reason, they take action," Zaitsev said. "There's rarely going to be one single solution that is the silver bullet. It's a defense in depth strategy." CrowdStrike CEO George Kurtz highlighted ClawHavoc (a supply chain campaign targeting the OpenClaw agentic framework) at RSAC during his keynote . Koi Security named the campaign on February 1, 2026. Antiy CERT confirmed 1,184 malicious skills tied to 12 publisher accounts, according to multiple independent analyses of the campaign. Snyk's ToxicSkills research found that 36.8% of the 3,984 ClawHub skills scanned contain security flaws at any severity level, with 13.4% rated critical. Average breakout time has dropped to 29 minutes. Fastest observed: 27 seconds. ( CrowdStrike 2026 Global Threat Report ) Anthropic's Managed Agents , launched April 8 in public beta, split every agent into three components that do not trust each other: a brain (Claude and the harness routing its decisions), hands (disposable Linux containers where code executes), and a session (an append-only event log outside both). Separating instructions from execution is one of the oldest patterns in software. Microservices, serverless functions, and message queues. Credentials never enter the sandbox. Anthropic stores OAuth tokens in an external vault. When the agent needs to call an MCP tool, it sends a session-bound token to a dedicated proxy. The proxy fetches real credentials from the vault, makes the external call, and returns the result. The agent never sees the actual token. Git tokens get wired into the local remote at sandbox initialization. Push and pull work without the agent touching the credential. For security directors, this means a compromised sandbox yields nothing an attacker can reuse. The security gain arrived as a side effect of a performance fix. Anthropic decoupled the brain from the hands so inference could start before the container booted. Median time to first token dropped roughly 60% . The zero-trust design is also the fastest design. That kills the enterprise objection that security adds latency. Session durability is the third structural gain. A container crash in the monolithic pattern means total state loss. In Managed Agents, the session log persists outside both brain and hands. If the harness crashes, a new one boots, reads the event log, and resumes. No state lost turns into a productivity gain over time. Managed Agents include built-in session tracing through the Claude Console . Pricing: $0.08 per session-hour of active runtime, idle time excluded, plus standard API token costs. Security directors can now model agent compromise cost per session-hour against the cost of the architectural controls. Nvidia's NemoClaw , released March 16 in early preview, takes the opposite approach. It does not separate the agent from its execution environment. It wraps the entire agent inside four stacked security layers and watches every move.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">AI代理凭据与不受信任的代码位于同一个框中。两种新的架构显示了爆炸半径实际停止的地方。</div>
+      <div class="col-content">四个单独的RSAC 2026主题演讲在没有协调的情况下得出了相同的结论。微软的Vasu Jakkal告诉与会者，零信任必须延伸到人工智能。思科的Jeetu Patel呼吁从访问控制转向行动控制，他在接受VentureBeat的独家采访时表示，代理人的行为“更像青少年，非常聪明，但不必担心后果”。CrowdStrike的George Kurtz将人工智能治理确定为企业技术中最大的差距。Splunk的John Morgan呼吁采用代理信任和治理模式。四家公司。四个阶段。一个问题。思科身份和Duo产品副总裁Matt Caulfield在RSAC的VentureBeat独家采访中直言不讳地说。考尔菲尔德说：“虽然零信任的概念是好的，但我们需要更进一步。”。“这不仅仅是一次身份验证，然后让代理失控。这是关于不断验证和审查代理试图采取的每一个行动，因为在任何时候，代理都可能变得无赖。”普华永道2025年的人工智能代理调查显示，79%的组织已经在使用人工智能代理。根据2026年2月919个组织的Gravite State of AI agent security 2026报告，只有14.4%的组织报告其整个代理车队获得了完全的安全批准。在RSAC上进行的一项CSA调查发现，只有26%的人有人工智能治理政策。CSA的代理信任框架将部署速度和安全准备之间的差距描述为治理紧急情况。RSAC的网络安全领导者和行业高管对这个问题表示赞同。然后，两家公司推出了不同的架构来回答这个问题。他们的设计之间的差距揭示了真正的风险所在。默认的企业代理模式是一个单片容器。该模型在一个进程中推理、调用工具、执行生成的代码并保存凭据。每个组件都信任其他组件。OAuth令牌、API密钥和git凭据位于代理运行几秒钟前编写的代码的同一环境中。迅速注射可以给攻击者带来一切。代币是可渗透的。会话是可生成的。爆炸半径不是因素。它是整个容器和每个连接的服务。CSA和Aembit对228名IT和安全专业人员的调查量化了这种情况的普遍程度：43%的人使用共享服务帐户作为代理，52%的人依赖于工作负载身份而不是代理特定的凭据，68%的人无法在日志中区分代理活动和人类活动。没有一个函数声称拥有AI代理访问权。安全部门表示，这是开发商的责任。开发商表示，这是一项安全责任。CrowdStrike首席技术官Elia Zaitsev在接受VentureBeat独家采访时表示，这种模式应该很熟悉。扎伊采夫说：“许多安全代理的外观与保护高特权用户的外观非常相似。他们有身份，可以访问底层系统，他们推理，他们采取行动。”。CrowdStrike首席执行官George Kurtz在RSAC的主题演讲中强调了ClawHavoc（一项针对OpenClaw代理框架的供应链活动）。锦鲤安保公司于2026年2月1日宣布了这场运动。根据对该活动的多项独立分析，Antiy CERT确认了与12个发布商帐户相关的1184种恶意技能。Snyk的ToxicSkills研究发现，扫描的3984个ClawHub技能中有36.8%包含任何严重程度的安全漏洞，其中13.4%被评为严重。平均突破时间已降至29分钟。观察到的最快时间：27秒。（CrowdStrike 2026全球威胁报告）Anthropic的托管代理于4月8日发布公测版，将每个代理分为三个彼此不信任的组件：大脑（Claude和其决策的线束）、手（代码执行的一次性Linux容器）和会话（两者之外的仅可追加的事件日志）。将指令与执行分离是软件中最古老的模式之一。微服务、无服务器功能和消息队列。凭据永远不会进入沙盒。Anthropic将OAuth令牌存储在外部保险库中。当代理需要调用MCP工具时，它会向专用代理发送一个会话绑定令牌。代理从保管库中获取真实凭据，进行外部调用，并返回结果。代理永远看不到实际的令牌。Git令牌在沙盒初始化时连接到本地远程。推拉操作无需代理接触凭证。对于安全主管来说，这意味着一个被破坏的沙盒不会产生任何攻击者可以重用的东西。安全增益是性能修复的副作用。Anthropic将大脑与手分离，这样推理就可以在容器启动之前开始。首次代币发行的时间中位数下降了约60%。零信任设计也是最快的设计。这消除了企业对安全性增加延迟的反对意见。会话耐久性是第三个结构性收益。整体模式中的容器崩溃意味着完全的状态损失。在托管代理中，会话日志会在大脑和双手之外持续存在。如果线束崩溃，新的线束将启动，读取事件日志并恢复。随着时间的推移，没有哪个州的损失会转化为生产力的提高。托管代理包括通过Claude控制台的内置会话跟踪。定价：活动运行时每会话小时0.08美元，不包括空闲时间，外加标准API令牌成本。安全总监现在可以将代理每会话小时的成本与架构控制的成本进行建模。Nvidia的NemoClaw于3月16日发布了早期预览版，采取了相反的方法。它不会将代理与其执行环境分开。它将整个代理包裹在四个堆叠的安全层中，并监视每一个动作。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/ai-agent-zero-trust-architecture-audit-credential-isolation-anthropic-nvidia-nemoclaw" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
