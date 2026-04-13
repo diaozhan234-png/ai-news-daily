@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-13 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-13</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Five signs data drift is already undermining your security models</div>
+      <div class="col-content">Data drift happens when the statistical properties of a machine learning (ML) model's input data change over time, eventually rendering its predictions less accurate. Cybersecurity professionals who rely on ML for tasks like malware detection and network threat analysis find that undetected data drift can create vulnerabilities. A model trained on old attack patterns may fail to see today's sophisticated threats. Recognizing the early signs of data drift is the first step in maintaining reliable and efficient security systems. ML models are trained on a snapshot of historical data. When live data no longer resembles this snapshot, the model's performance dwindles, creating a critical cybersecurity risk . A threat detection model may generate more false negatives by missing real breaches or create more false positives, leading to alert fatigue for security teams. Adversaries actively exploit this weakness. In 2024, attackers used echo-spoofing techniques to bypass email protection services. By exploiting misconfigurations in the system, they sent millions of spoofed emails that evaded the vendor's ML classifiers. This incident demonstrates how threat actors can manipulate input data to exploit blind spots. When a security model fails to adapt to shifting tactics, it becomes a liability. Security professionals can recognize the presence of drift (or its potential) in several ways. Accuracy, precision, and recall are often the first casualties. A consistent decline in these key metrics is a red flag that the model is no longer in sync with the current threat landscape. Consider Klarna's success: Its AI assistant handled 2.3 million customer service conversations in its first month and performed work equivalent to 700 agents. This efficiency drove a 25% decline in repeat inquiries and reduced resolution times to under two minutes. Now imagine if those parameters suddenly reversed because of drift. In a security context, a similar drop in performance does not just mean unhappy clients — it also means successful intrusions and potential data exfiltration. Security teams should monitor the core statistical properties of input features, such as the mean, median, and standard deviation. A significant change in these metrics from training data could indicate the underlying data has changed. Monitoring for such shifts enables teams to catch drift before it causes a breach. For example, a phishing detection model might be trained on emails with an average attachment size of 2MB. If the average attachment size suddenly jumps to 10MB due to a new malware-delivery method, the model may fail to classify these emails correctly. Even if overall accuracy seems stable, distributions of predictions might change, a phenomenon often referred to as prediction drift. For instance, if a fraud detection model historically flagged 1% of transactions as suspicious but suddenly starts flagging 5% or 0.1%, either something has shifted or the nature of the input data has changed. It might indicate a new type of attack that confuses the model or a change in legitimate user behavior that the model was not trained to identify. For models that provide a confidence score or probability with their predictions, a general decrease in confidence can be a subtle sign of drift. Recent studies highlight the value of uncertainty quantification in detecting adversarial attacks. If the model becomes less sure about its forecasts across the board, it is likely facing data it was not trained on. In a cybersecurity setting, this uncertainty is an early sign of potential model failure, suggesting the model is operating in unfamiliar ground and that its decisions might no longer be reliable. The correlation between different input features can also change over time. In a network intrusion model, traffic volume and packet size might be highly linked during normal operations. If that correlation disappears, it can signal a change in network behavior that the model may not understand. A sudden feature decoupling could indicate a new tunneling tactic or a stealthy exfiltration attempt. Common detection methods include the Kolmogorov-Smirnov (KS) and the population stability index (PSI). These compare the distributions of live and training data to identify deviations. The KS test determines if two datasets differ significantly, while the PSI measures how much a variable's distribution has shifted over time. The mitigation method of choice often depends on how the drift manifests, as distribution changes may occur suddenly. For example, customers' buying behavior may change overnight with the launch of a new product or a promotion. In other cases, drift may occur gradually over a more extended period. That said, security teams must learn to adjust their monitoring cadence to capture both rapid spikes and slow burns. Mitigation will involve retraining the model on more recent data to reclaim its effectiveness. Data drift is an inevitable reality, and cybersecurity teams can maintain a strong security posture by treating detection as a continuous and automated process. Proactive monitoring and model retraining are fundamental practices to ensure ML systems remain reliable allies against developing threats. Zac Amos is the Features Editor at ReHack . Welcome to the VentureBeat community! Our guest posting program is where technical experts share insights and provide neutral, non-vested deep dives on AI, data infrastructure, cybersecurity and other cutting-edge technologies shaping the future of enterprise. Read more from our guest post program — and check out our guidelines if you’re interested in contributing an article of your own!</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">五个迹象表明，数据漂移已经在破坏你的安全模型</div>
+      <div class="col-content">当机器学习（ML）模型的输入数据的统计特性随时间变化时，就会发生数据漂移，最终导致其预测不那么准确。依赖机器学习进行恶意软件检测和网络威胁分析等任务的网络安全专业人员发现，未被检测到的数据漂移可能会造成漏洞。基于旧攻击模式训练的模型可能无法看到当今复杂的威胁。识别数据漂移的早期迹象是维护可靠和高效安全系统的第一步。ML模型是在历史数据的快照上训练的。当实时数据不再类似于此快照时，模型的性能会下降，从而产生严重的网络安全风险。威胁检测模型可能会因遗漏真实的漏洞而产生更多的假阴性，或产生更多的误报，导致安全团队的警报疲劳。对手积极利用这一弱点。2024年，攻击者使用回声欺骗技术绕过电子邮件保护服务。通过利用系统中的错误配置，他们发送了数百万封欺骗电子邮件，避开了供应商的机器学习分类器。此事件演示了威胁行为者如何操纵输入数据以利用盲点。当安全模型无法适应不断变化的策略时，它就会成为一种负担。安全专业人员可以通过多种方式识别漂移的存在（或其潜力）。准确性、精确性和召回率往往是首当其冲的受害者。这些关键指标的持续下降是一个危险信号，表明该模型不再与当前的威胁形势同步。想想Klarna的成功：它的人工智能助手在第一个月处理了230万次客户服务对话，完成了相当于700名客服的工作。这种效率使重复查询下降了25%，并将解决时间缩短到两分钟以下。现在想象一下，如果这些参数因漂移而突然反转。在安全方面，类似的性能下降不仅意味着客户不满意，还意味着成功的入侵和潜在的数据泄露。安全团队应监控输入特征的核心统计属性，如均值、中位数和标准差。训练数据中这些指标的显著变化可能表明基础数据已经发生了变化。对这种转变的监控使团队能够在漂移造成破坏之前抓住它。例如，网络钓鱼检测模型可能会在平均附件大小为2MB的电子邮件上进行训练。如果由于新的恶意软件传递方法，平均附件大小突然跳到10MB，则模型可能无法正确分类这些电子邮件。即使整体精度看起来稳定，预测的分布也可能发生变化，这种现象通常被称为预测漂移。例如，如果一个欺诈检测模型在历史上标记了1%的交易为可疑，但突然开始标记5%或0.1%，那么要么有什么变化，要么输入数据的性质发生了变化。这可能表明一种新的攻击类型混淆了模型，或者模型没有经过训练来识别合法用户行为的变化。对于为预测提供置信度分数或概率的模型，置信度的普遍降低可能是漂移的微妙迹象。最近的研究强调了不确定性量化在检测对抗性攻击中的价值。如果模型对其全面预测变得不那么确定，它可能会面临没有经过训练的数据。在网络安全环境中，这种不确定性是潜在模型失败的早期迹象，表明该模型在陌生的环境中运行，其决策可能不再可靠。不同输入特征之间的相关性也会随着时间而变化。在网络入侵模型中，流量和数据包大小在正常操作期间可能高度相关。如果这种相关性消失，则可能表明模型可能无法理解的网络行为发生了变化。突然的特征解耦可能表明一种新的隧道策略或一种隐形的渗透尝试。常见的检测方法包括Kolmogorov-Smirnov（KS）和群体稳定性指数（PSI）。这些比较了实时和训练数据的分布，以识别偏差。KS测试确定两个数据集是否存在显著差异，而PSI测量变量的分布随时间的变化程度。选择的缓解方法通常取决于漂移的表现，因为分布变化可能会突然发生。例如，随着新产品或促销活动的推出，客户的购买行为可能会在一夜之间发生变化。在其他情况下，漂移可能会在更长的时间内逐渐发生。也就是说，安全团队必须学会调整监控节奏，以捕捉快速峰值和缓慢烧伤。缓解措施将涉及根据最新数据重新训练模型，以恢复其有效性。数据漂移是不可避免的现实，网络安全团队可以通过将检测视为一个连续和自动化的过程来保持强大的安全态势。主动监控和模型再训练是确保机器学习系统在应对不断发展的威胁时保持可靠盟友的基本做法。Zac Amos是ReHack的功能编辑。欢迎来到VentureBeat社区！我们的客座项目是技术专家分享见解，并就人工智能、数据基础设施、网络安全和其他塑造企业未来的尖端技术提供中立、非既定的深入研究。请阅读我们的客座文章计划中的更多内容，如果您有兴趣撰写自己的文章，请查看我们的指南！</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/five-signs-data-drift-is-already-undermining-your-security-models" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
