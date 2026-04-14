@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-14 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-14</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Agentic coding at enterprise scale demands spec-driven development</div>
+      <div class="col-content">Autonomous agents are compressing software delivery timelines from weeks to days. The enterprises that scale agents safely will be the ones that build using spec-driven development. There’s a moment in every technology shift where the early adopters stop being outliers and start being the baseline. We’re at that moment in software development, and most teams don’t realize it yet. A year ago, vibe coding went viral. Non-developers and junior developers discovered they could build beyond their abilities with AI. It lowered the floor. It made prototyping much quicker, but it also introduced a surplus of slop. What the industry then needed was something that raised the ceiling — something that improved code quality and worked the way the most expert developers work. Spec-driven development did that. It laid the foundation for trustworthy autonomous coding agents. Most discussions of AI-generated code focus on whether AI can write code. The harder question is whether you can trust it. The answer runs directly through the spec. Spec-driven development starts with a deceptively simple idea: before an AI agent writes a single line of code, it works from a structured, context-rich specification that defines what the system is supposed to do, what its properties are, and what "correct" actually means. That specification is an artifact the agent reasons against throughout the entire development process — fundamentally different from pre-agentic AI approaches of writing documentation after the fact. Enterprise teams are building on this foundation. The Kiro IDE team used Kiro to build Kiro IDE — an agentic coding environment with native spec-driven development — cutting feature builds from two weeks to two days. An AWS engineering team completed an 18-month rearchitecture project, originally scoped for 30 developers, with six people in 76 days using Kiro. An Amazon.com engineering team rolled out “Add to Delivery” — a feature that lets shoppers add items after checkout — two months ahead of schedule by using Kiro and spec-driven development. Alexa+, Amazon Finance, Amazon Stores, AWS, Fire TV, Last Mile Delivery, Prime Video, and more all integrate spec-driven development as part of their build approaches. That shift changes everything downstream. The spec becomes an automated correctness engine. When a developer is generating 150 check-ins per week with AI assistance, no human can manually review that volume of code. Instead, code built against a concrete specification can be verified through property-based testing and neurosymbolic AI techniques that automatically generate hundreds of test cases derived directly from the spec, probing edge cases no human would think to write by hand. These tests prove that the code satisfies the spec’s defined properties, going well beyond hand-written test suites to provably correct behavior. Verifiable testing enables the shift from one-shot programming to continuous autonomous development. Traditional AI-assisted development operates as a single shot: you give the agent a spec, the agent produces output, and the process ends. Today’s agents continuously correct themselves, feeding build and test failures back into their own reasoning, generating additional tests to probe their own output, and iterating until they produce something both functional and verifiable. The spec is the anchor that keeps that loop from drifting. Instead of developers constantly checking in to see if the agent is making the right decisions, the agent can check itself against the spec to make sure it is on the right path. The autonomous agent of the future will write its own specs, using specifications as the mechanism for self-correction, for verification, for ensuring that what it produces matches the intended behavior of the system. The developers setting the pace today operate in a fundamentally different way. Developers spend significant time building their spec, as well as writing steering files used by the spec to make sure the agent knows what and how to build — more time than their agent may spend building the actual software. They run multiple agents in parallel to critique a problem from different perspectives, as well as run multiple specs, each written for a different component of the system they are building. They let agents run for hours, sometimes days. They use thousands of Kiro credits because the output justifies it. A year ago, agents would lose context and fall apart after 20 minutes. Now, every week you can run them longer than the week before. Agentic capabilities have improved significantly in the last six months that genuinely complex problems are tractable. Newer LLMs are more token-efficient than the previous generation, so for the same spend, you get dramatically more done. The challenge is that doing this well requires deep expertise. The tools, methodologies, and infrastructure exist, but orchestrating them is hard. The goal with Kiro is to bring these capabilities with deep expertise to every developer, not just the top one percent who’ve figured it out. Agents will be ten times more capable within a year. That’s the rate of improvement we’re seeing week over week. The infrastructure to support that level of capability is converging at the same time. Agents are now running in the cloud rather than locally, executing in parallel at scale with secure, reliable communication between agent systems. Organizations can now run agentic workloads the way they’d run any enterprise-grade distributed system — with governance, cost controls, and reliability guarantees that serious software demands. Spec-driven development is the architecture of tomorrow’s autonomous systems. Developers are no longer restricted by how they want to solve the problem.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">企业级代理编码需要规范驱动的开发</div>
+      <div class="col-content">自主代理正在将软件交付时间从几周压缩到几天。安全扩展代理的企业将是使用规范驱动开发构建的企业。在每一次技术变革中，都有一个时刻，早期采用者不再是局外人，而是开始成为基线。我们正处于软件开发阶段，大多数团队还没有意识到这一点。一年前，vibe编码在网上疯传。非开发人员和初级开发人员发现，他们可以用人工智能构建超出自己能力的东西。这降低了门槛。它使原型制作更快，但也引入了多余的废料。当时，该行业需要的是提高上限的东西——提高代码质量，并以最专业的开发人员的工作方式工作。规范驱动的开发做到了这一点。它为值得信赖的自主编码代理奠定了基础。大多数关于人工智能生成代码的讨论都集中在人工智能是否可以编写代码上。更难的问题是你是否可以信任它。答案直接贯穿于规范。规范驱动的开发始于一个看似简单的想法：在人工智能代理编写一行代码之前，它从一个结构化的、上下文丰富的规范中工作，该规范定义了系统应该做什么、它的属性是什么以及“正确”的实际含义。该规范是代理在整个开发过程中反对的工件，与事后编写文档的前代理AI方法有着根本的不同。企业团队正在这个基础上进行建设。Kiro IDE团队使用Kiro构建了Kiro IDE——一个具有原生规范驱动开发的代理编码环境——将功能构建从两周缩短到两天。一个AWS工程团队完成了一个为期18个月的重新架构项目，最初由30名开发人员负责，76天内有6人使用Kiro。亚马逊的一个工程团队通过使用Kiro和规范驱动的开发，提前两个月推出了“添加到交付”功能，该功能允许购物者在结账后添加商品。Alexa+、Amazon Finance、Amazon Stores、AWS、Fire TV、Last Mile Delivery、Prime Video等都将规范驱动的开发作为其构建方法的一部分。这种转变改变了下游的一切。规范成为一个自动正确性引擎。当一个开发人员在人工智能的帮助下每周生成150个签到时，没有人可以手动审查那么多代码。相反，根据具体规范构建的代码可以通过基于属性的测试和神经符号AI技术进行验证，这些技术可以自动生成数百个直接从规范中导出的测试用例，探测人类不会想到手工编写的边缘用例。这些测试证明代码满足规范定义的属性，远远超出了手写的测试套件，可以证明行为是正确的。可验证的测试实现了从一次性编程到持续自主开发的转变。传统的人工智能辅助开发就像一次射击：你给代理一个规格，代理产生输出，过程结束。今天的代理不断地纠正自己，将构建和测试失败反馈到自己的推理中，生成额外的测试来探测自己的输出，并迭代直到产生功能和可验证的结果。规范是防止循环漂移的锚。开发人员不必不断检查代理是否做出了正确的决定，代理可以根据规范检查自己，以确保它走在正确的道路上。未来的自主代理将编写自己的规范，使用规范作为自我纠正、验证的机制，以确保它产生的内容与系统的预期行为相匹配。今天设定步伐的开发人员以一种根本不同的方式运作。开发人员花费大量时间构建他们的规范，以及编写规范使用的指导文件，以确保代理知道构建什么以及如何构建——这比他们的代理可能花费在构建实际软件上的时间要多。他们并行运行多个代理，从不同的角度批评问题，并运行多个规范，每个规范都是为他们正在构建的系统的不同组件编写的。他们让特工跑几个小时，有时甚至几天。他们使用了数千个Kiro积分，因为输出证明了这一点。一年前，代理会失去上下文，在20分钟后崩溃。现在，每周你都可以比前一周更长时间地运行它们。在过去的六个月里，代理能力有了显著提高，真正复杂的问题是可以处理的。较新的LLM比上一代更具令牌效率，因此在相同的支出下，您可以完成更多的工作。挑战在于，做好这项工作需要深厚的专业知识。工具、方法和基础设施是存在的，但很难对其进行编排。Kiro的目标是将这些具有深厚专业知识的功能带给每一位开发人员，而不仅仅是那些已经弄清楚的前1%的开发人员。一年内，特工的能力将提高十倍。这就是我们每周看到的改善速度。支持这一能力水平的基础设施正在同时融合。代理现在在云中运行，而不是在本地运行，在代理系统之间进行安全可靠的通信，大规模并行执行。组织现在可以像运行任何企业级分布式系统一样运行代理工作负载，并具有严重软件所需的治理、成本控制和可靠性保证。规范驱动的开发是未来自主系统的架构。开发人员不再受限于他们想如何解决问题。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/agentic-coding-at-enterprise-scale-demands-spec-driven-development" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
