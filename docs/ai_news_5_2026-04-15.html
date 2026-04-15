@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-15 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-15</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 85.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Gemini Robotics-ER 1.6: Powering real-world robotics tasks through enhanced embodied reasoning</div>
+      <div class="col-content">For robots to be truly helpful in our daily lives and industries, they must do more than follow instructions, they must reason about the physical world. From navigating a complex facility to interpreting the needle on a pressure gauge, a robot’s “embodied reasoning” is what allows it to bridge the gap between digital intelligence and physical action. Today, we’re introducing Gemini Robotics-ER 1.6 , a significant upgrade to our reasoning-first model that enables robots to understand their environments with unprecedented precision. By enhancing spatial reasoning and multi-view understanding, we are bringing a new level of autonomy to the next generation of physical agents. This model specializes in reasoning capabilities critical for robotics, including visual and spatial understanding, task planning and success detection. It acts as the high-level reasoning model for a robot, capable of executing tasks by natively calling tools like Google Search to find information, vision-language-action models (VLAs) or any other third-party user-defined functions. Gemini Robotics-ER 1.6 shows significant improvement over both Gemini Robotics-ER 1.5 and Gemini 3.0 Flash , specifically enhancing spatial and physical reasoning capabilities such as pointing, counting, and success detection. We are also unlocking a new capability: instrument reading, enabling robots to read complex gauges and sight glasses — a use case we discovered through close collaboration with our partner, Boston Dynamics. Starting today, Gemini Robotics-ER 1.6 is available to developers via the Gemini API and Google AI Studio . To help you get started, we are sharing a developer Colab containing examples of how to configure the model and prompt it for embodied reasoning tasks. Pointing is a fundamental capability for an embodied reasoning model, evolving with each model generation. Points can be used to express many concepts, including: Gemini Robotics-ER 1.6 can use points as intermediate steps to reason about more complex tasks. For example, it can use points to count items in an image, or to identify salient points on an image to help the model perform mathematical operations to improve its metric estimations. The example below shows Gemini Robotics-ER 1.6’s strengths in pointing to multiple elements, and knowing when and when not to point. In robotics, knowing when a task is finished is just as important as knowing how to start it. Success detection is a cornerstone of autonomy, serving as a critical decision-making engine that allows an agent to intelligently choose between retrying a failed attempt or progressing to the next stage of a plan. Achieving visual understanding in robotics is challenging, requiring sophisticated perception and reasoning capabilities combined with broad world knowledge in order to handle complicating factors such as occlusions, poor lighting and ambiguous instructions. Additionally, most modern robotics setups include multiple camera views such as an overhead and wrist-mounted feed. This means a system needs to understand how different viewpoints combine to form a coherent picture at each moment and across time. Gemini Robotics-ER 1.6 advances multi-view reasoning, enabling the system to better understand multiple camera streams and the relationship between them, even in dynamic or occluded environments, as demonstrated in the typical multi-view scenario below. To understand a key strength of Gemini Robotics-ER 1.6, we must look at how it combines capabilities like spatial reasoning and world knowledge to solve complex, real-world problems. A perfect example is instrument reading. This task stems from facility inspection needs, a critical focus area for our partners at Boston Dynamics. Industrial facilities contain many instruments — thermometers, pressure gauges, chemical sight glasses and more — that require constant monitoring. Spot, a Boston Dynamics robot product , is able to visit the instruments throughout the facility and capture images of them. Instrument reading requires complex visual reasoning. One must precisely perceive a variety of inputs — including the needles, liquid level, container boundaries, tick marks and more — and understand how they all relate to each other. In the case of sight glasses, this involves estimating how much the liquid fills the sightglass taking into account distortion from the camera perspective. Gauges typically have text describing the unit, which must be read and interpreted, and some have multiple needles referring to different decimal places that need to be combined. Gemini Robotics-ER 1.6 achieves its highly accurate instrument readings by using agentic vision , which combines visual reasoning with code execution. The model takes intermediate steps: first zooming into an image to get a better read of small details in a gauge, then using pointing and code execution to estimate proportions and intervals and get an accurate reading, and ultimately applying its world knowledge to interpret meaning. Safety is integrated into every level of our embodied reasoning models. Gemini Robotics-ER 1.6 is our safest robotics model to date, demonstrating superior compliance with Gemini safety policies on adversarial spatial reasoning tasks compared to all previous generations. The model also shows a substantially improved capacity to adhere to physical safety constraints. For example, it makes safer decisions through spatial outputs like pointing regarding which objects can be safely manipulated under gripper or material constraints (e.g., “don't handle liquids”, “don't pick up objects heavier than 20kg“). We also tested how well the model identifies safety hazards in text and video scenarios based on real-life injury reports. On these tasks, our Gemini Robotics-ER models improve over baseline Gemini 3.0 Flash performance (+6% in text, +10% in video) in perceiving injury risks accurately.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Gemini Robotics ER 1.6：通过增强的具身推理为现实世界的机器人任务提供动力</div>
+      <div class="col-content">为了让机器人在我们的日常生活和行业中真正发挥作用，它们必须做的不仅仅是遵循指示，还必须对物理世界进行推理。从导航复杂的设施到解读压力表上的指针，机器人的“具身推理”使其能够弥合数字智能和物理动作之间的差距。今天，我们推出了Gemini Robotics ER 1.6，这是对我们推理优先模型的重大升级，使机器人能够以前所未有的精度理解他们的环境。通过增强空间推理和多视图理解，我们正在为下一代物理代理带来新的自主性。该模型专门研究对机器人至关重要的推理能力，包括视觉和空间理解、任务规划和成功检测。它充当机器人的高级推理模型，能够通过本地调用谷歌搜索等工具来查找信息、视觉语言动作模型（VLAs）或任何其他第三方用户定义的函数来执行任务。Gemini Robotics ER 1.6比Gemini Robotic ER 1.5和Gemini 3.0 Flash都有显著改进，特别是增强了空间和物理推理能力，如指向、计数和成功检测。我们还解锁了一种新功能：仪器读取，使机器人能够读取复杂的仪表和视镜——这是我们与合作伙伴波士顿动力公司密切合作发现的一个用例。从今天开始，Gemini Robotics-ER 1.6可通过Gemini API和Google AI Studio向开发人员提供。为了帮助您入门，我们分享了一个开发人员Colab，其中包含如何配置模型并提示其执行隐含推理任务的示例。指向是体现推理模型的基本能力，随着每一代模型的生成而发展。点可以用来表达许多概念，包括：Gemini Robotics ER 1.6可以使用点作为中间步骤来推理更复杂的任务。例如，它可以使用点来计算图像中的项目，或识别图像上的突出点，以帮助模型执行数学运算来改进其度量估计。下面的例子显示了Gemini Robotics ER 1.6在指向多个元素以及知道何时不指向方面的优势。在机器人技术中，知道任务何时完成与知道如何开始同样重要。成功检测是自主性的基石，是一个关键的决策引擎，允许代理在重试失败的尝试或进入计划的下一阶段之间进行智能选择。在机器人中实现视觉理解是具有挑战性的，需要复杂的感知和推理能力以及广泛的世界知识，以处理遮挡、光线不足和指令模糊等复杂因素。此外，大多数现代机器人设置都包括多个摄像头视图，如头顶和手腕上的馈送。这意味着系统需要了解不同的观点是如何在每个时刻和不同时间组合在一起形成连贯的图像的。Gemini Robotics ER 1.6推进了多视图推理，使系统能够更好地理解多个摄像头流及其之间的关系，即使在动态或遮挡的环境中也是如此，如下面典型的多视图场景所示。要了解Gemini Robotics ER 1.6的一个关键优势，我们必须看看它如何结合空间推理和世界知识等能力来解决复杂的现实问题。一个完美的例子是仪器读数。这项任务源于设施检查需求，这是我们波士顿动力公司合作伙伴的一个关键重点领域。工业设施包含许多需要持续监测的仪器，如温度计、压力计、化学视镜等。波士顿动力公司的机器人产品Spot能够访问整个设施中的仪器并捕获它们的图像。仪器读数需要复杂的视觉推理。人们必须精确地感知各种输入，包括针头、液位、容器边界、刻度标记等，并了解它们之间的关系。就视镜而言，这涉及到考虑到相机视角的失真，估计液体填充视镜的量。仪表通常有描述单位的文本，必须读取和解释，有些仪表有多个指针，指向需要组合的不同小数点。Gemini Robotics ER 1.6通过使用代理视觉实现了高度精确的仪器读数，该视觉将视觉推理与代码执行相结合。该模型采取中间步骤：首先放大图像以更好地读取仪表中的小细节，然后使用指向和代码执行来估计比例和间隔并获得准确的读数，最终应用其世界知识来解释意义。安全性被整合到我们的实体推理模型的各个层面。Gemini Robotics ER 1.6是我们迄今为止最安全的机器人模型，与前几代相比，它在对抗性空间推理任务上表现出了对Gemini安全政策的卓越遵守。该模型还显示，遵守物理安全约束的能力大大提高。例如，它通过空间输出做出更安全的决定，比如指出哪些物体可以在夹具或材料限制下安全操纵（例如，“不要处理液体”，“不要捡起重量超过20kg的物体”）。我们还测试了该模型在基于实际伤害报告的文本和视频场景中识别安全隐患的能力。在这些任务中，我们的Gemini Robotics ER模型在准确感知伤害风险方面比基线Gemini 3.0 Flash性能（文本中提高了6%，视频中提高了10%）有所提高。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/gemini-robotics-er-1-6/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
