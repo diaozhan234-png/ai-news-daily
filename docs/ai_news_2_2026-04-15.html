@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-15 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-15</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 88.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">UK gov's Mythos AI tests help separate cybersecurity threat from hype</div>
+      <div class="col-content">Last week, Anthropic announced it was restricting the initial release of its Mythos Preview model to “a limited group of critical industry partners,” giving them time to prepare for a model that it said is “strikingly capable at computer security tasks.” Now, the UK government’s AI Security Institute (AISI) has published an initial evaluation of the model’s cyberattack capabilities that adds some independent public verification to those Anthropic reports. AISI’s findings show that Mythos isn’t significantly different from other recent frontier models in tests of individual cybersecurity-related tasks. But Mythos could set itself apart from previous models through its ability to effectively chain these tasks into the multistep series of attacks necessary to fully infiltrate some systems. AISI has been putting various AI models through specially designed Capture the Flag challenges since early 2023, when GPT-3.5 Turbo struggled to complete any of the group’s relatively low-level “Apprentice” tasks. Since then, the performance of subsequent models has risen steadily, to the point where Mythos Preview can complete north of 85 percent of those same Apprentice-level CTF tasks. While that’s technically a high-water mark for AISI’s CTF tests, recent competing models like GPT-5.4 and Anthropic’s own Opus 4.6 and Codex 5.3 showed comparable results (within 5 to 10 percent accuracy) across multiple CTF difficulty levels in recent months. That doesn’t seem like a level of improvement that would necessitate the kind of protectionist limited release Anthropic has undertaken for Mythos Preview. Where Mythos showed more relative cyberattack potential, though, is in “The Last Ones” (TLO), a test range that AISI set up to simulate a 32-step data extraction attack on a corporate network. The test, which requires “chaining dozens of steps together across multiple hosts and network segments” was intended to simulate the kind of sustained operations that would take a trained human roughly 20 hours to complete, AISI estimates. Here, Mythos outshone all previous models, becoming “the first model to solve TLO from start to finish,” AISI said. While Anthropic’s new model only succeeded in 3 out of 10 attempts, even the average Mythos Preview run completed 22 of the 32 required infiltration steps, significantly higher than the 16-step average achieved by Claude 4.6. Mythos Preview still has its limitations, though. AISI points out that the model still struggles with “Cooling Tower,” an even more difficult seven-step test designed to simulate an attempted disruption of the control software for a power plant. But AISI also writes that it expects “our evaluations would continue to improve with more inference compute” past the 100 million token budget imposed for its tests. Overall, Mythos’ performance on TLO suggests that the model “is at least capable of autonomously attacking small, weakly defended and vulnerable enterprise systems where access to a network has been gained,” AISI writes. That said, the group cautions that its simulated cyber ranges lack the kind of active defenders and defensive tooling often present in critical real-world systems. AISI’s TLO test is also designed to have specific vulnerabilities that might not exist in real-world systems and doesn’t penalize models for the kind of detection that might cause a real-world infiltration attempt to fail. For those reasons, AISI says it can’t be sure whether “well-defended systems” would fall to an automated attack from Mythos Preview. But as future models match or outperform Mythos’ capabilities, AISI warns that those designing system protections should similarly utilize AI models to help harden their defenses.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">英国政府的Mythos AI测试有助于将网络安全威胁与炒作区分开来</div>
+      <div class="col-content">上周，Anthropic宣布将Mythos Preview模型的首次发布限制在“少数关键行业合作伙伴”，让他们有时间准备一个它所说的“在计算机安全任务方面能力惊人”的模型。现在，英国政府的人工智能安全研究所（AISI）已经发布了对该模型网络攻击能力的初步评估，为Anthropics的报告增加了一些独立的公开验证。AISI的研究结果表明，Mythos在测试个人网络安全相关任务方面与其他最近的前沿模型没有显著差异。但Mythos可以通过将这些任务有效地链接到完全渗透某些系统所需的多步骤系列攻击中的能力，将自己与以前的模型区分开来。自2023年初以来，AISI一直在通过专门设计的夺旗挑战赛对各种AI模型进行测试，当时GPT-3.5 Turbo难以完成该团队相对较低级别的“学徒”任务。从那时起，后续模型的性能稳步提升，Mythos Preview可以完成85%以上的学徒级CTF任务。虽然这在技术上是AISI CTF测试的高水位线，但最近几个月，GPT-5.4和Anthropic自己的Opus 4.6和Codex 5.3等竞争模型在多个CTF难度级别上显示了可比的结果（准确率在5%到10%以内）。这似乎不是一个需要Anthropic为Mythos Preview采取的保护主义限量发行的改进水平。然而，Mythos在“最后一个”（TLO）中显示出更多的相对网络攻击潜力，这是AISI为模拟对企业网络的32步数据提取攻击而设立的测试范围。AISI估计，该测试需要“在多个主机和网段上将数十个步骤链接在一起”，旨在模拟一种持续的操作，一个训练有素的人大约需要20个小时才能完成。AISI表示，在这里，Mythos超越了之前的所有型号，成为“第一个从头到尾解决TLO问题的型号”。虽然Anthropic的新模型在10次尝试中只有3次成功，但即使是Mythos Preview的平均运行也完成了32个所需渗透步骤中的22个，远高于Claude 4.6的16个步骤的平均值。然而，Mythos Preview仍然有其局限性。AISI指出，该模型仍在努力应对“冷却塔”，这是一项更困难的七步测试，旨在模拟发电厂控制软件的尝试中断。但AISI也写道，它预计“我们的评估将随着更多的推理计算而继续改进”，超过其测试所规定的1亿代币预算。AISI写道，总体而言，Mythos在TLO上的表现表明，该模型“至少能够自主攻击已获得网络访问权限的小型、防御薄弱和易受攻击的企业系统”。也就是说，该组织警告说，其模拟的网络靶场缺乏关键现实系统中常见的主动防御者和防御工具。AISI的TLO测试还旨在具有现实世界系统中可能不存在的特定漏洞，并且不会因可能导致现实世界渗透尝试失败的检测而惩罚模型。出于这些原因，AISI表示，它无法确定“防御良好的系统”是否会受到Mythos Preview的自动攻击。但随着未来的模型与Mythos的能力相匹配或超越Mythos，AISI警告说，那些设计系统保护的人也应该同样利用人工智能模型来帮助加强防御。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/04/uk-govs-mythos-ai-tests-help-separate-cybersecurity-threat-from-hype/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
