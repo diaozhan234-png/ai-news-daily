@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-16 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-16</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Microsoft patched a Copilot Studio prompt injection. The data exfiltrated anyway.</div>
+      <div class="col-content">Microsoft assigned CVE-2026-21520 , a CVSS 7.5 indirect prompt injection vulnerability, to Copilot Studio. Capsule Security discovered the flaw, coordinated disclosure with Microsoft, and the patch was deployed on January 15. Public disclosure went live on Wednesday. That CVE matters less for what it fixes and more for what it signals. Capsule’s research calls Microsoft’s decision to assign a CVE to a prompt injection vulnerability in an agentic platform “highly unusual.” Microsoft previously assigned CVE-2025-32711 (CVSS 9.3) to EchoLeak, a prompt injection in M365 Copilot patched in June 2025, but that targeted a productivity assistant, not an agent-building platform. If the precedent extends to agentic systems broadly, every enterprise running agents inherits a new vulnerability class to track. Except that this class cannot be fully eliminated by patches alone. Capsule also discovered what they call PipeLeak, a parallel indirect prompt injection vulnerability in Salesforce Agentforce. Microsoft patched and assigned a CVE. Salesforce has not assigned a CVE or issued a public advisory for PipeLeak as of publication, according to Capsule's research. The vulnerability that the researchers named ShareLeak exploits the gap between a SharePoint form submission and the Copilot Studio agent’s context window. An attacker fills a public-facing comment field with a crafted payload that injects a fake system role message. In Capsule’s testing, Copilot Studio concatenated the malicious input directly with the agent’s system instructions with no input sanitization between the form and the model. The injected payload overrode the agent’s original instructions in Capsule’s proof-of-concept, directing it to query connected SharePoint Lists for customer data and send that data via Outlook to an attacker-controlled email address. NVD classifies the attack as low complexity and requires no privileges. Microsoft’s own safety mechanisms flagged the request as suspicious during Capsule’s testing. The data was exfiltrated anyway. The DLP never fired because the email was routed through a legitimate Outlook action that the system treated as an authorized operation. Carter Rees, VP of Artificial Intelligence at Reputation , described the architectural failure in an exclusive VentureBeat interview. The LLM cannot inherently distinguish between trusted instructions and untrusted retrieved data, Rees said. It becomes a confused deputy acting on behalf of the attacker. OWASP classifies this pattern as ASI01: Agent Goal Hijack . The research team behind both discoveries, Capsule Security, found the Copilot Studio vulnerability on November 24, 2025. Microsoft confirmed it on December 5 and patched it on January 15, 2026. Every security director running Copilot Studio agents triggered by SharePoint forms should audit that window for indicators of compromise. PipeLeak hits the same vulnerability class through a different front door. In Capsule’s testing, a public lead form payload hijacked an Agentforce agent with no authentication required. Capsule found no volume cap on the exfiltrated CRM data, and the employee who triggered the agent received no indication that data had left the building. Salesforce has not assigned a CVE or issued a public advisory specific to PipeLeak as of publication. Capsule is not the first research team to hit Agentforce with indirect prompt injection. Noma Labs disclosed ForcedLeak (CVSS 9.4) in September 2025, and Salesforce patched that vector by enforcing Trusted URL allowlists. According to Capsule's research, PipeLeak survives that patch through a different channel: email via the agent's authorized tool actions. Naor Paz, CEO of Capsule Security, told VentureBeat the testing hit no exfiltration limit. “We did not get to any limitation,” Paz said. “The agent would just continue to leak all the CRM.” Salesforce recommended human-in-the-loop as a mitigation. Paz pushed back. “If the human should approve every single operation, it’s not really an agent,” he told VentureBeat. “It’s just a human clicking through the agent’s actions.” Microsoft patched ShareLeak and assigned a CVE. According to Capsule's research, Salesforce patched ForcedLeak's URL path but not the email channel. Kayne McGladrey, IEEE Senior Member, put it differently in a separate VentureBeat interview. Organizations are cloning human user accounts to agentic systems, McGladrey said, except agents use far more permissions than humans would because of the speed, the scale, and the intent. Paz named the structural condition that makes any agent exploitable: access to private data, exposure to untrusted content, and the ability to communicate externally. ShareLeak hits all three. PipeLeak hits all three. Most production agents hit all three because that combination is what makes agents useful. Rees validated the diagnosis independently. Defense-in-depth predicated on deterministic rules is fundamentally insufficient for agentic systems, Rees told VentureBeat . Elia Zaitsev, CrowdStrike’s CTO, called the patching mindset itself the vulnerability in a separate VentureBeat exclusive . “People are forgetting about runtime security,” he said. “Let’s patch all the vulnerabilities. Impossible. Somehow always seem to miss something.” Observing actual kinetic actions is a structured, solvable problem, Zaitsev told VentureBeat. Intent is not. CrowdStrike’s Falcon sensor walks the process tree and tracks what agents did, not what they appeared to intend. Single-shot prompt injections are the entry-level threat. Capsule’s research documented multi-turn crescendo attacks where adversaries distribute payloads across multiple benign-looking turns. Each turn passes inspection. The attack becomes visible only when analyzed as a sequence. Rees explained why current monitoring misses this. A stateless WAF views each turn in a vacuum and detects no threat, Rees told VentureBeat. It sees requests, not a semantic trajectory.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">微软修补了Copilot Studio的提示注入。数据还是泄露了。</div>
+      <div class="col-content">微软将CVE-2026-21520（CVSS 7.5间接提示注入漏洞）分配给了Copilot Studio。Capsule Security发现了该漏洞，并与微软协调披露，该补丁于1月15日部署。公开披露于周三上线。CVE的重要性不在于它修复了什么，而在于它发出了什么信号。Capsule的研究称，微软决定将CVE分配给代理平台中的快速注入漏洞是“非常不寻常的”。微软之前将CVE-2025-32711（CVSS 9.3）分配给EchoLeak，这是2025年6月修补的M365 Copilot中的一个快速注入，但针对的是生产力助手，而不是代理构建平台。如果先例广泛扩展到代理系统，那么每个运行代理的企业都会继承一个新的漏洞类进行跟踪。除了这个类不能仅通过补丁完全消除。Capsule还发现了他们所谓的PipeLeak，这是Salesforce Agentforce中的一个并行间接提示注入漏洞。Microsoft修补并分配了CVE。根据Capsule的研究，截至发表时，Salesforce尚未为PipeLeak分配CVE或发布公开咨询。研究人员称之为ShareLeak的漏洞利用了SharePoint表单提交和Copilot Studio代理的上下文窗口之间的差距。攻击者使用特制的有效载荷填充面向公众的评论字段，该有效载荷注入虚假的系统角色消息。在Capsule的测试中，Copilot Studio将恶意输入直接与代理的系统指令连接起来，而无需在表单和模型之间进行输入净化。注入的有效载荷覆盖了Capsule概念验证中代理的原始指令，指示其查询连接的SharePoint列表以获取客户数据，并通过Outlook将该数据发送到攻击者控制的电子邮件地址。NVD将攻击归类为低复杂性，不需要特权。微软自己的安全机制在Capsule测试期间将该请求标记为可疑。无论如何，数据都被泄露了。DLP从未触发，因为电子邮件是通过系统视为授权操作的合法Outlook操作路由的。Reputation人工智能副总裁Carter Rees在VentureBeat的独家采访中描述了架构失败。Rees说，LLM本质上无法区分可信指令和不可信检索数据。它变成了一个代表攻击者行事的困惑的副手。OWASP将此模式分类为ASI01：代理目标劫持。这两项发现背后的研究团队Capsule Security于2025年11月24日发现了Copilot Studio漏洞。微软于12月5日证实了这一点，并于2026年1月15日进行了修补。每个运行由SharePoint表单触发的Copilot Studio代理的安全主管都应该审核该窗口是否有泄露迹象。PipeLeak通过不同的前门攻击相同的漏洞类别。在Capsule的测试中，一个公共线索表单有效载荷劫持了一个无需身份验证的Agentforce代理。Capsule在泄露的CRM数据上没有发现容量上限，触发代理的员工也没有收到数据已离开大楼的指示。截至发布时，Salesforce尚未分配CVE或发布针对PipeLeak的公开咨询。Capsule并不是第一个采用间接快速注射的研究团队。Noma Labs于2025年9月披露了ForcedLeak（CVSS 9.4），Salesforce通过强制实施可信URL分配来修补该向量。根据Capsule的研究，PipeLeak通过不同的渠道在补丁中幸存下来：通过代理授权的工具操作发送电子邮件。Capsule Security的首席执行官Naor Paz告诉VentureBeat，测试没有达到渗透极限。帕兹说：“我们没有受到任何限制。”。“代理只会继续泄露所有CRM。”Salesforce建议采用人工干预作为缓解措施。帕兹往后推。他告诉VentureBeat：“如果人类应该批准每一项操作，那么它就不是真正的代理人。”。“这只是一个人点击代理的动作。”微软修补了ShareLeak并分配了CVE。根据Capsule的研究，Salesforce修补了ForcedLeak的URL路径，但没有修补电子邮件通道。IEEE高级会员Kayne McGladrey在另一次VentureBeat采访中表达了不同的观点。McGladrey说，组织正在将人类用户帐户克隆到代理系统中，但由于速度、规模和意图，代理使用的权限远远超过人类。Paz指出了使任何代理都可被利用的结构条件：访问私有数据、暴露于不受信任的内容以及与外部通信的能力。ShareLeak击中了这三个目标。PipeLeak攻击了所有三个。大多数生产代理都同时满足这三个条件，因为这种组合使代理变得有用。里斯独立验证了诊断。里斯告诉VentureBeat，基于确定性规则的深度防御从根本上不足以应对代理系统。CrowdStrike的首席技术官Elia Zaitsev将补丁思维本身称为VentureBeat独家中的漏洞。他说：“人们正在忘记运行时的安全性。”。扎伊采夫告诉VentureBeat：“让我们修补所有漏洞。这是不可能的。不知怎么的，似乎总是遗漏了一些东西。”观察实际的动力学行为是一个结构化的、可解决的问题。意图不是。CrowdStrike的Falcon传感器在流程树中行走，跟踪代理的行为，而不是他们似乎的意图。单针快速注射是入门级的威胁。Capsule的研究记录了多回合渐强攻击，对手在多个看似良性的回合中分配有效载荷。每一圈都通过检查。只有当作为一个序列进行分析时，攻击才会变得可见。里斯解释了为什么目前的监测没有注意到这一点。Rees告诉VentureBeat，无状态WAF在真空中查看每个转弯，没有检测到任何威胁。它看到的是请求，而不是语义轨迹。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/microsoft-salesforce-copilot-agentforce-prompt-injection-cve-agent-remediation-playbook" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
