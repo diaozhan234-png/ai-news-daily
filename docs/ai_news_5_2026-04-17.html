@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-17 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-17</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Salesforce launches Headless 360 to turn its entire platform into infrastructure for AI agents</div>
+      <div class="col-content">Salesforce on Wednesday unveiled the most ambitious architectural transformation in its 27-year history, introducing " Headless 360 " — a sweeping initiative that exposes every capability in its platform as an API, MCP tool, or CLI command so AI agents can operate the entire system without ever opening a browser. The announcement, made at the company's annual TDX developer conference in San Francisco, ships more than 100 new tools and skills immediately available to developers. It marks a decisive response to the existential question hanging over enterprise software: In a world where AI agents can reason, plan, and execute, does a company still need a CRM with a graphical interface? Salesforce's answer: No — and that's exactly the point. "We made a decision two and a half years ago: Rebuild Salesforce for agents," the company said in its announcement. "Instead of burying capabilities behind a UI, expose them so the entire platform will be programmable and accessible from anywhere." The timing is anything but coincidental. Salesforce finds itself navigating one of the most turbulent periods in enterprise software history — a sector-wide sell-off that has pushed the iShares Expanded Tech-Software Sector ETF down roughly 28% from its September peak. The fear driving the decline: that AI, particularly large language models from Anthropic, OpenAI, and others, could render traditional SaaS business models obsolete. Jayesh Govindarjan , EVP of Salesforce and one of the key architects behind the Headless 360 initiative, described the announcement as rooted not in marketing theory but in hard-won lessons from deploying agents with thousands of enterprise customers. "The problem that emerged is the lifecycle of building an agentic system for every one of our customers on any stack, whether it's ours or somebody else's," Govindarjan told VentureBeat in an exclusive interview. "The challenge that they face is very much the software development challenge. How do I build an agent? That's only step one." Salesforce Headless 360 rests on three pillars that collectively represent the company's attempt to redefine what an enterprise platform looks like in the agentic era. The first pillar — build any way you want — delivers more than 60 new MCP (Model Context Protocol) tools and 30-plus preconfigured coding skills that give external coding agents like Claude Code, Cursor, Codex, and Windsurf complete, live access to a customer's entire Salesforce org, including data, workflows, and business logic. Developers no longer need to work inside Salesforce's own IDE. They can direct AI coding agents from any terminal to build, deploy, and manage Salesforce applications. Agentforce Vibes 2.0 , the company's own native development environment, now includes what it calls an "open agent harness" supporting both the Anthropic agent SDK and the OpenAI agents SDK . As demonstrated during the keynote, developers can choose between Claude Code and OpenAI agents depending on the task, with the harness dynamically adjusting available capabilities based on the selected agent. The environment also adds multi-model support, including Claude Sonnet and GPT-5, along with full org awareness from the start. A significant technical addition is native React support on the Salesforce platform . During the keynote demo, presenters built a fully functional partner service application using React — not Salesforce's own Lightning framework — that connected to org metadata via GraphQL while inheriting all platform security primitives. This opens up dramatically more expressive front-end possibilities for developers who want complete control over the visual layer. The second pillar — deploy on any surface — centers on the new Agentforce Experience Layer , which separates what an agent does from how it appears, rendering rich interactive components natively across Slack, mobile apps, Microsoft Teams, ChatGPT, Claude, Gemini, and any client supporting MCP apps. During the keynote, presenters defined an experience once and deployed it across six different surfaces without writing surface-specific code. The philosophical shift is significant: rather than pulling customers into a Salesforce UI, enterprises push branded, interactive agent experiences into whatever workspace their customers already inhabit. The third pillar — build agents you can trust at scale — introduces an entirely new suite of lifecycle management tools spanning testing, evaluation, experimentation, observation, and orchestration. Agent Script , the company's new domain-specific language for defining agent behavior deterministically, is now generally available and open-sourced. A new Testing Center surfaces logic gaps and policy violations before deployment. Custom Scoring Evals let enterprises define what "good" looks like for their specific use case. And a new A/B Testing API enables running multiple agent versions against real traffic simultaneously. Perhaps the most technically significant — and candid — portion of VentureBeat's interview with Govindarjan addressed the fundamental engineering tension at the heart of enterprise AI: agents are probabilistic systems, but enterprises demand deterministic outcomes. Govindarjan explained that early Agentforce customers, after getting agents into production through "sheer hard work," discovered a painful reality. "They were afraid to make changes to these agents, because the whole system was brittle," he said. "You make one change and you don't know whether it's going to work 100% of the time. All the testing you did needs to be redone." This brittleness problem drove the creation of Agent Script , which Govindarjan described as a programming language that "brings together the determinism that's in programming languages with the inherent flexibility in probabilistic systems that LLMs provide." The language functions as a single flat file — versionable, auditable — that defines a state machine governing how an agent behaves.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Salesforce推出Headless 360，将其整个平台转变为AI代理的基础设施</div>
+      <div class="col-content">周三，Salesforce推出了其27年历史上最雄心勃勃的架构转型，推出了“Headless 360”，这是一项全面的举措，将其平台中的所有功能都公开为API、MCP工具或CLI命令，这样人工智能代理就可以在不打开浏览器的情况下操作整个系统。该公司在旧金山举行的年度TDX开发者大会上发布了这一声明，为开发者提供了100多种新工具和技能。它标志着对企业软件所面临的生存问题的决定性回应：在一个人工智能代理可以推理、计划和执行的世界里，公司还需要一个带有图形界面的CRM吗？Salesforce的回答是：不，这正是问题所在。该公司在公告中表示：“我们两年半前做出了一个决定：为代理商重建Salesforce。”。“与其将功能隐藏在UI后面，不如将其公开，这样整个平台就可以在任何地方进行编程和访问。”时机绝非巧合。Salesforce发现自己正处于企业软件历史上最动荡的时期之一——整个行业的抛售导致iShares Expanded Tech software sector ETF从9月份的峰值下跌了约28%。推动衰退的恐惧：人工智能，特别是Anthropic、OpenAI和其他公司的大型语言模型，可能会使传统的SaaS商业模式过时。Salesforce执行副总裁、Headless 360计划背后的关键架构师之一Jayesh Govindarjan表示，这一宣布并非源于营销理论，而是源于在数千家企业客户中部署代理的来之不易的经验教训。Govindarjan在接受VentureBeat独家采访时表示：“出现的问题是，为任何堆栈上的每个客户构建代理系统的生命周期，无论是我们的还是其他人的。”。“他们面临的挑战很大程度上是软件开发挑战。我该如何构建代理？这只是第一步。”Salesforce Headless 360基于三个支柱，这些支柱共同代表了该公司试图重新定义代理时代企业平台的样子。第一个支柱——以任何你想要的方式构建——提供了60多个新的MCP（模型上下文协议）工具和30多种预配置的编码技能，使外部编码代理（如Claude Code、Cursor、Codex和Windsurf）能够完整、实时地访问客户的整个Salesforce组织，包括数据、工作流和业务逻辑。开发人员不再需要在Salesforce自己的IDE中工作。他们可以从任何终端指导AI编码代理构建、部署和管理Salesforce应用程序。Agentforce Vibes 2.0是该公司自己的原生开发环境，现在包括所谓的“开放代理工具”，支持Anthropic代理SDK和OpenAI代理SDK。正如主题演讲中所演示的那样，开发人员可以根据任务在Claude Code和OpenAI代理之间进行选择，该工具会根据所选代理动态调整可用功能。该环境还增加了多模型支持，包括Claude Sonnet和GPT-5，以及从一开始就具有全面的组织意识。一个重要的技术补充是Salesforce平台上的原生React支持。在主题演讲演示中，演示者使用React构建了一个功能齐全的合作伙伴服务应用程序，而不是Salesforce自己的Lightning框架，该应用程序通过GraphQL连接到组织元数据，同时继承了所有平台安全原语。这为希望完全控制视觉层的开发人员开辟了更具表现力的前端可能性。第二个支柱——在任何表面上部署——以新的代理体验层为中心，该层将代理的功能与外观分开，在Slack、移动应用程序、Microsoft Teams、ChatGPT、Claude、Gemini和任何支持MCP应用程序的客户端上本机呈现丰富的交互式组件。在主题演讲中，演示者定义了一次体验，并将其部署在六个不同的表面上，而无需编写特定于表面的代码。这一哲学转变意义重大：企业不是将客户拉到Salesforce UI中，而是将品牌化的交互式代理体验推送到客户已经居住的任何工作空间中。第三个支柱——大规模构建可以信任的代理——引入了一套全新的生命周期管理工具，涵盖了测试、评估、实验、观察和编排。Agent Script是该公司用于确定定义代理行为的新领域特定语言，现在已普遍可用并开源。新的测试中心在部署之前会发现逻辑漏洞和策略违规。自定义评分评估让企业定义其特定用例的“好”是什么样子。新的a/B测试API允许同时针对实际流量运行多个代理版本。也许VentureBeat对Govindarjan的采访中最具技术意义和坦率的部分谈到了企业人工智能核心的根本工程紧张局势：代理是概率系统，但企业需要确定性的结果。Govindarjan解释说，早期的Agentforce客户在通过“纯粹的辛勤工作”将代理商投入生产后，发现了一个痛苦的现实。他说：“他们害怕改变这些代理人，因为整个系统都很脆弱。”。“你做了一个更改，却不知道它是否能100%正常工作。你所做的所有测试都需要重新进行。”这个脆弱性问题推动了Agent Script的创建，Govindarjan将其描述为一种编程语言，“将编程语言中的确定性与LLM提供的概率系统中固有的灵活性结合在一起”。该语言作为一个单一的平面文件运行——可版本化、可审计——它定义了一个控制代理行为的状态机。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/salesforce-launches-headless-360-to-turn-its-entire-platform-into-infrastructure-for-ai-agents" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
