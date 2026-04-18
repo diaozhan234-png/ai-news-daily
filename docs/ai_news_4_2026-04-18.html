@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-18 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-18</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Train-to-Test scaling explained: How to optimize your end-to-end AI compute budget for inference</div>
+      <div class="col-content">The standard guidelines for building large language models (LLMs) optimize only for training costs and ignore inference costs. This poses a challenge for real-world applications that use inference-time scaling techniques to increase the accuracy of model responses, such as drawing multiple reasoning samples from a model at deployment. To bridge this gap, researchers at University of Wisconsin-Madison and Stanford University have introduced Train-to-Test (T 2 ) scaling laws, a framework that jointly optimizes a model’s parameter size, its training data volume, and the number of test-time inference samples. In practice, their approach proves that it is compute-optimal to train substantially smaller models on vastly more data than traditional rules prescribe, and then use the saved computational overhead to generate multiple repeated samples at inference. For enterprise AI application developers who are training their own models, this research provides a proven blueprint for maximizing return on investment. It shows that AI reasoning does not necessarily require spending huge amounts on frontier models. Instead, smaller models can yield stronger performance on complex tasks while keeping per-query inference costs manageable within real-world deployment budgets. Scaling laws are an important part of developing large language models. Pretraining scaling laws dictate the best way to allocate compute during the model's creation, while test-time scaling laws guide how to allocate compute during deployment, such as letting the model “think longer” or generating multiple reasoning samples to solve complex problems. The problem is that these scaling laws have been developed completely independently of one another despite being fundamentally intertwined. A model's parameter size and training duration directly dictate both the quality and the per-query cost of its inference samples. Currently, the industry gold standard for pretraining is the Chinchilla rule , which suggests a compute-optimal ratio of roughly 20 training tokens for every model parameter. However, creators of modern AI model families, such as Llama, Gemma, and Qwen, regularly break this rule by intentionally overtraining their smaller models on massive amounts of data. As Nicholas Roberts, co-author of the paper, told VentureBeat, the traditional approach falters when building complex agentic workflows: "In my view, the inference stack breaks down when each individual inference call is expensive. This is the case when the models are large and you need to do a lot of repeated sampling." Instead of relying on massive models, developers can use overtrained compact models to run this repeated sampling at a fraction of the cost. But because training and test-time scaling laws are examined in isolation, there is no rigorous framework to calculate how much a model should be overtrained based on how many reasoning samples it will need to generate during deployment. Consequently, there has previously been no formula that jointly optimizes model size, training data volume, and test-time inference budgets. The reason that this framework is hard to formulate is that pretraining and test-time scaling speak two different mathematical languages. During pretraining, a model's performance is measured using “loss,” a smooth, continuous metric that tracks prediction errors as the model learns. At test time, developers use real-world, downstream metrics to evaluate a model's reasoning capabilities, such as pass@k, which measures the probability that a model will produce at least one correct answer across k independent, repeated attempts. To solve the disconnect between training and deployment, the researchers introduce Train-to-Test (T 2 ) scaling laws. At a high level, this framework predicts a model's reasoning performance by treating three variables as a single equation: the model's size (N), the volume of training tokens it learns from (D), and the number of reasoning samples it generates during inference (k). T 2 combines pretraining and inference budgets into one optimization formula that accounts for both the baseline cost to train the model (6ND) and the compounding cost to query it repeatedly at inference (2Nk). The researchers tried different modeling approaches: whether to model the pre-training loss or test-time performance (pass@k) as functions of N, D, and k. The first approach takes the familiar mathematical equation used for Chinchilla scaling (which calculates a model's prediction error, or loss) and directly modifies it by adding a new variable that accounts for the number of repeated test-time samples (k). This allows developers to see how increasing inference compute drives down the model's overall error rate. The second approach directly models the downstream pass@k accuracy. It tells developers the probability that their application will solve a problem given a specific compute budget. But should enterprises use this framework for every application? Roberts clarifies that this approach is highly specialized. "I imagine that you would not see as much of a benefit for knowledge-heavy applications, such as chat models," he said. Instead, "T 2 is tailored to reasoning-heavy applications such as coding, where typically you would use repeated sampling as your test-time scaling method." To validate the T 2 scaling laws, the researchers built an extensive testbed of over 100 language models, ranging from 5 million to 901 million parameters. They trained 21 new, heavily overtrained checkpoints from scratch to test if their mathematical forecasts held up in reality. They then benchmarked the models across eight diverse tasks, which included real-world datasets like SciQ and OpenBookQA, alongside synthetic tasks designed to test arithmetic, spatial reasoning, and knowledge recall. Both of their mathematical models proved that the compute-optimal frontier shifts drastically away from standard Chinchilla scaling.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">从训练到测试的扩展解释：如何优化端到端的人工智能计算预算以进行推理</div>
+      <div class="col-content">构建大型语言模型（LLM）的标准指南仅针对训练成本进行优化，而忽略了推理成本。这对使用推理时间缩放技术来提高模型响应准确性的现实世界应用程序提出了挑战，例如在部署时从模型中提取多个推理样本。为了弥合这一差距，威斯康星大学麦迪逊分校和斯坦福大学的研究人员引入了Train-To-Test（T2）缩放定律，这是一个联合优化模型参数大小、训练数据量和测试时间推理样本数量的框架。在实践中，他们的方法证明，在比传统规则规定的多得多的数据上训练更小的模型是计算最优的，然后使用节省的计算开销在推理时生成多个重复样本。对于正在训练自己模型的企业人工智能应用程序开发人员来说，这项研究为最大化投资回报提供了一个经过验证的蓝图。这表明，人工智能推理不一定需要在前沿模型上花费大量资金。相反，较小的模型可以在复杂任务上产生更强的性能，同时将每个查询的推理成本控制在现实世界的部署预算范围内。标度律是开发大型语言模型的重要组成部分。预训练缩放定律规定了在模型创建过程中分配计算的最佳方式，而测试时间缩放定律指导如何在部署过程中分配计算机，例如让模型“思考更长时间”或生成多个推理样本来解决复杂问题。问题是，尽管这些标度定律从根本上相互交织，但它们是完全独立发展起来的。模型的参数大小和训练持续时间直接决定了其推理样本的质量和每次查询的成本。目前，预训练的行业黄金标准是钦奇利亚规则，该规则建议每个模型参数的计算最优比率约为20个训练令牌。然而，现代人工智能模型家族的创建者，如Llama、Gemma和Qwen，经常违反这一规则，故意在大量数据上过度训练他们的小模型。正如该论文的合著者Nicholas Roberts告诉VentureBeat的那样，在构建复杂的代理工作流程时，传统方法会失败：“在我看来，当每个单独的推理调用都很昂贵时，推理栈就会崩溃。当模型很大，你需要做大量的重复采样时，情况就是这样。”开发人员可以使用过度训练的紧凑模型来运行这种重复采样，而不依赖于大规模模型，只需花费成本的一小部分。但是，由于训练和测试时间缩放定律是单独检查的，因此没有严格的框架来根据部署过程中需要生成多少推理样本来计算模型应该过度训练多少。因此，以前没有一个公式可以联合优化模型大小、训练数据量和测试时间推理预算。这个框架难以表述的原因是预训练和测试时间缩放使用两种不同的数学语言。在预训练期间，使用“损失”来衡量模型的性能，这是一种平滑、连续的度量，可以在模型学习时跟踪预测误差。在测试时，开发人员使用真实世界的下游指标来评估模型的推理能力，例如pass@k，它衡量一个模型在k次独立的重复尝试中产生至少一个正确答案的概率。为了解决训练和部署之间的脱节问题，研究人员引入了训练到测试（T2）的缩放定律。在较高层次上，该框架通过将三个变量视为一个方程来预测模型的推理性能：模型的大小（N）、它从中学习的训练令牌的数量（D）以及它在推理过程中生成的推理样本的数量（k）。T2将预训练和推理预算组合成一个优化公式，该公式考虑了训练模型的基线成本（6ND）和在推理时重复查询模型的复合成本（2Nk）。研究人员尝试了不同的建模方法：是模拟训练前的损失还是测试时间的表现(pass@k)作为N、D和k的函数。第一种方法采用用于钦奇利亚标度（计算模型的预测误差或损失）的熟悉数学方程，并通过添加一个新变量来直接修改它，该变量解释了重复测试时间样本的数量（k）。这使开发人员能够看到增加推理计算是如何降低模型的整体错误率的。第二种方法直接对下游进行建模pass@k精度。它告诉开发人员他们的应用程序在给定特定计算预算的情况下解决问题的概率。但是，企业是否应该将此框架用于每个应用程序？Roberts澄清说，这种方法非常专业。他说：“我想，对于聊天模型等知识密集型应用程序来说，你不会看到太多的好处。”。相反，“T2是为编码等推理繁重的应用程序量身定制的，在这些应用程序中，你通常会使用重复采样作为你的测试时间缩放方法。”为了验证T2缩放定律，研究人员建立了一个由100多个语言模型组成的广泛测试平台，参数从500万到9.01亿不等。他们从头开始训练了21个新的、训练过度的检查站，以测试他们的数学预测在现实中是否成立。然后，他们在八个不同的任务中对模型进行了基准测试，其中包括SciQ和OpenBookQA等真实世界的数据集，以及旨在测试算术、空间推理和知识回忆的合成任务。他们的两个数学模型都证明，计算最优边界大大偏离了标准的钦奇利亚尺度。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/train-to-test-scaling-explained-how-to-optimize-your-end-to-end-ai-compute-budget-for-inference" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
