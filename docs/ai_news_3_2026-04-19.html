@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-19 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-19</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Thoughts and feelings around Claude Design</div>
+      <div class="col-content">I tried Claude Design yesterday and I have a theory for how this whole thing shakes out. As product teams scaled and design needed to justify itself inside engineering orgs, it was pushed toward systematization — and Figma invented its own primitives to make that work: components, styles, variables, props, and so on. Some concepts are borrowed from programming, some aren’t, and the whole thing doesn’t neatly map onto anything. Guidance evolves, migrations pile up, and if you want to automate any of it you’re stuck with a handful of shoddy plugins. The beast is hairy enough that entire design roles now specialize in wrangling the system itself. There’s always been a tense push-pull between Figma and code over what the source of truth should be. Figma won over Sketch partially by staking its claim there — their tooling would be canonical. That victory had a hidden cost. By nature of having a locked-down, largely-undocumented format that’s painful to work with programmatically, Figma accidentally excluded themselves from the training data that would have made them relevant in the agentic era. LLMs were trained on code, not Figma primitives, so models never learned them. As code becomes easier for designers to write and agents keep improving, the source of truth will naturally migrate back to code. And all the baroque infrastructure Figma had to introduce over the past decade will look nuts by comparison. Why fuss around in a lossy approximation of the thing when you can work directly in the medium where it will actually live? If we want to make pottery, why are we painting watercolors of the pot instead of just throwing the clay? At work, we’ve spent quite a bit of time back-porting design changes made directly in code back to Figma and it is not fun. I can’t share that file, but for a fair comparison, this is Figma’s own design system file for their product. I have to assume it was built by the most competent design system team you can find. And yet… These are Figma’s own files. Built by their own team. This is the gold standard. Imagine debugging a color that looks wrong. You check the component. The component uses a variable. The variable is aliased to another variable. That variable references a mode. The mode is overridden at the instance level. The instance lives inside a nested component with a library swap applied. At this point, you’re either considering picking up code or moving to the countryside and becoming a sheep farmer because one more minute of this will make you lose your goddamn mind. So as the source of truth shifts back to code, Figma is left in an odd spot: holding a largely manual, pre-agentic system that nobody in their right mind would design from scratch today. I think design tooling forks into two distinct shapes from here — and there’s almost a clock resetting between Figma and every other tool competing to answer the same question they answered in 2016: who can help me, a designer, get my ideas out fastest? Spoiler: it’s not Figma Make. Figma Make feels like it primarily benefits people who have already drunk the Kool-Aid — it reads from Figma styles, component libraries, and proprietary props (or, as I like to call them, Prop Props), and it’s the only tool in this new landscape still pretending the design file is canonical. It’s the tool for people who want to (or have no choice but to) stay inside the system. Claude Design is the first of those two tools, and takes the opposite bet. There’s an Arts and Crafts principle called “truth to materials” — the idea that a thing should be honest about what it is and how it’s made, rather than masquerading as something else. Figma ended up being the opposite of this: a set of extremely rigid schemas with a free-form “just vibes, man” costume over the top. Like a Type-A personality physically incapable of relaxing, forced to perform chill while internally screaming that your frames aren’t nested and your tokens are detached and nothing is on the grid. Claude Design, for all its roughness, is at least honest about what it is: HTML and JS all the way down. And it has a massive structural advantage: its sibling is Claude Code. Eventually, I can see Claude Design just dumping things directly into Claude Code and vice versa. Claude Design’s onboarding already lets you import your repos. The feedback loop between design and implementation — which has been a source of friction since the beginning of time — becomes a single conversation. The other tool that emerges from this moment will have no expectation of code at all. It’ll be a pure exploration environment — somewhere to drop rectangles, stack layer styles, fuss with blend modes and gradients, and go completely nuts, unconstrained by systems or prompting conventions. Maybe it’s an iPad app with Pencil support where you just quickly sketch a bunch of rectangles. 37signals could do something really funny right now . Or maybe it goes in the opposite direction — something more like Photoshop that goes all-in on high-fidelity compositing and lets our imaginations run wild, now that we’re no longer beholden to the ceiling of what you can do with CSS effects. Doesn’t it seem kinda weird how for 90% of its life, Figma’s only layer effect was a drop shadow or a blur? Figma’s Sketch moment is rapidly approaching. And if you said that sentence to a Victorian child, they would probably have a stroke. The following are messages meant only for the teams behind Sketch and Figma. If neither apply to you, you can skedaddle.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">关于Claude Design的思考和感受</div>
+      <div class="col-content">我昨天尝试了Claude Design，我对整个事情的发展有一个理论。随着产品团队的扩展和设计需要在工程组织内部证明自己，它被推向了系统化——Figma发明了自己的原语来实现这一点：组件、样式、变量、道具等。有些概念是从编程中借用的，有些不是，整件事并没有整齐地映射到任何东西上。指导不断发展，迁移堆积如山，如果你想自动化其中的任何一个，你就只能使用一些劣质的插件。这头野兽已经够毛茸茸的了，以至于整个设计角色现在都专注于争论系统本身。Figma和代码之间一直存在一种紧张的推拉关系，即真相的来源应该是什么。Figma在一定程度上赢得了Sketch的支持，因为他们的工具将是规范的。这场胜利有一个隐藏的代价。由于具有一种锁定的、基本上没有文档记录的格式，很难通过编程方式使用，Figma意外地将自己排除在训练数据之外，而这些数据本可以使它们在代理时代具有相关性。LLM是在代码上训练的，而不是Figma原语，所以模型永远不会学习它们。随着设计人员编写代码变得更加容易，代理不断改进，真相的来源自然会迁移回代码。相比之下，菲格玛在过去十年中引入的所有巴洛克式基础设施看起来都很疯狂。当你可以直接在它实际存在的介质中工作时，为什么要在有损的近似值中大惊小怪呢？如果我们想做陶器，为什么我们要画壶的水彩画，而不是扔粘土？在工作中，我们花了相当多的时间将直接在代码中进行的设计更改移植回Figma，这并不有趣。我不能分享那个文件，但为了公平比较，这是Figma自己的产品设计系统文件。我不得不假设它是由你能找到的最有能力的设计系统团队建造的。然而，这些是菲格玛自己的文件。由他们自己的团队建造。这就是黄金标准。想象一下，调试一种看起来不正确的颜色。您检查组件。该组件使用变量。该变量被别名化为另一个变量。该变量引用了一个模式。该模式在实例级别被覆盖。该实例位于应用了库交换的嵌套组件内。此时，你要么考虑学习代码，要么搬到农村当牧羊人，因为再过一分钟就会让你失去理智。因此，当真相的来源转移回代码时，Figma就陷入了一个奇怪的境地：它拥有一个很大程度上是手动的、前代理的系统，而今天没有一个头脑正常的人会从头开始设计这个系统。我认为设计工具从这里分叉成两种不同的形状——在Figma和其他所有工具之间几乎有一个时钟重置，它们在2016年竞相回答同一个问题：谁能帮助我，一个设计师，最快地把我的想法表达出来？剧透：这不是Figma Make。Figma Make给人的感觉是，它主要是让那些已经喝过Kool-Aid的人受益——它读取Figma样式、组件库和专有道具（或者，我喜欢称之为道具道具），它是这个新领域中唯一一个仍然假装设计文件是规范的工具。它是那些想（或别无选择，只能）留在系统内的人的工具。Claude Design是这两个工具中的第一个，并采取了相反的赌注。有一个工艺美术原则叫做“对材料的真实性”——一个东西应该诚实地说明它是什么以及它是如何制造的，而不是伪装成其他东西。Figma最终与此相反：一套极其僵化的模式，上面有一套自由形式的“只是共鸣，男人”服装。就像一个a型人格的人，身体上无法放松，被迫表现得很冷静，内心却尖叫着你的框架没有嵌套，你的令牌是分离的，网格上什么都没有。尽管克劳德设计很粗糙，但至少对它的本质是诚实的：HTML和JS一直往下。它有一个巨大的结构优势：它的兄弟是克劳德代码。最终，我可以看到Claude Design只是将东西直接转储到Claude Code中，反之亦然。Claude Design的入职培训已经允许您导入存储库。设计和实现之间的反馈循环——从一开始就是摩擦的根源——变成了一个单一的对话。此时出现的另一个工具将完全不需要代码。这将是一个纯粹的探索环境——一个可以放下矩形、堆叠图层样式、对混合模式和渐变大惊小怪、完全疯狂、不受系统或提示约定约束的地方。也许这是一个支持铅笔的iPad应用程序，你只需快速绘制一堆矩形。37signals现在可以做一些非常有趣的事情。或者，它可能朝着相反的方向发展——更像是Photoshop，它全身心投入高保真合成，让我们的想象力驰骋，现在我们不再受制于CSS效果的上限。Figma在90%的生命中，唯一的图层效果是一个阴影或模糊，这难道不奇怪吗？菲格玛的素描时刻正在迅速临近。如果你对一个维多利亚时代的孩子说这句话，他们可能会中风。以下信息仅适用于Sketch和Figma背后的团队。如果两者都不适用于你，你可以乱来。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://samhenri.gold/blog/20260418-claude-design/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
