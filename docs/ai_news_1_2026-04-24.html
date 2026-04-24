@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-24 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-24</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Mystery solved: Anthropic reveals changes to Claude's harnesses and operating instructions likely caused degradation</div>
+      <div class="col-content">For several weeks, a growing chorus of developers and AI power users claimed that Anthropic’s flagship models were losing their edge. Users across GitHub, X, and Reddit reported a phenomenon they described as "AI shrinkflation" —a perceived degradation where Claude seemed less capable of sustained reasoning, more prone to hallucinations, and increasingly wasteful with tokens. Critics pointed to a measurable shift in behavior, alleging that the model had moved from a "research-first" approach to a lazier, "edit-first" style that could no longer be trusted for complex engineering. While the company initially pushed back against claims of "nerfing" the model to manage demand, the mounting evidence from high-profile users and third-party benchmarks created a significant trust gap. Today, Anthropic addressed these concerns directly , publishing a technical post-mortem that identified three separate product-layer changes responsible for the reported quality issues. "We take reports about degradation very seriously," reads Anthropic's blog post on the matter . "We never intentionally degrade our models, and we were able to immediately confirm that our API and inference layer were unaffected." Anthropic claims it has resolved the issues by reverting the reasoning effort change and the verbosity prompt, while fixing the caching bug in version v2.1.116. The controversy gained momentum in early April 2026, fueled by detailed technical analyses from the developer community. Stella Laurenzo, a Senior Director in AMD’s AI group, published an exhaustive audit of 6,852 Claude Code session files and over 234,000 tool calls on Github showing performance falling from her usage before. Her findings suggested that Claude’s reasoning depth had fallen sharply, leading to reasoning loops and a tendency to choose the "simplest fix" rather than the correct one. This anecdotal frustration was seemingly validated by third-party benchmarks. BridgeMind reported that Claude Opus 4.6’s accuracy had dropped from 83.3% to 68.3% in their tests, causing its ranking to plummet from No. 2 to No. 10. Although some researchers argued these specific benchmark comparisons were flawed due to inconsistent testing scopes, the narrative that Claude had become "dumber" became a viral talking point. Users also reported that usage limits were draining faster than expected, leading to suspicions that Anthropic was intentionally throttling performance to manage surging demand. In its post-morem bog post, Anthropic clarified that while the underlying model weights had not regressed, three specific changes to the "harness" surrounding the models had inadvertently hampered their performance: Default Reasoning Effort: On March 4, Anthropic changed the default reasoning effort from high to medium for Claude Code to address UI latency issues. This change was intended to prevent the interface from appearing "frozen" while the model thought, but it resulted in a noticeable drop in intelligence for complex tasks. A Caching Logic Bug: Shipped on March 26, a caching optimization meant to prune old "thinking" from idle sessions contained a critical bug. Instead of clearing the thinking history once after an hour of inactivity, it cleared it on every subsequent turn, causing the model to lose its "short-term memory" and become repetitive or forgetful. System Prompt Verbosity Limits: On April 16, Anthropic added instructions to the system prompt to keep text between tool calls under 25 words and final responses under 100 words. This attempt to reduce verbosity in Opus 4.7 backfired, causing a 3% drop in coding quality evaluations. The quality issues extended beyond the Claude Code CLI, affecting the Claude Agent SDK and Claude Cowork , though the Claude API was not impacted. Anthropic admitted that these changes made the model appear to have "less intelligence," which they acknowledged was not the experience users should expect. To regain user trust and prevent future regressions, Anthropic is implementing several operational changes: Internal Dogfooding: A larger share of internal staff will be required to use the exact public builds of Claude Code to ensure they experience the product as users do. Enhanced Evaluation Suites: The company will now run a broader suite of per-model evaluations and "ablations" for every system prompt change to isolate the impact of specific instructions. Tighter Controls: New tooling has been built to make prompt changes easier to audit, and model-specific changes will be strictly gated to their intended targets. Subscriber Compensation: To account for the token waste and performance friction caused by these bugs, Anthropic has reset usage limits for all subscribers as of April 23. The company intends to use its new @ClaudeDevs account on X and GitHub threads to provide deeper reasoning behind future product decisions and maintain a more transparent dialogue with its developer base.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">谜团已解开：Anthropic揭示了克劳德的安全带和操作说明的变化可能导致退化</div>
+      <div class="col-content">几周来，越来越多的开发人员和人工智能高级用户声称，Anthropic的旗舰机型正在失去优势。GitHub、X和Reddit的用户报告了一种他们称之为“AI缩水式通胀”的现象，即Claude似乎缺乏持续推理的能力，更容易产生幻觉，并且越来越浪费代币。批评者指出，行为发生了明显的转变，声称该模型已经从“研究第一”的方法转变为更懒惰、“编辑第一”的风格，在复杂的工程中不再值得信任。虽然该公司最初反驳了“削弱”该模型以管理需求的说法，但来自知名用户和第三方基准的越来越多的证据造成了巨大的信任差距。今天，Anthropic直接解决了这些问题，发表了一份技术尸检报告，确定了导致报告质量问题的三个单独的产品层变化。Anthropic关于此事的博客文章写道：“我们非常重视关于退化的报道。”。“我们从未故意降低我们的模型，我们能够立即确认我们的API和推理层不受影响。”Anthropic声称，它通过恢复推理努力的更改和冗长提示解决了这些问题，同时修复了v2.1.116版本中的缓存错误。2026年4月初，在开发者社区的详细技术分析的推动下，这场争议愈演愈烈。AMD人工智能团队的高级总监Stella Laurenzo在Github上发布了一份对6852个Claude Code会话文件和234000多个工具调用的详尽审计报告，显示其性能较之前有所下降。她的研究结果表明，克劳德的推理深度急剧下降，导致推理循环和倾向于选择“最简单的解决方案”而不是正确的解决方案。第三方基准测试似乎证实了这种轶事式的沮丧。BridgeMind报告称，Claude Opus 4.6的准确率在他们的测试中从83.3%下降到68.3%，导致其排名从第2位跌至第10位。尽管一些研究人员认为，由于测试范围不一致，这些具体的基准比较是有缺陷的，但克劳德变得“更笨”的说法成为了病毒式传播的话题。用户还报告说，使用限制的消耗速度比预期的要快，导致人们怀疑Anthropic故意限制性能以管理激增的需求。在morem-bog帖子中，Anthropic澄清说，虽然底层模型权重没有回归，但围绕模型的“线束”的三个具体变化无意中阻碍了它们的性能：默认推理努力：3月4日，Anthropic将Claude Code的默认推理努力从高改为中等，以解决UI延迟问题。这一变化旨在防止界面在模型思考时出现“冻结”，但它导致复杂任务的智能明显下降。缓存逻辑错误：3月26日发布的一项缓存优化旨在从空闲会话中删除旧的“思维”，其中包含一个关键错误。它不是在一个小时的不活动后清除一次思维历史，而是在随后的每一次转弯时清除它，导致模型失去“短期记忆”，变得重复或健忘。系统提示的详细程度限制：4月16日，Anthropic在系统提示中添加了说明，以保持工具调用之间的文本不超过25个单词，最终响应不超过100个单词。Opus 4.7中减少冗长的尝试适得其反，导致编码质量评估下降了3%。质量问题扩展到Claude Code CLI之外，影响了Claude Agent SDK和Claude Cowork，尽管Claude API没有受到影响。Anthropic承认，这些变化使模型看起来“智力降低”，他们承认这不是用户应该期望的体验。为了重新获得用户信任并防止未来的倒退，Anthropic正在实施几项运营变革：内部狗食化：将需要更多的内部员工使用克劳德代码的确切公共版本，以确保他们像用户一样体验产品。增强的评估套件：该公司现在将对每个系统提示更改运行更广泛的每种型号评估和“消融”套件，以隔离特定指令的影响。更严格的控制：已经构建了新的工具，使快速更改更容易审计，并且特定于模型的更改将严格限制在预期目标范围内。订阅者补偿：为了解决这些漏洞造成的代币浪费和性能摩擦，Anthropic自4月23日起重置了所有订阅者的使用限制。该公司打算在X和GitHub线程上使用其新的@ClaudeDevs帐户，为未来的产品决策提供更深入的推理，并与开发人员保持更透明的对话。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
