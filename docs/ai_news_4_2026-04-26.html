@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-26 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-26</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 87.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Decoupled DiLoCo: A new frontier for resilient, distributed AI training</div>
+      <div class="col-content">Training a frontier AI model traditionally depends on a large, tightly coupled system in which identical chips must stay in near-perfect synchronization. This approach is highly effective for today’s state-of-the-art models, but as we look toward future generations of scale, maintaining this level of synchronization across thousands of chips becomes a significant logistical challenge. Today, in a new paper we are excited to share a new approach to this problem, called Decoupled DiLoCo (Distributed Low-Communication). By dividing large training runs across decoupled “islands” of compute, with asynchronous data flowing between them, this architecture isolates local disruptions so that other parts of the system can keep learning efficiently. The result is a more resilient and flexible way to train advanced models across globally distributed data centers. And crucially, Decoupled DiLoCo does not suffer the communication delays that made previous distributed methods like Data-Parallel impractical at global scale. As frontier models continue to grow in scale and complexity, we’re exploring diverse approaches to train models across more compute, locations and varied hardware. Decoupled DiLoCo builds on two earlier advances: Pathways , which introduced a distributed AI system based on asynchronous data flow, and DiLoCo , which dramatically reduced the bandwidth required between distributed data centers, making it practical to train large language models across distant locations. Decoupled DiLoCo brings those ideas together to train AI models more flexibly at scale. Built on top of Pathways, it enables asynchronous training across separate islands of compute (known as learner units) so that a chip failure in one area doesn’t interrupt the progress of the others. This infrastructure is also self-healing. In testing, we used a method called “chaos engineering” to introduce artificial hardware failures during training runs. Decoupled DiLoCo continued the training process after the loss of entire learner units, and then seamlessly reintegrated them when they came back online. Testing Decoupled DiLoCo with Gemma 4 models demonstrated that, when hardware fails, the system maintains greater availability of learning clusters than more traditional training methods — while ultimately delivering the same benchmarked level of machine learning (ML) performance. Decoupled DiLoCo is not only more resilient to failures, but is also practical for executing production-level, fully distributed pre-training. We successfully trained a 12 billion parameter model across four separate U.S. regions using 2-5 Gbps of wide-area networking (a level relatively achievable using existing internet connectivity between datacenter facilities, rather than requiring new custom network infrastructure between facilities). Notably, the system achieved this training result more than 20 times faster than conventional synchronization methods. This is because our system incorporates required communication into longer periods of computation, avoiding the "blocking" bottlenecks where one part of the system must wait for another. At Google, we take a full-stack approach to AI training, spanning hardware, software infrastructure and research. Increasingly, gains are coming from rethinking how these layers fit together. Decoupled DiLoCo is one example. By enabling training jobs at internet-scale bandwidth, it can tap any unused compute wherever it sits, turning stranded resources into useful capacity. Beyond efficiency and resilience, this training paradigm also unlocks the ability to mix different hardware generations, such as TPU v6e and TPU v5p, in a single training run. This approach not only extends the useful life of existing hardware, but also increases the total compute available for model training. In our experiments, chips from different generations running at different speeds still matched the ML performance of single-chip-type training runs, ensuring that even older hardware can meaningfully accelerate AI training. What’s more, because new generations of hardware don’t arrive everywhere all at once, being able to train across generations can alleviate recurring logistical and capacity bottlenecks. As we push the frontiers of AI infrastructure today, we’re continuing to explore approaches to resilient systems needed to unlock the next generation of AI. This work was done by a team of members across Google DeepMind and Google Research. The leads and core contributors behind Decoupled DiLoCo are Arthur Douillard, Keith Rush, Yani Donchev, Zachary Charles, Ayush Dubey, Blake Woodworth, Ionel Gog, Josef Dean, Nova Fallen, Zachary Garrett. Operational support was done by Nate Keating and Jenny Bishop. We are also grateful for the additional support and advising from Jeff Dean, Marc’Aurelio Ranzato, Raia Hadsell, Arthur Szlam, Edouard Yvinec, Henry Prior, Paul Barham, Michael Isard, Daniel Ramage, Brendan McMahan, Chase Hensel, and Zoltan Egyed.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">解耦DiLoCo：弹性分布式人工智能训练的新前沿</div>
+      <div class="col-content">传统上，训练前沿人工智能模型依赖于一个大型、紧密耦合的系统，在这个系统中，相同的芯片必须保持近乎完美的同步。这种方法对于当今最先进的模型非常有效，但随着我们展望未来几代的规模，在数千个芯片之间保持这种同步水平成为一项重大的后勤挑战。今天，在一篇新论文中，我们很高兴分享一种解决这个问题的新方法，称为解耦DiLoCo（分布式低通信）。通过在解耦的计算“孤岛”上划分大型训练运行，并在它们之间流动异步数据，这种架构隔离了局部中断，使系统的其他部分能够高效地学习。结果是一种更具弹性和灵活性的方法，可以在全球分布式数据中心训练高级模型。至关重要的是，解耦DiLoCo不会受到通信延迟的影响，而之前的分布式方法（如数据并行）在全球范围内是不切实际的。随着前沿模型的规模和复杂性不断增长，我们正在探索各种方法，在更多的计算、位置和不同的硬件上训练模型。解耦的DiLoCo建立在两个早期进展的基础上：Pathways引入了一个基于异步数据流的分布式人工智能系统，DiLoCo大大降低了分布式数据中心之间所需的带宽，使跨远程位置训练大型语言模型变得可行。解耦的DiLoCo将这些想法结合在一起，在规模上更灵活地训练人工智能模型。它建立在Pathways之上，可以跨单独的计算岛（称为学习器单元）进行异步训练，这样一个区域的芯片故障就不会中断其他区域的进程。这种基础设施也是自我修复的。在测试中，我们使用了一种称为“混沌工程”的方法，在训练运行过程中引入人工硬件故障。在失去整个学习单元后，解耦的DiLoCo继续进行培训过程，然后在他们重新上线时无缝地重新整合。使用Gemma 4模型测试解耦DiLoCo表明，当硬件发生故障时，系统比传统的训练方法保持更高的学习集群可用性，同时最终提供相同的机器学习（ML）性能基准水平。解耦的DiLoCo不仅对故障更具弹性，而且对于执行生产级、完全分布式的预训练也很实用。我们使用2-5Gbps的广域网在四个独立的美国地区成功训练了一个120亿个参数模型（使用数据中心设施之间的现有互联网连接相对可以实现这一水平，而不需要设施之间新的定制网络基础设施）。值得注意的是，该系统实现这一训练结果的速度比传统同步方法快20多倍。这是因为我们的系统将所需的通信整合到更长的计算周期中，避免了系统的一部分必须等待另一部分的“阻塞”瓶颈。在谷歌，我们采用全栈方法进行人工智能培训，涵盖硬件、软件基础设施和研究。越来越多的收益来自于重新思考这些层是如何结合在一起的。解耦DiLoCo就是一个例子。通过在互联网规模的带宽上启用培训工作，它可以利用任何未使用的计算，无论它位于何处，将闲置的资源转化为有用的容量。除了效率和弹性之外，这种训练模式还可以在一次训练中混合不同的硬件版本，如TPU v6e和TPU v5p。这种方法不仅延长了现有硬件的使用寿命，还增加了可用于模型训练的总计算量。在我们的实验中，来自不同世代、以不同速度运行的芯片仍然与单芯片型训练运行的机器学习性能相匹配，确保了即使是较旧的硬件也能有意义地加速人工智能训练。更重要的是，由于新一代硬件不会一次到达所有地方，因此能够跨代训练可以缓解反复出现的后勤和容量瓶颈。随着我们今天推进人工智能基础设施的前沿，我们正在继续探索解锁下一代人工智能所需的弹性系统的方法。这项工作是由谷歌DeepMind和谷歌研究院的一个团队完成的。解耦DiLoCo背后的主要和核心贡献者是Arthur Douillard、Keith Rush、Yani Donchev、Zachary Charles、Ayush Dubey、Blake Woodworth、Ionel Gog、Josef Dean、Nova Fallen和Zachary Garrett。运营支持由Nate Keating和Jenny Bishop完成。我们还感谢Jeff Dean、Marc'Aurelio Ranzato、Raia Hadsell、Arthur Szlam、Edouard Yvinec、Henry Prior、Paul Barham、Michael Isard、Daniel Ramage、Brendan McMahan、Chase Hensel和Zoltan Egyed提供的额外支持和建议。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/decoupled-diloco/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
