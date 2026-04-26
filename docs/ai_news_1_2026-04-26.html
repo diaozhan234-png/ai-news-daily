@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-26 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-26</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 90.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Escaping the Agreement Trap: Defensibility Signals for Evaluating Rule-Governed AI</div>
+      <div class="col-content">arXiv:2604.20972v1 Announce Type: new Abstract: Content moderation systems are typically evaluated by measuring agreement with human labels. In rule-governed environments this assumption fails: multiple decisions may be logically consistent with the governing policy, and agreement metrics penalize valid decisions while mischaracterizing ambiguity as error -- a failure mode we term the Agreement Trap. We formalize evaluation as policy-grounded correctness and introduce the Defensibility Index (DI) and Ambiguity Index (AI). To estimate reasoning stability without additional audit passes, we introduce the Probabilistic Defensibility Signal (PDS), derived from audit-model token logprobs. We harness LLM reasoning traces as a governance signal rather than a classification output by deploying the audit model not to decide whether content violates policy, but to verify whether a proposed decision is logically derivable from the governing rule hierarchy. We validate the framework on 193,000+ Reddit moderation decisions across multiple communities and evaluation cohorts, finding a 33-46.6 percentage-point gap between agreement-based and policy-grounded metrics, with 79.8-80.6% of the model's false negatives corresponding to policy-grounded decisions rather than true errors. We further show that measured ambiguity is driven by rule specificity: auditing 37,286 identical decisions under three tiers of the same community rules reduces AI by 10.8 pp while DI remains stable. Repeated-sampling analysis attributes PDS variance primarily to governance ambiguity rather than decoding noise. A Governance Gate built on these signals achieves 78.6% automation coverage with 64.9% risk reduction. Together, these results show that evaluation in rule-governed environments should shift from agreement with historical labels to reasoning-grounded validity under explicit rules.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">摆脱协议陷阱：评估规则控制的人工智能的防御信号</div>
+      <div class="col-content">arXiv:2604.20972v1公告类型：new摘要：内容审核系统通常通过测量与人类标签的一致性来评估。在规则管理的环境中，这种假设是失败的：多个决策可能在逻辑上与管理策略一致，协议指标会惩罚有效的决策，同时将模糊性错误地描述为错误——我们称之为协议陷阱的一种失败模式。我们将评估形式化为基于政策的正确性，并引入了防御指数（DI）和模糊指数（AI）。为了在没有额外审计过程的情况下估计推理稳定性，我们引入了概率防御信号（PDS），该信号来自审计模型令牌logprobs。我们利用LLM推理跟踪作为治理信号，而不是分类输出，通过部署审计模型来判断内容是否违反策略，而是验证所提出的决策是否可以从治理规则层次结构中逻辑推导出来。我们在多个社区和评估队列中对193000多个Reddit审核决策进行了验证，发现基于协议和基于政策的指标之间存在33-46.6个百分点的差距，79.8-80.6%的模型假阴性对应于基于政策的决策，而不是真实错误。我们进一步表明，测量的模糊性是由规则特异性驱动的：在相同的社区规则的三个层次下审计37286个相同的决策会使AI降低10.8个百分点，而DI保持稳定。重复采样分析将PDS方差主要归因于治理模糊性，而不是解码噪声。基于这些信号构建的治理门实现了78.6%的自动化覆盖率，降低了64.9%的风险。总之，这些结果表明，在规则控制的环境中，评估应该从与历史标签的一致性转变为在明确规则下基于推理的有效性。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2604.20972" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
