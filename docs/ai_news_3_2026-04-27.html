@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-27 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-27</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Monitoring LLM behavior: Drift, retries, and refusal patterns</div>
+      <div class="col-content">Traditional software is predictable: Input A plus function B always equals output C. This determinism allows engineers to develop robust tests. On the other hand, generative AI is stochastic and unpredictable. The exact same prompt often yields different results on Monday versus Tuesday, breaking the traditional unit testing that engineers know and love. To ship enterprise-ready AI, engineers cannot rely on mere “vibe checks” that pass today but fail when customers use the product. Product builders need to adopt a new infrastructure layer: The AI Evaluation Stack . This framework is informed by my extensive experience shipping AI products for Fortune 500 enterprise customers in high-stakes industries, where “hallucination” is not funny — it’s a huge compliance risk. Traditional software tests are binary assertions (pass/fail). While some AI evals use binary asserts, many evaluate on a gradient. An eval is not a single script; it is a structured pipeline of assertions — ranging from strict code syntax to nuanced semantic checks — that verify the AI system’s intended function. To build a robust, cost-effective pipeline, asserts must be separated into two distinct architectural layers: A surprisingly large share of production AI failures aren't semantic "hallucinations" — they are basic syntax and routing failures. Deterministic assertions serve as the pipeline's first gate, using traditional code and regex to validate structural integrity. Instead of asking if a response is "helpful," these assertions ask strict, binary questions: Did the model generate the correct JSON key/value schema? Did it invoke the correct tool call with the required arguments? Did it successfully slot-fill a valid GUID or email address? // Example: Layer 1 Deterministic Tool Call Assertion "test_scenario": "User asks to look up an account", "assertion_type": "schema_validation", "expected_action": "Call API: get_customer_record", "actual_ai_output": "I found the customer.", "eval_result": "FAIL - AI hallucinated conversational text instead of generating the required API payload." In the example above, the test failed instantly because the model generated conversational text instead of the required tool call payload. Architecturally, deterministic assertions must be the first layer of the stack, operating on a computationally inexpensive "fail-fast" principle. If a downstream API requires a specific schema, a malformed JSON string is a fatal error. By failing the evaluation immediately at this layer, engineering teams prevent the pipeline from triggering expensive semantic checks (Layer 2) or wasting valuable human review time (Layer 3). When deterministic assertions pass, the pipeline must evaluate semantic quality. Because natural language is fluid, traditional code cannot easily assert if a response is "helpful" or "empathetic." This introduces model-based evaluation, commonly referred to as " LLM-as-a-Judge ” or “ LLM-Judge ." While using one non-deterministic system to evaluate another seems counterintuitive, it is an exceptionally powerful architectural pattern for use cases requiring nuance. It is virtually impossible to write a reliable regex to verify if a response is "actionable" or "polite." While human reviewers excel at this nuance, they cannot scale to evaluate tens of thousands of CI/CD test cases. Thus, the LLM-as-a-Judge becomes the scalable proxy for human discernment. However, model-based assertions only yield reliable data when the LLM-as-a-Judge is provisioned with three critical inputs: A state-of-the-art reasoning model: The Judge must possess superior reasoning capabilities compared to the production model. If your app runs on a smaller, faster model for latency, the judge must be a frontier reasoning model to approximate human-level discernment. A strict assessment rubric: Vague evaluation prompts ("Rate how good this answer is") yield noisy, stochastic evaluations. A robust rubric explicitly defines the gradients of failure and success. (For example, a "Helpfulness" rubric should define Score 1 as an irrelevant refusal, Score 2 as addressing the prompt but lacking actionable steps, and Score 3 as providing actionable next steps strictly within context.) Ground truth (golden outputs): While the rubric provides the rules, a human-vetted "expected answer" acts as the answer key. When the LLM-Judge can compare the production model's output against a verified Golden Output, its scoring reliability increases dramatically. A robust evaluation architecture requires two complementary pipelines. The online pipeline monitors post-deployment telemetry, while the offline pipeline provides the foundational baseline and deterministic constraints required to evaluate stochastic models safely. The offline pipeline's primary objective is regression testing — identifying failures, drift, and latency before production. Deploying an enterprise LLM feature without a gating offline evaluation suite is an architectural anti-pattern; it is the equivalent of merging uncompiled code into a main branch. The offline lifecycle begins by curating a " golden dataset " — a static, version-controlled repository of 200 to 500 test cases representing the AI's full operational envelope. Each case pairs an exact input payload with an expected " golden output " (ground truth). Crucially, this dataset must reflect expected real-world traffic distributions. While most cases cover standard "happy-path" interactions, engineers must systematically incorporate edge cases, jailbreaks, and adversarial inputs. Evaluating "refusal capabilities" under stress remains a strict compliance requirement. Example test case payload (standard tool use): Input: "Schedule a 30-minute follow-up meeting with the client for next Tuesday at 10 a.m." Expected output (golden): The system successfully invokes the schedule_meeting tool with the correct JSON payload: {"duration_minutes": 30, "day": "Tuesday", "time": "10 AM", "attendee": "client_email"}.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">监控LLM行为：漂移、重试和拒绝模式</div>
+      <div class="col-content">传统软件是可预测的：输入A加上函数B总是等于输出C。这种确定性使工程师能够开发出健壮的测试。另一方面，生成型人工智能是随机和不可预测的。周一和周二，完全相同的提示往往会产生不同的结果，打破了工程师们所熟知和喜爱的传统单元测试。为了推出企业级AI，工程师不能仅仅依靠今天通过但在客户使用产品时失败的“氛围检查”。产品构建者需要采用一个新的基础设施层：人工智能评估栈。这个框架是基于我在高风险行业为财富500强企业客户运送人工智能产品的丰富经验，在这些行业中，“幻觉”并不好笑——这是一个巨大的合规风险。传统的软件测试是二进制断言（通过/失败）。虽然一些AI评估使用二进制断言，但许多评估是在梯度上进行的。eval不是一个单一的脚本；它是一个结构化的断言管道，从严格的代码语法到细致的语义检查，用于验证人工智能系统的预期功能。为了构建一个健壮、经济高效的管道，断言必须分为两个不同的架构层：令人惊讶的是，很大一部分生产AI故障不是语义上的“幻觉”，而是基本的语法和路由故障。确定性断言充当管道的第一道门，使用传统代码和正则表达式来验证结构完整性。这些断言不是问响应是否“有用”，而是问严格的二进制问题：模型是否生成了正确的JSON键/值模式？它是否使用所需的参数调用了正确的工具调用？它是否成功填充了有效的GUID或电子邮件地址？//示例：第1层确定性工具调用断言“test_scenario”：“用户要求查找帐户”，“assertition_type”：“schema_validation”，“expected_action”：“调用API：get_customer_record”，“actual_ai_output”：“我找到了客户。从架构上讲，确定性断言必须是堆栈的第一层，基于计算成本低廉的“快速失败”原则运行。如果下游API需要特定的架构，格式错误的JSON字符串将是致命错误。通过在这一层立即失败评估，工程团队可以防止管道触发昂贵的语义检查（第2层）或浪费宝贵的人工审查时间（第3层）。当确定性断言通过时，管道必须评估语义质量。由于自然语言是流动的，传统代码无法轻易断言响应是“有帮助的”还是“有同理心的”。这引入了基于模型的评估，通常被称为“LLM-as-AJudge”或“LLM-Judge”。虽然使用一个非确定性系统来评估另一个系统似乎有违直觉，但对于需要细微差别的用例来说，这是一种非常强大的架构模式。几乎不可能编写一个可靠的正则表达式来验证响应是“可操作的”或“礼貌的”。虽然人类审阅者擅长这种细微差别，但他们无法扩展到评估数万个CI/CD测试用例。因此，LLM-as-aJudge成为人类识别的可扩展代理。然而，基于模型的断言只有在LLM-as-a-Jegister配备了三个关键输入时才能产生可靠的数据：最先进的推理模型：与生产模型相比，Judge必须具备更优的推理能力。如果你的应用程序运行在一个更小、更快的延迟模型上，那么判断者必须是一个前沿推理模型，以接近人类的识别能力。严格的评估标准：模糊的评估提示（“评价这个答案有多好”）会产生嘈杂的随机评估。一个稳健的量规明确地定义了失败和成功的梯度。（例如，“乐于助人”的评价标准应将分数1定义为不相关的拒绝，将分数2定义为解决迅速但缺乏可操作步骤的问题，将分数3定义为严格在上下文中提供可操作的后续步骤。）基本事实（黄金输出）：虽然评价标准提供了规则，但经过人类审查的“预期答案”是答案的关键。当LLM法官能够将生产模型的输出与经过验证的黄金输出进行比较时，其评分可靠性会显著提高。一个稳健的评估架构需要两个互补的管道。在线管道监测部署后的遥测数据，而离线管道提供安全评估随机模型所需的基本基线和确定性约束。离线管道的主要目标是回归测试——在生产之前识别故障、漂移和延迟。在没有门控离线评估套件的情况下部署企业LLM功能是一种架构反模式；这相当于将未编译的代码合并到一个主分支中。离线生命周期始于策划一个“黄金数据集”——一个由200到500个测试用例组成的静态、版本控制的存储库，代表了人工智能的完整操作范围。每种情况都将一个精确的输入有效载荷与预期的“黄金输出”（地面实况）配对。至关重要的是，该数据集必须反映预期的现实世界流量分布。虽然大多数情况涵盖了标准的“快乐之路”交互，但工程师必须系统地结合边缘情况、越狱和对抗性输入。在压力下评估“拒绝能力”仍然是一项严格的合规要求。示例测试用例有效负载（标准工具使用）：输入：“安排下周二上午10点与客户举行30分钟的后续会议。”预期输出（金色）：系统成功调用了Schedule_meeting工具，并使用正确的JSON有效负载：{“duration_minutes”：30，“day”：“Tuesday”，“time”：“10 AM”，“与会者”：“client_email”}。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/infrastructure/monitoring-llm-behavior-drift-retries-and-refusal-patterns" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
