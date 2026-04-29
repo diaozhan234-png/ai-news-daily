@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-04-29 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-04-29</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">How to build custom reasoning agents with a fraction of the compute</div>
+      <div class="col-content">Training AI reasoning models demands resources that most enterprise teams do not have. Engineering teams are often forced to choose between distilling knowledge from large, expensive models or relying on reinforcement learning techniques that provide sparse feedback. Researchers at JD.com and several academic institutions recently introduced a new training paradigm that sidesteps this dilemma. The technique, called Reinforcement Learning with Verifiable Rewards with Self-Distillation (RLSD), combines the reliable performance tracking of reinforcement learning with the granular feedback of self-distillation. Experiments indicate that models trained with RLSD outperform those built on classic distillation and reinforcement learning algorithms. For enterprise teams, this approach lowers the technical and financial barriers to building custom reasoning models tailored to specific business logic. The standard method for training reasoning models is Reinforcement Learning with Verifiable Rewards (RLVR). In this paradigm, the model learns through trial and error, guided by a final outcome from its environment. An automated verifier checks if the model’s answer is right or wrong, providing a binary reward, such as a 0 or 1. RLVR suffers from sparse and uniform feedback. “Standard GRPO has a signal density problem,” Chenxu Yang, co-author of the paper, told VentureBeat. “A multi-thousand-token reasoning trace gets a single binary reward, and every token inside that trace receives identical credit, whether it's a pivotal logical step or a throwaway phrase.” Consequently, the model never learns which intermediate steps led to its success or failure. On-Policy Distillation (OPD) takes a different approach. Instead of waiting for a final outcome, developers pair a smaller student model with a larger, more capable teacher model. For each training example, the student compares its response to that of the teacher token by token. This provides the student with granular feedback on the entire reasoning chain and response-generation process. Deploying and running a separate, massive teacher model alongside the student throughout the entire training process incurs massive computational overhead. “You have to keep a larger teacher model resident throughout training, which roughly doubles your GPU footprint,” Yang said. Furthermore, the teacher and student models must share the exact same vocabulary structure, which according to Yang, “quietly rules out most cross-architecture, cross-modality, or multilingual setups that enterprises actually run.” On-Policy Self-Distillation (OPSD) emerged as a solution designed to overcome the shortcomings of the other two approaches. In OPSD, the same model plays the role of both the student and the teacher. During training, the student receives a standard prompt while the teacher receives privileged information, such as a verified, step-by-step answer key. This well-informed teacher version of the model then evaluates the student version, providing token-by-token feedback as the student tries to solve the problem using only the standard prompt. OPSD appears to be the perfect compromise for an enterprise budget. It delivers the granular, step-by-step guidance of OPD. Because it eliminates the need for an external teacher model, it operates with the high computational efficiency and low cost of RLVR, only requiring an extra forward pass for the teacher. However, the researchers found that OPSD suffers from a phenomenon called “privileged information leakage.” “The objective is structurally ill-posed,” Yang said. “There's an irreducible mutual-information gap that the student can never close... When self-distillation is set up as distribution matching, the student is asked to imitate the teacher's full output distribution under privileged context.” Because the teacher evaluates the student based on a hidden answer key, the training objective forces the student model to learn the teacher’s exact phrasing or steps instead of the underlying reasoning logic. As a result, the student model starts hallucinating references to an invisible solution that it will not have access to in a real-world deployment. In practice, OPSD models show a rapid spike in performance early in training, but their reasoning capabilities soon plateau and progressively degrade over time. The researchers behind RLSD realized that the signals governing how a model updates its parameters have fundamentally asymmetric requirements. They identified that the signal dictating the direction of the update (i.e., whether to reinforce or penalize a behavior) can be sparse, but must be perfectly reliable, because pointing the model in the wrong direction damages its reasoning policy. On the other hand, the signal dictating the magnitude of the update (i.e., how much relative credit or blame a specific step deserves) benefits from being extremely dense to enable fine-grained, step-by-step corrections. RLSD builds on this principle by decoupling the update direction from the update magnitude. The framework lets the verifiable environmental feedback from the RLVR signal strictly determine the direction of learning. The model only receives overall reinforcement if the final answer is objectively correct. The self-teacher is stripped of its power to dictate what the model should generate. Instead, the teacher's token-by-token assessment is repurposed to determine the magnitude of the update. It simply distributes the total credit or blame across the individual steps of the model's reasoning path. This alters how the model learns compared to the classic OPSD paradigm. In standard OPSD, the training objective acts like behavioral cloning, where the model is forced to directly copy the exact wording and phrasing of the teacher. This causes the student to hallucinate and leak references to data it does not have.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">如何用一小部分计算构建自定义推理代理</div>
+      <div class="col-content">训练人工智能推理模型需要大多数企业团队没有的资源。工程团队经常被迫在从大型、昂贵的模型中提取知识或依赖于提供稀疏反馈的强化学习技术之间做出选择。京东和几家学术机构的研究人员最近推出了一种新的培训范式，避开了这一困境。这项名为“自我蒸馏可验证奖励强化学习（RLSD）”的技术将强化学习的可靠性能跟踪与自我蒸馏的精细反馈相结合。实验表明，用RLSD训练的模型优于基于经典蒸馏和强化学习算法的模型。对于企业团队来说，这种方法降低了构建针对特定业务逻辑定制的推理模型的技术和财务障碍。训练推理模型的标准方法是具有可验证奖励的强化学习（RLVR）。在这种范式中，模型在环境最终结果的指导下，通过反复试验进行学习。自动验证器检查模型的答案是对是错，提供二进制奖励，如0或1。RLVR受到稀疏和均匀反馈的影响。该论文的合著者陈旭阳告诉VentureBeat：“标准GRPO存在信号密度问题。”。“一个数千个令牌推理跟踪会获得一个二进制奖励，该跟踪中的每个令牌都会获得相同的信用，无论是关键的逻辑步骤还是一次性短语。”因此，该模型永远不会知道哪些中间步骤导致了它的成功或失败。政策蒸馏（OPD）采取了不同的方法。开发人员没有等待最终结果，而是将较小的学生模型与更大、更有能力的教师模型配对。对于每个训练示例，学生逐一将其响应与教师的响应进行比较。这为学生提供了关于整个推理链和响应生成过程的精细反馈。在整个培训过程中，与学生一起部署和运行一个单独的大规模教师模型会产生巨大的计算开销。杨说：“在整个培训过程中，你必须保持一个更大的教师模型，这大约是你GPU占用空间的两倍。”。此外，教师和学生模型必须共享完全相同的词汇结构，杨表示，这“悄悄地排除了企业实际运行的大多数跨架构、跨模态或多语言设置”。政策自我蒸馏（OPSD）是一种旨在克服其他两种方法缺点的解决方案。在OPSD中，同一个模型同时扮演着学生和教师的角色。在培训过程中，学生会收到一个标准提示，而老师会收到特权信息，如经过验证的分步答案。然后，这个消息灵通的教师版本的模型会评估学生版本，在学生试图仅使用标准提示解决问题时提供逐个令牌的反馈。OPSD似乎是企业预算的完美折衷方案。它提供了OPD的精细、循序渐进的指导。因为它消除了对外部教师模型的需要，所以它以RLVR的高计算效率和低成本运行，只需要教师额外的前向传递。然而，研究人员发现，OPSD存在一种称为“特权信息泄露”的现象。杨说：“目标在结构上是不合适的。”。“有一个不可缩小的相互信息差距，学生永远无法缩小……当自我蒸馏被设置为分布匹配时，学生被要求在特权上下文中模仿老师的全部输出分布。”因为老师根据隐藏的答案来评估学生，所以训练目标迫使学生模型学习老师的确切措辞或步骤，而不是底层的推理逻辑。因此，学生模型开始产生幻觉，引用一个在现实部署中无法访问的隐形解决方案。在实践中，OPSD模型在训练初期表现出快速的性能飙升，但它们的推理能力很快就会趋于平稳，并随着时间的推移逐渐下降。RLSD背后的研究人员意识到，控制模型如何更新其参数的信号具有根本不对称的要求。他们发现，指示更新方向的信号（即是强化还是惩罚行为）可能很稀疏，但必须完全可靠，因为将模型指向错误的方向会损害其推理策略。另一方面，指示更新幅度的信号（即特定步骤应得的相对信用或责备程度）受益于极其密集的信号，以实现细粒度的逐步纠正。RLSD基于这一原则，将更新方向与更新幅度解耦。该框架允许来自RLVR信号的可验证环境反馈严格确定学习方向。只有当最终答案客观正确时，模型才会得到全面强化。自学者被剥夺了决定模型应该生成什么的权力。相反，教师的逐一评估被重新用于确定更新的幅度。它只是在模型推理路径的各个步骤中分配总的信用或责任。与经典的OPSD范式相比，这改变了模型的学习方式。在标准的OPSD中，训练目标就像行为克隆，模型被迫直接复制老师的确切措辞和措辞。这会导致学生产生幻觉，并泄露对其没有的数据的引用。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/how-to-build-custom-reasoning-agents-with-a-fraction-of-the-compute" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
