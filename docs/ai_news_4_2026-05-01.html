@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-01 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-01</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Alibaba's Metis agent cuts redundant AI tool calls from 98% to 2% — and gets more accurate doing it</div>
+      <div class="col-content">One of the key challenges of building effective AI agents is teaching them to choose between using external tools or relying on their internal knowledge. But large language models are often trained to blindly invoke tools, which causes latency bottlenecks, unnecessary API costs, and degraded reasoning caused by environmental noise. To overcome this challenge, researchers at Alibaba introduced Hierarchical Decoupled Policy Optimization (HDPO), a reinforcement learning framework that trains agents to balance both execution efficiency and task accuracy. Metis, a multimodal model they trained using this framework, reduces redundant tool invocations from 98% to just 2% while establishing new state-of-the-art reasoning accuracy across key industry benchmarks. This framework helps create AI agents that are not trigger-happy and know when to abstain from using tools, enabling the development of responsive and cost-effective agentic systems. Current agentic models face what the researchers call a “profound metacognitive deficit.” The models have a hard time deciding when to use their internal parametric knowledge versus when to query an external utility. As a result, they blindly invoke tools and APIs, like web search or code execution, even when the user's prompt already contains all the necessary information to resolve the task. This trigger-happy tool-calling behavior creates severe operational hurdles for real-world applications. Because the models are trained to focus almost entirely on task completion, they are indifferent to latency. These agents frequently hit exorbitant tool call rates. Every unnecessary external API call introduces a serial processing bottleneck, turning a technically capable AI into a sluggish system that frustrates users and burns through tool budgets. At the same time, burning computational resources on excessive tool use does not translate to better reasoning. Redundant tool interactions inject noise into the model’s context. This noise can distract the model, derailing an otherwise sound chain of reasoning and actively degrading the final output. To address the latency and cost issues of blind tool invocation, previous reinforcement learning methods attempted to penalize excessive tool usage by combining task accuracy and execution efficiency into one reward signal. However, this entangled design creates an unsolvable optimization dilemma. If the efficiency penalty is too aggressive, the model becomes overly conservative and suppresses essential tool use, sacrificing correctness on arduous tasks. Conversely, if the penalty is mild, the optimization signal loses its value and does not prevent tool overuse on simpler tasks. Furthermore, this shared reward creates semantic ambiguity, where an inaccurate trajectory with zero tool calls might yield the same reward as an accurate trajectory with excessive tool usage. Because the training signals for accuracy and efficiency become entangled, the model can’t learn to control tool-use without degrading its core reasoning capabilities. To solve the optimization dilemma of coupled rewards, the researchers introduced HDPO. HDPO separates accuracy and efficiency into two independent optimization channels. The accuracy channel focuses on maximizing task correctness across all of the model's rollouts. The efficiency channel optimizes for execution economy. HDPO computes the training signals for these two channels independently and only combines them at the final stage of loss computation. The efficiency signal is conditional upon the accuracy channel. This means that an incorrect response is never rewarded simply for being fast or using fewer tools. This decoupling avoids situations where accuracy and efficiency gradients cancel each other out, providing the AI with clean learning signals for both goals. The most powerful emergent property of this decoupled design is that it creates an implicit cognitive curriculum. Early in training, when the model still struggles with the task, the optimization is dominated by the accuracy objective, forcing the model to prioritize learning correct reasoning and knowledge. As the model's reasoning capabilities mature and it consistently arrives at the right answers, the efficiency signal smoothly scales up. This mechanism causes the model to first master task resolution, and only then refine its self-reliance by avoiding redundant, costly API calls. To complement HDPO, the researchers developed a rigorous, multi-stage data curation regime that tackles severe flaws found in existing tool-augmented datasets. Their data curation pipeline covers supervised fine-tuning (SFT) and reinforcement learning (RL) stages. For the SFT phase, they sourced data from publicly available tool-augmented multimodal trajectories and filtered them to remove low-quality examples containing execution failures or feedback inconsistencies. They also aggressively filtered out any training sample that the base model could solve directly without tools. Finally, using Google's Gemini 3.1 Pro as an automated judge, they filtered the SFT corpus to only keep examples that demonstrated strategic tool use. For the RL phase, the curation focused on ensuring a stable optimization signal. They filtered out prompts with corrupted visuals or semantic ambiguity. The HDPO algorithm relies on comparing correct and incorrect responses. If a task is trivially easy where the model always gets it right, or prohibitively hard where the model always fails, there is no meaningful mathematical variance to learn from. The team strictly retained only prompts that exhibited a non-trivial mix of successes and failures to guarantee an actionable gradient signal. To test HDPO in action, the researchers used the framework to develop Metis, a multimodal reasoning agent equipped with coding and search tools. Metis is built on top of the Qwen3-VL-8B-Instruct vision-language model. The researchers trained it in two distinct stages.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">阿里巴巴的Metis代理将冗余的人工智能工具调用从98%减少到2%，并使其更加准确</div>
+      <div class="col-content">构建有效的人工智能代理的关键挑战之一是教他们在使用外部工具或依赖内部知识之间做出选择。但大型语言模型通常被训练为盲目调用工具，这会导致延迟瓶颈、不必要的API成本以及环境噪声导致的推理降级。为了克服这一挑战，阿里巴巴的研究人员引入了分层解耦策略优化（HDPO），这是一种强化学习框架，可以训练代理平衡执行效率和任务准确性。Metis是他们使用该框架训练的一个多模式模型，它将冗余工具调用从98%减少到仅2%，同时在关键行业基准中建立了新的最先进的推理准确性。该框架有助于创建不喜欢触发的人工智能代理，并知道何时放弃使用工具，从而开发出响应迅速且经济高效的代理系统。当前的代理模型面临着研究人员所说的“深刻的元认知缺陷”。这些模型很难决定何时使用其内部参数知识，何时查询外部效用。因此，他们盲目地调用工具和API，如网络搜索或代码执行，即使用户的提示已经包含了解决任务所需的所有信息。这种易于触发的工具调用行为给现实世界的应用程序带来了严重的操作障碍。因为这些模型被训练成几乎完全专注于任务完成，所以它们对延迟漠不关心。这些代理商经常遇到过高的工具调用率。每一个不必要的外部API调用都会引入一个串行处理瓶颈，将具有技术能力的人工智能变成一个缓慢的系统，让用户感到沮丧并消耗掉工具预算。同时，过度使用工具消耗计算资源并不能转化为更好的推理。冗余的工具交互将噪声注入模型的上下文中。这种噪声会分散模型的注意力，破坏原本健全的推理链，并积极降低最终输出。为了解决盲目工具调用的延迟和成本问题，之前的强化学习方法试图通过将任务准确性和执行效率结合到一个奖励信号中来惩罚过度使用工具的行为。然而，这种纠缠的设计造成了无法解决的优化困境。如果效率惩罚过于激进，模型就会变得过于保守，抑制必要的工具使用，牺牲艰巨任务的正确性。相反，如果惩罚轻微，优化信号将失去其价值，并且无法防止在更简单的任务上过度使用工具。此外，这种共享奖励会产生语义歧义，零工具调用的不准确轨迹可能会产生与过度使用工具的准确轨迹相同的奖励。由于精度和效率的训练信号变得纠缠在一起，该模型无法在不降低其核心推理能力的情况下学习控制工具的使用。为了解决耦合奖励的优化困境，研究人员引入了HDPO。HDPO将准确性和效率分为两个独立的优化通道。准确性通道侧重于在所有模型的推出中最大限度地提高任务的正确性。效率渠道优化执行经济。HDPO独立计算这两个信道的训练信号，并且仅在损耗计算的最后阶段将其组合。效率信号取决于精度通道。这意味着，错误的响应永远不会仅仅因为速度快或使用的工具少而得到奖励。这种解耦避免了精度和效率梯度相互抵消的情况，为AI提供了实现这两个目标的清晰学习信号。这种解耦设计最强大的涌现特性是它创造了一个隐含的认知课程。在训练的早期，当模型仍在努力完成任务时，优化以准确性目标为主导，迫使模型优先学习正确的推理和知识。随着模型推理能力的成熟，它始终能得出正确的答案，效率信号会平滑地扩大。这种机制使模型首先掌握任务解析，然后通过避免冗余、昂贵的API调用来完善其自力更生性。为了补充HDPO，研究人员开发了一种严格的多阶段数据管理机制，以解决现有工具增强数据集中发现的严重缺陷。他们的数据管理流程涵盖了监督微调（SFT）和强化学习（RL）阶段。对于SFT阶段，他们从公开可用的工具增强多模态轨迹中获取数据，并对其进行过滤，以删除包含执行失败或反馈不一致的低质量示例。他们还积极过滤掉了基础模型可以在没有工具的情况下直接求解的任何训练样本。最后，使用谷歌的Gemini 3.1 Pro作为自动评判器，他们过滤了SFT语料库，只保留了展示战略工具使用的示例。对于RL阶段，管理重点是确保稳定的优化信号。他们过滤掉了视觉效果不佳或语义模糊的提示。HDPO算法依赖于比较正确和不正确的响应。如果一项任务在模型总是正确的情况下非常容易，或者在模型总是失败的情况下极其困难，那么就没有有意义的数学方差可以学习。该团队严格只保留了成功和失败的非平凡混合的提示，以确保可操作的梯度信号。为了测试HDPO的实际效果，研究人员使用该框架开发了Metis，这是一种配备编码和搜索工具的多模式推理代理。Metis建立在Qwen3-VL-8B-Instruct视觉语言模型之上。研究人员将其分为两个不同的阶段进行训练。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/alibabas-metis-agent-cuts-redundant-ai-tool-calls-from-98-to-2-and-gets-more-accurate-doing-it" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
