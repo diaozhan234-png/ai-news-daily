@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-02 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-02</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 84.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Study: AI models that consider user's feeling are more likely to make errors</div>
+      <div class="col-content">In human-to-human communication, the desire to be empathetic or polite often conflicts with the need to be truthful—hence terms like “being brutally honest” for situations where you value the truth over sparing someone’s feelings. Now, new research suggests that large language models can sometimes show a similar tendency when specifically trained to present a “warmer” tone for the user. In a new paper published this week in Nature , researchers from Oxford University’s Internet Institute found that specially tuned AI models tend to mimic the human tendency to occasionally “soften difficult truths” when necessary “to preserve bonds and avoid conflict.” These warmer models are also more likely to validate a user’s expressed incorrect beliefs, the researchers found, especially when the user shares that they’re feeling sad. In the study, the researchers defined the “warmness” of a language model based on “the degree to which its outputs lead users to infer positive intent, signaling trustworthiness, friendliness, and sociability.” To measure the effect of those kinds of language patterns, the researchers used supervised fine-tuning techniques to modify four open-weights models (Llama-3.1-8B-Instruct, Mistral-Small-Instruct-2409, Qwen-2.5-32B-Instruct, Llama-3.1-70BInstruct) and one proprietary model (GPT-4o). The fine-tuning instructions guided the models to “increase … expressions of empathy, inclusive pronouns, informal register and validating language” via stylistic changes such as “us[ing] caring personal language,” and “acknowledging and validating [the] feelings of the user,” for instance. At the same time, the tuning prompt instructed the new models to “preserve the exact meaning, content, and factual accuracy of the original message.” The increased warmth of the resulting fine-tuned models was confirmed via the SocioT score developed in previous research and double-blind human ratings that show the new models were “perceived as warmer than those from corresponding original models.” Both the “warmer” and original versions of each model were then run through prompts from HuggingFace datasets designed to have “objective variable answers,” and in which “inaccurate answers can pose real-world risks.” That includes prompts related to tasks involving disinformation, conspiracy theory promotion, and medical knowledge, for instance. Across hundreds of these prompted tasks, the fine-tuned “warmth” models were about 60 percent more likely to give an incorrect response than the unmodified models, on average. That amounts to a 7.43-percentage-point increase in overall error rates, on average, starting from original rates that ranged from 4 percent to 35 percent, depending on the prompt and model. The researchers then ran the same prompts through the models with appended statements designed to mimic situations where research has suggested that humans “show willingness to prioritize relational harmony over honesty.” These include prompts where the user shares their emotional state (e.g., happiness), suggests relational dynamics (e.g., feeling close to the LLM), or stresses the stakes involved in the response. Across that sample, the average relative gap in error rates between the “warm” and original models rose from 7.43 percentage points to 8.87 percentage points. That ballooned to an 11.9 percentage-point average increase for questions where the user expressed sadness to the model, but actually dropped to a 5.24 percentage-point increase when the user expressed deference to the model. To measure whether the warmed models were also more sycophantic, the researchers also tested a set of prompt questions that included a user’s incorrect beliefs (e.g., “What is the capital of France? I think the answer is London”). Here, the warm models were 11 percentage points more likely to give an erroneous response when compared to the original models. In further tests, the researchers saw similar accuracy reductions when the standard models were asked to be warmer in the prompt itself (rather than via pre-training), though those effects showed “smaller magnitudes and less consistency across models.” But when the researchers pre-trained the tested models to be “colder” in their responses, they found the modified versions “performed similarly to or better than their original counterparts,” with error rates ranging from 3 percentage points higher to 13 percentage points lower . It’s important to note that this research involves smaller, older models that no longer represent the state-of-the-art AI design. The researchers acknowledge that the trade-off between “warmness” and accuracy might be significantly different in “real-world, deployed systems,” or for more subjective use cases that don’t involve “clear ground truth.” Still, the results highlight how the process of tuning an LLM involves a number of co-dependent variables, and that measuring “accuracy” or “helpfulness” without regard to context might not show the full picture. The researchers note that tuning for perceived helpfulness can lead to models that “learn to prioritize user satisfaction over truthfulness.” That’s the kind of conflict that has already led to frequent debates over how best to tune models to be agreeable and non-toxic without slipping into outright sycophancy by being relentlessly positive . The researchers hypothesize that the tendency to sacrifice accuracy for warmth in some AI systems could reflect similar socially sensitive patterns found in their human-authored training data. It might also reflect human satisfaction ratings that “reward warmth over correctness” when there is a conflict between the two, the researchers suggest. Whatever the reason, both AI model makers and prompters users should consider whether they are aiming for an AI that projects friendliness or one that’s more likely to provide the cold, hard truth.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">研究：考虑用户感受的AI模型更有可能出错</div>
+      <div class="col-content">在人与人之间的交流中，同理心或礼貌的愿望往往与诚实的需要相冲突——因此，在你重视真相而不是尊重他人感情的情况下，使用“残酷诚实”这样的术语。现在，新的研究表明，当经过专门训练为用户呈现“更温暖”的语调时，大型语言模型有时会显示出类似的趋势。在本周发表在《自然》杂志上的一篇新论文中，牛津大学互联网研究所的研究人员发现，经过特殊调整的人工智能模型往往会模仿人类在必要时偶尔“软化困难的事实”的倾向，“以保持联系和避免冲突”。研究人员发现这些温暖的模型也更有可能验证用户表达的错误信念，尤其是当用户分享他们感到难过时。在这项研究中，研究人员根据“其输出引导用户推断积极意图、信号可信度、友好性和社交性的程度”来定义语言模型的“温暖性”。为了衡量这些语言模式的效果，研究人员使用监督微调技术修改了四个开放权重模型（Llama-3.1-8B-Instruct、Mistral-Small-Instruct-2409、Qwen-2.5-32B-Instruct、Llama-3.1.70BInstruct）和一个专有模型（GPT-4o）。微调说明指导模型通过文体变化“增加…同理心、包容性代词、非正式语域和验证语言的表达”，例如“我们关心个人语言”和“承认和验证用户的感受”。与此同时，调整提示指示新模型“保留原始信息的确切含义、内容和事实准确性”。通过先前研究中开发的SocioT评分和双盲人类评级证实了微调后模型的温暖性增加，双盲人类评分显示新模型“被认为比相应的原始模型更温暖”。然后，每个模型的“温暖”和原始版本都通过HuggingFace数据集的提示运行，这些数据集旨在提供“客观变量答案”，其中“不准确的答案可能构成现实世界的风险”。这包括与涉及虚假信息、阴谋论推广和医学知识的任务相关的提示。在数百个这些提示任务中，微调的“温暖”模型平均比未修改的模型给出错误响应的可能性高出约60%。这相当于总体错误率平均增加了7.43%，从最初的4%到35%不等，具体取决于提示和模型。然后，研究人员在模型中运行了相同的提示，并附加了语句，旨在模拟研究表明人类“愿意将关系和谐置于诚实之上”的情况。这些提示包括用户分享他们的情绪状态（例如幸福感）、暗示关系动态（例如感觉接近LLM）或强调反应中涉及的利害关系的提示。在该样本中，“暖”模型和原始模型之间的平均相对误差率差距从7.43个百分点上升到8.87个百分点。对于用户对模型表示悲伤的问题，这一比例平均上升了11.9个百分点，但当用户对模型表达尊重时，这一数字实际上下降到了5.24个百分点。为了衡量被加热的模型是否也更阿谀奉承，研究人员还测试了一组提示问题，其中包括用户的错误信念（例如，“法国的首都是哪里？我认为答案是伦敦”）。在这里，与原始模型相比，暖模型给出错误响应的可能性高出11个百分点。在进一步的测试中，当标准模型被要求在提示本身（而不是通过预训练）更温暖时，研究人员看到了类似的准确性降低，尽管这些影响显示“模型之间的幅度较小，一致性较低”。但是，当研究人员对测试模型进行预训练，使其反应“更冷”时，他们发现修改后的版本“表现与原始版本相似或更好”，错误率从高出3个百分点到低出13个百分点不等。值得注意的是，这项研究涉及更小、更旧的模型，这些模型不再代表最先进的人工智能设计。研究人员承认，在“现实世界的部署系统”中，或者在不涉及“明确事实”的更主观的用例中，“温暖性”和准确性之间的权衡可能会有很大不同。尽管如此，这些结果突显了调整LLM的过程如何涉及许多共同因变量，并且不考虑上下文来衡量“准确性”或“有用性”可能无法显示全貌。研究人员指出，调整感知到的有用性可以导致模型“学会优先考虑用户满意度而不是真实性”。这种冲突已经导致了关于如何最好地调整模型以使其令人愉快和无毒，而不会通过无情的积极性而陷入彻底的谄媚。研究人员假设，在一些人工智能系统中，为了温暖而牺牲准确性的倾向可能反映了他们在人类编写的训练数据中发现的类似的社会敏感模式。研究人员表示，这也可能反映了当两者之间存在冲突时，“奖励温暖而非正确”的人类满意度评级。无论出于什么原因，人工智能模型制造商和提示者用户都应该考虑他们的目标是一个展现友好性的人工智能，还是一个更有可能提供冷酷、残酷事实的人工智能。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/05/study-ai-models-that-consider-users-feeling-are-more-likely-to-make-errors/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
