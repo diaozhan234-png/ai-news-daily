@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-05 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-05</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Microsoft takes Agent 365 out of preview as shadow AI becomes an enterprise threat</div>
+      <div class="col-content">Microsoft last week took Agent 365 , its management platform for AI agents, out of preview and into general availability — a move that signals the software giant believes the governance challenge around autonomous AI is no longer theoretical but operational and urgent. The product, first announced at Microsoft's Ignite conference in November, positions itself as a unified control plane that lets enterprise IT and security teams observe, govern, and secure AI agents wherever they run: inside Microsoft's own ecosystem, on third-party cloud platforms like AWS Bedrock and Google Cloud , on employee endpoints, and increasingly across a sprawling ecosystem of SaaS agents built by partner software companies. But the most striking element of the launch isn't the general availability milestone itself. It's Microsoft's aggressive push into discovering and managing local AI agents — the coding assistants, personal productivity tools, and autonomous workflows that employees are installing on their own devices, often without IT's knowledge or blessing. Microsoft calls this phenomenon " shadow AI ," and it is an entirely new category of enterprise security risk that most organizations are only beginning to grapple with. "Most enterprises are trying to figure out how to harness the potential of autonomous agents," David Weston, Corporate Vice President of AI Security at Microsoft, told VentureBeat in an exclusive interview. "They're trying to find a balance between what we call YOLO — just let anything run — and 'oh no,' where nothing works at all." The timing of Agent 365's general availability reflects an uncomfortable reality: AI agents have already outpaced the governance infrastructure designed to manage them. Enterprises that spent years building controls for cloud applications and SaaS software now face a fundamentally different kind of sprawl — one where autonomous software can invoke tools, access sensitive data, chain together with other agents, and take actions on behalf of users or entirely on their own. Weston described three specific categories of security incidents that Microsoft is already observing across its enterprise customer base. The first, and most common, involves developers rushing to connect agents to backend systems and inadvertently exposing sensitive infrastructure. "A canonical thing we're seeing a lot across the board is these MCP servers that are then being connected to a sensitive back end system and then exposed unauthenticated to the internet," Weston said. "That can lead to PII or data leaks." The second category involves what security researchers call cross-prompt injection — attackers embedding malicious instructions in data sources like software tickets, websites, or wikis that an agent is likely to ingest. "We are seeing attackers use untrusted data sources to put in what we call cross-prompt injection prompts, which will basically direct your agent to do whatever the attacker wants," Weston explained. While he noted this attack vector remains less common, "when we do see it, it's higher impact." The third and perhaps most pervasive issue is more mundane but no less dangerous: agents connected to data sources and DLP systems that simply aren't designed to understand agentic access patterns. "Data sources and DLP systems that are not agent-aware are exposing high-sensitive data down to maybe a vendor," Weston said, adding that such incidents carry "a lot of costs and a lot of risk." At its core, Agent 365 functions as a centralized registry and policy engine for AI agents. It provides IT administrators with a single view of every agent operating within their environment — whether that agent was built with Microsoft Copilot Studio , deployed on AWS Bedrock , running as a SaaS integration from a partner like Zendesk or SAP , or installed locally on a developer's Windows machine. The platform supports three distinct categories of agents, each with different availability status at launch. Agents working on behalf of users through delegated access — such as an inbox organizer operating with a user's permissions — are now generally available within the control plane. Agents operating behind the scenes with their own access credentials, like an autonomous system triaging support tickets, are also generally available. A third category, agents participating in team workflows with their own access, enters public preview today. Agent 365 is available as part of the new Microsoft 365 E7 suite or as a standalone product priced at $15 per user per month. Each license covers an individual who manages, sponsors, or uses agents to work on their behalf. The pricing model is designed to scale predictably: organizations pay per person who interacts with the agent ecosystem, not per agent — a structure that acknowledges the reality that agent counts are a moving target in most enterprises. Perhaps the most significant new capability in today's launch is Agent 365's ability to discover and manage local AI agents — the tools that developers and knowledge workers are installing directly on their Windows devices, often without any oversight from IT. Starting today, organizations enrolled in Microsoft's Frontier program can use Agent 365, powered by Microsoft Defender and Intune, to detect OpenClaw agents running on managed Windows devices. Administrators can view which devices are running OpenClaw , and they can apply Intune policies to block common execution methods. A new " Shadow AI " page in the Microsoft 365 admin center serves as the central dashboard for this discovery process. The choice to begin with OpenClaw was deliberate. "Our criteria is simply customer demand," Weston told VentureBeat. "We're hearing across the board that enterprises understand OpenClaw represents a new type of software.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">微软将Agent 365从预览版中删除，因为影子AI成为企业威胁</div>
+      <div class="col-content">微软上周将其人工智能代理管理平台Agent 365从预览版中撤下，并全面投入使用——此举表明该软件巨头认为，围绕自主人工智能的治理挑战不再是理论上的，而是操作上的和紧迫的。该产品于11月在微软的Ignite会议上首次发布，将自己定位为一个统一的控制平面，让企业IT和安全团队在任何地方观察、管理和保护AI代理：在微软自己的生态系统内，在AWS Bedrock和Google cloud等第三方云平台上，在员工端点上，以及越来越多地在合作伙伴软件公司构建的庞大的SaaS代理生态系统中。但此次发布最引人注目的元素并不是通用性里程碑本身。这是微软在发现和管理本地人工智能代理方面的积极举措，这些代理包括编码助手、个人生产力工具和员工在自己的设备上安装的自主工作流程，通常没有It的知情或祝福。微软将这种现象称为“影子人工智能”，这是一种全新的企业安全风险类别，大多数组织才刚刚开始应对。微软人工智能安全公司副总裁大卫·韦斯顿在接受VentureBeat独家采访时表示：“大多数企业都在试图找出如何利用自主代理的潜力。”。“他们正试图在我们所说的YOLO（让任何东西运行）和‘哦，不’（什么都不工作）之间找到平衡。”Agent 365全面可用的时间反映了一个令人不安的现实：人工智能代理已经超过了为管理它们而设计的治理基础设施。花了数年时间为云应用程序和SaaS软件构建控制的企业现在面临着一种根本不同的蔓延——自主软件可以调用工具、访问敏感数据、与其他代理链接在一起，并代表用户或完全自行采取行动。Weston描述了微软已经在其企业客户群中观察到的三类具体的安全事件。第一种，也是最常见的一种，涉及开发人员急于将代理连接到后端系统，并无意中暴露了敏感的基础设施。韦斯顿说：“我们全面看到的一个典型现象是，这些MCP服务器随后连接到敏感的后端系统，然后未经身份验证就暴露在互联网上。”。“这可能会导致PII或数据泄露。”第二类涉及安全研究人员所说的跨提示注入——攻击者将恶意指令嵌入代理可能摄入的软件票、网站或维基等数据源中。韦斯顿解释说：“我们看到攻击者使用不受信任的数据源来输入我们所谓的交叉提示注入提示，这基本上会指导你的代理做攻击者想做的任何事情。”。虽然他指出，这种攻击向量仍然不太常见，但“当我们看到它时，它的影响更大。”第三个可能也是最普遍的问题更普通，但危险性也不小：代理连接到数据源和DLP系统，而这些系统根本不是为了理解代理访问模式而设计的。Weston表示：“不了解代理的数据源和DLP系统可能会将高敏感数据暴露给供应商。”他补充说，此类事件会带来“大量成本和风险”。agent 365的核心功能是作为人工智能代理的集中式注册表和策略引擎。它为It管理员提供了在其环境中运行的每个代理的单一视图，无论该代理是使用Microsoft Copilot Studio构建的，部署在AWS Bedrock上，作为Zendesk或SAP等合作伙伴的SaaS集成运行，还是本地安装在开发人员的Windows计算机上。该平台支持三种不同类别的代理，每种代理在启动时都有不同的可用性状态。通过委托访问代表用户工作的代理（例如使用用户权限操作的收件箱管理器）现在通常可以在控制平面内使用。在幕后使用自己的访问凭据进行操作的代理，如自动系统对支持票进行分类，也通常可用。第三类，即以自己的访问权限参与团队工作流程的代理，今天进入公开预览。Agent 365可以作为新的Microsoft 365 E7套件的一部分提供，也可以作为独立产品提供，每个用户每月的价格为15美元。每个许可证都涵盖了管理、赞助或使用代理人代表他们工作的个人。定价模型旨在可预测地扩展：组织按与代理生态系统交互的人付费，而不是按代理付费——这种结构承认了代理数量在大多数企业中是一个不断变化的目标这一现实。也许今天发布的最重要的新功能是Agent 365发现和管理本地人工智能代理的能力，这些工具是开发人员和知识工作者直接在他们的Windows设备上安装的，通常不受IT的任何监督。从今天开始，注册了Microsoft Frontier计划的组织可以使用由Microsoft Defender和Intune支持的Agent 365来检测在托管Windows设备上运行的OpenClaw代理。管理员可以查看哪些设备正在运行OpenClaw，他们可以应用Intune策略来阻止常见的执行方法。Microsoft 365管理中心中的一个新的“影子AI”页面充当了此发现过程的中央仪表板。选择从OpenClaw开始是经过深思熟虑的。韦斯顿告诉VentureBeat：“我们的标准只是客户需求。”。“我们听说企业普遍认为OpenClaw代表了一种新型软件。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/microsoft-takes-agent-365-out-of-preview-as-shadow-ai-becomes-an-enterprise-threat" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
