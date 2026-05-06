@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-06 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-06</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Miami startup Subquadratic claims 1,000x AI efficiency gain with SubQ model; researchers demand independent proof.</div>
+      <div class="col-content">A little-known Miami-based startup called Subquadratic emerged from stealth on Tuesday with a sweeping claim: that it has built the first large language model to fully escape the mathematical constraint that has defined — and limited — every major AI system since 2017. The company claims its first model, SubQ 1M-Preview , is the first LLM built on a fully subquadratic architecture — one where compute grows linearly with context length. If that claim holds, it would be a genuine inflection point in how AI systems scale. At 12 million tokens, the company says, its architecture reduces attention compute by almost 1,000 times compared to other frontier models — a figure that, if validated independently, would dwarf the efficiency gains of any existing approach. The company is also launching three products into private beta: an API exposing the full context window, a command-line coding agent called SubQ Code , and a search tool called SubQ Search . It has raised $29 million in seed funding from investors including Tinder co-founder Justin Mateen , former SoftBank Vision Fund partner Javier Villamizar , and early investors in Anthropic , OpenAI , Stripe , and Brex . The New Stack reported that the raise values the company at $500 million . The numbers Subquadratic is publishing are extraordinary. The reaction from the AI research community has been, to put it mildly, mixed — ranging from genuine curiosity to open accusations of vaporware. Understanding why requires understanding what the company claims to have solved, and why so many prior attempts to solve the same problem have fallen short. Every transformer-based AI model — which includes virtually every frontier system from OpenAI , Anthropic , Google , and others — relies on an operation called "attention." Every token is compared against every other token, so as inputs grow, the number of interactions — and the compute required to process them — scales quadratically. In plain terms: double the input size, and the cost doesn't double. It quadruples. This relationship has shaped what gets built and what doesn't. The industry standard is 128,000 tokens for many AI models and up to 1 million tokens for frontier cloud models such as Claude Sonnet 4.7 and Gemini 3.1 Pro . Even at those sizes, the cost of processing long inputs becomes punishing. The industry built an elaborate stack of workarounds to cope. RAG systems use a search engine to pull a small number of relevant results before sending them to the model, because sending the full corpus isn't feasible. Developers layer retrieval pipelines, chunking strategies, prompt engineering techniques, and multi-agent orchestration systems on top of models — all to route around the fundamental constraint that the model itself can't efficiently process everything at once. Subquadratic's argument is that these workarounds are expensive, brittle, and ultimately limiting. As CTO Alexander Whedon told SiliconANGLE in an interview , "I used to manually curate prompts and retrieval systems and evals and conditional logic to chain together the workflows. And I think that that is kind of a waste of human intelligence and also limiting to the product quality." The company's approach, called Subquadratic Sparse Attention or SSA, is built on a straightforward premise: most of the token-to-token comparisons in standard attention are wasted compute. Instead of comparing every token to every other token, SSA learns to identify which comparisons actually matter and computes attention only over those positions. Crucially, the selection is content-dependent — the model decides where to look based on meaning, not on fixed positional patterns. This allows it to retrieve specific information from arbitrary positions across a very long context without paying the quadratic tax. The practical payoff scales with context length — exactly the inverse of the problem it's trying to solve. According to the company's technical blog , SSA achieves a 7.2x prefill speedup over dense attention at 128,000 tokens, rising to 52.2x at 1 million tokens. As Whedon put it: "If you double the input size with quadratic scaling laws, you need four times the compute; with linear scaling laws, you need just twice." The company says it trained the model in three stages — pretraining, supervised fine-tuning, and a reinforcement learning stage specifically targeting long-context retrieval failures — teaching the model to aggressively use distant context rather than defaulting to nearby information, a subtle failure mode that quietly degrades performance in existing systems. On the surface, SubQ's benchmark numbers are competitive with or superior to models built by organizations spending billions of dollars. On SWE-Bench Verified , it scored 81.8% compared to Opus 4.6's 80.8% and DeepSeek 4.0 Pro's 80.0%. On RULER at 128,000 tokens, a standard benchmark for reasoning over extended inputs, SubQ scored 95% — edging out Claude Opus 4.6 at 94.8%. On MRCR v2 , a demanding test of multi-hop retrieval across long contexts, SubQ posted a third-party verified score of 65.9%, compared with Claude Opus 4.7 at 32.2%, GPT-5.5 at 74%, and Gemini 3.1 Pro at 26.3%. But several details warrant scrutiny. The benchmark selection is narrow — exactly three tests, all emphasizing long-context retrieval and coding, the precise tasks SubQ is designed for. Broader evaluations across general reasoning, math, multilingual performance, and safety have not been published. The company says a comprehensive model card is "coming soon." According to The New Stack , each benchmark model was run only once due to high inference cost, and the SWE-Bench margin is, as the company's own paper acknowledges, "harness as much as model." In benchmark methodology, single runs without confidence intervals leave room for variance. There is also a significant gap between SubQ's research results and its production model.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">迈阿密初创公司Subquadratic声称，使用SubQ模型，AI效率提高了1000倍；研究人员要求独立的证据。</div>
+      <div class="col-content">周二，一家名为Subquadratic的鲜为人知的迈阿密初创公司悄然出现，并宣称：它建立了第一个大型语言模型，完全摆脱了自2017年以来定义和限制每个主要人工智能系统的数学约束。该公司声称，其第一个模型SubQ 1M Preview是第一个建立在完全亚二次架构上的LLM，在这种架构中，计算与上下文长度呈线性增长。如果这一说法成立，那将是人工智能系统如何扩展的真正转折点。该公司表示，其架构拥有1200万个代币，与其他前沿模型相比，其注意力计算减少了近1000倍——如果独立验证，这一数字将使任何现有方法的效率提升相形见绌。该公司还将推出三款产品进行私人测试：一款公开完整上下文窗口的API，一款名为SubQ Code的命令行编码代理，以及一款称为SubQ search的搜索工具。它已经从Tinder联合创始人Justin Mateen、前软银愿景基金合伙人Javier Villamizar以及Anthropic、OpenAI、Stripe和Brex的早期投资者那里筹集了2900万美元的种子资金。The New Stack报道称，此次融资对该公司的估值为5亿美元。Subquadratic发布的数字非同寻常。委婉地说，人工智能研究界的反应喜忧参半——从真正的好奇心到对蒸汽器的公开指控。了解原因需要了解该公司声称已经解决了什么，以及为什么之前解决同一问题的许多尝试都失败了。每个基于变压器的人工智能模型——几乎包括来自OpenAI、Anthropic、谷歌和其他公司的每个前沿系统——都依赖于一种称为“注意力”的操作。每个令牌都会与其他令牌进行比较，因此随着输入的增长，交互的数量以及处理它们所需的计算量呈二次方增长。简单地说：输入大小加倍，成本就不会加倍。它翻了四倍。这种关系决定了构建什么和不构建什么。行业标准是，许多人工智能模型的代币为128000个，前沿云模型（如Claude Sonnet 4.7和Gemini 3.1 Pro）的代币高达100万个。即使在这些规模下，处理长输入的成本也变得很高。该行业制定了一系列精心设计的变通方法来应对。RAG系统使用搜索引擎在将相关结果发送到模型之前提取少量相关结果，因为发送完整的语料库是不可行的。开发人员在模型之上分层检索管道、分块策略、提示工程技术和多代理编排系统——所有这些都是为了绕过模型本身无法一次有效处理所有内容的基本约束。Subquadratic的论点是，这些变通方法昂贵、脆弱，最终会受到限制。正如首席技术官Alexander Whedon在接受SiliconANGLE采访时所说，“我过去常常手动管理提示、检索系统、评估和条件逻辑，将工作流程连接在一起。我认为这有点浪费人类智慧，也限制了产品质量。”该公司的方法称为亚二次稀疏注意力或SSA，建立在一个简单的前提之上：标准注意力中的大多数令牌间比较都是浪费计算。SSA不是将每个令牌与其他令牌进行比较，而是学会识别哪些比较真正重要，并仅计算对这些位置的注意力。至关重要的是，选择取决于内容——模型根据意义而不是固定的位置模式来决定在哪里看。这允许它在很长的上下文中从任意位置检索特定信息，而无需支付二次税。实际收益与上下文长度成正比，这与它试图解决的问题正好相反。根据该公司的技术博客，SSA在128000个代币的密集关注下实现了7.2倍的预填充加速，在100万个代币的情况下上升到52.2倍。正如Whedon所说：“如果你用二次缩放定律将输入大小加倍，你需要四倍的计算量；用线性缩放定律，你只需要两倍。”该公司表示，它分三个阶段训练模型——预训练、监督微调和专门针对长上下文检索失败的强化学习阶段——教模型积极使用遥远的上下文，而不是默认使用附近的信息，这是一种微妙的失败模式，会悄悄降低现有系统的性能。从表面上看，SubQ的基准数据与花费数十亿美元的组织构建的模型相比具有竞争力或更优。在SWE Bench Verified上，它的得分为81.8%，而Opus 4.6的得分为80.8%，DeepSeek 4.0 Pro的得分为80.0%。在RULER上，128000个代币是推理扩展输入的标准基准，SubQ的得分为95%，以94.8%的得分击败了Claude Opus 4.6。在MRCR v2上，这是一个跨长上下文的多跳检索的苛刻测试，SubQ的第三方验证得分为65.9%，而Claude Opus 4.7为32.2%，GPT-5.5为74%，Gemini 3.1 Pro为26.3%。但有几个细节值得仔细审查。基准选择范围很窄——只有三个测试，都强调长上下文检索和编码，这是SubQ设计的精确任务。关于一般推理、数学、多语言性能和安全性的更广泛评估尚未发表。该公司表示，一个全面的模型卡“即将推出”。据The New Stack报道，由于推理成本高，每个基准模型只运行了一次，正如该公司自己的论文所承认的那样，SWE Bench的利润率“与模型一样多”。在基准方法中，没有置信区间的单次运行为差异留出了空间。SubQ的研究成果与其生产模式之间也存在显著差距。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/miami-startup-subquadratic-claims-1-000x-ai-efficiency-gain-with-subq-model-researchers-demand-independent-proof" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
