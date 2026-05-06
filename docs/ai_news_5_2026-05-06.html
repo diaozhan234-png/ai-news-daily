@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-06 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-06</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Accelerating Gemma 4: faster inference with multi-token prediction drafters</div>
+      <div class="col-content">By using Multi-Token Prediction (MTP) drafters, Gemma 4 models reduce latency bottlenecks and achieve improved responsiveness for developers. Your browser does not support the audio element. Just a few weeks ago, we introduced Gemma 4 , our most capable open models to date. With over 60 million downloads in just the first few weeks, Gemma 4 is delivering unprecedented intelligence-per-parameter to developer workstations, mobile devices and the cloud. Today, we are pushing efficiency even further. We’re releasing Multi-Token Prediction (MTP) drafters for the Gemma 4 family. By using a specialized speculative decoding architecture, these drafters deliver up to a 3x speedup without any degradation in output quality or reasoning logic. Tokens-per-second speed increases, tested on hardware using LiteRT-LM , MLX, Hugging Face Transformers, and vLLM. The technical reality is that standard LLM inference is memory-bandwidth bound, creating a significant latency bottleneck. The processor spends the majority of its time moving billions of parameters from VRAM to the compute units just to generate a single token. This leads to under-utilized compute and high latency, especially on consumer-grade hardware. Speculative decoding decouples token generation from verification. By pairing a heavy target model (e.g., Gemma 4 31B) with a lightweight drafter (the MTP model), we can utilize idle compute to “predict” several future tokens at once with the drafter in less time than it takes for the target model to process just one token. The target model then verifies all of these suggested tokens in parallel. Standard large language models generate text autoregressively, producing exactly one token at a time. While effective, this process dedicates the same amount of computation to predicting an obvious continuation (like predicting “words” after “Actions speak louder than…”) as it does to solving a complex logic puzzle. MTP mitigates this inefficiency through speculative decoding, a technique introduced by Google researchers in Fast Inference from Transformers via Speculative Decoding . If the target model agrees with the draft, it accepts the entire sequence in a single forward pass —and even generates an additional token of its own in the process. This means your application can output the full drafted sequence plus one token in the time it usually takes to generate a single one. For developers, inference speed is often the primary bottleneck for production deployment. Whether you are building coding assistants, autonomous agents that require rapid multi-step planning, or responsive mobile applications running entirely on-device, every millisecond matters. By pairing a Gemma 4 model with its corresponding drafter, developers can achieve: Gemma 4 26B on a NVIDIA RTX PRO 6000. Standard Inference (left) vs. MTP Drafter (right) in tokens per second. Same output quality, half the wait time. To make these MTP drafters exceptionally fast and accurate, we introduced several architectural enhancements under the hood. The draft models seamlessly utilize the target model's activations and share its KV cache, meaning they don't have to waste time recalculating context the larger model has already figured out. For our E2B and E4B edge models, where the final logit calculation becomes a big bottleneck, we even implemented an efficient clustering technique in the embedder to further accelerate generation. We've also been closely analyzing hardware-specific optimizations. For example, while the 26B mixture-of-experts model presents unique routing challenges at a batch size of 1 on Apple Silicon, processing multiple requests simultaneously (e.g., batch sizes of 4 to 8) unlocks up to a ~2.2x speedup locally. We see similar gains with Nvidia A100 when increasing batch size. Want to see the exact mechanics of how this works? We’ve published an in-depth technical explainer that unpacks the visual architecture, KV cache sharing and efficient embedders powering these drafters.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">加速Gemma 4：使用多令牌预测起草器进行更快的推理</div>
+      <div class="col-content">通过使用多令牌预测（MTP）起草器，Gemma 4模型减少了延迟瓶颈，并提高了开发人员的响应能力。您的浏览器不支持音频元素。就在几周前，我们推出了Gemma 4，这是我们迄今为止功能最强大的开放式模型。Gemma 4在最初几周内下载量超过6000万次，为开发人员工作站、移动设备和云提供了前所未有的每个参数的智能。今天，我们正在进一步提高效率。我们正在发布Gemma 4家族的多代币预测（MTP）起草者。通过使用专门的推测解码架构，这些绘图器可以提供高达3倍的加速，而不会降低输出质量或推理逻辑。每秒令牌速度增加，在使用LiteRT LM、MLX、拥抱面部变换器和vLLM的硬件上进行测试。技术现实是，标准LLM推理受到内存带宽的限制，造成了严重的延迟瓶颈。处理器花费大部分时间将数十亿个参数从VRAM移动到计算单元，只是为了生成一个令牌。这导致计算利用不足和高延迟，特别是在消费级硬件上。推测性解码将令牌生成与验证分离。通过将重型目标模型（例如Gemma 4 31B）与轻型起草者（MTP模型）配对，我们可以利用空闲计算在比目标模型只处理一个令牌更短的时间内，与起草者一起一次“预测”几个未来的令牌。然后，目标模型并行验证所有这些建议的令牌。标准的大型语言模型自回归地生成文本，一次只生成一个标记。虽然有效，但这个过程在预测明显的延续（比如在“行动比…更有说服力”之后预测“单词”）方面所花费的计算量与解决复杂的逻辑难题所花费的量相同。MTP通过推测解码来缓解这种低效，这是谷歌研究人员在《通过推测解码从变压器快速推断》中引入的一种技术。如果目标模型与草稿一致，它将在一次前向传递中接受整个序列，甚至在此过程中生成自己的额外令牌。这意味着您的应用程序可以在通常生成单个令牌所需的时间内输出完整的起草序列和一个令牌。对于开发人员来说，推理速度通常是生产部署的主要瓶颈。无论您是构建编码助手、需要快速多步规划的自主代理，还是完全在设备上运行的响应式移动应用程序，每一毫秒都很重要。通过将Gemma 4模型与其相应的绘图器配对，开发人员可以在NVIDIA RTX PRO 6000上实现：Gemma 4 26B。标准推理（左）与MTP起草者（右），以每秒令牌数表示。输出质量相同，等待时间减半。为了使这些MTP起草者非常快速和准确，我们在幕后引入了几项架构增强。草案模型无缝利用目标模型的激活并共享其KV缓存，这意味着它们不必浪费时间重新计算更大模型已经计算出的上下文。对于我们的E2B和E4B边缘模型，最终的logit计算成为一个很大的瓶颈，我们甚至在嵌入器中实现了一种高效的聚类技术，以进一步加速生成。我们也一直在密切分析硬件特定的优化。例如，虽然26B混合专家模型在Apple Silicon上以1的批量大小呈现了独特的路由挑战，但同时处理多个请求（例如，4到8的批量大小）可以在本地实现高达2.2倍的加速。我们看到Nvidia A100在增加批量时也有类似的收益。想了解其工作原理的确切机制吗？我们发表了一篇深入的技术解释，对可视化架构、KV缓存共享和为这些绘图者提供动力的高效嵌入式进行了深入的解析。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
