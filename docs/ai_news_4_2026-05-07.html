@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-07 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-07</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Learning the Integral of a Diffusion Model</div>
+      <div class="col-content">Sampling from a diffusion model is an iterative process: at each step, the denoiser estimates the tangent direction to a path through input space. We move along this path by repeatedly taking small steps in this direction, effectively calculating an integral across noise levels . This gradually transforms samples from a simple noise distribution into samples from a target distribution, and traces out the path that connects them. Can we train neural networks to directly predict this integral instead, in order to speed up sampling? Yes we can – welcome to the world of flow maps ! Ever since the rise of diffusion models, people have sought ways to make them faster and cheaper to sample from. About two years ago, I wrote a blog post about diffusion distillation , which is one of the main tools used to reduce the number of steps required to obtain high-quality samples. Although the core principles underlying various distillation methods have not changed, a lot of new variants have popped up since. In this blog post, I want to take a closer look at flow maps. While diffusion models describe paths between noise and data by predicting the tangent direction at each point along the path, flow maps are instead able to predict any point on a path from any other point on that same path . They can be used for faster sampling, but they also have some other tricks up their sleeve, enabling more efficient reward-based learning and improved sampling steerability, among other things. They have recently become a very popular subject of study. While it is relatively straightforward to define what a flow map is, there turn out to be many different ways to build and train them. On top of that, as with diffusion itself, the literature is once again rife with different formalisms and terminology, which makes for a confusing experience when trying to learn how everything fits together. I will do my best to clear things up a bit, based primarily on the taxonomy proposed by Boffi et al. 1 2 . Flow maps build on the ideas behind diffusion models, and as usual, I will assume some familiarity with these ideas. Being comfortable with vector calculus will also help to understand how they are trained, but if that’s not you, hopefully the other parts of this blog post will still be interesting to you. You may want to consider (re-)reading some of my earlier blog posts for context (e.g. Perspectives on diffusion ). Alternatively, Chieh-Hsin Lai and colleagues recently published a comprehensive monograph on diffusion models 3 , which combines math and rigour with intuitive explanations – highly recommended, both as a refresher and as a starting point. Below is a table of contents. Click to jump directly to a particular section of this post. The key to understanding flow maps is the perspective of diffusion models as defining a bijection between noise and data, with unique paths connecting pairs of samples from each distribution, in such a way that they never cross each other. Therefore, let’s first take a closer look at diffusion sampling algorithms, and build towards flow maps from there. There are many different sampling algorithms available for diffusion models nowadays, but they all fall into one of two categories: stochastic or deterministic . The miracle of deterministic sampling is something I have written about before , but it is worth recapping here, as it is fundamental to the development of flow maps. The gist of it is as follows: if we have a denoiser model that predicts the expected value of the clean original data \(\hat{\mathbf{x}}_0 = \mathbb{E}\left[ \mathbf{x}_0 \mid \mathbf{x}_t \right]\), given a noisy observation \(\mathbf{x}_t\), we can construct two distinct iterative generative procedures . The stochastic one is the most intuitive: at each iteration, we sample from a conditional distribution of slightly less noisy examples, given the current noisy observation, \(p(\mathbf{x}_{t-1} \mid \mathbf{x}_t)\), to reverse the corruption process one step at a time. Conveniently, we can construct an approximation of this distribution using the denoiser model prediction \(\hat{\mathbf{x}}_0\). The smaller the interval between the noise levels at time steps \(t\) and \(t-1\), the more accurate the approximation will be. After many iterations, the noise fades, and we end up with a sample from the clean data distribution at \(t=0\). This is, in a nutshell, how the original DDPM 4 algorithm works. Sampling algorithms based on the stochastic differential equation (SDE) formalism of diffusion models 5 produce similar stochastic trajectories in input space. The deterministic procedure does not involve drawing random samples at any point, except at the very start: given the current noisy observation \(\mathbf{x}_t\) and the prediction \(\hat{\mathbf{x}}_0\) from the denoiser, there is a deterministic update rule that gives us \(\mathbf{x}_{t-1}\), which we can recursively apply until we get to \(\mathbf{x}_0\). Because every step of the procedure is deterministic, there is no randomness anywhere: from a given starting point \(\mathbf{x}_t\), we can only ever end up in one specific end point \(\mathbf{x}_0\). Such an update rule can be derived in the probabilistic framework (i.e. DDIM 6 ), or using the ordinary differential equation (ODE) formalism 5 . The default sampling algorithm used in Flow Matching 7 is another instance of the deterministic procedure. Here, the neural network is typically parameterised to predict the velocity \(\mathbf{v}_t = \mathbb{E}\left[\mathbf{x}_T - \mathbf{x}_0 \mid \mathbf{x}_t \right]\) instead of the clean input \(\mathbb{E}\left[ \mathbf{x}_0 \mid \mathbf{x}_t \right]\) (with \(t=T\) the time step corresponding to the maximal noise level, i.e. pure Gaussian noise).</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">学习扩散模型的积分</div>
+      <div class="col-content">从扩散模型中采样是一个迭代过程：在每一步，去噪器都会估计通过输入空间的路径的切线方向。我们沿着这条道路前进，反复朝着这个方向迈出小步，有效地计算了噪声水平的积分。这会逐渐将样本从简单的噪声分布转换为目标分布的样本，并追踪连接它们的路径。我们能否训练神经网络来直接预测这个积分，以加快采样速度？是的，我们可以——欢迎来到流程图的世界！自从扩散模型兴起以来，人们一直在寻找使其更快、更便宜地采样的方法。大约两年前，我写了一篇关于扩散蒸馏的博客文章，这是用于减少获得高质量样品所需步骤数量的主要工具之一。尽管各种蒸馏方法的核心原理没有改变，但此后出现了许多新的变体。在这篇博客文章中，我想仔细看看流程图。虽然扩散模型通过预测路径上每个点的切线方向来描述噪声和数据之间的路径，但流图能够从同一路径上的任何其他点预测路径上的任意点。它们可用于更快的采样，但它们还有一些其他技巧，可以实现更有效的基于奖励的学习和改进的采样操纵性等。它们最近成为一个非常受欢迎的研究课题。虽然定义流程图相对简单，但事实证明有许多不同的方法来构建和训练它们。除此之外，与传播本身一样，文学作品再次充斥着不同的形式主义和术语，这使得在试图了解一切是如何结合在一起时产生了令人困惑的体验。我将尽我所能澄清一些事情，主要基于Boffi等人提出的分类学。流程图建立在扩散模型背后的想法之上，和往常一样，我将假设对这些想法有一定的了解。熟悉向量微积分也有助于理解它们是如何训练的，但如果不是你，希望这篇博客文章的其他部分仍然对你感兴趣。你可能想考虑（重新）阅读我之前的一些博客文章来了解背景（例如关于传播的观点）。另外，Chieh Xin Lai及其同事最近出版了一本关于扩散模型3的综合专著，该专著将数学和严谨性与直观的解释相结合，强烈推荐作为复习和起点。下面是目录。点击直接跳转到这篇文章的特定部分。理解流动图的关键是扩散模型的视角，即定义噪声和数据之间的双射，通过独特的路径连接来自每个分布的样本对，使它们永远不会相互交叉。因此，让我们首先仔细研究扩散采样算法，并从那里构建流向图。目前有许多不同的采样算法可用于扩散模型，但它们都分为两类：随机或确定性。确定性采样的奇迹是我以前写过的，但值得在这里重述，因为它是流图开发的基础。其要点如下：如果我们有一个去噪模型，可以预测干净原始数据的期望值\（\hat{\mathbf{x}_0=\mathbb{E}\left[\mathbf{x}_0\mid\mathbf{x}_t\right]\），给定一个嘈杂的观察结果\（\mathbf{x}_t\)，我们可以构造两个不同的迭代生成过程。随机的一个是最直观的：在每次迭代中，我们从噪声稍低的示例的条件分布中采样，给定当前的噪声观测值，\（p（\mathbf{x}_{t-1}\mid\mathbf{x}_t)\)，逐步扭转腐败过程。方便的是，我们可以使用去噪模型预测\（\hat{\mathbf{x}}0\）来构造该分布的近似值。时间步长\（t\）和\（t-1\）处的噪声水平之间的间隔越小，近似值就越准确。经过多次迭代，噪声逐渐减弱，我们最终得到了\（t=0\）处干净数据分布的样本。简而言之，这就是原始DDPM 4算法的工作原理。基于扩散模型5的随机微分方程（SDE）形式的采样算法在输入空间中产生类似的随机轨迹。确定性程序不涉及在任何时候抽取随机样本，除非在一开始：给定当前的噪声观测值\（\mathbf{x}_t\)对于去噪器的预测\（\hat{\mathbf{x}}0\），有一个确定性更新规则为我们提供了\（\mathbf{x}_{t-1}\），我们可以递归地应用它，直到我们得到\（\mathbf{x}_0\).因为程序的每一步都是确定的，所以任何地方都没有随机性：从给定的起点开始{x}_t\)，我们只能到达一个特定的终点\（\mathbf{x}_0\).这种更新规则可以在概率框架（即DDIM 6）中或使用常微分方程（ODE）形式5来推导。流匹配7中使用的默认采样算法是确定性过程的另一个实例。在这里，神经网络通常被参数化以预测速度{v}_t=\mathbb{E}\left[\mathbf{x}_T-\mathbf{x}_0\mid\mathbf{x}_t\right]\）而不是干净的输入\（\mathbb{E}\left[\mathbf{x}_0\mid\mathbf{x}_t\right]\）（其中\（t=t\）是对应于最大噪声水平的时间步长，即纯高斯噪声）。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://sander.ai/2026/05/06/flow-maps.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
