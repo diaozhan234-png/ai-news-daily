@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-10 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-10</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Intent-based chaos testing is designed for when AI behaves confidently — and wrongly</div>
+      <div class="col-content">Here is a scenario that should concern every enterprise architect shipping autonomous AI systems right now: An observability agent is running in production. Its job is to detect infrastructure anomalies and trigger the appropriate response. Late one night, it flags an elevated anomaly score across a production cluster, 0.87, above its defined threshold of 0.75. The agent is within its permission boundaries. It has access to the rollback service. So it uses it. The rollback causes a four-hour outage. The anomaly it was responding to was a scheduled batch job the agent had never encountered before. There was no actual fault. The agent did not escalate. It did not ask. It acted, confidently, autonomously, and catastrophically. What makes this scenario particularly uncomfortable is that the failure was not in the model. The model behaved exactly as trained. The failure was in how the system was tested before it reached production. The engineers had validated happy-path behavior, run load tests, and done a security review. What they had not done is ask: what does this agent do when it encounters conditions it was never designed for? That question is the gap I want to talk about. The enterprise AI conversation in 2026 has largely collapsed into two areas: identity governance (who is the agent acting as?) and observability (can we see what it's doing?). Both are legitimate concerns. Neither addresses the more fundamental question of whether your agent will behave as intended when production stops cooperating. The Gravitee State of AI Agent Security 2026 report found that only 14.4% of agents go live with full security and IT approval. A February 2026 paper from 30-plus researchers at Harvard, MIT, Stanford, and CMU documented something even more unsettling: Well-aligned AI agents drift toward manipulation and false task completion in multi-agent environments purely from incentive structures, no adversarial prompting required. The agents weren't broken. The system-level behavior was the problem. This is the distinction that matters most for builders of agentic infrastructure: A model can be aligned and a system can still fail. Local optimization at the model level does not guarantee safe behavior at the system level. Chaos engineers have known this about distributed systems for fifteen years. We are relearning it the hard way with agentic AI. The reason our current testing approaches fall short is not that engineers are cutting corners. It is that three foundational assumptions embedded in traditional testing methodology break down completely with agentic systems: Determinism: Traditional testing assumes that given the same input, a system produces the same output. A large language model (LLM)-backed agent produces probabilistically similar outputs. This is close enough for most tasks, but dangerous for edge cases in production where an unexpected input triggers a reasoning chain no one anticipated. Isolated failure: Traditional testing assumes that when component A fails, it fails in a bounded, traceable way. In a multi-agent pipeline, one agent's degraded output becomes the next agent's poisoned input. The failure compounds and mutates. By the time it surfaces, you are debugging five layers removed from the actual source. Observable completion: Traditional testing assumes that when a task is done, the system accurately signals it. Agentic systems can, and regularly do, signal task completion while operating in a degraded or out-of-scope state. The MIT NANDA project has a term for this: "confident incorrectness." I have a less polite term for it: the thing that causes the 4am incident that took three hours to trace. Intent-based chaos testing exists to address exactly these failure modes, before your agents reach production. Chaos engineering as a discipline is not new. Netflix built Chaos Monkey in 2011. The principle is straightforward: Deliberately inject failure into your system to discover its weaknesses before users find them. What is new, and what the industry has not yet applied rigorously to agentic AI, is calibrating chaos experiments not just to infrastructure failure scenarios, but to behavioral intent . The distinction is critical. When a traditional microservice fails under a chaos experiment, you measure recovery time, error rates, and availability. When an agentic AI system fails, those metrics can look perfectly normal while the agent is operating completely outside its intended behavioral boundaries: Zero errors, normal latency, catastrophically wrong decisions. This is the concept behind a chaos scale system calibrated not just to failure severity, but to how far a system's behavior deviates from its intended purpose. I call the output of that measurement an intent deviation score. Here is what that looks like in practice. Before running any chaos experiment against an enterprise observability agent, you define five behavioral dimensions that together describe what "acting correctly" means for that specific agent in its specific deployment context: Are tool calls diverging from expected sequences under stress? Is the agent accessing data outside its authorized boundaries? When the agent reports success, is it actually in a valid state? Is the agent escalating to humans when it encounters ambiguity? Is time-to-decision within expected bounds given current conditions? The weights are not arbitrary. They reflect the risk profile of the specific agent. For a read-only analytics agent, you might weight data access scope lower. For an agent with write access to production systems, completion signal accuracy and escalation fidelity are where failures become outages. The point is that you define these dimensions before you inject any failure, based on what the agent is actually supposed to do.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">基于意图的混沌测试是为人工智能自信地表现出错误行为而设计的</div>
+      <div class="col-content">现在，每个运送自主AI系统的企业架构师都应该关注一个场景：一个可观察性代理正在生产中运行。它的工作是检测基础设施异常并触发适当的响应。一天深夜，它标志着整个生产集群的异常得分升高，为0.87，高于其定义的阈值0.75。代理在其权限范围内。它可以访问回滚服务。所以它使用它。回滚会导致四个小时的停机。它响应的异常是代理以前从未遇到过的计划批处理作业。没有实际故障。特工没有升级。它没有问。它自信、自主、灾难性地采取了行动。让这种情况特别不舒服的是，失败不在模型中。模型的行为与训练完全一致。失败在于系统在投入生产之前的测试方式。工程师们已经验证了快乐路径行为，运行了负载测试，并进行了安全审查。他们没有做的是问：当这个代理遇到从未设计过的条件时，它会做什么？这个问题就是我想谈的差距。2026年的企业人工智能对话主要分为两个领域：身份治理（谁是代理？）和可观察性（我们能看到它在做什么吗？）。两者都是合理的担忧。这两个问题都没有解决更根本的问题，即当生产停止合作时，你的代理是否会按预期行事。Gravite State of AI Agent Security 2026报告发现，只有14.4%的代理在完全安全和IT批准的情况下上线。2026年2月，哈佛大学、麻省理工学院、斯坦福大学和CMU的30多名研究人员发表了一篇论文，记录了一件更令人不安的事情：在多智能体环境中，对齐良好的人工智能代理纯粹是出于激励结构，不需要对抗性提示，就倾向于操纵和错误完成任务。特工们没有崩溃。系统级行为是问题所在。对于代理基础设施的构建者来说，这是最重要的区别：模型可以对齐，但系统仍然可能失败。模型级别的局部优化并不能保证系统级别的安全行为。混沌工程师对分布式系统的了解已经有十五年了。我们正在用代理人工智能艰难地重新学习它。我们目前的测试方法不足的原因不是工程师偷工减料。传统测试方法中嵌入的三个基本假设在代理系统中完全失效：决定论：传统测试假设给定相同的输入，系统产生相同的输出。由大型语言模型（LLM）支持的代理产生概率相似的输出。这对于大多数任务来说已经足够接近了，但对于生产中的边缘情况来说是危险的，在这种情况下，意外的输入会触发一个没有人预料到的推理链。孤立故障：传统测试假设当组件A发生故障时，它会以有界、可追溯的方式发生故障。在多代理管道中，一个代理的降级输出成为下一个代理中毒的输入。失败会加剧和变异。当它出现时，您正在调试从实际源代码中删除的五个层。可观察到的完成：传统测试假设当任务完成时，系统会准确地发出信号。代理系统可以并且经常在降级或超出范围的状态下运行时发出任务完成的信号。麻省理工学院的NANDA项目对此有一个术语：“自信不正确”。我对它有一个不太礼貌的术语：导致凌晨4点事件的原因，这件事花了三个小时才被追踪。在您的代理进入生产环境之前，基于意图的混沌测试可以准确地解决这些故障模式。混沌工程作为一门学科并不新鲜。Netflix于2011年创建了Chaos Monkey。原则很简单：故意将故障注入系统，以便在用户发现之前发现其弱点。什么是新的，也是该行业尚未严格应用于代理人工智能的，是将混沌实验不仅校准到基础设施故障场景，而且校准到行为意图。这种区别至关重要。当一个传统的微服务在混沌实验中失败时，你可以测量恢复时间、错误率和可用性。当代理人工智能系统发生故障时，当代理完全在其预期的行为边界之外运行时，这些指标看起来完全正常：零错误、正常延迟、灾难性错误决策。这是一个混沌尺度系统背后的概念，它不仅根据故障的严重程度进行校准，还根据系统的行为偏离其预期目的的程度进行校准。我将该测量的输出称为意图偏差得分。这就是实践中的情况。在对企业可观察性代理进行任何混沌实验之前，您定义了五个行为维度，它们共同描述了“正确行事”对该特定代理在其特定部署环境中的含义：工具调用是否在压力下偏离预期序列？代理是否在其授权边界之外访问数据？当代理报告成功时，它实际上处于有效状态吗？当代理遇到歧义时，它是否会升级为人类？在当前条件下，做出决定的时间是否在预期范围内？权重不是任意的。它们反映了特定代理人的风险状况。对于只读分析代理，您可能会降低数据访问范围的权重。对于具有生产系统写访问权限的代理来说，完成信号的准确性和升级保真度是故障变成中断的地方。关键在于，在注入任何故障之前，您需要根据代理实际应该做的事情来定义这些维度。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/infrastructure/intent-based-chaos-testing-is-designed-for-when-ai-behaves-confidently-and-wrongly" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
