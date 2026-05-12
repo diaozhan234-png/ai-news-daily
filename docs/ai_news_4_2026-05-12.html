@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-12 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-12</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">If AI writes your code, why use Python?</div>
+      <div class="col-content">Picking a language for a new project was usually an easy answer. You used Python or TypeScript because the ecosystems were enormous, the hiring pool was deep, and you could make an impressive demo by Friday. Rust, Go, C++, and many more would give you 10–100x the performance, but you paid for it: six months of ramp, a smaller talent market, a build system that fought you. So you shipped the Python version, sold it to customers, and promised yourself you’d “make it performant later.” You rarely did, and that was fine, because nobody else did either. That bargain is over, and it’s over because AI got good at the hard languages. Two years ago, GPT-4 couldn’t write a Rust function without hallucinating crate names. By April of 2026, Claude Opus 4.7, GPT-5.5, Gemini 3.1, and DeepSeek V4 had all cleared 80% on SWE-bench Verified within weeks of each other. The labs are openly optimizing for systems work: concurrency bugs, race conditions, and architectural flaws identified during the planning phase. The best one-tweet explanation came from CtrlAltDwayne last month: “The best argument for Rust in 2026 is not memory safety or performance. It is that AI writes better Rust than it writes C++. The compiler feedback loop is so tight that models self-correct in real time. Every error message is a free training signal. Rust was accidentally designed for AI-assisted development 10 years before anyone knew that mattered.” via X.com The same logic applies, to varying degrees, to Go and Swift. Strong type systems plus fast compile-and-check loops give agents the tightest iteration cycle. The systems languages that were hardest for humans turn out to be the easiest for agents. Microsoft rewrote the TypeScript compiler in Go. The team behind the most-used superset of JavaScript shipped TypeScript 7.0 beta last week, roughly 10x faster than 6.0, by porting the decade-old TypeScript codebase to Go. Anders Hejlsberg’s reasoning : Go delivered most of the performance benefit at a fraction of the engineering cost. The biggest JS/TS shop on earth picked a harder, faster language for its flagship tool, and they did it because the effort calculus changed under them. Nicholas Carlini, a researcher at Anthropic, orchestrated 16 parallel Claude agents to write a production C compiler in Rust. 100,000 lines. It boots Linux 6.9 on x86, ARM, and RISC-V. It compiles QEMU, FFmpeg, SQLite, PostgreSQL, and Redis. It runs Doom. Total cost: just under $20,000 across nearly 2,000 Claude Code sessions. A C compiler written in Rust used to be a graduate thesis. It isn’t anymore. Steve Klabnik, a 13-year Rust veteran who co-wrote The Rust Programming Language, built a new systems language called Rue in two weeks with Claude. Roughly 70,000 lines of Rust. His own words: I’ve gotten further in the two weeks I’ve been working on it this time than the month or two I spent last time. Andreas Kling, creator of the Ladybird browser and a career C++ engineer, ported Ladybird’s JavaScript engine from C++ to Rust in two weeks by directing Claude Code and Codex through hundreds of small prompts. Roughly 25,000 lines of Rust, byte-for-byte parity with the C++ original, zero regressions across 65,000+ combined test262 and Ladybird tests. “The same work would have taken me multiple months to do by hand.” None of this was possible in 2024. In 2025 it was marginal. In early 2026 it’s becoming commonplace The strongest argument for Python and JavaScript was never the languages themselves. It was the ecosystems: FastAPI, Django, PyTorch, React, Next.js, npm’s 4 million packages. “Our team ships features in days because the ecosystem already solved 90% of every problem.” That was decisive for the last 10 years. It’s been quietly eroding for the last 2.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">如果AI编写你的代码，为什么要使用Python？</div>
+      <div class="col-content">为新项目选择一种语言通常是一个简单的答案。你使用Python或TypeScript是因为生态系统庞大，招聘池很深，你可以在周五之前制作一个令人印象深刻的演示。Rust、Go、C++等等会给你10到100倍的性能，但你为此付出了代价：六个月的斜坡期，一个较小的人才市场，一个与你竞争的构建系统。所以你发布了Python版本，把它卖给了客户，并向自己承诺“以后会让它更高性能”。你很少这样做，这很好，因为其他人也没有这样做。这种交易已经结束了，因为人工智能擅长硬语言。两年前，GPT-4无法在不产生板条箱名称的情况下编写Rust函数。到2026年4月，Claude Opus 4.7、GPT-5.5、Gemini 3.1和DeepSeek V4在SWE测试台上的通过率在几周内都达到了80%。实验室正在公开优化系统工作：并发错误、竞争条件和规划阶段发现的架构缺陷。上个月，CtrlAltDwayne在推特上给出了最好的解释：“2026年Rust的最佳论点不是内存安全或性能。它是人工智能编写比编写C++更好的Rust。编译器反馈循环非常紧密，模型可以实时自我纠正。每一条错误消息都是一个免费的训练信号。Rust是在人们知道这一点之前10年为人工智能辅助开发而意外设计的。”通过X.com，同样的逻辑在不同程度上适用于Go和Swift。强大的类型系统加上快速的编译和检查循环，为代理提供了最紧凑的迭代周期。对人类来说最难的系统语言对代理来说是最容易的。微软在Go中重写了TypeScript编译器。最常用的JavaScript超集背后的团队上周发布了TypeScript 7.0测试版，通过将十年前的TypeScript代码库移植到Go，速度比6.0快了大约10倍。Anders Hejlsberg的推理是：Go以工程成本的一小部分提供了大部分的性能优势。世界上最大的JS/TS商店为其旗舰工具选择了一种更难、更快的语言，他们这样做是因为他们的努力计算发生了变化。Anthropic的研究员Nicholas Carlini编排了16个并行的Claude代理，用Rust编写了一个生产C编译器。100000行。它在x86、ARM和RISC-V上启动Linux 6.9。它编译QEMU、FFmpeg、SQLite、PostgreSQL和Redis。它运行Doom。总成本：近2000个Claude Code会话的总成本略低于20000美元。用Rust编写的C编译器曾经是一篇研究生论文。现在不是了。Steve Klabnik是一位13年的Rust老手，也是《Rust编程语言》的合著者，他与Claude在两周内构建了一种名为Rue的新系统语言。大约70000行Rust。他自己的话：这次我在这两周的工作中比上一次花了一两个月的时间走得更远。Ladybird浏览器的创建者、职业C++工程师Andreas Kling通过数百个小提示指导Claude Code和Codex，在两周内将Ladybird的JavaScript引擎从C++移植到Rust。大约25000行Rust，与C++原始的逐字节奇偶校验，在65000+个组合测试262和Ladybird测试中零回归。“同样的工作需要我几个月的时间才能手工完成。”2024年，这一切都不可能实现。2025年，这一数字微不足道。在2026年初，它变得司空见惯。Python和JavaScript最有力的论点从来不是语言本身。这是生态系统：FastAPI、Django、PyTorch、React、Next.js、npm的400万个包。“我们的团队在几天内就完成了任务，因为生态系统已经解决了90%的问题。”这对过去10年来说是决定性的。在过去的2年里，它一直在悄然侵蚀。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
