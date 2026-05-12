@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-12 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-12</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Thinking Machines shows off preview of near-realtime AI voice and video conversation with new 'interaction models'</div>
+      <div class="col-content">Is AI leaving the era of "turn-based" chat? Right now, all of us who use AI models regularly for work or in our personal lives know that the basic interaction mode across text, imagery, audio, and video remains the same: the human user provides an input, waits anywhere between milliseconds to minutes (or in some cases, for particularly tough queries, hours and days ), and the AI model provides an output. But if AI is to really take on the load of jobs requiring natural interaction, it will need to do more than provide this kind of "turn-based" interactivity — it will ultimately need to respond more fluidly and naturally to human inputs, even responding while also processing the next human input, be it text or another format. That at least seems to be the contention of Thinking Machines , the well-funded AI startup founded last year by former OpenAI chief technology officer Mira Murati and former OpenAI researcher and co-founder John Schulman, among others. Today, the firm announced a research preview of what it deems to be "interaction models, a new class of native multimodal systems that treats interactivity as a first-class citizen of model architecture rather than an external software "harness," scoring some impressive gains on third-party benchmarks and reduced latency as a result. However, the models are not yet available to the general public or even enterprises — the company says in its announcement blog post: "In the coming months, we will open a limited research preview to collect feedback, with a wider release later this year." At the heart of this announcement is a fundamental shift in how AI perceives time and presence. Current frontier models typically experience reality in a single thread; they wait for a user to finish an input before they begin processing, and their perception freezes while they generate a response. In their blog post, the Thinking Machines researchers described the status quo as a limitation that forces humans to "contort themselves" to AI interfaces, phrasing questions like emails and batching their thoughts. To solve this "collaboration bottleneck," Thinking Machines has moved away from the standard alternating token sequence. Instead, they use a multi-stream, micro-turn design that processes 200ms chunks of input and output simultaneously. This "full-duplex" architecture allows the model to listen, talk, and see in real time, enabling it to backchannel while a user speaks or interject when it notices a visual cue—such as a user writing a bug in a code snippet or a friend entering a video frame. Technically, the model utilizes encoder-free early fusion. Rather than relying on massive standalone encoders like Whisper for audio, the system takes in raw audio signals as dMel and image patches (40x40) through a lightweight embedding layer, co-training all components from scratch within the transformer. The research preview introduces TML-Interaction-Small , a 276-billion parameter Mixture-of-Experts (MoE) model with 12 billion active parameters. Because real-time interaction requires near-instantaneous response times that often conflict with deep reasoning, the company has architected a two-part system: The Interaction Model: Stays in a constant exchange with the user, handling dialog management, presence, and immediate follow-ups. The Background Model: An asynchronous agent that handles sustained reasoning, web browsing, or complex tool calls, streaming results back to the interaction model to be woven naturally into the conversation. This setup allows the AI to perform tasks like live translation or generating a UI chart while continuing to listen to user feedback—a capability demonstrated in the announcement video where the model provided typical human reaction times for various cues while simultaneously generating a bar chart. To prove the efficacy of this approach, the lab utilized FD-bench , a benchmark specifically designed to measure interaction quality rather than just raw intelligence.The results show that TML-Interaction-Small significantly outperforms existing real-time systems: Responsiveness: It achieved a turn-taking latency of 0.40 seconds , compared to 0.57s for Gemini-3.1-flash-live and 1.18s for GPT-realtime-2.0 (minimal). Interaction Quality: On FD-bench V1.5, it scored 77.8 , nearly doubling the scores of its primary competitors (GPT-realtime-2.0 minimal scored 46.8). Visual Proactivity: In specialized tests like RepCount-A (counting physical repetitions in video) and ProactiveVideoQA , Thinking Machines’ model successfully engaged with the visual world while other frontier models remained silent or provided incorrect answers. If made available to the enterprise sector, Thinking Machines' interaction models would represent a fundamental shift in how businesses integrate AI into their operational workflows. A native interaction model like TML-Interaction-Small allows for several enterprise capabilities that are currently impossible or highly brittle with standard multimodal models: Current enterprise AI requires a "turn" to be completed before it can analyze data. In a manufacturing or lab setting, a native interaction model can monitor a video feed and proactively interject the moment it detects a safety violation or a deviation from a protocol — without waiting for the worker to ask for feedback. The model's success in visual benchmarks like RepCount-A (accurate repetition counting) and ProactiveVideoQA (answering questions as visual evidence appears) suggests it could serve as a real-time auditor for high-stakes physical tasks. The primary friction in voice-based customer service is the 1–2 second "processing" delay common in 2026's standard APIs. Thinking Machines' model achieves a turn-taking latency of 0.40 seconds, roughly the speed of a natural human conversation.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Thinking Machines通过新的“交互模型”展示了近乎实时的人工智能语音和视频对话的预览</div>
+      <div class="col-content">人工智能是否正在走出“回合制”聊天时代？现在，我们所有经常在工作或个人生活中使用人工智能模型的人都知道，文本、图像、音频和视频的基本交互模式保持不变：人类用户提供输入，等待毫秒到分钟之间的任何时间（或者在某些情况下，对于特别困难的查询，等待数小时和数天），人工智能模型提供输出。但是，如果人工智能真的要承担需要自然交互的工作，它需要做的不仅仅是提供这种“回合制”的交互——它最终需要对人类输入做出更流畅、更自然的反应，甚至在处理下一个人类输入的同时做出反应，无论是文本还是其他格式。这至少似乎是Thinking Machines的论点，这是一家资金充足的人工智能初创公司，由前OpenAI首席技术官Mira Murati和前OpenAI研究员兼联合创始人John Schulman等人于去年创立。今天，该公司宣布了一项对其认为是“交互模型”的研究预览，这是一种新型的本地多模式系统，将交互视为模型架构的一级公民，而不是外部软件“工具”，在第三方基准测试中取得了一些令人印象深刻的进展，从而减少了延迟。然而，该公司在其公告博客中表示，这些模型尚未向公众甚至企业开放：“在未来几个月，我们将开放一个有限的研究预览来收集反馈，并在今年晚些时候发布更广泛的版本。“这一宣布的核心是人工智能感知时间和存在方式的根本转变。当前的前沿模型通常在单个线程中体验现实；它们在开始处理之前等待用户完成输入，在生成响应时，它们的感知会冻结。在他们的博客文章中，Thinking Machines的研究人员将现状描述为一种限制，迫使人类“扭曲自己”到人工智能界面，用电子邮件等措辞提问，并分批思考。为了解决这个“协作瓶颈”，Thinking Machines已经摆脱了标准的交替令牌序列。相反，他们使用多流、微转弯设计，同时处理200ms的输入和输出块。这种“全双工”架构允许模型实时听、说和看，使其能够在用户说话时进行反向通道，或在注意到视觉提示时进行插入，例如用户在代码片段中编写错误或朋友输入视频帧。从技术上讲，该模型利用了无编码器的早期融合。该系统不依赖于Whisper等大型独立编码器进行音频处理，而是通过轻量级的嵌入层将原始音频信号作为dMel和图像补丁（40x40）接收，在变压器内从头开始共同训练所有组件。研究预览介绍了TML Interaction Small，这是一个2760亿参数的专家混合（MoE）模型，具有120亿个活动参数。由于实时交互需要近乎即时的响应时间，这通常与深度推理相冲突，该公司构建了一个由两部分组成的系统：交互模型：与用户保持不断的交流，处理对话管理、在线状态和即时跟进。后台模型：一个异步代理，处理持续的推理、网页浏览或复杂的工具调用，将结果流式传输回交互模型，以便自然地融入对话中。这种设置允许人工智能执行实时翻译或生成UI图表等任务，同时继续听取用户反馈——这一功能在公告视频中得到了展示，其中模型为各种线索提供了典型的人类反应时间，同时生成了条形图。为了证明这种方法的有效性，实验室使用了FD工作台，这是一个专门用于衡量交互质量而不仅仅是原始智能的基准。结果表明，TML Interaction Small明显优于现有的实时系统：响应性：它实现了0.40秒的转弯延迟，而Gemini-3.1-flash-live为0.57秒，GPT-realtime 2.0为1.18秒（最小）。交互质量：在FD测试台V1.5上，它的得分为77.8，几乎是其主要竞争对手的两倍（GPT-realtime2.0最低得分为46.8）。视觉主动性：在RepCount-A（计算视频中的物理重复）和Proactive VideoQA等专业测试中，Thinking Machines的模型成功地与视觉世界互动，而其他前沿模型则保持沉默或提供不正确的答案。如果能够提供给企业部门，Thinking Machines的交互模型将代表企业如何将人工智能整合到其运营工作流程中的根本转变。像TML interaction Small这样的原生交互模型允许使用标准多模式模型实现目前不可能或高度脆弱的几种企业功能：当前的企业人工智能需要完成一个“转弯”才能分析数据。在制造或实验室环境中，原生交互模型可以监控视频馈送，并在检测到安全违规或偏离协议时主动插入，而无需等待工人要求反馈。该模型在RepCount-A（精确重复计数）和Proactive VideoQA（在出现视觉证据时回答问题）等视觉基准测试中的成功表明，它可以作为高风险物理任务的实时审计员。基于语音的客户服务的主要障碍是2026年标准API中常见的1-2秒的“处理”延迟。Thinking Machines的模型实现了0.40秒的转弯延迟，大致相当于自然人类对话的速度。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/thinking-machines-shows-off-preview-of-near-realtime-ai-voice-and-video-conversation-with-new-interaction-models" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
