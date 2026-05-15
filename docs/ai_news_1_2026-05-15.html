@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-15 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-15</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Developers can now debug and evaluate AI agents locally with Raindrop's open source tool Workshop</div>
+      <div class="col-content">Observability startup Raindrop AI ’s new open source, MIT Licensed " Workshop " tool, launched today, gives developers something that they've likely wanted, perhaps subconsciously, since the agentic AI era kicked off in earnest last year: a local debugger and evaluation tool specifically designed for AI agents, allowing devs to see all the traces of what their agent has been doing in a single, lightweight Structured Query Language (SQL) database file (.db) It functions as a local daemon and UI that streams every token, tool call, and decision to a local dashboard—typically hosted at localhost:5899 —the moment it occurs. By visiting their localhost, developers can then see everything their agent was up to — including mistakes or errors — and identify what went wrong, when, and ideally, discern why. It's all stored in a single .db file, which takes up relatively little memory, according to a X direct message VentureBeat received from Ben Hylak, Raindrop's co-founder and CTO (and a former Apple and SpaceX engineer). This real-time telemetry eliminates the latency of traditional polling and addresses a growing developer concern regarding the privacy of sending local traces to external servers. The tool is available for macOS, Linux, and Windows. It can be installed through a one-line shell command that automates binary placement and PATH configuration for bash, zsh, and fish shells. For developers who prefer to build from source, the repository is hosted on GitHub and utilizes the Bun runtime. The platform’s standout feature is the "self-healing eval loop," which allows coding agents like Claude Code to read traces, write evals against the codebase, and fix broken code autonomously. In a practical application, if a veterinary assistant agent fails to ask necessary follow-up questions, Workshop captures the full trajectory. Claude Code then reads this trace, writes a specific eval, identifies the logic error in the prompt or code, and re-runs the agent until all assertions pass. Workshop is compatible with a broad range of programming languages, including TypeScript, Python, Rust, and Go. It integrates with popular SDKs and frameworks such as the Vercel AI SDK, OpenAI, Anthropic, LangChain, LlamaIndex, and CrewAI. It is also designed to work seamlessly with various coding agents, including Claude Code, Cursor, Devin, and OpenCode. Workshop is released under the MIT License, ensuring it remains free and open-source for all users. This permissive licensing is intended to foster community contribution and allow enterprise users to maintain data sovereignty. Hylak noted on X that the tool was built to provide a "sane" way to debug agents locally, changing how their team and early customers build autonomous systems. To celebrate the launch, Raindrop offered limited-edition physical merchandise to users who installed the tool and executed a specific "drip" command.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">开发人员现在可以使用Raindrop的开源工具Workshop在本地调试和评估AI代理</div>
+      <div class="col-content">可观察性初创公司Raindrop AI的新开源、麻省理工学院许可的“Workshop”工具今天推出，为开发人员提供了自去年代理人工智能时代真正开始以来他们可能潜意识里想要的东西：一个专门为人工智能代理设计的本地调试器和评估工具，允许开发人员在一个轻量级的结构化查询语言（SQL）数据库文件（.db）中查看代理一直在做什么的所有痕迹。它作为一个本地守护进程和UI，在发生时将每个令牌、工具调用和决策流式传输到本地仪表板——通常托管在localhost:5899上。通过访问他们的本地主机，开发人员可以看到他们的代理在做什么，包括错误或失误，并确定出了什么问题，什么时候，最好能找出原因。根据VentureBeat从Raindrop的联合创始人兼首席技术官（也是前苹果和SpaceX工程师）Ben Hylak收到的X直接消息，所有内容都存储在一个.db文件中，该文件占用的内存相对较少。这种实时遥测技术消除了传统轮询的延迟，并解决了开发人员对向外部服务器发送本地跟踪的隐私日益增长的担忧。该工具适用于macOS、Linux和Windows。它可以通过一行shell命令安装，该命令可以自动为bash、zsh和fish shell进行二进制放置和PATH配置。对于喜欢从源代码构建的开发人员来说，存储库托管在GitHub上，并使用Bun运行时。该平台的突出特点是“自我修复的eval循环”，它允许像Claude Code这样的编码代理读取跟踪，对代码库写入eval，并自主修复损坏的代码。在实际应用中，如果兽医助理没有提出必要的后续问题，Workshop会捕捉到完整的轨迹。然后，Claude Code读取此跟踪，编写一个特定的eval，识别提示或代码中的逻辑错误，并重新运行代理，直到所有断言通过。Workshop与多种编程语言兼容，包括TypeScript、Python、Rust和Go。它集成了流行的SDK和框架，如Vercel AI SDK、OpenAI、Anthropic、LangChain、LlamaIdex和CrewAI。它还旨在与各种编码代理无缝协作，包括Claude Code、Cursor、Devin和OpenCode。Workshop是在MIT许可证下发布的，确保它对所有用户都是免费和开源的。这种宽松的许可旨在促进社区贡献，并允许企业用户维护数据主权。Hylak在X上指出，该工具旨在提供一种“理智”的方式在本地调试代理，改变他们的团队和早期客户构建自主系统的方式。为了庆祝发布，Raindrop向安装了该工具并执行特定“drop”命令的用户提供了限量版实物商品。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/developers-can-now-debug-and-evaluate-ai-agents-locally-with-raindrops-open-source-tool-workshop" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
