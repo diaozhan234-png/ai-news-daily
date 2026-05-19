@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-19 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-19</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Context architecture is replacing RAG as agentic AI pushes enterprise retrieval to its limits</div>
+      <div class="col-content">Redis built its name as the caching layer that kept web applications from collapsing under load. The problem it is targeting now has the same structure but is harder to solve: production AI agents failing not because the models are wrong, but because the data underneath them is scattered, stale and structured for humans rather than machines. Retrieval pipelines built for single queries cannot absorb the volume agents generate. The gap Redis is targeting is structural: agents make orders of magnitude more data requests than human users, but most retrieval layers were built for the human-scale problem. Redis Iris, launched Monday, is the company's answer: a context and memory platform that sits between an agent and the data it needs to act. The platform combines real-time data ingestion, a semantic interface that auto-generates MCP tools from business data models, and an agent memory server built on Redis Flex, a rewritten storage engine that runs 99% of data on flash at a tenth of the cost of in-memory storage alone. The announcement lands as enterprise RAG infrastructure is in active transition. VentureBeat's Q1 2026 VB Pulse RAG Infrastructure Market Tracker found buyer intent to adopt hybrid retrieval tripling from 10.3% to 33.3% between January and March. Retrieval optimization surpassed evaluation as the top enterprise investment priority for the first time. Custom in-house retrieval stacks rose from 24.1% to 35.6% as enterprises outgrew off-the-shelf options. Redis is not the only infrastructure vendor reading those signals — several data platform providers have repositioned around agent context layers in recent weeks. The scale mismatch is the structural argument behind the launch. "Companies will have orders of magnitude more agents than human beings," Rowan Trollope, CEO of Redis, told VentureBeat . "Orders of magnitude more agents than human beings means orders of magnitude more load on back end systems." Trollope traces the parallel back to the mobile era: When legacy backends built for branch tellers suddenly had to serve a million smartphone users, Redis became the caching layer that absorbed the load without a full rebuild. What is different this time is that agents cannot write their own middleware. In the mobile era, a developer would sit with a database administrator, identify the queries an application needed and hard-code the caching logic into a middleware layer. Agents cannot do that. They need to find the right data at runtime, through interfaces built for them in advance, or they stall. "This is like the analogy of the grocery store in the fridge," he said. "If every time you have to go make your sandwich, you have to run to the grocery store to get the food, that's not very efficient. You put a fridge in every house, you store a little bit of food there. And that's kind of where we still tend to exist in the infrastructure stack." Iris ships five components that together cover data ingestion, semantic access, memory and caching. Redis Data Integration. Now in general availability. RDI uses change data capture pipelines to sync data from relational databases, warehouses and document stores into Redis continuously, with connectors for Oracle, Snowflake, Databricks and Postgres. Context Retriever. Now in preview. Developers define a semantic model of business data using pydantic models and Redis auto-generates MCP tools agents use to query it directly, with row-level access controls enforced server-side. Trollope describes the shift from classic RAG as a directional inversion. "It's just a flip to let the agent pull the data instead of presupposing and stuffing it into the pipeline," he said. Agent Memory . Now in preview. Stores short and long-term state across sessions so agents carry context without re-deriving it on each turn. Redis Flex . A rewritten storage engine that runs 99% of data on SSDs and 1% in RAM, delivering petabyte-scale retrieval at sub-millisecond latencies. Redis Search and LangCache . The retrieval and semantic caching backbone underneath the platform. LangCache reduces redundant model calls by caching prompt responses. The data industry is generally heading in the same direction now. Every major database vendor is making a context layer argument. Traditional database vendors including Oracle are integrating context and memory layers to bring relational databases into the agentic AI era. Purpose-built vector database vendors including Pinecone are doing the same, building out a new knowledge layer for agentic AI context. Standalone context layers like Hindsight are also part of the emerging landscape. Trollope frames Redis's position as structurally different from that competition. "For us to win, no one else has to lose," he said. Many Redis deployments already run MongoDB or Oracle as the backend system of record. Iris reflects and caches from those systems rather than displacing them. Redis is launching Iris in the Snowflake marketplace with native connectors. Stephanie Walter, Practice Leader for AI Stack at HyperFRAME Research, puts the market context plainly. "The market is converging on the same conclusion: agents don't just need more tokens or better models. They need governed, current, low-latency context," Walter said. Her read on Redis's differentiation focuses on where Redis already sits in the stack, which is close to runtime, latency-sensitive operational state, and real-time data., "The pitch is not 'better RAG' as much as 'agents need live context, memory, and fast retrieval while they are actually working," she said. Whether it's Redis or another vendor, every context layer technology will face a governance challenge to be successful. "Agentic AI will not scale in the enterprise if every agent becomes a new cost center, a new data access risk, and a new governance exception," she said.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">随着代理人工智能将企业检索推向极限，上下文架构正在取代RAG</div>
+      <div class="col-content">Redis的名字源于缓存层，它可以防止web应用程序在负载下崩溃。它现在针对的问题具有相同的结构，但更难解决：生产AI代理失败不是因为模型错误，而是因为它们下面的数据是分散的、陈旧的，并且是为人类而不是机器结构化的。为单个查询构建的检索管道无法吸收代理生成的卷。Redis所针对的差距是结构性的：代理发出的数据请求比人类用户多几个数量级，但大多数检索层都是为人类规模的问题而构建的。Redis Iris于周一推出，是该公司的答案：一个位于代理和它需要采取行动的数据之间的上下文和内存平台。该平台结合了实时数据摄取、从业务数据模型自动生成MCP工具的语义接口，以及基于Redis Flex构建的代理内存服务器，Redis Flex是一种重写的存储引擎，99%的数据在闪存上运行，成本仅为内存存储的十分之一。该公告发布之际，企业RAG基础设施正在积极转型。VentureBeat的2026年第一季度VB Pulse RAG基础设施市场跟踪报告发现，1月至3月期间，买家采用混合检索的意愿从10.3%增加到33.3%，增长了两倍。检索优化首次超越评价成为企业投资的首要任务。定制的内部检索堆栈从24.1%上升到35.6%，因为企业已经超过了现成的选项。Redis并不是唯一一个读取这些信号的基础设施供应商——最近几周，一些数据平台提供商已经围绕代理上下文层进行了重新定位。规模不匹配是此次发射背后的结构性争论。Redis首席执行官Rowan Trollope告诉VentureBeat：“公司将拥有比人类多几个数量级的代理。”。“比人类多出几个数量级的代理意味着后端系统的负载要多出个数量级。”Trollope将这种情况追溯到移动时代：当为分行柜员构建的传统后端突然不得不为100万智能手机用户服务时，Redis成为缓存层，在不完全重建的情况下吸收了负载。这次的不同之处在于，代理无法编写自己的中间件。在移动时代，开发人员将与数据库管理员坐在一起，确定应用程序所需的查询，并将缓存逻辑硬编码到中间件层。代理人不能这样做。他们需要在运行时通过预先构建的接口找到正确的数据，否则就会停滞不前。他说：“这就像冰箱里的杂货店。”。“如果每次你必须去做三明治，你都必须跑到杂货店买食物，这不是很有效率。你在每家每户都放一个冰箱，在那里储存一点食物。这就是我们仍然倾向于在基础设施堆栈中存在的地方。”Iris提供了五个组件，它们共同涵盖了数据摄取、语义访问、内存和缓存。Redis数据集成。现在普遍可用。RDI使用变更数据捕获管道将关系数据库、仓库和文档存储中的数据连续同步到Redis中，并使用Oracle、Snowflake、ViewModel和Postgres的连接器。上下文检索器。现在预览。开发人员使用pydantic模型定义业务数据的语义模型，Redis自动生成MCP工具，代理用于直接查询它，并在服务器端实施行级访问控制。Trollope将经典RAG的转变描述为方向反转。他说：“让代理提取数据，而不是预先假设并将其填充到管道中，这只是一个转变。”。代理记忆。现在预览。跨会话存储短期和长期状态，这样代理就可以携带上下文，而无需在每次转换时重新获取。Redis Flex。一个重写的存储引擎，99%的数据在SSD上运行，1%在RAM中运行，以亚毫秒的延迟提供PB级的检索。Redis搜索和LangCache。平台下的检索和语义缓存主干。LangCache通过缓存提示响应来减少冗余的模型调用。数据行业现在总体上正朝着同一个方向发展。每个主要的数据库供应商都在进行上下文层论证。包括Oracle在内的传统数据库供应商正在整合上下文和内存层，将关系数据库带入代理AI时代。包括Pinecone在内的专门构建的向量数据库供应商也在做同样的事情，为代理AI上下文构建一个新的知识层。像Hindsight这样的独立上下文层也是新兴景观的一部分。Trollope认为Redis的地位在结构上与竞争对手不同。他说：“为了我们赢，其他人不必输。”。许多Redis部署已经将MongoDB或Oracle作为后端记录系统运行。Iris从这些系统中反射和缓存，而不是取代它们。Redis将在Snowflake市场推出带有原生连接器的Iris。HyperFRAME Research人工智能堆栈实践负责人Stephanie Walter清楚地阐述了市场背景。Walter说：“市场正在趋同于同一个结论：代理不仅需要更多的代币或更好的模型。他们需要有治理的、当前的、低延迟的上下文。”。她对Redis差异化的解读侧重于Redis在堆栈中的位置，即接近运行时、延迟敏感的操作状态和实时数据。她说：“重点不是‘更好的RAG’，而是‘代理在实际工作时需要实时上下文、记忆和快速检索’。”。无论是Redis还是其他供应商，每种上下文层技术都将面临成功的治理挑战。她说：“如果每个代理都成为新的成本中心、新的数据访问风险和新的治理例外，那么代理人工智能将无法在企业中扩展。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/data/context-architecture-is-replacing-rag-as-agentic-ai-pushes-enterprise-retrieval-to-its-limits" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
