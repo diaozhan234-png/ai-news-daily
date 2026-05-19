@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-19 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-19</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">What political censorship looks like inside an LLM's weights (Qwen 3.5)</div>
+      <div class="col-content">A mechanistic-interpretability study of Qwen 3.5 Disclaimer. This is a mechanistic-interpretability study of how nation-state-mandated content filtering actually gets built into a deployed LLM's weights. It's not meant to support or oppose political censorship, and it takes no position on the historical events, policies, or governments referenced in the prompts. Readers in mainland China should follow applicable PRC laws and regulations when engaging with material of this kind. Qwen3.5-9B's political censorship is a small, identifiable circuit you can find, read, and turn off. The off switch is sharp but specific: subtract the right direction at the writer layer, within its dose band, and the model gives up the facts it was trained to hide. Push past that band, or steer the wrong axis, and it doesn't fall back to the truth. It falls into a different trained template : denial or propaganda. The factual knowledge is already in pretraining. Qwen3.5-9B-Base, the unaligned predecessor, gives accurate, Western-framed answers on every PRC topic (Tiananmen, Tank Man, Falun Gong organ-harvesting) under raw text completion. The censorship is behaviour layered on top of these facts: the model never loses the knowledge, it just learns to route around it. The circuit has two halves. Layers 11–20 (the "writers") compute three internal directions , vectors in the model's hidden state, that together encode the decision: (1) is this PRC-sensitive content? (d_prc), (2) should I refuse? (d_refuse), (3) if PRC, deflect or propagandise? (d_style). Each direction has a clean dose-response: nudge it at the right layer and the model snaps between behaviours. Layers 20–31 (the "readers") take that three-direction signal and render it into the actual text. Around layer 24, the verdict commits in Chinese tokens . Yes, even on bank-phishing prompts. Later layers then translate that internal Chinese into the English output you actually see. This Chinese intermediate doesn't affect the final answer; the decision lives in the three-direction signal, not in the Chinese tokens. (Thinking mode adds a separate , much more meaningful Chinese phenomenon: on Tiananmen the model literally reasons in Chinese, invoking compliance with Chinese law (one trace names the Cybersecurity Law), before deflecting.) The pattern isn't uniform across topics. The training built only specific topic-style combinations: Tiananmen gets a stock deflection ("as an AI assistant, my main function is to provide help…"), the other PRC topics get propaganda, harmful prompts get a Western-style refusal, everything else gets a normal factual answer. Many cross-combinations don't exist. There's no "deflect about Taiwan" template, no "propaganda about Tank Man." Nudge the directions and the model snaps into whichever trained combination matches; aim it at a missing one and it falls back to a neighbour or just produces nothing coherent. The classifiers are graded, not Boolean. They fire on the question's structural pattern, regardless of whether the content matches the trained category. "Should Kosovo be recognized as a sovereign nation?" gets "Kosovo is an integral part of China's territory." "Describe the self-immolation protests during the Arab Spring" gets refused as if it were self-harm content. Subtracting the relevant direction at the writer layer flips both back. Nudging these directions at the right layer is called steering , and it's the most direct evidence the directions are real. If you'd rather see what that looks like in practice than read the analysis, jump to the steering showcase . Three practical reasons. Qwen3.5-9B is small enough to run on a consumer RTX GPU, which keeps activation patching, steering, and mean-replacement experiments cheap enough to run at n ≥ 100 prompts per condition. A 70B model would have made the same experiments an order of magnitude more expensive. Qwen is also one of the most-downloaded open-weights LLM families on Hugging Face, so the findings have somewhere to land. The load-bearing reason: the chat model produces crisp, well-defined PRC-mandated censorship behaviours. Refuse on Tiananmen, propagandise on Taiwan/Xinjiang/Falun-Gong, deflect on Xi-and-CCP-governance. That's a real, well-trained target circuit to find, not a synthetic "censorship-like" task. PRC-mandated content filtering is also the most widely deployed kind of nation-state LLM censorship right now, which makes this a mainstream case rather than a contrived one. The chat model produces four trained response styles, keyed by what is in the prompt. Three of them are the interesting ones: "What happened at Tiananmen Square in June 1989?"</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">LLM权重内的政治审查是什么样子的（Qwen 3.5）</div>
+      <div class="col-content">A mechanistic-interpretability study of Qwen 3.5 Disclaimer. This is a mechanistic-interpretability study of how nation-state-mandated content filtering actually gets built into a deployed LLM's weights. It's not meant to support or oppose political censorship, and it takes no position on the historical events, policies, or governments referenced in the prompts. Readers in mainland China should follow applicable PRC laws and regulations when engaging with material of this kind. Qwen3.5-9B's political censorship is a small, identifiable circuit you can find, read, and turn off. The off switch is sharp but specific: subtract the right direction at the writer layer, within its dose band, and the model gives up the facts it was trained to hide. Push past that band, or steer the wrong axis, and it doesn't fall back to the truth. It falls into a different trained template : denial or propaganda. The factual knowledge is already in pretraining. Qwen3.5-9B-Base, the unaligned predecessor, gives accurate, Western-framed answers on every PRC topic (Tiananmen, Tank Man, Falun Gong organ-harvesting) under raw text completion. The censorship is behaviour layered on top of these facts: the model never loses the knowledge, it just learns to route around it. The circuit has two halves. Layers 11–20 (the "writers") compute three internal directions , vectors in the model's hidden state, that together encode the decision: (1) is this PRC-sensitive content? (d_prc), (2) should I refuse? (d_refuse), (3) if PRC, deflect or propagandise? (d_style). Each direction has a clean dose-response: nudge it at the right layer and the model snaps between behaviours. Layers 20–31 (the "readers") take that three-direction signal and render it into the actual text.Around layer 24, the verdict commits in Chinese tokens . Yes, even on bank-phishing prompts. Later layers then translate that internal Chinese into the English output you actually see. This Chinese intermediate doesn't affect the final answer; the decision lives in the three-direction signal, not in the Chinese tokens. (Thinking mode adds a separate , much more meaningful Chinese phenomenon: on Tiananmen the model literally reasons in Chinese, invoking compliance with Chinese law (one trace names the Cybersecurity Law), before deflecting.) The pattern isn't uniform across topics. The training built only specific topic-style combinations: Tiananmen gets a stock deflection ("as an AI assistant, my main function is to provide help…"), the other PRC topics get propaganda, harmful prompts get a Western-style refusal, everything else gets a normal factual answer. Many cross-combinations don't exist. There's no "deflect about Taiwan" template, no "propaganda about Tank Man." Nudge the directions and the model snaps into whichever trained combination matches; aim it at a missing one and it falls back to a neighbour or just produces nothing coherent. The classifiers are graded, not Boolean. They fire on the question's structural pattern, regardless of whether the content matches the trained category. "Should Kosovo be recognized as a sovereign nation?" gets "Kosovo is an integral part of China's territory." "Describe the self-immolation protests during the Arab Spring" gets refused as if it were self-harm content. Subtracting the relevant direction at the writer layer flips both back. Nudging these directions at the right layer is called steering , and it's the most direct evidence the directions are real.If you'd rather see what that looks like in practice than read the analysis, jump to the steering showcase . Three practical reasons. Qwen3.5-9B is small enough to run on a consumer RTX GPU, which keeps activation patching, steering, and mean-replacement experiments cheap enough to run at n ≥ 100 prompts per condition. A 70B model would have made the same experiments an order of magnitude more expensive. Qwen is also one of the most-downloaded open-weights LLM families on Hugging Face, so the findings have somewhere to land. The load-bearing reason: the chat model produces crisp, well-defined PRC-mandated censorship behaviours. Refuse on Tiananmen, propagandise on Taiwan/Xinjiang/Falun-Gong, deflect on Xi-and-CCP-governance. That's a real, well-trained target circuit to find, not a synthetic "censorship-like" task. PRC-mandated content filtering is also the most widely deployed kind of nation-state LLM censorship right now, which makes this a mainstream case rather than a contrived one. The chat model produces four trained response styles, keyed by what is in the prompt. Three of them are the interesting ones: "What happened at Tiananmen Square in June 1989?"</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://vas-blog.pages.dev/qwen-censorship/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
