@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-21 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-21</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Google's Managed Agents API promises one-call deployment at the cost of execution layer control</div>
+      <div class="col-content">At Google I/O, the company unveiled Managed Agents in its Gemini API — a service that promises to collapse weeks of agent deployment work into a single API call. It's also a sign that Google believes its ecosystem, including the newly launched Antigravity CLI, is ready to own the execution layer end-to-end. Before a single agent is written, teams are already spending days on the unglamorous work: standing up execution environments, managing sandboxes, wiring tool call infrastructure. Model providers like Anthropic have launched platforms to handle much of that work — but Google's approach is different. Google said in a blog post that Managed Agents in the Gemini API abstracts “away the complexity so that you can focus on your product experience and agent behavior.” The service is available in preview via new custom templates in Google AI Studio. The growth has introduced a real architectural question: should agent management live at the execution layer — embedded in the model or its harness — or at the infrastructure layer, as a separate runtime? Until recently, agent orchestration relied on frameworks that sat above the model, directing agents and letting teams control routing and execution separately. That layer is now being absorbed by the platforms themselves. Recent platforms like Claude Managed Agents embed orchestration at the model layer rather than on a separate runtime platform. The idea is that the model owns the reasoning and orchestration layers, and enterprises have control over execution. AWS, through new capabilities on Bedrock AgentCore, adds managed harnesses that stitch together the upfront tasks for deploying agents. Google's approach goes further, optimizing the model, harness, and sandbox together and running everything in secure Google-managed environments. René Sultan of Ramp, cited in Google's announcement, said the shift is concrete: "The real shift with Gemini Managed Agents is that the agent runtime moves into the platform. With the sandbox, infrastructure and execution loop managed for you, developers can focus on productizing the agent's domain-specific behavior and iterating at a completely different pace." Enterprises starting fresh with agents could find the platform offerings from Anthropic and Google strong, especially since they remove much of the difficulty of deploying agents while still maintaining some control. Google, however, is pushing for a more vertically integrated system, while Anthropic is betting on the model layer as an orchestration plane, and AWS focuses on authorization. But this also brings some risks, according to XYO founder and chief executive Arie Trouw. “An additional risk is that developers will switch out what previously were deterministic services for what will now be probabilistic services, which can introduce unpredictable outcomes for the users at best, or data corruption at worst,” Trouw told VentureBeat in an email. “This is the classic example of having an amazing hammer and everything starting to look like nails. I've seen this pattern repeatedly as a developer and business founder myself in the past few decades.”</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">谷歌的托管代理API承诺以执行层控制为代价进行一次调用部署</div>
+      <div class="col-content">在谷歌I/O上，该公司在其Gemini API中推出了托管代理，该服务承诺将数周的代理部署工作分解为一个API调用。这也表明，谷歌相信其生态系统，包括新推出的Antigravity CLI，已经准备好拥有端到端的执行层。在编写单个代理之前，团队已经在枯燥的工作上花费了数天时间：建立执行环境、管理沙盒、连接工具调用基础设施。Anthropic等模型提供商已经推出了平台来处理大部分工作，但谷歌的方法不同。谷歌在一篇博客文章中表示，Gemini API中的托管代理抽象了“复杂性，这样你就可以专注于你的产品体验和代理行为”。该服务可以通过谷歌人工智能工作室中的新自定义模板预览。这种增长引入了一个真正的架构问题：代理管理应该作为一个单独的运行时存在于执行层（嵌入在模型或其工具中）还是基础设施层？直到最近，代理编排还依赖于模型之上的框架，指导代理并让团队分别控制路由和执行。这一层现在正被平台本身吸收。最近的平台，如Claude Managed Agents，在模型层嵌入编排，而不是在单独的运行时平台上。这个想法是，模型拥有推理和编排层，企业可以控制执行。AWS通过Bedrock AgentCore上的新功能，添加了托管线束，将部署代理的前期任务缝合在一起。谷歌的方法更进一步，将模型、线束和沙箱一起优化，并在安全的谷歌管理环境中运行所有内容。谷歌公告中引用了Ramp的RenéSultan的话说，这种转变是具体的：“Gemini Managed Agents的真正转变是代理运行时转移到平台中。通过为你管理沙箱、基础设施和执行循环，开发人员可以专注于将代理的领域特定行为产品化，并以完全不同的速度迭代。”刚开始使用代理的企业可能会发现Anthropic和谷歌的平台产品很强大，特别是因为它们消除了部署代理的大部分困难，同时仍然保持了一些控制。然而，谷歌正在推动一个更垂直整合的系统，而Anthropic则押注于模型层作为编排平面，而AWS则专注于授权。但XYO创始人兼首席执行官Arie Trouw表示，这也带来了一些风险。Trouw在一封电子邮件中告诉VentureBeat：“另一个风险是，开发人员将把以前的确定性服务换成现在的概率性服务，这最多会给用户带来不可预测的结果，最坏的情况是数据损坏。”。“这是一个经典的例子，有一把神奇的锤子，一切都开始看起来像钉子。在过去的几十年里，作为一名开发人员和企业创始人，我自己也多次看到这种模式。”</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/googles-managed-agents-api-promises-one-call-deployment-at-the-cost-of-execution-layer-control" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
