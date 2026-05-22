@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-22 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-22</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Alibaba's proprietary Qwen3.7-Max can run for 35 hours autonomously and supports external harnesses like Anthropic's Claude Code</div>
+      <div class="col-content">The AI industry has fully entered the "agent era," a paradigm where AI models do far more than generate text — they now actively plan, execute, and course-correct complex tasks over days rather than seconds. Thus, it's perhaps unsurprising to see Chinese e-commerce giant Alibaba's famed Qwen Team of AI researchers release a model capable of performing autonomous agentic AI work over multiple days: that model has arrived in the form of Qwen3.7-Max which the company reports in a blog post achieved "~35 hours of continuous autonomous execution" — albeit, in a proprietary, not open source format, as prior Qwen Team releases were. This is also to be expected — it's what many analysts and industry experts feared in the wake of the departure of several key Qwen Team leaders earlier this year. But it makes sense for Alibaba financially, at least in the short term: training AI models, especially ones as powerful as Qwen3.7-Max, is expensive, and giving them away essentially for free, as open source models are, does not immediately help recoup any costs. In that sense, Alibaba is simply aligning its efforts with American AI giants like OpenAI and Google by offering the latest and greatest models only through paid APIs and subscription or paid web plan bundles, and slightly less performant ones through open source. Still, the arrival of Qwen3.7-Max offers further optionality to enterprises and individual users, and more competition for American AI labs — rarely a bad thing for consumers at all budget levels. Yet, the fact that the model is only accessible from Chinese-based endpoints means it may be limited in its appeal to American and European enterprises seeking to maximize compliance and security posturing when fulfilling government contracts, or even just attempting to comply with all relevant state, local, and national data sovereignty regulations. To understand why Qwen3.7-Max is a departure from previous models, one must look at how it was trained and how it operates in practice. Language models typically degrade when forced to maintain a single train of thought over thousands of conversational turns; they forget instructions, hallucinate variables, or simply get stuck in logical loops. Qwen3.7-Max was specifically designed as a "versatile agent foundation" capable of "long-horizon reasoning" to overcome this exact bottleneck. The starkest demonstration of this capability is an autonomous engineering task detailed by the Qwen team. The model was given access to an isolated server equipped with a T-Head ZW-M890 PPU—a hardware architecture the model had never encountered during its training. Its task was to optimize an attention kernel. Over the course of 35 straight hours, Qwen3.7-Max operated entirely autonomously. It executed 1,158 distinct tool calls, performed 432 kernel evaluations, diagnosed compilation failures, and iteratively improved the code to achieve a 10.0x geometric mean speedup. By comparison, Chinese competitor models like z.ai's GLM-5.1 and Moonshot's Kimi K2.6 capped out at 7.3x and 5.0x speedups respectively, often voluntarily terminating their sessions when they failed to make progress. However, both are available open source. This endurance is achieved through what Alibaba calls "environment scaling". Just as early LLMs grew smarter by ingesting more diverse text, Qwen3.7-Max was trained across a vast, scaled array of dynamic agentic environments. It is capable of simulating a one-year lifecycle of a startup in the "YC-Bench" evaluation, navigating hundreds of decision-making rounds encompassing personnel management and contract screening. In this simulation, the model managed to generate $2.08 million in virtual revenue, nearly doubling the performance of the prior generation, Qwen3.6-Plus. Furthermore, the model has built-in reward-hacking self-monitoring, autonomously detecting when it attempts to cheat a training environment and adding heuristic rules to correct its own behavior. From a product perspective, Qwen3.7-Max is designed to be the cognitive engine for modern software development and enterprise automation. The model offers a massive 1-million-token context window and a 64K maximum output limit, providing immense overhead for processing sprawling codebases or lengthy technical documents. One of its most compelling features is "cross-harness generalization". Rather than being hardcoded to work best within a specific proprietary interface, Qwen3.7-Max is built to act as a drop-in intelligence layer for diverse agent frameworks. It supports the Anthropic API protocol natively, allowing developers to plug it directly into existing tools like Claude Code or OpenClaw. The benchmark data provided by Alibaba indicates that this generalized approach has paid massive dividends. On the Apex Math Reasoning benchmark , Qwen3.7-Max scored 44.5, eclipsing Claude Opus-4.6 Max's score of 34.5 and DeepSeek V4-Pro Max's 38.3. It also posted dominant scores on Humanity's Last Exam (41.4) and the realistic coding agent benchmark MCP-Atlas (76.4). This translates into tangible utility for end-users. Through open source Model Context Protocol (MCP) integrations, the model can operate as an autonomous office assistant, capable of reading university formatting specs and automatically reformatting a messy Word document via command-line tools without human intervention. Running this level of intelligence comes at a distinct cost. Developers accessing the API via Alibaba Cloud Model Studio will pay $2.50 per 1 million input tokens and $7.50 per 1 million output tokens. The platform also features explicit cache creation and read pricing, as well as a $10 fee per 1,000 calls for integrated web searches, though code interpreter tools remain free for a limited time. Qwen3.7-Max occupies a strategic middle ground in the current API economy.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">阿里巴巴专有的Qwen3.7-Max可以自主运行35小时，并支持Anthropic的Claude Code等外部线束</div>
+      <div class="col-content">人工智能行业已经完全进入了“代理时代”，在这个时代，人工智能模型的作用远远不止生成文本——它们现在可以在几天内而不是几秒钟内积极规划、执行和纠正复杂的任务。因此，看到中国电子商务巨头阿里巴巴著名的Qwen人工智能研究团队发布一个能够在多天内执行自主代理人工智能工作的模型可能并不奇怪：该模型以Qwen3.7-Max的形式出现，该公司在一篇博客文章中报告称，该模型实现了“约35小时的连续自主执行”，尽管是以专有的、非开源的格式发布的，与之前的Qwen-Team版本一样。这也是意料之中的——这是许多分析师和行业专家在今年早些时候Qwen团队几位关键领导人离职后所担心的。但这对阿里巴巴来说在财务上是有意义的，至少在短期内是这样：训练人工智能模型，尤其是像Qwen3.7-Max这样强大的模型，成本很高，而且像开源模型一样基本上是免费的，并不能立即帮助收回任何成本。从这个意义上说，阿里巴巴只是通过仅通过付费API和订阅或付费网络套餐提供最新和最棒的模型，以及通过开源提供性能稍差的模型，来与OpenAI和谷歌等美国人工智能巨头保持一致。尽管如此，Qwen3.7-Max的到来为企业和个人用户提供了更多的选择，并为美国人工智能实验室带来了更多的竞争——这对所有预算水平的消费者来说都是一件好事。然而，该模型只能从中国的端点访问这一事实意味着，它对寻求在履行政府合同时最大限度地遵守合规和安全姿态的美国和欧洲企业的吸引力可能有限，甚至只是试图遵守所有相关的州、地方和国家数据主权法规。要理解为什么Qwen3.7-Max与之前的模型不同，必须看看它是如何训练的，以及它在实践中是如何运作的。当被迫在数千次会话中保持单一思路时，语言模型通常会退化；他们忘记了指令，产生了变量幻觉，或者只是陷入了逻辑循环。Qwen3.7-Max是专门设计的“多功能代理基础”，能够“长期推理”来克服这一瓶颈。Qwen团队详细描述的一项自主工程任务是这种能力的最明显证明。该模型可以访问一个配备T-Head ZW-M890 PPU的隔离服务器，这是该模型在训练过程中从未遇到过的硬件架构。它的任务是优化注意力内核。在连续35个小时的过程中，Qwen3.7-Max完全自主运行。它执行了1158次不同的工具调用，执行了432次内核评估，诊断了编译失败，并迭代改进了代码，实现了10.0倍的几何平均加速。相比之下，像z.ai的GLM-5.1和Moonshot的Kimi K2.6这样的中国竞争对手车型分别达到了7.3倍和5.0倍的加速，当他们没有取得进展时，他们经常自愿终止训练。然而，两者都是开源的。这种耐力是通过阿里巴巴所谓的“环境扩展”来实现的。正如早期的LLM通过摄取更多样化的文本变得更聪明一样，Qwen3.7-Max是在一个庞大的、大规模的动态代理环境中训练的。它能够在“YC Bench”评估中模拟初创公司的一年生命周期，引导数百轮决策，包括人员管理和合同筛选。在这个模拟中，该模型设法产生了208万美元的虚拟收入，几乎是上一代Qwen3.6-Plus性能的两倍。此外，该模型具有内置的奖励黑客自我监控功能，能够自主检测何时试图欺骗训练环境，并添加启发式规则来纠正自己的行为。从产品的角度来看，Qwen3.7-Max旨在成为现代软件开发和企业自动化的认知引擎。该模型提供了一个巨大的100万个令牌上下文窗口和64K的最大输出限制，为处理庞大的代码库或冗长的技术文档提供了巨大的开销。其最引人注目的特征之一是“跨线束通用化”。Qwen3.7-Max不是硬编码以在特定的专有接口中最佳工作，而是作为各种代理框架的插入式智能层。它本机支持Anthropic API协议，允许开发人员将其直接插入现有工具，如Claude Code或OpenClaw。阿里巴巴提供的基准数据表明，这种通用的方法已经带来了巨大的回报。在Apex数学推理基准测试中，Qwen3.7-Max的得分为44.5，超过了Claude Opus-4.6 Max的34.5分和DeepSeek V4 Pro Max的38.3分。它还发布了人类最后一次考试（41.4）和现实编码代理基准MCP Atlas（76.4）的优势分数。这转化为最终用户的有形效用。通过开源模型上下文协议（MCP）集成，该模型可以作为一个自主的办公助手运行，能够阅读大学格式化规范，并通过命令行工具自动重新格式化杂乱的Word文档，而无需人工干预。运行这种级别的智能需要付出明显的代价。通过阿里云模型工作室访问API的开发者将支付每一百万个输入代币2.50美元和每一百万个输出代币7.50美元。该平台还具有明确的缓存创建和读取定价，以及每1000次集成网络搜索调用收取10美元的费用，尽管代码解释器工具在有限的时间内仍然免费。Qwen3.7-Max在当前API经济中占据着战略中间位置。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/alibabas-proprietary-qwen3-7-max-can-run-for-35-hours-autonomously-and-supports-external-harnesses-like-anthropics-claude-code" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
