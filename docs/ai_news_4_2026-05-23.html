@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-23 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-23</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Antigravity 2.0 Tops the OpenSCAD Architectural 3D LLM Benchmark</div>
+      <div class="col-content">We ran a small practical benchmark: give several AI coding tools the same kind of task and ask them to build the Pantheon in OpenSCAD. ModelRift generates OpenSCAD for every 3D model on the platform. The LLM’s ability to handle spatial geometry directly affects what we can ship, so we track how models improve on this kind of task. The goal was to see how well each system could turn architectural reference material into parametric CAD code, using the OpenSCAD CLI to render previews and iterate. The prompt was intentionally visual and architectural: build the Pantheon from reference images, including the rotunda, dome, portico, columns, pediment, and recognizable front details. Overview of the six current benchmark results. Each thumbnail is labeled with the client and model used for that run. This was not a basic OpenSCAD syntax test. All of the current coding LLMs can produce a simple “cube with a hole” model in OpenSCAD perfectly well. That kind of prompt mostly tests whether the model knows difference() , cube() , and cylinder() . The Pantheon is more useful as a benchmark because it sits in a middle ground. OpenSCAD is not a good fit for natural sculpted models, organic surfaces, or character-like geometry. It is much better at Boolean operations, radial symmetry, extrusions, and clean constructive shapes. The Pantheon has a large radial rotunda and dome, a central oculus, straight portico faces, columns, stepped bases, and a triangular pediment. That mix makes it illustrative without being impossible. It is also recognizable. A weak result still looks vaguely like a domed building, but a better result has to get the relationship between the round drum, the rectangular portico, the dome rings, and the front facade roughly right. OpenSCAD is a strong target for LLM-generated geometry because the model is plain text code with a compact vocabulary. An agent can describe a building as nested transformations, Boolean operations, cylinders, extrusions, loops, and named modules. That is much closer to how language models already reason about structure than asking them to drive a 3D application through UI actions. This is the main reason we built ModelRift around OpenSCAD in the first place, as covered in Why we built ModelRift on OpenSCAD . That matters for complex geometry. With OpenSCAD, the LLM can say “make 28 repeated columns around a radius” or “subtract an oculus from a dome” directly in the source. The result is inspectable, reproducible, and easy to revise. If a column spacing is wrong, the fix is usually a parameter or loop change, not a hidden scene-state mutation. That same text-first structure is what makes OpenSCAD work well with parametric UI layers like the ones discussed in Building a better OpenSCAD customizer . Blender MCPs and similar tool-control approaches are useful for some workflows, but they are a less natural encoding for this benchmark. The agent has to translate architectural intent into a sequence of application operations, then keep a mental model of the scene state as those operations accumulate. For CAD-like tasks, that is a lot of indirection. OpenSCAD keeps the geometry itself as the artifact. The tradeoff is that OpenSCAD is not a sculpting tool. It is best at constructive, parametric, and mostly hard-surface objects. The Pantheon sits right in that zone: radial symmetry, repeated columns, rings, cutouts, and simple architectural solids. It also maps cleanly to the practical file-output side of 3D printing: STL remains the baseline mesh format, while 3MF can carry richer assembly and color information, as described in 3D file formats explained and How we added multicolor 3MF export to ModelRift . That is why it is a useful benchmark for the kind of geometry ModelRift wants LLMs to generate. Reference #1 is the front facade view on the left. Reference #2 is the aerial/top view on the right. The combined image was generated with ffmpeg from the two source images used in the benchmark. The six current benchmark outputs, labeled by client and model. The scores are relative to this benchmark only. They are not general model rankings, and the time score reflects observed implementation time, not project publication timestamps. The quality scores are intentionally conservative: even the best result is not close to a perfect Pantheon model.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Antigravity 2.0在OpenSCAD建筑3D LLM基准测试中名列前茅</div>
+      <div class="col-content">我们运行了一个小型的实用基准测试：给几个AI编码工具相同的任务，并要求他们在OpenSCAD中构建Pantheon。ModelRift为平台上的每个3D模型生成OpenSCAD。LLM处理空间几何的能力直接影响我们可以运送什么，因此我们跟踪模型如何改进这类任务。目标是观察每个系统如何使用OpenSCAD CLI渲染预览和迭代，将建筑参考材料转换为参数化CAD代码。提示是有意的视觉和建筑：根据参考图像建造万神殿，包括圆形大厅、圆顶、门廊、柱子、三角楣饰和可识别的前部细节。六个当前基准结果概述。每个缩略图都标有用于该运行的客户端和型号。这不是一个基本的OpenSCAD语法测试。所有当前的编码LLM都可以在OpenSCAD中很好地生成一个简单的“带孔立方体”模型。这种提示主要测试模型是否知道difference（）、cube（）和cylinder（）。万神殿作为基准更有用，因为它位于中间地带。OpenSCAD不适合自然雕刻模型、有机表面或类字符几何体。它在布尔运算、径向对称、拉伸和干净的构造形状方面要好得多。万神殿有一个巨大的放射状圆形大厅和圆顶、一个中心眼、笔直的门廊、柱子、阶梯式基座和一个三角形三角楣饰。这种混合使其具有说明性，但并非不可能。它也是可识别的。一个微弱的结果看起来仍然有点像圆顶建筑，但更好的结果必须大致正确地处理圆形鼓、矩形门廊、圆顶环和前立面之间的关系。OpenSCAD是LLM生成几何体的强大目标，因为该模型是具有紧凑词汇表的纯文本代码。代理可以将建筑描述为嵌套变换、布尔运算、圆柱体、拉伸、循环和命名模块。这更接近于语言模型已经对结构进行推理的方式，而不是要求它们通过UI操作驱动3D应用程序。这是我们最初围绕OpenSCAD构建ModelRift的主要原因，正如我们为什么在OpenSCAD上构建ModelRiff所述。这对复杂的几何很重要。使用OpenSCAD，LLM可以直接在源代码中说“在半径周围制作28个重复的列”或“从圆顶中减去一个眼”。结果可检查、可重复且易于修改。如果列间距错误，修复通常是参数或循环更改，而不是隐藏的场景状态突变。同样的文本优先结构使OpenSCAD能够很好地与参数化UI层配合使用，就像在构建更好的OpenSCAD定制器中讨论的那样。Blender MCP和类似的工具控制方法对某些工作流很有用，但对于这个基准测试来说，它们是一种不太自然的编码。代理必须将架构意图转化为一系列应用程序操作，然后在这些操作积累的过程中保持场景状态的心理模型。对于类似CAD的任务，这是很多间接的。OpenSCAD将几何图形本身保留为工件。权衡的是OpenSCAD不是一个雕刻工具。它最适合构造性、参数化和大部分硬曲面对象。万神殿就坐落在这个区域：径向对称、重复的柱、环、切口和简单的建筑实体。它还清晰地映射到3D打印的实际文件输出端：STL仍然是基线网格格式，而3MF可以携带更丰富的装配和颜色信息，如3D文件格式和我们如何将多色3MF导出添加到ModelRift中所述。这就是为什么它是ModelRift希望LLM生成的几何形状的有用基准。参考1是左侧的前立面图。参考2是右侧的鸟瞰图/俯视图。组合图像是使用ffmpeg从基准测试中使用的两个源图像生成的。六个当前基准测试输出，按客户端和模型标记。分数仅与该基准相关。它们不是一般的模型排名，时间分数反映了观察到的实施时间，而不是项目发布时间戳。质量分数故意保守：即使是最好的结果也不接近完美的万神殿模型。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://modelrift.com/blog/openscad-llm-benchmark/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
