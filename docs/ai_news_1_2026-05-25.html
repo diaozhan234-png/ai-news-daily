@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-25 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-25</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI agents are quietly generating chaos engineering failures enterprises don’t track yet</div>
+      <div class="col-content">There is a category of production incident that engineering teams are not tracking yet — because it doesn't fit any existing postmortem template. The agent initiated an action. The action was technically correct given the agent's context. The context was incomplete. The infrastructure cascaded. And, by the time the incident review happened, three teams were arguing about whether it was an agent failure or an infrastructure failure, because the frameworks for thinking about these two things have never been connected. The scale of this exposure is no longer theoretical. Seventy-nine percent of organizations now have some form of AI agent in production, with 96% planning expansion. Gartner predicts 33% of enterprise software will include agentic AI by 2028, but separately warns that 40% of those projects will be canceled due to poor risk controls. What neither statistic captures is the failure mode happening between those two numbers: Agents that are running, that are not canceled, and that are quietly generating infrastructure events no one has categorized as risk. I've spent six years building infrastructure automation systems at enterprise scale, first at Cisco (leading AI-driven lifecycle platforms deployed across 20-plus global enterprise customers), then at Splunk (designing AI-assisted root cause analysis and observability workflows across thousands of enterprise environments). During that time I also filed a patent on intent-based chaos engineering methodology. And across all of it, I kept watching organizations make the same structural mistake: Treating autonomous agents and chaos engineering as separate disciplines. They are not. They are the same discipline, and the gap between them is quietly generating the next wave of major production incidents. To understand why this matters, you need to understand what's actually broken in how enterprises govern chaos today, before you add agents to the picture. Most mature engineering organizations have invested in chaos engineering programs. Game days, blast radius controls, SLO-gated experiments. When a human engineer initiates a chaos experiment, the sequence has a critical property: A human is making a judgment call about whether the system has capacity to absorb the perturbation right now. They check dashboards. They look at the error budget burn rate. They assess whether dependencies are stable. It's imperfect and often intuitive, but there is at least a person in the loop asking the right question before anything runs. When you introduce an autonomous remediation agent, one that can restart services, reroute traffic, scale resources, or modify configurations in response to detected anomalies, that question disappears. The agent sees an anomaly. The agent takes an action. The action is a chaos event. No SLO burn rate check. No blast radius calculation. No human judgment about whether right now is the right moment to introduce additional stress into a system that may already be under pressure from three other directions. Here is the specific failure mode I have watched play out. A remediation agent detects elevated latency on a microservice and responds by restarting the service cluster; a reasonable action given its training data and its narrow view of the incident. What the agent doesn't know: Three other services are in the middle of handling peak traffic. The shared connection pool is already at 87% utilization. A dependent database is running a background index rebuild. The restart triggers a thundering herd against the recovering service. What started as a latency spike the agent was designed to fix becomes a cascade the agent was never designed to model. The blast radius of that agent action was not the service restart. It was everything downstream of the restart, in a system state the agent had no complete picture of. Nobody's chaos engineering program had tested for that specific combination. Nobody's blast radius calculation had included the agent as an actor. Because we don't think of agents as chaos injectors. We should. According to the AI Incidents Database , reported AI-related incidents rose 21% from 2024 to 2025. That count almost certainly understates the actual exposure, because most organizations have no incident classification that captures an autonomous agent action as the initiating cause of a cascade. The incident gets logged as a service restart, a connection pool saturation, or a latency event. The agent is invisible in the postmortem. The underlying problem is that enterprise systems have no shared language for absorb capacity — the real-time estimate of how much additional stress a system can take before it breaches its SLO commitments. Chaos engineering programs manage it implicitly, through human judgment and static thresholds that fire after a limit has already been crossed. Agents don't manage it at all. Through structured primary research with site reliability engineering (SRE) and platform engineering practitioners across organizations including Intuit and GPTZero, I've been developing a resilience budget model. The core idea is to treat absorb capacity as a continuously recomputed, consumable resource rather than a static threshold you try not to breach. A resilience budget draws on four live signal classes. SLO burn rate is the primary input, because it directly encodes the distance between current system behavior and the commitment that actually matters. If a system is burning its monthly error budget at five times the expected rate, the resilience budget is near zero regardless of what CPU utilization looks like. P99 latency trend matters more than absolute latency, because a service trending upward over forty minutes tells you something different than a service that has been stable at the same absolute value.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">人工智能代理正在悄然产生企业尚未追踪的混乱工程失败</div>
+      <div class="col-content">有一类生产事件工程团队尚未跟踪，因为它不符合任何现有的事后模板。代理人发起了一项行动。考虑到特工的背景，这一行动在技术上是正确的。上下文不完整。基础设施级联。而且，在事件审查发生时，三个团队正在争论这是代理故障还是基础设施故障，因为思考这两件事的框架从未联系过。这种暴露的规模不再是理论上的。79%的组织现在在生产中有某种形式的人工智能代理，96%的组织计划进行扩展。Gartner预测，到2028年，33%的企业软件将包括代理AI，但另外警告说，由于风险控制不力，其中40%的项目将被取消。这两个统计数据都没有捕捉到这两个数字之间发生的故障模式：正在运行的代理，没有被取消的代理，以及正在悄悄生成没有人归类为风险的基础设施事件的代理。我花了六年时间在企业级构建基础设施自动化系统，首先是在思科（在20多个全球企业客户中部署的领先的人工智能驱动的生命周期平台），然后是在Splunk（在数千个企业环境中设计人工智能辅助的根本原因分析和可观察性工作流程）。在此期间，我还为基于意图的混沌工程方法申请了专利。在这一切中，我一直在观察组织犯下同样的结构性错误：将自主代理和混沌工程视为独立的学科。他们不是。它们是同一个学科，它们之间的差距正在悄然引发下一波重大生产事件。要理解为什么这很重要，在将代理添加到图片中之前，您需要了解当今企业治理混乱的方式中实际存在的问题。大多数成熟的工程组织都投资于混沌工程项目。游戏日，爆炸半径控制，SLO门控实验。当人类工程师启动混沌实验时，序列具有一个关键特性：人类正在判断系统现在是否有能力吸收扰动。他们检查仪表板。他们查看错误预算消耗率。他们评估依赖关系是否稳定。它并不完美，而且往往很直观，但在任何事情发生之前，至少有一个人在循环中提出了正确的问题。当你引入一个自主补救代理时，一个可以重启服务、重新路由流量、扩展资源或修改配置以响应检测到的异常的代理，这个问题就消失了。代理看到异常。代理人采取行动。这场行动是一场混乱事件。无SLO燃烧率检查。无爆炸半径计算。对于现在是否是向可能已经受到其他三个方向压力的系统引入额外压力的合适时机，人类没有做出任何判断。这是我看过的具体故障模式。补救代理检测到微服务上的延迟增加，并通过重新启动服务集群进行响应；鉴于其训练数据和对事件的狭隘看法，采取了合理的行动。代理不知道的是：另外三个服务正在处理高峰流量。共享连接池的利用率已达到87%。依赖数据库正在运行后台索引重建。重新启动引发了对正在恢复的服务的雷鸣般的反对。代理设计用来修复的延迟尖峰变成了代理从未设计用来建模的级联。该代理操作的爆炸半径不是服务重启。这是重启后的一切，在代理没有完整了解的系统状态下。没有人的混沌工程程序测试过这种特定的组合。没有人将特工作为演员计算在内。因为我们不认为代理人是混乱的注入器。我们应该。根据人工智能事件数据库，报告的人工智能相关事件从2024年到2025年增长了21%。这个数字几乎肯定低估了实际的风险，因为大多数组织都没有事件分类来捕捉自主代理行为作为级联的初始原因。该事件被记录为服务重启、连接池饱和或延迟事件。尸检中看不到这种病原体。潜在的问题是，企业系统没有共享的吸收能力语言——实时估计系统在违反其SLO承诺之前可以承受多少额外的压力。混沌工程程序通过人类判断和在超过极限后触发的静态阈值来隐式地管理它。特工们根本无法管理它。通过与Intuit和GPTZero等组织的现场可靠性工程（SRE）和平台工程从业者进行结构化的初步研究，我一直在开发一个弹性预算模型。核心思想是将吸收能力视为一种不断重新计算的、可消耗的资源，而不是一个你试图不突破的静态阈值。弹性预算基于四个实时信号类别。SLO燃烧率是主要输入，因为它直接编码了当前系统行为与实际重要承诺之间的距离。如果一个系统每月的错误预算是预期的五倍，那么无论CPU利用率如何，弹性预算都接近于零。P99延迟趋势比绝对延迟更重要，因为超过40分钟的服务趋势告诉您与稳定在相同绝对值的服务不同的东西。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/ai-agents-are-quietly-generating-chaos-engineering-failures-enterprises-dont-track-yet" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
