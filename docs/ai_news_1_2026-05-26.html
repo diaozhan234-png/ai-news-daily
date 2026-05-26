@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-26 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-26</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 90.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">BOHM: Zero-Cost Hierarchical Attribution for Compound AI Systems</div>
+      <div class="col-content">arXiv:2605.22866v1 Announce Type: new Abstract: Compound AI systems route tasks through hierarchies of specialised components. Attribution is dominated by Shapley-based methods (SHAP), which decompose a coalition value function into per-component marginal contributions and require evaluation of the system on arbitrary component subsets. That requirement fails for third-party APIs, opaque endpoints, and agentic orchestrators that concentrate routing on a few tools, leaving most coalitions un-evaluable from the deployed orchestrator. We introduce BOHM, which extracts a hierarchical attribution tree directly from the routing weights such systems already maintain: leaf attribution is the path product of root-to-leaf routing weights; level-k attribution is the induced distribution over depth-k nodes. The method has zero marginal cost, requires no access to component internals, and provides multi-resolution attribution at every level simultaneously, which flat methods cannot offer at any evaluation budget. BOHM and SHAP answer different questions and converge when the deployed router routes near-optimally. On 18 LLMs in a 3-level hierarchy over 880 LiveCodeBench problems, BOHM yields Kendall tau=0.928; SHAP reaches tau=0.980 at 9,000x more coalition evaluations per seed. On a 5-driver, 7-benchmark agentic study (35 cells, complete coverage), drivers concentrate routing on a single tool (top-share median 0.65), and cell-level tau(BOHM,SHAP) is predicted by whether the driver's top pick is the empirically best tool (mean +0.22 vs ~+0.01). On a US Census hierarchy (475 leaves, 4 levels), BOHM recovers ground-truth rankings at every level (tau up to 0.722). BOHM satisfies efficiency, monotonicity, symmetry, and weak suppression but not Shapley's additivity. It is best understood as a complementary primitive: a multi-resolution decomposition computable wherever routing state exists, whose disagreement with Shapley is itself diagnostic.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">BOHM：复合人工智能系统的零成本分层归因</div>
+      <div class="col-content">arXiv:2605.22866v1公告类型：new摘要：复合人工智能系统通过专门组件的层次结构路由任务。归因主要由基于Shapley的方法（SHAP）主导，该方法将联盟价值函数分解为每个组件的边际贡献，并要求在任意组件子集上对系统进行评估。对于第三方API、不透明端点和将路由集中在少数工具上的代理编排器来说，这一要求是失败的，这使得大多数联盟无法从部署的编排器中评估。我们引入了BOHM，它直接从这些系统已经维护的路由权重中提取层次属性树：叶属性是根到叶路由权重的路径乘积；k级归因是深度k节点上的诱导分布。该方法具有零边际成本，不需要访问组件内部，并在每个级别同时提供多分辨率属性，这是平面方法在任何评估预算下都无法提供的。当部署的路由器路由接近最优时，BOHM和SHAP会回答不同的问题并收敛。在880个LiveCodeBench问题的3级层次结构中的18个LLM上，BOHM得出Kendall-tau=0.928；在每个种子的联盟评估增加9000倍时，SHAP达到tau=0.980。在一项5个驱动因素、7个基准的代理研究中（35个单元格，完全覆盖），驱动因素将路线集中在一个工具上（顶部份额中位数为0.65），而单元格级别的tau（BOHM，SHAP）是通过驱动因素的首选是否是经验上最好的工具来预测的（平均值+0.22 vs ~+0.01）。在美国人口普查的层次结构中（475页，4个级别），英国皇家银行在每个级别都恢复了基本事实排名（tau高达0.722）。BOHM满足效率、单调性、对称性和弱抑制性，但不满足Shapley的可加性。它最好被理解为一种互补的原语：一种多分辨率分解，在任何存在路由状态的地方都是可计算的，它与Shapley的分歧本身就是诊断性的。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2605.22866" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
