@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-26 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-26</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Why prompt debt, retrieval debt, and evaluation debt are quietly reshaping enterprise AI risk</div>
+      <div class="col-content">Over the past two decades, technical debt meant outdated architecture, messy code, and poorly maintained documentation. That definition is no longer sufficient in the AI era, where failure modes are more subtle and often non-linear. AI systems are introducing new layers of technical debt that live across prompts, models, and data dependencies — making these layers less visible, harder to measure, and often more dangerous than traditional debt. The complexities of AI systems and their associated failures have been well documented. A 2025 MIT study found that 95% of AI projects fail to reach production or deliver value. A similar study by S&P Global Market Intelligence found that 42% of businesses scrapped multiple AI initiatives in 2025 — a sharp increase from 17% the previous year. Various reasons are cited for these failures, but most of them point to poorly designed and implemented systems that are complex to manage and have multiple hard-to-monitor failure points, leading to a rapid accumulation of AI debt. Traditional technical debt was localized to the codebase, and bugs were usually easily reproducible. Consequently, bugs could be easily identified during tests and fixed through rearchitecting the codebase. However, AI debt is much more distributed, manifesting across prompts, models, data pipelines, and all associated infrastructure. It is also more intermittent: Due to the probabilistic nature of AI, systems do not always respond the same way, leading to intermittent failures. This makes it much more challenging to identify risks during testing, and also creates a need for more continuous monitoring even post-deployment to prevent gradual drift and worsening performance. AI debt typically manifests across four new forms, each of which comes with its own set of risks. Prompt debt is the most visible of these. A modern version of ‘spaghetti code,' this can include undocumented prompt tweaks, accumulated ‘quick-fix’ prompts that lead to inconsistencies, neglected version control of prompts, and ‘prompt stuffing’ (the cramming of extraneous data or context directly into AI prompts). All these combine to make prompts a form of untyped, untested code without any version control, leading to increased brittleness and vulnerabilities. Model dependency debt is another increasingly common form of AI debt. Most enterprises now depend on a mixture of external models developed by leading foundation model providers; applications and agents are built on top of API calls to these models. Consequently, application logic now depends on models that are external to the core system, and that cannot be clearly controlled. As models update, performance varies and reproducibility is lost — prompts tuned for one model may fail or perform poorly when switched to another model, whether an update from the same provider or from another provider. Most enterprise AI deployments today use retrieval-augmented generation (RAG), which pulls in additional context from enterprise data repositories. Retrieval debt is a consequence of these repositories having messy data, duplicated documents, and outdated information. This causes AI to return technically correct answers that are outdated and no longer relevant, causing downstream failures. Unlike hallucinations, these are harder to detect because they were correct, perhaps even until recently, and hence look correct to any tester. Evaluation debt reflects the lack of standardization in testing and monitoring for AI models and applications. While AI benchmarks exist, they tend to focus on narrow tests and reflect point-in-time results. Most enterprises lack consistent testing standards, ground truth datasets, and real-time monitoring of deployments; there is no equivalent yet of continuous integration /continuous delivery (CI/CD) for prompts. As a consequence, CIOs and CTOs do not have clear visibility into model performance and cannot track improvements or worsening of models. All of these are in addition to traditional forms of technical debt, which still manifest across the tools and systems that AI applications and agents interact with, read from, or write to. A rapid increase in the adoption of AI-generated code (often deployed without inadequate testing) is further aggravating inconsistencies within, and poor maintainability of traditional codebases. The new forms of AI debt combine with these earlier forms of technical debt to compound rapidly and create large-scale risks that can cause catastrophic failure of entire enterprise deployments. Solving for these risks is made even more challenging by the distributed nature of AI ownership – most systems span engineering, product, data, and business teams, leading to unclear accountability when an error is identified. As a result, these risks manifest in the form of escalating compute costs, inaccuracies in AI outputs, and increasing exceptions that need to be handled by humans — leading to projects often stalling and failing due to unclear return-on-investment stories and a lack of trust from users. AI debt will not be solved by ‘better’ models — failure rates remain high despite models already having high accuracy. The solution to AI debt requires better system design, integration, controls, and changes in organizational culture. First, prompts need to be treated as code. This involves careful version control, documentation, and rigorous testing both pre- and post-deployment for all possible prompt configurations. Best practices from the traditional world of coding — such as the use of smaller prompt blocks instead of large prompt-stuffed walls, or reducing the use of hard-coded parameters — can also help mitigate AI debt. Second, evaluation needs to be built into the entire AI infrastructure stack. Continuous evaluation pipelines need to be established and must reflect a wide variety of metrics measuring both technical and business-aligned metrics.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">为什么提示债、回收债和评估债正在悄然重塑企业人工智能风险</div>
+      <div class="col-content">在过去的二十年里，技术债务意味着过时的架构、混乱的代码和维护不善的文档。在人工智能时代，这种定义已经不够了，因为故障模式更加微妙，而且往往是非线性的。人工智能系统正在引入新的技术债务层次，这些债务跨越提示、模型和数据依赖关系，使这些层次不那么明显，更难衡量，而且往往比传统债务更危险。人工智能系统的复杂性及其相关故障已被充分记录。麻省理工学院2025年的一项研究发现，95%的人工智能项目未能达到生产或交付价值。标普全球市场情报公司的一项类似研究发现，2025年，42%的企业取消了多项人工智能计划，比前一年的17%大幅增加。这些失败的原因有很多，但其中大多数都指向设计和实施不当的系统，这些系统管理复杂，有多个难以监控的故障点，导致人工智能债务的快速积累。传统的技术债务局限于代码库，错误通常很容易重现。因此，在测试过程中可以很容易地识别错误，并通过重新构建代码库来修复。然而，人工智能债务的分布要广泛得多，表现在提示、模型、数据管道和所有相关基础设施上。它也更具间歇性：由于人工智能的概率性，系统并不总是以相同的方式响应，导致间歇性故障。这使得在测试过程中识别风险变得更具挑战性，也需要在部署后进行更持续的监控，以防止逐渐漂移和性能恶化。人工智能债务通常表现为四种新形式，每种形式都有自己的风险。即时债务是其中最明显的。这是“意大利面条代码”的现代版本，可能包括未记录的提示调整、导致不一致的累积“快速修复”提示、忽视的提示版本控制和“提示填充”（将无关数据或上下文直接塞进AI提示中）。所有这些因素结合在一起，使提示成为一种没有任何版本控制的非类型化、未经测试的代码，导致脆弱性和漏洞增加。模型依赖债务是人工智能债务的另一种日益常见的形式。大多数企业现在依赖于领先的基础模型提供商开发的多种外部模型；应用程序和代理构建在对这些模型的API调用之上。因此，应用程序逻辑现在依赖于核心系统外部的模型，这些模型无法被明确控制。随着模型的更新，性能会发生变化，再现性也会丧失——为一个模型调整的提示在切换到另一个模型时可能会失败或性能不佳，无论是来自同一提供商还是另一个提供商的更新。如今，大多数企业人工智能部署都使用检索增强生成（RAG），它从企业数据存储库中提取额外的上下文。检索债务是这些存储库中数据混乱、文档重复和信息过时的结果。这导致AI返回技术上正确的答案，这些答案已经过时且不再相关，从而导致下游故障。与幻觉不同，这些更难被发现，因为它们是正确的，甚至可能直到最近，因此对任何测试人员来说都是正确的。评估债务反映了人工智能模型和应用程序的测试和监控缺乏标准化。虽然存在人工智能基准测试，但它们往往侧重于狭义的测试，并反映时间点的结果。大多数企业缺乏一致的测试标准、地面实况数据集和部署的实时监控；对于提示，还没有等效的持续集成/持续交付（CI/CD）。因此，首席信息官和首席技术官无法清楚地了解模型性能，也无法跟踪模型的改进或恶化。所有这些都是传统形式的技术债务之外的债务，这些债务仍然体现在人工智能应用程序和代理与之交互、读取或写入的工具和系统中。人工智能生成代码（通常在没有充分测试的情况下部署）的迅速增加进一步加剧了传统代码库内部的不一致性和可维护性差。新形式的人工智能债务与这些早期形式的技术债务相结合，迅速复合并产生大规模风险，可能导致整个企业部署的灾难性失败。由于人工智能所有权的分布式性质，解决这些风险变得更加具有挑战性——大多数系统跨越工程、产品、数据和业务团队，导致在发现错误时责任不明确。因此，这些风险以计算成本不断上升、人工智能输出不准确以及需要人类处理的异常增加的形式表现出来，导致项目经常因投资回报率不明确和用户缺乏信任而停滞和失败。人工智能债务不会通过“更好”的模型来解决——尽管模型已经具有很高的准确性，但失败率仍然很高。解决人工智能债务需要更好的系统设计、集成、控制和组织文化变革。首先，提示需要被视为代码。这涉及对所有可能的提示配置进行仔细的版本控制、文档记录和部署前后的严格测试。来自传统编码世界的最佳实践——例如使用较小的提示块而不是大的提示填充墙，或者减少硬编码参数的使用——也有助于减轻人工智能的债务。其次，评估需要构建到整个人工智能基础设施堆栈中。需要建立持续的评估管道，并且必须反映各种衡量技术和业务一致性的指标。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/why-prompt-debt-retrieval-debt-and-evaluation-debt-are-quietly-reshaping-enterprise-ai-risk" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
