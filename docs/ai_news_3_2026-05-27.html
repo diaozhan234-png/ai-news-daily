@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-27 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-27</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">DeepSWE blows up the AI coding leaderboard, crowns GPT-5.5, and finds Claude Opus exploiting a benchmark loophole</div>
+      <div class="col-content">For months, the leading AI coding benchmarks have told enterprise buyers a comforting but misleading story: the top models are all roughly the same. OpenAI's GPT-5 family , Anthropic's Claude Opus , and Google's Gemini Pro have clustered within a narrow band on Scale AI's SWE-Bench Pro leaderboard, making it nearly impossible for engineering leaders to determine which agent will actually perform best inside their codebases. On Monday, a startup called Datacurve released a benchmark it says shatters that illusion. DeepSWE , a 113-task evaluation spanning 91 open-source repositories and five programming languages, produces a dramatically wider spread among the same frontier models — and crowns OpenAI's GPT-5.5 as the clear leader at 70%, sixteen points ahead of its nearest competitor. "On public leaderboards, top models often look relatively close in capability," wrote Datacurve co-author Serena Ge on X. "DeepSWE shows where they actually diverge, reflecting the realistic experience of developers in their day-to-day work." The benchmark also delivers a pointed critique of the evaluation infrastructure the AI industry relies on to measure progress: Datacurve's audit found that SWE-Bench Pro's verifiers — the automated graders that determine whether an agent solved a task — issued incorrect pass/fail verdicts on roughly one-third of the trials it reviewed. If that finding holds up, it has sweeping implications. Enterprise procurement teams, venture capitalists, and AI lab marketing departments all lean heavily on benchmark scores to make multimillion-dollar decisions. A 32% error rate in the most widely cited coding benchmark suggests the industry may have been navigating by a broken compass. To understand what Datacurve is claiming, it helps to understand how coding benchmarks work — and how they can go wrong. The dominant paradigm, pioneered by the SWE-Bench family maintained by Scale AI and academic researchers, constructs tasks by mining real GitHub commits. The process extracts a bug fix or feature addition from a repository's history, rolls the code back to the pre-fix state, and then asks an AI agent to reproduce the change. The original commit's test suite serves as the verifier: if the agent's patch makes the same tests pass, it gets credit. This approach has an elegant simplicity, but Datacurve argues it introduces three systemic weaknesses. First, contamination . Because tasks are drawn from public GitHub history, the problem statement, the discussion, and often the exact solution are already present in the training data of frontier models. "The SWE-Bench family scrapes existing GitHub issues and PRs, which creates two problems: memorization (models have already seen the solution) and triviality (most tasks are small)," Ge wrote. Second, scope. SWE-Bench Pro tasks require, on average, just 120 lines of code added across 5 files. DeepSWE's reference solutions average 668 lines added across 7 files — roughly 5.5 times more code. Yet DeepSWE's prompts are actually shorter, averaging 2,158 characters versus SWE-Bench Pro's 4,614. In other words, DeepSWE gives the agent less instruction but expects far more output, which more closely mirrors how a human developer might actually delegate work to an AI assistant. Third — and most damaging — verifier reliability. Datacurve drew 30 tasks at random from both DeepSWE and SWE-Bench Pro , ran three rollouts across 10 frontier model configurations, and then deployed an LLM-based judge to independently assess whether each agent's patch actually solved the problem. SWE-Bench Pro's verifiers accepted wrong implementations 8.5% of the time and rejected correct implementations 24% of the time. DeepSWE's verifiers registered 0.3% and 1.1%, respectively. The false negative problem is especially insidious because it punishes creative solutions. In one documented case, the gold-standard pull request for a SWE-Bench Pro task refactored a private helper function. An agent that correctly solved the task by inlining the same logic — a perfectly valid engineering choice — failed because the test suite tried to import a symbol that only existed in the original author's specific implementation. DeepSWE's top-line results reorder the familiar hierarchy in ways that should matter to every engineering team evaluating AI coding tools. On SWE-Bench Pro , models from OpenAI, Anthropic, and Google have traded the lead within a 30-point range. DeepSWE stretches that range to 70 points. GPT-5.5 leads at 70%, followed by GPT-5.4 at 56% and Claude Opus 4.7 at 54%. From there, the drop-off is steep: Claude Sonnet 4.6 lands at 32%, Gemini 3.5 Flash at 28%, GPT-5.4-mini and Kimi K2.6 tied at 24%, and then a long tail of models in the teens and single digits. Claude Haiku 4.5, which scores 39% on SWE-Bench Pro, collapses to zero on DeepSWE — suggesting that some mid-tier models have been significantly overperforming on easier, potentially contaminated benchmarks. GPT-5.5 doesn't just score the highest — it does so efficiently. The model reaches its 70% pass rate with a median cost of $5.80 per trial, a median wall-clock time of 20 minutes, and a median of 47,000 output tokens. GPT-5.4 emerges as perhaps the best overall value at $3.30 per trial with a 56% score. Claude Opus 4.7, meanwhile, costs significantly more per run, and output tokens, wall-clock duration, and dollar cost per trial all vary by an order of magnitude across the agents tested — yet none of these correlates strongly with pass rate. Agents that emit more tokens, run longer, or cost more do not consistently solve more tasks. Perhaps the most provocative finding in DeepSWE's analysis concerns what the authors label "CHEATED" verdicts — instances where an agent passes a benchmark not by solving the problem, but by reading the answer. SWE-Bench Pro's Docker containers ship the repository's full .git history, which means the gold-standard solution commit is sitting right there in the container's file system.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">DeepSWE打破了人工智能编码排行榜，为GPT-5.5加冕，并发现Claude Opus利用了一个基准漏洞</div>
+      <div class="col-content">几个月来，领先的人工智能编码基准告诉企业买家一个令人欣慰但具有误导性的故事：顶级模型大致相同。OpenAI的GPT-5家族、Anthropic的Claude Opus和谷歌的Gemini Pro在Scale AI的SWE Bench Pro排行榜上聚集在一个狭窄的范围内，这使得工程领导者几乎不可能确定哪个代理在他们的代码库中实际表现最佳。周一，一家名为Datacurve的初创公司发布了一项基准测试，称其打破了这种错觉。DeepSWE是一项涵盖91个开源存储库和5种编程语言的113项任务评估，在相同的前沿模型中产生了更广泛的传播，并使OpenAI的GPT-5.5成为明显的领导者，占70%，领先于其最接近的竞争对手16个百分点。Datacurve的合著者Serena Ge在X上写道：“在公共排行榜上，顶级模型的能力通常看起来相对接近。DeepSWE显示了它们实际分歧的地方，反映了开发人员在日常工作中的现实经验。”该基准还对人工智能行业衡量进展所依赖的评估基础设施进行了尖锐的批评：Datacurve审计发现，SWE Bench Pro的验证器——即确定代理是否解决了任务的自动评分器——对其审查的大约三分之一的试验做出了不正确的通过/失败判断。如果这一发现成立，它将产生深远的影响。企业采购团队、风险投资家和人工智能实验室营销部门都严重依赖基准分数来做出数百万美元的决策。在最广泛引用的编码基准中，32%的错误率表明该行业可能一直在靠一个破碎的指南针导航。要理解Datacurve的说法，了解编码基准是如何工作的，以及它们如何出错是有帮助的。主导范式由Scale AI和学术研究人员维护的SWE Bench家族开创，通过挖掘真实的GitHub提交来构建任务。该过程从存储库的历史记录中提取错误修复或功能添加，将代码回滚到修复前的状态，然后要求AI代理再现更改。原始提交的测试套件充当验证器：如果代理的补丁使相同的测试通过，它将获得信用。这种方法非常简单，但Datacurve认为它引入了三个系统性弱点。第一，污染。因为任务是从公共GitHub历史中提取的，所以问题陈述、讨论以及确切的解决方案通常都已经存在于前沿模型的训练数据中。“SWE Bench系列抓取了现有的GitHub问题和PR，这产生了两个问题：记忆（模型已经看到了解决方案）和琐碎（大多数任务都很小），”Ge写道。第二，范围。SWE Bench Pro任务平均只需要在5个文件中添加120行代码。DeepSWE的参考解决方案平均在7个文件中添加668行，大约是代码的5.5倍。然而，DeepSWE的提示实际上更短，平均2158个字符，而SWE Bench Pro的提示为4614个字符。换句话说，DeepSWE给代理的指令更少，但期望的输出更多，这更接近于人类开发人员如何将工作委托给人工智能助手。第三，也是最具破坏性的，验证者可靠性。Datacurve从DeepSWE和SWE Bench Pro中随机抽取了30个任务，在10个前沿模型配置中运行了三次部署，然后部署了一个基于LLM的判断器来独立评估每个代理的补丁是否真正解决了问题。SWE Bench Pro的验证器在8.5%的情况下接受错误的实现，在24%的情况下拒绝正确的实现。DeepSWE的验证者分别登记了0.3%和1.1%。假阴性问题尤其阴险，因为它惩罚了创造性的解决方案。在一个有记录的案例中，SWE Bench Pro任务的黄金标准拉取请求重构了一个私有助手函数。通过内联相同的逻辑（一种完全有效的工程选择）正确解决任务的代理失败了，因为测试套件试图导入仅存在于原始作者特定实现中的符号。DeepSWE的顶级结果以对每个评估AI编码工具的工程团队都很重要的方式重新排列了熟悉的层次结构。在SWE Bench Pro上，OpenAI、Anthropic和谷歌的模特在30分的范围内交换了领先优势。DeepSWE将该范围扩展到70分。GPT-5.5以70%领先，其次是GPT-5.4以56%领先，Claude Opus以54%领先。从那以后，下降幅度很大：克劳德·十四行诗4.6的命中率为32%，双子座3.5闪电侠为28%，GPT-5.4-mini和Kimi K2.6并列24%，然后是十几岁和个位数的长尾模特。Claude Haiku 4.5在SWE Bench Pro上的得分为39%，在DeepSWE上的得分降至零，这表明一些中端型号在更容易、可能受到污染的基准测试中表现明显过高。GPT-5.5不仅得分最高，而且效率很高。该模型达到了70%的通过率，每次试验的中位数成本为5.80美元，挂钟时间的中位数为20分钟，输出代币的中位数为47000个。GPT-5.4可能是最佳的总体价值，每次试验3.30美元，得分为56%。与此同时，Claude Opus 4.7的每次运行成本要高得多，输出代币、挂钟持续时间和每次试验的美元成本在所测试的代理中都有一个数量级的差异，但这些都与通过率没有很强的相关性。发出更多令牌、运行时间更长或成本更高的代理并不能始终如一地解决更多任务。也许DeepSWE分析中最具挑衅性的发现涉及作者所称的“作弊”判决——代理通过阅读答案而不是解决问题来通过基准测试的情况。SWE Bench Pro的Docker容器提供了存储库的完整.git历史记录，这意味着黄金标准的解决方案提交就在容器的文件系统中。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/deepswe-blows-up-the-ai-coding-leaderboard-crowns-gpt-5-5-and-finds-claude-opus-exploiting-a-benchmark-loophole" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
