@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-28 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-28</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">MiniMax teases upcoming M3 model with new sparse attention mechanism and 15.6X long-context response speed boost</div>
+      <div class="col-content">Among the many Chinese AI companies and laboratories vying for market share and attention (no pun intended) on the global marketplace, MiniMax stands out for its commitment to providing frontier-level intelligence across a range of modalities, including text, coding, and video (through its Hailuo model series) — often under permissive, enterprise-friendly, standard open source licenses. Now, MiniMax is again raising the eyebrows of AI power users and developers around the world by releasing a new, in-depth technical report on the making of its popular M2 series of language models ( M2 , M2.5 , and M2.7 ) shedding light on its numerous engineering innovations and clever approaches — while the company and its leaders also teased a whole new sparse attention approach for its upcoming MiniMax M3 series of models , which it says yields up to 15.6 times faster decoding (or LLM response) speed at long contexts (a million tokens) by adopting a custom sub-quadratic framework. In so doing, MiniMax has designed M3 to make ultra-long-context AI agent deployment economically viable. The M2 report is noteworthy for any enterprise working with AI models, and especially those looking to fine-tune and train their own in-house. After all, MiniMax's M2 series models often achieved top benchmarks in the world for open source AI performance when they were released. While the title has since been eclipsed by several other Chinese labs including DeepSeek and Xiaomi, MiniMax's new report offers a blueprint that can be used to improve AI model and agent performance by enterprises around the world. As Adina Yakup of Hugging Face observed on X , "Beyond the benchmarks, they’ve done some really solid work on MoE efficiency and agent oriented design. Excited to see where M3 goes next!" The core technical architecture of the M2 series relies on a sparse Mixture-of-Experts (MoE) decoder-only Transformer layout used by numerous other state-of-the-art LLMs. The foundational backbone houses 229.9 billion total parameters, yet maintains a remarkably lean operational footprint by activating just 9.8 billion parameters per token across 256 fine-grained experts. To optimize routing and avoid standard load-balancing issues, however, MiniMax implemented sigmoid gating paired with learnable, expert-specific bias terms, heavily reducing reliance on restrictive auxiliary losses. The most definitive engineering decision documented in the M2 paper was the strict adherence to full multi-head attention with Grouped Query Attention (GQA) across all 62 layers. In large language models, "quadratic scaling" refers to the computationally expensive reality of standard full attention mechanisms, where every token in a sequence must mathematically connect to every other token. To use a real-world analogy, it is akin to attending a networking event and being forced to have a deep conversation with every single person in the room while simultaneously monitoring all other ongoing conversations. While this approach yields incredibly thorough context, the processing power and memory required explode at the square of the input length, creating a severe hardware bottleneck as models attempt to ingest hundreds of thousands of words. "Sub-quadratic" scaling introduces architectural shortcuts designed to bypass this exponential computational load. Instead of mapping every possible connection, sub-quadratic methods—such as Sliding Window Attention or compressed linear attention—might only analyze a localized window of nearby words or generate a compressed summary of the broader text. These efficient methods drastically reduce hardware costs and allow models to process massive documents at high speeds, but they historically introduce severe trade-offs in accuracy, often causing the AI to miss the "big picture" or lose track of distant context. This mathematical dilemma defines the architectural evolution from MiniMax's M2 to its upcoming M3 series. During M2's development, researchers rigorously tested sub-quadratic shortcuts but found they crippled the model's "multi-hop reasoning"—its ability to connect disparate clues across a long document—forcing the team to absorb the massive computational cost of full quadratic attention to maintain frontier-level intelligence. Indeed, they aggressively benchmarked efficient attention alternatives during pre-training but intentionally threw them out. They experimented extensively with hybrid setups, interleaving full attention with sub-quadratic architectures like Lightning Attention or hybrid Sliding Window Attention (SWA) configurations. The empirical results were definitive: at a larger scale, linear and windowed attention variants exhibited severe reasoning deficits. On evaluations exceeding 32K context windows, SWA variants performed significantly worse than full attention, dropping from a baseline score of 90.0 to 72.0 on the RULER 128K complex word extraction task. Sub-quadratic configurations proved prone to memory-bound constraints during training, lacked native prefix caching support, and failed to smoothly align with Multi-Token Prediction (MTP) modules used for speculative decoding. Full attention was deemed necessary to preserve multi-hop reasoning capability. However, recognizing that physical hardware limits cannot sustain quadratic scaling indefinitely, MiniMax is designing the M3 series around a novel sub-quadratic framework to finally deliver both high-speed processing and uncompromised reasoning. The upcoming MiniMax-M3 breaks away from the compute-heavy constraints of its predecessor. As disclosed by MiniMax’s engineering team under the banner "Something BIG is coming," M3 introduces "MiniMax Sparse Attention" (MSA). Unlike DeepSeek’s Multi-head Latent Attention (MLA), which compresses keys and values into a low-dimensional latent space, MSA operates on a standard GQA backbone but utilizes block-level selection on real, uncompressed Key-Values.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">MiniMax推出了新的稀疏注意力机制和15.6倍的长上下文响应速度提升的M3模型</div>
+      <div class="col-content">在全球市场上争夺市场份额和关注度（无意双关）的众多中国人工智能公司和实验室中，MiniMax因其致力于提供一系列形式的前沿智能而脱颖而出，包括文本、编码和视频（通过其海螺模型系列）——通常在宽松、企业友好、标准的开源许可证下。现在，MiniMax再次引起了全球人工智能高级用户和开发人员的关注，发布了一份关于其流行的M2系列语言模型（M2、M2.5和M2.7）制作的新的深入技术报告，揭示了其众多工程创新和巧妙的方法，同时该公司及其领导人还为其即将推出的MiniMax M3系列模型开辟了一种全新的稀疏注意力方法，该公司表示，通过采用自定义的次二次框架，在长上下文（100万个令牌）中解码（或LLM响应）速度快15.6倍。通过这样做，MiniMax设计了M3，使超长上下文人工智能代理部署在经济上可行。M2报告对于任何使用人工智能模型的企业来说都是值得注意的，尤其是那些希望在内部进行微调和培训的企业。毕竟，MiniMax的M2系列模型在发布时经常达到世界上开源AI性能的最高基准。尽管该标题已被DeepSeek和小米等其他几家中国实验室所取代，但MiniMax的新报告提供了一个蓝图，可用于改善全球企业的人工智能模型和代理性能。正如Hugging Face的Adina Yakup在X上观察到的那样，“除了基准测试之外，他们在MoE效率和面向代理的设计方面做了一些非常扎实的工作。很高兴看到M3的下一步发展！“M2系列的核心技术架构依赖于许多其他最先进的LLM使用的稀疏混合专家（MoE）解码器专用变压器布局。基础骨干网包含2299亿个总参数，但通过在256个细粒度专家中激活每个令牌仅98亿个参数，保持了非常精简的运营足迹。然而，为了优化路由并避免标准负载平衡问题，MiniMax实现了S形门控，并与可学习的、特定于专家的偏差项相结合，大大减少了对限制性辅助损失的依赖。M2论文中记录的最明确的工程决策是严格遵守所有62层的分组查询注意力（GQA）的全多头注意力。在大型语言模型中，”“二次缩放”是指标准全注意力机制的计算成本高昂的现实，其中序列中的每个令牌都必须在数学上连接到其他每个令牌。使用现实世界的类比，它类似于参加一个网络活动，被迫与房间里的每一个人进行深入对话，同时监控所有其他正在进行的对话。虽然这种方法产生了令人难以置信的全面上下文，但所需的处理能力和内存在输入长度的平方上爆炸，在模型试图摄入数十万个单词时造成了严重的硬件瓶颈。“次二次”缩放引入了旨在绕过这种指数计算负载的架构快捷方式。次二次方法（如滑动窗口注意力或压缩线性注意力）可能只分析附近单词的局部窗口或生成更广泛文本的压缩摘要，而不是映射每个可能的连接。这些高效的方法大大降低了硬件成本，并允许模型高速处理大量文档，但从历史上看，它们在准确性方面引入了严重的权衡，通常会导致人工智能错过“大局”或失去对遥远背景的跟踪。这种数学困境定义了从MiniMax的M2到即将推出的M3系列的架构演变。在M2的开发过程中，研究人员严格测试了次二次捷径，但发现它们削弱了模型的“多跳推理”——它在长文档中连接不同线索的能力——迫使团队吸收完全二次注意力的巨大计算成本，以保持前沿水平的智能。事实上，他们在预训练期间积极地对有效的注意力替代方案进行基准测试，但故意将其排除在外。他们对混合设置进行了广泛的实验，将全注意力与闪电注意力或混合滑动窗口注意力（SWA）配置等次二次架构交织在一起。实证结果是明确的：在更大的尺度上，线性和窗口注意力变体表现出严重的推理缺陷。在超过32K上下文窗口的评估中，SWA变体的表现明显不如完全注意力，在RULER 128K复杂单词提取任务中从90.0的基线得分下降到72.0。次二次配置在训练过程中容易受到内存限制，缺乏本机前缀缓存支持，并且无法与用于推测解码的多令牌预测（MTP）模块顺利对齐。为了保持多跳推理能力，有必要给予充分的关注。然而，认识到物理硬件限制不能无限期地维持二次缩放，MiniMax正在围绕一种新的亚二次框架设计M3系列，以最终提供高速处理和不妥协的推理。即将推出的MiniMax-M3摆脱了其前身的计算繁重的限制。正如MiniMax的工程团队在“大事件即将到来”的横幅下所披露的那样，M3引入了“MiniMax稀疏注意力”（MSA）。与DeepSeek的多头潜在注意力（MLA）不同，MLA将键和值压缩到低维潜在空间中，MSA在标准GQA骨干上运行，但在真实的、未压缩的键值上使用块级选择。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/minimax-teases-upcoming-m3-model-with-new-sparse-attention-mechanism-and-15-6x-response-speed-boost" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
