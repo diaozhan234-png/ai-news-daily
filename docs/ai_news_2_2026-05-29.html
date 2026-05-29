@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-29 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-29</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Researchers automated LLM reasoning strategy design and cut token usage by 69.5%</div>
+      <div class="col-content">Test-time scaling (TTS) has emerged as a proven method to improve the performance of large language models in real-world applications by giving them extra compute cycles at inference time. However, TTS strategies have historically been handcrafted, relying heavily on human intuition to dictate the rules of the model’s reasoning. To address this bottleneck, researchers from Meta, Google, and several universities have introduced AutoTTS , a framework that automatically discovers optimal TTS strategies. This automated approach allows enterprise organizations to dynamically optimize compute allocation without manually tuning heuristics. By implementing the optimal strategies discovered by AutoTTS, organizations can directly reduce the token usage and operational costs of deploying advanced reasoning models in production environments. In experimental trials, AutoTTS managed inference budgets efficiently, successfully reducing token consumption by up to 69.5% without sacrificing accuracy. Test-time scaling enhances LLMs by granting them extra compute when generating answers. This extra compute allows the model to generate multiple reasoning paths or evaluate its intermediate steps before arriving at a final response. The primary challenge for designing TTS strategies is determining how to allocate this extra computation optimally. Historically, researchers have designed these strategies manually, relying on guesswork to build rigid heuristics. Engineers must hypothesize the rules and thresholds for when a model should branch out into new reasoning paths, probe deeper into an existing path, prune an unpromising branch, or stop reasoning altogether. Because this manual tuning process is constrained by human intuition, a vast amount of possible approaches remain unexplored. This often results in suboptimal trade-offs between model accuracy and computing costs. Current TTS algorithms can be mapped to a width-depth control space — "width" being the number of reasoning branches explored, "depth" being how far each develops. Self-consistency (SC) samples a fixed number of trajectories and majority-votes the answer. Adaptive-consistency (ASC) saves compute by stopping early once a confidence threshold is hit. Parallel-probe takes a more granular approach, pruning unpromising branches while deepening the rest. All three are hand-crafted, and that's the constraint AutoTTS is designed to break. While some more advanced methods employ richer structures like tree search or external verifiers, they all share one key characteristic: they are meticulously hand-crafted. This manual approach restricts the scope of strategy discovery, leaving a massive portion of the potential resource-allocation space untouched. AutoTTS reframes the way test-time scaling is optimized. Instead of treating strategy design as a human task, AutoTTS approaches it as an algorithmic search problem within a controlled environment. This framework redefines the roles of both the human engineer and the AI model. Rather than hand-crafting specific rules for when an LLM should branch, prune, or stop reasoning, the engineer's role shifts to constructing the discovery environment. The human defines the boundaries, including the control space of states and actions, optimization objectives balancing accuracy versus cost, and the specific feedback mechanisms. An explorer LLM, such as Claude Code, designs the strategy. This explorer acts as an autonomous agent that iteratively proposes TTS “controllers.” These controllers are code-defined policies or algorithms that dictate how an AI model allocates its computational budget during inference. The explorer tests and refines these controllers based on feedback until it discovers an optimal resource-allocation policy. To make this automated search computationally affordable, AutoTTS relies on an “offline replay environment.” If the explorer LLM had to invoke a base reasoning model to generate new tokens every time it tested a new strategy, the compute costs would be astronomical. Instead, it relies on thousands of reasoning trajectories pre-collected from the base LLM. These trajectories include "probe signals," which are intermediate answers that help the controller evaluate progress across different reasoning branches. During the discovery loop, the explorer agent proposes a controller and evaluates it against this offline data. The agent observes the execution traces of the proposed controller that show it allocated compute over time. By analyzing these traces, the agent can diagnose specific failure modes, such as noting if a controller pruned branches too aggressively in a specific scenario. This provides an advantage over just viewing a final result. The agent then iteratively rewrites its code to improve the accuracy-cost tradeoff. Because the explorer agent is not constrained by human intuition, it can discover highly coordinated, complex rules that a human engineer would likely never hand-code. One optimal controller discovered by AutoTTS, named the Confidence Momentum Controller, leverages several non-obvious mechanisms to manage compute: Trend-based stopping : Hand-crafted strategies often instruct the model to stop reasoning once it hits a certain instantaneous confidence threshold. The AutoTTS agent discovered that instantaneous confidence can be misleading due to temporary spikes. Instead, the controller tracks an exponential moving average (EMA) of confidence and only stops if the overall confidence level is high and the trend is not actively declining. Coupled width-depth control : Manually designed algorithms usually treat the "widening" of new reasoning paths and the "deepening" of current paths as separate decisions. AutoTTS discovered a closed feedback loop where the two actions are linked. If the confidence of the current branches stalls or regresses, the controller automatically triggers the spawning of new branches.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">研究人员自动化了LLM推理策略设计，并将令牌使用率降低了69.5%</div>
+      <div class="col-content">测试时间缩放（TTS）已成为一种经过验证的方法，可以通过在推理时为大型语言模型提供额外的计算周期来提高其在现实世界应用程序中的性能。然而，TTS策略在历史上一直是手工制作的，严重依赖人类直觉来决定模型推理的规则。为了解决这一瓶颈，Meta、谷歌和几所大学的研究人员引入了AutoTTS，这是一个自动发现最佳TTS策略的框架。这种自动化方法允许企业组织动态优化计算分配，而无需手动调整启发式算法。通过实施AutoTTS发现的最优策略，组织可以直接减少在生产环境中部署高级推理模型的令牌使用和运营成本。在实验性试验中，AutoTTS有效地管理了推理预算，在不牺牲准确性的情况下成功地将令牌消耗减少了69.5%。测试时间缩放通过在生成答案时赋予LLM额外的计算能力来增强LLM。这种额外的计算允许模型在得出最终响应之前生成多个推理路径或评估其中间步骤。设计TTS策略的主要挑战是确定如何最佳地分配这些额外的计算。从历史上看，研究人员手动设计这些策略，依靠猜测来建立严格的启发式方法。工程师必须假设模型何时应该扩展到新的推理路径、更深入地探索现有路径、修剪一个没有希望的分支或完全停止推理的规则和阈值。由于这种手动调整过程受到人类直觉的限制，因此大量可能的方法尚未被探索。这通常会导致模型精度和计算成本之间的次优权衡。当前的TTS算法可以映射到宽度-深度控制空间——“宽度”是探索的推理分支的数量，“深度”是每个分支的发展程度。自洽性（SC）对固定数量的轨迹进行采样，并对答案进行多数投票。自适应一致性（ASC）通过在达到置信阈值后提前停止来节省计算。并行探测采用更细粒度的方法，修剪没有希望的分支，同时加深其余的分支。这三个分支都是手工制作的，这就是AutoTTS旨在打破的约束。虽然一些更先进的方法采用了更丰富的结构，如树搜索或外部验证器，但它们都有一个关键特征：它们都是精心手工制作的。这种手动方法限制了策略发现的范围，使很大一部分潜在的资源分配空间保持不变。AutoTTS重新定义了测试时间缩放的优化方式。AutoTTS没有将策略设计视为一项人工任务，而是将其视为受控环境中的算法搜索问题。该框架重新定义了人类工程师和人工智能模型的角色。工程师的角色转变为构建发现环境，而不是手工制定LLM何时应该分支、修剪或停止推理的具体规则。人类定义了边界，包括状态和动作的控制空间、平衡精度与成本的优化目标以及具体的反馈机制。克劳德·科德（Claude Code）等探险家法学硕士负责设计该策略。该浏览器充当一个自主代理，迭代地提出TTS“控制器”。这些控制器是代码定义的策略或算法，决定了人工智能模型在推理过程中如何分配其计算预算。资源管理器根据反馈测试和改进这些控制器，直到发现最佳资源分配策略。为了使这种自动搜索在计算上负担得起，AutoTTS依赖于“离线回放环境”。如果探索者LLM每次测试新策略时都必须调用基础推理模型来生成新的令牌，那么计算成本将是天文数字。相反，它依赖于从基础LLM预先收集的数千条推理轨迹。这些轨迹包括“探测信号”，这是帮助控制器评估不同推理分支进展的中间答案。在发现循环期间，资源管理器代理会提出一个控制器，并根据此脱机数据对其进行评估。代理观察所提出的控制器的执行轨迹，显示其随时间分配的计算。通过分析这些痕迹，代理可以诊断特定的故障模式，例如注意控制器在特定场景中是否过于激进地修剪了分支。这比只查看最终结果更有优势。然后，代理迭代地重写其代码，以提高准确性和成本的权衡。因为探索者代理不受人类直觉的约束，它可以发现高度协调、复杂的规则，而人类工程师可能永远不会手动编写代码。AutoTTS发现的一个最优控制器，名为置信动量控制器，利用了几种不明显的机制来管理计算：基于趋势的停止：手工制作的策略通常会指示模型在达到某个瞬时置信阈值后停止推理。AutoTTS代理发现，由于暂时的峰值，瞬时信心可能会产生误导。相反，控制器跟踪置信度的指数移动平均值（EMA），只有在整体置信水平很高且趋势没有积极下降的情况下才会停止。耦合宽度深度控制：手动设计的算法通常将新推理路径的“拓宽”和当前路径的“深化”视为单独的决策。AutoTTS发现了一个闭环反馈回路，其中两个动作是相互关联的。如果当前分支的置信度停滞或倒退，控制器会自动触发新分支的生成。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/researchers-automated-llm-reasoning-strategy-design-and-cut-token-usage-by-69-5" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
