@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-05-30 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-05-30</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The AI agent bottleneck isn't model performance — it's permissions</div>
+      <div class="col-content">Enterprise AI agents are stalling — not because of model performance, but because of permissioning. Every agentic workflow eventually hits the same wall: what is this agent allowed to touch, on whose behalf, and how does the system know? Workday's answer is to make its existing system of record the governance layer for agents. Gerrit Kazmaier, the company's president for product and technology, told VentureBeat in an interview that customers often struggle when they cobble together solutions for their agents. “Sana makes sure the integrity of the approvals and security model is always adhered to,” Kazmaier said. “Frankly, that’s where we see customers struggling when they try to build do-it–yourself AI by just accessing raw data, so the richness of the security model gets lost, and the results become overly broad.” Workday, which launched Sana in March , expanded its partnership with Google to bring its Sana agent system of record to the Gemini Enterprise — so agents built on Sana are also discoverable there. Kazmaier said the biggest hurdle they faced was ensuring agent accuracy, especially for HR and finance users. “Almost right is not acceptable,” Kazmaier said. “Think about paying people correctly, closing the books or managing work schedules reliably.” Accuracy is harder to evaluate here than in most AI contexts. Policy configurations, role-based security, and organizational hierarchies are deeply interrelated — a small error compounds. And unlike most generative AI outputs, HR and finance queries often lack a correction loop. By the time a paycheck processes incorrectly or an interview is scheduled wrong, the damage is done. Workday addressed this by building Gemini in as its base reasoning layer, then adding its context engine and business process logic on top. Workday also added verification and classification models that “interrogate” outputs before execution. Accuracy and identity, it turns out, are the same question: does the system know enough about the agent, the authorizing human, and the current state of the record to act correctly? Workday’s advantage is that it can infer its customers' organizational structures from the data they provide. Already, third-party identity providers like Okta verify their information by checking Workday, so its context is the system of record for many enterprises. Kazmaier said the Sana Self-Service Agent uses Gemini as the conversational surface to trigger the workflow. The user is then authenticated and authorized through Workday’s identity and security model. Sana agents will only act on behalf of that user and work within their current permissions. Audit trails follow the same logic: Gemini retains only interaction logs, while the main audit remains within Workday and its customer. For many practitioners in the HR and finance space, the permission and governance layer in the agent system of record is key in regulated spaces. “It has to live in the system of record, that’s not a preference, that’s the only way it works,” said Dan Obendorfer, director of product at Würk, in an email to VentureBeat. “If your permissions are defined somewhere outside of where the data actually lives, you’ve already lost.” Kadan Stadelmann, chief technology officer and co-founder of Compance.AI, made the same point separately. “Without agent ownership, performance, costs or actions, chaos ensues.”</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">AI代理的瓶颈不是模型性能，而是权限</div>
+      <div class="col-content">企业AI代理正在停滞——不是因为模型性能，而是因为许可。每个代理工作流最终都会碰到同一堵墙：这个代理被允许接触什么，代表谁，系统是如何知道的？Workday的解决方案是将其现有的记录系统作为代理的治理层。该公司产品和技术总裁Gerrit Kazmaier在接受VentureBeat采访时表示，客户在为代理商拼凑解决方案时经常遇到困难。Kazmaier说：“Sana确保始终遵守批准和安全模式的完整性。”。“坦率地说，这就是我们看到客户在试图通过访问原始数据来构建自己动手的人工智能时遇到困难的地方，因此安全模型的丰富性丧失了，结果变得过于宽泛。”Workday于3月推出了Sana，扩大了与谷歌的合作关系，将其Sana代理记录系统带到了Gemini Enterprise，因此基于Sana的代理也可以在那里被发现。Kazmaier表示，他们面临的最大障碍是确保代理的准确性，特别是对于人力资源和财务用户。“几乎正确是不可接受的，”Kazmaier说。“考虑正确地支付员工工资、结账或可靠地管理工作时间表。”在这里，准确性比在大多数人工智能环境中更难评估。策略配置、基于角色的安全性和组织层次结构是相互关联的，这是一个小错误的复合体。与大多数生成性人工智能输出不同，人力资源和财务查询通常缺乏纠正循环。当薪水处理不正确或面试安排错误时，就会造成损害。Workday通过将Gemini构建为其基本推理层，然后在其之上添加上下文引擎和业务流程逻辑来解决这个问题。Workday还添加了验证和分类模型，在执行之前“询问”输出。事实证明，准确性和身份是同一个问题：系统是否对代理人、授权人和记录的当前状态有足够的了解，以便正确行事？Workday的优势在于，它可以从客户提供的数据中推断出客户的组织结构。像Okta这样的第三方身份提供商已经通过检查Workday来验证他们的信息，因此它的上下文是许多企业的记录系统。Kazmaier说，Sana自助服务代理使用Gemini作为对话界面来触发工作流程。然后通过Workday的身份和安全模型对用户进行身份验证和授权。Sana代理将仅代表该用户行事，并在其当前权限范围内工作。审计跟踪遵循相同的逻辑：Gemini只保留交互日志，而主审计仍在Workday及其客户内部。对于人力资源和财务领域的许多从业者来说，记录代理系统中的许可和治理层是监管领域的关键。Würk的产品总监Dan Obendorfer在给VentureBeat的一封电子邮件中说：“它必须生活在记录系统中，这不是一种偏好，这是它工作的唯一方式。”。“如果你的权限是在数据实际存在的地方之外定义的，那么你已经失去了。”康柏公司首席技术官兼联合创始人Kadan Stadelmann说。AI分别提出了同样的观点。“如果没有代理人的所有权、绩效、成本或行动，混乱就会随之而来。”</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/the-ai-agent-bottleneck-isnt-model-performance-its-permissions" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
