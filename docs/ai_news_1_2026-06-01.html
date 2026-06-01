@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-01 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-01</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Claude Mythos exposed a hard truth: Your enterprise patching process is way too slow</div>
+      <div class="col-content">In 2024, researchers from the University of Illinois found that GPT-4, when provided with a common vulnerabilities and exposures (CVE) description, could autonomously exploit 87% of a curated 15-vulnerability one-day dataset. Without the description, it could only exploit 7%. This provided a “margin of safety” for the industry because while AI could exploit known vulnerabilities, it could not discover them. However, on April 7, Anthropic announced that Claude Mythos Preview had closed that margin, with the model autonomously discovering thousands of zero-day vulnerabilities across major operating systems and browsers. Separately, Mythos scored 83.1% on the CyberGym vulnerability reproduction benchmark. In one campaign targeting OpenBSD across 1,000 scaffold runs, the total compute cost was less than $20,000. Exploitation timelines are collapsing. Langflow’s CVE-2026-33017 (CVSS 9.8) was exploited 20 hours after disclosure with no public proof-of-concept. Marimo’s CVE-2026-39987 (CVSS 9.3) was hit in 9 hours and 41 minutes . The defensive infrastructure most organizations rely on wasn’t designed for this. Rapid7’s 2026 threat landscape report states that the median time from CVE publication to CISA's known exploited vulnerabilities (KEV) listing is five days. Google’s M-Trends 2026 report found that exploitation is happening before a patch is even released. When the Langflow advisory was published, the first exploit arrived in 20 hours. When the Marimo advisory was published, it took under 10 hours. The assumption that your patch window is safe because exploitation takes time is no longer true. Here are your building blocks. Most vulnerability management programs still prioritize by CVSS score alone. CVSS quantifies a vulnerability’s “theoretical” severity without considering whether a vulnerability is being exploited in the wild or how quickly someone could weaponize it. A CVSS 8.8 vulnerability with a history of active exploitation (like Docker’s CVE-2026-34040 ) gets lower priority than a CVSS 9.8 vulnerability that may never be exploited in the wild. A recent study validated against 28,377 real-world vulnerabilities offers a concrete replacement: A three-layer decision tree incorporating CISA KEV status, Exploit Prediction Scoring System (EPSS) scores, and CVSS, thus forming a singular prioritization filter. Validated result: 18x efficiency gain, 85.6% coverage of exploited vulnerabilities, ~95% reduction in urgent remediation workload. All three data sources are open and free. The described integration is entirely automatable. It’s possible to build a script to query the CISA KEV API, the EPSS API from FIRST.org, and the NVD , and have that script run against your asset inventory for every published CVE. The human in this process should remain in the loop as an approver, but not as the trigger. Creating exploits quickly not only changes how patches are prioritized, but how controls are configured for all the agent-driven systems that now possess privileged credentials. Your authorization policies have not been assessed against the behavior of AI agents, and that is now a measurable risk. CVE-2026-34040 showed that Docker’s authorization plugin architecture silently bypasses every plugin when the request body exceeds 1MB. Common AuthZ plugins (OPA, Casbin, Prisma Cloud) are unaware of this type of bypass, which occurs in Docker’s middleware before the request reaches the plugin. When Cyera demonstrated this vulnerability , they showed that an AI agent debugging infrastructure could infer the bypass path while completing a legitimate task, without any instruction to exploit anything. The Internet Engineering Task Force (IETF) is working on authorization models for agents. The document draft-klrc-aiagent-auth-01 , published in March by participants from AWS, Zscaler, Ping Identity, and OpenAI, proposes the use of the current Secure Production Identity Framework for Everyone (SPIFFE) and OAuth 2.0 for AI agents to obtain dynamically provisioned and short-lived credentials. Separately, the IETF Agent Identity Protocol draft (draft-prakash-aip-00) reports that out of about 2,000 surveyed model context protocol (MCP) servers, none had authentication. But these standards are months to years away from implementation. For now, security teams must proactively incorporate agent-level test scenarios for all authorization boundaries, such as oversized requests, burst frequency, and multi-step escalation of privileged requests. In a survey conducted by CSA/Zenity and published on April 16, 53% of organizations said they had already seen cases where AI agents exceeded their intended permissions, and 47% experienced a security incident involving an agent. When AI builder tools such as Flowise (CVE-2025-59528, CVSS 10.0), Langflow, or n8n become compromised, the blast radius extends far beyond the host. These tools contain API keys to frontier models, database credentials, vector store tokens, and OAuth tokens to business systems. A compromised AI builder host is not just a single-system breach. It is a credential harvest that unlocks authenticated access to every connected service. Without credential dependency maps for each AI tool host, incident response for agent compromise is guesswork. For every instance, document each credential, the extent of its access, and the relevant credential rotation process. Also begin migrating static API keys to short-lived tokens where downstream services allow. 1. Deploy the three-layer KEV-EPSS-CVSS filter Substitute CVSS-only prioritization according to the table above. Automate the collection of data from all three APIs as part of a scheduled script against your asset inventory. Desired outcome: 18 times more efficient, 85.6% coverage of exploited vulnerabilities, 95% reduction in urgent remediation workload. 2. Implement event-driven patching for Tier 0 services.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Claude Mythos揭示了一个残酷的事实：你的企业补丁过程太慢了</div>
+      <div class="col-content">2024年，伊利诺伊大学的研究人员发现，GPT-4在提供常见漏洞和暴露（CVE）描述时，可以自主利用精心策划的15个漏洞一天数据集中的87%。如果没有描述，它只能利用7%。这为该行业提供了“安全边际”，因为虽然人工智能可以利用已知的漏洞，但它无法发现这些漏洞。然而，在4月7日，Anthropic宣布Claude Mythos Preview已经关闭了这一空白，该模型在主要操作系统和浏览器中自主发现了数千个零日漏洞。另外，Mythos在CyberGym漏洞复制基准上的得分为83.1%。在一次针对OpenBSD的1000次脚手架运行的活动中，总计算成本不到20000美元。开采时间表正在崩溃。Langflow的CVE-2026-3017（CVSS 9.8）在披露后20小时被利用，没有公开的概念证明。Marimo的CVE-2026-39987（CVSS 9.3）在9小时41分钟内被击中。大多数组织所依赖的防御基础设施并不是为此而设计的。Rapid7的2026年威胁形势报告指出，从CVE发布到CISA已知利用漏洞（KEV）列表的中位时间为五天。谷歌的M-Trends 2026报告发现，漏洞利用甚至在补丁发布之前就已经发生了。当Langflow公告发布时，第一个漏洞在20小时内到达。马里莫的咨询意见发表时，花了不到10个小时。认为您的补丁窗口是安全的，因为利用需要时间的假设不再成立。这是你的积木。大多数漏洞管理程序仍然仅根据CVSS评分进行优先级排序。CVSS量化漏洞的“理论”严重性，而不考虑漏洞是否在野外被利用，或者有人将其武器化的速度有多快。有主动利用历史的CVSS 8.8漏洞（如Docker的CVE-2026-34040）的优先级低于可能永远不会在野外被利用的CVSS 9.8漏洞。最近一项针对28377个真实世界漏洞的研究提供了一个具体的替代方案：一个包含CISA KEV状态、漏洞预测评分系统（EPSS）评分和CVSS的三层决策树，从而形成一个单一的优先级过滤器。验证结果：效率提高18倍，漏洞利用率达到85.6%，紧急修复工作量减少约95%。这三个数据源都是开放和免费的。所描述的集成是完全自动化的。可以构建一个脚本来查询CISA KEV API、FIRST.org中的EPSS API和NVD，并针对每个已发布的CVE的资产清单运行该脚本。这个过程中的人应该作为审批人留在循环中，而不是作为触发器。快速创建漏洞不仅会改变补丁的优先级，还会改变为现在拥有特权凭据的所有代理驱动系统配置控制的方式。您的授权策略尚未针对AI代理的行为进行评估，这现在是一个可衡量的风险。CVE-2026-34040表明，当请求体超过1MB时，Docker的授权插件架构会悄悄绕过每个插件。常见的AuthZ插件（OPA、Casbin、Prisma Cloud）不知道这种类型的绕过，这种绕过发生在请求到达插件之前的Docker中间件中。当Cyera展示了这个漏洞时，他们表明，人工智能代理调试基础设施可以在完成合法任务的同时推断出旁路路径，而无需任何利用任何漏洞的指令。互联网工程任务组（IETF）正在研究代理的授权模型。来自AWS、Zscaler、Ping Identity和OpenAI的参与者于3月发布的draft-klrc-aiagent-auth-01文件建议使用当前的人人安全生产身份框架（SPIFFE）和OAuth 2.0供AI代理获取动态配置和短期凭据。另外，IETF代理身份协议草案（draft-prakash-aip-00）报告称，在大约2000个接受调查的模型上下文协议（MCP）服务器中，没有一个具有身份验证功能。但这些标准距离实施还有几个月到几年的时间。目前，安全团队必须主动为所有授权边界整合代理级测试场景，如超大请求、突发频率和特权请求的多步升级。在CSA/Zenity于4月16日发布的一项调查中，53%的组织表示他们已经看到AI代理超出其预期权限的情况，47%的组织经历了涉及代理的安全事件。当Flowise（CVE-2025-59528，CVSS 10.0）、Langflow或n8n等AI构建工具受到威胁时，爆炸半径会远远超出宿主。这些工具包含边界模型的API密钥、数据库凭证、向量存储令牌和业务系统的OAuth令牌。一个受损的AI构建器主机不仅仅是一个系统漏洞。这是一种凭证收获，可以解锁对每个连接服务的身份验证访问。如果没有每个AI工具主机的凭证依赖关系图，代理妥协的事件响应就是猜测。对于每个实例，记录每个凭证、其访问范围和相关的凭证轮换过程。在下游服务允许的情况下，也开始将静态API密钥迁移到短命令牌。1.部署三层KEV-EPSS-CVSS过滤器，根据上表仅替换CVSS优先级。作为针对资产库存的计划脚本的一部分，自动从所有三个API收集数据。预期结果：效率提高18倍，漏洞利用率达到85.6%，紧急修复工作量减少95%。2.为第0层服务实施事件驱动修补。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/claude-mythos-exposed-a-hard-truth-your-enterprise-patching-process-is-way-too-slow" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
