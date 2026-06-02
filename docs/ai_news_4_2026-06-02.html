@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-02 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-02</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 85.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI costs how much? GitHub Copilot users react to new usage-based pricing system.</div>
+      <div class="col-content">In April, GitHub announced that it was moving subscribers from request-based billing to a usage-based model for its AI-powered Copilot service. As that new pricing model goes into effect today, many GitHub Copilot users are reporting some extreme sticker shock as they realize just how quickly their previous “normal” usage is burning through their newly limited monthly allotment of AI credits. Across social media and forums, many Copilot users are sharing personal statistics showing how just a few hours of AI usage can now account for a large chunk of their new monthly subscription caps. For some users, it reportedly took less than a day to use up a month’s usage quota . That’s a big change from previous months, when GitHub Copilot subscribers were allocated a certain number of “requests” and “premium requests” based on their payment tier. GitHub said that the old system meant that “a quick chat question and a multi-hour autonomous coding session [could] cost the user the same amount,” forcing Copilot itself to “absorb much of the escalating inference cost behind that usage.” Indeed, some Copilot users have been sharing estimates from GitHub’s own tool showing that their previous monthly usage would rack up bills in the thousands of dollars under the new pricing plan. Under GitHub’s new usage-based pricing system , paid Copilot subscriptions instead grant users a certain number of AI “credits” each month, with one credit corresponding to $0.01 of usage. Subscribers also get bonus credits depending on their subscription level: the $10/month Pro plan includes 1,500 credits ($15 worth); the $39 Pro+ plan includes 7,000 credits ($70 worth); and the $100/month Copilot Max plan includes 20,000 credits ($200 worth). The precise number of Copilot credits used by a given prompt is determined by the number of input and output tokens used and the rates charged by the underlying large language model. That means pricing is highly dependent not just on the type of request but on the specific model that a user chooses. One million output tokens from OpenAI’s GPT-5.4 nano would run just $1.25 on GitHub Copilot , but that same level of output would run $30 on the frontier GPT-5.5 model (Copilot users who rely on “Auto” mode to pick the most appropriate available model for any request should be extremely careful, as some users report it can switch to expensive models for extremely simple queries ). Spot testing by Ars Technica found that re-running our simple “build a Minesweeper game” prompt through Claude Haiku 4.5 via Copilot used about 94 credits ( you can view the results here ). That’s a pretty decent rate for a relatively simple toy project. But it’s also easy to see how those kinds of costs could balloon quickly for requests involving major changes or reviews on complex codebases. You can see that kind of ballooning cost in reports of a single complex prompt burning through 171 Copilot credits , or another spending 700 credits on “a few prompts,” or a couple of Copilot-led commits using up 5,000 credits . Other Copilot users expressed surprise at just how many credits could be spent on even simple Copilot requests, from a reported 15 credits for a simple “run-of-the-mill query” to spending 100 credits in “generating a small plan.” “Even though I was super cautious on the first day, trying it out with a limited number of uses, it still consumed 840 credits,” one user wrote of testing Claude Sonnet 4.6 through Copilot today. “I haven’t even done any really complex work yet,” another user complained after reported usage representing 21 percent of their monthly Pro Copilot subscription’s credit allotment in a single day. “I have a feeling I’ll be going somewhere else pretty soon.” Amid the pricing change, plenty of GitHub Copilot users are predictably and publicly threatening to cancel their subscriptions or looking for other AI coding options. But others say they have been able to adjust to the new world of usage-based pricing. Coder Henri Kinnunen writes that they only burned 161 credits in a “productive day” of using GPT 5.3-Codex through Copilot, thanks to limiting themselves to “very focused and deliberate changes with AI.” Over on Bluesky, coder Neil Hewitt wisely noted that continuing a three-day-old chat session on Copilot probably isn’t as wise now, since it means sending “the entire chat history as context every time… hey, input tokens use credits… it’s not rocket science.” While some Copilot users are jumping ship for other services with more generous usage limits, that kind of subsidized customer acquisition may soon give way to Copilot-style usage-based pricing across the industry. If that happens, LLMs that are more efficient with their tokens may win the economic battle; on Reddit, one user is already discussing how they’ve integrated Deepseek into their GitHub VSCode environment at a cost of only “about 7 cents for 15 million tokens.” While you might say “you get what you pay for,” some AI users are now contemplating a world where they also have to pay for what they get.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">人工智能的成本是多少？GitHub Copilot用户对新的基于使用量的定价系统做出反应。</div>
+      <div class="col-content">今年4月，GitHub宣布，它正在将其AI驱动的Copilot服务的订阅者从基于请求的计费模式转移到基于使用的模式。随着新的定价模式今天生效，许多GitHub Copilot用户都报告了一些极端的价格冲击，因为他们意识到他们之前的“正常”使用是多么快地消耗掉了他们新限制的每月AI积分分配。在社交媒体和论坛上，许多Copilot用户正在分享个人统计数据，这些数据显示，仅仅几个小时的人工智能使用就可以占到他们新的月度订阅上限的很大一部分。据报道，对于一些用户来说，不到一天的时间就用完了一个月的使用配额。这与前几个月相比是一个很大的变化，当时GitHub Copilot订阅者根据他们的支付级别分配了一定数量的“请求”和“高级请求”。GitHub表示，旧系统意味着“一个快速聊天问题和一个多小时的自主编码会话[可能]会让用户花费相同的金额”，迫使Copilot本身“吸收这种使用背后不断升级的推理成本”。事实上，一些Copilot用户一直在分享GitHub自己的工具的估计，表明根据新的定价计划，他们之前的每月使用量将增加数千美元的账单。在GitHub新的基于使用量的定价系统下，付费的Copilot订阅每月向用户授予一定数量的AI“积分”，其中一个积分相当于0.01美元的使用量。订阅者还可以根据其订阅级别获得奖励积分：每月10美元的Pro计划包括1500个积分（价值15美元）；39美元的Pro+计划包括7000个积分（价值70美元）；每月100美元的Copilot Max计划包括20000个信用点（价值200美元）。给定提示使用的Copilot点数的精确数量由使用的输入和输出令牌的数量以及底层大型语言模型收取的费率决定。这意味着定价不仅高度取决于请求的类型，还取决于用户选择的特定模型。OpenAI的GPT-5.4 nano的100万个输出令牌在GitHub Copilot上的价格仅为1.25美元，但在前沿的GPT-5.5模型上，同样的输出价格为30美元（依赖“自动”模式为任何请求选择最合适的可用模型的Copilot用户应该非常小心，因为一些用户报告说，对于极其简单的查询，它可以切换到昂贵的模型）。Ars Technica的现场测试发现，通过Copilot通过Claude Haiku 4.5重新运行我们简单的“构建扫雷游戏”提示使用了大约94个学分（您可以在此处查看结果）。对于一个相对简单的玩具项目来说，这是一个相当不错的价格。但也很容易看出，对于涉及对复杂代码库进行重大更改或审查的请求，这些成本会迅速膨胀。你可以在报告中看到这种膨胀的成本，即一个复杂的提示消耗了171个Copilot点数，或者另一个在“几个提示”上花费了700个点数，或者几个由Copilot主导的提交消耗了5000个点数。其他Copilot用户对即使是简单的Copilot请求也能花费多少学分表示惊讶，从报告的简单“普通查询”的15学分到“生成小计划”的100学分。“尽管我在第一天非常谨慎，尝试了有限的使用次数，但它仍然消耗了840学分，”一位用户在今天通过Copilot测试Claude Sonnet 4.6时写道。“我甚至还没有做过任何真正复杂的工作，”另一位用户在报告使用量占其每月Pro Copilot订阅信用分配的21%后抱怨道。“我有一种感觉，我很快就会去别的地方。”在定价变化中，可以预见的是，许多GitHub Copilot用户公开威胁要取消订阅或寻找其他人工智能编码选项。但其他人表示，他们已经能够适应基于使用量的定价的新世界。程序员Henri Kinnunen写道，他们在通过Copilot使用GPT 5.3 Codex的“富有成效的一天”中只消耗了161个积分，这要归功于他们将自己限制在“非常专注和深思熟虑的人工智能更改”上。在Bluesky上，编码员Neil Hewitt明智地指出，在Copilot上继续三天的聊天会话现在可能不那么明智，因为这意味着“每次都要发送整个聊天历史作为上下文…嘿，输入令牌使用积分…这不是火箭科学。”虽然一些Copilot用户正在跳槽到其他使用限制更宽松的服务，但这种补贴的客户获取可能很快就会让位于整个行业的Copilot式使用定价。如果发生这种情况，使用代币效率更高的LLM可能会赢得经济战；在Reddit上，一位用户已经在讨论他们如何将Deepseek集成到他们的GitHub VSCode环境中，成本仅为“1500万个代币约7美分”。虽然你可能会说“你得到了你所付出的”，但一些人工智能用户现在正在考虑一个他们也必须为他们所得到的东西付费的世界。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/06/ai-costs-how-much-github-copilot-users-react-to-new-usage-based-pricing-system/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
