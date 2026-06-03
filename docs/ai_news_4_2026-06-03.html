@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-03 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-03</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Alibaba's Qwen3.7-Plus supports text, video and imagery inputs at low cost of $0.4/$1.6 per 1M token — but it's proprietary</div>
+      <div class="col-content">Alibaba this week released Qwen3.7-Plus , the latest AI large language model (LLM) in its globally beloved and increasingly expansive Qwen family, boasting more multimodal capabilities and a 60% lower cost than the prior, text-only Qwen3.7-Max model released just weeks ago. However, like its immediate predecessor Qwen3.7-Plus is available only under a "closed" commercial license via proprietary application programming interfaces (API) and Qwen Chat. That marks a big departure from the Qwen strategy to date, which was focused mainly on releasing powerful,near state-of-the-art open source models. Those enterprises and users who relied on the open source Qwen models — among them, U.S. giants such as Airbnb — will no doubt be disappointed to see that Alibaba is going closed for its newer releases. Still, the model is worth a look because of its low cost and high performance on multimodal tasks like creating enterprise-grade visuals or analyzing video, imagery and screenshots, which Qwen3.7-Max cannot do (it's text-only). It is among the cheaper powerful AI models available now, coming in price-wise just above Chinese rival's new MiniMax-M3's limited-time discount pricing. For technical decision-makers deploying autonomous agents, the primary bottleneck has rarely been initial model intelligence. Instead, it is state decay —the tendency of an agent framework to lose its analytical trajectory over multi-step, long-horizon tasks. Qwen3.7-Plus addresses this architectural vulnerability through a combined approach to context management and reasoning state preservation. The model ships with a 1-million token context window and allocates up to 256K tokens specifically for internal chain-of-thought processing. To contextualize this capacity, imagine an automated cloud migration agent: it can ingest an entire codebase, map out the dependencies, and spend thousands of tokens quietly evaluating edge cases before executing a single line of bash script. Crucially, the API exposes a parameter called ' preserve_thinking .' Across Alibaba's ecosystem, the capability serves as a standardized architectural bridge rather than a tiered perk. Alibaba introduced the feature during the prior Qwen 3.6 generation, integrating it into both the open-weight Qwen3.6-27B and the proprietary Max models. At its core, the parameter operates at the API and template level to retain internal <think> blocks across continuous conversational turns. This structural continuity solves a critical bottleneck for developers engineering long-horizon tasks. By keeping these internal logic loops intact, the feature prevents the model from dropping its context or needlessly recomputing its cached history midway through an operation. When a model executes complex, multi-step agentic coding assignments, this retention allows the system to hold onto its original train of thought without losing the plot or forgetting the underlying logic of its previous actions. Alibaba remains far from alone in recognizing this technical necessity, as the underlying concept now dictates the architecture of nearly all major artificial intelligence laboratories. Anthropic deploys this exact capability under the moniker "Extended Thinking" for its advanced models, including its latest Claude Opus 4.8. This framework requires developers to feed unmodified thinking blocks directly back into the API on subsequent turns to maintain an unbroken chain of reasoning. OpenAI tackles the same challenge through an encrypted reasoning pass-back mechanism for models like GPT-5.5. Within the OpenAI ecosystem, developers must return specific reasoning items generated alongside previous function calls, ensuring the model explicitly remembers the rationale behind its tool executions. Ultimately, preserve_thinking simply represents Alibaba's terminology for what has rapidly become the undisputed table stakes for modern multi-turn reasoning. On raw capability metrics, this deep-thinking architecture translates to structural gains across multimodal and agentic benchmarks. However, it still falls below many of the leading and prior generations of U.S. proprietary models such as Anthropic's Claude Opus 4.6 and OpenAI's GPT-5.4. On Terminal Bench 2.0-Terminus , which measures an model's capability to run actual terminal-level code safely and iteratively, Qwen3.7-Plus scored 70.3 , outperforming DeepSeek-V4-Pro Max (67.9) and Gemini-3.1 Pro (63.5). On computer vision benchmarks that demand localized interface understanding, such as ScreenSpot Pro , the model hit 79.0 , significantly outpacing legacy industry standouts like GPT-5.4 (xhigh) at 67.4 and Claude-Opus-4.6 at 49.5. Agent Evaluation Metrics (Selected Benchmarks) For an enterprise architect, the key question when analyzing Qwen3.7-Plus is clear: What does this replace in our current tech stack? The model is designed to step in as a direct replacement for premier frontier models (such as GPT-5-tier or Claude-Max-tier models) within high-frequency developer workflows, robotic process automation (RPA), and data engineering pipelines. Rather than deploying an expensive, general-purpose flagship model to handle repetitive system operations, technical teams can route these tasks to Qwen3.7-Plus. It handles visual interface interpretation, command execution, and code generation simultaneously. Alibaba has structured its API delivery to align with existing open-source and proprietary enterprise frameworks. The endpoints are fully OpenAI-compatible, meaning swapping out existing dependencies requires minimal infrastructure adjustment. For groups leveraging autonomous terminal frameworks, the integration is natively supported across multiple environments. Engineers can run Qwen3.7-Plus directly through their local terminal setups by altering base environment targets.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">阿里巴巴的Qwen3.7-Plus支持文本、视频和图像输入，每100万代币的成本低至0.4美元/1.6美元，但它是专有的</div>
+      <div class="col-content">阿里巴巴本周发布了Qwen3.7-Plus，这是其全球受欢迎且日益扩大的Qwen家族中最新的人工智能大语言模型（LLM），与几周前发布的纯文本Qwen3.7 Max模型相比，它具有更多的多模式功能，成本降低了60%。然而，像其前身Qwen3.7-Plus一样，只能通过专有应用程序编程接口（API）和QwenChat获得“封闭”商业许可。这标志着与Qwen迄今为止的战略有了很大的不同，Qwen的战略主要侧重于发布功能强大、近乎最先进的开源模型。那些依赖开源Qwen模式的企业和用户，其中包括Airbnb等美国巨头，无疑会对阿里巴巴因其新版本而关闭感到失望。尽管如此，该模型还是值得一看，因为它在创建企业级视觉效果或分析视频、图像和屏幕截图等多模式任务上具有低成本和高性能，而Qwen3.7-Max无法做到这一点（它只是文本）。它是目前可用的更便宜的强大人工智能模型之一，在价格上略高于中国竞争对手的新MiniMax-M3的限时折扣定价。对于部署自主代理的技术决策者来说，主要的瓶颈很少是初始模型智能。相反，这是状态衰变——代理框架在多步、长期任务中失去分析轨迹的趋势。Qwen3.7-Plus通过上下文管理和推理状态保存的组合方法解决了这一架构漏洞。该模型附带了一个100万个令牌上下文窗口，并专门为内部思维链处理分配了多达256K个令牌。为了将这种能力情境化，想象一下一个自动化的云迁移代理：它可以摄取整个代码库，绘制出依赖关系，并在执行一行bash脚本之前花费数千个令牌悄悄地评估边缘情况。至关重要的是，API公开了一个名为“preserve_thinking”的参数。“在阿里巴巴的整个生态系统中，该功能是一个标准化的架构桥梁，而不是一个分层的福利。阿里巴巴在之前的Qwen 3.6代中引入了该功能，并将其集成到开放权重的Qwen3.6-27B和专有的Max型号中。在其核心，该参数在API和模板级别操作，以在连续的会话回合中保留内部<think>块。这种结构连续性解决了开发人员设计长期任务的关键瓶颈。通过保持这些内部逻辑循环的完整性，该功能可以防止模型在操作中途丢弃其上下文或不必要地重新计算其缓存历史。当一个模型执行复杂的、多步骤的代理编码任务时，这种保留使系统能够保持其原始的思路，而不会丢失情节或忘记其先前动作的潜在逻辑。阿里巴巴并不是唯一一个认识到这一技术必要性的公司，因为这一基本概念现在决定了几乎所有主要人工智能实验室的架构。Anthropic以“扩展思维”的名义为其高级模型部署了这种精确的能力，包括其最新的Claude Opus 4.8。该框架要求开发人员在后续回合中将未修改的思维块直接反馈到API中，以保持完整的推理链。OpenAI通过GPT-5.5等模型的加密推理回传机制来应对同样的挑战。在OpenAI生态系统中，开发人员必须返回与之前的函数调用一起生成的特定推理项，确保模型明确地记住其工具执行背后的基本原理。最终，保存思维只是阿里巴巴对现代多回合推理中无可争议的赌注的术语。在原始能力指标上，这种深入思考的架构转化为跨多模态和代理基准的结构性收益。然而，它仍然低于许多领先的和前几代美国专有模型，如Anthropic的Claude Opus 4.6和OpenAI的GPT-5.4。在Terminal Bench 2.0-Terminus上，Qwen3.7-Plus的得分为70.3，超过了DeepSeek-V4-Pro Max（67.9）和Gemini-3.1 Pro（63.5）。在需要本地化界面理解的计算机视觉基准测试中，如ScreenSpot Pro，该模型达到了79.0，显著超过了传统行业的佼佼者，如GPT-5.4（x高）为67.4，Claude-Opus-4.6为49.5。代理评估指标（选定的基准）对于企业架构师来说，分析Qwen3.7-Plus时的关键问题很清楚：这在我们当前的技术栈中取代了什么？该模型旨在直接替代高频开发人员工作流程、机器人过程自动化（RPA）和数据工程管道中的首要前沿模型（如GPT-5层或Claude Max层模型）。技术团队可以将这些任务路由到Qwen3.7-Plus，而不是部署昂贵的通用旗舰模型来处理重复的系统操作。它同时处理可视化界面解释、命令执行和代码生成。阿里巴巴已将其API交付结构与现有开源和专有企业框架保持一致。端点完全兼容OpenAI，这意味着交换现有的依赖关系需要最小的基础设施调整。对于利用自主终端框架的组，跨多个环境原生支持集成。工程师可以通过更改基础环境目标，直接通过本地终端设置运行Qwen3.7-Plus。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/alibabas-qwen3-7-plus-supports-text-video-and-imagery-inputs-at-low-cost-of-0-4-1-6-per-1m-token-but-its-proprietary" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
