@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-06 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-06</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Did Claude increase bugs in rsync?</div>
+      <div class="col-content">In order to avoid accuastions of this "just being Claude defending Claude," "AI slop," "probably all hallucinations," etc., I've decided it's probably worth explaining a few key points about how this report was created: In late May 2026, rsync blew up. First, an evidence-free Mastodon post was made pointing to a spurious correlation between a regression that particular user experienced upon upgrading to a release, and that release having Claude commits in it. It was viewed an unknown number of times, but even likes and boosts passed the thousands mark handily, and it gained significant traction — as all spurious anti-AI hate does —, seeing 58 replies from 32 unique users. Someone rages about "cognitive surrender" with no evidence; another suggests adding rsync to the famous open-slopware blacklist . From there, it spread to Hacker News , with 81 comments, full of mixed dread, anger, and crowing about how this finally proves once and for all no one can use LLMs safely. Among all that was one particular comment which spurred further the view that the regressions and bugs were caused by Claude. This On May 30, 2026, this burgeoning outrage emergently coalesced into a single focal point: a GitHub issue titled "Please Do Not Vibe Fuck Up This Software" , opened against the rsync repository. It attached a screenshot of the Mastodon post criticizing the project's use of Claude. That's it. No bug report, no technical content, no attempt to actually ascertain if the concern was real or justified; just 350+ comments ranging from thoughtful concern to outright harassment (most of the most egregious, unreasonable, and outright violent comments have since been deleted; few thought to preserve them). The thread did not stop at words. It eventually escalated to, at one point, visual depictions of fantasies of violence, when one user posted a now deleted comment including My Little Pony drawings of themselves strangling the "project janitor that pushed vibecoded commits": Completing the internet outrage cycle, this issue in turn spread to Hacker News , generating hundreds more comments. Some attempted to point at the number of regressions after the introduction of Claude — "The Linux Mint Timeshift tool has an issue open documenting a number of regressions that are currently open on the rsync issues page, that were only introduced post-vibecoding" — as evidence that it was worse. Others pointed out that those regressions were not caused by Claude, and in response, the goalposts were moved again. Over and over, the core theme was one central claim, repeated everywhere: Claude-assisted development introduced bugs into a previously stable tool. AI is cognitive surrender, is cocaine, is loss of craft, and the users are right to be angry as a result: People are very justifiably angry that a very stable, well trusted tool , has started to immediately go downhill… all because the main dev is vibecoding that software. However, this isn't doesn't have to be a question solved only on the basis of — ironically — vibes. This is something that could be, at least to a degree, empirically tested. Some even pointed that out: On Lobste.rs, in response to the Medium essay Tridge himself posted in response , finally some users like boramalper begin to actually ask for evidence one way or another: It'd be interesting if someone actually did a timechart of regressions after each release (if at all possible) to see if the number actually went up recently or not. User bitshift replied: "I would also love to see such a chart. It wouldn't be completely informative… But at least it would be something objective we could measure." This analysis is that chart. Or, well, as best as it can be made, given the limitations of the data (see the previous section). The analysis uses a single metric: severity-weighted bugs per 10 commits (sev/10c). Each bug is normalized to a 0–1 severity score (its LLM-assigned severity divided by 100), and those scores are summed per release instead of simply counting bugs. The raw bug count is also shown in the table for reference, but sev/10c drives all statistical tests. Every commit on the default branch was ordered by committer date to produce a sequential timeline. Each git tag points to a specific commit in this timeline. A release's range is all commits between the previous tag and its own tag. Pre-release tags ("pre", "rc") are skipped as boundaries and absorbed into their final release. Every commit belongs to exactly one release. GitHub issues and mailing-list bugs are attributed to the most recent release that shipped before the bug was reported. For Bugzilla, each entry has a "Version" field that explicitly states which release the bug was reported against, and bugs are attributed to that release. To control for bug severity — so that, as someone on HN said, a typo in a button and a CVE aren't rated equally — every bug report was scored for severity on a 0–100 scale. The scorer is Qwen 3 35B , a small open-weight language model, prompted as a senior reliability engineer assessing real-world impact. Each bug report was given to the model as its title and body text (truncated to 3,000 characters), along with the following rubric:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Claude是否增加了rsync中的错误？</div>
+      <div class="col-content">为了避免这种“只是克劳德为克劳德辩护”、“人工智能失误”、“可能是所有幻觉”等的说法，我决定解释一下这份报告是如何创建的：2026年5月下旬，rsync爆炸了。首先，Mastodon发布了一篇无证据的帖子，指出特定用户在升级到某个版本时经历的回归与Claude在该版本中提交的回归之间存在虚假的相关性。该帖子被查看的次数未知，但即使是点赞和增强也轻松地超过了数千次，它获得了巨大的吸引力——就像所有虚假的反人工智能仇恨一样——看到了来自32个独立用户的58条回复。有人在没有证据的情况下对“认知投降”大发雷霆；另一位建议将rsync添加到著名的开放垃圾软件黑名单中。从那时起，它传播到了Hacker News，有81条评论，充满了恐惧、愤怒和欢呼，这最终证明没有人可以安全地使用LLM。在所有这些评论中，有一条特别的评论进一步激发了人们的观点，即回归和错误是由Claude造成的。2026年5月30日，这种迅速增长的愤怒突然集中在一个焦点上：一个名为“Please Do Not Vibe Fuck Up This Software”的GitHub问题，针对rsync存储库打开。它附上了Mastodon批评该项目使用Claude的帖子的截图。就是这样。没有错误报告，没有技术内容，也没有试图实际确定问题是否真实或合理；只有350多条评论，从深思熟虑的关注到彻底的骚扰（大多数最恶劣、最不合理、最彻底的暴力评论已被删除；很少有人考虑保留它们）。话题并没有止于言语。最终，它升级为对暴力幻想的视觉描述，当时一位用户发布了一条现已删除的评论，其中包括My Little Pony自己扼杀“推动vibecoded提交的项目看门人”的画作：完成了互联网的愤怒循环，这个问题又传播到了Hacker News，产生了数百条评论。一些人试图指出Claude引入后的回归次数——“Linux Mint Timeshift工具有一个问题未解决，记录了rsync问题页面上当前打开的许多回归，这些回归是在vibecoding之后才引入的”——以此证明情况更糟。其他人指出，这些倒退不是克劳德造成的，作为回应，门柱再次被移动。一次又一次，核心主题是一个到处重复的核心主张：Claude辅助开发将bug引入了一个以前稳定的工具中。人工智能是认知投降，是可卡因，是技艺的丧失，因此用户有理由感到愤怒：人们非常有理由对一个非常稳定、值得信赖的工具立即开始走下坡路感到愤怒……这一切都是因为主要开发人员正在开发该软件。然而，具有讽刺意味的是，这并不是一个只能在共鸣的基础上解决的问题。这至少在一定程度上可以通过经验来检验。有人甚至指出：在Lobste.rs上，为了回应Tridge自己发布的Medium文章，最终一些像boramalper这样的用户开始以某种方式要求提供证据：如果有人在每次发布后都做了回归时间图（如果可能的话），看看这个数字最近是否真的上升了，这会很有趣。用户bitshift回答说：“我也很想看到这样的图表。它不会提供完全的信息……但至少它是我们可以衡量的客观指标。”这一分析就是图表。或者，考虑到数据的局限性，尽可能地做到最好（见上一节）。该分析使用一个指标：每10次提交的严重性加权错误数（sev/10c）。每个bug都被标准化为0-1的严重性得分（其LLM分配的严重性除以100），这些得分在每个版本中相加，而不是简单地计算bug。原始错误计数也显示在表中以供参考，但sev/10c驱动所有统计测试。默认分支上的每个提交都按提交者日期排序，以生成连续的时间线。每个git标签都指向此时间线中的一个特定提交。一个版本的范围是前一个标签和它自己的标签之间的所有提交。预发布标签（“Pre”、“rc”）作为边界被跳过，并被吸收到最终版本中。每个commit只属于一个release。GitHub问题和邮件列表错误归因于报告错误之前发布的最新版本。对于Bugzilla，每个条目都有一个“版本”字段，明确指出报告错误的版本，并将错误归因于该版本。为了控制错误的严重性——正如HN上的某个人所说，按钮中的拼写错误和CVE的评分并不相等——每个错误报告都按照0-100的严重程度进行评分。评分者是Qwen 3 35B，这是一个小型开放权重语言模型，由高级可靠性工程师评估现实世界的影响。每个错误报告都以标题和正文（截断为3000个字符）的形式提供给模型，并附有以下评价标准：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://alexispurslane.github.io/rsync-analysis/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
