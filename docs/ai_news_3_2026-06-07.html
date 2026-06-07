@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-07 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-07</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">When Claude changed, everything changed: Managing AI blast radius in production</div>
+      <div class="col-content">Our system did one thing, and it did it well: It turned natural-language questions into API calls. The users were analysts, account managers, and operations leads. They knew what data they needed, but assembling it manually meant pulling from four dashboards, two BI tools, and a Salesforce report builder. With our system, they typed the request in plain English. A request like "Compile a report on sales volume for January through March 2026 for the Northeast region, broken down by city" was translated into an API call that the system could act on: "description": "User requested sales volume for the given date range, here is the API call to get the response", "api_call": "/api/sales_volume", The rest of the pipeline was conventional engineering. The system dispatched the call to the right backend — we had integrations with internal reporting portals, Salesforce, and several homegrown services — applied a large language model (LLM)(-generated JSON query to filter and shape the response, and delivered it via email, as a Drive document, or rendered as a chart in the browser. By mid-2025, the system was generating several hundred reports a month. These reports were consumed by leadership and analysts and circulated to external stakeholders. It had become the default way most teams pulled ad-hoc data. The contract between the LLM and the rest of the system was a structured JSON object as described in the above example. "description": "User requested sales volume for the given date range, here is the API call to get the response", "api_call": "/api/sales_volume", We built it on Claude Sonnet 3.5 in early 2025. We upgraded to 3.7 without incident, and to 4.0 without incident. By the time Sonnet 4.5 shipped, we had grown complacent about the stability and predictability of LLMs in solving what we believed was a simple problem. Model upgrades had become routine, like bumping a minor version of a well-behaved library. Then we rolled out 4.5. For a meaningful percentage of requests, the model began folding the contents of post_body into the description field. Two failure modes followed. First, the filter parameters never reached the API. Our system read post_body as the source of truth for the request payload, and that field came back empty. The API call was made without the date range or region filter. Depending on the specific API being called, the backend either returned sales volume for all time or all regions or returned a 500 error. Second, the model started asking clarifying questions in its response. This was new. Earlier versions always took a best-effort approach to an ambiguous request and returned a structured object. Sonnet 4.5, being more cautious, would sometimes respond with a question instead. Our system had no path for this. It had been built on the assumption that every model invocation would result in an API call. There was no human-in-the-loop component and no state to hold a partially completed request. This caused downstream systems to break in multiple ways. We rolled back to 4.0. That was harder than it should have been: Between the 4.0 and 4.5 deployments, our team had added new API integrations, all of which were qualified against 4.5. Reverting the model meant requalifying every one of them against 4.0 under time pressure. Software engineering rests on the ability to bound the effect of a change. When you upgrade a driver or library, you read the release notes to see whether to expect breaking changes. Unit tests circumscribe what could possibly have moved. You can leverage the following property: The system being changed is deterministic enough that its behavior can be predicted, or at least sampled densely enough to give you confidence. The blast radius is bounded by construction. LLM-backed systems break this assumption. The component that produces your output is not under your control. You cannot diff a model version bump from 4.0 to 4.5. It is a wholesale replacement of the functionality on which your system depends. This is what we mean by an infinite blast radius : a change whose downstream effects cannot be enumerated in advance because the input space (natural language) and the failure modes (anything the model might do differently) are both unbounded. The post-mortem revealed that our prompt had always been under-specified. We had told the model to return a JSON object with three fields. We had described what each field was for. We did not explicitly state that the description must be a natural-language string and must not contain serialized representations of other fields. Earlier versions of the model inferred this constraint from context. Sonnet 4.5, evidently better at being "helpful" in its formatting choices, decided that inquiring for clarification or providing the request body in the description made the response more useful. From the model's perspective, this was a reasonable interpretation of an ambiguous instruction. However, this violated the assumptions under which our system was built. The bug was not in the model. The bug was in our assumption that the model would continue to fill in our specification gaps as it always had. Three successful upgrades had trained us to believe those gaps were safe. Structured output modes and tool-use APIs would have caught this specific failure at the schema level. We weren't using them for engineering reasons outside the scope of this article. But schemas only constrain syntax, not semantics. A schema cannot specify that a clarifying question shouldn't appear in a system with no path for clarification, or that a date range should never silently default to all-time. Schemas solve the easier half of the problem. The discipline that closes this gap is to treat the evaluation suite — not the prompt — as the formal specification of the system . The prompt is an implementation of the spec. The model is an interpreter . The evals are the spec itself, and any model or prompt change is valid if and only if it passes them.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">当克劳德改变时，一切都变了：在生产中管理AI爆炸半径</div>
+      <div class="col-content">我们的系统做了一件事，而且做得很好：它把自然语言问题变成了API调用。用户是分析师、客户经理和运营主管。他们知道自己需要什么数据，但手动组装意味着需要从四个仪表板、两个BI工具和一个Salesforce报告生成器中提取数据。通过我们的系统，他们用简单的英语键入了请求。类似“为东北地区编制2026年1月至3月的销售额报告，按城市划分”的请求被转换为API调用，系统可以执行该调用：“描述”：“用户请求的给定日期范围的销售额，这里是API调用以获得响应”，“API_call”：“/API/sales_volume”，管道的其余部分是常规工程。系统将调用发送到正确的后端-我们与内部报告门户、Salesforce和几个本土服务进行了集成-应用了大型语言模型（LLM）（-生成JSON查询以过滤和塑造响应，并通过电子邮件将其作为Drive文档或在浏览器中呈现为图表进行传递。到2025年年中，该系统每月生成数百份报告。这些报告由领导层和分析师使用，并分发给外部利益相关者。它已成为大多数团队提取即席数据的默认方式。LLM与系统其他部分之间的合同是一个结构化JSON对象，如上述示例所述。“description”：“用户请求的给定日期范围的销售量，这里是API调用以获取响应”，“API_call”：“/API/sales_volume”，我们基于Claude Sonn构建了它以及2025年初的3.5。我们升级到3.7没有事故，升级到4.0没有事故。到Sonnet 4.5发布时，我们已经对LLM在解决我们认为简单的问题时的稳定性和可预测性感到自满。模型升级已经成为例行公事，就像碰撞一个行为良好的库的小版本一样。随后，我们推出了4.5版本。对于一定比例的请求，模型开始将post_body的内容折叠到描述字段中。随后出现了两种故障模式。首先，过滤器参数从未达到API。我们的系统读取post_body作为请求有效载荷的真实来源，该字段返回为空。API调用是在没有日期范围或区域筛选器的情况下进行的。根据被调用的特定API，后端要么返回所有时间或所有地区的销售量，要么返回500错误。其次，该模型在回应中开始提出澄清问题。这是新的。早期版本总是对模糊的请求采取尽力而为的方法，并返回一个结构化对象。十四行诗4.5更加谨慎，有时会用一个问题来回答。我们的系统没有办法做到这一点。它建立在这样一个假设之上，即每个模型调用都将导致一个API调用。没有人在循环组件，也没有状态来保存部分完成的请求。这导致下游系统以多种方式破裂。我们回到了4.0。这比原本应该的更困难：在4.0和4.5部署之间，我们的团队添加了新的API集成，所有这些集成都符合4.5的要求。恢复模型意味着在时间压力下，将它们中的每一个都重新评定为4.0。软件工程依赖于约束变更影响的能力。当你升级驱动程序或库时，你会阅读发行说明，看看是否会有突破性的更改。单元测试限制了可能发生的变化。您可以利用以下属性：被更改的系统具有足够的确定性，可以预测其行为，或者至少可以足够密集地采样以给您信心。爆破半径受施工限制。LLM支持的系统打破了这一假设。产生输出的组件不在您的控制之下。您无法将模型版本从4.0升级到4.5。它是对系统所依赖功能的全面替换。这就是我们所说的无限爆炸半径：这种变化的下游影响无法提前枚举，因为输入空间（自然语言）和故障模式（模型可能做的任何不同的事情）都是无限的。验尸结果显示，我们的提示一直不够明确。我们告诉模型返回一个包含三个字段的JSON对象。我们已经描述了每个字段的用途。我们没有明确指出描述必须是自然语言字符串，并且不得包含其他字段的序列化表示。该模型的早期版本从上下文中推断出了这一约束。十四行诗4.5在格式选择上显然更“有用”，因此决定在描述中询问澄清或提供请求正文会使响应更有用。从模型的角度来看，这是对模糊指令的合理解释。然而，这违反了我们建立系统的假设。这个bug不在模型中。错误在于我们的假设，即模型将一如既往地继续填补我们的规范空白。三次成功的升级让我们相信这些差距是安全的。结构化输出模式和工具使用API会在模式级别捕获此特定故障。我们没有出于本文范围之外的工程原因使用它们。但模式只约束语法，不约束语义。模式不能指定澄清问题不应出现在没有澄清路径的系统中，也不能指定日期范围不应默认为历史。模式解决了问题的较简单的一半。缩小这一差距的原则是将评估套件（而不是提示）视为系统的正式规范。提示是规范的实现。模型是解释器。评估是规范本身，任何模型或提示更改只有在通过评估时才有效。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/when-claude-changed-everything-changed-managing-ai-blast-radius-in-production" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
