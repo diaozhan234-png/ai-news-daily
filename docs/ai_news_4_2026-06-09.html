@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-09 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-09</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Researchers trained an open source AI search agent, Harness-1, that outperforms GPT-5.4 on recalling relevant information</div>
+      <div class="col-content">A joint research collaboration between researchers at the University of Illinois at Urbana-Champaign (UIUC), UC Berkeley, and the open source AI-native vector database platform Chroma unveiled Harness-1 , a 20-billion parameter open-source search agent built atop OpenAI's gpt-oss-20B open source model that fundamentally redesigns how AI executes complex retrieval tasks. Harness-1 achieves a massive leap in performance, scoring 73% average on its ability to recall relevant information correctly from a curated dataset, outperforming even GPT-5.4 (70.9%) and the next, most accurate open source search agent, Tongyi DeepResearch 30B , by 11.4 percentage points. (While GPT-5.5 has also been out for more than a month, the researchers didn't test against this model as it wasn't available when they were building theirs.) Crucially for developers, the model and its environment are available immediately under the highly permissive Apache 2.0 license and model code/weights on Hugging Face . Harness-1 also serves as proof-of-efficacy of another effort, Tinker , the distributed, web-based AI model training and fine-tuning API developed by Thinking Machines. Tinker was used specifically to train and run inference for Harness-1, highlighting how interactive infrastructure is actively enabling the next generation of autonomous models. So how did the researchers do it? To actually put these models to the test, the researchers evaluated Harness-1 and its competitors across eight highly complex search benchmarks. Rather than asking simple trivia questions, these tests required the AI to act like a real researcher sifting through diverse, dense data sources. The benchmarks spanned several different domains, including open web searches, complex financial filings from the SEC, technical patent databases from the USPTO, and "multi-hop" question-answering tasks where the AI had to logically piece together scattered clues from multiple different documents to arrive at the correct answer. When the results came in, Harness-1 dominated the open-source competition in its ability to successfully find and curate the right facts. Even more impressively, this relatively small 20-billion parameter model went toe-to-toe with massive, expensive proprietary AI systems. It actually outperformed heavyweights like GPT-5.4, Sonnet-4.6, and Kimi-K2.5 — thought to be the hundreds of billions or trillions of parameters. Only one giant frontier model—Opus-4.6 — managed to narrowly edge it out in overall average performance. Harness-1 achieves its performance gains by offloading the exhaustive "bookkeeping" of a search session out of the model's working memory and into a structured software environment. As enterprise use cases grow more sophisticated, demanding that models autonomously sift through thousands of corporate documents or financial filings, these systems frequently succumb to "search amnesia"—forgetting their original queries, looping over rejected documents, or losing track of the specific claims they are trying to verify. Until now, the prevailing solution to this amnesia has been brute force. Engineers typically force models to constantly reread an ever-expanding, append-only transcript of their own actions, piling every search, read, and thought back into a massive context window. Harness-1 introduces a paradigm shift away from this method, proving that the bottleneck for true artificial autonomy isn't necessarily the size of the model, but how efficiently its working environment manages state. It highlights once more, as Anthropic's Claude Code has also done, that the raw model is arguably less important than the harness — or set of conditions — through which it runs. To understand the technical leap of Harness-1, consider a real-world analogy. Imagine hiring a brilliant research assistant and placing them in an empty room without a desk, notepads, or filing cabinets. You ask them to write a comprehensive report on a highly complex topic, which requires them to read dozens of books while keeping every single quote, citation, and dead-end search perfectly memorized in their own head. Eventually, no matter how intelligent the assistant is, their cognitive load will max out, and they will start dropping facts or losing the thread of the assignment. This is exactly how traditional search agents operate today. They are trained as policies over growing transcripts, meaning the model searches, reads, searches again, and appends everything into its own context window. As lead researcher Patrick (Pengcheng) Jiang of the University of Illinois noted on X : "At some point the model is not just 'searching' anymore. It is also being asked to be a memory system, a note taker, a verifier, and a librarian." Harness-1 solves this by giving the AI a desk and a filing cabinet—what the research team calls a "state-externalizing harness." This harness is an active, surrounding environment that takes over the routine bookkeeping, maintaining a recoverable working memory that includes a candidate pool of documents, an importance-tagged curated evidence set, compact evidence links, and verification records. By separating semantic choices from structural state management, the AI is freed up to do what it does best. The policy still decides what to search, determines which documents to keep, and knows when to stop, while the environment simply holds the state. Here is a subsection breaking down the training methodology and how it differs from prior agentic search models: The training pipeline for Harness-1 represents a fundamental shift in how the AI industry approaches agentic learning. Historically, developers have treated search agents as policies operating over massive, ever-growing transcripts, forcing reinforcement learning (RL) algorithms to simultaneously optimize both semantic reasoning and the raw memorization of a search state.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">研究人员训练了一个开源的人工智能搜索代理Harness-1，在回忆相关信息方面表现优于GPT-5.4</div>
+      <div class="col-content">伊利诺伊大学厄巴纳-香槟分校（UIUC）、加州大学伯克利分校的研究人员与开源AI原生向量数据库平台Chroma的联合研究合作推出了Harness-1，这是一个基于OpenAI的gpt-oss-20B开源模型构建的200亿参数开源搜索代理，从根本上重新设计了AI执行复杂检索任务的方式。Harness-1在性能上实现了巨大的飞跃，从精心策划的数据集中正确回忆相关信息的能力平均得分为73%，甚至比GPT-5.4（70.9%）和下一个最准确的开源搜索代理统一DeepResearch 30B高出11.4个百分点。（虽然GPT-5.5也已经发布了一个多月，但研究人员没有针对这个模型进行测试，因为他们在构建自己的模型时还没有这个模型。）对开发人员来说至关重要的是，该模型及其环境可以在高度宽松的Apache 2.0许可证和Hugging Face上的模型代码/权重下立即使用。Harness-1还作为另一项努力Tinker的有效性证明，Tinker是由Thinking Machines开发的分布式、基于网络的人工智能模型训练和微调API。Tinker专门用于训练和运行Harness-1的推理，突出了交互式基础设施如何积极支持下一代自主模型。那么，研究人员是如何做到的呢？为了实际测试这些模型，研究人员在八个高度复杂的搜索基准上评估了Harness-1及其竞争对手。这些测试要求人工智能像一个真正的研究人员一样，筛选各种密集的数据源，而不是问简单的琐碎问题。这些基准测试涵盖了几个不同的领域，包括开放式网络搜索、美国证券交易委员会的复杂财务文件、美国专利商标局的技术专利数据库，以及“多跳”问答任务，在这些任务中，人工智能必须从多个不同文档中逻辑地拼凑出分散的线索，以得出正确的答案。当结果出来时，Harness-1在成功发现和整理正确事实的能力方面主导了开源竞争。更令人印象深刻的是，这个相对较小的200亿参数模型与大规模、昂贵的专有人工智能系统展开了激烈的竞争。实际上，它的表现优于GPT-5.4、Sonnet-4.6和Kimi-K2.5等权重股，这些权重股被认为是数千亿或数万亿的参数。只有一个巨大的前沿型号——Opus-4.6——在整体平均性能上勉强领先。Harness-1通过将搜索会话的详尽“簿记”从模型的工作内存中卸载到结构化软件环境中来实现性能提升。随着企业用例变得越来越复杂，要求模型自动筛选数千份公司文档或财务文件，这些系统经常陷入“搜索失忆症”——忘记最初的查询，循环浏览被拒绝的文档，或者失去对他们试图验证的具体声明的跟踪。到目前为止，这种健忘症的普遍解决方案是蛮力。工程师通常会强迫模型不断重读不断扩展的、只附加自己行为的记录，将每次搜索、阅读和思考都堆积在一个巨大的上下文窗口中。Harness-1引入了一种偏离这种方法的范式转变，证明了真正的人工自主的瓶颈不一定是模型的大小，而是其工作环境管理状态的效率。正如Anthropic的克劳德准则所做的那样，它再次强调，原始模型可以说不如它所运行的工具或条件集重要。要理解Harness-1的技术飞跃，请考虑一个现实世界的类比。想象一下，雇佣一位才华横溢的研究助理，把他们放在一个没有桌子、记事本或文件柜的空房间里。你要求他们就一个高度复杂的话题写一份全面的报告，这要求他们阅读数十本书，同时将每一句引文、引用和死胡同搜索都完美地记住在自己的脑海中。最终，无论助手有多聪明，他们的认知负荷都会达到最大，他们会开始放弃事实或失去任务的线索。这正是传统搜索代理如今的运作方式。它们被训练为对不断增长的转录本的策略，这意味着模型会搜索、读取、再次搜索，并将所有内容附加到自己的上下文窗口中。正如伊利诺伊大学的首席研究员Patrick（Pengcheng）Jiang在X上指出的那样：“在某些时候，模型不再只是‘搜索’了。它还被要求是一个记忆系统、一个记录员、一个验证者和一个图书管理员。Harness-1通过为AI提供一张桌子和一个文件柜来解决这个问题——研究团队称之为“状态外部化工具”。“该工具是一个主动的、周围的环境，接管日常簿记，维护可恢复的工作记忆，包括候选文档池、重要标记的精选证据集、紧凑的证据链接和验证记录。通过将语义选择与结构状态管理分开，人工智能可以自由地做它最擅长的事情。该策略仍然决定搜索什么，确定保留哪些文档，并知道何时停止，而环境只是保持状态。这里有一个小节分解了训练方法及其与先前的代理搜索模型的不同之处：harness-1的训练管道代表了人工智能行业如何处理代理学习的根本转变。历史上，开发人员将搜索代理视为在大量、不断增长的转录本上运行的策略，强制强化学习（RL）算法同时优化语义推理和搜索状态的原始记忆。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/researchers-trained-an-open-source-ai-search-agent-harness-1-that-outperforms-gpt-5-4-on-recalling-relevant-information" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
