@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-10 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-10</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 84.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic says these topics are too dangerous to let its Fable 5 model talk about</div>
+      <div class="col-content">Anthropic Tuesday publicly released Claude Fable 5 , its first “Mythos-class” model that it says surpasses its previous frontier Opus models in overall capabilities. But the model’s launch today comes with safeguards designed to prevent it from answering queries on topics like cybersecurity, biology, and chemistry, where the company has publicly worried about its potential impact to “uplift” malicious actors. Anthropic says Fable 5 operates on the “same underlying model” as Mythos 5, which is coming out of its monthslong “Mythos Preview” period today, but only for “a small group of cyberdefenders” judged trustworthy through the existing Project Glasswing . Unlike Mythos 5, though, the publicly accessible Fable 5 is designed to funnel queries on certain sensitive topics to the earlier Claude Opus 4.8 model and to warn the user when this is happening. Anthropic said it has tuned these safeguards to be “stricter than ideal,” meaning the system may occasionally refuse “harmless requests” in a way that it acknowledges may be frustrating for regular users. But Anthropic says such false positives come up in less than five percent of all sessions in testing, and were worth it to avoid situations where Mythos could give malicious actors assistance in “causing serious harm that they couldn’t have received from other sources.” Fable 5’s topic-based safeguards are built around a system of classifiers designed to broadly detect banned prompt subjects as well as any potential jailbreak attempts. In over 1,000 hours of red-team testing with a bug bounty program, Anthropic says external teams failed to find any universal jailbreaks for Fable 5. The new model also resisted automated jailbreak attempts to a much larger degree than previous Claude Opus models, Anthropic said. The company said it is particularly worried about Mythos 5’s ability to perform “agentic hacking,” executing multi-part cyberattacks with much more facility than earlier models. But testing from the UK’s AI Security Institute in recent months found that Mythos Preview performed similarly to OpenAI’s GPT-5.5 on a suite of Capture the Flag challenges, suggesting Mythos’ performance is not “a breakthrough specific to one model.” Among the usual raft of fair-to-middling benchmark test improvements that Anthropic reports for Mythos 5 over previous frontier models, the company claims a significant jump in the model’s capabilities on the cybersecurity-focused ExploitBench test . Mythos 5 scored a 78 percent on the benchmark’s tests of vulnerable code exploits, a significant increase from the 40 percent score from Opus 4.8, and even the 69 percent score achieved by Mythos Preview. While earlier Anthropic models blocked bioweapons-related queries, that classifier now applies to all chemistry and biology-related queries in Fable 5. The company says it worries that “well-resourced malicious actors” could use even seemingly benign queries on these subjects to assist with “highly risky biological research” in a much more effective way than with previous models. Anthropic seems to understand that making certain topics off-limits for Fable 5 is something of a double-edged sword. The company writes that “the same queries that are beneficial in the hands of cybersecurity professionals and biology researchers could be dangerous if available to malicious actors.” That puts Anthropic in the somewhat awkward position of having to judge who is and is not trustworthy enough to have access to a model that it says has potentially dangerous capabilities. The company says it will be periodically expanding its existing Project Glasswing program “in consultation with the US government” to let in more cybersecurity professionals. That expansion will also include a new trusted access program for life sciences organizations that removes Fable 5’s biology/chemistry safeguards while keeping cybersecurity safeguards in place. API and Enterprise users will be able to access the Fable 5 model at a cost of $10-per-million input tokens and $50-per-million output tokens starting today. Those prices are 67 to 100 percent higher than those for OpenAI’s recent GPT-5.5 , a difference that could be significant at a time when many users are balking at the high cost of frontier models . Anthropic’s existing subscription plans will include access to Fable 5 through June 22, after which users will need to purchase “usage credits” to access the new model. Anthropic says it eventually hopes to restore Fable 5 access as a standard part of subscription plans once it has “sufficient capacity” to do so.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic表示，这些话题太危险了，不能让它的寓言5模型谈论</div>
+      <div class="col-content">Anthropic周二公开发布了Claude Fable 5，这是其首款“神话级”车型，据称在整体性能上超越了之前的前沿Opus车型。但该模型今天的发布附带了保护措施，旨在防止它回答有关网络安全、生物学和化学等主题的询问，该公司公开担心其对“提升”恶意行为者的潜在影响。Anthropic表示，《寓言5》的运作模式与《神话5》“相同”，后者今天刚刚结束长达数月的“神话预览”期，但仅适用于通过现有的Glasswing项目被认为值得信赖的“一小部分网络防御者”。然而，与Mythos 5不同，可公开访问的Fable 5旨在将某些敏感话题的查询汇集到早期的Claude Opus 4.8模型中，并在发生这种情况时警告用户。Anthropic表示，它已将这些保护措施调整为“比理想更严格”，这意味着该系统可能偶尔会拒绝“无害的请求”，并承认这可能会让普通用户感到沮丧。但Anthropic表示，在所有测试会话中，这种误报率不到5%，为了避免Mythos可能帮助恶意行为者“造成他们无法从其他来源获得的严重伤害”的情况，这是值得的。寓言5的基于主题的保护措施是围绕一个分类器系统构建的，该系统旨在广泛检测被禁止的提示主题以及任何潜在的越狱企图。Anthropic表示，在红队使用漏洞赏金计划进行的1000多个小时的测试中，外部团队未能为《寓言5》找到任何通用的越狱。Anthropic表示，与之前的Claude Opus模型相比，新模型在更大程度上抵制了自动越狱尝试。该公司表示，它特别担心Mythos 5执行“代理黑客”的能力，即比早期型号更容易执行多部分网络攻击。但最近几个月，英国人工智能安全研究所的测试发现，Mythos Preview在一系列夺旗挑战中的表现与OpenAI的GPT-5.5相似，这表明Mythos的性能并不是“特定于一个模型的突破”。在Anthropic为Mythos 5报告的一系列中等水平的基准测试改进中，该公司声称该模型在以网络安全为重点的ExploitBench测试中的能力有了显著提升。Mythos 5在基准测试的易受攻击的代码漏洞测试中得分为78%，与Opus 4.8的40%相比有了显著提高，甚至Mythos Preview的得分也达到了69%。虽然早期的Anthropic模型阻止了与生物武器相关的查询，但该分类器现在适用于寓言5中所有与化学和生物学相关的查询。该公司表示，它担心“资源充足的恶意行为者”可能会使用对这些主题看似无害的查询，以比以前的模型更有效的方式协助“高风险的生物研究”。Anthropic似乎明白，在《寓言5》中禁止某些话题是一把双刃剑。该公司写道，“如果恶意行为者可以使用对网络安全专业人员和生物学研究人员有益的相同查询，那么这些查询可能是危险的。”这使Anthropic陷入了一个有点尴尬的境地，即必须判断谁足够值得信赖，谁不够值得信赖，才能访问它所说的具有潜在危险能力的模型。该公司表示，将“与美国政府协商”，定期扩大其现有的Glasswing项目，以引入更多的网络安全专业人员。这一扩展还将包括为生命科学组织制定一项新的可信访问计划，该计划将取消Fable 5的生物/化学保护措施，同时保留网络安全保护措施。从今天开始，API和Enterprise用户将能够访问Fable 5模型，费用为每百万美元输入代币和每百万美元输出代币。这些价格比OpenAI最近的GPT-5.5高出67%至100%，在许多用户对前沿模型的高成本望而却步的时候，这一差异可能是巨大的。Anthropic现有的订阅计划将包括在6月22日之前访问Fable 5，之后用户需要购买“使用积分”才能访问新型号。Anthropic表示，一旦有“足够的容量”，它最终希望将Fable 5的访问恢复为订阅计划的标准部分。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/06/anthropic-says-these-topics-are-too-dangerous-to-let-its-fable-5-model-talk-about/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
