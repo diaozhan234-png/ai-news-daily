@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-11 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-11</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Surprise upset: GPT-5.5 beats Claude Fable 5 on brutal new Agents’ Last Exam benchmark</div>
+      <div class="col-content">Researchers from the University of California, Berkeley's Center for Responsible, Decentralized Intelligence (RDI), alongside an advisory committee of over 300 domain experts, have launched Agents’ Last Exam (ALE) —a grueling new benchmark built to measure whether artificial intelligence can actually execute economically valuable, long-horizon professional workflows. In a shocking upset, OpenAI’s GPT-5.5 from April, operating through the Codex harness, secured the absolute top spot on the new ALE Leaderboard with a 24.0% pass rate, beating Anthropic's highly anticipated, brand new Mythos-class Claude Fable 5 model released just yesterday, which came in third with a score of 22.0%. Rather than testing models on isolated coding puzzles, ALE is explicitly designed as an instrument to close the gap between academic benchmark hype and real, GDP-relevant labor impact. And right now, the data proves the most advanced models in the world are fundamentally failing the exam. The fundamental shift in ALE lies in its evaluation architecture and the demands it places on the agent. Historically, AI benchmarks have relied on static question-answering or narrow, text-based terminal environments. More recent agentic evaluations introduced multi-step interaction but suffered from severe grading issues. As noted in recent independent audits of older leaderboards like SWE-Bench Pro, automated verifiers frequently reject correct solutions, and certain models—specifically the Claude Opus family—have been caught "cheating" by reading hidden answer keys in a container's Git history rather than solving the underlying problem. ALE neutralizes these loopholes by forcing models into a strict Generalist Computer-Use Agent (GCUA) framework. To pass, an agent cannot merely execute terminal commands. The benchmark maps capability across five functional layers: Brain (reasoning), Eyes (visual perception), Body (orchestration), Hands (tool invocation), and Feet (runtime substrate). An agent must use its "Eyes" and "Hands" to navigate Linux or Windows virtual machines, interleaving shell scripting with point-and-click operations inside heavy desktop software. Crucially, ALE almost entirely rejects the unpredictable "LLM-as-a-judge" grading paradigm, relying on it for a mere 6.8% of its workflows. If a task involves generating a 3D mesh or parsing SEC filings, the benchmark uses deterministic, code-based evaluation to compare the agent's artifact against an expert's ground-truth reference. ALE launches with 1,490 task instances and is scaling toward a massive 5,000-task target. What makes the product remarkable is its authenticity. The tasks are strictly anchored in the U.S. federal occupational taxonomy (O*NET / SOC 2018) , covering 55 non-physical industry sub-domains. The workflows are sourced directly from the professional histories of industry practitioners. Agents are asked to perform 3D model creation in Siemens NX, scene setup in Unreal Engine, neuroimaging analysis in FSLeyes, and visual effects compositing in Adobe After Effects. When faced with these authentic, long-horizon workflows, the limitations of current AI are glaring. ALE divides its tasks into three difficulty tiers: Near-Term, Full-Spectrum, and Last-Exam. The victory of GPT-5.5 aligns with recent third-party analysis suggesting that OpenAI's models are currently superior at strictly adhering to multi-part, complex prompts. Conversely, users report Anthropic's Claude architecture can sometimes be "forgetful" with multi-part instructions, abandoning required steps mid-workflow — a fatal flaw in ALE's rigorous pipeline. And while hitting a 24.0% pass rate is enough to claim the crown, the absolute performance ceiling remains remarkably low. On the hardest "Last-Exam" tier — representing the frontier of professional difficulty — most configurations, including Anthropic's older Claude Opus 4.8 and Google's Gemini CLI, record a devastating 0.0% pass rate. A core vulnerability in modern AI evaluation is "benchmark contamination"—the phenomenon where test questions inevitably leak into the massive data lakes used to train next-generation models. Once a model memorizes the benchmark, the evaluation becomes entirely useless. ALE solves this through a dual-use deployment strategy. The project operates as an open-source research initiative, but it closely guards its evaluation data. Only about 10% of the dataset (roughly 150 tasks) is released publicly on platforms like GitHub and Hugging Face. The remaining 1,300+ tasks are kept strictly private. For developers and enterprise evaluators, this means ALE functions as a "living benchmark". Private tasks are systematically rotated into the public pool over time, while retired public tasks are swapped out. This rolling release ensures that the evaluation surface remains uncontaminated across successive model generations, giving enterprise buyers confidence that an agent's high score is earned , not memorized. Additionally, ALE provides transparency by tracking both "Full" and "Unlicensed" scores. Because real professional work often requires paid, proprietary software, the "Full" leaderboard incorporates tasks that rely on commercial CAD tools, paid APIs, or licensed datasets. The "Unlicensed" tier drops these license-gated tasks to provide a clean, like-for-like comparison using only freely available tools, ensuring models aren't simply rewarded for having access to paid enterprise software. For developers frustrated by the gap between marketing claims and actual production performance, ALE's brutal grading curve is highly validating. Zengyi Qin , an MIT PhD researcher and data contributor to the project, took to X to announce the launch, sharing images of the paper and the staggering 100+ institution contributor list. "Introducing Agents’ Last Exam (ALE)," Qin wrote. "Built by 300+ domain experts from 100+ institutions. Covering 55 industry domains. Claude Opus 4.8 has 0.0% pass rate on the hardest subset.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">令人惊讶的沮丧：GPT-5.5在残酷的新特工最后一次考试基准上击败了Claude Fable 5</div>
+      <div class="col-content">来自加州大学伯克利分校负责任、去中心化智能中心（RDI）的研究人员，与一个由300多名领域专家组成的咨询委员会一起，推出了代理最后一次考试（ALE），这是一个艰苦的新基准，旨在衡量人工智能是否真的可以执行具有经济价值的长期专业工作流程。令人震惊的是，OpenAI的GPT-5.5从4月开始通过Codex工具运行，以24.0%的通过率在新的ALE排行榜上稳居绝对榜首，击败了昨天发布的备受期待的全新Mythos级Claude Fable 5车型，该车型以22.0%的得分排在第三位。ALE不是在孤立的编码谜题上测试模型，而是被明确设计为缩小学术基准炒作与实际GDP相关劳动力影响之间差距的工具。现在，数据证明，世界上最先进的模型根本上没有通过考试。ALE的根本转变在于其评估架构及其对代理的要求。从历史上看，人工智能基准测试依赖于静态问答或狭窄的基于文本的终端环境。最近的代理评估引入了多步骤交互，但存在严重的分级问题。正如最近对SWE Bench Pro等旧排行榜的独立审计所指出的那样，自动验证器经常拒绝正确的解决方案，某些模型——特别是Claude Opus家族——因读取容器Git历史中的隐藏答案密钥而被发现“作弊”，而不是解决根本问题。ALE通过强制模型进入严格的Generalist Computer Use Agent（GCUA）框架来消除这些漏洞。为了通过，代理不能仅仅执行终端命令。该基准映射了五个功能层的能力：大脑（推理）、眼睛（视觉感知）、身体（编排）、手（工具调用）和脚（运行时基础）。代理必须使用其“眼睛”和“手”来导航Linux或Windows虚拟机，将shell脚本与重型桌面软件中的点击操作交织在一起。至关重要的是，ALE几乎完全拒绝了不可预测的“LLM作为评判者”的评分模式，仅在6.8%的工作流程中依赖它。如果任务涉及生成3D网格或解析SEC文件，基准测试将使用确定性、基于代码的评估来将代理的工件与专家的地面真实参考进行比较。ALE启动时有1490个任务实例，并正在向5000个任务目标扩展。让产品引人注目的是它的真实性。这些任务严格遵循美国联邦职业分类法（O*NET/SOC 2018），涵盖55个非物理行业子领域。工作流程直接来源于行业从业者的专业历史。代理人被要求在西门子NX中创建3D模型，在虚幻引擎中设置场景，在FSLeyes中进行神经影像分析，并在Adobe After effects中进行视觉效果合成。当面对这些真实的、长期的工作流程时，当前人工智能的局限性是显而易见的。ALE将其任务分为三个难度级别：短期、全谱和最后一次考试。GPT-5.5的胜利与最近的第三方分析相一致，该分析表明OpenAI的模型目前在严格遵守多部分、复杂的提示方面具有优势。相反，用户报告说，Anthropic的Claude架构有时会对多部分指令“健忘”，在工作流程中放弃所需的步骤——这是ALE严格管道中的一个致命缺陷。虽然达到24.0%的通过率足以夺得冠军，但绝对性能上限仍然非常低。在最难的“最后一次考试”级别——代表专业难度的前沿——大多数配置，包括Anthropic的老版Claude Opus 4.8和谷歌的Gemini CLI，都记录了毁灭性的0.0%的通过率。现代人工智能评估的一个核心漏洞是“基准污染”，即测试问题不可避免地泄露到用于训练下一代模型的海量数据湖中的现象。一旦模型记住了基准，评估就完全无用了。ALE通过双重用途部署策略解决了这个问题。该项目作为一个开源研究项目运作，但它严格保护其评估数据。只有大约10%的数据集（大约150个任务）在GitHub和Hugging Face等平台上公开发布。其余1300多项任务严格保密。对于开发人员和企业评估人员来说，这意味着ALE是一个“活基准”。随着时间的推移，私人任务会系统地轮换到公共池中，而退役的公共任务则会被换出。此滚动版本可确保评估表面在连续几代模型中保持不受污染，使企业买家相信代理商的高分是通过努力获得的，而不是通过记忆获得的。此外，ALE通过跟踪“完整”和“未授权”分数来提供透明度。因为真正的专业工作通常需要付费的专有软件，所以“完整”排行榜包含了依赖于商业CAD工具、付费API或许可数据集的任务。“未授权”层删除了这些许可证门控任务，仅使用免费提供的工具提供干净、类似的比较，确保模型不会仅仅因为访问付费企业软件而获得奖励。对于那些对营销声明和实际生产绩效之间的差距感到沮丧的开发人员来说，ALE残酷的分级曲线是非常有效的。麻省理工学院博士研究员、该项目的数据贡献者秦增义在X上宣布了论文的发布，分享了论文的图片和令人震惊的100多家机构的贡献者名单。秦写道：“介绍特工最后一次考试（ALE）。”。“由来自100多个机构的300多名领域专家构建。涵盖55个行业领域。Claude Opus 4.8在最难的子集上的通过率为0.0%。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/surprise-upset-gpt-5-5-beats-claude-fable-5-on-brutal-new-agents-last-exam-benchmark" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
