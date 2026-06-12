@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-12 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-12</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Microsoft’s open-source SkillOpt automatically upgrades AI agent skills without touching model weights</div>
+      <div class="col-content">Agent skills have become an important part of real-world AI applications, providing a mechanism — a set of instructions saved in a folder of text-based markdown (.md) files, usually — for models to adapt to specific enterprise use cases and complex workflows. However, optimizing these skills is a slow process and faulty process, as they cannot be trained in the same way as the parameters of the underlying AI model. Instead, users typically must update them manually by retyping the instructions in each file, playing a "guessing game" as to what changes might improve agentic AI performance and reduce errors. SkillOpt , a new, open source ( MIT Licensed ) framework developed by Microsoft, does one better: it introduces an optimizer designed for agent skills, turning the agent's skill .md document as a trainable object that evolves based on performance feedback. It uses deep-learning-style optimization to make it possible for the AI to systematically explore modifications to the document and find the best combination of instructions. Most importantly, it accomplishes this procedural adaptation without making changes to the underlying model's weights. On various industry benchmarks, SkillOpt outperforms existing baselines, significantly boosting accuracy for models like GPT-5.5 and Qwen. The result is a set of compact, transferable skill artifacts that allow AI agents to adapt to new domains effortlessly. Agent skills package procedural knowledge into natural-language specifications, including domain heuristics, tool-use policies, output constraints, and known failure modes. These skills provide an external interface for agents to adapt to complex enterprise workflows. In practice, agent skills are stored as text documents and inserted into the agent's context before execution. One of the key benefits of skills is that they customize the behavior of the underlying model without changing its weights. However, the skill document itself needs to be tweaked and optimized to get the best performance out of the agent. While deep learning relies on strict mathematical controls for stability, human prompt engineering often relies on trial and error. When attempting to automatically update a skill document based on feedback, the lack of mathematical discipline makes text highly volatile. Yifan Yang, Senior Research SDE at Microsoft Research Asia, told VentureBeat that the problem is not making changes, but ensuring those changes are mathematically sound. "The breaking point isn't whether a team can change a skill, it's that they can't guarantee the change is an improvement," Yang said. "Three failure modes recur: no step-size control, so skills drift; no validation, so a fix that reads as reasonable gets written in and can quietly regress performance; and no negative memory, so the same failed edit keeps coming back." To illustrate how easily performance can drop when edits aren't mathematically validated, Yang noted that "an ungated rewrite pushed GPT-5.5 on SpreadsheetBench from 41.8 down to 41.1." According to Yang, these failure modes are amplified in multi-step workflows "because that's where frontier models are weakest zero-shot. Not on reasoning, but on procedural discipline: format, self-verification, tool policy." Before SkillOpt, agent skills were primarily hand-crafted, generated in a single shot, or evolved through loosely controlled self-revision pipelines that could not reliably improve under feedback. Prompt optimization methods like TextGrad and GEPA treat language artifacts as optimizable objects and use trajectory feedback to evolve prompts, but they focus on single-prompt configurations rather than generating persistent, reusable skill artifacts. Meanwhile, skill evolution and discovery methods like EvoSkill and Trace2Skill convert agent execution experiences into trajectory lessons to refine skill folders, build domain-specific libraries, or perform evolutionary search. None of them apply deep-learning-style controls, such as learning rates, validation gates, and momentum, which are necessary to continuously train a single, compact skill document. SkillOpt optimizes a text document through an iterative propose-and-test loop that separates the model executing the tasks from the model optimizing the skill. The process unfolds in several steps: SkillOpt starts with an initial skill document and a frozen target model (or harness), where the target model runs a batch of tasks to generate execution trajectories that act as the evidence for the current step. An offline optimizer model analyzes these trajectories, separating successes from failures into minibatches. Looking at a minibatch helps the model identify systematic procedural errors rather than one-off anomalies. Based on these patterns, the optimizer proposes structural add, delete, or replace edits to the skill document. The proposed edits are reviewed to filter out duplicates or contradictions, and the optimizer then ranks these candidate edits by their expected utility. Rather than applying all proposed changes, SkillOpt clips the list to a maximum edit budget for that step, generating a candidate skill. The candidate skill is evaluated on a held-out validation set using the target model. If the candidate improves the validation score, it is accepted and becomes the new current skill. If it fails, the edits are rejected and sent to a rejected-edit buffer, providing negative feedback so the optimizer knows not to repeat that mistake. SkillOpt directly addresses the problem of treating text as a trainable object by importing mathematical concepts from deep learning. The creators note that “the deep-learning analogy is operational rather than decorative,” helping the framework avoid the instability issues associated with other optimization techniques. The edit budget acts as a learning rate.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">微软的开源SkillOpt在不影响模型权重的情况下自动升级人工智能代理技能</div>
+      <div class="col-content">代理技能已成为现实世界人工智能应用程序的重要组成部分，它提供了一种机制——一组保存在基于文本的markdown（.md）文件文件夹中的指令，通常——用于模型适应特定的企业用例和复杂的工作流程。然而，优化这些技能是一个缓慢而错误的过程，因为它们不能像底层AI模型的参数那样进行训练。相反，用户通常必须通过重新键入每个文件中的指令来手动更新它们，玩一个“猜谜游戏”，看看哪些更改可以提高代理AI的性能并减少错误。SkillOpt是微软开发的一个新的开源（MIT许可）框架，它做得更好：它引入了一个为代理技能设计的优化器，将代理的skill.md文档转化为一个可训练的对象，该对象根据性能反馈进行演化。它使用深度学习风格优化，使人工智能能够系统地探索对文档的修改，并找到最佳的指令组合。最重要的是，它在不更改底层模型权重的情况下完成了这种程序自适应。在各种行业基准测试中，SkillOpt的表现优于现有的基线，显著提高了GPT-5.5和Qwen等模型的准确性。结果是一组紧凑、可转移的技能工件，使AI代理能够毫不费力地适应新领域。代理技能将过程知识打包成自然语言规范，包括领域启发式、工具使用策略、输出约束和已知故障模式。这些技能为代理适应复杂的企业工作流程提供了一个外部接口。在实践中，代理技能被存储为文本文档，并在执行之前插入到代理的上下文中。技能的一个关键好处是，它们可以在不改变其权重的情况下定制底层模型的行为。然而，技能文档本身需要调整和优化，以使代理达到最佳性能。虽然深度学习依赖于严格的数学控制来保证稳定性，但人类快速工程通常依赖于试错。当试图根据反馈自动更新技能文档时，缺乏数学纪律会使文本高度不稳定。微软亚洲研究院高级研究SDE Yifan Yang告诉VentureBeat，问题不在于做出改变，而在于确保这些改变在数学上是合理的。杨说：“关键不在于一个团队能否改变一项技能，而在于他们不能保证这种改变是一种进步。”。“三种失败模式重复出现：没有逐步大小控制，所以技能会漂移；没有验证，所以一个读起来合理的修复程序会被写入，可以悄悄地倒退性能；没有负记忆，所以同样的失败编辑会不断出现。”为了说明当编辑没有经过数学验证时，性能会多么容易下降，杨指出，“一次无控制的重写将SpreadsheetBench上的GPT-5.5从41.8推到41.1。”杨说，这些失败模式在多步工作流程中会被放大，“因为这是前沿模型在零样本最弱的地方。不是基于推理，而是基于程序纪律：格式、自我验证和工具策略。”在SkillOpt之前，代理技能主要是手工制作的。在单次拍摄中生成，或通过松散控制的自我视觉管道进化而来，这些管道在反馈下无法可靠地改善。像TextGrad和GEPA这样的提示优化方法将语言工件视为可优化的对象，并使用轨迹反馈来进化提示，但它们侧重于单个提示配置，而不是生成持久的、可重用的技能工件。与此同时，技能进化和发现方法，如EvoSkill和Trace2Skill，将代理执行经验转化为轨迹课程，以细化技能文件夹、构建特定领域的库或执行进化搜索。它们都没有应用深度学习风格的控制，如学习率、验证门和动量，这些都是持续训练单个紧凑技能文档所必需的。SkillOpt通过迭代的建议和测试循环来优化文本文档，该循环将执行任务的模型与优化技能的模型分开。该过程分为几个步骤：SkillOpt从初始技能文档和冻结的目标模型（或线束）开始，目标模型运行一批任务以生成执行轨迹，作为当前步骤的证据。离线优化器模型分析这些轨迹，将成功和失败分成小批量。查看小批量有助于模型识别系统性程序错误，而不是一次性异常。基于这些模式，优化器建议对技能文档进行结构化的添加、删除或替换编辑。对建议的编辑进行审查，以过滤掉重复或矛盾，然后优化器根据预期效用对这些候选编辑进行排名。SkillOpt没有应用所有拟议的更改，而是将列表剪辑到该步骤的最大编辑预算，生成候选技能。使用目标模型在保留的验证集上评估候选技能。如果候选人提高了验证分数，则被接受并成为新的当前技能。如果失败，编辑将被拒绝并发送到被拒绝的编辑缓冲区，提供负面反馈，以便优化器知道不要重复该错误。SkillOpt通过从深度学习中引入数学概念，直接解决了将文本视为可训练对象的问题。创建者指出，“深度学习类比是可操作的，而不是装饰性的”，这有助于该框架避免与其他优化技术相关的不稳定问题。编辑预算充当学习率。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/microsofts-open-source-skillopt-automatically-upgrades-ai-agent-skills-without-touching-model-weights" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
