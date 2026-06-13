@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-13 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-13</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Kimi K2.7-Code cuts thinking tokens 30% — but practitioners say the benchmarks don't check out</div>
+      <div class="col-content">Moonshot AI released Kimi K2.7-Code this week, an open-source update to its K2 coding model family, claiming leaner reasoning and double-digit performance gains. K2.7-Code is built on the same trillion-parameter mixture-of-experts architecture as its p redecessor K2.6 , and drops in via an OpenAI-compatible API — which matters for teams already running K2.6 in production gateways. When K2.6 launched in April, it topped OpenRouter's weekly LLM leaderboard — a ranking based on actual API routing decisions by developers, not self-reported benchmark scores. Moonshot AI says K2.7-Code addresses what it calls "overthinking," reducing thinking-token usage by 30% compared to K2.6 — a number that would directly affect inference costs for teams running agentic workflows. Whether that efficiency gain holds on independent benchmarks is a question practitioners have already started raising publicly. K2.7-Code is released under a Modified MIT license, with weights available on HuggingFace. The model is deployable via vLLM or SGLang. It runs exclusively in thinking mode and does not support temperature adjustment — Moonshot AI has fixed it at 1.0, meaning teams cannot tune output determinism the way they might with other models. The core change from K2.6 is how the model generates low-level code. Where K2.6 produced implementations by wrapping existing libraries and routing through established frameworks, K2.7-Code authors implementations directly. Moonshot AI says this produces more reliable generalization across Rust, Go and Python, and across task types including frontend development, DevOps and performance optimization. On benchmark performance, Moonshot AI claims gains of 21.8% on Kimi Code Bench v2, 11% on Program Bench and 31.5% on MLS Bench Lite. All three are proprietary benchmarks run by Moonshot AI. The model has not been submitted to DeepSWE, an independent coding benchmark that produces a 70-point spread across models — compared to SWE-Bench Pro's 30-point spread — making it a more discriminating signal for teams configuring model routing systems. VB Transform · July 14–15 · Menlo Park · Inference & AI infrastructure GM got a 300% jump in merged PRs by rearchitecting for agents. Here’s what they built. The infrastructure track at Transform covers real-time video generation, machine-to-machine reasoning stacks, and what it actually takes to run agents at enterprise scale. The picture from outside Moonshot's own benchmarks is more complicated. Researcher Elliot Arledge ran K2.7-Code against K2.6 and Claude Fable 5 on KernelBench-Hard, a public benchmark focused on GPU kernel optimization, and published his full run logs at kernelbench.com. "K2.7 is more honest but not more capable," Arledge wrote on X . On five of six problems, K2.7-Code produced real authored Triton kernels where K2.6 had used library wrappers. Two of those kernels failed on the model's own bugs. The MoE kernel result regressed from K2.6's score of 0.222 to 0.157. "Fable, for reference, tops every cell it doesn't honestly fail," Arledge wrote. Sugumaran Balasubramaniyan, a developer who built a model-task-router for the Hermes Agent platform using DeepSWE as his reference signal, responded publicly to the K2.7-Code release and challenged Moonshot AI directly on the benchmark choices. "Respectfully, every model 'improves' double digits on its own test suite," Balasubramaniyan wrote on X . He noted that K2.6 scored 24% on DeepSWE, tied with GPT-5.4-mini, and asked whether Moonshot AI would submit K2.7-Code to the same benchmark. Balasubramaniyan said it took 13 review rounds to get the benchmark data right for his router and that he would route coding tasks to K2.7-Code if the independent numbers hold up. The token efficiency gain is immediately usable. Teams running K2.6 in production can swap in K2.7-Code via the OpenAI-compatible API and expect lower inference costs on agentic workflows without an architecture change. The 30% thinking-token reduction is Moonshot's own number, but the integration path is low-risk enough to test against your own workloads before committing. The practical question is whether those efficiency gains hold on a team's own task distribution. Running K2.7-Code against your own workloads before adjusting gateway weights is the low-risk path to finding out.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Kimi K2.7-Code将思维代币削减了30%，但从业者表示基准测试没有得到验证</div>
+      <div class="col-content">Moonshot AI本周发布了Kimi K2.7-Code，这是其K2编码模型系列的开源更新，声称推理更精简，性能提高了两位数。K2.7-Code构建在与其p代处理器K2.6相同的数万亿参数专家混合架构上，并通过与OpenAI兼容的API引入，这对已经在生产网关中运行K2.6的团队很重要。当K2.6于4月发布时，它在OpenRouter的每周LLM排行榜上名列榜首，该排行榜基于开发人员的实际API路由决策，而不是自我报告的基准分数。Moonshot AI表示，K2.7-Code解决了它所谓的“过度思考”问题，与K2.6相比，思考令牌的使用量减少了30%，这一数字将直接影响运行代理工作流的团队的推理成本。这种效率提升是否在独立基准上持续，是从业者已经开始公开提出的问题。K2.7-Code根据修改后的MIT许可证发布，权重可在HuggingFace上获得。该模型可通过vLLM或SGLang进行部署。它只在思维模式下运行，不支持温度调节——Moonshot AI将其固定在1.0，这意味着团队无法像使用其他模型那样调整输出确定性。K2.6的核心变化是模型如何生成低级代码。K2.6通过包装现有库和通过已建立的框架进行路由来生成实现，而K2.7则直接由代码作者实现。Moonshot AI表示，这可以在Rust、Go和Python之间，以及在前端开发、DevOps和性能优化等任务类型之间产生更可靠的泛化。在基准性能方面，Moonshot AI声称在Kimi Code Bench v2上获得了21.8%的收益，在Program Bench上获得了11%，在MLS Bench Lite上获得了31.5%的收益。这三个都是Moonshot AI运行的专有基准测试。该模型尚未提交给DeepSWE，DeepSWE是一个独立的编码基准测试，在模型之间产生70点的点差，而SWE Bench Pro的点差为30点，这使其成为配置模型路由系统的团队的一个更具辨别力的信号。VB Transform·7月14日至15日·Menlo Park·推理与人工智能基础设施通用汽车通过重新构建代理，合并后的PR增长了300%。这是他们建造的。Transform的基础设施跟踪涵盖了实时视频生成、机器对机器推理堆栈，以及在企业规模上运行代理的实际需要。来自Moonshot自身基准测试之外的图片更为复杂。研究员Elliot Arledge在KernelBench Hard上对K2.6和Claude Fable 5运行了K2.7-Code，这是一个专注于GPU内核优化的公共基准测试，并在KernelBench.com上发布了他的完整运行日志。“K2.7更诚实，但不是更有能力，”Arledge写道。在六个问题中的五个问题上，K2.7-Code生成了真正编写的Triton内核，其中K2.6使用了库包装器。其中两个内核因模型自身的错误而失败。MoE核结果从K2.6的0.222分回归到0.157分。Arledge写道：“寓言，作为参考，占据了每一个没有真正失败的细胞的首位。”。Sugumaran Balasubramaniyan是一名开发人员，他使用DeepSWE作为参考信号为Hermes Agent平台构建了一个模型任务路由器，他公开回应了K2.7-Code的发布，并直接在基准选择上挑战Moonshot AI。Balasubramaniyan在X上写道：“值得尊敬的是，每个模型在自己的测试套件中都‘提高’了两位数。”。他指出，K2.6在DeepSWE上的得分为24%，与GPT-5.4-mini持平，并询问Moonshot AI是否会将K2.7-Code提交给相同的基准。Balasubramaniyan表示，他花了13轮审查才为路由器获得了正确的基准数据，如果独立数字成立，他将把编码任务路由到K2.7-Code。令牌效率增益可立即使用。在生产中运行K2.6的团队可以通过与OpenAI兼容的API交换K2.7-代码，并期望在不更改架构的情况下降低代理工作流的推理成本。30%的思考令牌减少是Moonshot自己的数字，但集成路径的风险很低，足以在提交之前对自己的工作负载进行测试。实际问题是，这些效率的提高是否会影响团队自己的任务分配。在调整网关权重之前，针对自己的工作负载运行K2.7-Code是一种低风险的方法。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
