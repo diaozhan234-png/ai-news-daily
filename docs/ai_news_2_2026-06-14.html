@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-14 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-14</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic blocks all public access to Claude Fable 5, Mythos 5 following US government order — what enterprises should do</div>
+      <div class="col-content">The US government last night issued an unprecedented export control directive ordering Anthropic to immediately suspend all access to its top-tier Claude Fable 5 and Claude Mythos 5 models for foreign nationals, citing unspecified national security authorities. In response, Anthropic has blocked all public access to both models, globally — meaning no users around the world can access them at this time, even paying enterprise customers and Anthropic employees internally. It's a huge blow and reversal following the public release of Fable/Mythos 5 just three days prior. Current Fable 5/Mythos 5 sessions will end in errors and new queries will be automatically routed to older, less capable models like Opus 4.8. Anthropic says in a blog post that "We believe this is a misunderstanding and are working to restore access as soon as possible," and apologizes to its customers. The sudden regulatory intervention serves as a stark warning to the enterprise sector: centralized, cloud-based frontier models exist at the absolute mercy of government oversight and vendor compliance. The government's sweeping action follows a viral jailbreak of Fable 5 published publicly on X on June 10 by the prolific jailbreaker " Pliny the Liberator ," who claimed to have successfully bypassed the model's safety guardrails to extract functional instructions for cyber exploits, explosives, and chemical synthesis pathways, specifically noting the "birch reduction method" for methamphetamine. Pliny outlined a highly sophisticated, multi-agent attack that leveraged a combination of "Unicode, homoglyphs, Cyrillic," long-context reference tracking, and a technique of breaking harmful requests into innocuous, out-of-distribution tokens. The attacker then used a previously jailbroken Opus model to piece the benign chunks back together into actionable, restricted outputs. Anthropic doesn't specify if this is the jailbreak that precipitated the government order, and in fact, notes that the information provided by the U.S. government regarding the specific jailbreak has been poorly documented, writing: "To date, the government has only given us verbal evidence of a potential narrow, non-universal jailbreak, which essentially consists of asking the model to read a specific codebase and fix any software flaws. Our understanding is that one potential jailbreak was shared with the government." The company argues the capabilities uncovered are "widely available" in other public models, explicitly naming rival OpenAI's GPT-5.5. Furthermore, Anthropic warns that pulling a commercial model over a non-universal jailbreak sets a regulatory standard that could "essentially halt all new model deployments for all frontier model providers". This sudden blackout of Anthropic's latest and greatest AI models will no doubt cause some consternation for organizations relying primarily on the Claude API — as it should, even though they still have access to other, less powerful Claude models. As I warned earlier this year when the Pentagon abruptly blacklisted Anthropic , enterprises can no longer afford — from an operational reliability standpoint — to run critical workflows on any single AI model or even provider. Putting all your AI "eggs" into one basket, so to speak, creates a single, ultimately brittle failure point from which recovery or mitigation becomes exceedingly difficult. Granted, in this case, Anthropic notes helpfully that "access to all other Anthropic models will not be affected." And while Opus 4.8 or other Anthropic models may already be the preferred ones for organizations given their lower cost, or seen as acceptable fallbacks, the reality is, the U.S. government order was narrowly targeted in this particular instance — who's to saying the government wouldn't, in the future, demand a block of all of a given lab's AI models/products/services? We had an indication that enterprise AI customers should diversify their providers earlier this year. Recall that in March 2026, Secretary of Defense Pete Hegseth labeled Anthropic a "supply chain risk" after the company refused to allow the military to use Claude for mass domestic surveillance and lethal autonomous weapons without safety restrictions. The resulting fallout led to a sweeping prohibition on Anthropic's use across defense supply chains, stripping contractors of access overnight. The lesson from the Department of Defense fallout remains critically relevant today. Any organization building agentic workflows or production apps tied solely to a single closed-API provider risks immediate operational failure if that provider faces an injunction, a cyberattack, or an export control directive. As an enterprise technical leader, your top goal if not already achieved should be to urgently diversify your AI supply — whether it's other cloud-based AI models and providers, or AI models running on enterprise-controlled local or virtual hardware. At this point, enterprise AI supplier diversification is arguably imperative to ensure you can continue to run AI workflows without disruption. The community reaction to the Fable 5 takedown reflects a rapidly shifting enterprise calculus toward hardware sovereignty. AI founder Alex Finn took to X to flag the Anthropic shutdown as a "wakeup call," urging developers to run local models on home GPUs to insulate themselves from regulatory volatility. "No company or government will EVER be able to take away your local models," Finn writes, warning that government overreach will only escalate as models inch closer to artificial general intelligence (AGI), the stated goal of OpenAI and some other AI firms, in which an AI model becomes capable of performing most economically valuable work tasks now done by humans.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">根据美国政府的命令，Anthropic阻止所有公众访问《克劳德·寓言5》和《神话5》——企业应该做什么</div>
+      <div class="col-content">美国政府昨晚发布了一项前所未有的出口管制指令，命令Anthropic立即暂停外国人对其顶级Claude Fable 5和Claude Mythos 5车型的所有访问，理由是未指明的国家安全部门。作为回应，Anthropic在全球范围内屏蔽了所有公众对这两种模型的访问，这意味着目前世界各地的用户都无法访问它们，即使是付费的企业客户和内部员工。在三天前《寓言/神话5》公开发行后，这是一个巨大的打击和逆转。当前的Fable 5/Mythos 5会话将以错误结束，新查询将自动路由到Opus 4.8等较旧、功能较弱的模型。Anthropic在一篇博客文章中表示，“我们认为这是一个误解，正在努力尽快恢复访问权限”，并向客户道歉。突然的监管干预对企业部门发出了严厉的警告：集中式、基于云的前沿模型完全受制于政府的监督和供应商的合规性。在政府采取全面行动之前，多产的越狱者“解放者普林尼”于6月10日在X上公开发布了寓言5的病毒越狱，他声称成功绕过了该模型的安全护栏，提取了网络攻击、爆炸物和化学合成途径的功能指令，特别指出了甲基苯丙胺的“桦木还原法”。Pliny概述了一种高度复杂的多代理攻击，该攻击结合了“Unicode、同形符号、西里尔字母”、长上下文引用跟踪以及将有害请求分解为无害的、不在分发范围内的令牌的技术。然后，攻击者使用之前越狱的Opus模型将良性块重新拼凑成可操作的、受限的输出。Anthropic没有具体说明这是否是促使政府下令的越狱，事实上，它指出，美国政府提供的有关具体越狱的信息记录得很差，并写道：“到目前为止，政府只向我们提供了潜在的狭义、非通用越狱的口头证据，这基本上包括要求模型读取特定的代码库并修复任何软件缺陷。我们的理解是，有一个潜在的越狱是与政府共享的。”该公司辩称，所发现的功能在其他公共模型中“广泛可用”，明确指出了竞争对手OpenAI的GPT-5.5。此外，Anthropic警告说，将商业模式置于非通用越狱之上，会设定一个监管标准，“基本上会停止所有前沿模型提供商的所有新模型部署”。Anthropic最新和最强大的人工智能模型的突然中断无疑会给主要依赖Claude API的组织带来一些恐慌——这是应该的，尽管他们仍然可以访问其他功能较弱的Claude模型。正如我今年早些时候警告的那样，当五角大楼突然将Anthropic列入黑名单时，从运营可靠性的角度来看，企业再也负担不起在任何单一的人工智能模型甚至提供商上运行关键的工作流程。可以说，把所有的人工智能“鸡蛋”放在一个篮子里，会产生一个单一的、最终脆弱的故障点，从这个点开始，恢复或缓解变得极其困难。当然，在这种情况下，Anthropic有益地指出，“对所有其他Anthropic模型的访问都不会受到影响。”虽然Opus 4.8或其他Anthropics模型可能已经是组织的首选，因为它们的成本较低，或者被视为可接受的后备方案，但现实是，美国政府的命令在这个特定情况下是狭隘的目标——谁说政府将来不会要求屏蔽某个实验室的所有人工智能模型/产品/服务呢？我们有迹象表明，今年早些时候，企业人工智能客户应该让他们的供应商多样化。回想一下，2026年3月，国防部长Pete Hegseth将Anthropic称为“供应链风险”，因为该公司拒绝允许军方在没有安全限制的情况下使用克劳德进行大规模国内监视和致命的自主武器。由此产生的后果导致全面禁止Anthropic在整个国防供应链中的使用，一夜之间剥夺了承包商的访问权限。国防部事件的教训在今天仍然至关重要。如果一家封闭式API提供商面临禁令、网络攻击或出口管制指令，任何建立仅与该提供商相关的代理工作流或生产应用程序的组织都有立即运营失败的风险。作为企业技术领导者，如果还没有实现，你的首要目标应该是紧急实现人工智能供应的多样化——无论是其他基于云的人工智能模型和提供商，还是在企业控制的本地或虚拟硬件上运行的人工智能模型。在这一点上，企业人工智能供应商的多样化可以说是必不可少的，以确保您可以继续运行人工智能工作流程而不会中断。社区对Fable 5被删除的反应反映了企业对硬件主权的快速转变。AI创始人Alex Finn在X上将Anthropic的关闭标记为“警钟”，敦促开发人员在家用GPU上运行本地模型，以使自己免受监管波动的影响。芬恩写道：“没有任何公司或政府能够拿走你的本地模型。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/anthropic-blocks-all-public-access-to-claude-fable-5-mythos-5-following-us-government-order-what-enterprises-should-do" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
