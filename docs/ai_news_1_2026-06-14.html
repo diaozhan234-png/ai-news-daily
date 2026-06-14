@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-14 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-14</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 The Verge</span>
+      <span class="badge">🔥 热度 87.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">My first 24 hours with Siri AI on the Mac</div>
+      <div class="col-content">﻿Siri is better, but its limitations are much more obvious on a Mac than an iPhone. ﻿Siri is better, but its limitations are much more obvious on a Mac than an iPhone. I turned off Siri on the Mac years ago and never looked back. Similarly, I found Apple Intelligence so fruitless I never engage with it. But the new Siri AI coming to macOS 27 Golden Gate has at least got me slightly rethinking things. I’m still early in testing Siri AI, as I’ve only had access to it in the macOS 27 developer beta for little more than 24 hours. It’s also in an early preview state on the dev beta, so there should be lots of runway for improvements before it releases later this year. I don’t even know if it’s done indexing my files and folders on our review unit M5 MacBook Air and M5 Max MacBook Pro . Unlike on the iOS 27 dev beta, there’s no “indexing in progress” box in the settings page. I asked Siri if it could tell me, but it told me to click a button in Settings that isn’t there. My colleagues got a headstart testing Siri AI on the iPhone and Apple Watch , and getting a read on its general vibe , and they’ve so far had some positive feedback from using it. My feelings are a little more mixed. When I sit down at a laptop I don’t need a voice assistant for searching things I’m randomly curious about or checking the weather like I would on a phone; I can do that faster and more accurately with keyboard and mouse. So I tried to think of ways to let Siri AI help me on macOS — things that might actually be useful to me in my everyday work. I’d be happy to automate some of the time-consuming benchmarking I do when reviewing laptops, but although Siri AI can launch apps, it can’t take actions inside them (not that Apple ever claimed it could). I then tried to see if vibe coding a couple Shortcuts could get me there instead. This isn’t a Siri AI feature, but it is a new part of Apple Intelligence. I asked Shortcuts to run a test in either Geekbench or Cinebench, capture the results in a screenshot, wait a few minutes, and repeat the process two more times. But the resulting automations couldn’t actually run the tests either. Apple Intelligence made a shortcut that opened Geekbench and took screenshots (but forgot about actually running the benchmark), and it made a Cinebench shortcut that had “Wait for you to run the test” as an actual step. Maybe if developers continue expanding App Intents this could one day work. So if Siri can’t help me run my benchmarks, maybe it can at least help me be a little faster in logging the data. In my normal workflow, I run each benchmark three times, taking screenshots as I go, and later average out the results before cataloging them in a spreadsheet. Apple’s WWDC keynote showed someone using Ask Siri in Spotlight to analyze data in local files. So I tried selecting batches of those screenshots in Finder and asking Siri to calculate the average scores for me. It worked pretty well — most of the time. It was smart enough to distinguish single-core CPU scores from multicore CPU scores and GPU scores, average the test results, and arrange them in easy-to-read tables. But it could get thrown off if I included screenshots of too many different types of tests, especially if I mixed ones with synthetic score results (Geekbench, PugetBench, etc.) and time-based results (Blender render tests and our 4K video export test). And it sometimes got thrown off by the CPU rankings data that’s visible in Cinebench screenshots. Ideally, I’d be able to have Siri AI accurately calculate the 15 or so averages from my dozens of screenshots all at once — that would save me some serious time. But for now, it can at best only help me a little bit. And unless it gets better I’m still inclined to continue doing it all myself, especially since Siri messed up the numbers a couple times by pulling the wrong data. So far, Siri AI seems a lot more capable within Apple’s ecosystem than it is outside of it, even for apps and files that are already on my Mac but in non-Apple apps. When I asked Siri to find my pictures of cats or babies, it pulled up results from Apple’s Photos and Messages apps. This could be enough for plenty of people, but not for me. Most of my messaging is done in Signal, and photos from my phone are uploaded to Google Photos, not iCloud. Siri also missed the thousands of images I have in my Lightroom Classic catalog, even though the files are stored locally in the Pictures folder and I kept asking it to access them directly. It’s possible those files haven’t been indexed yet, but I have no way to tell. For now, I’m getting similar vibes to when I tested Copilot Vision last year . Like Copilot Vision, you can use Siri’s Visual Intelligence to ask questions about things on your screen. And like Copilot, it’s limited. I asked Siri to evaluate benchmark results on a spreadsheet in Google Sheets, but it can’t see all the data if it’s not visible onscreen all at once. I could get it to see the whole spreadsheet by downloading it as an Excel file and pointing Siri at it in Finder, but when I asked for the laptop with the highest single-core Geekbench score it gave me multicore data. Not great. I opened Siri while running Lightroom Classic, on a black-and-white photo from my Ricoh GR IV Monochrome review , and asked Siri how to make it look more like a shot from street photographer Alan Schaller . Siri offered specific value adjustments for exposure, contrast, and so on, and adjusting those values gave me a decent result. Unfortunately, when I asked Siri to judge the result, it went sycophant on me, saying I’d nailed the look and achieved an “almost timeless feel,” which is the type of behavior Apple says it’s not supposed to show. (I thought we were past this.) Then I uploaded a classic Garry Winograd photo and asked how to change my Lightroom settings to match that photo; Siri recommended I set the exposure to the value it was already at. So, some hits and some misses.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">我在Mac上使用Siri AI的第一个24小时</div>
+      <div class="col-content">﻿Siri更好，但它的局限性在Mac上比iPhone更明显。 ﻿Siri更好，但它的局限性在Mac上比iPhone更明显。几年前，我关闭了Mac上的Siri，从此再也没有回头。同样，我发现Apple Intelligence毫无成效，我从未参与其中。但macOS 27 Golden Gate上的新Siri AI至少让我重新思考了一些事情。我仍然处于测试Siri AI的早期阶段，因为我在macOS 27开发人员测试版中只访问了24个多小时。它还处于开发测试版的早期预览状态，因此在今年晚些时候发布之前，应该有很多改进的空间。我甚至不知道我们的审查单元M5 MacBook Air和M5 Max MacBook Pro上的文件和文件夹是否已经完成索引。与iOS 27开发测试版不同，设置页面中没有“正在进行索引”框。我问Siri是否可以告诉我，但它告诉我点击“设置”中不存在的按钮。我的同事们在iPhone和Apple Watch上率先测试了Siri AI，并了解了它的总体氛围，到目前为止，他们使用它得到了一些积极的反馈。我的感觉有点复杂。当我坐在笔记本电脑前时，我不需要语音助手来搜索我随机好奇的东西，也不需要像在电话上那样查看天气；我可以用键盘和鼠标更快、更准确地做到这一点。所以我试着想办法让Siri AI在macOS上帮助我——这些东西在我的日常工作中可能对我有用。我很乐意自动化我在审查笔记本电脑时进行的一些耗时的基准测试，但尽管Siri AI可以启动应用程序，但它不能在其中采取行动（苹果从未声称过它可以）。然后，我试着看看用vibe编码几个快捷方式是否能让我到达那里。这不是Siri的AI功能，但它是Apple Intelligence的一个新部分。我让Shortcuts在Geekbench或Cinebench中运行测试，将结果截图，等待几分钟，然后再重复该过程两次。但由此产生的自动化也无法实际运行测试。Apple Intelligence创建了一个快捷方式，打开Geekbench并截取屏幕截图（但忘记了实际运行基准测试），它还制作了一个Cinebench快捷方式，将“等待您运行测试”作为实际步骤。也许如果开发人员继续扩展App Intents，总有一天会奏效。所以，如果Siri不能帮助我运行基准测试，也许它至少可以帮助我更快地记录数据。在我的正常工作流程中，我运行每个基准测试三次，边走边截图，然后在电子表格中编目之前对结果进行平均。苹果的WWDC主题演讲显示，有人在Spotlight中使用Ask Siri分析本地文件中的数据。所以我试着在Finder中选择这些截图的批次，并让Siri为我计算平均分数。在大多数情况下，效果都很好。它足够聪明，可以区分单核CPU分数、多核CPU分数和GPU分数，对测试结果进行平均，并将其排列在易于阅读的表格中。但如果我包含太多不同类型测试的截图，尤其是如果我将合成分数结果（Geekbench、PugetBench等）和基于时间的结果（Blender渲染测试和我们的4K视频导出测试）混合在一起，它可能会被抛出。它有时会被Cinebench屏幕截图中可见的CPU排名数据所抛弃。理想情况下，我可以让Siri AI同时从我的几十张截图中准确计算出15个左右的平均值——这将为我节省一些时间。但就目前而言，它最多只能帮我一点。除非情况好转，否则我仍然倾向于继续自己做这一切，尤其是因为Siri通过提取错误的数据几次把数字搞砸了。到目前为止，Siri AI在苹果生态系统内的能力似乎比在生态系统外强得多，即使是对于已经在我的Mac上但在非苹果应用程序中的应用程序和文件也是如此。当我让Siri查找我的猫或婴儿的照片时，它从苹果的照片和消息应用程序中提取了结果。这对很多人来说可能已经足够了，但对我来说还不够。我的大部分信息都是在Signal中完成的，手机上的照片会上传到谷歌照片，而不是iCloud。Siri也错过了我Lightroom Classic目录中的数千张图片，尽管这些文件存储在本地的Pictures文件夹中，我一直要求它直接访问它们。这些文件可能还没有被索引，但我无法判断。目前，我的感受与去年测试Copilot Vision时相似。与Copilot Vision一样，你可以使用Siri的视觉智能来询问屏幕上的问题。和Copilot一样，它是有限的。我让Siri在谷歌表格中的电子表格上评估基准测试结果，但如果它不能在屏幕上一次看到所有数据，它就无法看到所有数据。我可以通过将其下载为Excel文件并在Finder中指向Siri来查看整个电子表格，但当我要求使用单核Geekbench得分最高的笔记本电脑时，它给了我多核数据。不太好。我在运行Lightroom Classic时打开了Siri，在我的Ricoh GR IV Monochrome评论中的一张黑白照片上，问Siri如何让它看起来更像街头摄影师Alan Schaller的照片。Siri为曝光、对比度等提供了特定的值调整，调整这些值给了我一个不错的结果。不幸的是，当我让Siri评判结果时，它对我阿谀奉承，说我把外观钉得很好，达到了一种“几乎永恒的感觉”，这是苹果公司所说的不应该表现出来的行为。（我以为我们已经过去了。）然后我上传了一张Garry Winograd的经典照片，并询问如何更改我的Lightroom设置以匹配那张照片；Siri建议我将曝光设置为它已经达到的值。所以，有一些点击和一些未点击。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.theverge.com/tech/949502/apple-macos-27-golden-gate-siri-ai-apple-intelligence" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：The Verge · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
