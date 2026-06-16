@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-16 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-16</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">My Homelab AI Dev Platform</div>
+      <div class="col-content">I set up OpenCode Web UI with Git access to make my homelab easier to manage. OpenCode pushes changes to Git, I approve the PRs, GitOps deploys the changes. Best of all, OpenCode runs as a server with persistent coding sessions synced across devices. I’ll share my homelab setup soon. There are about a dozen docker compose stacks for the services that I manage. I recently moved them to Arcane so I can manage/deploy them with GitOps. The next logical step was using AI tooling to help maintain my services. The first use that came to mind was using AI to help with container updates. Previously, I would spend time looking up the release notes for each of the services, checking for any breaking changes, running the updates, and manually checking each of the services for issues. I would spend a few hours on this. Now I can read a summary of the release notes in a few minutes, making version upgrades easier and safer. On top of that, I’ve used AI to add healthchecks to most of the containers to make it faster to spot issues. I mainly used Claude Code, but AI providers have been really squeezing the value out of customers recently through token limits, so I took the opportunity to look into other options. I wanted something that was vendor agnostic and supported by the major plugins. I ended on OpenCode . There are probably other decent coding environments, but this was my favorite of the ones I tried. Then I found it ships with a built in webserver and web UI , which gave me an idea. I set up a simple VM on the Truenas host with basic dev tooling and added OpenCode webserver as a systemd unit. It’s a solid environment with a built in terminal, file browser, and git diffs, as well as git worktree support for managing multiple coding sessions at the same time. Plus, OpenCode had the best the question/answer popups in the mobile web UI that I’ve seen. I gave OpenCode its own user on my Git server with dedicated SSH keys. It can clone projects and push branches, but it cannot push straight to the deploy branch. My workflow keeps the AI behind PR review. OpenCode writes the change and I merge it myself in a PR. I think it’s cute, but more importantly, it keeps unreviewed code from getting deployed. The VM has internet access and access to my Git server, but it cannot reach my actual services. Because the blast radius is small, I am comfortable giving OpenCode root on the VM when it needs to install build tools or test dependencies. I could see building this into a production developer platform. Ephemeral containers available to developers with preinstalled tooling, access guardrails, and audit logs. But for me, it does what I need it to without too many moving parts. I migrated my services from Truenas to Arcane GitOps projects. This was mainly to have git-backed storage for all the docker compose stacks I was running in Truenas previously. I was surprised how well this worked in conjunction with adding OpenCode. Being able to update the networking across all containers, for example, from my phone makes the sprawl much easier to manage. Before it would take hours to comb through all of the compose stacks, tracing out network connectivity. Now I can point OpenCode at the codebase with a goal, check the resulting PR changes, and merge. The main missing piece is CI feedback. On GitHub, I like pointing a coding agent at Actions logs so it can diagnose failing tests, linter errors, stack traces, and IaC plan changes. This helps maintain a fast feedback loop for changes that unit tests don’t cover. Forgejo makes that harder. Forgejo Actions does not expose job logs through the public API. There are undocumented APIs, but I would rather not build around those. This setup lets me make home infra changes from any device without giving AI direct access to the services it’s changing. I can start a change from my computer, review the PR from my phone, and let GitOps handle the deploy.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">My Homelab人工智能开发平台</div>
+      <div class="col-content">我设置了具有Git访问权限的OpenCode Web UI，使我的家庭实验室更容易管理。OpenCode将更改推送到Git，我批准PR，GitOps部署更改。最重要的是，OpenCode作为服务器运行，在设备之间同步持久的编码会话。我很快就会分享我的家庭实验室设置。我管理的服务大约有十几个docker组合栈。我最近将它们转移到了Arcane，这样我就可以使用GitOps管理/部署它们。下一个合乎逻辑的步骤是使用AI工具来帮助维护我的服务。首先想到的是使用AI来帮助容器更新。以前，我会花时间查找每个服务的发行说明，检查任何重大更改，运行更新，并手动检查每个服务是否存在问题。我会在这件事上花几个小时。现在，我可以在几分钟内阅读发行说明的摘要，使版本升级更容易、更安全。除此之外，我还使用AI为大多数容器添加了健康检查，以便更快地发现问题。我主要使用Claude Code，但人工智能提供商最近一直在通过代币限制从客户身上榨取价值，所以我借此机会研究了其他选择。我想要一个与供应商无关并得到主要插件支持的东西。我在OpenCode上结束了。可能还有其他不错的编码环境，但这是我尝试过的环境中我最喜欢的。然后我发现它附带了内置的web服务器和web UI，这给了我一个想法。我使用基本的开发工具在Truenas主机上设置了一个简单的VM，并添加了OpenCode Web服务器作为systemd单元。这是一个坚实的环境，具有内置的终端、文件浏览器和git diffs，以及用于同时管理多个编码会话的git工作树支持。此外，OpenCode的问题/答案弹出窗口是我见过的移动web UI中最好的。我在Git服务器上给OpenCode自己的用户提供了专用的SSH密钥。它可以克隆项目并推送分支，但不能直接推送到部署分支。我的工作流程让人工智能支持公关审查。OpenCode编写更改，我自己将其合并到PR中。我认为这很可爱，但更重要的是，它可以防止未审查的代码被部署。虚拟机可以访问互联网和我的Git服务器，但它无法访问我的实际服务。因为爆炸半径很小，所以当VM需要安装构建工具或测试依赖关系时，我很乐意在VM上提供OpenCode根。我可以把它构建成一个生产开发平台。开发人员可以使用预装工具、访问护栏和审计日志的临时容器。但对我来说，它做了我需要的事情，没有太多的运动部件。我将我的服务从Truenas迁移到了Arcane GitOps项目。这主要是为我之前在Truenas中运行的所有docker compose堆栈提供git支持的存储。我惊讶地发现，这与添加OpenCode结合使用效果很好。例如，能够通过我的手机更新所有容器的网络，使蔓延更容易管理。之前，需要几个小时来梳理所有的组合堆栈，追踪网络连接。现在，我可以将OpenCode指向具有目标的代码库，检查由此产生的PR更改，然后合并。主要缺少的部分是CI反馈。在GitHub上，我喜欢将编码代理指向Actions日志，这样它就可以诊断失败的测试、linter错误、堆栈跟踪和IaC计划更改。这有助于为单元测试未涵盖的更改保持快速反馈循环。Forgejo让这更难。Forgejo操作不会通过公共API公开作业日志。有未记录的API，但我宁愿不围绕这些API构建。这种设置允许我从任何设备更改家庭基础设施，而无需让AI直接访问它正在更改的服务。我可以从电脑开始更改，从手机查看PR，然后让GitOps处理部署。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://rsgm.dev/post/ai-dev-platform/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
