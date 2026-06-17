@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-17 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-17</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Why Weibo’s tiny VibeThinker-3B has the AI world arguing over benchmarks again</div>
+      <div class="col-content">On Sunday, a team of nine researchers at Sina Weibo — the Chinese social media giant better known for its microblogging platform than for cutting-edge artificial intelligence — quietly posted a 14-page technical report to arXiv that sent shockwaves through the AI research community. Their claim: a language model with just 3 billion parameters can match or exceed the reasoning performance of flagship systems from Google DeepMind , OpenAI , Anthropic , and DeepSeek that are hundreds of times larger. The model, called VibeThinker-3B , scored 94.3 on AIME 2026 — the American Invitational Mathematics Examination, one of the most demanding standardized math competitions in the world. That figure places it alongside DeepSeek V3.2 , a model with 671 billion parameters, and ahead of Gemini 3 Pro , Google's high-performance flagship reasoning system, which scored 91.7. With a test-time scaling technique the team calls Claim-Level Reliability Assessment, the score climbs to 97.1, edging past virtually every system in the public record. Within hours of publication, the paper had drawn 62 upvotes on Hugging Face's daily papers feed, the model repository had accumulated 130 likes, and the GitHub repository had reached 685 stars. But the reaction on social media was not uniformly celebratory. It was, in many cases, deeply skeptical. "WHAT THE HELL is happening in AI?" wrote the user @orcus108 on X, in a post that accumulated over 161,000 views. "A 3B parameter model just put up coding benchmark scores in the same league as Claude Opus 4.5… I genuinely don't know if this is a breakthrough or if the benchmarks are broken." That tension — between genuine scientific advancement and the growing suspicion that AI benchmarks have become gameable to the point of meaninglessness — sits at the heart of the VibeThinker-3B story. And the answer matters enormously, not just for academic bragging rights, but for the multibillion-dollar question of whether the AI industry's relentless push toward ever-larger models is the only path to intelligence. The results reported in the technical report are, by any conventional standard, extraordinary. On the mathematics side, VibeThinker-3B achieved 91.4 on AIME 2025 , 94.3 on AIME 2026 , 89.3 on HMMT 2025 (the Harvard-MIT Mathematics Tournament), 93.8 on BruMO 2025 (the Brown University Math Olympiad), and 76.4 on IMO-AnswerBench , a benchmark comprising 400 problems at the level of the International Mathematical Olympiad. In coding, it posted an 80.2 Pass@1 on LiveCodeBench v6 , a benchmark designed to test executable code generation, and achieved a 96.1 percent acceptance rate on unseen LeetCode weekly and biweekly contests from late April through late May 2026. On instruction following, it scored 93.4 on IFEval . To put the parameter disparity in perspective: DeepSeek V3.2 has 671 billion parameters — roughly 224 times the size of VibeThinker-3B . GLM-5 , from Zhipu AI, has 744 billion parameters. Kimi K2.5 , from Moonshot AI, exceeds 1 trillion. VibeThinker-3B's 3 billion parameters could run on a consumer laptop. The researchers frame this result not as an anomaly but as evidence for a broader theoretical claim. They introduce what they call the " Parametric Compression-Coverage Hypothesis ," which argues that different types of AI capability have fundamentally different relationships to model size. Verifiable reasoning — the kind tested by math competitions and coding challenges, where answers can be definitively checked — is what the paper calls a "parameter-dense" capability: one that can be compressed into a compact core. Open-domain knowledge, by contrast, is "parameter-expansive," requiring broad coverage across facts, concepts, and edge cases that inherently demands more parameters. The paper acknowledges this distinction directly. On GPQA-Diamond , a graduate-level science knowledge benchmark, VibeThinker-3B scored just 70.2 — well behind the 91.9 achieved by Gemini 3 Pro and the 87.0 scored by Claude Opus 4.5. The authors write that this gap "is consistent with our claim rather than a contradiction to it: the main finding is not that a 3B model has fully replaced leading general-purpose models, but that a small model can reach first-tier performance on many verifiable reasoning tasks." VibeThinker-3B is not built from scratch. It is post-trained on top of Qwen2.5-Coder-3B , a compact foundation model from Alibaba's Qwen team, through what the Weibo AI researchers call the "Spectrum-to-Signal Principle" — a multi-stage pipeline first introduced in the team's earlier VibeThinker-1.5B work in November 2025. The training unfolds in four major phases. The first is a two-stage supervised fine-tuning process that uses curriculum learning: the model first trains on a broad mixture of math, code, STEM reasoning, general dialogue, and instruction-following data, then shifts to a curated subset of harder, longer-horizon reasoning problems. In the second stage, samples with reasoning traces shorter than 5,000 tokens are discarded, and problems that VibeThinker-1.5B can solve more than 75 percent of the time are filtered out, forcing the model to focus on genuinely difficult challenges. The second phase applies reinforcement learning across multiple domains — mathematics, code, and STEM — using the team's MaxEnt-Guided Policy Optimization algorithm, or MGPO, which prioritizes training on problems at the model's current capability boundary rather than problems it already solves easily or finds impossible. Notably, the team found that a strategy that worked well at the 1.5B scale — progressively expanding the context window during RL training — actually hurt performance at 3B. They hypothesize that the stronger starting checkpoint meant that truncating reasoning traces during warm-up was no longer removing noise but disrupting valid reasoning patterns. The solution was to train with a single 64,000-token context window throughout.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">为什么微博的VibeThinker-3B让人工智能世界再次争论基准</div>
+      <div class="col-content">周日，中国社交媒体巨头新浪微博的一个由九名研究人员组成的团队悄悄地向arXiv发布了一份14页的技术报告，给人工智能研究界带来了冲击波。他们声称：一个只有30亿个参数的语言模型可以匹配或超过谷歌DeepMind、OpenAI、Anthropic和DeepSeek的旗舰系统的推理性能，这些系统的推理能力要大几百倍。这款名为VibeThinker-3B的模型在AIME 2026（美国邀请数学考试）上获得了94.3分，这是世界上要求最高的标准化数学竞赛之一。这一数字与DeepSeek V3.2（一个拥有6710亿个参数的模型）并列，并领先于谷歌高性能旗舰推理系统Gemini 3 Pro（得分91.7）。通过该团队称之为“索赔级可靠性评估”的测试时间缩放技术，得分攀升至97.1，几乎超过了公共记录中的所有系统。在发表后的几个小时内，该论文在Hugging Face的每日论文推送中获得了62张赞成票，模型库获得了130个赞，GitHub库获得了685颗星。但社交媒体上的反应并不一致。在许多情况下，它深表怀疑。用户@orcus108在X上写道：“人工智能到底发生了什么？”这篇帖子的浏览量超过16.1万。“一个3B参数模型只是将编码基准分数与Claude Opus 4.5放在同一水平……我真的不知道这是一个突破，还是基准被打破了。”这种紧张关系——真正的科学进步与人们越来越怀疑人工智能基准已经变得无意义——是VibeThinker-3B故事的核心。答案非常重要，不仅是为了学术上的吹嘘权，也是为了数十亿美元的问题，即人工智能行业对更大模型的不懈推动是否是通往智能的唯一途径。按照任何传统标准，技术报告中报告的结果都是非同寻常的。在数学方面，VibeThinker-3B在AIME 2025上获得91.4分，在AIME 2026上获得94.3分，在HMMT 2025（哈佛-麻省理工数学锦标赛）上获得89.3分，在BruMO 2025（布朗大学数学奥林匹克竞赛）上获得93.8分，在IMO AnswerBench上获得76.4分，IMO Answer Bench是一个包含400道国际数学奥林匹克水平问题的基准。在编码方面，它发布了80.2Pass@1在LiveCodeBench v6上，该基准旨在测试可执行代码生成，并在2026年4月底至5月底期间，在看不见的LeetCode每周和双周竞赛中获得了96.1%的接受率。根据指示，它在IFEval上的得分为93.4。为了正确看待参数差异：DeepSeek V3.2有6710亿个参数，大约是VibeThinker-3B的224倍。来自智普AI的GLM-5有7440亿个参数。来自Moonshot AI的Kimi K2.5超过1万亿。VibeThinker-3B的30亿个参数可以在消费者笔记本电脑上运行。研究人员认为这一结果不是异常现象，而是更广泛的理论主张的证据。他们引入了他们所谓的“参数压缩覆盖假说”，该假说认为不同类型的人工智能能力与模型大小有着根本不同的关系。可验证的推理——通过数学竞赛和编码挑战进行测试，可以明确地检查答案——是该论文所说的“参数密集”能力：一种可以压缩成紧凑核心的能力。相比之下，开放领域知识是“参数扩展性的”，需要广泛覆盖事实、概念和边缘案例，而这些事实、概念、边缘案例本身就需要更多的参数。本文直接承认了这一区别。在研究生级别的科学知识基准GPQA Diamond上，VibeThinker-3B的得分仅为70.2，远低于Gemini 3 Pro的91.9和Claude Opus 4.5的87.0。作者写道，这一差距“与我们的说法一致，而不是矛盾：主要发现不是3B模型完全取代了领先的通用模型，而是一个小模型可以在许多可验证的推理任务中达到第一级性能。”VibeThinker-3B不是从头开始构建的。它是在腾讯Qwen团队的粉饼模型Qwen 2.5-Coder-3B的基础上通过微博人工智能研究人员所称的“Spectrum-to-Signal Principle”进行后期训练的，这是该团队在2025年11月的早期VibeThinker-1.5B工作中首次引入的多阶段管道。培训分为四个主要阶段。第一种是使用课程学习的两阶段监督微调过程：该模型首先对数学、代码、STEM推理、一般对话和教学跟踪数据的广泛混合进行训练，然后转向更难、更长远的推理问题的精心策划的子集。在第二阶段，推理痕迹小于5000个令牌的样本被丢弃，VibeThinker-1.5B在75%以上的时间里可以解决的问题被过滤掉，迫使模型专注于真正困难的挑战。第二阶段使用团队的MaxEnt引导策略优化算法（MGPO）在多个领域（数学、代码和STEM）应用强化学习，该算法优先考虑在模型当前能力边界的问题上进行训练，而不是已经很容易解决或发现不可能的问题。值得注意的是，该团队发现，在1.5B规模下效果良好的策略——在RL训练期间逐步扩大上下文窗口——实际上会损害3B的表现。他们假设，更强的起始检查点意味着在预热过程中截断推理痕迹不再是消除噪音，而是扰乱有效的推理模式。解决方案是在整个过程中使用一个64000个令牌上下文窗口进行训练。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/why-weibos-tiny-vibethinker-3b-has-the-ai-world-arguing-over-benchmarks-again" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
