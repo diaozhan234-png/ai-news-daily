@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-18 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-18</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AWS enters the context layer race with a graph that learns from agents, not manual curation</div>
+      <div class="col-content">Building a context layer between enterprise data stores and AI agents is bespoke work, with no standard service to automate or maintain the graphs over time. Amazon is making a direct play to change that. Amazon on Wednesday entered the space, announcing a series of three products it's positioning as a context intelligence stack for AI agents. The centerpiece is AWS Context, a new knowledge graph service that gets smarter through agent usage over time. AWS also announced the general availability of Amazon S3 Annotations and a preview of skill assets in AWS Glue Data Catalog. The context layer is now a contested architectural category with no shortage of options from different vendors. AWS is entering that market with a different architectural premise: that the graph should learn from how agents use it automatically, without human re-curation. "Your agents now get smarter without you having to rebuild anything from scratch," said Swami Sivasubramanian, vice president of Agentic AI at AWS, during his AWS Summit NYC keynote. "This service automatically builds a knowledge graph from all your existing data," he said. "This service infers relationships across your data sets, business rules, and domain knowledge, and makes all of it available to your agents and your organization at runtime." It's a problem AWS says it has seen repeatedly in customer deployments. AWS Context maps relationships across existing data automatically: what tables exist, what columns mean, how sources relate and which sources are authoritative. It combines semantic search with graph-level reasoning and infers relationships across datasets, business rules and domain knowledge, making all of it available to agents at runtime. "The knowledge graph improves itself over time as it learns which sources produce correct results and which parts get used," Sivasubramanian said. Data stewards manage the graph through the AWS Management Console, reviewing inferred relationships, promoting them to production and attaching business definitions and usage rules. Every query inherits the calling user's IAM and Lake Formation permissions, making agent data access auditable by identity through controls enterprises already rely on. All metadata is published in Apache Iceberg format to Amazon S3 Tables, queryable via Athena, Redshift, Spark or any Iceberg-compatible engine, with no proprietary APIs. Third-party catalog connections are supported, so context from systems outside AWS can be pulled into the same graph. Agents query through agentic search APIs and MCP tools across Bedrock AgentCore, EKS or any MCP-compatible framework. Context is a complicated space and AWS is layering multiple services to help enterprises build context across the data stack. Amazon S3 Annotations. This service enables users to attach rich business context at the storage layer, directly to individual S3 objects. AWS Glue Data Catalog skill assets . Glue skill assets attach domain knowledge at the catalog layer, linking runbooks, query patterns and usage rules to data assets across the estate. AWS Context then synthesizes both into the knowledge graph that agents query at runtime, combining semantic search with graph-level reasoning across structured and unstructured sources. Each layer feeds the next. Snowflake announced its context approach earlier this month with its Horizon Context and Cortex Sense services. Microsoft is providing context via its Fabric IQ platform that provides a semantic ontology for data. Redis has developed a context platform that optimizes data for retrieval. Vector database vendor Pinecone has its Nexus context offering that compiles enterprise data into task-specific artifacts before agents ever query them. AWS's structural argument is straightforward: for enterprises already running S3, Glue and Lake Formation, AWS Context extends an existing identity model with no data movement required. The pitch is zero-integration friction — not just cost consolidation. "Context makes agents more powerful and as the whole world is building agents, every agentic platform vendor needs a context capability," Holger Mueller, VP and Principal analyst at Constellation Research, told VentureBeat. Mueller noted that AWS is no exception. "The concern — as with all context offerings — is going to be performance, especially for transactional data, we will see," he said.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">AWS通过从代理学习而非手动管理的图形进入上下文层竞赛</div>
+      <div class="col-content">在企业数据存储和人工智能代理之间构建上下文层是一项定制工作，没有标准服务来随着时间的推移自动化或维护图形。亚马逊正在采取直接行动来改变这一现状。亚马逊周三进入该领域，宣布推出三款产品，将其定位为人工智能代理的上下文智能堆栈。核心是AWS Context，这是一种新的知识图服务，随着时间的推移，通过使用代理变得更加智能。AWS还宣布了Amazon S3 Annotations的全面可用性，并预览了AWS Glue Data Catalog中的技能资产。上下文层现在是一个有争议的架构类别，不缺少来自不同供应商的选项。AWS以不同的架构前提进入该市场：图形应该从代理如何自动使用它中学习，而无需人工重新管理。AWS代理人工智能副总裁Swami Sivasubramanian在AWS纽约峰会主题演讲中表示：“你的代理现在变得更聪明了，你不必从头开始重建任何东西。”。他说：“这项服务会自动从你现有的所有数据中构建一个知识图。”。“此服务推断您的数据集、业务规则和领域知识之间的关系，并在运行时将所有这些信息提供给您的代理和组织。”AWS表示，这是一个在客户部署中反复出现的问题。AWS Context自动映射现有数据之间的关系：存在哪些表、哪些列意味着什么、源之间的关系以及哪些源是权威的。它将语义搜索与图级推理相结合，推断数据集、业务规则和领域知识之间的关系，使所有这些在运行时都可供代理使用。Sivasubramanian说：“随着时间的推移，知识图谱会自我改进，因为它会学习哪些来源会产生正确的结果，哪些部分会被使用。”。数据管理员通过AWS管理控制台管理图表，审查推断的关系，将其推广到生产环境，并附加业务定义和使用规则。每个查询都继承了调用用户的IAM和Lake Formation权限，使代理数据访问可以通过企业已经依赖的控制进行身份审计。所有元数据都以Apache Iceberg格式发布到Amazon S3 Tables，可以通过Athena、Redshift、Spark或任何与Iceberg兼容的引擎进行查询，没有专有API。支持第三方目录连接，因此可以将来自AWS外部系统的上下文拉入同一图中。代理通过跨Bedrock AgentCore、EKS或任何MCP兼容框架的代理搜索API和MCP工具进行查询。上下文是一个复杂的空间，AWS正在分层多个服务，以帮助企业跨数据栈构建上下文。Amazon S3注释。此服务使用户能够在存储层将丰富的业务上下文直接附加到单个S3对象。AWS Glue数据目录技能资产。粘合技能资产在目录层附加领域知识，将运行手册、查询模式和使用规则链接到整个庄园的数据资产。然后，AWS Context将两者合成到代理在运行时查询的知识图中，将语义搜索与跨结构化和非结构化源的图级推理相结合。每一层都为下一层提供食物。Snowflake本月早些时候宣布了其Horizon context和Cortex Sense服务的上下文方法。微软通过其Fabric IQ平台提供上下文，该平台为数据提供语义本体。Redis开发了一个上下文平台，可以优化检索数据。矢量数据库供应商Pinecone有其Nexus上下文产品，可以在代理查询之前将企业数据编译成特定任务的工件。AWS的结构论证很简单：对于已经运行S3、Glue和Lake Formation的企业，AWS Context扩展了现有的身份模型，不需要数据移动。重点是零整合摩擦，而不仅仅是成本整合。Constellation Research副总裁兼首席分析师Holger Mueller告诉VentureBeat：“上下文使代理更加强大，随着整个世界都在构建代理，每个代理平台供应商都需要上下文功能。”。Mueller指出，AWS也不例外。他说：“与所有上下文产品一样，我们关注的是性能，尤其是交易数据的性能。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/data/aws-enters-the-context-layer-race-with-a-graph-that-learns-from-agents-not-manual-curation" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
