@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-18 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-18</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 83.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI coding agents taught robots how to install GPUs and cut zip ties</div>
+      <div class="col-content">What happens when you give AI coding agents a lab full of robotic arms, some compute resources, and a “generous token budget” for teaching the robots various tasks? The agents can apparently figure out a training regimen that teaches the robots to successfully cut zip ties and even insert GPUs into thin sockets on motherboards. That glimpse into how AI can act in a fully autonomous way to automate robot training was made possible by a new agent harness framework—software that wraps around AI models to enable their use of various tools while also providing capabilities such as memory, context, constraint, and feedback loops. That agentic harness, called ENPIRE , was developed by robotics researchers at the Nvidia GEAR (Generalist Embodied Agent Research) lab alongside collaborators from Carnegie Mellon University in Pittsburgh and the University of California, Berkeley. “A part of our NVIDIA GEAR lab now self-improves tirelessly overnight,” wrote Jim Fan, director of AI at NVIDIA, in a LinkedIn post . “We just read the reports in the morning.” Fan also jokingly described the goal of such AI-directed robot training, saying, “We all take a holiday and Jensen wouldn’t even notice,” in reference to Nvidia founder and CEO Jensen Huang. But it’s not only Nvidia robotics researchers who could benefit—Fan said the team would be open-sourcing everything so anyone can host their own “self-running robot lab at home.” The ENPIRE harness has four modules that enable AI coding agents to perform automatic reset and verification on tasks, refine policies that guide robotic behavior, evaluate such policies across multiple physical robots working in parallel, and address failures by analyzing logs, ingesting research papers, and improving training infrastructure and algorithm code. More technical details are available in the research paper uploaded on June 16, 2026. The harness was tested with three different AI coding agents, including OpenAI’s Codex with GPT-5.5, Anthropic’s Claude Code with Opus 4.7, and Moonshot AI’s Kimi Code with Kimi K2.6. Teams of the coding agents independently developed different algorithmic approaches to robot training, tested them in real-world experiments, and then retained whatever changes helped raise the overall success rate over repeated cycles of self-directed testing. Equipped with ENPIRE, the AI coding agents developed strategies for robotic self-improvement that achieved a 99 percent success rate across several manipulation tasks, including the standard “Push-T” task that challenges robots to move a T-shaped block to fit a target position on top of a table. Other tasks included organizing pins in a pin box, tying and cutting zip ties, and placing a GPU into a motherboard before unplugging the graphics card again to reset for the next trial. The most promising result may have come from the pin insertion and organization task. In that robot-training scenario, AI coding agents achieved nearly 100 percent success faster than a “ frontier human-in-the-loop method” developed by many of the same human researchers. Such experiments also showed how larger teams of up to eight AI coding agents could achieve high success rates in robot training more quickly than smaller four-agent teams or single agents working alone. For example, the eight-agent team achieved 99 percent success on the Push-T task in two hours of research time, compared to the four-agent team requiring three hours and the single-agent team requiring nearly five hours. But the human researchers also discovered some crucial limitations when unleashing AI coding agents as autonomous robot trainers. The robots often sat idle and unused while the coding agents were busy “reading logs, writing code, debugging, or waiting for the language-model backbone.” Larger teams of coding agents also spent more time summarizing each other’s ideas and less time actually using the robots, and the coding agents sometimes failed to make full use of available compute resources when launching parallel training sessions. The faster success rates enabled through more agents and robots working together also came at the cost of higher token consumption—a noteworthy consideration at a time when AI developers such as Anthropic are weighing pricing changes that would significantly increase the token-related costs of using AI services. Flush with cash from the AI boom, Nvidia has been busily pushing its vision for physical AI through multiple robotics initiatives. On May 31, the company announced a partnership with the prominent Chinese robotics company Unitree to provide a “Reference Humanoid Robot” for research labs developing general-purpose AI-powered robots. During a whirlwind tour of South Korea in early June, Nvidia founder and CEO Jensen Huang also met with Hyundai Motor Executive Chair Chung Euisun to discuss scaling up the mass manufacturing of AI-powered robots . Hyundai Motor Group owns the US robotics company Boston Dynamics, which is already well-known for its four-legged “robot dog” Spot and has been working to commercialize its Atlas humanoid robot.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">AI编码代理教会机器人如何安装GPU和剪断拉链</div>
+      <div class="col-content">当你给人工智能编码代理一个充满机器人手臂的实验室、一些计算资源和“慷慨的代币预算”来教授机器人各种任务时，会发生什么？这些代理显然可以想出一个训练方案，教机器人成功地剪断拉链，甚至将GPU插入主板上的薄插座中。通过一种新的代理线束框架，可以窥见人工智能如何以完全自主的方式实现机器人训练的自动化，该框架是一种围绕人工智能模型的软件，使其能够使用各种工具，同时还提供内存、上下文、约束和反馈循环等功能。这种被称为ENPIRE的代理工具是由英伟达GEAR实验室的机器人研究人员与匹兹堡卡耐基梅隆大学和加州大学伯克利分校的合作者共同开发的。“我们NVIDIA GEAR实验室的一部分现在一夜之间不知疲倦地自我提升，”NVIDIA人工智能总监Jim Fan在领英的一篇帖子中写道。“我们早上刚看了报道。”范还开玩笑地描述了这种人工智能机器人训练的目标，他说，“我们都在度假，詹森甚至不会注意到。”他指的是英伟达创始人兼首席执行官黄仁勋。但受益的不仅是英伟达机器人研究人员——范表示，该团队将开源所有内容，这样任何人都可以在家里拥有自己的“自主运行的机器人实验室”。ENPIRE线束有四个模块，使人工智能编码代理能够对任务进行自动重置和验证，完善指导机器人行为的策略，在并行工作的多个物理机器人之间评估这些策略，并通过分析日志、吸收研究论文、改进培训基础设施和算法代码来解决故障。更多技术细节请参见2026年6月16日上传的研究论文。该工具用三种不同的AI编码代理进行了测试，包括OpenAI的Codex和GPT-5.5，Anthropic的Claude Code和Opus 4.7，以及Moonshot AI的Kimi Code和Kimi K2.6。编码代理团队独立开发了不同的机器人训练算法方法，在现实世界的实验中对其进行了测试，然后保留了任何有助于在重复的自我导向测试周期中提高整体成功率的变化。配备了ENPIRE，人工智能编码代理开发了机器人自我改进的策略，在几个操作任务中取得了99%的成功率，包括标准的“Push-T”任务，该任务挑战机器人移动T形块以适应桌子顶部的目标位置。其他任务包括在引脚盒中组织引脚、系上和剪断拉链，以及在再次拔下图形卡进行重置以进行下一次测试之前将GPU放入主板。最有希望的结果可能来自引脚插入和组织任务。在机器人训练场景中，人工智能编码代理比许多相同的人类研究人员开发的“前沿人类在环方法”更快地实现了近100%的成功。这些实验还表明，与较小的四个代理团队或单独工作的单个代理相比，由多达八个AI编码代理组成的较大团队在机器人训练中可以更快地实现高成功率。例如，八个代理团队在两个小时的研究时间内完成了99%的Push-T任务，而四个代理团队需要三个小时，单代理团队需要近五个小时。但人类研究人员也发现了将人工智能编码代理作为自主机器人训练器时的一些关键局限性。当编码代理忙于“读取日志、编写代码、调试或等待语言模型骨干”时，机器人经常处于闲置状态。更大的编码代理团队也花了更多的时间总结彼此的想法，而实际使用机器人的时间更少，编码代理在启动并行训练课程时有时无法充分利用可用的计算资源。通过更多的代理和机器人协同工作实现的更快的成功率也以更高的代币消费为代价——这是一个值得注意的考虑因素，因为Anthropic等人工智能开发人员正在权衡定价变化，这将大大增加使用人工智能服务的代币相关成本。Nvidia从人工智能热潮中获得了大量现金，一直在通过多项机器人计划积极推动其对物理人工智能的愿景。5月31日，该公司宣布与中国著名的机器人公司Unitree合作，为开发通用人工智能机器人的研究实验室提供“参考人形机器人”。在6月初的韩国旋风之旅中，英伟达创始人兼首席执行官黄仁勋还与现代汽车执行主席Chung Euisun会面，讨论扩大人工智能机器人的大规模制造。现代汽车集团拥有美国机器人公司波士顿动力公司，该公司以其四条腿的“机器狗”Spot而闻名，并一直在努力将其Atlas人形机器人商业化。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/06/ai-coding-agents-can-autonomously-direct-robot-training/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
