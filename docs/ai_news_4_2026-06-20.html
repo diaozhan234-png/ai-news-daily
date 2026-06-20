@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-20 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-20</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">7,000 Langflow servers are under attack. LangGraph and LangChain have the same holes</div>
+      <div class="col-content">Your AI agent did exactly what it was designed to do. The framework underneath it just handed an attacker a shell on the box that holds your OpenAI key, your database credentials, and your CRM tokens. That is not a hypothetical. In a few months, three of the most widely deployed AI agent frameworks each turned a known, ordinary bug class into a way through. Check Point Research chained a SQL injection in LangGraph’s SQLite checkpointer to full remote code execution. Tenable and VulnCheck tracked a path traversal in Langflow’s file upload endpoint to active, in-the-wild RCE. Cyera documented a path traversal in LangChain-core’s prompt loader that reads your secrets off disk. Two paths to a shell, one to your keys. They are the same bug, wearing three frameworks. These frameworks became production infrastructure faster than anyone secured them. They store agent state, take file uploads, load prompt configs, and hold the credentials to databases, CRMs, and internal APIs. The edge tools watch traffic. The endpoint tools watch processes. Neither was built to treat an imported framework as a boundary worth guarding, and that blind spot is exactly where all three chains live, widening every week as these frameworks ship to production. Start with the one most teams pulled into production this quarter. LangGraph gives AI agents memory through checkpointers, the persistence layer that stores execution state. It has cleared over 50 million downloads a month. Yarden Porat of Check Point Research took that layer apart and found three vulnerabilities. Two of them chain to RCE. CVE-2025-67644 , rated CVSS 7.3, is a SQL injection in the SQLite checkpointer. The function that builds the WHERE clause for checkpoint lookups drops user-controlled filter keys straight into the query with no parameterization and no escaping. This does not hit everyone, but where it hits, it is serious. A deployment is exposed when it self-hosts LangGraph on the SQLite or Redis checkpointer and lets untrusted input reach get_state_history() or a similar history endpoint. Meet those conditions, and an attacker who controls the filter writes a fabricated row straight into the checkpoint table. Run LangChain’s managed LangSmith platform on PostgreSQL, and the exposure is gone. Then CVE-2026-28277 , CVSS 6.8, finishes the job. LangGraph’s msgpack checkpoint decoder rebuilds Python objects from the stored data, which lets it import a module and call a named function with attacker-supplied arguments. That step needs write access to the checkpoint store; the SQL injection is what grants it remotely. LangGraph loads the forged row as a legitimate checkpoint, the decoder runs the specified function, including os.system, and code executes under the identity of the agent server. A third issue, CVE-2026-27022, CVSS 6.5, reaches the same place through the Redis checkpointer. There has been no confirmed exploitation in the wild yet. A working proof-of-concept is public in Check Point’s disclosure. The fixes are version bumps: langgraph-checkpoint-sqlite to 3.0.1, langgraph to 1.0.10, and langgraph-checkpoint-redis to 1.0.2. Langflow is the one already under attack. CVE-2026-5027, CVSS 8.8, is a path traversal in the POST /api/v2/files endpoint, which takes the filename straight from the form data and writes it to disk unsanitized. An attacker packs that filename with traversal sequences and drops a file anywhere, such as a cron job in /etc/cron.d/. Because Langflow ships with auto-login enabled in its default configuration, an exposed instance needs no credentials at all. A single unauthenticated request reaches the endpoint, and the next cron run hands over a shell. VulnCheck’s Caitlin Condon confirmed exploitation on June 9: “Our Canaries observed exploitation of CVE-2026-5027 that successfully leveraged the path traversal to write what appear to be test files on victim systems.” Censys put roughly 7,000 exposed instances on the internet, most in North America. This is the third Langflow flaw to draw active exploitation this year, after CVE-2025-34291 , which the Iranian state-sponsored group MuddyWater weaponized and which CISA added to its Known Exploited Vulnerabilities catalog in May. CVE-2026-5027 itself was patched in version 1.9.0, released April 15. The timeline is what sets the clock. The patch shipped April 15. Attacks started in June, and VulnCheck added CVE-2026-5027 to its exploited-vulnerabilities list June 8 once its sensors caught the first in-the-wild hits. Every instance left unpatched between those two dates has been sitting in the open for almost two months. The lesson for security teams is to start the patch clock at disclosure, not at a federal catalog entry. LangChain-core, the foundation under both, disclosed CVE-2026-34070 , CVSS 7.5, a path traversal in its legacy prompt-loading API. The load_prompt() functions read a file path out of a config dict with no check against traversal sequences or absolute paths, so an attacker who influences that path reads arbitrary files the process can reach, including the .env file holding OPENAI_API_KEY and ANTHROPIC_API_KEY. Cyera paired it with CVE-2025-68664, CVSS 9.3, a deserialization flaw that resolves environment secrets through a crafted object. The fix versions differ, which matters when you patch: CVE-2026-34070 lands in langchain-core 1.2.22 and 0.3.86 ; CVE-2025-68664 lands earlier in 1.2.5 and 0.3.81 . Clear both, or the higher-severity flaw stays live behind a patched one. Three frameworks, three classic AppSec bugs. Path traversal. SQL injection. Unsafe deserialization. Nothing exotic, nothing AI-specific, just old vulnerabilities living inside new infrastructure. None of this is a frontier-model problem. It is plumbing, sitting in the layer where AI meets the enterprise. Merritt Baer, CSO at Enkrypt AI and former deputy CISO at AWS, has named what makes this kind of failure hard to see coming. It does not announce itself as an AI problem.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">7000台Langflow服务器受到攻击。LangGraph和LangChain有相同的孔</div>
+      <div class="col-content">你的AI代理完全按照它的设计做了。它下面的框架只是给了攻击者一个盒子上的shell，里面有你的OpenAI密钥、数据库凭据和CRM令牌。这不是一个假设。在几个月内，三个部署最广泛的AI代理框架各自将一个已知的普通bug类转化为一种方法。Check Point Research将LangGraph的SQLite检查指针中的SQL注入链接到完整的远程代码执行。Tenable和VulnCheck在Langflow的文件上传端点中跟踪了一条路径遍历到活动的、野生的RCE。Cyera在LangChain核心的提示加载器中记录了一个路径遍历，该加载器从磁盘上读取您的秘密。两条通往外壳的路径，一条通往你的钥匙。它们是同一个bug，有三个框架。这些框架成为生产基础设施的速度比任何人都快。它们存储代理状态，进行文件上传，加载提示配置，并将凭据保存到数据库、CRM和内部API。边缘工具监视交通。端点工具监视进程。两者都不是为了将进口框架视为值得保护的边界而构建的，而这个盲点正是这三条链所在的地方，随着这些框架的交付生产，这个盲点每周都在扩大。从本季度投入生产的团队最多的一个开始。LangGraph通过检查指针（存储执行状态的持久层）为AI代理提供内存。它每月的下载量超过5000万次。Check Point Research的Yarden Porat将这一层拆开，发现了三个漏洞。其中两个链接到RCE。CVE-2025-67644，等级为CVSS 7.3，是SQLite检查指针中的SQL注入。为检查点查找构建WHERE子句的函数将用户控制的筛选器键直接放入查询中，无需参数化和转义。这并没有打击到每个人，但它打击的地方是严重的。当部署在SQLite或Redis检查指针上自托管LangGraph，并让不受信任的输入到达get_state_history（）或类似的历史端点时，部署就会暴露出来。满足这些条件，控制过滤器的攻击者将一个伪造的行直接写入检查点表。在PostgreSQL上运行LangChain的托管LangSmith平台，暴露就消失了。然后CVE-2026-28277，CVSS 6.8，完成了这项工作。LangGraph的msgpack检查点解码器从存储的数据中重建Python对象，这使它能够导入一个模块并使用攻击者提供的参数调用一个命名函数。该步骤需要对检查点存储进行写访问；SQL注入是远程授权它的东西。LangGraph将伪造的行作为合法的检查点加载，解码器运行指定的函数，包括os.system，代码在代理服务器的身份下执行。第三个问题CVE-2026-2702，CVSS 6.5，通过Redis检查指针到达相同的位置。目前还没有确认在野外进行开发。Check Point的披露中公开了一个有效的概念证明。修复了版本差异：langgraph检查点sqlite升级到3.0.1，langgraph升级到1.0.10，langgraph检查点将redis升级到1.0.2。兰弗洛是已经受到攻击的人。CVE-2026-5027，CVSS 8.8，是POST/api/v2/files端点中的路径遍历，它直接从表单数据中获取文件名，并将其未经消毒地写入磁盘。攻击者将该文件名与遍历序列打包，并将文件放在任何位置，例如/etc/cron.d/中的cron作业。因为Langflow在默认配置中启用了自动登录，所以暴露的实例根本不需要凭据。一个未经身份验证的请求到达端点，下一个cron运行会传递一个shell。VulnCheck的Caitlin Condon于6月9日证实了漏洞利用：“我们的加那利群岛观察到CVE-2026-5027被利用，成功地利用路径遍历在受害者系统上写入了看似测试文件的内容。”Censys在互联网上发布了大约7000个暴露的实例，其中大多数在北美。这是继CVE-2025-34291之后，今年第三个受到积极利用的Langflow漏洞，伊朗国家支持的MuddyWater组织将其武器化，CISA于5月将其添加到其已知漏洞目录中。CVE-2026-5027本身在4月15日发布的1.9.0版本中进行了修补。时间线决定了时间。补丁于4月15日发货。攻击始于6月，VulnCheck在6月8日传感器捕获到第一个攻击后，将CVE-2026-5027添加到其被利用的漏洞列表中。在这两个日期之间未修补的每个实例都已经公开了近两个月。安全团队的教训是，在披露时启动补丁时钟，而不是在联邦目录条目时启动。LangChain-core，两者的基金会，公开了CVE-2026-34070，CVSS 7.5，在其传统的提示加载API中的路径遍历。load_prompt（）函数从配置字典中读取文件路径，而不检查遍历序列或绝对路径，因此影响该路径的攻击者会读取进程可以访问的任意文件，包括包含OPENAI_API_KEY和ANTHROPIC_API_KEY的.env文件。Cyera将其与CVE-2025-68664、CVSS 9.3配对，CVSS 9.3是一个反序列化漏洞，通过精心制作的对象解析环境秘密。修复版本不同，这在您进行补丁时很重要：CVE-2026-34070位于langchain核心1.2.22和0.3.86；CVE-2025-68664在1.2.5和0.3.81中更早地登陆。清除这两个漏洞，否则更严重的漏洞将在修补后继续存在。三个框架，三个经典的AppSec漏洞。路径遍历。SQL注入。不安全的反序列化。没有什么异国情调，没有什么人工智能特有的，只有生活在新基础设施中的旧漏洞。这些都不是前沿模型问题。它是管道，位于人工智能与企业相遇的层面。Enkrypt AI的CSO、AWS的前副首席信息安全官Merritt Baer指出了这种失败难以预见的原因。它并没有宣布自己是一个人工智能问题。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/7000-langflow-servers-under-attack-langgraph-langchain-same-holes" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
