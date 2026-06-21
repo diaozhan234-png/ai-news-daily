@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-21 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-21</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Inference cost at scale with napkin math</div>
+      <div class="col-content">If you serve AI models as a part of your product stack, you've likely wondered what kind of scale your GPU cluster tops out at. With some rudimentary knowledge about your hardware and model architecture, we can work out the dollar cost-per-user on the back of a napkin 1 . If you're comfortable reasoning about GPUs and/or LLMs, use this legend to skip to sections of relevance: On any GPU's spec-sheet you can find these metrics: We'll assume FP-8 quantization to compute throughput, though it's easy to adjust the math for FP-16 as well. If you bothered to click on this article you know that AI models do many matrix multiplications on massive matrices. That we start by finding the cost of a matmul should be no surprise then. Assume two matrices: \(A_{N \times d} \) and \(B_{d \times M}\). Let their product be the matrix \( O_{N \times M} \). From high school algebra, we know that each element of \(O\) can be computed as: In this, we find our first insight into the "cost" of a matrix multiplication. For each \( O^{i,k}\), we need to start with an initial value of 0 and: And this is done a total of \(d\) times per item. So, the cost of a (N,d)*(d,M) matrix product is \( 2NMd \) memory accesses and \(2NMd\) floating-point operations. With an optimization called tiling, the memory access goes down to about \( d(N+M) \). The details aren't necessary to proceed, but Alvin's blog post has them for those curious. At their core, LLMs are simple – they receive a sequence of N words and generate the N+1 th. Each word is represented as a d -dimensional vector. Using repeated applications of a function called "attention" (explained later), they predict the next word. A single forward pass looks roughly like this: This is also why LLMs are called auto-regressive. They can keep doing multiple forward passes over their own output until a <stop> token is generated. This is a simplified overview of where I'm skipping RoPE, the MLP layers in between, token sampling at the end, and much more. As a fun exercise: you should try to price them in and verify that our math still works by a Fermi estimation .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">基于餐巾纸数学的大规模推理成本</div>
+      <div class="col-content">如果你将人工智能模型作为产品堆栈的一部分，你可能会想知道你的GPU集群的最大规模是多少。有了一些关于你的硬件和模型架构的基本知识，我们可以在餐巾纸上计算出每个用户的美元成本1。如果您对GPU和/或LLM的推理感到满意，请使用此图例跳到相关部分：在任何GPU的规格表上，您都可以找到这些指标：我们将假设FP-8量化来计算吞吐量，尽管调整FP-16的数学也很容易。如果你费心点击这篇文章，你就会知道人工智能模型在海量矩阵上进行了许多矩阵乘法。那么，我们从找到一个matmul的成本开始就不足为奇了。假设两个矩阵：\（A_{N\times d}\）和\（B_{d\times M}\）。设它们的乘积为矩阵\（O_{N\times M}\）。从高中代数中，我们知道\（O\）的每个元素都可以计算为：在这里，我们首次了解了矩阵乘法的“成本”。对于每个\（O^{i，k}\），我们需要从初始值0开始，并且：每个项目总共完成\（d\）次。因此，（N，d）*（d，M）矩阵乘积的成本是\（2NMd\）内存访问和\（2NMd\）浮点运算。通过称为平铺的优化，内存访问降至约\（d（N+M）\）。细节不是继续进行的必要条件，但Alvin的博客文章为那些好奇的人提供了这些细节。LLM的核心很简单——它们接收N个单词的序列并生成第N+1个单词。每个单词都表示为d维向量。通过反复应用一个名为“注意力”的函数（稍后解释），他们可以预测下一个单词。单次向前传球大致如下：这也是LLM被称为自回归的原因。他们可以在自己的输出上继续进行多次前向传递，直到生成一个<stop>标记。这是对我跳过RoPE、中间的MLP层、最后的令牌采样等的简化概述。作为一个有趣的练习：你应该试着给它们定价，并通过费米估计来验证我们的数学仍然有效。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://injuly.in/blog/napkin-inference-cost/index.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
