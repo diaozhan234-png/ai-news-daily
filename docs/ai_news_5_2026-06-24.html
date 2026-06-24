@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-24 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-24</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The Low-Tech AI of Elden Ring</div>
+      <div class="col-content">FROMSOFT has a reputation for diverse and punishing npc encounters across the entire Soulsborne extended series, but the implementation of the AI decision making itself is perhaps unexpectedly low-tech. Since the majority of the code is implemented in Havok Script (A games-oriented Lua implementation from Havok) it’s pretty easy to take a peek behind the fog wall to see how they’re implemented. Note that none of what follows is original research, I’m just reading the code that others have done the hard work of extracting, decompiling, and reversing. The primary tool of the FROMSOFT AI approach is the Goal 1 , which is their own terminology for a unique state that the AI can be in. Goals can be parametized when instanciated, and can access data stored on the Actor itself, but are otherwise really just an immutable table of functions. Now the simplest option would be to organize states into a Finite State Machine or maybe a Hierarchical Finite State Machine, but FROMSOFT go one step further and give the system a stack of states. This turns it from an FSM into Pushdown Automaton (PDA) . That’s an entirely abstract definition, so after you get back from wikipedia let’s talk about it concretely from the top down. Each frame Actors will update the Goal on top of their stack of Goals. When the Goal updates, it can then push more Goals as Sub-Goals onto the stack, the topmost of which will execute next frame. The Goal’s update function returns a value indicating either Continue, Success, or Failure. Continue will leave the stack unchanged, the other two will cause the Goal to be popped from the stack. Failure will additionally cause all other unexecuted Goals to be popped from the stack up to the parent Goal (The Goal which pushed this sub-goal). For example, we might define a Goal called CoolBossBattle , during the course of its execution it might then push a series of Attack Sub-Goals. Those attack Goals can be parametized by various means, but the main one is the animation id 2 . After a few seconds the first attack lands, and that Goal completes with success and is popped from the stack. However the next fails, causing the stack to unwind to its parent. Readying it to chose its next action now that the attempted combo of attacks has ended. In their APIs they refer to the root of this stack as the “Top Level Goal”, which I’ve made confusing by referring to the currently executing goal as the “top” of the stack. So keep in mind those are separate things. Goals are defined by a few functions used as callbacks, and the one which contains the most AI logic is usually activate. This is called the first time that a Goal is updated, and then every subsequent time that the Goal exhausts its Sub-Goals and starts executing again. For boss and regular npc Goals the code in Activate is responsible for choosing the next action that the Actor will take using a mix of context from the world and Actor, and randomness (which also comes from the Actor itself). The most widely used approach uses common code to perform a weighted random selection between a number of Actions (which are just functions), calling the winner. To return to our CoolBossBattle , this time in some Rusty pseudocode… Modifying the weights dynamically is handled in many different ways, but the most common are simple rng rolls from the actor and hp thresholding.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Elden Ring的低技术人工智能</div>
+      <div class="col-content">FROMSOFT在整个Soulsborne扩展系列中以各种各样的、惩罚性的npc遭遇而闻名，但人工智能决策本身的实现可能出乎意料地技术含量低。由于大部分代码都是在Havok Script（Havok的一个面向游戏的Lua实现）中实现的，因此很容易从雾墙后面看看它们是如何实现的。请注意，以下内容都不是原创研究，我只是在阅读其他人所做的提取、反编译和反转等艰苦工作的代码。FROMSOFT AI方法的主要工具是目标1，这是他们自己对AI可能处于的独特状态的术语。目标在实例化时可以参数化，并且可以访问存储在Actor本身上的数据，但在其他方面实际上只是一个不可变的函数表。现在最简单的选择是将状态组织到有限状态机或分层有限状态机中，但FROMSOFT更进一步，为系统提供了一组状态。这将它从FSM转变为Pushdown Automaton（PDA）。这是一个完全抽象的定义，所以当你从维基百科回来后，让我们从上到下具体地讨论它。每个框架参与者将在他们的目标堆栈之上更新目标。当目标更新时，它可以将更多的目标作为子目标推送到堆栈上，其中最上面的目标将执行下一帧。Goal的更新函数返回一个值，指示Continue、Success或Failure。Continue将保持堆栈不变，另外两个将导致Goal从堆栈中弹出。失败还会导致所有其他未执行的目标从堆栈中弹出到父目标（推动此子目标的目标）。例如，我们可以定义一个名为CoolBossBattle的目标，在执行过程中，它可能会推动一系列攻击子目标。这些攻击目标可以通过各种方式进行参数化，但最主要的是动画id 2。几秒钟后，第一次攻击着陆，该进球成功完成并从堆栈中弹出。然而，下一个失败了，导致堆栈向其父级展开。既然尝试的攻击组合已经结束，准备好选择下一步行动。在他们的API中，他们将此堆栈的根称为“顶级目标”，我将当前执行的目标称为堆栈的“顶部”，这让我感到困惑。请记住，这些是不同的事情。目标由几个用作回调的函数定义，通常包含最多AI逻辑的函数是激活的。这被称为第一次更新目标，然后每次目标耗尽其子目标并再次开始执行时。对于boss和常规npc目标，激活中的代码负责使用来自世界和Actor的上下文以及随机性（也来自Actor本身）来选择Actor将采取的下一个行动。最广泛使用的方法是使用通用代码在多个操作（仅是函数）之间执行加权随机选择，称为获胜者。回到我们的CoolBossBattle，这次是在一些Rusty伪代码中…动态修改权重有很多不同的方法，但最常见的是来自actor的简单rng滚动和hp阈值。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://nega.tv/posts/low-tech-ai-of-elden-ring.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
