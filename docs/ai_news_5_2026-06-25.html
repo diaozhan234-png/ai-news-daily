@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-25 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-25</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Your enterprise AI agents should automatically remember which model is right for which task. Mindstone built the capability with Rebel</div>
+      <div class="col-content">AI agent orchestration platforms are popping up like weeds these days, but London-based AI transformation startup Mindstone's Rebel might be among the most promising I've come across. That's because the system, which officially launched this week, is a local-first, agentic AI operating system distributed under a " Fair Source " license, allowing teams of under 100 users to freely adopt and customize it to suit their needs, while those organizations with more users will require paying for an enterprise license. The marquee features are its simplicity and extensive customizability to fit any given team, no matter how unique or specific the workflows, all based around the common, open source standard file format markdown, and, as a result, an organizational memory layer that ensures agents reliably use the enterprise's preferred AI models for each given task or even subtasks — dynamically switching between local and cloud ones in a predictable, visible way to save costs and maintain data privacy and security as needed. "Shared memory is the most empowering thing you could possibly do with a knowledge-worker AI," said Greg Detre, chief technology officer (CTO) of Mindstone, in a recent video call interview with VentureBeat. "You get this feeling of being a super-organism as a company that just gets smarter and smarter." Rebel is available now for macOS on Intel and Apple Silicon machines, as well as Windows, with Linux support in development. Mindstone has raised $5 million from private investors including Pearson Ventures, Moonfire Ventures and Zanichelli Venture. What makes Rebel distinctive is its local-first architecture. Instead of the approach found in developer-heavy agent frameworks such as as LangGraph, CrewAI and AutoGPT, which require teams to wire together databases, cloud infrastructure and state-management logic, Rebel's core agent memory and instructions live across local markdown ( .md ) text files — arguably the simplest, easiest, and most popular way to steer AI agents, one that has been widely adopted by AI developers and power users around the globe. Mindstone says Rebel stores its state, prompts, task instructions and memory hierarchy in these files, allowing users and companies to easily inspect, move or modify them as needed. A primary configuration file, agents.md, acts as the agent’s core instruction layer and runtime boundary. That architectural choice is partly about cost. Mindstone argues that common office formats such as Word documents and PDFs often carry formatting and metadata overhead that consumes model token context and raises API costs. Markdown keeps the information closer to raw text, allowing more of the model’s context window to be spent on the actual task rather than document structure. The company also positions the approach as a hedge against vendor lock-in. If a company’s agent instructions, automations and memory are stored locally as text files, they are not trapped inside one SaaS provider’s interface or database. That matters more as enterprises begin giving AI systems broader access to email, calendars, documents and internal workflows. Rebel also lets users create repeatable AI workflows. “Skills” are saved multi-step procedures an agent can reuse. “Operators” adjust how the agent behaves for a given task, such as reviewing a pitch deck from an investor’s perspective or evaluating work through a security lens. “Automations” can run scheduled background tasks, such as scanning messages or files, finding relevant updates, drafting responses, or preparing work before an employee opens the app. Another important feature is multi-model orchestration. Rebel can break a task into parts and route different steps to different models, including splitting between local and cloud-based ones depending on the sensitivity of the information or as guided by enterprise policies. A more powerful model can handle planning or complex reasoning; a cheaper model can handle routine work; a local model can handle sensitive steps or approval checks. This matters for enterprises that want flexibility or are seeking cost controls: not every task need be sent to the same expensive cloud model, and some enterprise workflows prohibit sensitive corporate data leaving local infrastructure. “I want to be able to say, ‘Help me with this,’ and it knows what’s personal, what’s sensitive, and what can be shared with the whole company," Detre explained. That model-agnostic setup gives companies more control over cost and security. Data-heavy work can run on lower-cost models such as Llama or DeepSeek. Higher-level reasoning can be reserved for more expensive models. Sensitive work can be routed through a local model running on the user’s machine, keeping that information from leaving the device. This approach also gives enterprise teams a way to mix cloud and local inference without treating the choice as all-or-nothing. By shifting away from centralized, monolithic cloud interfaces toward a local file-driven architecture, Mindstone is introducing a model for how enterprise technical decision-makers orchestrate autonomous workflows without forfeiting data sovereignty or predictability Mindstone CTO Greg Detre designed Rebel’s memory system to avoid a common problem in enterprise AI: dumping large amounts of company information into a database and hoping search will retrieve the right context later. Instead, Rebel uses a tiered memory structure. When an interaction happens, the system estimates how likely that information is to be useful again. Information with a high expected value is written into a local readme.md file tied to a specific project space. Information with a moderate expected value becomes a reference link back to deeper historical records. Lower-priority material is stored in an indexed memory directory, where it remains available but dormant until a relevant task calls it back.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">您的企业AI代理应该自动记住哪个模型适合哪个任务。Mindstone与Rebel建立了能力</div>
+      <div class="col-content">如今，人工智能代理编排平台如野草般涌现，但总部位于伦敦的人工智能转型初创公司Mindstone的Rebel可能是我遇到的最有前途的平台之一。这是因为本周正式推出的该系统是一个本地首创的代理人工智能操作系统，根据“公平来源”许可证分发，允许100名以下用户的团队自由采用和定制以满足他们的需求，而那些拥有更多用户的组织将需要支付企业许可证费用。帐篷的特点是它的简单性和广泛的可定制性，以适应任何给定的团队，无论工作流程多么独特或具体，所有这些都基于通用的开源标准文件格式标记，因此，它是一个组织记忆层，确保代理在每个给定的任务甚至子任务中可靠地使用企业首选的人工智能模型——以可预测、可见的方式在本地和云端之间动态切换，以节省成本，并根据需要维护数据隐私和安全。Mindstone的首席技术官Greg Detre在最近接受VentureBeat的视频电话采访时表示：“共享内存是知识型人工智能所能做的最有力量的事情。”。“作为一家越来越聪明的公司，你会有一种超级有机体的感觉。”Rebel现在可用于英特尔和苹果Silicon机器上的macOS，以及Windows，并在开发中支持Linux。Mindstone已从私人投资者那里筹集了500万美元，其中包括Pearson Ventures、Moonfire Ventures和Zanichelli Venture。Rebel的独特之处在于它的当地第一建筑。Rebel的核心代理内存和指令存在于本地markdown（.md）文本文件中，而不是LangGraph、CrewAI和AutoGPT等开发人员密集的代理框架中的方法，这些框架要求团队将数据库、云基础设施和状态管理逻辑连接在一起，这可以说是指导人工智能代理的最简单、最简单和最流行的方法，已被全球人工智能开发人员和高级用户广泛采用。Mindstone表示，Rebel将其状态、提示、任务指令和内存层次存储在这些文件中，允许用户和公司根据需要轻松检查、移动或修改它们。主配置文件agents.md充当代理的核心指令层和运行时边界。这种架构选择在一定程度上与成本有关。Mindstone认为，常见的办公格式，如Word文档和PDF，通常会带来格式化和元数据开销，这会消耗模型令牌上下文并增加API成本。Markdown使信息更接近原始文本，允许模型的更多上下文窗口用于实际任务，而不是文档结构。该公司还将这种方法定位为对供应商锁定的对冲。如果一家公司的代理指令、自动化和内存以文本文件的形式存储在本地，它们就不会被困在一个SaaS提供商的界面或数据库中。随着企业开始让人工智能系统更广泛地访问电子邮件、日历、文档和内部工作流程，这一点变得更加重要。Rebel还允许用户创建可重复的AI工作流程。“技能”是代理可以重用的多步骤过程。“运营商”调整代理人在特定任务中的行为方式，例如从投资者的角度审查投球牌，或通过安全视角评估工作。“自动化”可以在员工打开应用程序之前运行预定的后台任务，如扫描消息或文件、查找相关更新、起草回复或准备工作。另一个重要特征是多模型编排。Rebel可以将任务分解为多个部分，并将不同的步骤路由到不同的模型，包括根据信息的敏感性或根据企业策略在本地和基于云的模型之间进行拆分。一个更强大的模型可以处理计划或复杂的推理；更便宜的型号可以处理日常工作；本地模型可以处理敏感步骤或审批检查。这对想要灵活性或寻求成本控制的企业来说很重要：并非所有任务都需要发送到相同的昂贵云模型，一些企业工作流禁止敏感的企业数据离开本地基础设施。Detre解释说：“我想能够说，‘帮我解决这个问题’，它知道什么是个人的，什么是敏感的，什么可以与整个公司共享。”这种与模型无关的设置使公司能够更好地控制成本和安全性。数据繁重的工作可以在Llama或DeepSeek等低成本模型上运行。更高层次的推理可以保留给更昂贵的模型。敏感的工作可以通过用户机器上运行的本地模型进行路由，防止信息离开设备。这种方法还为企业团队提供了一种混合云和本地推理的方法，而不会将选择视为全有或全无。通过从集中式、单片式云接口转向本地文件驱动架构，Mindstone引入了一种模型，用于企业技术决策者如何在不丧失数据主权或可预测性的情况下编排自主工作流程。Mindstone首席技术官Greg Detre设计了Rebel的存储系统，以避免企业人工智能中的一个常见问题：将大量公司信息转储到数据库中，并希望搜索以后能检索到正确的上下文。相反，Rebel使用分层内存结构。当发生交互时，系统会估计该信息再次有用的可能性。具有高期望值的信息被写入与特定项目空间绑定的本地readme.md文件中。具有中等预期值的信息成为返回更深层历史记录的参考链接。较低优先级的材料存储在索引内存目录中，在那里它保持可用但处于休眠状态，直到相关任务将其回调。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/your-enterprise-ai-agents-should-automatically-remember-which-model-is-right-for-which-task-mindstone-built-the-capability-with-rebel" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
