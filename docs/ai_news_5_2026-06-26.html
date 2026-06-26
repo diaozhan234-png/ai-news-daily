@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-26 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-26</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Record type inference for dummies</div>
+      <div class="col-content">The reason I'm writing this post is because I actually wanted to write a more advanced post on type inference for anonymous records, but then I realized that most of my readers wouldn't understand the latter post in isolation. So I figured I would write this introductory post to teach people new to type theory the basics. The reason I'm writing both posts is because I believe that good type inference for anonymous records is one of the big things holding back statically typed languages 1 and not enough people appreciate this or understand why. I also think that there is a large disconnect between what programming language experts understand is possible and what lay programmers are comfortable or familiar with. To make a play on XKCD #2501 : So this post (and the next one) are going to be an exposition of where the field of type theory was at over three decades ago , which our industry still hasn't really caught up to, yet. I mentioned that this is a post about type inference for anonymous records and I've met some programmers who either don't know what anonymous records are or at least don't recognize them by that name, so I'll briefly touch upon them. An anonymous record is a record that doesn't require an associated datatype declaration, and they're quite common in dynamically typed languages. For example, JavaScript calls them "objects": If you've ever worked with JSON then you've worked with anonymous records because JSON objects (just like JavaScript objects) are anonymous records. A smaller number of statically typed programming languages support anonymous records because statically typed languages usually prefer named datatypes. For example, Haskell does not support anonymous records and requires a datatype declaration for all records, like this: … but there are still some statically typed programming languages that do support anonymous records, like TypeScript: … or C# (which calls them "anonymous types"): … or PureScript (which calls them records): If all we needed was language support for record literals without any operations on records then it's fairly easy to infer their types. To do so, though, I'm going to introduce some type theory notation. Let's start by defining a basic abstract syntax tree that says that an expression ( ) can be either: … and the equivalent Haskell code would be something like: Fields can store arbitrary expressions, which means you can nest records, like:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">假人的记录类型推断</div>
+      <div class="col-content">我写这篇文章的原因是，我实际上想写一篇关于匿名记录类型推理的更高级的文章，但后来我意识到，我的大多数读者不会孤立地理解后一篇文章。所以我想我会写这篇介绍性的文章，教人们打字理论的基础知识。我写这两篇文章的原因是，我相信匿名记录的良好类型推理是阻碍静态类型语言发展的重要因素之一，没有足够多的人欣赏这一点或理解原因。我还认为，编程语言专家所理解的可能与非专业程序员所熟悉或熟悉的之间存在很大的脱节。在XKCD#2501上玩一玩：所以这篇文章（和下一篇文章）将阐述三十多年前类型理论的领域，我们的行业还没有真正赶上。我提到这是一篇关于匿名记录的类型推理的文章，我遇到了一些程序员，他们要么不知道匿名记录是什么，要么至少不知道它们的名字，所以我将简要地介绍一下它们。匿名记录是一种不需要相关数据类型声明的记录，在动态类型语言中很常见。例如，JavaScript称它们为“对象”：如果你曾经使用过JSON，那么你就使用过匿名记录，因为JSON对象（就像JavaScript对象一样）是匿名记录。少数静态类型编程语言支持匿名记录，因为静态类型语言通常更喜欢命名数据类型。例如，Haskell不支持匿名记录，并要求对所有记录进行数据类型声明，如下所示：…但仍然有一些静态类型的编程语言支持匿名记录。例如，TypeScript：…或C#（称之为“匿名类型”）：…或PureScript（称其为记录）：如果我们所需要的只是对记录文字的语言支持，而不对记录进行任何操作，那么推断它们的类型就相当容易了。不过，为了做到这一点，我将介绍一些类型论符号。让我们从定义一个基本的抽象语法树开始，它说表达式（）可以是：…，等效的Haskell代码可以是：Fields可以存储任意表达式，这意味着你可以嵌套记录，比如：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="http://haskellforall.com/2026/06/record-type-inference-for-dummies" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
