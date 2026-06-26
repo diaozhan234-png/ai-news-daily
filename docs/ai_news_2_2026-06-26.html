@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-26 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-26</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Liquid AI's smallest model yet LFM2.5-230M beats models 4X its size at data extraction, can run 'anywhere'</div>
+      <div class="col-content">Liquid AI, founded by former MIT computer scientists, today released its smallest AI language model yet, LFM2.5-230M , and enterprises would do well to consider it for their uses in data extraction and local deployment on smartphones, laptops and robotics. This is a 230-million-parameter foundation model explicitly designed for on-device agentic workflows, and as Liquid states in its release blog post, that small size makes it possible to run nearly "anywhere." According to Liquid, it also outperforms models more than 4X its size on selected benchmarks, specifically doing better at data extraction than the 800 million parameter count Alibaba Qwen3.5-0.8B (Instruct) and 1-billion parameter Google Gemma 3 1B. The model targets developers and engineers building lightweight data extraction pipelines and autonomous edge systems. Operating under a dual-use commercial license, the model remains free for individuals and companies generating less than $10 million in annual revenue, while requiring a paid enterprise agreement for larger corporations. This release distinguishes itself from other small AI models by utilizing the LFM2 architecture to achieve high inference speeds without the massive memory overhead typical of parameter-heavy transformers. While major AI companies Anthropic, OpenAI, Google, Microsoft, Meta and others push parameter counts into the hundreds of billions or trillions to achieve frontier performance, a parallel race focuses entirely on the edge and local deployments. Liquid AI's launch of LFM2.5-230M signals a pivotal shift toward architectural efficiency over brute-force scaling. By squeezing 19 trillion tokens of pre-training into a 230-million-parameter footprint, the company demonstrates that edge devices do not need massive computational power or persistent cloud connections to execute complex, multi-step agentic workflows. The LFM2.5-230M model diverges from standard transformer architectures, relying instead on the LFM2 framework. This architecture functions as a hybrid system, interleaving gated short-range convolutions with grouped-query attention to process information efficiently. For those tracking the evolution of efficient architectures, Liquid’s approach shares a similar conceptual goal: managing long contexts and sequential data effectively on edge hardware without the quadratic memory costs of pure attention mechanisms. The model supports an expansive 32K context window, allowing it to ingest substantial documents or continuous streams of robotic telemetry. When analyzing the performance charts provided in the release, the architectural efficiency becomes visually apparent. The model maintains a memory footprint of under 400MB while achieving prefill and decode speeds that outpace comparable models like Gemma 3 1B IT and Granite 4.0-H-350M. On a Samsung Galaxy S25 Ultra equipped with a Qualcomm Snapdragon Gen4 CPU, the model reaches a decode speed of 213 tokens per second. Even on a highly constrained Raspberry Pi 5, the model maintains a decode rate of 42 tokens per second. Furthermore, internal benchmarking shows the GPU inference stack delivers lower end-to-end latency than competing small models across all concurrency levels. To understand why a 230-million-parameter model is necessary, one must look at how enterprises currently manage data. Organizations have traditionally relied on rigid, rule-based Extract, Transform, Load (ETL) scripts to move and process data. However, these legacy systems are notoriously brittle; a simple change in a document's layout or a schema update can break the entire pipeline. To solve this, the industry is shifting toward "AI ETL," where machine learning infers mappings, detects schema drift, and adapts to changes automatically. In a modern lightweight data extraction pipeline, an AI model connects to unstructured sources—like PDFs, emails, or web forms—and structures the data into formats like JSON without requiring hardcoded rules. For enterprises, using a massive flagship model like Claude Opus 4.6 (which costs $5.00 per million input tokens) to parse routine invoices, format addresses, or route telemetry data is economically unviable. This is where models like LFM2.5-230M become critical. Designed explicitly as a lightweight extraction engine, it allows companies to automate repetitive formatting and data parsing at a fraction of the compute cost and latency, running directly on local hardware rather than relying on expensive, continuous cloud API calls. The AI industry in mid-2026 is seeing a renaissance in "small" models, but the definition of "small" varies wildly. Recently, the open-weight community was stunned by Weibo's VibeThinker-3B, a 3-billion-parameter model built on a Qwen2-style backbone that achieved a massive 94.3 on the AIME 2026 math benchmark, rivaling 600-billion-parameter behemoths through aggressive data curation and reinforcement learning. Similarly, Google's Gemma 4 family — which recently crossed 200 million downloads — pushes frontier AI to the edge, including the E2B (2 billion parameters) designed specifically for mobile and IoT deployments. By contrast, Liquid AI's LFM2.5-230M operates in a completely different weight class. At just 230 million parameters, it is roughly one-tenth the size of Google's smallest Gemma 4 model and VibeThinker-3B. Because of its microscopic footprint, LFM2.5-230M is not designed to compete on reasoning-heavy workloads like advanced math, coding, or creative writing—a constraint Liquid AI explicitly acknowledges. However, in its intended domains of data extraction and tool calling, the model punches well above its weight class. Benchmarks released by Liquid AI show LFM2.5-230M scoring 43.26 on the BFCLv3 tool-use benchmark, dominating IBM's Granite 4.0-350M (39.58) and completely outpacing larger 1-billion-parameter models like Google's Gemma 3 1B IT (16.61). On CaseReportBench for data extraction, it scores 22.51, decimating the Qwen3.5-0.8B (Instruct).</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Liquid AI迄今为止最小的模型LFM2.5-230M在数据提取方面击败了其4倍大小的模型，可以在“任何地方”运行</div>
+      <div class="col-content">由前麻省理工学院计算机科学家创立的Liquid AI今天发布了迄今为止最小的AI语言模型LFM2.5-230M，企业最好考虑将其用于智能手机、笔记本电脑和机器人的数据提取和本地部署。这是一个2.3亿参数的基础模型，专为设备上的代理工作流程而设计，正如Liquid在其发布博客中所说，这种小尺寸使得它几乎可以“在任何地方”运行。据Liquid称，在选定的基准测试中，它的性能也优于其尺寸的4倍以上的模型，特别是在数据提取方面比8亿参数计数Alibaba Qwen3.5-0.8B（Instruct）和10亿参数Google Gemma 3 1B做得更好。该模型的目标是开发人员和工程师构建轻量级数据提取管道和自主边缘系统。根据两用商业许可证运营，该模式对年收入低于1000万美元的个人和公司仍然免费，而对大公司则要求签订付费企业协议。此版本与其他小型AI模型不同，它利用LFM2架构实现了高推理速度，而没有像参数密集型转换器那样的大量内存开销。虽然主要的人工智能公司Anthropic、OpenAI、谷歌、微软、Meta和其他公司将参数计数推到数千亿或数万亿，以实现前沿性能，但一场平行竞赛完全集中在边缘和本地部署上。Liquid AI推出LFM2.5-230M标志着向架构效率而非暴力扩展的关键转变。通过将19万亿个预训练令牌压缩到2.3亿个参数足迹中，该公司证明了边缘设备不需要大量的计算能力或持久的云连接来执行复杂的、多步骤的代理工作流。LFM2.5-230M模型不同于标准的变压器架构，而是依赖于LFM2框架。该架构作为一个混合系统，将门控短程卷积与分组查询注意力交织在一起，以有效地处理信息。对于那些跟踪高效架构演变的人来说，Liquid的方法有一个类似的概念目标：在边缘硬件上有效地管理长上下文和顺序数据，而不需要纯注意力机制的二次内存成本。该模型支持一个扩展的32K上下文窗口，允许它摄取大量文档或连续的机器人遥测流。在分析发布中提供的性能图表时，架构效率在视觉上变得显而易见。该模型保持了400MB以下的内存占用，同时实现了超过Gemma 3 1B IT和Granite 4.0-H-350M等同类模型的预填充和解码速度。在配备高通骁龙Gen4 CPU的三星Galaxy S25 Ultra上，该型号的解码速度达到每秒213个令牌。即使在高度受限的Raspberry Pi 5上，该模型也能保持每秒42个令牌的解码率。此外，内部基准测试表明，GPU推理栈在所有并发级别上都比竞争对手的小模型提供了更低的端到端延迟。要理解为什么需要一个2.3亿参数的模型，必须看看企业目前是如何管理数据的。传统上，组织依赖于严格的、基于规则的提取、转换、加载（ETL）脚本来移动和处理数据。然而，这些遗留系统是出了名的脆弱；文档布局的简单更改或模式更新可能会破坏整个管道。为了解决这个问题，该行业正在转向“AI ETL”，机器学习可以推断映射，检测模式漂移，并自动适应变化。在现代轻量级数据提取管道中，AI模型连接到非结构化源（如PDF、电子邮件或web表单），并将数据结构化为JSON等格式，而不需要硬编码规则。对于企业来说，使用像Claude Opus 4.6这样的大型旗舰模型（每百万输入令牌花费5.00美元）来解析常规发票、格式化地址或路由遥测数据在经济上是不可行的。这就是LFM2.5-230M等型号变得至关重要的地方。它被明确设计为一个轻量级的提取引擎，允许公司以计算成本和延迟的一小部分自动进行重复格式化和数据解析，直接在本地硬件上运行，而不是依赖昂贵的连续云API调用。2026年中期，人工智能行业正在看到“小型”模型的复兴，但“小型”的定义差异很大。最近，开放权重社区对微博的VibeThinker-3B感到震惊，这是一个建立在Qwen2式骨干上的30亿参数模型，在AIME 2026数学基准上取得了94.3的成绩，通过积极的数据管理和强化学习与6000亿参数巨头相媲美。同样，谷歌的Gemma 4系列——最近下载量突破2亿次——将前沿人工智能推向了边缘，包括专门为移动和物联网部署设计的E2B（20亿个参数）。相比之下，Liquid AI的LFM2.5-230M的重量等级完全不同。它只有2.3亿个参数，大约是谷歌最小的Gemma 4模型和VibeThinker-3B的十分之一。由于其微观足迹，LFM2.5-230M的设计不是为了在推理繁重的工作负载上竞争，比如高等数学、编码或创意写作——Liquid AI明确承认了这一限制。然而，在其预期的数据提取和工具调用领域，该模型远远超出了其权重级别。Liquid AI发布的基准显示，LFM2.5-230M在BFCLv3工具使用基准上得分为43.26，主导了IBM的Granite 4.0-350M（39.58），完全超过了谷歌的Gemma 3 1B IT（16.61）等10亿参数的大型模型。在用于数据提取的CaseReportBench上，它的得分为22.51，从Qwen3.5-0.8B（Instruct）中抽取。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/liquid-ais-smallest-model-yet-lfm2-5-230m-beats-models-4x-its-size-at-data-extraction-can-run-anywhere" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
