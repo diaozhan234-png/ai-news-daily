@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-27 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-27</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">New agentic memory framework uses 118K tokens per query. LangMem burns through 3.26M.</div>
+      <div class="col-content">Long-horizon reasoning exposes a core weakness in AI agents: context windows fill up fast, and retrieval pipelines return noise instead of signal. To solve this, researchers at the National University of Singapore developed MRAgent , a framework that abandons the static "retrieve-then-reason" approach. Instead, it uses a mechanism that allows an agent to dynamically develop its memory based on accumulating evidence. This multi-step memory reconstruction is integrated into the reasoning process of the large language model (LLM). While not the only framework in this space, MRAgent significantly reduces token consumption and runtime costs compared to other agentic memory management approaches. In classic retrieval pipelines, documents are retrieved through vector search or graph traversal and passed on to an LLM for reasoning. This passive approach fails because it cannot combine reasoning with memory access, creating three major bottlenecks: These systems cannot revise their retrieval strategy mid-reasoning. If an agent fetches a document and discovers a crucial missing cue — a specific date or person — it has no way to issue a new query based on that finding. Fixed similarity scores and predefined graph expansions return surface-level matches that flood the LLM's context window with irrelevant noise, degrading reasoning. Current systems rely heavily on pre-constructed structures such as top-k results and static relevance functions, limiting the flexibility required to scale across unpredictable, long-horizon user interactions. The researchers argue that to overcome these limitations, developers must shift toward an “active and associative reconstruction process,” a concept inspired by cognitive neuroscience. Under this paradigm, memory recall unfolds sequentially rather than operating as a passive read-out of a static database. The system starts with small, specific triggers from the user's prompt, such as a person's name, an action, or a place. These initial hints point to connecting concepts or categories instead of massive blocks of text. By following these metadata stepping stones, the agent gathers small pieces of evidence one by one. It uses each new piece of information to guide its next step until it successfully pieces together the full, accurate story. Instead of viewing memory as a static database, MRAgent (Memory Reasoning Architecture for LLM Agents) treats it as an interactive environment. When processing a complex query, the agent uses the backbone LLM’s reasoning abilities to explore multiple candidate retrieval paths across a structured memory graph. At each step, the LLM evaluates the intermediate evidence it has gathered and uses it to iteratively optimize its search. It infers new search constraints, pursues the paths with the best information, and prunes irrelevant branches. This allows MRAgent to piece together deeply buried information without filling the LLM’s context with noise. To make this active exploration computationally efficient and scalable, the framework organizes its database using a “Cue-Tag-Content” mechanism. This operates as a multi-layered associative graph with three node types: Cues : Fine-grained keywords, such as entities or contextual attributes extracted from user interactions. Content: The actual stored memory units. These are divided into multi-granular layers, such as episodic memory for concrete events and semantic memory for stable facts and user preferences. Tags: Semantic bridges that summarize the relational associations between specific Cues and Content. This structure enables a highly efficient two-stage retrieval process. The LLM first navigates from Cues to candidate Tags. Because Tags explicitly expose the semantic relationships and structural associations of the data, the agent evaluates these short summaries to judge their relevance. The LLM identifies promising traversal paths and discards irrelevant branches before spending compute and prompt tokens to access the detailed, heavy memory contents. For example, a user might ask an AI agent, "How did Nate use the prize money when he won his third video game tournament?" MRAgent first extracts fine-grained starting cues from the prompt, such as "Nate," "video game tournament," and "win." The agent maps these initial cues to the memory graph and looks at the available associative Tags connected to them. The agent sees tags like "Tournament Victory" and "Tournament Participation.” Since it is only concerned with what the person did after they won the championship, MRAgent drops the tournament participation tag and pursues the victory tag. The agent retrieves the episodic content linked to the chosen Cue-Tag pair, retrieving three distinct memory episodes where Nate won a tournament. MRAgent looks at the three memories, decides one of them in particular is relevant to the query, and discards the other two. With this information, it updates its cues and starts another round of discovery and pruning. From the new episodic memory it has retrieved, the agent adds “tournament earnings” to its cues and uses that to traverse new tags and home in on new memories. It repeats this process until it gathers enough information to answer the query, which could be something like “Nate saved the money.” MRAgent operates alongside several other frameworks addressing agentic memory building. Alternatives include A-MEM , a graph-based agentic memory framework, and MemoryOS, a hierarchical memory framework. Other persistent memory frameworks include LangMem and Mem0 . The researchers tested MRAgent on the LoCoMo and LongMemEval industry benchmarks. These test the abilities of agents to resolve queries on long-horizon tasks and conversations across dozens of sessions and hundreds of turns of dialogue. The backbone models used were Gemini 2.5 Flash and Claude Sonnet 4.5. The system was tested against standard RAG, A-MEM, MemoryOS, LangMem, and Mem0.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">新的代理内存框架每个查询使用118K个令牌。LangMem燃烧3.26米。</div>
+      <div class="col-content">长期推理暴露了人工智能代理的一个核心弱点：上下文窗口填充速度很快，检索管道返回的是噪声而不是信号。为了解决这个问题，新加坡国立大学的研究人员开发了MRAgent，这是一个放弃静态“检索然后推理”方法的框架。相反，它使用了一种机制，允许代理根据积累的证据动态开发其内存。这种多步骤记忆重建被集成到大型语言模型（LLM）的推理过程中。虽然MRAgent不是该领域的唯一框架，但与其他代理内存管理方法相比，它显著降低了令牌消耗和运行时成本。在经典的检索管道中，文档通过向量搜索或图遍历进行检索，并传递给LLM进行推理。这种被动方法失败了，因为它不能将推理与内存访问相结合，造成了三个主要瓶颈：这些系统在推理过程中无法修改其检索策略。如果代理获取一个文档并发现一个关键的缺失线索——一个特定的日期或人——它就无法根据该发现发出新的查询。固定的相似性得分和预定义的图扩展返回了表面级匹配，这些匹配会用无关的噪声淹没LLM的上下文窗口，从而降低推理能力。当前的系统严重依赖于预先构建的结构，如top-k结果和静态相关性函数，限制了在不可预测的长期用户交互中扩展所需的灵活性。研究人员认为，为了克服这些局限性，开发人员必须转向“主动和联想重建过程”，这是一个受认知神经科学启发的概念。在这种范式下，记忆回忆是按顺序展开的，而不是被动地读出静态数据库。系统从用户提示中的小型特定触发器开始，例如人的姓名、动作或地点。这些最初的提示指向连接概念或类别，而不是大量的文本块。通过遵循这些元数据的步骤，代理逐一收集小块证据。它使用每一条新信息来指导下一步，直到它成功地拼凑出完整、准确的故事。MRAgent（LLM代理的内存推理架构）将内存视为一个交互式环境，而不是将其视为静态数据库。在处理复杂查询时，代理使用骨干LLM的推理能力来探索结构化内存图中的多个候选检索路径。在每一步中，LLM都会评估它收集到的中间证据，并使用它来迭代优化搜索。它推断新的搜索约束，追求具有最佳信息的路径，并修剪不相关的分支。这允许MRAgent将深埋的信息拼凑在一起，而不会用噪声填充LLM的上下文。为了使这种主动探索在计算上高效且可扩展，该框架使用“线索标签内容”机制组织其数据库。这是一个具有三种节点类型的多层关联图：线索：细粒度关键字，如从用户交互中提取的实体或上下文属性。内容：实际存储的内存单位。这些被分为多粒度层，例如具体事件的情景记忆和稳定事实和用户偏好的语义记忆。标签：总结特定线索和内容之间关系关联的语义桥梁。这种结构实现了高效的两阶段检索过程。LLM首先从提示导航到候选标签。因为标签明确地暴露了数据的语义关系和结构关联，代理会评估这些简短的摘要以判断它们的相关性。LLM识别有前景的遍历路径，并在花费计算和提示令牌访问详细、繁重的内存内容之前丢弃不相关的分支。例如，用户可能会问人工智能代理，“内特在赢得第三场电子游戏锦标赛时是如何使用奖金的？”MRAgent首先从提示中提取细粒度的开始线索，如“内特”、“电子游戏锦标赛”和“获胜”。代理将这些初始线索映射到记忆图中，并查看与它们连接的可用关联标签。代理会看到“锦标赛胜利”和“锦标赛参与”等标签。由于它只关心人们在赢得冠军后做了什么，MRAgent会删除锦标赛参与标签并追踪胜利标签。代理会检索与所选线索标签对链接的情节内容，检索Nate赢得锦标赛的三个不同的记忆片段。MRAgent会查看这三个记忆，确定其中一个与查询特别相关，并丢弃另外两个。有了这些信息，它会更新其线索并开始另一轮发现和修剪。从它检索到的新的情节记忆中，代理会将“锦标赛收入”添加到其线索中，并使用它来遍历新的标签并锁定新的记忆。它重复这个过程，直到收集到足够的信息来回答查询，这可能类似于“Nate省了钱”。MRAgent与其他几个解决代理内存构建的框架一起运行。替代方案包括基于图的代理内存框架A-MEM和分层内存框架MemoryOS。其他持久内存框架包括LangMem和Mem0。研究人员在LoCoMo和LongMemEval行业基准上测试了MRAgent。这些测试测试了代理在数十个会话和数百轮对话中解决长期任务和对话查询的能力。使用的骨干模型是Gemini 2.5 Flash和Claude Sonnet 4.5。该系统已针对标准RAG、A-MEM、MemoryOS、LangMem和Mem0进行了测试。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/new-agentic-memory-framework-uses-118k-tokens-per-query-langmem-burns-through-3-26m" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
