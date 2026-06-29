@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-29 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-29</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Prompt injection is exploiting enterprise AI's biggest design flaws by targeting agents, RAG pipelines and model routers</div>
+      <div class="col-content">In the past two years, businesses have been trying to fit large language models (LLMs) into support, analytics, development, and internal automation like never before. Along with the increasing adoption of AI technology , another trend is gaining momentum — cybercriminals are taking advantage of the disconnect between assumptions about LLMs and their actual characteristics. In 2025 and 2026, several independent sources have highlighted the same trend: Prompt injection remains one of the most impactful and widely demonstrated attack vectors against LLM systems. The OWASP LLM Top 10 (2025) lists prompt injection as LLM01, identifying it as the most critical category of LLM‑specific vulnerabilities, for the second consecutive edition . OWASP's ranking reflects the fact that LLMs still struggle to reliably separate instructions from data, making them susceptible to manipulation through crafted inputs. CrowdStrike's 2026 Global Threat Report — built on frontline intelligence across more than 280 tracked adversaries — documented that threat actors injected malicious prompts into legitimate generative AI tools at more than 90 organizations in 2025. They then used those injections to generate commands that stole credentials and cryptocurrency. The report stated it plainly: "Prompts are the new malware." AI-enabled adversaries increased their overall attack volume by 89% year-over-year, with prompt injection working as both an entry point and a force multiplier. Real‑world incidents illustrate the operational impact. In August 2024, researchers at PromptArmor disclosed a prompt injection vulnerability in Slack AI that allowed an attacker to exfiltrate data from private Slack channels they had no access to — including API keys shared in private developer channels — by placing a malicious instruction in a public channel or embedding it in an uploaded document. In June 2025, researchers at Aim Security disclosed EchoLeak (CVE-2025-32711, CVSS 9.3), the first documented zero-click prompt injection exploit against a production AI system, targeting Microsoft 365 Copilot. By sending a single crafted email, no user interaction required, an attacker could cause Copilot to access internal files and transmit their contents to an attacker-controlled server. Both vulnerabilities were patched . These incidents underscore the fact that prompt injection is not a theoretical weakness but a practical, repeatable threat organizations must address as they deploy AI systems at scale. Prompt injection techniques have undergone major evolutions over recent years, now targeting multi-agent architecture, retrieval-augmented generation (RAG) pipelines, model routers, and long-term memory capabilities. Businesses deploy LLMs to process instructions, summarize information, and trigger automated workflows, but it is difficult for LLMs to tell: This creates an opportunity for attackers to manipulate and influence the model's behavior, either directly or indirectly. LLM use is a common practice among enterprises. Attackers corrupt the output of a particular model, knowing well that other models would be processing the content. Hence, the corruption propagates through all AI systems. A ttackers create malicious information — documentation, blog articles, GitHub READMEs. Then they wait until this malicious information is ingested in enterprises' RAG pipelines, then use it as an attack vector. AI agents have evolved to the point where they can send emails, modify cloud infrastructure, execute code snippets, and interact with internal corporate systems. It takes just a single instruction to make agents act differently in a harmful manner. With the help of million-token context windows, attackers place malicious code within the document and hope that an LLM will stumble upon it and execute it, thus overriding all previous instructions. Due to the implementation of long-term memory in LLMs, attackers can inject instructions that permanently reconfigure their state. Enterprises increasingly use model routers to select between multiple LLMs. Attackers craft prompts that force routing to the weakest or least‑guarded model. Prompt injection is not a theoretical problem. It directly affects: C ustomer‑facing systems (chatbots, support agents) I nternal copilots (developer tools, security assistants) A utomation workflows (ticketing, cloud operations, HR processes) D ata governance (RAG pipelines, knowledge bases) The risk is no longer limited to "the model said something it shouldn't." The attack surface has expanded dramatically. Limit what the model can do, not just what it should do. Treat all external data — including RAG sources — as potentially hostile. Require human approval for high‑impact actions. Ensure RAG pipelines don't ingest poisoned external content. Prevent attackers from forcing routing to weaker models. 6. Treat LLMs as untrusted components This mindset shift is the foundation of modern AI security. Prompt injection remains the most effective way to compromise enterprise AI systems because it exploits the fundamental way LLMs interpret text. Until organizations treat LLMs as untrusted interpreters — not autonomous decision‑makers — prompt injection will continue to dominate the AI threat landscape. Julie Brunias is an AI Security Architect. Welcome to the VentureBeat community! Our guest posting program is where technical experts share insights and provide neutral, non-vested deep dives on AI, data infrastructure, cybersecurity and other cutting-edge technologies shaping the future of enterprise. Read more from our guest post program — and check out our guidelines if you’re interested in contributing an article of your own!</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">快速注入正在通过针对代理、RAG管道和模型路由器来利用企业AI最大的设计缺陷</div>
+      <div class="col-content">在过去的两年里，企业一直在努力将大型语言模型（LLM）融入到支持、分析、开发和内部自动化中，这是前所未有的。随着人工智能技术的日益普及，另一个趋势正在兴起——网络犯罪分子正在利用对LLM的假设与其实际特征之间的脱节。在2025年和2026年，几个独立的消息来源强调了同样的趋势：快速注射仍然是针对LLM系统的最具影响力和广泛证明的攻击媒介之一。OWASP LLM Top 10（2025）连续第二版将快速注入列为LLM01，将其确定为LLM特定漏洞中最关键的类别。OWASP的排名反映了这样一个事实，即LLM仍然难以可靠地将指令与数据分离，这使得它们容易通过精心设计的输入进行操纵。CrowdStrike的《2026年全球威胁报告》基于280多个被追踪对手的一线情报，记录了2025年威胁行为者在90多个组织的合法生成人工智能工具中注入恶意提示。然后，他们使用这些注入来生成窃取凭据和加密货币的命令。报告明确指出：“Prompts是新的恶意软件。”支持人工智能的对手的总体攻击量同比增长了89%，快速注入既是切入点，也是力量倍增器。现实世界中的事件说明了其对运营的影响。2024年8月，PromptArmor的研究人员披露了Slack AI中的一个提示注入漏洞，该漏洞允许攻击者通过在公共渠道中放置恶意指令或将其嵌入上传的文档中，从他们无法访问的Slack私人渠道（包括在私人开发者渠道中共享的API密钥）中泄露数据。2025年6月，Aim Security的研究人员披露了EchoLeak（CVE-2025-32711，CVSS 9.3），这是第一个针对生产AI系统的零点击提示注入漏洞，目标是Microsoft 365 Copilot。通过发送一封精心编制的电子邮件，无需用户交互，攻击者可以使Copilot访问内部文件并将其内容传输到攻击者控制的服务器。这两个漏洞都已修复。这些事件强调了这样一个事实，即快速注入不是一个理论上的弱点，而是组织在大规模部署人工智能系统时必须解决的一个实际的、可重复的威胁。近年来，快速注入技术经历了重大发展，现在主要针对多代理架构、检索增强生成（RAG）管道、模型路由器和长期存储能力。企业部署LLM来处理指令、汇总信息并触发自动化工作流程，但LLM很难判断：这为攻击者直接或间接操纵和影响模型的行为创造了机会。LLM的使用在企业中是一种常见的做法。攻击者会破坏特定模型的输出，因为他们很清楚其他模型会处理内容。因此，腐败在所有人工智能系统中传播。攻击者会创建恶意信息——文档、博客文章、GitHub自述文件。然后，他们等待这些恶意信息被企业的RAG管道接收，然后将其用作攻击向量。人工智能代理已经发展到可以发送电子邮件、修改云基础设施、执行代码片段以及与内部公司系统交互的地步。只需要一个指令，就可以让代理人以有害的方式采取不同的行动。在数百万个令牌上下文窗口的帮助下，攻击者在文档中放置恶意代码，并希望LLM偶然发现并执行它，从而覆盖所有先前的指令。由于LLM中实现了长期内存，攻击者可以注入永久重新配置其状态的指令。企业越来越多地使用模型路由器在多个LLM之间进行选择。攻击者的飞船提示强制路由到最弱或防护最少的模型。快速注射不是一个理论问题。它直接影响：面向客户的系统（聊天机器人、支持代理）、内部副产品（开发工具、安全助理）、自动化工作流程（票务、云运营、人力资源流程）、数据治理（RAG管道、知识库）。风险不再局限于“模型说了不应该说的话”。攻击面急剧扩大。限制模型可以做什么，而不仅仅是它应该做什么。将所有外部数据（包括RAG来源）视为潜在的敌对数据。高影响行动需要人工批准。确保RAG管道不会吸入有毒的外部物质。防止攻击者强制路由到较弱的模型。6.将LLM视为不可信的组件这种思维方式的转变是现代人工智能安全的基础。快速注入仍然是危害企业人工智能系统的最有效方法，因为它利用了LLM解释文本的基本方式。除非组织将LLM视为不受信任的解释者，而不是自主决策者，否则及时注入将继续主导人工智能威胁格局。Julie Brunias是一位人工智能安全架构师。欢迎来到VentureBeat社区！我们的客座项目是技术专家分享见解，并就人工智能、数据基础设施、网络安全和其他塑造企业未来的尖端技术提供中立、非既定的深入研究。请阅读我们的客座文章计划中的更多内容，如果您有兴趣撰写自己的文章，请查看我们的指南！</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/prompt-injection-is-exploiting-enterprise-ais-biggest-design-flaws-by-targeting-agents-rag-pipelines-and-model-routers" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
