@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-06-30 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-06-30</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">DeepSeek open sources DSpark, a new framework to speed up LLM inference by up to 85%</div>
+      <div class="col-content">Even as the geopolitical conversation around AI continues to grow more fraught following the U.S. government's actions to limit the new models from Anthropic and OpenAI , Chinese open source darling DeepSeek is back with yet another open release that could once again change AI development around the globe. Over the weekend, the firm released DSpark , a new, MIT-Licensed system designed to make large language models answer faster without changing what the underlying model is trying to say. The easiest way to think about it is this: most AI chatbots write like someone crossing a river one stepping stone at a time. They choose one small chunk of text, then the next, then the next. DSpark gives the system a scout that runs a few steps ahead, guesses the likely path, and lets the larger model quickly check which steps are safe. When the guesses are good, the model moves faster. When the guesses are weak, DSpark tries not to waste time checking them. DeepSeek published the work with a technical paper , model checkpoints and DeepSpec , a codebase for training and evaluating speculative decoding systems. The release is available through DeepSeek’s public GitHub and Hugging Face pages, both under the permissive, friendly, commonplace MIT license, making the new technique broadly usable by developers, researchers and commercial enterprise operations that want to study or adapt the approach. The system is aimed at one of the most expensive problems in AI deployment: serving large models quickly enough for real users, while using hardware efficiently enough to make the economics work. That matters for consumer chatbots, coding assistants, agentic workflows and enterprise AI systems where users expect long answers to stream quickly rather than crawl out word by word. DeepSeek is applying DSpark to its own latest frontier open model, DeepSeek-V4 . Specifically, DeepSeek used its new DSpark framework on DeepSeek-V4-Flash, its already speed-optimized 284-billion-parameter mixture-of-experts model with 13 billion active parameters, and DeepSeek-V4-Pro, its more thoughtful and powerful 1.6-trillion-parameter model with 49 billion active parameters (Both support context windows up to one million tokens). But the broader significance is that DSpark is not conceptually limited to DeepSeek-V4. DeepSeek’s own tests and released checkpoints cover other open model families, including Alibaba's open weights Qwen and Google's open weights Gemma. That means enterprise teams running open-weight models could, in principle, train or fine-tune DSpark-style draft modules for their own target models. It is not a switch that any API customer can flip from the outside, but it is a method that can travel to other models when the operator controls the weights and serving stack. In DeepSeek’s live production tests, DSpark improved aggregate throughput by 51% for DeepSeek-V4-Flash at an 80-token-per-second-per-user service target, and by 52% for DeepSeek-V4-Pro at a 35-token-per-second-per-user target. At matched system capacity, DeepSeek reports per-user generation speedups of 60% to 85% for V4-Flash and 57% to 78% for V4-Pro over its prior MTP-1 production baseline. The different speed claims measure different things. The 60% to 85% figure for V4-Flash, and the 57% to 78% figure for V4-Pro, describe how much faster individual users receive generated tokens when DeepSeek compares DSpark with MTP-1 at matched practical system capacity. Those are the cleaner “generation speed” numbers. DeepSeek also reports much larger 661% and 406% increases, but these measure aggregate throughput under very strict speed targets: 120 tokens per second per user for V4-Flash and 50 tokens per second per user for V4-Pro. At those targets, DeepSeek says its older MTP-1 baseline approaches an operational cliff, meaning it can keep only a small number of concurrent requests running while preserving that level of responsiveness. DSpark avoids more of that collapse, so the percentage difference in total system output becomes much larger. Put simply: the 85% number is closer to “how much faster the ride feels for a user” under comparable conditions, while the 661% and 406% figures are closer to “how much more traffic the road can still carry” when the old system is already bottlenecking. LLMs usually generate text one token at a time. A token can be a word, part of a word, punctuation mark or other small piece of text. Every new token depends on the text already produced, so the model has to keep pausing, checking the full context and choosing the next piece. That is accurate, but slow. It is like having a senior editor approve every word before a writer can move to the next one. The editor may be excellent, but the process creates a bottleneck. Speculative decoding, developed in the early Transfomer era, tries to fix that bottleneck. Instead of asking the large model to produce every token one by one, the system uses a smaller or lighter draft component to suggest several likely next tokens. The large model then checks that batch of guesses in parallel. If the draft guessed correctly, the system moves ahead several tokens at once. If the draft made a bad guess, the system rejects the bad token and anything after it, adds a corrected token, and tries again. The point is speed without changing the larger model’s intended output. In the standard speculative decoding setup, the draft model is not replacing the target model. It is acting more like an assistant who prepares a rough next sentence for the senior editor to approve or reject. The idea did not appear out of nowhere with today’s large language models. A key precursor came in 2018 , when Mitchell Stern, Noam Shazeer and Jakob Uszkoreit proposed blockwise parallel decoding for deep autoregressive models. Their method predicted multiple future steps in parallel, then kept the longest prefix validated by the main model.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">DeepSeek开源DSpark，一个将LLM推理速度提高85%的新框架</div>
+      <div class="col-content">尽管在美国政府采取行动限制Anthropic和OpenAI的新模型后，围绕人工智能的地缘政治对话继续变得更加令人担忧，但中国开源宠儿DeepSeek又回来了，发布了另一个公开版本，可能会再次改变全球的人工智能发展。上周末，该公司发布了DSpark，这是一个新的麻省理工学院许可系统，旨在使大型语言模型更快地回答问题，而不改变底层模型试图表达的内容。最简单的思考方式是：大多数人工智能聊天机器人的写作方式就像一个人一次跨过一块踏脚石过河。他们选择一小段文本，然后是下一段，然后是另一段。DSpark为系统提供了一个向前走几步的侦察器，猜测可能的路径，并让较大的模型快速检查哪些步骤是安全的。当猜测正确时，模型移动得更快。当猜测较弱时，DSpark会尽量不浪费时间进行检查。DeepSeek发表了一篇技术论文、模型检查点和DeepSpec，这是一个用于训练和评估推测解码系统的代码库。该版本可通过DeepSeek的公共GitHub和Hugging Face页面获得，这两个页面都遵循宽松、友好、常见的麻省理工学院许可证，使这项新技术可供希望研究或适应该方法的开发人员、研究人员和商业企业运营商广泛使用。该系统旨在解决人工智能部署中最昂贵的问题之一：为真实用户快速提供大型模型，同时高效使用硬件以实现经济效益。这对消费者聊天机器人、编码助理、代理工作流程和企业人工智能系统很重要，因为用户希望长答案能够快速流式传输，而不是逐字逐句地抓取。DeepSeek正在将DSpark应用于其最新的前沿开放模型DeepSeek-V4。具体来说，DeepSeek在DeepSeek-V4-Flash上使用了其新的DSpark框架，其已经速度优化的2840亿参数混合专家模型，具有130亿个活动参数，以及DeepSeek-V4 Pro，其更周到、更强大的1.6亿参数模型，具有490亿个活动参数（两者都支持高达100万个令牌的上下文窗口）。但更广泛的意义是，DSpark在概念上并不局限于DeepSeek-V4。DeepSeek自己的测试和发布的检查点涵盖了其他开放模型家族，包括阿里巴巴的开放权重Qwen和谷歌的开放权重Gemma。这意味着运行开放权重模型的企业团队原则上可以为自己的目标模型训练或微调DSpark风格的草稿模块。这不是任何API客户都可以从外部翻转的开关，但当操作员控制重量和服务堆栈时，这是一种可以转移到其他模型的方法。在DeepSeek的现场生产测试中，DSpark将DeepSeek-V4-Flash的总吞吐量提高了51%，每个用户服务目标每秒80个令牌，将DeepSeek V4-Pro的总吞吐量提升了52%，每个用户目标每秒35个令牌。在匹配的系统容量下，DeepSeek报告称，与之前的MTP-1生产基线相比，V4 Flash和V4 Pro的每用户生成速度分别提高了60%至85%和57%至78%。不同的速度声明衡量的是不同的东西。V4 Flash的60%至85%的数字和V4 Pro的57%至78%的数字描述了当DeepSeek在匹配的实际系统容量下将DSpark与MTP-1进行比较时，个人用户接收生成的令牌的速度有多快。这些是更清晰的“生成速度”数字。DeepSeek还报告了更大的661%和406%的增长，但这些增长是在非常严格的速度目标下衡量总吞吐量的：V4 Flash每用户每秒120个令牌，V4 Pro每用户每秒50个令牌。DeepSeek表示，在这些目标下，其较旧的MTP-1基线接近操作悬崖，这意味着它只能保持少量并发请求运行，同时保持这种响应水平。DSpark避免了更多的崩溃，因此系统总输出的百分比差异变得更大。简单地说：在类似条件下，85%的数字更接近于“用户的骑行感觉有多快”，而当旧系统已经处于瓶颈时，661%和406%的数字更贴近“道路还能承载多少交通量”。LLM通常一次生成一个令牌的文本。标记可以是单词、单词的一部分、标点符号或其他小文本。每个新令牌都依赖于已经生成的文本，因此模型必须不断暂停，检查完整的上下文并选择下一部分。这是准确的，但很慢。这就像让一位资深编辑批准每一个单词，然后作家才能进入下一个单词。编辑器可能很棒，但这个过程造成了瓶颈。推测性解码是在Transomer时代早期发展起来的，试图解决这一瓶颈。该系统使用较小或较轻的草稿组件来建议几个可能的下一个令牌，而不是要求大型模型逐一生成每个令牌。然后，大型模型并行检查这批猜测。如果草稿猜对了，系统会同时向前移动几个令牌。如果草稿做出了错误的猜测，系统会拒绝错误的令牌及其后的任何令牌，添加一个正确的令牌，然后重试。重点是速度，而不改变较大型号的预期输出。在标准推测解码设置中，草稿模型不会取代目标模型。它更像是一个助理，为高级编辑准备一个粗略的下一句话来批准或拒绝。在当今的大型语言模型中，这个想法并不是凭空出现的。一个关键的先驱出现在2018年，当时Mitchell Stern、Noam Shazeer和Jakob Uszkoreit提出了深度自回归模型的块并行解码。他们的方法并行预测多个未来步骤，然后保持主模型验证的最长前缀。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/deepseek-open-sources-dspark-a-new-framework-to-speed-up-llm-inference-by-up-to-85" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
