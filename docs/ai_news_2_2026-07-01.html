@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-01 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-01</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Morgan Stanley cut its riskiest reconciliation job in half — by making its agents less autonomous</div>
+      <div class="col-content">Most enterprise AI deployments so far have focused on coding assistants and customer service bots. Morgan Stanley has deployed agents in one of banking's most accuracy-critical, deadline-driven workflows instead — profit and loss (P&L) reconciliation — and cut the work in half. The counterintuitive part: it got there by making the system less autonomous, not more. Humans stay tightly in the loop, and their decisions are iteratively turned into repeatable rules the system can apply on its own. “It's much more like a co-worker than a copilot,” Morgan Stanley Managing Director Todd Johnson said at a recent VB AI Impact event. The internal production agentic system, known as FIXR, goes beyond simple, straightforward "gen AI 1.0" tasks. “We think that's where the opportunity is to really unlock more complex work in the organization.” Every trading day, Morgan Stanley’s trade desks handle the important work around transactions such as cash equities or debt investments. And, at the end of each of those days, controllers must reconcile P&L across the finance giant’s Finance, Risk, Operations, and Trade Capture systems. All that data must come together, and, perhaps not surprisingly, hundreds of thousands of attributes frequently fail to match. Typically, this means controllers must manually investigate each mismatch (or “break”), make decisions on adjustments, then ideally sign off before the number goes to the desk. And all of this while working on a hard morning deadline. Previously, this could take up to six hours for a single book. Now, FIXR performs the task in two to three hours, Johnson said. Across the roughly 100 controllers who do this work, that adds up to about 1,500 hours saved per week. After nightly P&L calculations complete, the system automatically analyzes “breaks” and proposes resolutions based on learned rules. Several agents work together: One interprets past guidance to develop start-of-day resolutions. One learns from controller behavior and documents the rules they apply. One converts repeated patterns into durable, automated logic. Over time, the system can auto-clear certain breaks it’s encountered before, suggest solutions for others that may be less familiar, ask for help when it’s unsure, and flag for human investigation. When items are repeatedly resolved through the same method, it can create firm rules. Critically, humans don’t leave the loop, but stay fully in it, he said. They review, approve or correct every recommendation, then feed those decisions back to improve the next run. The agent learns daily from controllers what it gets right and wrong and codifies that knowledge as it iterates. “You still preserve that element of human accountability even as you start to automate,” Johnson said. “Over time you'll see more and more of those items resolved in an automatic way.” He emphasized that autonomy requires a great deal of trust; enterprises will not see efficiency gains if everyone's checking everything an agent does. The human–agent feedback loop was critical to addressing the challenge of controlled, measured, and repeatable automation. “We recognized that all that intelligence that's sitting in the mind of a controller is gonna be difficult to get all into an agent on day one,” Johnson said. It was critical to establish processes first, before getting any AI involved, Johnson said. His team ran a “very thorough” process intelligence assessment that mapped and mined workflows to identify where automation would be the most advantageous: Was the answer agents, traditional automation, or simple re-engineering of an inefficient step? “If we can fix that first before we add agents to the problem, then we really will be transforming the opportunity,” he said. The P&L sign-off process was full of manual steps suitable for automation, and agents taking over some of these time-consuming tasks are freeing up controllers for “more value-added analysis” and “deeper risk consideration” work, he said. Extensibility, though, was just as important as time savings. Johnson’s team chose this particular P&L reconciliation use case because hundreds of controllers were doing this work globally across the business (in the Americas, Europe, Asia). So start with a use case, prove it, extend it, “and then ultimately the transformation will be as we roll this out more and more across the organization,” Johnson said. Johnson said the team also deliberately limited how much of the workflow depended on the model's judgment at all. "If you have an opportunity to make things very prescribed and repeatable, that's cheaper in terms of token consumption, it's more repeatable in terms of controls — and have the LLM do the stuff where you don't need that kind of deterministic workflow," he said. As the system sees more controller feedback on a given break type, Morgan Stanley converts that pattern into a fixed rule instead of leaving it to the model. An interesting (and perhaps fundamental) question being raised at the dawn of the agentic era is: Are agents code or digital employees? Johnson argues that “they're probably a little bit of both,” and, as such, require nuance when it comes to governance and oversight. Technical teams must still be responsible for maintaining protections and guardrails like firewalls or encryption, for instance. But there’s a new dynamic around the “performance element”: Humans using agents are responsible for them because it’s aiding their business work. For instance, if a senior controller is working with a junior controller, they don’t just relinquish responsibility because someone is helping them out, Johnson noted. “One of our strong principles in our AI governance generally is that there always has to be human accountability, even if there's a degree of automation,” he said. But there typically isn’t “one single one person,” and the process is ultimately continuous.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">摩根士丹利通过降低代理人的自主性，将风险最高的和解工作减半</div>
+      <div class="col-content">到目前为止，大多数企业人工智能部署都集中在编码助手和客户服务机器人上。摩根士丹利已将代理部署在银行业最精确、最受截止日期驱动的工作流程之一——损益（P&L）对账中，并将工作减半。违反直觉的部分：它是通过降低系统的自主性，而不是提高自主性来实现的。人类紧紧地留在循环中，他们的决策被迭代地转化为系统可以自行应用的可重复规则。摩根士丹利董事总经理托德·约翰逊在最近的一次VB AI Impact活动中表示：“它更像是一个同事，而不是副驾驶。”。被称为FIXR的内部生产代理系统超越了简单、直接的“人工智能1.0代”任务。“我们认为，这是真正解锁组织中更复杂工作的机会。”每个交易日，摩根士丹利的交易部门都会处理现金股票或债务投资等交易的重要工作。而且，在每一天结束时，控制者都必须协调金融巨头的财务、风险、运营和交易捕获系统的损益。所有这些数据必须汇集在一起，也许并不奇怪，数十万个属性经常不匹配。通常，这意味着控制器必须手动调查每个不匹配（或“中断”），做出调整决定，然后最好在数字送到桌面之前签字。所有这一切都是在一个艰难的上午截止日期前完成的。以前，一本书可能需要六个小时。约翰逊说，现在，FIXR在两到三个小时内完成了这项任务。在大约100名从事这项工作的控制器中，每周节省了约1500小时。在夜间损益计算完成后，系统会自动分析“中断”，并根据学习到的规则提出解决方案。几个代理协同工作：一个解释过去的指导，以制定一天的开始决议。一个人从控制器行为中学习，并记录他们应用的规则。一种方法是将重复的模式转换为持久的、自动化的逻辑。随着时间的推移，该系统可以自动清除以前遇到的某些故障，为可能不太熟悉的其他故障提供解决方案，在不确定时寻求帮助，并标记为人工调查。当项目通过相同的方法重复解决时，它可以创建严格的规则。他说，至关重要的是，人类不会离开这个循环，而是完全留在其中。他们审查、批准或纠正每一项建议，然后反馈这些决定以改进下一次运行。代理每天从控制器那里学习它的对错，并在迭代时将这些知识编码。约翰逊说：“即使你开始自动化，你仍然保留了人类问责制的要素。”。“随着时间的推移，你会看到越来越多的项目以自动方式解决。”他强调，自主需要极大的信任；如果每个人都在检查代理所做的一切，企业就不会看到效率的提高。人机反馈回路对于应对受控、可测量和可重复自动化的挑战至关重要。约翰逊说：“我们认识到，控制者头脑中的所有情报在第一天都很难全部进入特工。”。约翰逊说，在让任何人工智能参与进来之前，首先建立流程是至关重要的。他的团队进行了一项“非常彻底”的流程智能评估，绘制并挖掘了工作流程，以确定自动化在哪里最有利：答案是代理、传统自动化还是对低效步骤的简单再造？他说：“如果我们能在增加代理之前先解决这个问题，那么我们真的会改变机会。”。他说，损益签核过程充满了适合自动化的手动步骤，接管其中一些耗时任务的代理人正在释放控制器，以进行“更具附加值的分析”和“更深入的风险考虑”工作。然而，可扩展性与节省时间同样重要。Johnson的团队选择了这个特定的损益对账用例，因为全球（美洲、欧洲、亚洲）有数百名控制员在做这项工作。因此，从一个用例开始，证明它，扩展它，“最终，随着我们在整个组织中越来越多地推广它，这种转变将会发生，”约翰逊说。约翰逊说，该团队还故意限制了工作流程在多大程度上取决于模型的判断。他说：“如果你有机会让事情变得非常有规定性和可重复性，就代币消费而言，这会更便宜，就控制而言，这更具可重复性——让LLM做你不需要那种确定性工作流程的事情。”。随着系统在给定的中断类型上看到更多的控制器反馈，摩根士丹利将该模式转换为固定规则，而不是将其留给模型。在代理时代来临之际，一个有趣的（也许是根本的）问题被提出：代理是代码还是数字员工？约翰逊认为，“他们可能两者兼而有之”，因此，在治理和监督方面需要细致入微。例如，技术团队仍必须负责维护防火墙或加密等保护措施和护栏。但围绕“绩效要素”出现了一种新的动态：使用代理的人对他们负责，因为这有助于他们的业务工作。例如，约翰逊指出，如果一名高级控制员与一名初级控制员合作，他们不会因为有人帮助他们而放弃责任。他说：“我们在人工智能治理中的一个强有力的原则是，即使有一定程度的自动化，也必须始终有人的责任。”。但通常没有“一个人”，这个过程最终是连续的。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/morgan-stanley-cut-its-riskiest-reconciliation-job-in-half-by-making-its-agents-less-autonomous" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
