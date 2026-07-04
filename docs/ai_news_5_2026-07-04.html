@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-04 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-04</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Trunk Tools' stack cut document review from 60 days to 10 by ditching general-purpose models</div>
+      <div class="col-content">Most verticals aren’t clean, well-oiled SaaS databases; the reality is ugly documents, proprietary schemas, implicit workflows, and long‑running tasks that most general-purpose models struggle with. This prompted construction project management company Trunk Tools to build a specialized, three-layer architecture — perception, semantics, agents — based on highly-detailed data to support high-accuracy, highly-relevant industry automation. Their purpose-built stack has shrunk review cycles from months to days, prevented costly field errors, and given autonomous agents the ability to reason over millions of pages of documentation, Trunk says. “We really set out to take the data from dispersed systems, pre-process it, structure it, go through our ontology into a knowledge graph, and then train AI models,” said Sarah Buchner, Trunk’s founder and CEO and a former carpenter. For builders in other verticals, Trunk’s approach could serve as a blueprint for transforming data chaos into agent‑ready, industry-specific workflows. Foundation LLMs, while powerful, are optimized for breadth, not always depth. “General-purpose LLMs are trained to be okay at everything, so they're weak at anything niche,” said Kriti Faujdar, a senior product manager working in AI infrastructure, agentic AI, security, and LLM platforms. For instance: Rare terms, domain-specific reasoning, the unspoken context that any practitioner “just knows.” Web, app, and software developer Sébastien De Bollivier agreed that the biggest bottleneck is reliability on data that is “jargon-dense, abbreviation-heavy, and format-specific.” “A GPT-4-class model can understand a French legal contract, but will fumble the specific article references practitioners need to cite,” he said. Besides, the most valuable enterprise data never made it into pretraining anyway, Faujdar pointed out. It's sitting in internal systems and proprietary formats. “RAG helps a little,” she said. “But it's just giving better facts to a model that still can't reason properly in the domain.” Pre-training on domain data is critical; enterprises should then fine-tune on good task examples and build their own evals. “A few thousand examples from real practitioners beats millions of scraped, noisy ones," Faujdar said. Mixture-of-experts (MoE) can provide specialization without inference costs blowing up. Pairing RAG with fine-tuning also works well; RAG handles the factual long trail while fine-tuning fixes vocabulary and reasoning. De Bollivier pointed to the advantage of hybrid stacks: A general-purpose model for reasoning and orchestration, a smaller fine-tuned model (or dense retrieval over a curated corpus) for domain-specific extraction. He advised: “Don't fine-tune to make the model 'smarter' about a domain, fine-tune to make it more reliable on the specific output format your workflow requires.” The trades and construction are certainly industries seeing traction with these techniques, as are legal and healthcare, De Bollivier said. These verticals have “high stakes for errors plus standardized document formats, equaling clear domain-training ROI.” One honest caveat worth mentioning, Faujdar said: Specialized models can often fall apart outside their domain, so they’re often not useful outside their expertise (unless they’re re-trained). In highly-specialized domains like construction, “data dumps” into large language models (LLMs) don’t cut it, said Trunk’s CTO Amrish Kapoor. This is because most transformers are probabilistic models: When given an image, they report back that it is “probably” a tree, or “probably” a child playing next to a tree. This makes them insufficient for high‑precision symbolic interpretation. For instance, in construction documents, a 2-millimeter-wide symbol has a vastly different meaning depending on where it’s placed. Further, constrained by context limits, probabilistic models struggle with long‑term project memory. “I don't mean a context window of a few tokens,” Kapoor said. “I'm talking about long term memory that stretches across months and years, because this is how long some of these projects are.” Instead, Trunk’s three-layer system breaks workflows into: Perception (reading and extracting data from messy docs like PDFs, drawings, or scans) A semantic/graph layer (making sense of that data and understanding their relationships). Construction drawings are typically symbolic, Buchner said. A door isn't always labeled ‘door.’ Sometimes it's simply an arc on a wall that a trained eye learns to read based on years of practice. “The perception layer is what teaches AI to read that language,” she said. The semantic layer then gives that information meaning; for instance, connecting the door to the drawing that details it, the spec that governs it, and the trade that installs it. This helps answer project engineers’ critical questions: Not "is there a door here?" but "does this door create a problem down the line?" Particularly in construction, that shift matters because the cost of a problem compounds with time. “A conflict caught in design is relatively low cost to address,” Buchner said, “whereas the same problem caught in the field might cost tens of thousands of dollars.” At a high level, the system identifies the document type and begins extracting information based on content (drawing, schedules, paragraph text). This data is then “transformed and augmented” in the platform, which triggers agentic workflows like knowledge graph relationships and end-user workflows. For instance, an agent might review an architecture bulletin and produce a visual overlay comparing an older version and a newer version (flagging additions and removals), then generate written narratives that describe what those changes are in simple terms. This helps users understand what’s changed and coordinate with trade partners on updated pricing and change orders.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">通过放弃通用型号，Trunk Tools的堆叠切割文件审查从60天缩短到10天</div>
+      <div class="col-content">大多数垂直行业都不是干净、运转良好的SaaS数据库；现实情况是，大多数通用模型都难以处理丑陋的文档、专有模式、隐式工作流和长时间运行的任务。这促使建筑项目管理公司Trunk Tools基于高度详细的数据构建了一个专门的三层架构——感知、语义、代理，以支持高精度、高度相关的行业自动化。Trunk说，他们专门构建的堆栈将审查周期从几个月缩短到几天，防止了代价高昂的现场错误，并使自主代理能够推理数百万页的文档。Trunk的创始人兼首席执行官、前木匠Sarah Buchner表示：“我们真的开始从分散的系统中获取数据，对其进行预处理、结构化，将我们的本体论转化为知识图，然后训练人工智能模型。”。对于其他垂直领域的构建者来说，Trunk的方法可以作为将数据混乱转化为代理就绪、行业特定工作流的蓝图。Foundation LLM虽然功能强大，但针对广度而非深度进行了优化。从事人工智能基础设施、代理人工智能、安全和LLM平台工作的高级产品经理Kriti Faujdar表示：“通用LLM经过培训，在所有方面都很好，所以他们在任何利基领域都很薄弱。”。例如：罕见的术语、特定领域的推理、任何从业者“只知道”的潜台词。网络、应用程序和软件开发商塞巴斯蒂安·德·博利维耶（Sébastien De Bollivier）一致认为，最大的瓶颈是“术语密集、缩写重、格式特定”的数据的可靠性。他说：“GPT-4类模型可以理解法国的法律合同，但会混淆从业者需要引用的具体文章参考。”。此外，Faujdar指出，无论如何，最有价值的企业数据从未进入预培训阶段。它存在于内部系统和专有格式中。“RAG有点帮助，”她说。“但这只是为一个在该领域仍无法正确推理的模型提供了更好的事实。”对领域数据进行预训练至关重要；然后，企业应该对好的任务示例进行微调，并建立自己的评估。Faujdar说：“来自真实从业者的几千个例子胜过了数百万个刮擦、嘈杂的例子。”专家混合（MoE）可以在不增加推理成本的情况下提供专业化。将RAG与微调相结合也很有效；RAG处理事实的长期轨迹，同时微调词汇和推理。De Bollivier指出了混合堆栈的优势：一个用于推理和编排的通用模型，一个用于特定领域提取的较小的微调模型（或在精心策划的语料库上进行密集检索）。De Bollivier表示，法律和医疗保健也是如此。这些垂直行业“错误风险很高，加上标准化的文档格式，相当于明确的领域培训投资回报率。”Faujdar说，一个值得一提的诚实警告是：专业模型往往会在其领域之外崩溃，因此它们在专业知识之外往往没有用处（除非它们经过重新训练）。Trunk的首席技术官Amrish Kapoor表示，在建筑等高度专业化的领域，将“数据转储”到大型语言模型（LLM）中并不能解决问题。这是因为大多数变压器都是概率模型：当给定一张图像时，它们会报告它“可能”是一棵树，或者“可能”在树旁边玩耍的孩子。这使得它们不足以进行高精度的符号解释。例如，在建筑文件中，一个2毫米宽的符号根据其放置的位置具有截然不同的含义。此外，受上下文限制，概率模型在长期项目记忆方面存在困难。Kapoor说：“我不是说几个令牌的上下文窗口。”。“我说的是跨越数月和数年的长期记忆，因为这就是其中一些项目的长度。”相反，Trunk的三层系统将工作流程分为：感知（从PDF、图纸或扫描等混乱的文档中读取和提取数据）语义/图形层（理解这些数据并理解它们之间的关系）。布赫纳说，建筑图纸通常是象征性的。门并不总是标有“门”。“有时，它只是墙上的一道弧线，经过训练的眼睛会根据多年的练习学会阅读。“感知层是教人工智能阅读这种语言的东西，”她说。语义层随后赋予该信息含义；例如，将门连接到详细说明它的图纸、管理它的规范以及安装它的行业。这有助于回答项目工程师的关键问题：不是“这里有门吗？”，而是“这扇门会在未来产生问题吗？”特别是在建筑中，这种转变很重要，因为问题的成本会随着时间的推移而增加。Buchner说：“解决设计中的冲突成本相对较低，而解决现场的相同问题可能需要花费数万美元。”在较高的层次上，系统会识别文档类型，并开始根据内容（图纸、时间表、段落文本）提取信息。然后，这些数据在平台中“转换和增强”，从而触发知识图关系和最终用户工作流等代理工作流。例如，代理可能会查看架构公告，并生成一个比较旧版本和新版本的视觉覆盖图（标记添加和删除），然后生成书面叙述，用简单的术语描述这些更改是什么。这有助于用户了解发生了什么变化，并与贸易伙伴就更新的定价和变更单进行协调。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/trunk-tools-stack-cut-document-review-from-60-days-to-10-by-ditching-general-purpose-models" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
