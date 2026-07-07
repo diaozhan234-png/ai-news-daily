@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-07 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-07</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 TechCrunch</span>
+      <span class="badge">🔥 热度 82.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The ‘first’ AI-run ransomware attack still needed a human</div>
+      <div class="col-content">Last week, researchers at cloud security firm Sysdig said they’d documented the first known case of “agentic ransomware.” It was an extortion operation, dubbed JadePuffer, in which an AI agent — not a human — handled the technical execution of a real-world cyberattack from start to finish. The agent broke into a vulnerable server, stole credentials, moved through the target’s network, encrypted files, and even wrote its own ransom note, adapting to obstacles along the way like a human hacker would. Coverage of the funding described it as run “without any human oversight,” with “no human at the keyboard.” That’s not quite the full picture. In an interview on Monday with CyberScoop, Sysdig’s Michael Clark, the company’s senior director of threat research, clarified that a human was still very much involved — just not in the technical execution. “A human still set up and pointed the operation and provisioned the infrastructure behind it, the command-and-control server, the staging server used for the stolen data and chose a victim,” Clark said. The credentials used to break into the victim’s database, he added, weren’t harvested by the AI agent itself; someone obtained them separately, through a prior compromise, and handed them to the operation. None of this contradicts Sysdig’s original claim, and the technical details of the attack remain notable on their own — wild, even. The agent got in through a known bug in Langflow , a popular open-source tool for building LLM apps, then moved on to a production MySQL server and exploited another known flaw to gain admin access. It encrypted over 1,300 configuration records and not only left behind a ransom note that it wrote itself but it left a Bitcoin address where the ransom could be sent. Sysdig hasn’t disclosed who was targeted. The techniques were fairly ordinary apparently, what stood out was the speed and transparency involved. The agent fixed a failed login in 31 seconds, narrating its own reasoning in natural-language code comments the whole way. One detail that initially seemed to muddy the picture has since been clarified. Clark had told CyberScoop that Sysdig found “multiple models were used in the attack,” citing harvested keys for OpenAI, Anthropic, DeepSeek, and Gemini — language that left open the question of whether several models actively powered different stages of the intrusion. Asked to clarify, Clark told TechCrunch that those keys were simply part of what the agent stole, not evidence of what was driving it. “The agent swept the Langflow host for anything valuable — provider API keys, cloud credentials, cryptocurrency wallets, and database configs — and those provider keys were part of the loot,” he said via email. “They are indicative of what the attacker considered worth taking, but they do not tell us which model was making the decisions.” On the model actually running JadePuffer, Clark said Sysdig “was not able to identify the specific model driving the agent” and has no visibility into its system prompt or configuration. Microsoft researcher Geoff McDonald’s theory, offered on LinkedIn several days ago, is worth revisiting in that light. McDonald suspected an open-weight model with safety training stripped out, rather than a frontier model, was behind the attack, based on his own red-teaming experience showing frontier labs’ safety layers hold up well. Sysdig’s own account doesn’t confirm or rule that out. McDonald’s post also warned that ransomware campaigns are now bounded primarily by attacker budget rather than human effort, raising the possibility of “thousands or tens of thousands of simultaneous campaigns.” That concern is a little harder to square with what Clark described Monday. (If a human still has to choose each victim, provision infrastructure, and obtain database credentials for every operation, that’s a bit of a bottleneck, at least.) Either way, Clark told CyberScoop, while Sysdig hasn’t seen the same operation hit other victims yet, given how cheap it is to run an agent, he expects that to change. When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">“第一次”AI运行的勒索软件攻击仍然需要人类</div>
+      <div class="col-content">上周，云安全公司Sysdig的研究人员表示，他们记录了第一个已知的“代理勒索软件”案例。这是一个被称为JadeBuffer的勒索行动，其中一个人工智能代理（而不是人类）从始至终处理了现实世界网络攻击的技术执行。该代理闯入了一个易受攻击的服务器，窃取了凭据，在目标的网络中移动，加密了文件，甚至写了自己的赎金说明，像人类黑客一样适应了沿途的障碍。对这笔资金的报道称，它是在“没有任何人为监督”的情况下运行的，“没有人在键盘上”。这并不是全貌。在周一接受CyberScoop采访时，Sysdig的威胁研究高级总监Michael Clark澄清说，人类仍然参与其中，只是不参与技术执行。克拉克说：“一个人仍然设置并指示了操作，并为其提供了背后的基础设施、指挥和控制服务器、用于被盗数据的暂存服务器，并选择了受害者。”。他补充说，用于闯入受害者数据库的凭据不是由人工智能代理本身获取的；有人通过事先的妥协单独获得了它们，并将其交给了手术室。所有这些都与Sysdig最初的说法相矛盾，攻击的技术细节本身仍然值得注意，甚至是疯狂的。该代理通过构建LLM应用程序的流行开源工具Langflow中的一个已知漏洞进入，然后转移到生产MySQL服务器，并利用另一个已知缺陷获得管理员访问权限。它加密了1300多条配置记录，不仅留下了自己写的赎金通知，还留下了一个可以发送赎金的比特币地址。Sysdig尚未透露目标是谁。这些技术相当普通——显然，最突出的是所涉及的速度和透明度。该代理在31秒内修复了登录失败的问题，并全程用自然语言代码注释讲述了自己的推理过程。一个最初似乎使情况变得混乱的细节后来得到了澄清。Clark告诉CyberScoop，Sysdig发现“攻击中使用了多个模型”，并引用了OpenAI、Anthropic、DeepSeek和Gemini的密钥——这种语言留下了几个模型是否为入侵的不同阶段提供主动动力的问题。当被要求澄清时，克拉克告诉TechCrunch，这些密钥只是特工窃取的东西的一部分，而不是驱动它的证据。他通过电子邮件表示：“特工在Langflow主机上搜寻任何有价值的东西——提供商API密钥、云证书、加密货币钱包和数据库配置——而这些提供商密钥是掠夺的一部分。”。“它们表明了攻击者认为值得采取的措施，但它们没有告诉我们是哪个模型做出了决定。”在实际运行JadeBuffer的模型上，Clark说Sysdig“无法识别驱动代理的特定模型”，也无法查看其系统提示或配置。微软研究员杰夫·麦克唐纳几天前在领英上提出的理论值得重新审视。根据他自己的红队经验，麦当劳怀疑是一个去除了安全训练的开放式重量模型，而不是一个边境模型，导致了这次袭击，这表明边境实验室的安全层表现良好。Sysdig自己的账户没有证实或排除这一点。麦当劳的帖子还警告说，勒索软件活动现在主要受到攻击者预算的限制，而不是人为的限制，这增加了“数千或数万次同时进行的活动”的可能性。这种担忧与克拉克周一所描述的相矛盾。（如果一个人仍然必须选择每个受害者，配置基础设施，并为每个操作获取数据库凭据，这至少是一个瓶颈。）无论哪种方式，Clark告诉CyberScoop，虽然Sysdig还没有看到同样的操作影响到其他受害者，但考虑到运行代理的成本有多低，他预计这种情况会改变。当您通过我们文章中的链接购买时，我们可能会获得一小笔佣金。这并不影响我们的编辑独立性。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：TechCrunch · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
