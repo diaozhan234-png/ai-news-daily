@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-07 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-07</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic's new "J-lens" reveals a silent workspace inside Claude that mirrors a leading theory of consciousness</div>
+      <div class="col-content">Anthropic , the artificial intelligence company, published a sweeping research paper on Sunday revealing that its Claude language models have spontaneously developed an internal structure that mirrors one of the most influential theories of how human consciousness works. The finding, which the company says has already begun reshaping how it monitors its AI systems for safety risks, lands amid an intensifying scientific debate over whether machines can possess anything resembling a mind. The 16-author study, titled " Verbalizable Representations Form a Global Workspace in Language Models ," describes how Anthropic's researchers used a new mathematical technique to peer inside Claude's neural network and discovered what they call a " J-space " — a small, privileged zone of internal activity where the model holds concepts it can report on, reason with, and direct at will, surrounded by a much larger ocean of automatic processing it cannot access or articulate. The researchers present evidence that "an analogous functional distinction has emerged in modern AI models" to what exists in humans, specifically observing that "language models maintain a privileged set of internal representations, available for report, modulation, and flexible internal reasoning, atop a much larger volume of automatic processing." The parallel they draw is to global workspace theory , an influential account from neuroscience first proposed by cognitive scientist Bernard Baars. In the theory, the brain operates like a theater: dozens of specialized processors work in parallel backstage, but only a tiny spotlight of information at any moment gets broadcast to the whole theater — becoming what we experience as conscious thought. Anthropic says the J-space achieves many of the same functional properties, even though the underlying architecture of a language model looks nothing like a brain. At the heart of the discovery is a new interpretability tool the researchers call the Jacobian lens , or J-lens. The technique works by computing, for each word in the model's vocabulary, the average mathematical effect that a given internal activity pattern would have on making the model say that word at some point in the future. The crucial distinction is between what the model is saying and what is "on its mind." When a J-space pattern activates, it does not mean the model is about to say that word — just that the concept is available for the model to think with. Unlike a chain-of-thought scratchpad , the J-space operates silently, in the model's internal neural activations, allowing it to hold a concept without writing it down. Critically, the researchers report that this workspace was not deliberately engineered. It "emerged on its own during Claude's training process." When the team applied the J-lens across Claude's layers of computation, the model's processing divided into three distinct regimes: an early "sensory" zone where raw input is parsed; a middle "workspace" band where abstract, persistent concepts appear — things like recognizing a face in an image, noticing a bug in code, or internally flagging search results as a prompt injection; and a final "motor" zone where internal representations collapse into whatever specific word the model is about to output. The paper's central empirical contribution is demonstrating that the J-space satisfies five functional properties neuroscientists have long associated with conscious access in humans. First, verbal report . When Claude is asked what it is thinking about, it names concepts represented in the J-space. When researchers swapped one concept's J-lens vector for another — replacing the internal representation of "Soccer" with "Rugby" — the model's answer changed to match. The J-space component accounted for only about 6 to 7 percent of a concept's total representational variance, yet it was almost entirely responsible for whether the model could report on it. Second, directed modulation . When instructed to "concentrate on citrus fruits" while copying an unrelated sentence, the model's J-space filled with "orange" and "lemon," alongside meta-cognitive terms like "thinking" and "focused." When told to mentally evaluate 3² − 2 during the same copying task, the J-lens showed "arithmetic" in early layers, the intermediate value "nine" in later layers, and the answer "seven" later still — all invisible in the model's output. Third, internal reasoning . In two-hop factual prompts — "The number of legs on the animal that spins webs is" — the J-lens revealed "spider" in the model's middle layers, even though the word never appeared in input or output. Swapping "spider" for "ant" changed the answer from "8" to "6." In a multilingual prompt, the model's English-language intermediates appeared in its J-space while it formulated an answer in Chinese, and swapping them changed the Chinese output accordingly. Fourth, flexible generalization . A single J-lens vector for "France" could be swapped for "China" across prompts asking about France's capital, language, or continent, and each downstream circuit correctly returned China's corresponding answer — the "broadcast" property that is a hallmark of global workspace theory. Fifth, and perhaps most surprisingly, selectivity . Many computations did not route through the J-space at all. When shown a passage in Spanish and asked to continue it, Claude wrote fluent Spanish regardless of whether its J-space representation of "Spanish" had been swapped to "French." But when asked to name a famous author who wrote in the passage's language, the swap changed the answer from García Márquez to Victor Hugo . Automatic processing proceeded without the workspace; deliberate, flexible tasks depended on it. To understand how much of the model's behavior depends on this structure, the researchers suppressed the J-space entirely and evaluated Claude across fourteen tasks. The results drew a sharp line.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic的新“J透镜”揭示了克劳德体内一个无声的工作空间，反映了一种领先的意识理论</div>
+      <div class="col-content">人工智能公司Anthropic周日发表了一篇全面的研究论文，揭示了其克劳德语言模型已经自发地发展出一种内部结构，反映了人类意识如何运作的最有影响力的理论之一。该公司表示，这一发现已经开始重塑其监控人工智能系统安全风险的方式，与此同时，关于机器是否可以拥有类似大脑的任何东西的科学争论愈演愈烈。这项16位作者的研究题为“语言模型中的可言语表示形成全球工作空间”，描述了Anthropic的研究人员如何使用一种新的数学技术来窥探克劳德的神经网络内部，并发现了他们所谓的“J空间”——一个小的、特权的内部活动区域，模型在这里可以随意报告、推理和指导概念，周围是一个更大的自动处理海洋，它无法访问或表达。研究人员提供的证据表明，“现代人工智能模型中已经出现了与人类存在的功能类似的区别”，特别是观察到“语言模型在更大的自动处理量之上，保持了一组特权的内部表示，可用于报告、调制和灵活的内部推理。”他们得出的相似之处是与全局工作空间理论，这是认知科学家伯纳德·巴尔斯首次提出的神经科学的一个有影响力的解释。在这个理论中，大脑就像一个剧院：几十个专门的处理器在后台并行工作，但任何时候只有一小部分信息被广播到整个剧院——成为我们作为有意识思维所体验到的东西。Anthropic表示，J空间实现了许多相同的功能特性，尽管语言模型的底层架构看起来一点也不像大脑。这一发现的核心是一种新的可解释性工具，研究人员称之为雅可比透镜，或J透镜。该技术的工作原理是，对于模型词汇表中的每个单词，计算给定的内部活动模式对模型在未来某个时候说出该单词的平均数学效果。关键的区别在于模型所说的内容和“它的想法”之间的区别。当J空间模式激活时，并不意味着模型即将说出那个词——只是这个概念可供模型思考。与一连串的思维草稿不同，J空间在模型的内部神经激活中悄无声息地运作，使其能够在不写下概念的情况下保持概念。关键的是，研究人员报告说，这个工作空间不是故意设计的。它“在克劳德的训练过程中自行出现”。当团队将J透镜应用于克劳德的计算层时，模型的处理分为三个不同的区域：一个早期的“感觉”区域，在那里解析原始输入；一个中间的“工作区”带，其中出现了抽象、持久的概念，比如识别图像中的人脸、注意到代码中的错误，或者在内部标记搜索结果作为提示注入；以及一个最终的“运动”区，在这里，内部表示会折叠成模型即将输出的任何特定单词。该论文的核心经验贡献是证明J空间满足神经科学家长期以来与人类有意识访问相关的五个功能特性。第一，口头报告。当克劳德被问到它在想什么时，它会说出J空间中表示的概念。当研究人员将一个概念的J透镜矢量替换为另一个概念时——将“足球”的内部表示替换为“橄榄球”——模型的答案变为匹配。J空间分量仅占概念总表征方差的6%至7%，但它几乎完全决定了模型能否报告它。其次，定向调制。当被指示在复制一个无关的句子时“专注于柑橘类水果”时，模型的J空间充满了“橙色”和“柠檬”，以及“思考”和“专注”等元认知术语。当被要求在同一个复制任务中对3²-2进行心理评估时，J透镜在早期层显示“算术”，在后期层显示中间值“9”，在之后仍然显示答案“7”——所有这些在模型的输出中都是不可见的。第三，内部推理。在两个跳跃的事实提示中——“动物上织网的腿的数量是”——J-lens在模型的中间层显示了“蜘蛛”，尽管这个词从未出现在输入或输出中。将“spider”替换为“ant”将答案从“8”更改为“6”。在多语言提示中，模型的英语中间语出现在其J空间中，同时它用中文制定了一个答案，交换它们会相应地更改中文输出。第四，灵活概括。在询问法国首都、语言或大陆的提示中，可以将“法国”的单个J透镜向量替换为“中国”，每个下游电路都正确地返回了中国的相应答案——“广播”属性，这是全球工作空间理论的标志。第五，也许最令人惊讶的是选择性。许多计算根本没有经过J空间。当向克劳德展示一段西班牙语文章并要求他继续时，无论“西班牙语”的J空间表示是否被替换为“法语”，克劳德都能写出流利的西班牙语。但当被要求说出一位用该文章语言写作的著名作家的名字时，替换后的答案从加西亚·马尔克斯改为维克多·雨果。自动处理在没有工作空间的情况下进行；为了了解模型的行为在多大程度上取决于这种结构，研究人员完全抑制了J空间，并在14个任务中评估了克劳德。结果划出了一条清晰的界线。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/anthropics-new-j-lens-reveals-a-silent-workspace-inside-claude-that-mirrors-a-leading-theory-of-consciousness" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
