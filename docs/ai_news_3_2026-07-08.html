@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-08 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-08</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The real cost, security, and culture problems behind enterprise AI agents</div>
+      <div class="col-content">At VentureBeat's recent AI Impact event, where the discussion centered on what separates enterprises that scale agentic AI from those that stall in pilot mode, Brian Gracely, senior director of portfolio strategy at Red Hat, detailed what companies actually run into once agents reach production. He dove into cost discipline, the security blind spots unique to autonomous systems, and the organizational friction that determines whether agent adoption spreads beyond early champions. Many enterprise leaders, especially those following industry keynotes and AI announcements, worry that they’re already falling dangerously behind competitors deploying agents at scale. But according to Gracely, much of that anxiety reflects a misconception about how quickly organizations learn once they begin building. Teams often move up the learning curve far faster than they expect. That rapid progress creates a different challenge, however. As agent usage expands, AI costs rise just as quickly, turning cost management from an engineering concern into a recurring boardroom discussion. Agentic AI usage is orders of magnitude higher than during the chatbot era, making AI costs a growing concern for enterprises. At the same time, organizations are becoming increasingly aware of their dependence on a small number of model providers. According to Gracely, that combination is driving many enterprises to explore alternatives that give them greater control over costs and infrastructure. "The two or three top providers are already telling the market that they're losing money, and they're trying to go public to make up those gaps," he explained. "At some point, the dependency on that means you're either going to buy at a very high-cost level, or you're going to figure out alternatives to control what you're doing." The biggest cost issue is that enterprises overspend by defaulting to the most capable model available regardless of task complexity. "If I'm simply trying to resolve an insurance claim, I don't need to know about the history of Western civilization in my model, I don't need to know World Cup soccer scores," Gracely said. Semantic routing is the mechanism many companies use to make that judgment automatically, classifying requests and sending each to a model sized for the task without requiring users to choose, while infrastructure techniques like caching repetitive queries cut how often a request needs to reach GPU compute at all. Together, he said, these tools remove the assumption that efficiency and innovation pull in opposite directions. "There's a lot you can do at a GPU infrastructure level, and quite a bit you can do in terms of flexibility of models," he explained. "Those give excellent choices in terms of the levers you're trying to pull, whether you need efficiency or you need innovation. That shouldn't be a binary choice." The financial discipline needed for token spend is similar to the FinOps practices that took years to mature in order to take control of cloud compute spending. Those underlying frameworks will transfer even as the vocabulary changes, Gracely said, especially as organizations push for internal education on model selection so teams stop defaulting to the most prominent option for tasks that don't need it. "The same way we first had to teach the financial people what an EC2 instance is and what an S3 bucket is, you're going to have to start explaining tokens to them," he said. "We don't always need a Rolls-Royce. We don't always need caviar, because we're trying to do basic types of things." AI-powered vulnerability discovery is forcing enterprises to rethink how quickly they can identify, validate and deploy patches. Long-established patch management cycles may no longer be fast enough in an environment where AI can uncover — and attackers can exploit — new vulnerabilities much more quickly. "Most companies are probably going to have a window of somewhere between seven and 14 days to stay ahead," he said. "There are groups, Red Hat included, that are going to build patches for these, but the embargo window is going to be short." AI is also changing what defenders need to look for. Rather than simply uncovering isolated critical flaws, AI security tools can identify combinations of seemingly minor vulnerabilities that become dangerous only when chained together. As both software complexity and vulnerability discovery accelerate, Gracely argued that the ability to rapidly manage and update software is becoming a strategic capability rather than simply an operational one. In the end, organizational adoption comes down to the need for deep, sustained involvement from the subject matter experts whose knowledge the agent is meant to encode, which makes earning their buy-in a prerequisite rather than an afterthought. "You have to think about the incentives, what you do for people who participate in this work so they don't feel threatened that it's going to take away their job, and how you incentivize people in the long run to cooperate with that innovation," he said. Sponsored articles are content produced by a company that is either paying for the post or has a business relationship with VentureBeat, and they’re always clearly marked. For more information, contact sales@venturebeat.com .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">企业人工智能代理背后的真正成本、安全和文化问题</div>
+      <div class="col-content">在VentureBeat最近的AI Impact活动上，讨论的焦点是如何将扩展代理AI的企业与那些在试点模式下停滞不前的企业区分开来，红帽投资组合战略高级总监Brian Gracely详细介绍了代理投入生产后公司实际遇到的问题。他深入研究了成本纪律、自治系统特有的安全盲点以及决定代理采用是否超越早期冠军的组织摩擦。许多企业领导者，尤其是那些关注行业主题演讲和人工智能公告的企业领导者，担心他们已经危险地落后于大规模部署代理的竞争对手。但Gracely表示，这种焦虑在很大程度上反映了一种误解，即组织一旦开始构建，学习的速度有多快。团队在学习曲线上的上升速度往往比他们预期的要快得多。然而，这一快速进展带来了不同的挑战。随着代理使用的扩大，人工智能成本也在迅速上升，将成本管理从工程问题转变为反复出现的董事会讨论。代理人工智能的使用量比聊天机器人时代高出几个数量级，这使得人工智能成本成为企业日益关注的问题。与此同时，组织越来越意识到他们对少数模型提供商的依赖。Gracely表示，这种结合正在推动许多企业探索替代方案，使他们能够更好地控制成本和基础设施。他解释说：“两三家顶级供应商已经告诉市场他们正在亏损，他们正试图上市以弥补这些缺口。”。“在某些时候，对这一点的依赖意味着你要么以非常高的成本水平购买，要么想办法控制你正在做的事情。”最大的成本问题是，无论任务复杂程度如何，企业都会默认使用最有能力的模式，从而超支。格雷斯利说：“如果我只是想解决保险索赔，我不需要知道我模型中的西方文明历史，也不需要知道世界杯足球比分。”。语义路由是许多公司用来自动做出判断的机制，对请求进行分类，并将每个请求发送到适合任务大小的模型中，而不需要用户进行选择，而缓存重复查询等基础设施技术则降低了请求到达GPU计算的频率。他说，这些工具共同消除了效率和创新朝着相反方向发展的假设。他解释说：“在GPU基础设施级别，你可以做很多事情，在模型的灵活性方面，你也可以做很多。”。“无论你是需要效率还是需要创新，这些都为你试图拉动的杠杆提供了很好的选择。这不应该是一个二元选择。”代币支出所需的财务纪律类似于FinOps实践，这些实践需要数年时间才能成熟，以控制云计算支出。Gracely说，即使词汇发生了变化，这些底层框架也会转移，尤其是当组织推动关于模型选择的内部教育时，这样团队就不会默认使用不需要的任务的最突出选项。他说：“就像我们首先必须教金融人员什么是EC2实例和什么是S3存储桶一样，你必须开始向他们解释代币。”。“我们并不总是需要劳斯莱斯。我们也不总是需要鱼子酱，因为我们正在尝试做基本类型的事情。”人工智能驱动的漏洞发现正迫使企业重新思考识别、验证和部署补丁的速度。在人工智能可以更快地发现——攻击者可以利用——新漏洞的环境中，长期建立的补丁管理周期可能不再足够快。他说：“大多数公司可能会有7到14天的时间来保持领先。”。“包括红帽在内的一些组织将为这些漏洞构建补丁，但禁运窗口将很短。”人工智能也在改变防御者需要寻找的东西。人工智能安全工具可以识别看似微小的漏洞组合，而不是简单地发现孤立的关键缺陷，这些漏洞只有在链接在一起时才会变得危险。随着软件复杂性和漏洞发现的加速，Gracely认为，快速管理和更新软件的能力正在成为一种战略能力，而不仅仅是一种操作能力。最后，组织采用归结为需要主题专家的深入、持续的参与，他们的知识是代理想要编码的，这使得赢得他们的支持成为先决条件，而不是事后的想法。他说：“你必须考虑激励措施，你为参与这项工作的人做了什么，这样他们就不会觉得这会夺走他们的工作，以及从长远来看，你如何激励人们与这项创新合作。”。赞助文章是由一家公司制作的内容，该公司要么为帖子付费，要么与VentureBeat有业务关系，并且总是有明确的标记。如需更多信息，请联系sales@venturebeat.com .</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/the-real-cost-security-and-culture-problems-behind-enterprise-ai-agents" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
