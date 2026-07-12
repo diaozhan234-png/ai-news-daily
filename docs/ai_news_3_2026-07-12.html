@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-12 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-12</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Forget typosquatting; slopsquatting is the software supply chain threat created by AI coding tools</div>
+      <div class="col-content">Slopsquatting represents an emerging supply chain threat made possible by AI hallucinations. As developers increasingly rely on AI coding assistants, they unknowingly grant cybercriminals access to their software from day one. Slopsquatting is a new type of supply chain attack that uses large language model (LLM) hallucinations to inject malicious code into development workflows. The term combines "AI slop" and "typosquatting," a deceptive practice where attackers register misspelled or lookalike versions of popular domains to prey on users who enter URLs incorrectly. This novel attack vector exploits LLMs' tendency to generate fictitious software package names, which threat actors can then register and populate with malicious code. During AI-assisted coding, the model may generate fake open-source packages — bundled collections of files, programs and installation tools. This alone is not necessarily harmful. However, if an attacker registers that fake package name, they can inject malware that gets incorporated directly into a developer's codebase. Traditionally, AI safety risks stem from hallucinations , which can adversely affect users who treat misinformation as valid. However, those same hallucinations have evolved into exploitable security vulnerabilities. Typosquatting is a deceptive practice where a cybercriminal registers a mispelled version of a popular package to trick developers. It has existed for decades, so registries have built protections against it. However, AI has changed the threat model . It recommends fictitious packages that sound plausible rather than making simple misspellings. Once attackers learn which hallucinated packages models tend to invent, they can register malware-filled packages under those names. Since the hallucinated packages are not simply typoed versions of popular libraries, there are no protections against this practice at scale. For example, the registry protects against an attacker publishing "crossenv," a squat of the popular "cross-env" package. However, it would not identify "mpn install cross-env file" or "cross-env-extended" as threats. Even if many LLMs recommend the same hallucinated package, widespread compromise is still possible. Malicious packages could remain undetected in production for months or even years, allowing threat actors to passively inject malware across countless environments. One research team analyzed 31,267 vulnerabilities belonging to 14,675 packages across 10 programming languages. They discovered that reported vulnerabilities are increasing at an annual rate of 98%, faster growth than the 25% annual increase in the number of open-source software packages. The team also observed an 85% increase in the average lifespan of vulnerabilities, indicating a decline in security. Malicious actors can create open-access packages under the same name as commonly hallucinated libraries. Instead of standard code, they are filled with malware. The models believe they are referring to existing packages, so they often repeat the same hallucinated names. Since the hallucinations are not random, attackers could theoretically register packages that trick tens of thousands of developers. These packages appear legitimate. String similarity to real libraries makes them recognizable. One-character typos suggest simple mistakes rather than malicious intent. Even fully fabricated names remain believable when the AI presents them in proper context. Detection is challenging, as developers trust their coding assistants to recommend valid dependencies. LLMs generate the statistically most likely answer rather than prioritizing accuracy. Hallucinations are relatively common as a result. One study found hallucination rates range from 50% to 82% , depending on the model and prompting method. Even GPT-4o, the best-performing model, goes no lower than 23%, even with prompt-based mitigation. Adversarial hallucination attacks could worsen this problem. Threat actors can leverage token-level manipulation or retrieval poisoning to force models to hallucinate in ways they want, increasing the likelihood that models recommend their malicious packages. While all LLMs are prone to slopsquatting, some are more vulnerable than others. The likelihood of producing hallucinated packages during code generation depends on the model. Proprietary models are four times less likely to generate hallucinated packages than open-source models. One research group proved this by conducting 30 tests across 30 different systems. Out of the 576,000 code samples and 2.23 million packages it produced, 19.7% were hallucinations. GPT-4.0 Turbo had a hallucination rate of 3.59%, while DeepSeek 1B, the best-performing open-source model, reached 13.63%. This research suggests that organizations relying on open-source AI tools for code generation are roughly four times more exposed to slopsquatting attacks. That doesn’t necessarily mean proprietary tools will always remain safer, though. Once attackers realize this disparity, they may manipulate proprietary LLMs to take advantage of perceived safety. Software developers who use AI tools estimate that over 40 percent of the code they commit includes AI assistance. They expect that percentage will increase considerably within the next few years. Already, 72% of those who have tried AI use it daily. The uptick in vibe coding and AI-assisted coding amplifies the threat surface. As more developers integrate AI tools into their workflows without implementing proper verification processes, the attack surface for slopsquatting continues to expand. For those using AI to assist with coding, double-checking output is essential. Verifying that recommended packages actually exist in official repositories before incorporating them into projects reduces risk. Implementing automated checks that validate package names against known registries can help catch hallucinated packages before they enter production code.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">忘记拼写；垃圾抢注是人工智能编码工具造成的软件供应链威胁</div>
+      <div class="col-content">斜蹲是一种新兴的供应链威胁，由人工智能幻觉造成。随着开发人员越来越依赖人工智能编码助手，他们从一开始就在不知不觉中允许网络罪犯访问他们的软件。斜蹲是一种新型的供应链攻击，它使用大型语言模型（LLM）幻觉将恶意代码注入开发工作流程。该术语结合了“AI slop”和“typosquating”，这是一种欺骗性的做法，攻击者注册拼写错误或相似版本的流行域名，以捕食输入URL错误的用户。这种新颖的攻击向量利用了LLM生成虚构软件包名称的趋势，然后威胁行为者可以注册并填充恶意代码。在人工智能辅助编码过程中，该模型可能会生成虚假的开源包——捆绑的文件、程序和安装工具集合。仅此一点并不一定有害。然而，如果攻击者注册了这个假包名，他们可以注入恶意软件，直接将其合并到开发人员的代码库中。传统上，人工智能的安全风险源于幻觉，这可能会对将错误信息视为有效的用户产生不利影响。然而，这些幻觉已经演变成可利用的安全漏洞。拼写错误是一种欺骗行为，网络罪犯注册了一个流行软件包的错误版本来欺骗开发人员。它已经存在了几十年，因此注册机构已经建立了针对它的保护措施。然而，人工智能改变了威胁模型。它建议使用听起来合理的虚构包，而不是简单的拼写错误。一旦攻击者知道模型倾向于发明哪些幻觉包，他们就可以在这些名称下注册充满恶意软件的包。由于幻觉包不是流行库的简单打字版本，因此没有大规模的保护措施来防止这种做法。例如，注册表可以防止攻击者发布“crossenv”，这是流行的“cross-env”包的缩写。但是，它不会将“mpn install cross-env file”或“cross-env extended”识别为威胁。即使许多LLM推荐相同的幻觉包装，广泛的妥协仍然是可能的。恶意软件包在生产环境中可能会持续数月甚至数年未被发现，使威胁行为者能够在无数环境中被动注入恶意软件。一个研究小组分析了10种编程语言中14675个软件包的31267个漏洞。他们发现，报告的漏洞以每年98%的速度增长，比开源软件包数量每年25%的增长速度更快。该团队还观察到漏洞的平均寿命延长了85%，表明安全性下降。恶意行为者可以创建与常见幻觉库同名的开放访问包。它们不是标准代码，而是充满了恶意软件。模特们认为他们指的是现有的包裹，所以他们经常重复同样的幻觉名称。由于幻觉不是随机的，攻击者理论上可以注册欺骗数万名开发人员的软件包。这些包裹看起来是合法的。与真实库的字符串相似性使它们易于识别。一个字符的拼写错误表明是简单的错误，而不是恶意。即使是完全捏造的名字，当人工智能在适当的背景下呈现时，仍然是可信的。检测具有挑战性，因为开发人员相信他们的编码助手会推荐有效的依赖关系。LLM生成统计上最有可能的答案，而不是优先考虑准确性。因此，幻觉相对常见。一项研究发现，幻觉率从50%到82%不等，具体取决于模型和提示方法。即使是性能最好的GPT-4o模型，即使有基于提示的缓解措施，也不会低于23%。对抗性幻觉发作可能会使这个问题恶化。威胁行为者可以利用令牌级操纵或检索中毒迫使模型以他们想要的方式产生幻觉，从而增加模型推荐其恶意软件包的可能性。虽然所有LLM都容易发生斜蹲，但有些LLM比其他LLM更容易受到伤害。在代码生成过程中产生幻觉包的可能性取决于模型。专有模型生成幻觉包的可能性是开源模型的四倍。一个研究小组通过在30个不同系统中进行30次测试证明了这一点。在它生成的576000个代码样本和223万个软件包中，19.7%是幻觉。GPT-4.0 Turbo的幻觉率为3.59%，而性能最好的开源模型DeepSeek 1B的幻觉率达到13.63%。这项研究表明，依赖开源人工智能工具生成代码的组织遭受垃圾占用攻击的风险大约是其他组织的四倍。不过，这并不一定意味着专有工具总是更安全。一旦攻击者意识到这种差异，他们可能会操纵专有LLM来利用感知的安全性。使用人工智能工具的软件开发人员估计，他们提交的代码中有40%以上包含人工智能辅助。他们预计这一比例将在未来几年内大幅增加。已经有72%的尝试过人工智能的人每天都在使用它。氛围编码和人工智能辅助编码的增加放大了威胁面。随着越来越多的开发人员在没有实施适当验证流程的情况下将人工智能工具集成到他们的工作流程中，抢注的攻击面不断扩大。对于那些使用人工智能辅助编码的人来说，仔细检查输出是至关重要的。在将推荐的包合并到项目中之前，验证它们是否确实存在于官方存储库中可以降低风险。实现自动检查，根据已知的注册表验证包名，可以帮助在幻觉包进入生产代码之前将其捕获。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/forget-typosquatting-slopsquatting-is-the-software-supply-chain-threat-created-by-ai-coding-tools" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
