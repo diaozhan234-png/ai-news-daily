@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-13 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-13</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">DeepSeek cut prices 75%. The 100x problem remains</div>
+      <div class="col-content">DeepSeek's recent decision to drastically cut pricing on its V4-Pro model by 75% should have been unequivocally good news for enterprise AI vendors and developers. Instead, many are discovering that cheaper models don’t automatically translate into healthier margins. The reason is simple: While inference costs plummet, agent systems are voraciously consuming tokens faster than prices are declining. For the last 2 decades, software economics was dictated by the same rule. Infra became cheaper every year whereas applications became more capable. AI was initially hypothesized to follow the same pattern. As frontier models improved and token prices dropped, many assumed inference would become a negligible operating expense.That assumption has begun crumbling exponentially. A chatbot usually turns one user question into one model call. An agent turns it into a chain of planning, retrieval, tool use, verification, summarization, and follow-up decisions. The user sees one answer. The vendor pays for the loop. That is the 100x problem: The same user-visible request can cost a lot more to serve as an agentic workflow than as a chatbot or retrieval-augmented generation (RAG) response. In longer-running workflows, the multiplier is higher. Falling model prices help, but they do not fix a product architecture that turns one prompt into dozens of billable operations. The scale of what is now at stake is clear in how model providers themselves are pricing developer relationships. OpenAI's proposed program to give every Y Combinator startup $2 million in API credits — a number that would have funded an entire seed round in any prior tech cycle, and when the same cohort got by on a few thousand dollars of AWS credits — is less a recruiting perk than an admission of what it now costs to run an AI-native company through its first year of product. For established enterprises retrofitting agents into existing product lines, the absolute numbers are larger still. In a single-turn chatbot, one user message produces roughly one model call. Input-to-billed ratio is about 1:5. In a multi-step agent rolled out across customer support, sales operations, finance, legal review, and engineering, that ratio routinely lands at 1:700 or higher . Every loop iteration carries forward the cumulative conversation, tool outputs, and reasoning traces. Each step appends; nothing is dropped. A "simple" agent query like “ What did our top customer ask about last week?” typically touches seven priced operations before returning an answer: System prompt and tool definitions (~3,000 tokens, repeated on every call) Retrieval (~5,000 tokens of context) Model call #1 — tool selection (8,000 in / 200 out) Tool execution (~4,000 tokens returned) Model call #2 — summarization (12,000 in / 400 out) Model call #3 — follow-up decision (12,400 in / 100 out) One sentence in, roughly 35,000 input tokens billed. Somewhere between $0.10 and $0.40 per query on a frontier model. Multiply that by a million queries a month — the table-stakes volume for any enterprise B2B feature — and the line item is six figures. The dominant pricing story for enterprise AI has been seat-based SaaS : Pay per-user per-month, deliver agent capability, capture margin. That model assumes a reasonably bounded cost-per-user. Token amplification breaks the assumption. A power user running 50 agent invocations a day on a $40/seat plan can cost more in inference than the plan charges. Token amplification shatters the traditional SaaS pricing model. When a power user’s daily agent activity costs more in inference than their monthly subscription fee, vendor gross margins turn negative, a paradox that compounds as customers deepen their agent adoption, the very usage curve vendors are selling to their boards. Several vendors are now privately reporting negative gross margins on heavy users, mirroring recent cloud expenditure reports from the Bessemer 'Supernova' cohort, where the correlation between AI-agent adoption and gross margin contraction has moved from a theoretical risk to a primary P&L headwind. The visible symptoms have started leaking into public coverage. Bloomberg this week documented a widening gap between Salesforce's Agentforce marketing demos and the capabilities actually shipping to customers. This is the kind of gap that opens predictably when promised functionality is technically possible but uneconomical to serve at the price the seat plan implies. Salesforce is the most-watched case, not a unique one. "For my team, the cost of compute is far beyond the costs of the employees." — Bryan Catanzaro, VP of Applied Deep Learning, Nvidia The strategic implication is not "AI is expensive." It is that the dominant business model assumed by most AI-native company plans does not survive contact with agentic workloads. Consider an enterprise software vendor charging $40 per-user per-month for an AI-enabled support assistant. A traditional chatbot might cost only a few cents per user per day in inference, leaving healthy gross margins. Now replace that chatbot with a fully agentic workflow capable of investigating tickets, querying internal systems, drafting responses, validating outputs, and escalating exceptions. If a heavy user executes 50 to 100 agent requests per day, inference consumption can increase by an order of magnitude. What was once a negligible infrastructure cost becomes a material operating expense. This creates an unusual dynamic: The customers receiving the most value from the product are often the customers generating the highest inference costs. In extreme cases, vendors can find themselves with their most engaged users contributing the least profit. The result is a growing realization across enterprise software that agent adoption and margin expansion are no longer automatically aligned. The technical responses are known and converging.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">DeepSeek降价75%。100倍的问题依然存在</div>
+      <div class="col-content">DeepSeek最近决定将其V4 Pro型号的定价大幅下调75%，这对企业人工智能供应商和开发人员来说无疑是个好消息。相反，许多人发现，更便宜的型号并不能自动转化为更健康的利润率。原因很简单：虽然推理成本暴跌，但代理系统贪婪地消耗代币的速度比价格下跌的速度快。在过去的20年里，软件经济学也遵循着同样的规则。Infra的价格每年都在下降，而应用程序的性能却在不断提升。人工智能最初被假设遵循相同的模式。随着前沿模型的改进和代币价格的下降，许多人认为推理将成为可以忽略不计的运营费用。这种假设已经开始呈指数级崩溃。聊天机器人通常将一个用户问题转化为一个模型调用。代理将其转化为一系列计划、检索、工具使用、验证、总结和后续决策。用户看到一个答案。供应商支付循环费用。这就是100倍的问题：相同的用户可见请求作为代理工作流的成本可能比作为聊天机器人或检索增强生成（RAG）响应的成本高得多。在运行时间较长的工作流程中，乘数更高。模型价格的下降有所帮助，但它们并不能修复将一个提示转化为数十个计费操作的产品架构。现在利害关系的规模很明显，模型提供商自己是如何为开发人员关系定价的。OpenAI提出的为每一家Y Combinator初创公司提供200万美元API信用额度的计划，与其说是一种招聘福利，不如说是承认一家名为AI的公司在推出第一年产品时的运营成本。在之前的任何一个技术周期中，这个数字都会资助整个种子轮，当同一批人获得数千美元的AWS信用额度时。对于将代理商改装到现有产品线中的老牌企业来说，绝对数字仍然更大。在单轮聊天机器人中，一条用户消息大约会产生一个模型调用。投入费用比约为1:5。在一个跨客户支持、销售运营、财务、法律审查和工程的多步骤代理中，这一比例通常达到1:700或更高。每次循环迭代都会携带累积的对话、工具输出和推理痕迹。每一步都附加；什么也没掉。一个“简单”的代理查询，如“我们的顶级客户上周问了什么？”，在返回答案之前，通常会涉及七个定价操作：系统提示和工具定义（约3000个令牌，每次调用时重复）检索（约5000个上下文令牌）模型调用#1——工具选择（8000个输入/200个输出）工具执行（约4000个返回的令牌）模型呼叫#2——总结（12000个输入/400个输出）模型调用#3——后续决策（12400个输入/100个输入）一句话，大约35000个输入令牌计费。边界模型上的每个查询在0.10美元到0.40美元之间。将其乘以每月一百万次查询（任何企业B2B功能的表赌注量），行项目为六位数。企业人工智能的主要定价故事是基于座位的SaaS：每月按用户付费、交付代理能力、获取利润。该模型假设每个用户的成本合理有界。代币放大打破了这一假设。一个高级用户每天在40美元/座位的计划上运行50次代理调用，其推理成本可能比计划收费更高。代币放大打破了传统的SaaS定价模式。当高级用户的日常代理活动成本高于其每月的订阅费时，供应商的毛利率就会变为负值，随着客户对代理的采用程度加深，这一悖论也会加剧，供应商向其董事会出售的正是使用曲线。几家供应商现在私下报告了大量用户的负毛利率，这与Bessemer“Supernova”队列最近的云支出报告相呼应，在该队列中，人工智能代理采用与毛利率收缩之间的相关性已从理论风险转变为主要的损益逆风。可见的症状已经开始泄露到公众报道中。彭博社本周记录了Salesforce的代理平台营销演示与实际交付给客户的功能之间日益扩大的差距。当承诺的功能在技术上是可能的，但以座位计划所暗示的价格提供服务是不经济的时，这种差距是可以预见的。Salesforce是最受关注的案例，而不是唯一的案例。“对我的团队来说，计算的成本远远超出了员工的成本。”——英伟达应用深度学习副总裁Bryan Catanzaro。战略含义不是“人工智能很贵”。而是大多数人工智能原生公司计划采用的主导商业模式无法在与代理工作负载的接触中生存。考虑一家企业软件供应商每月向每位用户收取40美元的人工智能支持助理费用。传统的聊天机器人每天每个用户的推理成本可能只有几美分，从而留下健康的毛利率。现在，用一个完全代理的工作流程取代聊天机器人，该工作流程能够调查工单、查询内部系统、起草响应、验证输出和上报异常。如果一个重度用户每天执行50到100个代理请求，推理消耗可能会增加一个数量级。曾经微不足道的基础设施成本变成了物质运营费用。这创造了一种不同寻常的动态：从产品中获得最大价值的客户往往是产生最高推理成本的客户。在极端情况下，供应商可能会发现他们最活跃的用户贡献的利润最少。其结果是，整个企业软件越来越意识到，代理采用和利润扩张不再自动对齐。技术响应是已知的，并且正在趋同。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/deepseek-cut-prices-75-the-100x-problem-remains" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
