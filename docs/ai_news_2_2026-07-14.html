@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-14 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-14</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">ACRouter picks the smartest AI model per task, beating Opus-only setups by 2.6x on cost</div>
+      <div class="col-content">Model routing is becoming a key component of the enterprise AI stack, dynamically sending prompts to the right AI model to optimize speed and costs. However, current frameworks mostly treat routing as a static classification problem, which severely limits their potential. A new open-source framework called Agent-as-a-Router tackles this bottleneck, treating the router as a dynamic, memory-building agent. It uses a Context-Action-Feedback (C-A-F) loop to track model successes and failures and update the behavior of the router. The researchers also released ACRouter, a concrete implementation of this paradigm. In their tests, ACRouter significantly outperformed static routers and the expensive strategy of defaulting to premium models, all without requiring teams to train massive models or write endless heuristics. For real-world applications, this framework provides the option to replace hard-coded AI infrastructure with self-optimizing systems that can adapt to changes in user behavior and foundation models used in the enterprise AI stack. Single-model setups are useful for experiments but detrimental when scaling AI applications. AI engineers use model routing to map tasks to cheaper and faster open models when possible, while reserving expensive frontier models for complex reasoning. Currently, developers rely on two main mechanisms for this task. The first is heuristics-based routing, which relies on hard-coded manual rules. For example, a developer might write a rule dictating that if a prompt contains certain keywords, it is routed to GPT-5.5. Otherwise, it goes to a self-hosted open source model like Kimi K2.7. The second mechanism is static trained policies. These are machine learning classifiers trained on historical datasets that look at the prompt's embeddings and predict the best model based on past training data. Both approaches are static. When the researchers tested these existing mechanisms on real-world coding and agentic workflows, they found a hard ceiling on accuracy. The key finding shows that static routers suffer from a severe information deficit. Because they only evaluate the input text and never see if the model actually succeeded in executing the task, they guess blindly when faced with complex edge cases. This results in three distinct points of failure. First, static routers suffer from a frozen information state, meaning they cannot accumulate new execution feedback during deployment. Second, they fail in out-of-distribution (OOD) generalization. They break down during day-two operations when enterprise data or user behavior shifts because their training data no longer matches reality. Finally, they are highly vulnerable to model churn. A static classifier trained on today's models may become obsolete when a better model drops the following week. The core thesis of the Agent-as-a-Router is that a truly effective router must acquire and accumulate execution-grounded information during deployment, essentially learning on the job. The researchers achieved this through the C-A-F loop. When a new prompt arrives, the router examines the prompt and task metadata, such as the programming language or difficulty. It then searches its historical memory for similar tasks to see which models succeeded or failed in the past. The router uses this context to select the target model and execute the task. Finally, the system observes the real-world outcome, extracts a success or failure signal, and writes this feedback back into its memory to inform future routing decisions. Consider an automated enterprise data analytics pipeline. The router receives a SQL generation task and sends it to an open-source model like Kimi. The model hallucinates a column name and fails to compile the SQL. The C-A-F loop observes the compiler error, registers it as feedback, and logs it. The next time a similar obscure SQL query arrives, the router checks its context and routes the task to a more advanced model like Claude Opus 4.8. The researchers developed ACRouter as the concrete instantiation of this framework. It is composed of three core components: the Orchestrator, the Verifier, and Memory. This architecture is supported by a tool layer to physically execute the C-A-F loop. The Memory module powers the context phase. Built on a vector store, it retrieves relevant past interactions and updates the historical database with new outcomes. The Orchestrator handles the action phase. It processes the user prompt alongside the retrieved memory to select the most capable target model from the available pool. The Verifier manages the feedback phase by evaluating the chosen model's output to generate a clear success or failure signal. The tool layer hooks the Verifier into real-world execution environments, like a Python code interpreter, an agentic sandbox, or a database engine. The tool layer allows the system to execute the generated code or query and observe the exact outcome, providing the verifiable signal the router needs to learn. The Orchestrator itself is lightweight. Instead of a massive, computationally heavy large language model, the researchers trained a sub-billion parameter adapter based on Qwen 3.5 (0.8B parameters), which means it can be self-hosted on a device of your choice. To stress-test the framework, the researchers introduced CodeRouterBench, an evaluation environment comprising roughly 10,000 tasks with verified scores across eight frontier models, including Claude Opus 4.6, GPT-5.4, Qwen3-Max, and GLM-5. The evaluation was split between in-distribution (ID) tests (covering nine single-turn coding dimensions like algorithm design and test generation) and an out-of-distribution (OOD) agentic programming testbed. The OOD tasks were qualitatively different, requiring multi-step planning, file navigation, and iterative debugging to see if the router could adapt to fundamentally new domains.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">ACOuter为每个任务选择最智能的AI模型，在成本上比仅使用Opus的设置高出2.6倍</div>
+      <div class="col-content">模型路由正成为企业人工智能堆栈的关键组成部分，动态地向正确的人工智能模型发送提示，以优化速度和成本。然而，目前的框架大多将路由视为静态分类问题，这严重限制了它们的潜力。一个名为“代理即路由器”的新开源框架解决了这一瓶颈，将路由器视为一个动态的内存构建代理。它使用上下文动作反馈（C-a-F）循环来跟踪模型的成功和失败，并更新路由器的行为。研究人员还发布了ACOuter，这是这一范式的具体实现。在他们的测试中，ACOuter的表现明显优于静态路由器和默认高级模型的昂贵策略，所有这些都不需要团队训练大量模型或编写无休止的启发式算法。对于现实世界的应用程序，该框架提供了一种选择，即用能够适应用户行为变化和企业人工智能堆栈中使用的基础模型的自优化系统取代硬编码的人工智能基础设施。单模型设置对于实验是有用的，但在扩展AI应用程序时是有害的。人工智能工程师在可能的情况下使用模型路由将任务映射到更便宜、更快的开放模型，同时为复杂的推理保留昂贵的边界模型。目前，开发人员依靠两种主要机制来完成这项任务。第一种是基于启发式的路由，它依赖于硬编码的手动规则。例如，开发人员可能会编写一条规则，规定如果提示包含某些关键字，则将其路由到GPT-5.5。否则，它将采用像Kimi K2.7这样的自托管开源模型。第二种机制是静态训练策略。这些是在历史数据集上训练的机器学习分类器，它们查看提示的嵌入，并根据过去的训练数据预测最佳模型。这两种方法都是静态的。当研究人员在现实世界的编码和代理工作流程中测试这些现有机制时，他们发现准确性有一个硬上限。关键发现表明，静态路由器存在严重的信息不足。因为他们只评估输入文本，从不看模型是否真的成功执行了任务，所以在面对复杂的边缘情况时，他们会盲目猜测。这导致了三个不同的故障点。首先，静态路由器存在信息冻结的问题，这意味着它们在部署过程中无法积累新的执行反馈。其次，它们在分布外（OOD）泛化方面失败了。在第二天的操作中，当企业数据或用户行为发生变化时，它们会崩溃，因为它们的训练数据不再与现实相符。最后，它们极易受到模型变动的影响。当一个更好的模型在下周下降时，在今天的模型上训练的静态分类器可能会过时。代理即路由器的核心论点是，一个真正有效的路由器必须在部署过程中获取和积累基于执行的信息，本质上是在工作中学习。研究人员通过C-A-F循环实现了这一点。当新的提示到达时，路由器会检查提示和任务元数据，如编程语言或难度。然后，它在历史记忆中搜索类似的任务，以查看过去哪些模型成功或失败。路由器使用此上下文选择目标模型并执行任务。最后，系统观察真实世界的结果，提取成功或失败的信号，并将此反馈写回内存中，以告知未来的路由决策。考虑一个自动化的企业数据分析管道。路由器接收SQL生成任务并将其发送到像Kimi这样的开源模型。该模型产生了列名幻觉，无法编译SQL。C-A-F循环观察编译器错误，将其注册为反馈，并记录下来。下次出现类似的模糊SQL查询时，路由器会检查其上下文，并将任务路由到更高级的模型，如Claude Opus 4.8。研究人员开发了ACOuter作为该框架的具体实例。它由三个核心组件组成：编排器、验证器和内存。该架构由工具层支持，以物理执行C-a-F循环。内存模块为上下文阶段供电。它建立在矢量存储的基础上，检索相关的过去交互，并用新的结果更新历史数据库。编排器处理动作阶段。它将用户提示与检索到的内存一起处理，以从可用池中选择功能最强的目标模型。验证器通过评估所选模型的输出来管理反馈阶段，以生成明确的成功或失败信号。工具层将验证器挂接到现实世界的执行环境中，如Python代码解释器、代理沙箱或数据库引擎。工具层允许系统执行生成的代码或查询，并观察确切的结果，提供路由器需要学习的可验证信号。Orchestrator本身是轻量级的。研究人员没有使用大规模、计算量大的大型语言模型，而是基于Qwen 3.5（0.8B参数）训练了一个亚十亿参数适配器，这意味着它可以在您选择的设备上自托管。为了对框架进行压力测试，研究人员引入了CodeRouterBench，这是一个评估环境，包括大约10000个任务，这些任务在8个前沿模型上都有经过验证的分数，包括Claude Opus 4.6、GPT-5.4、Qwen3-Max和GLM-5。评估分为分布内（ID）测试（涵盖算法设计和测试生成等九个单圈编码维度）和分布外（OOD）代理编程测试台。OOD任务在性质上是不同的，需要多步规划、文件导航和迭代调试，以查看路由器是否能够适应全新的领域。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/acrouter-picks-the-smartest-ai-model-per-task-beating-opus-only-setups-by-2-6x-on-cost" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
