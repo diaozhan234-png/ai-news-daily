@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-21 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-21</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Writer's AI harness cuts token spend nearly 40% — without sacrificing accuracy</div>
+      <div class="col-content">Enterprise AI is facing an ROI paradox. While throwing more compute at the strongest foundation model works well in product experiments, the costs become unbearable when the product is deployed in production. A new paper from researchers at Writer provides a solution that is accessible to engineering teams. The study takes a systematic look at optimizing the different components of the orchestration layer that wraps around the foundation model, aka the AI harness. By optimizing the harness, the researchers show dramatic reductions in tokens per task, a drop in cost-per-successful-task by up to 61%, and quality that holds steady, all without changing the underlying foundation model. Because the harness is fully under the developer's control and requires no model fine-tuning, engineering teams can apply these findings to build highly cost-efficient AI applications. The current state of AI engineering is plagued by " tokenmaxxing ," an industry trend where developers rely on massive context windows and brute-force token consumption as a substitute for good system design. Rather than engineering elegant workflows, developers have imported a reflex from traditional software development: generate, run, fail, stuff the error and more context back into the window, and retry. "Teams tokenmaxx because it's the cheapest fix in the moment, and because it's literally how most engineers work today," Waseem AlShikh, CTO and co-founder of Writer, told VentureBeat. Because this approach succeeds often enough on coding tasks, it has become the default reflex for every other agentic workload. The danger is that per-token price drops mask the underlying inefficiency. "Your invoice is tokens-per-task times price-per-token, and most teams only watch the second number," AlShikh said. "In agentic workloads, tokens-per-task compounds — every loop iteration re-transmits the growing context — and it compounds faster than prices fall. The price cut becomes an anesthetic. It masks the fact that the loop itself is bleeding." Tokenmaxxing leads to several enterprise failure modes. Teams route simple tasks to premium frontier models by default. They use the LLM as a lazy search index, stuffing the context window with raw documents instead of retrieving exact answers. Most destructively, they build unconstrained agentic loops that spiral out of control when the model encounters an error. Because output tokens cost significantly more than input tokens across all major model providers, inefficient task execution acts as a silent budget killer. The industry has introduced several efficiency techniques to curb these costs, but they largely fall short because they treat the model in isolation: Prompt compression condenses input text to save space, but ignores how the system sequences those inputs across complex workflows. Budgeted reasoning caps the computational steps a model can take, which often degrades output quality if the workflow isn't intelligently routed. Terse coding forces models to output minimal code to save output tokens, but does nothing to solve inefficient tool calling. Speculative decoding uses a smaller draft model to speed up a larger model's text generation, optimizing inference speed while failing to address bloated agent architectures. These efforts fail because they optimize the engine while ignoring the transmission. They do not look at the orchestration layer, leaving underlying architectural inefficiencies unresolved. The harness is the orchestration layer that routes, formats, and turns the underlying LLM into a working system. The core levers of harness optimization include system prompt caching, interaction history compaction, tool management, retrieval strategies, and error management. These are the most accessible intervention points for engineering teams looking to improve AI performance. As the Writer researchers note in the study: “If the harness is the layer that composes model calls into work, it is also the layer that sets the price of work.” Historically, developers have treated the harness as disposable glue code designed simply to connect an API to a user interface. The study signals that the harness must now be treated as a first-class object: a primary software artifact that requires its own testing, versioning, and rigorous design. For enterprises, this reframes the "own-versus-rent" decision. "Enterprises spend months on model evaluations and then rent their orchestration off the shelf — which means they're optimizing the smaller lever and outsourcing the bigger one," AlShikh said. "Whoever owns the harness owns your unit economics, and an open framework tuned for demos is not tuned for your invoice." To isolate the impact of the orchestration layer, the researchers ran experiments on six foundation models spanning multiple vendors and weight classes: Claude Sonnet 4.6, Gemini 3.1, Gemini Flash 3.5, Qwen 3.6, GLM 5.1, and Writer’s own model, Palmyra X6. Their experiments compared a frozen, conventional production agent loop against the finished Writer Agent Harness on the same 22 locked enterprise tasks, spanning capabilities like grounding and retrieval, multi-step workflows, tool use, and content generation. By holding the models and tasks constant, they could isolate the effects of the orchestration layer itself. The optimized harness drove a significant drop in costs, cutting the blended cost per task by 41%, from 21 cents to 12 cents. This was largely achieved by slashing token consumption, with the number of tokens per task falling 38%, from 14.2k to 8.8k. The harness is designed to delegate tasks like search to specialized sub-agents. A sub-agent receives only the tool and the specific query it needs, retrieves the exact data, and returns a capped, clean summary to the main agent — keeping the primary context window from filling up with raw search results.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Writer的AI工具在不牺牲准确性的情况下将代币支出削减了近40%</div>
+      <div class="col-content">企业人工智能正面临投资回报率悖论。虽然在最强的基础模型上投入更多的计算在产品实验中效果良好，但当产品部署到生产中时，成本变得难以承受。Writer研究人员的一篇新论文提供了一种工程团队可以使用的解决方案。该研究系统地研究了围绕基础模型（即人工智能线束）的编排层的不同组件的优化。通过优化该工具，研究人员发现，在不改变基础模型的情况下，每项任务的代币大幅减少，每项成功任务的成本下降了61%，质量保持稳定。由于该工具完全在开发人员的控制之下，不需要对模型进行微调，工程团队可以应用这些发现来构建高成本效益的人工智能应用程序。人工智能工程的现状受到“tokenmaxxing”的困扰，这是一种行业趋势，开发人员依赖于大量的上下文窗口和暴力令牌消费来替代良好的系统设计。开发人员没有设计优雅的工作流程，而是从传统软件开发中引入了一种反射：生成、运行、失败、将错误和更多上下文塞回窗口，然后重试。Writer的首席技术官兼联合创始人Waseem AlShikh告诉VentureBeat：“之所以选择tokenmaxx团队，是因为它是目前最便宜的解决方案，也是因为它是当今大多数工程师的工作方式。”。因为这种方法在编码任务上经常成功，所以它已经成为其他所有代理工作负载的默认反射。危险在于，每个代币的价格下跌掩盖了潜在的效率低下。AlShikh说：“你的发票是每个任务的代币乘以每个代币的价格，大多数团队只关注第二个数字。”。“在代理工作负载中，每个任务的令牌都会复合——每次循环迭代都会重新传输不断增长的上下文——并且复合速度比价格下跌更快。降价成为麻醉剂。它掩盖了循环本身正在流血的事实。”Tokenmaxxing导致了几种企业失败模式。默认情况下，团队将简单任务路由到高级前沿模型。他们将LLM用作懒惰搜索索引，用原始文档填充上下文窗口，而不是检索确切的答案。最具破坏性的是，它们构建了无约束的代理循环，当模型遇到错误时，这些循环会失控。因为在所有主要模型提供程序中，输出令牌的成本明显高于输入令牌，因此低效的任务执行会成为无声的预算杀手。该行业已经引入了几种效率技术来控制这些成本，但它们在很大程度上是不够的，因为它们孤立地对待模型：提示压缩压缩了输入文本以节省空间，但忽略了系统如何在复杂的工作流程中对这些输入进行排序。预算推理限制了模型可以采取的计算步骤，如果工作流没有智能路由，这通常会降低输出质量。Terse编码迫使模型输出最少的代码以节省输出令牌，但并没有解决低效的工具调用问题。推测性解码使用较小的草稿模型来加速较大模型的文本生成，优化推理速度，同时无法解决臃肿的代理架构。这些努力之所以失败，是因为它们在优化发动机的同时忽略了变速器。他们不关注编排层，导致底层架构的低效问题得不到解决。线束是编排层，负责将底层LLM路由、格式化并转换为工作系统。线束优化的核心杠杆包括系统提示缓存、交互历史压缩、工具管理、检索策略和错误管理。对于希望提高人工智能性能的工程团队来说，这些是最容易获得的干预点。正如Writer的研究人员在研究中指出的那样：“如果线束是构成模型调用的层，那么它也是设定工作价格的层。”从历史上看，开发人员将线束视为一次性胶水代码，其设计目的只是将API连接到用户界面。该研究表明，现在必须将线束视为一级对象：一个需要自己的测试、版本控制和严格设计的主要软件工件。对于企业来说，这重新定义了“自有与租赁”的决策。AlShikh说：“企业花几个月的时间进行模型评估，然后现成地租用他们的编排——这意味着他们正在优化较小的杠杆，外包较大的杠杆。”。“谁拥有这个工具，谁就拥有你的单位经济，一个为演示而调整的开放框架并不是为你的发票而调整的。”为了隔离编排层的影响，研究人员在六个基础模型上进行了实验，这些模型跨越了多个供应商和权重等级：Claude Sonnet 4.6、Gemini 3.1、Gemini Flash 3.5、Qwen 3.6、GLM 5.1和Writer自己的模型Palmyra X6。他们的实验将冻结的传统生产代理循环与完成的Writer agent Harness在相同的22个锁定的企业任务上进行了比较，这些任务涵盖了基础和检索、多步骤工作流、工具使用和内容生成等功能。通过保持模型和任务不变，他们可以隔离编排层本身的影响。优化后的线束显著降低了成本，将每项任务的混合成本降低了41%，从21美分降至12美分。这在很大程度上是通过削减代币消耗来实现的，每项任务的代币数量下降了38%，从14.2k降至8.8k。该工具旨在将搜索等任务委托给专门的子代理。子代理只接收它需要的工具和特定查询，检索确切的数据，并向主代理返回一个有上限的、干净的摘要——防止主上下文窗口被原始搜索结果填满。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/writers-ai-harness-cuts-token-spend-nearly-40-without-sacrificing-accuracy" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
