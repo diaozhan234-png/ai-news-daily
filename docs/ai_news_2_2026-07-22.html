@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-22 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-22</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Poolside drops Laguna S 2.1, an open-weight coding model that beats rivals 10x its size</div>
+      <div class="col-content">Poolside , the San Francisco AI lab that has spent most of its three-year existence quietly selling coding models to governments and defense agencies, released its most capable model to date on Tuesday — and made an unusually aggressive bet that radical transparency, not raw scale, is how a smaller lab competes at the frontier. The model, Laguna S 2.1 , is a 118-billion-parameter Mixture-of-Experts (MoE) system that activates only 8 billion parameters per token, supports a context window of up to 1 million tokens, and — according to benchmarks published by the company — matches or beats open models several times its size on agentic coding tasks. The weights are available immediately on Hugging Face under the permissive OpenMDW-1.1 license. The headline numbers are striking for a model this small. Poolside reports that Laguna S 2.1 scores 70.2% on Terminal-Bench 2.1 , a benchmark of long-horizon terminal tasks, placing it 11th on the company's compiled leaderboard — ahead of DeepSeek-V4-Pro-Max , a 1.6-trillion-parameter model that scored 64.0; Thinking Machines' 975-billion-parameter Inkling , at 63.8; and Nvidia’s 550-billion-parameter Nemotron 3 Ultra , at 56.4. On SWE-Bench Multilingual , it posts 78.5%, and on SWE-Bench Pro 's public dataset, 59.4%. Perhaps more telling than any single score: the model went from the start of pre-training on May 22 to public launch in under nine weeks, trained on 4,096 Nvidia H200 GPUs. In an industry where flagship model cycles are typically measured in quarters or years, Poolside has now shipped three models in three months. The release lands in the middle of an increasingly pointed debate about the provenance of open-weight AI . Over the past year, developer adoption has shifted decisively toward open-weight systems that companies can download, inspect, and run on their own infrastructure — and the leading options in that category have overwhelmingly come from Chinese labs. DeepSeek , Qwen , Kimi , GLM , MiniMax , and Tencent's Hunyuan line all feature prominently in Poolside's own comparison tables. Poolside's accompanying press release frames Laguna S 2.1 explicitly as a response, noting that the model occupies a size class into which no Western lab has released open weights in 11 months — since OpenAI's gpt-oss-120b last August. "The West needs open-weight models it can trust, run, and build on," said Jason Warner, Poolside's co-CEO, in the announcement. Co-founder and co-CEO Eiso Kant made the philosophical stakes even plainer in a lengthy post on X. "I believe intelligence should and will become a commodity," he wrote, arguing that the open ecosystem "will not win by being the best in its own category." Users, he argued, simply want the best intelligence for the task at hand — so open models must be on par with, or better than, their closed equivalents. The strategic logic here is not charity. Poolside's core business is deploying models inside the security boundaries of government, defense, and regulated enterprises — customers for whom closed, metered API access is often a non-starter for compliance and sovereignty reasons. Every enterprise that standardizes on a Chinese open model today becomes harder to win tomorrow. Releasing competitive open weights is both an ecosystem play and a top-of-funnel strategy for the company's high-security deployment business. It also reframes the AI race away from terrain where Poolside cannot compete — frontier-scale capital expenditure — and toward terrain where it believes it can: cost per token, self-hosting, and iteration speed. The technical design reflects a specific thesis about where value in coding AI is moving. Laguna S 2.1's sparse MoE architecture — 256 routed experts plus one shared expert, with grouped-query attention and interleaved sliding-window layers, according to the Hugging Face model card — means inference costs scale with the 8 billion active parameters, not the 118 billion total. Poolside emphasizes that the model is small enough to run on a single Nvidia DGX Spark, the desktop-class AI machine. That matters for what Poolside calls token economics. Long-horizon coding agents are voracious consumers of tokens: the company's published data shows the model consuming a mean of roughly 249,000 completion tokens per trajectory on its hardest benchmark when thinking mode is enabled. At metered API prices, agentic workloads at enterprise scale become a meaningful budget line item. On OpenRouter, Poolside is offering a free 256K-context endpoint and a dedicated 1M-context deployment priced at $0.10 per million input tokens and $0.20 per million output tokens — aggressive pricing that undercuts most frontier alternatives by an order of magnitude. The ecosystem support is unusually broad for day one. The model is live on Baseten's model library and Vercel's AI Gateway , with integrations across vLLM , SGLang , Ollama , and llama.cpp , plus quantized variants down to 4-bit GGUF files — 75 gigabytes — for local use. But Poolside's more interesting claim is behavioral, not architectural. Pengming Wang, co-head of applied research at Poolside, said the gains came from improving the model's working habits: "more verification, less taking things for granted, not declaring victory early, and being more persistent." Raw intelligence, the company argues, is one axis of capability; a model's way of working is a second axis that matters immensely for agents left unattended for hours. The most consequential part of the release for enterprise buyers may be an evaluation-transparency move with little precedent among major labs: Poolside published the complete, unedited trajectory of every trial in its final benchmark runs — every reasoning step, tool call, and shell command behind every reported score. This addresses a growing credibility problem in AI benchmarking.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">池畔放弃了Laguna S 2.1，这是一款开放式重量编码模型，比竞争对手大10倍</div>
+      <div class="col-content">旧金山人工智能实验室Poolside在其成立三年的大部分时间里都在悄悄地向政府和国防机构出售编码模型。周二，该实验室发布了迄今为止最有能力的模型，并异常大胆地打赌，一个较小的实验室在前沿竞争的方式是激进的透明度，而不是原始规模。该模型名为Laguna S 2.1，是一个1180亿参数的专家混合（MoE）系统，每个令牌仅激活80亿个参数，支持多达100万个令牌的上下文窗口，并且根据该公司发布的基准测试，在代理编码任务上匹配或击败了数倍于其大小的开放模型。根据许可的OpenMDW-1.1许可证，这些重量可以在Hugging Face上立即获得。对于这么小的型号来说，标题数字是惊人的。Poolside报道称，Laguna S 2.1在Terminal Bench 2.1上的得分为70.2%，这是一个长期终端任务的基准，在该公司编制的排行榜上排名第11，领先于得分为64.0的1.6万亿参数模型DeepSeek-V4-Pro-Max；Thinking Machines的9750亿参数Inkling，排名63.8；Nvidia的5500亿参数Nemotron 3 Ultra为56.4。在SWE Bench Multilingual上，它发布了78.5%，在SWE长凳Pro的公共数据集上，发布了59.4%。也许比任何一个分数都更有说服力：该模型从5月22日的预训练开始，在不到九周的时间里公开发布，在4096个Nvidia H200 GPU上训练。在一个旗舰车型周期通常以季度或年为单位的行业中，池畔现在已经在三个月内交付了三款车型。此次发布正值关于开放式人工智能起源的争论日益尖锐之际。在过去的一年里，开发人员的采用已经决定性地转向了开放式称重系统，公司可以在自己的基础设施上下载、检查和运行，而这一类别的主要选择绝大多数来自中国实验室。DeepSeek、Qwen、Kimi、GLM、MiniMax和腾讯的浑源系列都在池畔自己的比较表中占据了突出地位。池畔附带的新闻稿明确将Laguna s 2.1作为回应，并指出该模型占据了自去年8月OpenAI的gpt-oss-120b以来11个月内没有西方实验室发布开放权重的尺寸级别。池畔联席首席执行官Jason Warner在公告中表示：“西方需要可以信任、运行和建立的开放式权重模型。”。联合创始人兼联合首席执行官伊索·康德在一篇关于X的长篇文章中更清楚地阐述了哲学上的利害关系。“我相信智能应该而且将会成为一种商品，”他写道，并认为开放生态系统“不会因为成为同类产品中的佼佼者而获胜。”他认为，用户只是希望为手头的任务提供最好的智能——因此开放模型必须与封闭模型相当，甚至更好。这里的战略逻辑不是慈善。Poolside的核心业务是在政府、国防和受监管企业的安全边界内部署模型——出于合规和主权原因，对那些封闭的、计量的API访问通常是不启动的客户。今天，每一个以中国开放模式为标准的企业明天都更难获胜。发布有竞争力的开放权重既是生态系统游戏，也是该公司高安全部署业务的漏斗顶部战略。它还将AI竞赛从池畔无法竞争的领域（前沿规模的资本支出）转向它认为可以竞争的领域：每个代币的成本、自托管和迭代速度。技术设计反映了一个关于人工智能编码价值在哪里移动的具体论点。Laguna S 2.1的稀疏MoE架构——256个路由专家加上一个共享专家，根据Hugging Face模型卡，具有分组查询注意力和交错滑动窗口层——意味着推理成本规模为80亿个活动参数，而不是1180亿个总数。Poolside强调，该模型足够小，可以在一台台式机级AI机器Nvidia DGX Spark上运行。这对池畔所谓的代币经济学很重要。长期编码代理是代币的贪婪消费者：该公司公布的数据显示，在启用思维模式时，该模型在其最难的基准上每条轨迹平均消耗约249000个完成代币。按照计量的API价格，企业规模的代理工作负载成为一个有意义的预算项目。在OpenRouter上，池畔提供了一个免费的256K上下文端点和一个专用的1M上下文部署，价格为每百万输入令牌0.10美元，每百万输出令牌0.20美元——这种激进的定价比大多数前沿替代品低了一个数量级。生态系统的支持在第一天就异常广泛。该模型在Baseten的模型库和Vercel的AI网关上实时发布，集成了vLLM、SGLang、Ollama和llama.cpp，以及低至4位GGUF文件（75GB）的量化变体，供本地使用。但池畔更有趣的说法是行为，而不是建筑。池畔应用研究联合负责人王鹏明表示，这些收益来自于改善该模型的工作习惯：“更多的验证，更少把事情视为理所当然，不过早宣布胜利，更坚持不懈。”该公司认为，原始情报是能力的一个轴心；模型的工作方式是第二个轴，对于无人值守数小时的代理来说，这一轴非常重要。对于企业买家来说，此次发布最重要的部分可能是评估透明度的举措，这在主要实验室中几乎没有先例：池畔在其最终基准运行中公布了每个试验的完整、未经编辑的轨迹——每个推理步骤、工具调用和每个报告分数背后的shell命令。这解决了人工智能基准测试中日益严重的可信度问题。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/infrastructure/poolside-drops-laguna-s-2-1-an-open-weight-coding-model-that-beats-rivals-10x-its-size" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
