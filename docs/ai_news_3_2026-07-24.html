@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-24 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-24</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 TechCrunch</span>
+      <span class="badge">🔥 热度 85.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">How AI guardrails are impeding the work of offensive cybersecurity researchers</div>
+      <div class="col-content">For months, AI giants have devised special vetted programs and strict guardrails to limit the use of their models by malicious hackers. But these limits are now hindering the work of legitimate network defenders, as well as that of offensive cybersecurity researchers. In June, the U.S. government slapped export control restrictions on Anthropic’s much-hyped AI models Mythos and Fable. The move was prompted at least in part by a report that claimed it was possible to bypass the models’ guardrails designed to prevent users from using them to build and execute malicious cyberattacks. Regardless of whether the incident was really motivated by fears of a jailbreak , the fact is that Anthropic has repeatedly marketed Mythos as some kind of doomsday cybermachine that can only be given to carefully vetted users, and even then with strict guardrails in place. (The export controls on Fable 5 and Mythos 5 have since been lifted. Fable 5 returned to general access on July 1; Mythos 5 has been reintroduced only to vetted U.S. organizations as part of the government’s review process.) That kind of gatekeeping isn’t unique to Mythos. Both Anthropic, with its other models, and OpenAI offer cybersecurity researchers programs they can apply to get vetted and — if approved — access models with fewer cybersecurity restrictions: OpenAI’s Trusted Access for Cyber and Anthropic’s Cyber Verification Program . These guardrails have been widely criticized, particularly by researchers whose job is to find unknown vulnerabilities in systems and devise ways to exploit them before criminals do. During a recent appearance on a cybersecurity podcast, Mark Dowd, a well-known security researcher, said that, “it’s not really comfortable to me that these random large companies are making arbitrary decisions about what is safe in security and what’s not.” Dowd has spent decades finding and selling “zero days” — previously unknown software flaws and the exploits that take advantage of them — to Western governments, rather than report them to the software makers so they get patched. Governments pay a premium for vulnerabilities precisely because they stay open, which is useful for intelligence operations. Dowd admitted his work may make him biased, but he isn’t alone. Several people who work in offensive cybersecurity — they proactively probe systems for weaknesses — described to TechCrunch how they use AI tools and deal with their guardrails. Chris Anley, the chief scientist at security consulting giant NCC Group, said that asking an AI model to try to exploit a bug is a key step in confirming it’s a real vulnerability worth fixing. But if a guardrail prompts the model to refuse to answer the question outright, the guardrail hurts defenders, he said. “This is where the whole offensive versus defensive and guardrails part comes in, because ‘fix this code’ as a prompt is both an essential mechanism for defense but also a roadmap for finding critical vulnerabilities in the code base,” said Anley. “So at the same time, the same tool is both an offensive tool and a defensive tool, and the two can’t really be unpicked.” It’s “like a hammer,” he continued. “You can’t build a house without a hammer. It’s definitely a tool but it’s also irreducibly a weapon as well.” When he and his colleagues run into such a roadblock, they sometimes fall back on open-source AI models that come with no guardrails at all. Paolo Stagno, the chief technology officer at CrowdFense, a well-known company that develops, acquires, and sells unknown vulnerabilities to government agencies, agreed with Dowd, saying AI companies “essentially treat customers like children who need babysitting” with their vetted programs and guardrails. Stagno said he and his colleagues do use frontier models — but only for reverse engineering. They avoid using AI to help find vulnerabilities or build exploits, he said, because feeding that work into a cloud-based model risks leaking sensitive vulnerability data or having it absorbed into future training runs. For that step, he said, they use open source models run locally, as they do not rely on sharing data outside of the model. Giuseppe Cali, a security researcher who finds zero-days and develops exploits, said guardrails are not impeding his work. That’s because he doesn’t use AI for offensive work; instead, he uses it for initial reverse engineering, to understand the code he’s analyzing, and to build supporting tools. For that, he said, AI tools can speed up the process and allow him to focus on discovering vulnerabilities.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">人工智能护栏如何阻碍攻击性网络安全研究人员的工作</div>
+      <div class="col-content">几个月来，人工智能巨头们设计了经过特殊审查的程序和严格的防护措施，以限制恶意黑客使用他们的模型。但这些限制现在阻碍了合法网络防御者以及攻击性网络安全研究人员的工作。6月，美国政府对Anthropic大肆宣传的人工智能模型Mythos和Fable实施了出口管制。此举至少部分是由于一份报告称，有可能绕过这些模型的护栏，以防止用户使用它们来构建和执行恶意网络攻击。不管这起事件是否真的是出于对越狱的恐惧，事实是，Anthropic一再将Mythos宣传为某种末日网络机器，只能交给经过仔细审查的用户，即使这样也要有严格的护栏。（此后，对《寓言5》和《神话5》的出口管制已被解除。《寓言5号》于7月1日恢复普遍访问；《神话5号》仅作为政府审查程序的一部分重新引入经过审查的美国组织。）这种把关并非《神话》所独有。Anthropic及其其他模型和OpenAI都为网络安全研究人员提供了他们可以申请的程序，以获得审查，如果获得批准，还可以获得网络安全限制较少的访问模型：OpenAI的Trusted access for Cyber和Anthropic的Cyber Verification Program。这些护栏受到了广泛的批评，尤其是研究人员，他们的工作是发现系统中未知的漏洞，并在罪犯之前设计出利用它们的方法。在最近一次网络安全播客中，著名安全研究员Mark Dowd表示，“这些随机的大公司对什么是安全的，什么是不安全的做出了武断的决定，这让我感到不舒服。”Dowd花了几十年的时间寻找并向西方政府出售“零日”——以前未知的软件缺陷和利用它们的漏洞，而不是向软件制造商报告，以便他们得到修补。政府为漏洞支付溢价正是因为它们保持开放，这对情报行动很有用。多德承认他的工作可能会让他有偏见，但他并不孤单。几位从事攻击性网络安全工作的人——他们主动探测系统的弱点——向TechCrunch描述了他们如何使用人工智能工具和处理护栏。安全咨询巨头NCC Group的首席科学家Chris Anley表示，让人工智能模型尝试利用漏洞是确认这是一个值得修复的真正漏洞的关键一步。但他说，如果护栏提示模特拒绝直接回答问题，护栏会伤害防守者。Anley说：“这就是整个进攻与防守和护栏部分发挥作用的地方，因为‘修复此代码’作为提示既是防御的重要机制，也是发现代码库中关键漏洞的路线图。”。“所以与此同时，同一个工具既是进攻工具，也是防御工具，两者真的无法分开。”他继续说道，它“就像一把锤子”。“没有锤子，你建不了房子。它绝对是一种工具，但它也是一种不可简化的武器。“当他和他的同事遇到这样的障碍时，他们有时会求助于完全没有护栏的开源人工智能模型。CrowdFense是一家开发、收购和向政府机构出售未知漏洞的知名公司，其首席技术官Paolo Stagno同意Dowd的观点，他说人工智能公司“本质上把客户当作需要保姆的孩子”，他们的程序和护栏经过审查。Stagno说，他和他的同事确实使用前沿模型，但仅用于逆向工程。他说，他们避免使用人工智能来帮助发现漏洞或构建漏洞，因为将这项工作输入到基于云的模型中可能会泄露敏感的漏洞数据，或将其吸收到未来的训练中。他说，对于这一步，他们使用本地运行的开源模型，因为他们不依赖于模型外的数据共享。Giuseppe Cali是一名发现零日漏洞并开发漏洞的安全研究员，他说护栏并没有阻碍他的工作。这是因为他没有使用人工智能进行攻击性工作；相反，他将其用于初始逆向工程，理解他正在分析的代码，并构建支持工具。为此，他说，人工智能工具可以加快这一过程，让他专注于发现漏洞。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：TechCrunch · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
