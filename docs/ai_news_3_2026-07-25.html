@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-25 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-25</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">VentureBeat Research: Where enterprise AI agent governance hasn't caught up</div>
+      <div class="col-content">Enterprises deployed AI agents ahead of the controls needed to manage them — and they did it knowingly. That is the central finding across the five parallel surveys VentureBeat Research fielded in June, spanning every layer of the agentic stack. Now those enterprises are retrofitting to catch up with their own standards, and they are budgeting for it: In each of the five control layers we measured, 57 to 68% of enterprises plan to switch vendors or add new ones within 12 months, and roughly a third, depending on the layer, plan to move within the quarter. VentureBeat Research measured the five controls an enterprise has to build before it can trust an agent: identity, evaluation, cost telemetry, the context layer, and orchestration. Identity governs which agent is allowed to do what, under whose credentials. Evaluation determines whether the agent's work is any good. Cost telemetry tracks what each agent costs to run. The context layer supplies the business data and definitions agents draw on when they answer. And the orchestration control plane coordinates multi-step agent work. Each of our five reports measures one of those controls. Most deployed "agents" are chatbots wearing the label. Seventy-one percent of enterprises said a quarter or fewer of their deployed "agents" can complete multi-step work on their own; only 10% said true agents are the majority of what they run. These respondents are positioned to know: 81% recommend or decide AI purchases at their companies. A single-prompt chatbot with a human reading every answer needs none of the controls the other four reports measure. A true multi-step agent needs all of them — and most enterprises can't say which one they've deployed. (Full findings: Agentic Orchestration report. ) Autonomy is outrunning trust in the evaluations that gate it. Two-thirds of enterprises either already allow an agent to push a code or system change to production on automated evaluation results alone, with no human review, or are actively engineering toward that within 12 months. Only 5% fully trust the evaluations that would make that call — and half of enterprises shipped an agent that passed internal evaluations and then caused a customer-facing failure in the past year. Before removing human review from any workflow, test evaluations against production outcomes rather than internal benchmarks. (Full findings: Agent Reliability & Evals report .) Companies that let agents share credentials get hit more often. Sixty-nine percent of companies let at least some of their agents share credentials — multiple agents operating under one API key or service account. Organizations that allow credential sharing anywhere experienced a security incident or near-miss at a 63.5% rate (47 of 74), against 40.9% (nine of 22) at companies where every agent has its own scoped identity. The fix is scoped identity for every agent, starting with the ones that touch production systems. (Full findings: Agentic Security & Identity report .) The most expensive hardware in the building runs at half capacity or less. More than eight in 10 enterprises that run their own GPUs reported utilization of 50% or less, and only 44% rigorously track what their AI compute actually costs and returns. The number worth chasing first isn't more GPUs — it's the utilization and per-workload cost of the ones already running. (Full findings: AI Infrastructure & Compute report .) Agents answer confidently from data nobody governs. Fifty-seven percent of enterprises traced a confident, wrong agent answer in the past six months to their own missing or inconsistent business context — wrong metrics, stale definitions, absent documents — and most saw it happen more than once. Governing the definitions agents answer from — metrics and entities first — has to come before scaling the agents that depend on them. (Full findings: Context Layers / RAG report .) No layer has an entrenched incumbent: The defaults today are the built-in tools that ship with the big AI platforms enterprises already use. Switching intent runs highest in orchestration itself, where 68% plan to adopt, add, or replace platforms within 12 months and 34% within the quarter. Our surveys did not ask which direction that money moves — toward the platforms' built-in tools or toward the specialists challenging them — and that open question is the next four quarters of this market. VentureBeat Research fielded five parallel surveys in June 2026 under its VB Pulse program: Agentic Orchestration (101 respondents), Agent Reliability & Evals (157), Agentic Security & Identity (107), AI Infrastructure & Compute (107), and Context Layers / RAG (101) — 573 qualified respondents in total, all at organizations with 100 or more employees. Samples are self-selected, and some findings should be read directionally; each report carries its full methodology note. What the pattern supports more strongly than any single percentage is the direction: every survey, independently, points the same way. VentureBeat produces both this research and VB Transform , the conference where these reports debuted.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">VentureBeat Research：企业人工智能代理治理尚未赶上的地方</div>
+      <div class="col-content">企业在管理它们所需的控制之前部署了人工智能代理，而且他们是在知情的情况下这样做的。这是VentureBeat Research在6月份进行的五项平行调查的核心发现，涵盖了代理堆栈的每一层。现在，这些企业正在进行改造以赶上自己的标准，他们正在为此做预算：在我们测量的五个控制层中，57%至68%的企业计划在12个月内更换供应商或增加新供应商，大约三分之一的企业计划根据层别在本季度内搬迁。VentureBeat Research测量了企业在信任代理之前必须建立的五个控制：身份、评估、成本遥测、上下文层和编排。身份决定了允许哪个代理在谁的凭据下做什么。评估决定了代理人的工作是否好。成本遥测跟踪每个代理的运行成本。上下文层提供代理在应答时使用的业务数据和定义。编排控制平面协调多步代理工作。我们的五个报告中的每一个都衡量其中一个控件。大多数部署的“代理”都是带有标签的聊天机器人。71%的企业表示，他们部署的“代理”中有四分之一或更少的人可以自己完成多步骤的工作；只有10%的人表示，真正的代理人是他们经营的大部分业务。这些受访者有能力知道：81%的人建议或决定在他们的公司购买人工智能。一个由人类阅读每个答案的即时聊天机器人不需要其他四个报告所衡量的任何控制。一个真正的多步骤代理需要所有这些，而大多数企业都无法说出他们部署了哪一个。（完整调查结果：代理编排报告。)自主性正在超越对其评估的信任。三分之二的企业要么已经允许代理仅根据自动评估结果将代码或系统更改推送到生产中，而无需人工审查，要么正在12个月内积极朝着这个方向努力。只有5%的人完全信任做出这一决定的评估，一半的企业派出了通过内部评估的代理商，但在过去的一年里导致了客户面临失败。在从任何工作流程中删除人工审查之前，根据生产结果而不是内部基准进行测试评估。（完整调查结果：代理可靠性和评估报告。）让代理共享凭据的公司更容易受到攻击。百分之六十九的公司至少让一些代理共享证书——多个代理在一个API密钥或服务帐户下运行。允许在任何地方共享凭证的组织经历了63.5%的安全事件或未遂事件（74个中的47个），而在每个代理都有自己范围的身份的公司中，这一比例为40.9%（22个中的9个）。修复方法是对每个代理进行范围标识，从接触生产系统的代理开始。（完整调查结果：代理安全与身份报告。）大楼里最昂贵的硬件以一半或更低的容量运行。超过十分之八的运行自己GPU的企业报告利用率为50%或更低，只有44%的企业严格跟踪其AI计算的实际成本和回报。首先值得追求的数字不是更多的GPU，而是已经运行的GPU的利用率和每工作负载的成本。（完整调查结果：人工智能基础设施和计算报告。）代理从无人管理的数据中自信地回答。57%的企业在过去六个月里将一个自信的、错误的代理答案归因于他们自己缺失或不一致的业务环境——错误的指标、过时的定义、缺失的文档——而且大多数企业都看到这种情况不止一次。管理代理答案的定义——首先是指标和实体——必须在扩展依赖它们的代理之前进行。（完整调查结果：上下文层/RAG报告。）没有一个层有一个根深蒂固的现任者：今天的默认值是企业已经使用的大型人工智能平台附带的内置工具。切换意愿在编排本身中最高，68%的人计划在12个月内采用、添加或替换平台，34%的人计划在此季度内采用、增加或替换平台。我们的调查没有问资金流向哪个方向——流向平台的内置工具还是挑战它们的专家——这个悬而未决的问题是这个市场的未来四个季度。VentureBeat Research在其VB Pulse计划下于2026年6月进行了五项平行调查：代理编排（101名受访者）、代理可靠性和评估（157名）、代理安全性和身份（107名）、人工智能基础设施和计算（107）以及上下文层/RAG（101名）——总共573名合格受访者，全部来自拥有100名或更多员工的组织。样本是自选的，有些发现应该有方向性地解读；每份报告都附有完整的方法说明。该模式比任何单一百分比更有力地支持的是方向：每一项调查都独立地指向相同的方向。VentureBeat制作了这项研究和VB Transform，这是这些报告首次亮相的会议。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/venturebeat-research-where-enterprise-ai-agent-governance-hasnt-caught-up" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
