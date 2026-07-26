@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-26 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-26</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 87.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic's Opus 5 is about token efficiency, not a capability leap</div>
+      <div class="col-content">Today, Anthropic rolled out Opus 5 , the newest update for the model that has recently become a popular choice for coding and other software development tasks, among other things. While this is a noteworthy bump for Opus, it doesn’t seem to be an Opus 4.5-level breakthrough in agentic coding performance. A chart (made by Anthropic) with various benchmarks like Frontier-Bench and DeepSWE shows Opus 5 performing at about the same level or slightly ahead of the much-ballyhooed capabilities of Anthropic’s Fable model for coding tasks. It ostensibly beats Opus 4.8 and OpenAI’s competing GPT-5.6-Sol in just about every kind of task. The various benchmarks show an iterative increase in performance, but not a radical leap, while the main pitch is that it’s a model that offers something just shy of Fable at approximately half the cost. It’s also worth mentioning that Anthropic specifically avoided giving Opus 5 cutting-edge training on cybersecurity tasks, so it lags way behind Fable and Mythos in that regard. Anthropic claims it is relatively good at finding cybersecurity vulnerabilities, but because of decisions made in training the model, it is “substantially behind Mythos 5 on the exploitation of those vulnerabilities.” As such, Opus 5 doesn’t have all of the same controversial protections that Fable had, such as the policy of keeping data for review for 30 days in case of an incident. But this is really a cost story. From one model update to the next subsequent one, we’ve mostly been seeing modest performance improvements—though they look far more dramatic when you look at a whole year of updates. The discourse among software developers and engineering managers right now is mostly around dealing with cost, and there’s real movement in open-weight models, local models, and other alternatives to cutting-edge frontier models. Opus 5 sits at $5 per million input tokens, or $25 per million output tokens—on par with its predecessor, but cheaper than Fable. That said, the recently announced Chinese open-weight model Kimi K3 comes in at just $15 per million output tokens at similar performance, so competition is fierce. Lately, companies like Cursor and Meta have been building “model routers,” systems that automatically select models of varying size and capability from an array of options based on the nature of the prompt. The idea is that you save a lot of tokens (and therefore compute and/or money) by not using something like Fable for every task. Companies like Anthropic are going to have to keep bringing token costs down, or at least (as is the case here) offering more performance for no additional cost, to continue to see the growth they’ve seen. Otherwise, they will start seeing reduced usage as people turn to smaller or open models once those models get good enough to handle the less challenging development tasks.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic的Opus 5是关于代币效率，而不是能力飞跃</div>
+      <div class="col-content">今天，Anthropic推出了Opus 5，这是该模型的最新更新，最近已成为编码和其他软件开发任务的热门选择。虽然这对Opus来说是一个值得注意的进步，但它似乎并不是Opus 4.5级在代理编码性能方面的突破。一张图表（由Anthropic制作）显示了Frontier Bench和DeepSWE等各种基准测试，Opus 5在编码任务方面的表现与Anthropics的Fable模型大肆宣传的能力大致相同或略有领先。从表面上看，它在几乎所有类型的任务中都击败了Opus 4.8和OpenAI的竞争对手GPT-5.6-Sol。各种基准测试显示了性能的迭代式增长，但不是根本性的飞跃，而主要的卖点是，它是一个以大约一半的成本提供了一些接近Fable的东西的模型。值得一提的是，Anthropic特别避免为Opus 5提供网络安全任务的前沿培训，因此在这方面远远落后于Fable和Mythos。Anthropic声称它相对擅长发现网络安全漏洞，但由于在训练模型时做出的决定，它“在利用这些漏洞方面远远落后于Mythos 5”。因此，Opus 5没有Fable所拥有的所有有争议的保护措施，例如在发生事故时将数据保存30天以供审查的政策。但这确实是一个成本故事。从一次模型更新到下一次后续更新，我们大多看到了适度的性能改进——尽管当你查看整整一年的更新时，它们看起来要戏剧性得多。目前，软件开发人员和工程经理之间的讨论主要集中在处理成本问题上，开放权重模型、局部模型和其他前沿模型的替代品也在发生真正的变化。Opus 5的价格为每百万输入代币5美元，或每百万输出代币25美元，与前代产品持平，但比Fable便宜。也就是说，最近宣布的中国开放权重模型Kimi K3在类似的性能下，每百万输出代币的价格仅为15美元，因此竞争非常激烈。最近，Cursor和Meta等公司一直在构建“模型路由器”，该系统可以根据提示的性质从一系列选项中自动选择不同大小和功能的模型。这个想法是，通过不为每项任务使用像Fable这样的东西，你可以节省大量的代币（从而节省计算和/或金钱）。像Anthropic这样的公司将不得不不断降低代币成本，或者至少（就像这里的情况一样）在不增加额外成本的情况下提供更高的性能，才能继续看到他们所看到的增长。否则，随着人们转向更小或开放的模型，一旦这些模型变得足够好，可以处理不那么具有挑战性的开发任务，他们将开始看到使用率下降。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/07/anthropics-opus-5-is-about-token-efficiency-not-a-capability-leap/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
