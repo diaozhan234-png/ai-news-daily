@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-27 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-27</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">We have proof automation now</div>
+      <div class="col-content">I've long had a soft spot for dependently-typed languages like Coq Rocq and Lean. They offer the possibility of a type system capable of encoding and enforcing arbitrarily subtle invariants. The sort of thing that, in regular languages, ends up (at best) as a comment, and which quickly gets lost as the size of the team grows. Then you get subtle misunderstandings and components that don't quite fit together. It's often the case that those components have grown to a sufficient size that, when the problem is noticed, aligning either of them is a wearying prospect. Perhaps, say dependent types seductively, you could write those invariants formally and have a machine check them. (p.s. Coq changed its name! I remember many years ago at a Coq conference in Princeton, I tried suggesting that, in an English-speaking world, having a programming language called Coq was an impediment. I don't think the audience agreed at the time. I also joked that many of the talks there sounded like a speech by Tyrion Lannister, there being so many Coqs and Hoares. A joke that was hilarious and timely, even though it fell completely flat, coming as it did before the final season of that show and our collective memory-holing of it.) The problem has always been that with great type-system power comes great proof effort. I can certainly attest to entire days spent proving really quite simple things. Doing proofs is actually quite fun: it's challenging, interactive, and there's a clear goal. But gosh, does it take a lot of time, especially if, like me, you don't know what you're doing. There's also the periodic, galling experience, at the end of many hours of effort, where you realise that the goal that you're trying to prove is, in fact, false . The classic result here is the retrospective from the seL4 effort that found that, even though the project was large enough for the engineers to develop considerable experience, they spent about 10 times as much time proving as they did designing and implementing. They ended up with more than 20 times as many lines of proof code as they did C code. That overhead has made programming in dependently-typed languages extremely niche. It has also spurred people to try and automate it away. The attempt I'm passingly familiar with is F*, where the system tries to have an SMT solver automatically discharge the obligations. That certainly works for simple cases, but it's very easy to craft something that causes the SMT solver to go off into space and run for hours, leaving you wondering whether it's ever going to finish. I've seen that people who use these languages a lot have to develop a sixth sense for what is going to make the solver happy, and then craft everything around that. It can help, but to an extent it converts the problem into mysticism: you end up serving a complex and fickle god. A critical fact is that, at least in theory, once the statement is correct, the contents of its proof are irrelevant: only its existence matters. This is not entirely true because of two complicating factors: first, what the seL4 group called “proof engineering”: the need to structure proofs so that the effort of realigning them after code changes is reduced. And, second, sufficiently complicated proofs can cause even type checkers to blow up and consume vast amounts of memory. We now have LLMs which, combined with proof irrelevance, promise to be an extremely capable form of proof automation. With sufficient amounts of automation perhaps you don't need to worry about proof engineering nearly so much. You still need to avoid blowing up the type checker but, in my limited tests, LLMs can avoid that. Potentially, LLMs suddenly make dependent-type systems dramatically more practical. I wanted to play around with this so built a Zstandard decompressor in Lean, mostly because I was also curious about Zstandard. Zstandard seems like it's winning the competition to replace gzip as the canonical compression utility. It's another LZ77-style compressor, but it offers better entropy coding and a careful design that allows it to achieve very impressive decompression speeds. It will never be as beautiful as bzip2, but the shining elegance of the Burrows–Wheeler transform doesn't count for too much in the face of significant practical advantages: (Measurements taken on the standard reference computer, i.e. whatever the author was using at the time. And note the log scale on the y-axis: gzip and Zstandard are in their own speed class. This is an Apple machine and Apple's gzip is especially optimised; expect gzip to be slower elsewhere.) Zstandard (by Yann Collet, building on the seminal ANS work by Jarek Duda) has an RFC , but it is quite terse. It contains all the information you need to implement a decompressor, but unless you're already quite familiar with compression, I think you'll need to re-read it a few times to understand what's going on. I, at least, had to read section 4.1 half a dozen times before I felt that I had a decent grasp of it. Too late into this process, I discovered that my colleague, Nigel Tao, has written a better write-up of Zstandard than I was going to manage anyway. So, if you want to understand Zstandard, you should read that. I'm just going to give an explanation of the most interesting bit, the entropy encoder, and mix that in with some evangelism about Lean. The job of an entropy encoder is, given a set of symbols with non-uniform probabilities, to encode a sequence of those symbols using the fewest number of bits. The classic entropy coder is a Huffman encoder. Huffman encoders build a binary tree with symbols at the leaf nodes, and Huffman showed that a very simple algorithm produces an optimal prefix-tree: you take the list of symbols, you find the two with the least probability, and you form a tree node with them as children.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">我们现在有自动化证明</div>
+      <div class="col-content">长期以来，我一直对Coq Rocq和Lean等依赖类型语言情有独钟。它们提供了一种能够编码和强制任意微妙不变量的类型系统的可能性。在常规语言中，这种东西（充其量）只能作为评论，随着团队规模的增长，它很快就会丢失。然后你会得到微妙的误解和不太合适的组件。通常情况下，这些组件已经发展到足够大的尺寸，当发现问题时，将它们中的任何一个对齐都是一个令人厌烦的前景。也许，比如说依赖类型，你可以正式地编写这些不变量，并让机器检查它们。（附言：Coq改名了！我记得很多年前在普林斯顿的一次Coq会议上，我试图暗示，在一个讲英语的世界里，拥有一种名为Coq的编程语言是一种障碍。我认为当时观众并不同意。我还开玩笑说，那里的许多演讲听起来像是提利昂·兰尼斯特的演讲，有这么多Coq和Hoares。一个有趣而及时的笑话，尽管它完全失败了，就像在该节目的最后一季之前和我们的集体记忆中一样。）问题一直是，强大的字体系统力量需要巨大的证明努力。我当然可以证明，我花了整整几天时间证明了一些非常简单的事情。做证明实际上很有趣：它具有挑战性、互动性，并且有一个明确的目标。但是，天哪，这需要很多时间吗，尤其是如果你和我一样，不知道自己在做什么。还有一种周期性的、令人恼火的经历，在几个小时的努力结束时，你会意识到你试图证明的目标实际上是错误的。这里的经典结果是对seL4工作的回顾，发现尽管该项目足够大，工程师们可以积累丰富的经验，但他们花在证明上的时间大约是设计和实施的10倍。他们最终得到的证明代码行数是C代码的20多倍。这种开销使得依赖类型语言的编程变得极其小众。它也促使人们尝试将其自动化。我偶尔熟悉的尝试是F*，系统试图让SMT求解器自动履行义务。这当然适用于简单的情况，但很容易制作一些东西，使SMT求解器进入太空并运行数小时，让你想知道它是否会完成。我看到，经常使用这些语言的人必须培养第六感，以了解什么会让解决者感到快乐，然后围绕这一点精心设计一切。这可能会有所帮助，但在某种程度上，它将问题转化为神秘主义：你最终会侍奉一个复杂多变的上帝。一个关键的事实是，至少在理论上，一旦陈述正确，其证明的内容就无关紧要：只有它的存在才重要。这并不完全正确，因为有两个复杂的因素：第一，seL4小组称之为“证明工程”：需要构建证明，以减少在代码更改后重新排列它们的工作量。其次，足够复杂的证明甚至会导致类型检查器崩溃并消耗大量内存。我们现在有LLM，再加上证明无关性，有望成为一种极其强大的证明自动化形式。有了足够的自动化，也许你就不需要那么担心证明工程了。你仍然需要避免破坏类型检查器，但在我有限的测试中，LLM可以避免这种情况。LLM可能会突然使依赖型系统变得更加实用。我想尝试一下，所以在精益中构建了一个Zstandard解压器，主要是因为我对Zstandard也很好奇。Zstandard似乎正在赢得取代gzip作为规范压缩工具的竞争。这是另一个LZ77风格的压缩器，但它提供了更好的熵编码和精心设计，使其能够实现令人印象深刻的解压缩速度。它永远不会像bzip2那么漂亮，但面对巨大的实际优势，Burrows–Wheeler变换的闪亮优雅并不重要：（在标准参考计算机上进行的测量，即作者当时使用的任何计算机。请注意，y轴上的对数刻度：gzip和Zstandard处于各自的速度等级。这是一台苹果机器，苹果的gzip特别优化；预计gzip在其他地方会更慢。）Zstandard（由Yann Collet在Jarek Duda的开创性ANS工作的基础上开发）有一个RFC，但它非常简洁。它包含了实现解压器所需的所有信息，但除非你已经非常熟悉压缩，否则我认为你需要重新阅读几次才能理解发生了什么。至少，在我觉得自己已经很好地掌握了第4.1节之前，我不得不阅读了六遍。在这个过程中为时已晚，我发现我的同事Nigel Tao写的关于Zstandard的文章比我无论如何都要写的要好。所以，如果你想了解Zstandard，你应该读一下。我只是要解释一下最有趣的部分，熵编码器，并将其与精益的一些宣传相结合。熵编码器的工作是，给定一组具有非均匀概率的符号，使用最少的比特数对这些符号序列进行编码。经典的熵编码器是霍夫曼编码器。霍夫曼编码器在叶节点处构建了一个包含符号的二叉树，霍夫曼表明，一个非常简单的算法可以产生一个最优的前缀树：你取符号列表，以最小的概率找到两个符号，然后将它们作为子节点形成一个树节点。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.imperialviolet.org/2026/07/26/zstd-lean.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
