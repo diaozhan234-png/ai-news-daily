@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-28 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-28</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Microsoft launches AI cybersecurity model, agentic defense platform to cut enterprise security costs</div>
+      <div class="col-content">Microsoft opened a new front in the AI security wars on Monday, unveiling its first custom-built cybersecurity model and a sweeping agentic defense platform — and making an argument that could reshape how enterprises buy AI: the future belongs not to the biggest model, but to the cheapest one that's good enough, routed intelligently. The company announced MAI-Cyber-1-Flash , a compact security model developed in-house by its Microsoft AI (MAI) division, embedded inside MDASH , Microsoft's multi-agent harness for finding and fixing software vulnerabilities. Together, the company says, the system scores 96% on CyberGym — a benchmark measuring how well AI systems reason over large codebases to find real vulnerabilities — beating frontier models including Mythos , Gemini , and GPT , while cutting costs roughly in half compared to Microsoft's own current production configuration. Alongside the model, Microsoft introduced Project Perception , an agentic security system that coordinates "red team" agents that hunt for paths to compromise, "blue team" agents that investigate and triage risk, and "green team" agents that remediate and harden defenses. Project Perception enters public preview on August 3. In a wide-ranging interview with VentureBeat, Microsoft AI CEO Mustafa Suleyman made clear the company sees Monday's announcement as the opening move in a much longer campaign. "We really do have a pretty significant data and harness and expertise moat, and that is enabling us to train models which are faster, better, cheaper, and I think this is genuinely the tip of the iceberg," Suleyman said. "We haven't been working on this for long. The next model is going to be pretty phenomenal." The most technically revealing detail in the announcement is not the model itself but how Microsoft deploys it. MAI-Cyber-1-Flash was designed to handle up to 90% of security tasks efficiently, while MDASH escalates the remaining 10% of exceptionally difficult problems to a larger frontier model — which, notably, is OpenAI's GPT-5.4 . In other words, Microsoft's flagship security AI still leans on its longtime partner-turned-rival for the hardest work. Asked to explain that relationship, Suleyman pointed to the harness, the orchestration layer that routes each incoming problem to the right model. "The harness is like a router," he told VentureBeat. "It's kind of like guardrails and a rule set of an organizing logic, which matches queries to... incoming problems to a model that suits the problem." The system has three components, he explained: the harness, the small and fast MAI-Cyber-1-Flash handling the bulk of queries, and GPT-5.4 sitting alongside as "just a generalist coding model." Pressed on how a system reliant on OpenAI's model can outperform frontier competitors, Suleyman argued the performance comes from the whole system, not any single model. "These are very complicated, long, agentic loops which require storing state, drawing on another database, consulting best practice... handing back to a small model, writing a bunch of code, validating that that was correct," he said. "There's like hundreds of steps to solve that, and that's why it's really the system together that delivers the better performance." And why GPT-5.4 specifically for the escalation tier? Cost, again. "GPT-5.6 is expensive. GPT-5.4 is incredibly good relative to its cost," Suleyman said. "The whole game here is to reduce the costs. Mythos and so on are extremely expensive models... we want to be able to deliver better performance for cheaper. That's what customers want." The arrangement captures Microsoft's evolving posture toward OpenAI: still a customer of the partnership that drew regulatory scrutiny in Brussels and Washington in 2024, but increasingly determined to own the layers of the stack where it believes it holds durable advantages. The economics may matter more than the benchmark. Microsoft says the new configuration delivers roughly 50% cost savings against the current MDASH setup, which runs a blend of GPT-5.4, 5.4 mini, and 5.3 codex. In security — an always-on workload processing enormous volumes of signals — token costs compound relentlessly, and Microsoft argues they have become the binding constraint for defenders. Suleyman frames the cost issue as downstream of a harder physical limit. "The key barrier to adoption is access to chips, and cost is a function of chips," he said. "No matter how much money you've got, there's actually a limited supply of chips. Then trying to squeeze more model output on fewer chips is clearly super valuable." He also described a broader enterprise backlash against frontier-model pricing. Companies initially maxed out on the best available models, he said, but "then they realize they're sort of paying... a phenomenal amount of money, and people are absolutely token maxing everywhere across their business. So there's a massive pushback to reduce cost everywhere." That positions Microsoft to ride a market trend rather than fight it. Cost-efficient, near-frontier models have proliferated over the past year — from xAI's recent Grok release to a wave of Chinese models built on the same premise — and Microsoft is betting that as a platform company it can align itself with enterprise cost pressure. "The top model providers want you to use the most expensive model continuously, whereas because we are a platform, we're on the side of the enterprise," Suleyman said. "There's no point asking... Mythos what the capital of France is." Every AI lab claims differentiation. Microsoft's claim in security rests on something genuinely hard to copy: telemetry. The company processes more than 100 trillion security signals daily — a figure consistent with its 2025 Digital Defense Report , which also cited 4.5 million new malware files blocked and 5 billion emails screened per day — and draws operational insight from 1.6 million customers.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">微软推出人工智能网络安全模型，代理防御平台，以降低企业安全成本</div>
+      <div class="col-content">周一，微软在人工智能安全战争中开辟了一条新战线，推出了其首个定制的网络安全模型和一个全面的代理防御平台，并提出了一个可能重塑企业购买人工智能方式的论点：未来不属于最大的模型，而是属于足够好、智能路由的最便宜的模型。该公司宣布了MAI-Cyber-1-Flash，这是一种由其微软人工智能（MAI）部门内部开发的紧凑型安全模型，嵌入在微软用于查找和修复软件漏洞的多代理工具MDASH中。该公司表示，该系统在CyberGym上的得分为96%，这是一个衡量人工智能系统对大型代码库进行推理以发现真正漏洞的基准，击败了包括Mythos、Gemini和GPT在内的前沿模型，同时与微软目前的生产配置相比，成本降低了大约一半。除了该模型，微软还推出了Project Perception，这是一个代理安全系统，协调寻找妥协途径的“红队”代理、调查和分类风险的“蓝队”代理以及修复和加强防御的“绿队”代理。Project Perception将于8月3日进入公开预览。在接受VentureBeat的广泛采访时，微软人工智能首席执行官Mustafa Suleyman明确表示，该公司将周一的公告视为一场更长的竞选活动的开端。苏莱曼说：“我们确实拥有相当重要的数据、利用和专业知识护城河，这使我们能够训练更快、更好、更便宜的模型，我认为这真的是冰山一角。”。“我们在这方面工作的时间不长。下一个模型将非常惊人。“公告中最具技术启示性的细节不是模型本身，而是微软如何部署它。MAI-Cyber-1-Flash的设计目的是有效地处理高达90%的安全任务，而MDASH将剩余的10%的异常困难问题升级为更大的前沿模型，值得注意的是，这是OpenAI的GPT-5.4。换句话说，微软的旗舰安全人工智能仍然依靠其长期合作伙伴转变为竞争对手来完成最艰巨的工作。当被要求解释这种关系时，Suleyman指出了线束，即将每个传入问题路由到正确模型的编排层。“线束就像路由器，”他告诉VentureBeat。“它有点像护栏和一套规则。一种组织逻辑，它将查询与…传入问题匹配到适合该问题的模型中。他解释说，该系统有三个组成部分：线束、处理大量查询的小型快速MAI-Cyber-1-Flash，以及作为“通用编码模型”的GPT-5.4。“当被问及依赖OpenAI模型的系统如何超越前沿竞争对手时，Suleyman认为性能来自整个系统，而不是任何单一模型。”这些是非常复杂、漫长的代理循环，需要存储状态、利用另一个数据库、参考最佳实践。..交还给一个小模型，编写一堆代码，验证其正确性，”他说。“解决这个问题需要数百个步骤，这就是为什么真正的系统能够提供更好的性能。“为什么GPT-5.4专门用于升级层？再次是成本。”GPT-5.6很贵。与成本相比，GPT-5.4非常好，”苏莱曼说，“这里的整个游戏都是为了降低成本。Mythos等都是非常昂贵的型号。..我们希望能够以更低的价格提供更好的性能。这就是客户想要的。“这一安排反映了微软对OpenAI不断发展的态势：2024年，OpenAI仍然是布鲁塞尔和华盛顿监管机构审查的合作伙伴的客户，但越来越坚定地拥有它认为具有持久优势的堆栈层。经济可能比基准更重要。微软表示，与目前的MDASH设置相比，新配置节省了大约50%的成本，MDASH设置运行GPT-5.4、5.4 mini和5.3 codex的混合。在安全方面，令牌成本不断增加，这是处理大量信号的工作负载，微软认为它们已成为防御者的约束。苏莱曼将成本问题描述为更严格的物理限制的下游。”采用的关键障碍是芯片的获取，以及成本是芯片的函数，”他说，“无论你有多少钱，芯片的供应实际上都是有限的。那么，试图在更少的芯片上压缩更多的模型输出显然是非常有价值的。他还描述了企业对前沿模式定价的更广泛反弹。他说，公司最初在最好的可用模式上达到了最大限度，但“后来他们意识到他们正在付出代价。”。..一笔惊人的金额，人们在整个业务中绝对是象征性的最大化。因此，各地都在大力削减成本。“这使微软能够顺应市场趋势，而不是与之抗争。在过去的一年里，成本效益高、接近前沿的型号激增——从xAI最近发布的Grok到基于同一前提的一波中国型号——微软认为，作为一家平台公司，它可以与企业成本压力保持一致。苏莱曼说：“顶级模型提供商希望你持续使用最昂贵的模型，而因为我们是一个平台，我们站在企业一边。”。“没有必要问……神话中的法国首都是什么。”每个人工智能实验室都声称与众不同。微软在安全方面的主张基于一种真正难以复制的东西：遥测技术。该公司每天处理超过100万亿个安全信号，这一数字与《2025年数字防御报告》一致，该报告还引用了每天拦截450万个新的恶意软件文件和筛选50亿封电子邮件的数据，并从160万客户那里获得了运营见解。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/microsoft-launches-ai-cybersecurity-model-agentic-defense-platform-to-cut-enterprise-security-costs" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
