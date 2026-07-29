@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-29 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-29</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 85.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">We now have a better understanding how OpenAI hacked into Hugging Face</div>
+      <div class="col-content">Last week’s unprecedented security event in which two OpenAI security hacking models trespassed into the network of fellow AI company Hugging Face was enabled by exploiting one or more zero-day vulnerabilities in Artifactory, JFrog, the product’s developer, said Monday. In an incident mimicking a dystopian sci-fi novel, two OpenAI models broke out of the restricted environment meant to keep them from accessing the Internet during an internal test, the AI company revealed last week . The models went on to breach Hugging Face’s network and steal confidential information and credentials. OpenAI said its agent achieved the feat by exploiting a previously unknown vulnerability. The company called the event “unprecedented,” and outsiders largely agreed. OpenAI said the models exploited multiple attack vectors, including stolen credentials and zero-days, to gain remote code execution capabilities, but until now, the vulnerable software was unknown. JFrog’s Monday disclosure said the product was a self-managed instance Artifactory, a repository management system that secures and streamlines customers’ software development operations. JFrog says Artifactory is used by more than 7,500 developer Teams, 80 percent of which work for Fortune 100 companies. “During an internal evaluation of frontier cyber capabilities, OpenAI’s models, running deliberately without production safeguards in an isolated research environment, autonomously discovered and employed chained vulnerabilities to escape its sandbox, reach the open internet, and extract evaluation answers from Hugging Face’s infrastructure,” JFrog CTO Yoav Landman wrote. The executive went on to say that the company learned of the zero-days from OpenAI. The company said Monday that it fixed the exploited vulnerabilities, but it didn’t identify them or provide other important details, such as the conditions under which the vulnerabilities can be exploited. Such details are standard in many vulnerability disclosures because they’re necessary for customers to assess risks. In an email, a company representative declined to provide the details. Release notes published Monday for version Artifactory 7.161.15 listed the CVE designations for nine patched vulnerabilities. The disclosure made no mention that any of them had been actively exploited in the wild. External sources, however, show that three of them— CVE-2026-65617 , CVE-2026-65923 , and CVE-2026-66018 —were privately reported by OpenAI researcher Khai Tran. It’s likely that at least two of them were the zero-days OpenAI’s models exploited, but without confirmation, it’s impossible to say so definitively. The hack came during an internal OpenAI test of its models’ security capabilities. The company deliberately disabled guardrails that are supposed to block high-risk actions. The environment that was supposed to isolate the models ended up having a pathway to the Internet through an unnamed hosted package-registry proxy and cache that we now know to be Artifactory. When the models “hyperfocused” on finding a solution for an industry-standard benchmark called ExploitGym, one ended up going to “extreme lengths to achieve a rather narrow testing goal,” OpenAI said. As part of these extreme measures, the OpenAI model broke into the Hugging Face network and stole the needed data from one of its production databases. Hugging Face disclosed the breach on July 16. OpenAI didn’t reveal its culpability in the intrusion until July 21. Landman’s Monday post tried to spin the entire incident as a success story because the JFrog security team treated OpenAI’s report “with the urgency it deserved, as a genuine zero-day unknown to the world, and moved accordingly.” The CTO added: “The same capability that lets a model find an exploit path no human had found is the capability that will let defenders find and eradicate those paths first.” Left out of the post is that five days passed until OpenAI revealed its role in the breach Hugging Face disclosed and that at least another five days passed from the time OpenAI reported the zero-days and JFrog released patches for them. The lesson: If OpenAI agents could gain a 10-day head start, so too can other models being used maliciously. This is hardly the success story JFrog and OpenAI are trying to make it out to be. Combined with JFrog’s opaqueness surrounding the zero-days, the incident looks even worse. Given the speed at which AI companies are moving, there may still be worse to come.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">我们现在更好地了解了OpenAI是如何入侵Hugging Face的</div>
+      <div class="col-content">该产品的开发者JFrog周一表示，上周发生了前所未有的安全事件，其中两个OpenAI安全黑客模型侵入了人工智能公司Hugging Face的网络，这是通过利用Artifactory中的一个或多个零日漏洞实现的。这家人工智能公司上周透露，在一次模仿反乌托邦科幻小说的事件中，两个OpenAI模型在内部测试中突破了旨在阻止它们访问互联网的限制环境。这些模特继续入侵Hugging Face的网络，窃取机密信息和证书。OpenAI表示，其代理通过利用以前未知的漏洞实现了这一壮举。该公司称此次活动“史无前例”，外界基本同意。OpenAI表示，这些模型利用了多种攻击手段，包括被盗凭证和零日攻击，以获得远程代码执行能力，但到目前为止，易受攻击的软件尚不清楚。JFrog周一披露称，该产品是一个自我管理的实例Artifactory，这是一个存储库管理系统，可以保护和简化客户的软件开发操作。JFrog表示，Artifactory被7500多个开发团队使用，其中80%为财富100强公司工作。JFrog首席技术官Yoav Landman写道：“在对前沿网络能力进行内部评估期间，OpenAI的模型在孤立的研究环境中故意运行，没有生产保障措施，自主发现并利用链式漏洞逃离其沙盒，进入开放互联网，并从Hugging Face的基础设施中提取评估答案。”。这位高管接着说，该公司从OpenAI那里了解到了零日。该公司周一表示，它修复了被利用的漏洞，但没有确定它们或提供其他重要细节，例如漏洞被利用的条件。这些细节在许多漏洞披露中都是标准的，因为它们是客户评估风险所必需的。在一封电子邮件中，公司代表拒绝提供细节。周一发布的Artifactory 7.161.15版本的发行说明列出了9个修补漏洞的CVE名称。披露中没有提到它们中的任何一个在野外被积极利用。然而，外部消息来源显示，其中三个——CVE-2026-65617、CVE-2026-65923和CVE-2026-66018——是OpenAI研究员Khai Tran私下报告的。其中可能至少有两个是OpenAI利用的零日模型，但如果没有证实，就不可能确切地说。此次黑客攻击发生在OpenAI对其模型安全能力的内部测试期间。该公司故意破坏了本应阻止高风险行为的护栏。本应隔离模型的环境最终通过一个未命名的托管包注册表代理和缓存（我们现在知道是Artifactory）连接到互联网。OpenAI表示，当这些模型“过度关注”为名为ExploitGym的行业标准基准寻找解决方案时，其中一个模型最终“竭尽全力实现了一个相当狭窄的测试目标”。作为这些极端措施的一部分，OpenAI模型闯入了Hugging Face网络，并从其一个生产数据库中窃取了所需的数据。Hugging Face于7月16日披露了这一违规行为。OpenAI直到7月21日才透露其在入侵中的责任。Landman周一的帖子试图将整个事件描述为一个成功的故事，因为JFrog安全团队“以应有的紧迫感对待OpenAI的报告，将其视为世界未知的真正的零日，并采取了相应的行动。”这位首席技术官补充道：“让模型找到人类没有找到的漏洞利用路径的能力，也是让防御者首先找到并消除这些路径的能力。”这篇帖子遗漏了OpenAI披露其在Hugging Face披露的漏洞中的作用已经过去了五天，而从OpenAI报告零日事件和JFrog为他们发布补丁的时间起，至少又过了五天。教训：如果OpenAI代理可以获得10天的领先优势，那么其他被恶意使用的模型也可以。这并不是JFrog和OpenAI试图展示的成功故事。再加上JFrog在零日事件上的不透明性，这一事件看起来更糟。鉴于人工智能公司的发展速度，未来可能还会更糟糕。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/security/2026/07/jfrog-tries-to-spin-openai-0-day-exploit-of-its-app-into-a-success-story/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
