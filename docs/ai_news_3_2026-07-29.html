@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-29 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-29</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Visa used Mythos to hunt for bugs in its own payment network, then open-sourced the harness that made it possible</div>
+      <div class="col-content">Visa aimed Anthropic's Claude Mythos at the infrastructure behind billions of daily transactions, a network that spans more than 200 countries and territories, moves money in roughly 160 currencies, and connects nearly 5 billion payment credentials to more than 175 million merchant locations. The model stitched minor weaknesses deep in the stack into working exploit chains that would traditionally have surfaced only late in penetration testing. Rajat Taneja, Visa's president of technology, walked the VB Transform 2026 audience through what came next, including why Visa released the harness that governed the entire hunt as open source and why the company abandoned traditional remediation metrics for a measurement its team invented. Taneja has run technology strategy, product engineering, and global infrastructure at Visa since 2019, after joining the company in 2013 from Electronic Arts, where he served as CTO following 15 years at Microsoft. He co-authored, with Visa chief information security officer Subra Kumaraswamy, the June 10 blog post announcing the release of the Visa Vulnerability Agentic Harness on GitHub as a reference implementation that any security team can inspect, adapt, and extend. Visa also published a technical white paper detailing the architecture, lessons learned, and 12 non-negotiable architectural practices for critical infrastructure. Taneja led with the arithmetic that makes Visa a target worth defending obsessively. Trust at the scale of global payments gets engineered through what he called pessimism and paranoia, by assuming failure and designing around it before failure arrives. The network has been hardened over many years through zero-trust architecture, layered defenses, and highly automated security operations built for the scale and reliability global payments demand. So when Anthropic invited the organizations behind critical software to test Mythos under Project Glasswing, Visa said yes. Glasswing participants collectively identified more than 10,000 high- or critical-severity vulnerabilities in the first month of testing across software underpinning critical systems industry-wide, according to Anthropic. Anthropic's own conclusion placed the bottleneck after discovery, in verification, disclosure, and patching speed. Visa joined to test decades of hardening at AI speed and learn where advanced models could push its defenses further. Inside Visa's environment, Mythos demonstrated system-wide, context-aware analysis, surfacing vulnerabilities buried deep in the stack and flagging issues that grow more serious when chained together, with findings clean enough that engineering teams could act on them without wading through noise. Some findings carried critical severity ratings, and Visa credits its zero-trust controls, network segmentation, and layered safeguards with breaking the chain before any external actor could have acted. That confirmation mattered, Taneja said, but the epiphany that followed mattered more. "In a world of agentic attacks, defense also has to be agentic," he said. Even at a company that has invested decades in defense-in-depth, the model revealed assumptions the team had been operating under that needed rethinking. Traditional SAST tools keep their place as a first pass against known vulnerability patterns, Visa's white paper notes, but pattern matching alone cannot follow an adversary who reasons through logic, data flow, and the exploit chains that live between the signatures. Visa's response was not another monolithic scanner. The team built the Visa Vulnerability Agentic Harness, now in its fifth generation, as a governed pipeline that directs frontier AI models through structured security tasks while enforcing deterministic controls, policy gates, and human oversight at every stage. Taneja walked through the design philosophy. The harness operates across four phases and eleven stages, from code ingestion and threat modeling through deep-dive verification, exploit chain synthesis, and finally remediation and fix validation. Three design choices drive finding quality, per the project's own documentation. Threat modeling runs before analysis to focus on the attack surface rather than scanning everything blindly, multi-agent deterministic voting requires convergence across independent reasoning chains before a finding advances, and structured triage artifacts compress the lifecycle from discovery to a result developers can actually ship. The payoff is a pipeline that runs hot by default. A plain scan in the shipped profile runs all eleven stages and edits source files in the target repository in fix mode, applying candidate patches unless the operator stops it at detection. The harness is multi-model by design. An LLM abstraction layer lets Visa swap or combine providers without changing the control plane, and the open-source version works with Anthropic Claude, OpenAI-compatible models, or a mix. The repo's documentation is candid about the exception. Applying a fix requires the file-editing tools that only the Anthropic backends expose, so the remediation and validation stages currently require Anthropic models for full functionality, and an OpenAI-compatible model in those roles is limited to report-only output. VentureBeat's Q2 2026 Pulse research, presented earlier at the conference, reinforces why that provider flexibility matters. Among the enterprises surveyed, 82% rely on provider-native controls as their primary security layer , and 59% plan to adopt or switch agent security tooling within the year. The controls enterprises adopted last year are already becoming the controls they plan to replace. Finding vulnerabilities is no longer the hard part, Taneja argued. The real challenge is how quickly a team can confirm an issue is truly exploitable, fix it, and prove the attack path is closed rather than just showing a patch was applied.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Visa使用Mythos在自己的支付网络中寻找漏洞，然后开源了使其成为可能的工具</div>
+      <div class="col-content">Visa将Anthropic的Claude Mythos瞄准了数十亿日常交易背后的基础设施，这是一个跨越200多个国家和地区的网络，以大约160种货币转移资金，并将近50亿张支付凭证连接到1.75亿多个商户。该模型将堆栈深处的小弱点缝合到工作漏洞链中，这些漏洞链传统上只会在渗透测试的后期出现。Visa技术总裁Rajat Taneja向VB Transform 2026的观众介绍了接下来发生的事情，包括为什么Visa将管理整个狩猎的工具作为开源工具发布，以及为什么该公司放弃了传统的补救指标，转而采用其团队发明的测量方法。Taneja自2019年以来一直在Visa负责技术战略、产品工程和全球基础设施，他于2013年从Electronic Arts加入Visa，在微软工作了15年后担任首席技术官。他与Visa首席信息安全官Subra Kumaraswamy共同撰写了6月10日的博客文章，宣布在GitHub上发布Visa漏洞代理工具，作为任何安全团队都可以检查、调整和扩展的参考实施。Visa还发布了一份技术白皮书，详细介绍了关键基础设施的架构、经验教训和12个不可谈判的架构实践。Taneja领导的算法使Visa成为值得痴迷捍卫的目标。全球支付规模的信任是通过他所谓的悲观主义和偏执狂来构建的，通过假设失败并在失败到来之前围绕它进行设计。多年来，该网络通过零信任架构、分层防御和高度自动化的安全操作得到了加强，这些操作是为满足全球支付的规模和可靠性需求而构建的。因此，当Anthropic邀请关键软件背后的组织在Glasswing项目下测试Mythos时，Visa表示同意。根据Anthropic的数据，Glasswing的参与者在整个行业关键系统的软件测试的第一个月内共发现了10000多个高严重性或严重性漏洞。Anthropic自己的结论将发现后的瓶颈放在了验证、披露和修补速度上。Visa加入了测试数十年来人工智能速度的强化，并了解先进模型可以在哪里进一步推动其防御。在Visa的环境中，Mythos展示了全系统、情境感知的分析，揭示了深藏在堆栈中的漏洞，并标记了当链接在一起时会变得更加严重的问题，其发现足够清晰，工程团队可以在不受噪音干扰的情况下对其采取行动。一些调查结果具有关键的严重性评级，Visa将其零信任控制、网络分段和分层保障归功于在任何外部参与者采取行动之前打破了链条。Taneja说，这一确认很重要，但随之而来的顿悟更重要。他说：“在一个充满代理攻击的世界里，防御也必须是代理的。”。即使是在一家在深度防御方面投入了数十年的公司，该模型也揭示了团队在这种情况下运作的假设，需要重新思考。Visa的白皮书指出，传统的SAST工具仍然是对抗已知漏洞模式的第一道防线，但仅靠模式匹配无法追踪通过逻辑、数据流和签名之间的漏洞利用链进行推理的对手。Visa的回应不是另一台单片扫描仪。该团队构建了Visa漏洞代理工具，现已进入第五代，作为一个受管理的管道，通过结构化的安全任务指导前沿人工智能模型，同时在每个阶段实施确定性控制、政策关卡和人工监督。Taneja讲述了设计理念。该工具分为四个阶段和十一个阶段，从代码摄取和威胁建模到深入验证、漏洞链综合，最后是补救和修复验证。根据项目自己的文档，三种设计选择可以提高查找质量。威胁建模在分析之前运行，以专注于攻击面，而不是盲目地扫描一切，多代理确定性投票要求在发现进展之前跨独立推理链收敛，结构化的分类工件压缩了从发现到开发人员实际可以发布的结果的生命周期。回报是一条默认情况下运行的管道。附带的配置文件中的普通扫描运行所有十一个阶段，并在修复模式下编辑目标存储库中的源文件，应用候选补丁，除非操作员在检测时停止它。线束设计为多型号。LLM抽象层允许Visa在不改变控制平面的情况下交换或组合提供者，开源版本与Anthropic Claude、OpenAI兼容模型或混合模型兼容。回购文件对这一例外情况直言不讳。应用修复程序需要仅Anthropic后端公开的文件编辑工具，因此修复和验证阶段目前需要Anthropics模型才能实现完整功能，而这些角色中的OpenAI兼容模型仅限于报告输出。VentureBeat在会议早些时候发布的2026年第二季度Pulse研究进一步强调了供应商灵活性的重要性。在接受调查的企业中，82%的企业依赖提供商本地控件作为其主要安全层，59%的企业计划在年内采用或更换代理安全工具。企业去年采取的控制措施已经成为他们计划取代的控制措施。Taneja认为，发现漏洞不再是困难的部分。真正的挑战是，一个团队能够多快地确认一个问题是真正可利用的，修复它，并证明攻击路径是封闭的，而不仅仅是显示应用了补丁。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/visa-used-mythos-to-hunt-for-bugs-in-its-own-payment-network-then-open-sourced-the-harness-that-made-it-possible" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
