@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-30 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-30</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">At Waymo, an AI project isn't ready until its evals are — not when the model performs well</div>
+      <div class="col-content">Few companies face higher stakes when deploying AI than Waymo , the self-driving car company under Alphabet that spun out of Google. Its models do not merely generate text or automate back-office tasks: They help vehicles navigate unpredictable streets, respond to human drivers and make split-second decisions in the physical world. But the methods Waymo uses to manage those risks — continuous evaluation, carefully curated data, human oversight and clearly defined business outcomes — offer a broader playbook for enterprises deploying AI agents in nearly any industry. Manasi Joshi, Waymo’s director of engineering for systems intelligence and machine learning, explained at VB Transform 2026 how the autonomous vehicle company trains, tests and deploys AI at scale. To date, Waymo has driven more than 220 million fully autonomous, or "rider-only," miles, with 17 times fewer serious crash injuries than human drivers over the same distance, according to the company. To achieve these impressive results, Joshi said Waymo has adopted what she called “eval-forced development” or “eval-centric development,” making evaluation a core part of engineering rather than a final check performed before deployment. “The stage at which our projects are maturing can be easily kind of transpired based on the eval maturity that they showcase,” Joshi said. In practice, Waymo assesses a project’s readiness partly by examining the maturity of the tests surrounding it. That approach has clear implications for enterprises building customer service agents, coding assistants, financial systems or other AI applications: If a company cannot reliably measure a system’s performance, it may not be ready to place that system into production. Joshi said much of Waymo’s quality work has shifted toward evaluations, including tests conducted during model training, after training and inside open-loop and closed-loop simulations. “Eval is not a one-time task to launch a model,” she said. Waymo instead treats evaluation as a continuous process spanning driving, simulation and validation. Its methodology combines datasets, performance metrics and infrastructure capable of operating efficiently at scale. For enterprises, that means testing an agent before launch is insufficient. Teams must continue evaluating it as underlying models, business processes, user behavior and incoming data change. Those evaluations should also connect to actual business outcomes rather than relying solely on broad industry benchmarks. Joshi cautioned that model-quality measurements are only as trustworthy as the evaluation data behind them. Waymo therefore pairs its performance claims with information about the properties of the datasets used to test its systems. Waymo’s evaluation hierarchy remains grounded in one overriding objective: safety. The company draws on first-party driving logs, some third-party data and realistic simulations that expose its systems to scenarios spanning billions of synthetic miles. Task owners choose specialized data and metrics for situations involving vulnerable road users, railroad crossings, construction zones and other complex environments. The same principle applies outside autonomous driving. Enterprises need to test not only the routine requests their agents handle successfully, but also uncommon situations where errors could create financial, legal, security or reputational damage. Joshi emphasized that Waymo does not leave release decisions entirely to automated systems. Its production-readiness reviews include extensive human oversight, while internal safety leaders approve software releases and service-area expansions. “This is not AI-driven and completely automated and zero human oversight,” she said. “Human lives are at stake.” Waymo faces another problem familiar to enterprise AI teams: Demand for compute, storage, memory and network capacity is growing faster than the resources available. The company pursues efficiency across data extraction and storage, distributed model training, model distillation, simulation and evaluation. It also emphasizes “data efficiency,” selecting the most useful training examples instead of treating greater volume as inherently better. Waymo began using transformers in 2017 and subsequently expanded into large language models, vision-language models and vision-language-action models. Joshi said the company now uses generative multimodal models as part of its foundation-model strategy. Waymo divides its technology between onboard systems inside each vehicle and off-board infrastructure used for model development, data processing and simulation. That combination forces the company to optimize both real-time inference and the larger systems supporting it. Waymo also uses AI agents internally as productivity tools for engineers. Joshi said agents help analyze data distributions, assess data efficiency and triage problems found in vehicle telemetry, training runs and failed evaluation jobs. The goal is to accelerate investigative work so engineers can devote more time to judgment and difficult technical problems. But Waymo also evaluates those agents to ensure they produce trustworthy, accurate results rather than sending employees down unproductive paths. For enterprise leaders, Waymo’s larger lesson is that agentic AI requires more than choosing a powerful model. Organizations need a clearly defined objective, representative evaluation data, continuous testing, infrastructure that can operate efficiently and named human decision-makers who remain accountable for deployment. "Earning trust is supremely important," Joshi said.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">在Waymo，人工智能项目只有在评估完成后才能准备就绪，而不是在模型表现良好时</div>
+      <div class="col-content">很少有公司在部署人工智能时面临比Waymo更高的风险，Waymo是Alphabet旗下的自动驾驶汽车公司，从谷歌分拆出来。它的模型不仅仅生成文本或自动化后台任务：它们帮助车辆在不可预测的街道上行驶，对人类驾驶员做出反应，并在现实世界中做出瞬间决策。但Waymo用来管理这些风险的方法——持续评估、精心策划的数据、人工监督和明确界定的业务成果——为几乎任何行业部署人工智能代理的企业提供了更广泛的策略。Waymo系统智能和机器学习工程总监Manasi Joshi在VB Transform 2026上解释了这家自动驾驶汽车公司如何大规模训练、测试和部署人工智能。据该公司称，迄今为止，Waymo已经驾驶了超过2.2亿英里的全自动或“仅限骑手”里程，在相同距离内，严重车祸伤害比人类驾驶员少17倍。Joshi说，为了取得这些令人印象深刻的成果，Waymo采用了她所谓的“eval强制开发”或“eval中心开发”，使评估成为工程的核心部分，而不是部署前进行的最终检查。乔希说：“我们的项目成熟的阶段很容易根据他们展示的成熟度来判断。”。在实践中，Waymo部分通过检查围绕项目的测试的成熟度来评估项目的准备情况。这种方法对构建客户服务代理、编码助理、财务系统或其他人工智能应用程序的企业有着明显的影响：如果一家公司不能可靠地衡量系统的性能，它可能还没有准备好将该系统投入生产。Joshi表示，Waymo的大部分质量工作已转向评估，包括在模型训练期间、训练后以及开环和闭环仿真内部进行的测试。她说：“Eval并不是推出一款车型的一次性任务。”。Waymo将评估视为一个跨越驾驶、模拟和验证的连续过程。其方法结合了数据集、性能指标和能够大规模高效运行的基础设施。对于企业来说，这意味着在发布之前测试代理是不够的。随着底层模型、业务流程、用户行为和传入数据的变化，团队必须继续对其进行评估。这些评估还应与实际业务成果联系起来，而不是仅仅依赖于广泛的行业基准。Joshi提醒说，模型质量测量的可信度取决于其背后的评估数据。因此，Waymo将其性能声明与用于测试其系统的数据集的属性信息相结合。Waymo的评估体系仍然以一个首要目标为基础：安全。该公司利用第一方驾驶日志、一些第三方数据和现实模拟，将其系统暴露在跨越数十亿合成英里的场景中。任务负责人为涉及弱势道路使用者、铁路道口、施工区和其他复杂环境的情况选择专门的数据和指标。同样的原则也适用于自动驾驶之外。企业不仅需要测试其代理成功处理的常规请求，还需要测试错误可能造成财务、法律、安全或声誉损害的罕见情况。Joshi强调，Waymo并没有将发布决策完全留给自动化系统。其生产准备审查包括广泛的人工监督，而内部安全负责人则批准软件发布和服务区域扩展。“这不是人工智能驱动的，完全自动化，零人为监督，”她说。“人的生命危在旦夕。”Waymo面临着企业人工智能团队熟悉的另一个问题：对计算、存储、内存和网络容量的需求增长速度超过了可用资源的增长速度。该公司追求数据提取和存储、分布式模型训练、模型蒸馏、模拟和评估的效率。它还强调“数据效率”，选择最有用的训练示例，而不是将更大的量视为固有的更好。Waymo于2017年开始使用Transformer，随后扩展到大型语言模型、视觉语言模型和视觉语言动作模型。Joshi表示，该公司现在将生成多模态模型作为其基础模型战略的一部分。Waymo将其技术分为每辆车内的车载系统和用于模型开发、数据处理和仿真的非车载基础设施。这种组合迫使该公司优化实时推理和支持它的更大系统。Waymo还在内部使用人工智能代理作为工程师的生产力工具。Joshi说，特工帮助分析数据分布，评估数据效率，并对车辆遥测、训练运行和失败的评估工作中发现的问题进行分类。目标是加快调查工作，这样工程师就可以把更多的时间花在判断和困难的技术问题上。但Waymo也会对这些代理进行评估，以确保他们产生值得信赖、准确的结果，而不是让员工走上低效的道路。对于企业领导者来说，Waymo的更大教训是，代理人工智能需要的不仅仅是选择一个强大的模型。组织需要一个明确界定的目标、有代表性的评估数据、持续的测试、能够高效运行的基础设施，以及负责部署的指定人类决策者。乔希说：“赢得信任至关重要。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/at-waymo-an-ai-project-isnt-ready-until-its-evals-are-not-when-the-model-performs-well" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
