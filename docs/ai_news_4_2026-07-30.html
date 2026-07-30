@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-30 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-30</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 86.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic is finding bugs faster than Microsoft can fix them</div>
+      <div class="col-content">On an afternoon in mid-May, dozens of Microsoft engineers and their managers gathered online and in a conference room at the company’s Redmond, Washington, headquarters to discuss Project Glasswing. The tech giant was racing to fix weaknesses in its code that a new AI model known as Mythos was uncovering at an unprecedented clip. The AI behemoth Anthropic, which developed Mythos, had given access to select organizations that make software used by regular people, companies, and governments across the world. The goal was to find and fix the vulnerabilities before hackers and adversarial governments like China began using similar tools to find and exploit them for espionage and sabotage. As the group settled in, one engineer asked the question that loomed over the meeting: Did Mythos “live up to the hype that Anthropic claimed it would have had?” “Yes,” a manager responded, according to a recording of the meeting viewed by ProPublica. The version being used by Microsoft, Claude Mythos Preview, was surfacing bugs faster than the tech giant could patch them, and engineers, the manager said, were now in “a mad dash” to close the gap. One slide in that day’s presentation showed that in April alone, Mythos had uncovered 90 “critical” bugs and 141 “important” ones in SharePoint, Microsoft’s widely used collaboration software. In the first half of May it found even more. “Please, please, please if your org has any April bugs, drive those down,” engineering manager Hans Andersen implored the group. They had roughly two weeks “to find as many things and do as much good as we can with this access.” May 31, he explained, “is considered the day when the rest of the world will have caught up.” The engineers on the call poked at that assertion, with one of them summing up the predicament: “So basically you’re saying if it’s released on June 1, then on June 2 the adversaries will have our bugs?” Yep, one person responded. Yep, another echoed. Ever since Anthropic kick-started a national conversation about the bug-hunting power of AI in April, when Project Glasswing was made public , national security experts predicted that the US would have a window of opportunity to fix flaws before adversaries would have similar models capable of discovering the same weaknesses. In late June, the international alliance of intelligence agencies known as the Five Eyes—whose members are the US, Australia, Canada, New Zealand and the UK—warned in an unusual joint statement that in a matter of months, that window would be closing. But the recording of the Microsoft meeting, along with internal documents reviewed by ProPublica, suggest the day of cyber reckoning may already be here. Given the deluge of flaws Mythos has identified, Microsoft so far has focused on patching those it considers most dangerous, which are classified critical or important, according to the presentation as well as the company’s own public patch updates. The internal records indicate that Microsoft plans to eventually address “moderate”-severity flaws uncovered by Mythos. The documents made no mention of “low”-severity bugs. The company’s approach reflects the triage system that is typical in the industry. Just as the sickest patients are the first to be treated in the emergency room, vulnerability triage prioritizes issues that are likely to cause the most damage if exploited by hackers. But that strategy carries its own risk in this AI-powered bug-finding era, in which new tools are unearthing a record-breaking volume of weaknesses in the products we use every day. Mythos, for example, is able to chain together a string of bugs that build on one another, meaning that the low- and moderate-severity vulnerabilities that remain unpatched could create an opening to carry out devastating attacks. “The problem now is that you can chain four low-level flaws, and that can equal a high severity,” said Vinh Nguyen, a senior technical adviser to Anthropic and a senior fellow for AI at the Council on Foreign Relations who formerly served as chief AI officer and chief data scientist at the National Security Agency. “If you’re Microsoft, the current triage strategy may be underpricing risks.” In emailed responses to ProPublica’s questions, Microsoft stood by its approach, saying its triaging decisions are based on a number of factors, including exploitability and the impact on customers. The company presentation did not mention chaining, but a spokesperson told ProPublica that the technique “has long been considered as part of vulnerability assessment and risk analysis.” Asked about the internal presentation and the then-looming May 31 deadline, the spokesperson downplayed its significance, saying that “accelerated targeting and exploitation of new vulnerabilities is not a new phenomenon.” That said, he added, the comments made during the meeting reflect how the company “feels a sense of urgency to help our customers at this time.” “What was heard on that call and is true today is that security is Microsoft’s most important priority and teams across the company are prioritizing using AI to discover and remediate vulnerabilities as quickly as possible.” Microsoft declined to answer questions about how many bugs engineers had patched since the presentation. The internal Microsoft presentation and accompanying slides predicted that the group of staffers working on SharePoint, which is used by governments and businesses worldwide to manage data and documents, “will be busy for months,” first working through the highest-priority critical bugs, then tackling the important ones in August. Microsoft says vulnerabilities it categorizes as critical include so-called worms that can crash systems and spread malware as they race across computer networks.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic发现漏洞的速度比微软修复漏洞的速度快</div>
+      <div class="col-content">5月中旬的一个下午，数十名微软工程师和他们的经理聚集在华盛顿州雷德蒙德总部的一个会议室里，在线讨论Glasswing项目。这家科技巨头正在竞相修复其代码中的弱点，一种名为Mythos的新人工智能模型以前所未有的速度发现了这些弱点。开发Mythos的人工智能巨头Anthropic已经可以访问世界各地生产普通人、公司和政府使用的软件的精选组织。目标是在黑客和中国等敌对政府开始使用类似工具发现并利用漏洞进行间谍活动和破坏之前，找到并修复漏洞。根据ProPublica查看的会议记录，当小组安顿下来时，一位工程师提出了一个笼罩在会议上的问题：Mythos“是否达到了Anthropic声称的宣传效果？”一位经理回答说：“是的。”。微软正在使用的Claude Mythos Preview版本比这家科技巨头修补漏洞的速度更快，这位经理说，工程师们现在正在“疯狂冲刺”以缩小差距。当天演示文稿中的一张幻灯片显示，仅在4月份，Mythos就在微软广泛使用的协作软件SharePoint中发现了90个“关键”错误和141个“重要”错误。5月上半月，它发现了更多。工程经理Hans Andersen恳求该团队：“请，请，如果你的组织有任何四月的bug，请把它们赶走。”。他们大约有两周的时间“找到尽可能多的东西，并通过这种访问尽可能多地做好事”。他解释说，5月31日“被认为是世界其他地区赶上的一天”。电话中的工程师们反驳了这一说法，其中一人总结了困境：“所以基本上你是说，如果它在6月1日发布，那么在6月2日，对手就会有我们的漏洞？”是的，一个人回应道。是的，另一个回应道。自从今年4月Anthropic kick启动了一场关于人工智能寻bug能力的全国性对话以来，当Glasswing项目公开时，国家安全专家预测，在对手拥有能够发现相同弱点的类似模型之前，美国将有一个修复漏洞的机会之窗。6月下旬，被称为“五眼”的国际情报机构联盟在一份不同寻常的联合声明中警告称，在几个月内，这一窗口将关闭。该联盟的成员包括美国、澳大利亚、加拿大、新西兰和英国。但微软会议的录音以及ProPublica审查的内部文件表明，网络清算的日子可能已经到来。根据演示文稿以及该公司自己的公开补丁更新，鉴于Mythos发现的大量缺陷，微软迄今为止一直专注于修补其认为最危险的缺陷，这些缺陷被归类为关键或重要。内部记录显示，微软计划最终解决Mythos发现的“中度”严重缺陷。这些文件没有提到“低”严重性的错误。该公司的方法反映了该行业典型的分流系统。正如病情最重的患者是第一个在急诊室接受治疗的人一样，漏洞分流优先考虑如果被黑客利用可能造成最大损害的问题。但在这个人工智能驱动的漏洞发现时代，这种策略也有其自身的风险，在这个时代，新的工具正在挖掘我们每天使用的产品中破纪录的弱点。例如，Mythos能够将一系列相互构建的漏洞链接在一起，这意味着尚未修补的低严重性和中等严重性漏洞可能会为实施毁灭性攻击创造机会。Anthropic的高级技术顾问、外交关系委员会人工智能高级研究员Vinh Nguyen表示：“现在的问题是，你可以链接四个低级缺陷，这可能相当于一个高度严重的缺陷。”Vinh Ngoyen曾担任国家安全局的首席人工智能官和首席数据科学家。“如果你是微软，目前的分类策略可能是定价过低的风险。”在通过电子邮件回复ProPublica的问题时，微软坚持其做法，称其分类决策是基于许多因素，包括可利用性和对客户的影响。该公司的演示文稿没有提到链接，但一位发言人告诉ProPublica，该技术“长期以来一直被视为漏洞评估和风险分析的一部分”。当被问及内部演示文稿和当时即将到来的5月31日截止日期时，发言人淡化了其重要性，称“加速瞄准和利用新漏洞并不是一个新现象”。他补充说，尽管如此，会议期间的评论反映了该公司“此时感到迫切需要帮助我们的客户”。“在那次电话会议上听到的是，安全是微软最重要的优先事项，全公司的团队都在优先考虑使用人工智能来尽快发现和修复漏洞。”微软拒绝回答有关有多少漏洞的问题。自演示以来，工程师们已经修补了漏洞。微软的内部演示文稿和随附的幻灯片预测，在全球政府和企业用于管理数据和文档的SharePoint上工作的员工团队“将忙碌数月”，首先处理优先级最高的关键错误，然后在8月处理重要错误。微软表示，其归类为关键的漏洞包括所谓的蠕虫，这些蠕虫可以在计算机网络中竞争时使系统崩溃并传播恶意软件。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/security/2026/07/anthropic-is-finding-bugs-faster-than-microsoft-can-fix-them/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
