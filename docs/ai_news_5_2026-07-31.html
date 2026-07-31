@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-07-31 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-07-31</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Thinking Machines debuts Inkling Small open source AI model nearing performance of predecessor at about 1/4 size</div>
+      <div class="col-content">Just two weeks after Thinking Machines released Inkling , its first open source AI language model, the well-funded startup led by former OpenAI chief technology officer Mira Murati today introduced Inkling-Small without sacrificing much of any performance — and in fact, the new model surpasses its larger predecessor on several benchmarks. Inkling Small is a 276-billion-parameter multimodal reasoning model with a permissive Apache 2.0 license that comes within a single point of its larger sibling on the third-party Artificial Analysis Intelligence Index , despite the original Inkling being 975 billion parameters (internal model settings). It accepts text, image and audio inputs, produces text, and supports a context window of up to one million tokens. Inkling Small uses 12 billion active parameters per token, compared with Inkling’s 41 billion active parameters, while preserving much of the flagship’s coding, reasoning and multimodal performance. For enterprises, the appeal is not simply that Inkling-Small is smaller. It is that developers appear to give up relatively little capability while reducing the model’s compute requirements, inference costs and deployment footprint. The model remains far too large for a laptop or conventional workstation, but it is materially easier to operate than the 3.5X larger flagship, making it a good fit for enterprises with some — but not a lot — of their own graphics processing units (GPUs). Thinking Machines has released the full weights on Hugging Face and added support for fine-tuning through its Tinker model training application programming interface (API). At launch, the company is advertising a limited-time 50% discount, bringing API pricing for the standard 64K-context Inkling-Small model to $0.58 per million prefill (input) tokens, $1.44 per million sampled (output) tokens, and $1.73 per million training tokens, with cached prefill requests priced at $0.116 per million tokens. A 256K-context variant is also available at higher rates. Artificial Analysis assigned Inkling-Small a score of 40 on its Intelligence Index, compared with 41 for Inkling. That result is notable because Inkling-Small has 276 billion total parameters and 12 billion active parameters, while Inkling has 975 billion total parameters and 41 billion active parameters. Artificial Analysis also reported that no open-weight model at Inkling-Small’s size or smaller scored higher on the index. The model does more than merely approach the flagship’s aggregate score. On several evaluations, it surpasses Inkling. Thinking Machines reports that Inkling-Small scores 80.2% on SWE-bench Verified, compared with Inkling’s 77.6%, and 64.7% on Terminal Bench 2.1, compared with 63.8% for the larger model. It also edges ahead on SciCode, Humanity’s Last Exam, GPQA Diamond and CritPt. The gains are not universal. Inkling retains a clear advantage on factual knowledge and some agentic tasks. Inkling-Small scores 15.5% on τ³-Banking, compared with 23.7% for Inkling, and its AA Omniscience score is negative, reflecting weaker factual coverage even though its reported hallucination rate is slightly lower. That tradeoff matters for enterprises. Inkling-Small may be attractive for coding assistants, tool-use systems, retrieval-augmented generation, document analysis and multimodal workflows, but organizations using it for high-stakes factual tasks will still need retrieval, verification and human review. Inkling-Small is a sparse Mixture-of-Experts model. According to the model card published by Thinking Machines, its 42-layer decoder routes each token to six of 256 specialized experts, along with two shared experts that remain active for every token. That architecture helps explain the distinction between the model’s 276 billion total parameters and its 12 billion active parameters. The system retains a large pool of learned capacity but activates only a fraction of it during each inference step. It is also natively multimodal. Images, audio and text are projected into a shared representation and processed jointly by the decoder rather than being handled through completely separate external systems. Thinking Machines lists coding assistants, agentic applications, chatbots, RAG systems and other multimodal applications among its intended uses. The company also supports variable reasoning effort, allowing developers to increase or reduce the model’s test-time compute depending on the difficulty of the task. That gives engineering teams a direct way to balance quality, latency and cost across different workloads. Despite its name, Inkling-Small is not a consumer-scale model. The standard BF16 checkpoint requires at least 600 GB of aggregate GPU memory, according to Thinking Machines. The company lists two supported configurations: 4x NVIDIA B300 GPUs or 8x NVIDIA H200 GPUs. A quantized NVFP4 checkpoint lowers the requirement to roughly 180 GB of aggregate VRAM. Thinking Machines says that version can run in W4A4 mode on a single NVIDIA B300, or in W4A16 mode on two H200 GPUs. That rules out ordinary laptops, MacBooks, desktop gaming PCs and most developer workstations. Even heavily equipped local systems generally fall far short of the required memory. The practical deployment targets are enterprise GPU servers, cloud clusters and specialized inference providers. The “Small” label is therefore relative to Inkling, not to the broader universe of local models. Still, the reduction is meaningful. A model that approaches Inkling’s performance while needing substantially less aggregate memory can lower hosting costs, make capacity planning easier and widen the group of organizations capable of self-hosting it. For companies that want control over data, model behavior and fine-tuning, that smaller footprint may be more important than chasing the highest possible benchmark score.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Thinking Machines首次推出Inkling Small开源AI模型，其性能接近前代产品的1/4大小</div>
+      <div class="col-content">就在Thinking Machines发布其首个开源AI语言模型Inkling两周后，由前OpenAI首席技术官Mira Murati领导的资金充足的初创公司今天推出了Inkling Small，而没有牺牲任何性能——事实上，新模型在几个基准测试中超越了其较大的前身。Inkling Small是一个2760亿参数的多模式推理模型，具有许可的Apache 2.0许可证，与第三方人工分析智能指数上的较大兄弟模型在一个点内，尽管最初的Inkling是9750亿参数（内部模型设置）。它接受文本、图像和音频输入，生成文本，并支持多达一百万个令牌的上下文窗口。Inkling Small每个令牌使用120亿个活动参数，而Inkling的活动参数为410亿个，同时保留了旗舰产品的大部分编码、推理和多模式性能。对于企业来说，吸引力不仅仅在于Inkling Small的规模较小。这是因为开发人员在降低模型的计算要求、推理成本和部署足迹的同时，似乎放弃了相对较少的能力。该模型对于笔记本电脑或传统工作站来说仍然太大，但它比3.5倍大的旗舰产品更容易操作，使其非常适合拥有一些（但不是很多）自己的图形处理单元（GPU）的企业。Thinking Machines已经发布了Hugging Face的全部权重，并通过其Tinker模型训练应用程序编程接口（API）增加了对微调的支持。在发布时，该公司正在宣传限时50%的折扣，使标准64K-context Inkling-Small模型的API定价达到每百万个预填充（输入）代币0.58美元、每百万个采样（输出）代币1.44美元和每百万个训练代币1.73美元，缓存预填充请求的定价为每百万个代币0.116美元。256K上下文变体也可以以更高的速率提供。《人工分析》给Inkling Small的智力指数打了40分，而Inkling的智力指数为41分。这一结果值得注意，因为Inkling Small有2760亿个总参数和120亿个活动参数，而Inkling有9750亿个总变量和410亿个活动变量。人工分析还报告说，Inkling Small或更小尺寸的开放式重量模型在指数上的得分都没有更高。该模型不仅仅是接近旗舰的总得分。在几次评估中，它超过了Inkling。Thinking Machines报告称，Inkling Small在SWE bench Verified上的得分为80.2%，而Inkling的得分为77.6%，在Terminal bench 2.1上为64.7%，而较大型号的得分为63.8%。它还在SciCode、人类最后一次考试、GPQA Diamond和CritPt上领先。这些成果并不是普遍的。Inkling在事实知识和一些代理任务方面保留了明显的优势。Inkling Small在τ³-Banking上的得分为15.5%，而Inkling的得分为23.7%，其AA Omniscience得分为负，反映出事实报道较弱，尽管其报告的幻觉率略低。这种权衡对企业很重要。Inkling Small可能对编码助手、工具使用系统、检索增强生成、文档分析和多模式工作流程具有吸引力，但使用它进行高风险事实任务的组织仍需要检索、验证和人工审查。Inkling Small是一个稀疏的混合专家模型。根据Thinking Machines发布的模型卡，其42层解码器将每个令牌路由到256名专业专家中的6名，以及对每个令牌保持活动的两名共享专家。该架构有助于解释模型2760亿个总参数与其120亿个活动参数之间的区别。该系统保留了大量的学习能力，但在每个推理步骤中只激活了其中的一小部分。它本身也是多模式的。图像、音频和文本被投影到一个共享的表示中，并由解码器联合处理，而不是通过完全独立的外部系统进行处理。Thinking Machines列出了其预期用途中的编码助手、代理应用程序、聊天机器人、RAG系统和其他多模式应用程序。该公司还支持可变推理工作，允许开发人员根据任务的难度增加或减少模型的测试时间计算。这为工程团队提供了一种在不同工作负载之间平衡质量、延迟和成本的直接方法。尽管名为Inkling Small，但它并不是一个消费者规模的模型。据Thinking Machines称，标准BF16检查点需要至少600 GB的GPU内存。该公司列出了两种支持的配置：4个NVIDIA B300 GPU或8个NVIDIA H200 GPU。量化的NVFP4检查点将要求降低到大约180 GB的聚合VRAM。Thinking Machines表示，该版本可以在单个NVIDIA B300上以W4A4模式运行，也可以在两个H200 GPU上以W4A16模式运行。这排除了普通笔记本电脑、MacBook、台式游戏PC和大多数开发人员工作站。即使是装备精良的本地系统，通常也远远不能满足所需的内存。实际部署目标是企业GPU服务器、云集群和专业推理提供商。因此，“小”标签与Inkling有关，而不是与更广泛的局部模型有关。尽管如此，削减还是有意义的。一个接近Inkling性能的模型，同时需要更少的总内存，可以降低托管成本，使容量规划更容易，并扩大能够自行托管的组织群体。对于希望控制数据、模型行为和微调的公司来说，较小的占地面积可能比追求尽可能高的基准分数更重要。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/thinking-machines-debuts-inkling-small-open-source-ai-model-nearing-performance-of-predecessor-at-about-1-4-size" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
