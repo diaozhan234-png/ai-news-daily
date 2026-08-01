@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-01 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-01</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Tailscale didn't stop the Hugging Face intrusion</div>
+      <div class="col-content">An AI agent escaped its sandbox, entered Hugging Face’s infrastructure, and used a stolen Tailscale credential to enroll 181 nodes onto their tailnet. No Tailscale vulnerability was found or exploited—we should have been able to prevent it anyway. By now, you’ve likely heard about the AI agent that escaped a security evaluation and attacked Hugging Face, an LLM marketplace. The agent decided Hugging Face might have the answers to its benchmark, so it stole them just to cheat on the exam. That's a funny motive but a scary outcome. Hugging Face published a detailed reconstruction of the intrusion. It covers about 17,600 recovered actions over four and a half days, including sandbox escapes, code execution, cloud credentials, improvised command-and-control systems, and eventually, the use of Tailscale to spread throughout their organization. But Tailscale is a zero trust network! The whole point of zero trust is to prevent attackers from moving laterally across your company. What went wrong? No “vulnerabilities” in Tailscale were found or exploited, and that might make it even more uncomfortable for us. Tailscale turns up everywhere in AI infrastructure: virtually every AI company uses Tailscale. So it's not surprising we were in an AI incident report eventually. But, we're a security tool. Their intrusion is our intrusion, and it's our job to take it seriously. As in any post-mortem, we need to reflect on what happened and what we could have done to prevent it. By the time the agent escaped its sandbox and found Tailscale, it had already gained code execution privileges inside a production worker, reached root access on a Kubernetes node, and read a production secret store containing 136 keys. In a sense, it was game over before we even arrived on the scene. But isn't that the problem? Let's back up a level or two. Why were long-lived secret keys accessible at all to anyone? They shouldn't be, though. And we've now seen a great example of why. In the old world where most intrusions were done by humans at human speed, credential leak mitigations were treated as a nice-to-have. A big credential store, where you can read 136 keys at once, was a to-do item somewhere in a security team's low-priority list. Now, in a world of rogue AI agents, the big credential vault is the prize. It's not okay anymore. I only know of two main solutions to long-lived credentials. First, you can configure a vault that only issues short-lived creds based on long-lived creds that you insert once and that it never gives back. HashiCorp Vault can do this, for example; they call it dynamic credentials . Unfortunately, dynamic credentials are a lot of work to set up and maintain. When security requires work, people don't do it. The second option is a credential-injecting proxy. If client C wants to access server S, don't give C credentials for S; instead, have it send its requests via a hardened proxy P that does nothing but receive a request, insert a credential, and pass it through. Credential injection is gaining popularity now that modern mesh-based networking removes most of its latency. A few months ago, we acquired Border0 ("Tailscale PAM"), which makes an elegant and quite fancy credential-injecting proxy, tightly integrated with Tailscale. Border0, fully deployed, would have prevented reading those 136 keys and logged every attempt to use one. (The same credential injection powers Aperture Connectors .) But, this stuff is too recent. Most of our customers haven't even looked at it yet. A bonus third option: Tailscale itself. In Tailscale, your node key can be machine bound using a TPM to prevent export , and if you're an enterprise you should definitely do that. Alas, we had to turn TPM storage off by default on Linux and Windows , because of HSM issues we found on some users' hardware. Anyway, in today's case, the attack is what granted access to Tailscale, so we arrived too late. Neither dynamic credentials nor credential-injecting proxies were in place, so 136 keys leaked. What's the next line of defense?</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Tailscale并没有阻止Hugging Face的入侵</div>
+      <div class="col-content">一个AI代理逃离了沙箱，进入了Hugging Face的基础设施，并使用被盗的Tailscale证书将181个节点注册到他们的尾网上。没有发现或利用Tailscale漏洞——无论如何，我们都应该能够阻止它。到目前为止，你可能已经听说过AI代理逃脱了安全评估，并攻击了法学硕士市场Hugging Face。代理商认为Hugging Face可能有其基准测试的答案，所以它偷了它们只是为了在考试中作弊。这是一个有趣的动机，但也是一个可怕的结果。Hugging Face发布了入侵的详细重建。它涵盖了四天半内约17600个恢复操作，包括沙盒逃逸、代码执行、云凭据、临时命令和控制系统，以及最终在整个组织中使用Tailscale。但Tailscale是一个零信任网络！零信任的全部意义在于防止攻击者在公司内部横向移动。出了什么问题？Tailscale中没有发现或利用任何“漏洞”，这可能会让我们更加不舒服。Tailscale在人工智能基础设施中无处不在：几乎每家人工智能公司都使用Tailscale。因此，我们最终出现在人工智能事件报告中也就不足为奇了。但是，我们是一个安全工具。他们的入侵就是我们的入侵，我们的工作就是认真对待。与任何事后分析一样，我们需要反思发生了什么，以及我们本可以做些什么来防止它。当代理逃离沙箱并找到Tailscale时，它已经在生产工人中获得了代码执行权限，在Kubernetes节点上获得了根访问权限，并读取了包含136个密钥的生产秘密存储。从某种意义上说，在我们到达现场之前，游戏就已经结束了。但这不就是问题所在吗？让我们备份一两个级别。为什么任何人都可以访问长期密钥？不过，他们不应该这样。现在我们看到了一个很好的例子。在旧世界，大多数入侵都是由人类以人类的速度完成的，凭证泄漏缓解措施被视为一件好事。一个可以同时读取136个密钥的大型凭证存储是安全团队低优先级列表中某个地方的待办事项。现在，在一个充斥着流氓人工智能代理的世界里，巨大的证书库就是奖品。这已经不好了。我只知道两种长期证书的主要解决方案。首先，您可以配置一个保管库，该保管库仅根据您插入一次且永远不会返回的长期信任发布短期信任。例如，HashiCorp Vault可以做到这一点；他们称之为动态凭证。不幸的是，动态凭据的设置和维护工作量很大。当安全需要工作时，人们不会这样做。第二种选择是证书注入代理。如果客户端C想要访问服务器S，则不要为S提供C凭据；相反，让它通过一个强化的代理P发送请求，该代理P除了接收请求、插入凭据并传递请求外什么也不做。随着现代基于网格的网络消除了大部分延迟，凭证注入越来越受欢迎。几个月前，我们收购了Border0（“Tailscale PAM”），它与Tailscale紧密集成，制作了一个优雅而相当花哨的证书注入代理。完全部署的Border0将阻止读取这136个密钥，并记录每次使用密钥的尝试。（Aperture Connectors也采用了相同的证书注入技术。）但是，这些东西太新了。我们的大多数客户甚至还没有看过它。额外的第三种选择：Tailscale本身。在Tailscale中，您的节点密钥可以使用TPM进行机器绑定以防止导出，如果您是一家企业，您绝对应该这样做。唉，在Linux和Windows上，我们不得不默认关闭TPM存储，因为我们在一些用户的硬件上发现了HSM问题。不管怎样，在今天的情况下，攻击是允许进入Tailscale的原因，所以我们来得太晚了。动态凭证和凭证注入代理都没有到位，因此泄漏了136个密钥。下一道防线是什么？</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://tailscale.com/blog/hugging-face-intrusion" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
