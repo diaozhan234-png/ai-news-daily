@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-05 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-05</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 82.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Mistral's Shieldstral: 3B open-weights model for multimodal moderation</div>
+      <div class="col-content">Shieldstral introduces a 3B open-weights multimodal safety classifier that outperforms models up to 7x its size by framing content moderation as a policy-adaptive question-answering task. Unlike traditional guardrail models, it accepts plain-language policies at inference time, unifying text and image safety evaluation without retraining. Released under Apache 2.0, it delivers calibrated safety scores across diverse benchmarks while running efficiently on a single 16GB NVIDIA GPU. A 3B open-weights, policy-adaptive multimodal safety classifier that matches models up to 7x its size on text safety and sets a new state of the art on multimodal moderation. “Does this content promote violence against a protected group? Is this image safe to show to a minor? Did the assistant refuse the request?” Every product that ships a model needs to answer questions like these — but the right answer depends on the product, the audience, and the moment. The same content can be fine for a cybersecurity research tool and harmful on a mental-health platform. Most guardrail models bake a fixed taxonomy of harm categories into their weights, so re-targeting them to a new deployment context means retraining. And because safety definitions differ across applications and domains, there is no single "correct" set of categories to model in the first place. Shieldstral takes a different approach: you write the policy as a plain-language question at inference time, and the model returns a calibrated safety score. No retraining, one interface for text and images, and a verdict from a single token. Please refer to our technical report here. As an inaugural member of the Open Secure AI Alliance with NVIDIA and other organizations, today we're releasing Shieldstral as open weights under Apache 2.0, available for download here . Shieldstral frames content moderation as a binary question-answering task . Each request has three parts: <Instruct> — the evaluation context, strictness, and (optionally) a definition of what counts as unsafe content. <Query> — a single yes/no question, e.g. "Does this content promote physical violence?" <Document> — the content to judge: a prompt, a response, a prompt–response pair, or an image with optional text. At inference the model reads out only the yes and no logits and softmax-normalizes them into a continuous safety score. This one simple formulation does a lot of work: it unifies prompt classification, response moderation, refusal detection, and toxicity detection into a single problem; it lets policies live entirely in the prompt, so one checkpoint adapts to novel policies at deployment time. Strong performance — matches or outperforms open guard models up to 7× its size across text safety, refusal detection, policy adaptability, and multimodal benchmarks. Adaptive and flexible — a single natural-language interface covers text, image, and text+image content across prompts, responses, and prompt–response pairs. Policies are supplied as free-form queries and re-targeted at inference time, without retraining. Small, trained on heterogeneous sources — a 3B model that runs on a single 16GB GPU, trained on real and synthetic data with diverse label formats and taxonomies, consolidated into one framework. Continuous safety score — returns a calibrated yes / no probability from a single forward pass, so you can threshold or rank by confidence rather than relying on a discrete label.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Mistral的Shieldstral:3B开放权重模型用于多模态调节</div>
+      <div class="col-content">Shieldstral引入了一个3B开放权重多模式安全分类器，通过将内容审核作为策略自适应问答任务，其性能优于其大小的7倍的模型。与传统的护栏模型不同，它在推理时接受简单的语言策略，无需重新训练即可统一文本和图像安全评估。它在Apache 2.0下发布，在各种基准测试中提供校准的安全评分，同时在单个16GB NVIDIA GPU上高效运行。一个3B开放权重、策略自适应的多模式安全分类器，在文本安全方面匹配高达其大小7倍的模型，并在多模式审核方面开创了新的技术水平。“这些内容是否助长了对受保护群体的暴力？向未成年人展示这张图片是否安全？助理是否拒绝了请求？”每一款发布模型的产品都需要回答这样的问题，但正确的答案取决于产品、受众和时机。同样的内容对于网络安全研究工具来说是可以的，但对于心理健康平台来说却是有害的。大多数护栏模型都将伤害类别的固定分类放入其权重中，因此将其重新定位到新的部署环境意味着需要重新训练。而且，由于安全定义因应用程序和领域而异，因此首先没有一组“正确”的类别可以建模。Shieldstral采用了一种不同的方法：在推理时将策略作为一个简单的语言问题编写，模型返回一个校准的安全评分。无需重新训练，一个文本和图像界面，以及一个令牌的判断。请参阅我们的技术报告。作为NVIDIA和其他组织的开放安全人工智能联盟的创始成员，今天我们将在Apache 2.0下发布Shieldstral作为开放权重，可在此处下载。屏蔽框架将内容审核作为二元问答任务。每个请求有三个部分：<Instruct>——评估上下文、严格性和（可选）不安全内容的定义。<Query>——一个简单的是/否问题，例如“此内容是否促进身体暴力？”<Document>——要判断的内容：提示、响应、提示-响应对或带有可选文本的图像。在推理时，模型只读出是和否的逻辑，softmax将它们归一化为连续的安全评分。这个简单的公式做了很多工作：它将提示分类、反应调节、拒绝检测和毒性检测统一到一个问题中；它让策略完全存在于提示符中，因此一个检查点在部署时适应新的策略。强大的性能——在文本安全、拒绝检测、策略适应性和多模式基准测试方面，与开放保护模型相匹配或优于开放保护模型，其大小可达开放保护模型的7倍。自适应和灵活——一个单一的自然语言界面涵盖了提示、响应和提示-响应对中的文本、图像和文本+图像内容。策略以自由形式的查询提供，并在推理时重新定位，无需重新训练。小型，在异构源上训练——一个在单个16GB GPU上运行的3B模型，在具有不同标签格式和分类法的真实和合成数据上训练，整合到一个框架中。连续安全评分——从单次向前传球中返回校准的是/否概率，因此您可以根据置信度进行阈值或排名，而不是依赖离散标签。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://mistral.ai/news/shieldstral/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
