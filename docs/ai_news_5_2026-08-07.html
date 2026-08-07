@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-07 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-07</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">No cloud, no GPUs, no problem: Liquid AI's new model LFM2.5-2.6B brings powerful AI agents to devices as small as a Raspberry Pi</div>
+      <div class="col-content">Earlier this week, the AI startup Liquid, formed in 2023 by former MIT computer scientists, debuted LFM2.5-2.6B , a new open-weight language model designed specifically for agentic workloads. In release materials and a recent interview with VentureBeat, Liquid's researchers said LFM2.5-2.6B can run entirely on local hardware — from smartphones and laptops down to a Raspberry Pi — without relying on cloud inference or GPUs, unlocking edge AI applications and giving more options to enterprises working in regulated industries or with sensitive information they don't want to send up to the cloud. It's best suited for high-volume, well-defined agentic tasks that run locally — tool calling, document management, calendar and workflow automation, and always-on background routines — and for connectivity-limited environments like vehicles and robotics, though coding-heavy work is better left to larger models. Even for those businesses without such concerns, the appeal of running performant, task-specific agents at the cost of essentially electricity, may be enough to make the new model quite appealing. But the custom open weights license , as with Moonshot's larger frontier model Kimi K3 released last month, is worth a close look by enterprise legal teams. LFM2.5-2.6B contains 2.6 billion parameters, supports a 128,000-token context window, and includes native tool calling. The somewhat tricky name is explained by the generation of model (2.5) combined with the parameter count (2.6B). Both the post-trained model and a base checkpoint (LFM2.5-2.6B-Base) for developers who want to fine-tune it are available now on Hugging Face , with day-one support for major inference stacks including llama.cpp, MLX, vLLM, SGLang, and ONNX — positioning it for deployment across consumer hardware, enterprise infrastructure, and embedded systems. Liquid also offers an open source fine-tuning framework, LEAP . Rather than positioning LFM2.5-2.6B as a competitor to the largest frontier models, the company is making a different argument: that a sufficiently capable small model can unlock categories of enterprise applications where latency, privacy, deployment flexibility, or inference costs matter more than absolute benchmark leadership. "I do also believe that the best models will be in the cloud, and there's no problem with that," Maxime Labonne, Liquid AI's head of post-training, told VentureBeat in an interview following the launch. "We want to make models for another type of user, and the best way of describing it is: you should use [edge AI] when you can't use a cloud model." Asked about the minimum viable hardware, Labonne said the model runs "very, very well" on CPUs — and that the LFM2 architecture underlying the model was explicitly designed around real-world CPU performance rather than GPU benchmarks. "I think the best example is a Raspberry Pi," he said. "We have a lot of demos that show that actually, it works pretty fast on the Raspberry Pi." Company-reported measurements indicate decoding throughput of approximately 220 tokens per second on an Apple M5 Max and 113 tokens per second on an AMD Ryzen AI Max+ 395, while using less than 2.5 GB of memory — and around 30 tokens per second on a smartphone. Users can try the models on their phones through Apollo, Liquid AI's mobile app. At the other end of the deployment spectrum, Liquid AI reports the model reaches nearly 15,000 output tokens per second on a single Nvidia H100 GPU under sustained concurrent load — roughly 1.3 billion tokens per day on one card. These figures are vendor benchmarks and have not been independently verified. For Labonne, memory footprint and speed are not conveniences but hard constraints that determine what can be deployed at all. "What we want to show is that it's a really good trade-off, because you get the level of quality that you get with much bigger models, but in a tiny, tiny form factor," he said. "You can deploy it in target devices where you are not able to deploy the other ones at all." Liquid AI says LFM2.5-2.6B was developed around the assumption that language models are increasingly consumed through agent frameworks rather than traditional conversational interfaces. "Models are not consumed in chatbots anymore. They're really consumed through agentic harnesses, like OpenClaw, like Hermes Agent," Labonne said. "We wanted to make sure that this model is not just good at math or at code, but it's good at using tools." The model is pretrained on approximately 34 trillion tokens, with a vocabulary doubled to 128K to better support non-Latin scripts and a dedicated mid-training phase to extend the context window to 128K tokens for long-running agent workflows. Post-training follows a four-stage pipeline: supervised fine-tuning, teacher specialization (training separate expert models for domains like instruction following, math, code, and tool use), multi-domain on-policy distillation (MOPD) to merge those experts' capabilities back into a single student model, and finally agentic reinforcement learning. During that last stage, the model was trained directly inside production agent harnesses — including Hermes Agent and OpenClaw — on realistic productivity tasks involving research, coding, document management, tool invocation, and workflow automation, exposing it to those harnesses' actual tools, system prompts, and interaction patterns. Labonne described the pipeline overhaul as producing a "happy accident": gains that extended well beyond the agentic targets. "Through these new training techniques, we also got a lot better at everything. We got better at math, at instruction following. We've never been good at code, actually — and with this, we even got really good at code," he said. Notably, Liquid AI also built its own agent harness rather than relying solely on existing frameworks, and demonstrated the model running inside it on a phone, planning and calling tools entirely on-device.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">没有云，没有GPU，没有问题：Liquid AI的新型号LFM2.5-2.6B为Raspberry Pi这样小的设备带来了强大的AI代理</div>
+      <div class="col-content">本周早些时候，由前麻省理工学院计算机科学家于2023年成立的人工智能初创公司Liquid推出了LFM2.5-2.6B，这是一种专门为代理工作负载设计的新的开放权重语言模型。在发布材料和最近对VentureBeat的采访中，Liquid的研究人员表示，LFM2.5-2.6B可以完全在本地硬件上运行，从智能手机和笔记本电脑到Raspberry Pi，而不依赖于云推理或GPU，解锁边缘AI应用程序，并为在受监管行业工作的企业或他们不想发送到云端的敏感信息提供更多选择。它最适合在本地运行的高容量、定义明确的代理任务——工具调用、文档管理、日历和工作流自动化，以及始终在线的后台例程——以及车辆和机器人等连接受限的环境，尽管编码繁重的工作最好留给更大的模型。即使对于那些没有这种担忧的企业来说，以基本电力为代价运行高性能、特定任务的代理的吸引力可能足以使新模式非常有吸引力。但定制的开放式重量许可证，就像上个月发布的Moonshot更大的前沿型号Kimi K3一样，值得企业法律团队仔细研究。LFM2.5-2.6B包含26亿个参数，支持128000个令牌上下文窗口，并包括本机工具调用。这个有点棘手的名字可以用模型（2.5）的生成和参数计数（2.6B）来解释。Hugging Face现在提供了后训练模型和基础检查点（LFM2.5-2.6B-base），供希望对其进行微调的开发人员使用，第一天支持主要的推理栈，包括llama.cpp、MLX、vLLM、SGLang和ONNX，将其定位为跨消费者硬件、企业基础设施和嵌入式系统部署。Liquid还提供了一个开源的微调框架LEAP。该公司没有将LFM2.5-2.6B定位为最大前沿模型的竞争对手，而是提出了一个不同的论点：一个功能足够强大的小型模型可以解锁企业应用程序的类别，在这些应用程序中，延迟、隐私、部署灵活性或推理成本比绝对的基准领先地位更重要。Liquid AI的后期培训主管Maxime Labonne在发布后接受VentureBeat采访时表示：“我也相信最好的模型将在云端，这没有问题。”。“我们想为另一种类型的用户制作模型，最好的描述方式是：当你不能使用云模型时，你应该使用[边缘人工智能]。”当被问及最小可行硬件时，Labonne表示，该模型在CPU上运行“非常非常好”，并且该模型背后的LFM2架构是围绕真实世界的CPU性能而不是GPU基准明确设计的。“我认为最好的例子是Raspberry Pi，”他说。“我们有很多演示表明，实际上，它在Raspberry Pi上运行得很快。”公司报告的测量结果表明，苹果M5 Max的解码吞吐量约为每秒220个令牌，AMD Ryzen AI Max+395的解码吞吐量为每秒113个令牌，而使用的内存不到2.5 GB，智能手机的解码吞吐量则约为每秒30个令牌。用户可以通过Liquid AI的移动应用程序Apollo在手机上尝试这些模型。在部署范围的另一端，Liquid AI报告称，在持续的并发负载下，该模型在单个Nvidia H100 GPU上每秒达到近15000个输出令牌——一张卡上每天大约有13亿个令牌。这些数字是供应商的基准，尚未经过独立验证。对于Labonne来说，内存占用和速度不是便利，而是决定可以部署什么的硬约束。他说：“我们想展示的是，这是一个非常好的权衡，因为你可以获得更大型号的质量，但尺寸很小。”。Liquid AI表示，LFM2.5-2.6B的开发是基于这样一个假设，即语言模型越来越多地通过代理框架而不是传统的会话接口来使用。拉邦说：“模型不再在聊天机器人中消费。它们实际上是通过代理工具消费的，比如OpenClaw，比如Hermes Agent。”。“我们想确保这个模型不仅擅长数学或代码，而且擅长使用工具。”该模型对大约34万亿个令牌进行了预训练，词汇量翻了一番，达到128K，以更好地支持非拉丁脚本，并有一个专门的中期训练阶段，将上下文窗口扩展到128K令牌，用于长时间运行的代理工作流。岗位培训遵循四个阶段的流程：监督微调、教师专业化（为指令遵循、数学、代码和工具使用等领域培训单独的专家模型）、多领域政策提炼（MOPD），将这些专家的能力合并回一个学生模型，最后是代理强化学习。在最后一个阶段，该模型直接在生产代理工具（包括Hermes agent和OpenClaw）内进行训练，以完成涉及研究、编码、文档管理、工具调用和工作流自动化的现实生产力任务，并将其暴露于这些工具的实际工具、系统提示和交互模式中。拉邦将管道大修描述为一次“愉快的事故”：收益远远超出了代理目标。他说：“通过这些新的训练技术，我们在所有方面都做得更好。我们在数学和指令遵循方面做得更好了。实际上，我们从来都不擅长代码——有了这些，我们甚至变得非常擅长代码。”。值得注意的是，Liquid AI还构建了自己的代理工具，而不是仅仅依赖现有的框架，并在手机上展示了在其中运行的模型，完全在设备上规划和调用工具。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/no-cloud-no-gpus-no-problem-liquid-ais-new-model-lfm2-5-2-6b-brings-powerful-ai-agents-to-devices-as-small-as-a-raspberry-pi" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
