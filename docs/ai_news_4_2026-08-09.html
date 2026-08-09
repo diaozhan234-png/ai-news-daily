@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-09 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-09</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 86.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Four AI agents coordinating in real time outperformed Claude Opus 4.8 on enterprise coding tasks</div>
+      <div class="col-content">As enterprise codebases grow, AI agents tasked with analyzing them are buckling under the weight of long-horizon tasks that require multiple interactions and tool calls. Dividing the work among a team of agents seems like the obvious fix, but it introduces a fatal flaw: most multi-agent systems are not designed for agents to coordinate among themselves mid-task and in real time. To solve this, researchers at Coral AI Labs and multiple universities introduced AgentRadio , an asynchronous message-passing layer that allows agents to communicate between their execution steps without interrupting their main work. In real-world enterprise applications where subtasks are highly interdependent, this architecture enables agents to make mid-course corrections rather than continue on dead-end paths until a formal review phase. On a benchmark of long-horizon questions over production repositories, a team of agents powered by AgentRadio nearly doubled task accuracy for four Claude Code agents working independently. It also outmatched single agents running on more advanced models. For AI practitioners, AgentRadio shows that the right coordination structure can outmatch raw compute and model scale. LLM-based agents are increasingly capable of handling long-horizon tasks that require interacting with different tools and environments. Codebase understanding represents an extreme version of this challenge. It requires an AI agent to build the software, execute it, trace execution paths across multiple files, and synthesize evidence over extended periods. Under these conditions, single-agent systems usually break down because of a “coverage problem.” "A single agent follows one serial path through the repository," Xinxing Ren, Caelum Forder, and Peter Carroll, co-authors of the AgentRadio paper, explained to VentureBeat. As its context grows, "the initial plan becomes harder to revise and discoveries made late in the investigation do not always propagate." The model can usually execute individual steps, but "the hard part is keeping every obligation, dependency, and piece of contradictory evidence active across a long investigation." One benchmark that helps measure AI performance on large codebases is SWE-Atlas QnA . This benchmark consists of long-horizon, natural-language questions over live production repositories. The tasks can’t be solved by just exploring the code. AI agents must run the software and execute multiple commands to find the answers. According to the research team’s experiments, a single Claude Code instance running on Opus 4.6 resolves just 32.3% of these tasks. Upgrading to a newer, more advanced model like Opus 4.8 only yields a 57.2% success rate. A natural remedy is to distribute the workload across multiple agents, allowing each to work with a smaller, cleaner context. Multi-agent solutions can provide substantial performance gains when tasks are cleanly decomposable, meaning they can be solved separately and merged at the end. Codebase understanding, however, is rarely cleanly decomposable. The subtasks are highly interdependent. A critical configuration file or a bug uncovered by one agent can completely rewrite or redirect the entire exploration path of another agent. Because of these dependencies, agents must coordinate, negotiate, and share intermediate discoveries in real time. Despite this need, asynchronous multi-agent communication is rare. The researchers point out that existing multi-agent systems generally fall into three flawed patterns: Parallel but isolated: Agents operate simultaneously but do not communicate at all. Parallel but round-synchronized: Agents can communicate, but only at strict, synchronized round boundaries. This forces agents to stop and wait for one another to finish a round before they can debate or exchange intermediate findings. Round-based systems assume that important discoveries can wait until the next communication phase, which is an expensive assumption when agents are working on interdependent parts of a live system. For example, an agent investigating an API symptom might uncover evidence that invalidates the storage agent's current hypothesis. "If that information waits until both agents finish, the storage investigation may complete along the wrong path," the researchers said. Asynchrony in adjacent forms: These systems offer limited asynchronous features, such as top-down task dispatching. They don’t have peer-to-peer lateral channels between agents or shared memories that require an agent to actively pause its work to read updates. In their paper, the researchers point out that the main bottleneck hindering current multi-agent systems is that “an agent that is working cannot also be listening.” “To our knowledge, no existing system gives concurrently working agents passive awareness of one another over a lateral, natural-language channel,” the researchers write. To dissolve the mutual exclusion between working and listening, the researchers developed AgentRadio, an asynchronous message-passing layer designed to plug directly into existing coding-agent harnesses. AgentRadio equips agents with three primitives: The create_thread primitive opens a conversation between participating agents. The send_message primitive appends a message to a thread and returns without blocking the sending agent. The wait_for_mention primitive blocks the process until a message mentioning the caller arrives. It delivers the message along with a full snapshot of all threads so the agent has instant context. This trio enables agents to have a state of “passive awareness,” where they can continue their primary tasks while passing messages and updating their knowledge in the background. AgentRadio's code is available under the Apache 2.0 license on GitHub . It is designed to be lightweight, requiring no direct modifications to the underlying agent harnesses like Claude Code or Codex CLI.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">四个实时协调的AI代理在企业编码任务上的表现优于Claude Opus 4.8</div>
+      <div class="col-content">随着企业代码库的增长，负责分析它们的人工智能代理正在承受需要多次交互和工具调用的长期任务的压力。将工作分配给一组代理似乎是显而易见的解决方案，但它引入了一个致命的缺陷：大多数多代理系统不是为代理在任务中实时协调而设计的。为了解决这个问题，Coral AI实验室和多所大学的研究人员引入了AgentRadio，这是一种异步消息传递层，允许代理在执行步骤之间进行通信，而不会中断其主要工作。在子任务高度相互依存的实际企业应用程序中，这种架构使代理能够进行中途纠正，而不是在正式审查阶段之前继续走死胡同。在生产存储库的长期问题基准上，由AgentRadio支持的代理团队几乎将四个独立工作的Claude Code代理的任务准确性提高了一倍。它还击败了在更先进型号上运行的单个代理。对于人工智能从业者来说，AgentRadio表明，正确的协调结构可以超越原始计算和模型规模。基于LLM的代理越来越能够处理需要与不同工具和环境交互的长期任务。对代码库的理解代表了这一挑战的极端版本。它需要一个人工智能代理来构建软件、执行软件、跟踪多个文件的执行路径，并在很长一段时间内综合证据。在这种情况下，单代理系统通常会因为“覆盖问题”而崩溃。“单代理在存储库中遵循一条串行路径，”AgentRadio论文的合著者Xinxing Ren、Caelum Forder和Peter Carroll向VentureBeat解释道。随着上下文的增长，“最初的计划变得更难修改，调查后期的发现并不总是能传播。”该模型通常可以执行单个步骤，但“最困难的部分是在长期调查中保持每一项义务、依赖关系和相互矛盾的证据的有效性。”一个有助于衡量大型代码库上人工智能性能的基准是SWE Atlas QnA。该基准测试由实时生产存储库上的长期自然语言问题组成。这些任务不能仅仅通过探索代码来解决。AI代理必须运行软件并执行多个命令才能找到答案。根据研究小组的实验，在Opus 4.6上运行的单个Claude Code实例只能解决32.3%的任务。升级到更新、更先进的型号，如Opus 4.8，成功率仅为57.2%。一种自然的补救方法是在多个代理之间分配工作负载，使每个代理都能在更小、更干净的环境中工作。当任务可以完全分解时，多代理解决方案可以提供可观的性能提升，这意味着它们可以单独解决并在最后合并。然而，对代码库的理解很少是完全可分解的。子任务高度相互依存。一个代理发现的关键配置文件或错误可以完全重写或重定向另一个代理的整个探索路径。由于这些依赖关系，代理必须实时协调、协商和共享中间发现。尽管有这种需求，异步多代理通信仍然很少见。研究人员指出，现有的多智能体系统通常分为三种有缺陷的模式：并行但孤立：智能体同时运行但根本不通信。并行但轮同步：代理可以进行通信，但只能在严格的同步轮边界内进行。这迫使代理人停下来等待对方完成一轮，然后才能辩论或交换中间发现。基于轮的系统假设重要发现可以等到下一个通信阶段，当代理在实时系统的相互依存部分上工作时，这是一个昂贵的假设。例如，调查API症状的代理可能会发现使存储代理的当前假设无效的证据。研究人员表示：“如果这些信息等到两个代理都完成，那么存储调查可能会沿着错误的路径完成。”。相邻形式的异步性：这些系统提供有限的异步功能，如自上而下的任务调度。它们在代理之间没有对等横向通道，也没有需要代理主动暂停工作以读取更新的共享内存。在他们的论文中，研究人员指出，阻碍当前多智能体系统的主要瓶颈是“正在工作的智能体不能也在听”。研究人员写道：“据我们所知，没有一个现有的系统能让同时工作的智能主体在横向的自然语言通道上被动地相互感知。”。为了消除工作和听力之间的相互排斥，研究人员开发了AgentRadio，这是一种异步消息传递层，旨在直接插入现有的编码代理线束。AgentRadio为代理配备了三个原语：create_thread原语打开参与代理之间的对话。send_message原语将消息附加到线程，并在不阻塞发送代理的情况下返回。wait_for_mention原语会阻止该进程，直到有消息提到调用者到达。它传递消息以及所有线程的完整快照，以便代理具有即时上下文。这三者使代理能够处于“被动意识”状态，在这种状态下，他们可以在传递消息和在后台更新知识的同时继续执行主要任务。AgentRadio的代码在GitHub上以Apache 2.0许可证提供。它的设计是轻量级的，不需要对底层代理工具（如Claude Code或Codex CLI）进行直接修改。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/four-ai-agents-coordinating-in-real-time-outperformed-claude-opus-4-8-on-enterprise-coding-tasks" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
