@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-10 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-10</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 89.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">WeatherNext: AI model achieves breakthrough in forecasting cyclones</div>
+      <div class="col-content">Predicting how dangerous cyclones develop is a longstanding challenge where every hour counts. Tropical cyclones — also known as hurricanes or typhoons — are among the most destructive weather phenomena on Earth, responsible for more than 700,000 deaths and $1.4 trillion in economic losses globally over the past 50 years. For forecasters, issuing timely, accurate warnings is a constant race against time. Today, in a paper published in Nature , we show that our WeatherNext AI model achieved state-of-the-art accuracy in predicting a cyclone's track, intensity, and wind structure. On average, our model gives forecasters an extra day’s worth of predictive accuracy: our three-day forecasts are as good as what prior models were able to provide for only the next two days. This scale of improvement corresponds roughly to a decade’s worth of meteorological progress. This collaborative work brought together AI researchers and engineers at Google DeepMind and Google Research, with expert forecasters at the National Hurricane Center (NHC), the Cooperative Institute for Research in the Atmosphere (CIRA), the UK Met Office , and weather agencies around the world. Our research has already had real-world impact. During the 2025 hurricane season, our model helped the NHC to make a historic forecast for Hurricane Melissa by predicting the storm’s rapid intensification and landfall in Jamaica. This enabled the NHC to issue an advance warning, giving teams on the ground critical time to prepare. This year, we continue to work together and are now predicting 1,000 possible scenarios for each cyclone to help support forecasters in their decision-making. Weather affects everyone. Given this broad impact, we are now open sourcing our WeatherNext 2 and WeatherNext Cyclones models used during the hurricane season. By making this technology openly available, we hope to empower the research community and amplify AI's impact in building more resilient communities – whether that be providing local forecasters with the tools they need to prepare for natural disasters , supporting the growth of renewable energy, or anticipating extreme weather. Predicting cyclones has typically forced a trade-off requiring two distinct modeling techniques. A cyclone's track (where it goes) is steered by massive, global atmospheric currents, which before now have been best modeled by coarser global models. However, a cyclone’s intensity (how strong it gets) is driven by highly localized, fine-scale thermodynamic physical processes around its core, which are best modeled by specialized, higher resolution, local models. Our WeatherNext model bridges this gap by improving forecasting for global weather overall as well as cyclones. It is a single AI model that predicts a tropical cyclone’s track, intensity, and wind structure with state-of-the-art accuracy. It achieves this breakthrough through a unique combination of its training, architecture and approach to low resolution inputs. The model was co-trained on two distinct data modalities: global weather dynamics and expert-curated historical cyclone observations. By training end-to-end on nearly 20 terabytes of global atmospheric data and the historical IBTrACS database spanning nearly 5,000 historical storms, the model learns complex atmospheric patterns and how to model extreme weather. Our model uses Functional Generative Networks (FGNs) to efficiently produce ensembles of different predictions, which captures the inherent uncertainty of the weather. We can now generate a single 15-day forecast in less than a minute on a TPU, empowering forecasters to quickly evaluate the probability distribution of potentially devastating tail-risks. Last year, our system produced 50 predictions at a time, matching global physics models. This year we scaled our ensemble size to 1,000 members, capturing rare but consequential scenarios like rapid intensification events, as occurred during Hurricane Melissa in 2025. Up until now, operating at very high spatial resolution has been considered the main driver for making accurate intensity forecasts. However, WeatherNext Cyclones only needs data with a resolution of 28x28km, 100x coarser than traditional models. A smaller version of the model, WeatherNext 2-mini, which operates at a coarser 111x111km resolution, also shows great performance. This has surprised scientists, and it remains an open research question to fully understand how our models produce such accurate predictions at this resolution. We hope that, together with the research community, we can find out. Alongside our Nature paper, we are open sourcing the code and model weights, making them freely available for anyone to build on. This includes academic research, operational forecasting, or developing more specialized, localized models. We hope to accelerate progress across the global weather community and empower meteorological agencies, researchers, and nonprofits to better predict weather events of all kinds and make key decisions to protect lives and infrastructure. We are also releasing two sets of similar models: WeatherNext Cyclones, which ran during the hurricane season (results can be seen in the paper); and WeatherNext 2, a later update that we operationalized in October. Additionally, we are releasing WeatherNext 2-mini, a compact version of the model that can run on a single TPU in a free public Colab notebook . You can explore our latest cyclone forecasts on Weather Lab , which we recently refreshed with a new interface and expanded to include global weather forecasts alongside cyclone tracks. Weather Lab now lets you visualize WeatherNext predictions for temperature, precipitation, wind speed, and more, all in a single view. Both Weather Lab and WeatherNext models are a part of Google Earth AI . We have achieved a historic breakthrough by gaining more than a full day of lead time for predicting cyclones — delivering an advance equivalent to a decade of meteorological progress.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">WeatherNext：人工智能模型在预测气旋方面取得突破</div>
+      <div class="col-content">预测飓风的危险程度是一项长期挑战，每一小时都很重要。热带气旋，也称为飓风或台风，是地球上最具破坏性的天气现象之一，在过去50年里，全球有70多万人死亡，1.4万亿美元的经济损失。对于预报员来说，及时、准确地发布警报是一场与时间的赛跑。今天，在《自然》杂志上发表的一篇论文中，我们展示了我们的WeatherNext AI模型在预测气旋的轨迹、强度和风结构方面达到了最先进的精度。平均而言，我们的模型为预测者提供了额外一天的预测准确性：我们的三天预测与之前的模型仅能提供的未来两天的预测一样好。这种改进的规模大约相当于十年的气象进步。这项合作工作汇集了谷歌DeepMind和谷歌研究院的人工智能研究人员和工程师，以及国家飓风中心（NHC）、大气合作研究所（CIRA）、英国气象局和世界各地气象机构的专家预报员。我们的研究已经对现实世界产生了影响。在2025年的飓风季节，我们的模型通过预测风暴在牙买加的快速增强和登陆，帮助国家飓风中心对飓风梅利莎做出了历史性的预测。这使得NHC能够提前发出警告，为现场团队提供了关键的准备时间。今年，我们继续共同努力，现在正在预测每个飓风的1000种可能情景，以帮助预报员做出决策。天气影响着每个人。鉴于这种广泛的影响，我们现在正在开源我们在飓风季节使用的WeatherNext 2和WeatherNext旋风模型。通过公开提供这项技术，我们希望增强研究界的能力，并扩大人工智能在建设更具弹性的社区方面的影响——无论是为当地预报员提供应对自然灾害所需的工具，支持可再生能源的增长，还是预测极端天气。预测飓风通常需要权衡两种不同的建模技术。气旋的轨迹（它去哪里）是由大规模的全球大气流引导的，在此之前，这些大气流最好用较粗糙的全球模型来建模。然而，气旋的强度（它有多强）是由其核心周围高度局部化、精细尺度的热力学物理过程驱动的，这些过程最好用专门的、更高分辨率的局部模型来建模。我们的WeatherNext模型通过改进全球天气预报和飓风预报来弥合这一差距。这是一个单一的人工智能模型，可以以最先进的精度预测热带气旋的轨迹、强度和风结构。它通过训练、架构和低分辨率输入方法的独特组合实现了这一突破。该模型基于两种不同的数据模式进行了联合训练：全球天气动力学和专家策划的历史气旋观测。通过对近20TB的全球大气数据和涵盖近5000场历史风暴的历史IBTrACS数据库进行端到端训练，该模型学习了复杂的大气模式以及如何模拟极端天气。我们的模型使用功能生成网络（FGN）来有效地生成不同预测的集合，从而捕捉天气的固有不确定性。我们现在可以在不到一分钟的时间内在TPU上生成一个15天的预测，使预测人员能够快速评估潜在毁灭性尾部风险的概率分布。去年，我们的系统一次产生了50个预测，与全球物理模型相匹配。今年，我们将团队规模扩大到1000人，捕捉到了罕见但重要的情况，如2025年飓风梅利莎期间发生的快速加剧事件。到目前为止，以非常高的空间分辨率进行操作一直被认为是进行准确强度预测的主要驱动力。然而，WeatherNext旋风只需要分辨率为28x28km的数据，比传统模型粗100倍。该模型的较小版本WeatherNext 2-mini以较粗的111x111km分辨率运行，也表现出了出色的性能。这让科学家们感到惊讶，要完全理解我们的模型如何在这个分辨率下产生如此准确的预测，仍然是一个悬而未决的研究问题。我们希望与研究界一起找出答案。除了我们的《自然》论文外，我们还将代码和模型权重开源，让任何人都可以免费使用。这包括学术研究、运营预测或开发更专业、本地化的模型。我们希望加快全球气象界的进展，并使气象机构、研究人员和非营利组织能够更好地预测各种天气事件，并做出保护生命和基础设施的关键决策。我们还发布了两套类似的模型：在飓风季节运行的WeatherNext Cyclones（结果见论文）；以及WeatherNext 2，这是我们在10月投入使用的后续更新。此外，我们还发布了WeatherNext 2-mini，这是该型号的紧凑型版本，可以在免费的公共Colab笔记本电脑中的单个TPU上运行。您可以在Weather Lab上探索我们最新的飓风预报，我们最近更新了一个新的界面，并扩展到包括全球天气预报和飓风轨迹。Weather Lab现在可以让您在一个视图中可视化WeatherNext对温度、降水、风速等的预测。Weather Lab和WeatherNext模型都是Google Earth AI的一部分。我们取得了历史性的突破，获得了超过一整天的飓风预测准备时间，取得了相当于十年气象进步的进步。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
