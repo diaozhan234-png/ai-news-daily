@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-15 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-15</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">GLM-5.3 is here with advanced cyber capabilities — and reportedly already found a 'serious vulnerability' in Cursor</div>
+      <div class="col-content">Chinese AI startup Z.ai, known internationally for its growing lineup of powerful, largely open source GLM series of language models, today released GLM-5.3 with substantial gains in long-horizon coding and a more consequential — and potentially sensitive — jump in cybersecurity capabilities. Already, GLM-5.3's cyber capabilities have found a "potentially serious vulnerability in Cursor," the AI coding startup recently acquired by SpaceX , according to z.ai developer advocate Lou, posting on X . VentureBeat also tagged Cursor for confirmation on X and is awaiting response. GLM-5.3 is available initially only through the company's GLM Coding Plan and ZCode coding environment, while API access and open weights are coming later, "once safety evaluation and hardening are complete," according to the company. Z.ai says it plans to release weights approximately two weeks after launch. For enterprise developers, the notable part of the release is not simply another round of benchmark improvements. Z.ai says GLM-5.3 uses the same base model as GLM-5.2, with the improvements coming entirely from scaling post-training across more environments, more diverse tasks and additional reinforcement-learning compute. That makes GLM-5.3 something of a test of how far a frontier-scale base model can be pushed without another expensive pretraining cycle. “Scaling post-training is all we did for GLM-5.3,” Z.ai wrote in its technical announcement. The results suggest considerable headroom. But they have also produced an unusual problem for an open-model developer: according to Z.ai, cybersecurity capabilities improved faster than anticipated as training scaled, particularly as tasks progressed from vulnerability identification toward constructing complete exploitation chains. Reuters reported Friday that Z.ai is also introducing controls around some of the model's more advanced capabilities, including a “trusted access” approach for sensitive functionality. GLM-5.3 builds on the 743-billion-parameter-scale base model behind GLM-5.2 rather than replacing it. Z.ai instead expanded the post-training system it had already assembled around long-horizon reinforcement learning. Those environments increasingly resemble complete engineering jobs rather than isolated programming exercises. Z.ai describes scenarios in which an agent receives access to codebases, documentation, compute clusters, storage systems and experimental results, then has to diagnose problems, modify systems, run experiments and demonstrate a measurable improvement while preserving correctness. Some tasks are designed to approximate several days of work for an experienced engineer. The approach produced sizable generation-over-generation improvements on Z.ai's reported evaluations. GLM-5.3 jumps from 4.6 to 28.3 on Terminal-Bench 3.0, from 46.2 to 66.9 on DeepSWE v1.1, and from 26.2 to 48.2 on AutomationBench. On Agents' Last Exam CLI, it improves from 23.8 to 28.5. The model does not dominate every frontier competitor. Z.ai's own benchmark table shows GPT-5.6 Sol at 34.6 and Claude Fable 5 at 33.7 on Terminal-Bench 3.0, compared with GLM-5.3's 28.3. On DeepSWE v1.1, GLM-5.3 scores 66.9, compared with 72.7 for GPT-5.6 Sol and 69.7 for Fable 5. But Z.ai is also emphasizing efficiency rather than benchmark position alone. On its private Z.ai Code Bench, GLM-5.3 reaches a 34.5% result at its Max reasoning setting while consuming roughly 75,000 output tokens per task. GLM-5.2 reaches 23.4% while consuming approximately 96,000. At High effort, GLM-5.3 reaches 31.4% at roughly 50,000 output tokens, compared with Z.ai's reported 29.5% for Claude Opus 4.8 using 120,000. Because Code Bench is Z.ai's own private evaluation, those comparisons should be treated as company-reported results rather than independent measurements. Still, reducing token consumption while improving task completion is operationally important for enterprises deploying coding agents, where long-running loops can make inference cost and latency compound quickly. The more unusual development is cybersecurity. Z.ai introduced vulnerability-discovery environments into GLM-5.3's post-training mix expecting the model to improve at finding software flaws. Instead, the company says capability began progressing further along the exploitation chain. “As we scaled post-training, cyber capability developed faster than we expected,” Z.ai wrote. On CyberGym, which tests vulnerability discovery and validation against source code, GLM-5.3 scores 84.5%, compared with 77.2% for GLM-5.2. That also edges Z.ai's reported scores for GPT-5.6 Sol at 83.6% and Mythos 5 at 83.8%. The advantage does not extend across the entire exploitation stack. GLM-5.3 scores 54.4% on ExploitBench, more than twice GLM-5.2's 24.4%, but remains well behind the 76.5% Z.ai reports for GPT-5.6 Sol and 78% for Mythos 5. Similarly, on ExploitGym, GLM-5.3 completes 105 tasks under a normalized two-hour budget and 130 under six hours, up from 29 and 39 for GLM-5.2. Fable 5 reaches 181 and 247, while GPT-5.6 Sol reaches 216 and 293. The direction of travel may matter more than the leaderboard position. Z.ai says work with security teams in China has resulted in 2,436 vulnerability findings across 269 projects after expert review, screening and deduplication. Its disclosure ledger lists 1,097 as critical or high severity, with 53 publicly disclosed and 2,383 still under embargo at the time of the release. That creates a tension increasingly facing frontier model providers: the same long-horizon agent capabilities that make models more useful for software engineering can also make them more capable security researchers — and potentially more capable offensive operators. Developers migrating existing GLM applications should pay attention to a breaking API behavior. GLM-5.3 supports three reasoning-effort levels — low , high and max — with max the default and Z.ai's recommended setting for coding.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">GLM-5.3具有先进的网络能力，据报道已经在Cursor中发现了一个“严重漏洞”</div>
+      <div class="col-content">中国人工智能初创公司Z.AI以其不断增长的强大、开源的GLM系列语言模型而闻名于世，今天发布了GLM-5.3，在长期编码方面取得了实质性进展，在网络安全能力方面也有了更重要、更敏感的飞跃。据z.AI开发者倡导者Lou在X上发帖称，GLM-5.3的网络功能已经发现了“Cursor中的一个潜在严重漏洞”，Cursor是一家最近被SpaceX收购的人工智能编码初创公司。VentureBeat还在X上标记了Cursor以供确认，正在等待回复。GLM-5.3最初只能通过该公司的GLM编码计划和ZCode编码环境提供，而API访问和开放权重将在稍后提供，“一旦安全评估和强化完成”，该公司表示。Z.ai表示，计划在发射后大约两周释放重量。对于企业开发人员来说，此次发布的显著之处不仅仅是新一轮的基准测试改进。Z.ai表示，GLM-5.3使用与GLM-5.2相同的基础模型，改进完全来自于在更多环境、更多样化任务和额外的强化学习计算中扩展训练后的能力。这使得GLM-5.3成为一种测试，可以在没有另一个昂贵的预训练周期的情况下，将前沿尺度基础模型推进多远。“扩展岗位培训是我们为GLM-5.3所做的一切，”Z.ai在其技术公告中写道。结果表明，空间相当大。但它们也给开放模型开发人员带来了一个不寻常的问题：根据Z.ai的说法，随着培训规模的扩大，网络安全能力的提高速度比预期的要快，特别是当任务从漏洞识别向构建完整的利用链发展时。路透社周五报道称，Z.ai还引入了对该模型一些更高级功能的控制，包括对敏感功能的“可信访问”方法。GLM-5.3建立在GLM-5.2背后的7430亿参数尺度基础模型之上，而不是取代它。Z.ai扩展了它已经围绕长期强化学习构建的后训练系统。这些环境越来越像是完整的工程工作，而不是孤立的编程练习。Z.ai描述了代理接收对代码库、文档、计算集群、存储系统和实验结果的访问的场景，然后必须诊断问题、修改系统、运行实验并在保持正确性的同时展示可衡量的改进。对于一个经验丰富的工程师来说，有些任务的设计大约需要几天的工作时间。该方法在Z.ai报告的评估中产生了相当大的代际改进。GLM-5.3在Terminal Bench 3.0上从4.6跳到28.3，在DeepSWE v1.1上从46.2跳到66.9，在Automation Bench上从26.2跳到48.2。在代理的Last Exam CLI上，它从23.8改进到28.5。该模型并没有主导每一个前沿竞争对手。Z.ai自己的基准表显示，在Terminal Bench 3.0上，GPT-5.6 Sol为34.6，Claude Fable 5为33.7，而GLM-5.3为28.3。在DeepSWE v1.1中，GLM-5.3的得分为66.9，而GPT-5.6 Sol的得分为72.7，Fable 5的得分为69.7。但Z.ai也强调效率，而不仅仅是基准地位。在其私有的Z.ai代码工作台上，GLM-5.3在其最大推理设置下达到34.5%的结果，同时每个任务消耗大约75000个输出令牌。GLM-5.2达到23.4%，消耗约96000。在High effort，GLM-5.3在大约50000个输出代币时达到31.4%，而Z.ai报告的Claude Opus 4.8使用120000个代币时为29.5%。由于CodeBench是Z.ai自己的私人评估，因此这些比较应被视为公司报告的结果，而不是独立的测量结果。尽管如此，对于部署编码代理的企业来说，在提高任务完成率的同时减少令牌消耗在操作上非常重要，因为长时间运行的循环会使推理成本和延迟迅速复合。更不寻常的发展是网络安全。Z.ai将漏洞发现环境引入GLM-5.3的训练后组合中，期望该模型在发现软件缺陷方面有所改进。相反，该公司表示，该能力开始沿着开发链进一步发展。“随着我们扩大训练后的规模，网络能力的发展速度比我们预期的要快，”Z.ai写道。在针对源代码测试漏洞发现和验证的CyberGym上，GLM-5.3的得分为84.5%，而GLM-5.2的得分为77.2%。这也使Z.ai报告的GPT-5.6 Sol得分达到83.6%，Mythos 5得分达到83.8%。这一优势并没有延伸到整个开发堆栈。GLM-5.3在ExploitBench上的得分为54.4%，是GLM-5.2的24.4%的两倍多，但仍然远远落后于GPT-5.6 Sol的76.5%和Mythos 5的78%。同样，在ExploitGym上，GLM-5.3在标准化的两小时预算下完成了105项任务，在六小时内完成了130项任务，高于GLM-5.2的29项和39项。寓言5达到181和247，而GPT-5.6 Sol达到216和293。行进的方向可能比排行榜上的位置更重要。Z.ai表示，经过专家审查、筛选和重复数据删除，与中国安全团队合作，在269个项目中发现了2436个漏洞。其披露分类账将1097项列为严重或高度严重，其中53项已公开披露，2383项在发布时仍处于禁运状态。这给前沿模型提供商带来了越来越大的紧张局势：使模型对软件工程更有用的长期代理能力也可以使他们成为更有能力的安全研究人员，并可能成为更具攻击性的操作员。迁移现有GLM应用程序的开发人员应该注意破坏API的行为。GLM-5.3支持三种推理努力级别——低、高和最高——默认值为最高，Z.ai推荐的编码设置为最高。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/technology/glm-5-3-is-here-with-advanced-cyber-capabilities-and-reportedly-already-found-a-serious-vulnerability-in-cursor" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
