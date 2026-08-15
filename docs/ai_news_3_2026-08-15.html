@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-15 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-15</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Qwen 3.8 27B</div>
+      <div class="col-content">This repository contains FP8-quantized model weights and configuration files for the post-trained model in the Hugging Face Transformers format. These artifacts are compatible with Hugging Face Transformers, vLLM, SGLang, TokenSpeed, etc. The quantization method is fine-grained fp8 quantization with block size of 128, and its performance metrics are nearly identical to those of the original model. For users seeking managed, scalable inference without infrastructure maintenance, the official Qwen API service is provided by Qwen Cloud . In particular, Qwen3.8-27B will be available as a hosted version with more production features, e.g., 1M context length by default, official built-in tools. For more information, please refer to the Qwen3.8-27B Overview . The service is coming soon. Stay tuned for updates. Following the widespread community adoption of the Qwen3.5 and Qwen3.6 series, we are pleased to introduce Qwen3.8, the most capable generation in the Qwen open-model family to date. Built on the architectural foundation of Qwen3.5, Qwen3.8 delivers substantial gains across coding, professional work, research, and long-horizon agentic tasks. Qwen3.8-27B brings these advances to a compact, deployment-friendly dense model: a native vision-language model that understands images and videos, with flexible thinking control, designed to carry complex, multi-step tasks through to completion with greater reliability. Qwen3.8-27B features the following enhancements: For streamlined integration, we recommend using Qwen3.8 via APIs. Inference efficiency and throughput vary significantly across frameworks. We recommend using the latest framework versions to ensure optimal performance and compatibility. For production workloads or high-throughput scenarios, dedicated serving engines such as SGLang, vLLM, or TokenSpeed are recommended. Qwen3.8 can be deployed with popular inference frameworks, e.g.: Qwen3.8 models operate in thinking mode by default, generating thinking content signified by <think>\n...</think>\n\n before producing the final response. To disable thinking content and obtain a direct response, refer to the examples here . We recommend using the following sets of sampling parameters for generation: Please note that the support for sampling parameters varies according to inference frameworks. Qwen3.8 comes with official support for reasoning_effort , which can be used to adjust reasoning depth and control cost:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Qwen 3.8 27B</div>
+      <div class="col-content">该存储库包含FP8量化模型权重和后训练模型的配置文件，采用拥抱面部变换器格式。这些人工制品与拥抱面部变形器、vLLM、SGLang、TokenSpeed等兼容。量化方法是块大小为128的细粒度fp8量化，其性能指标与原始模型几乎相同。对于寻求无需基础设施维护的可管理、可扩展推理的用户，Qwen API官方服务由Qwen Cloud提供。特别是，Qwen3.8-27B将作为具有更多生产功能的托管版本提供，例如默认情况下1M上下文长度，官方内置工具。有关更多信息，请参阅Qwen3.8-27B概述。服务即将到来。请继续关注更新。随着Qwen3.5和Qwen3.6系列在社区中的广泛采用，我们很高兴推出Qwen3.8，这是迄今为止Qwen开放式系列中最有能力的一代。Qwen3.8建立在Qwen3.5的架构基础上，在编码、专业工作、研究和长期代理任务方面取得了长足的进步。Qwen3.8-27B将这些进步带入了一个紧凑、部署友好的密集模型：一个理解图像和视频的原生视觉语言模型，具有灵活的思维控制，旨在以更高的可靠性完成复杂的多步骤任务。Qwen3.8-27B具有以下增强功能：为了简化集成，我们建议通过API使用Qwen3.8。推理效率和吞吐量在不同框架之间存在显著差异。我们建议使用最新的框架版本，以确保最佳的性能和兼容性。对于生产工作负载或高吞吐量场景，建议使用SGLang、vLLM或TokenSpeed等专用服务引擎。Qwen3.8可以与流行的推理框架一起部署，例如：Qwen3.8-模型默认以思维模式运行，在生成最终响应之前生成由<think>\n…</mthink>\n\n表示的思维内容。要禁用思考内容并获得直接响应，请参阅此处的示例。我们建议使用以下采样参数集进行生成：请注意，对采样参数的支持因推理框架而异。Qwen3.8附带了官方对reasoning_effort的支持，可用于调整推理深度和控制成本：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
