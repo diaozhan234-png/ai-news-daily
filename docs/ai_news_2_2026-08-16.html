@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-16 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-16</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 87.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">An eval harness found what qualitative review couldn't: AI models are most confident when wrong</div>
+      <div class="col-content">There is a step in the development process for large language model (LLM)-assisted tooling that most teams skip because it's tedious, time-consuming, and doesn't produce results visible to end users: Verifying that what the model is saying is actually correct. Not fluent, not coherent, not topically relevant — correct in the sense of accurately identifying the right answer to the specific problem the tool was built to solve. The gap between "this output sounds right to me" and "this output is verifiably correct" is where most LLM-assisted enterprise tools fail quietly. They pass internal review because the output sounds right. They fail in production because those people weren't reviewing against ground truth — they were reviewing against their intuition about what a good answer looks like. This distinction matters more as LLM-assisted tools move from productivity accessories to components that influence real business decisions. If your AI-assisted tool is shaping how an analyst investigates a data quality issue, how a compliance reviewer decides whether to escalate a flagged record, or how an operations team triages a validation failure — the accuracy of its output has real consequences. "Seems reasonable" is not an adequate evaluation standard for that. The standard evaluation approach for LLM output in enterprise tooling is qualitative: A sample of outputs is reviewed by someone with domain knowledge, judged against a mental model of what a good answer looks like, and the prompt is adjusted if too many outputs seem off. This catches a specific class of problems: Outputs that are obviously wrong, poorly formatted, or off-topic. These are real issues worth catching. They're also the easy ones. What qualitative evaluation consistently misses is the class of outputs that are wrong in ways that are difficult to see without checking against something external. An explanation that confidently identifies the wrong root cause, in language that sounds authoritative, based on reasoning that sounds plausible — this passes qualitative review. It fails the moment someone with the right context checks it against what actually happened. In a system whose value proposition depends on accuracy, "sounds plausible" is not the same as "correct." The two can diverge significantly, and qualitative review won't tell you when they have. The alternative is building an evaluation harness that scores model output against labeled ground truth — a set of cases where the correct answer is known, against which you can measure accuracy rather than coherence. I built this while developing a root-cause explainer for data migration drift: A tool that takes a detected drift event and generates a ranked explanation of what most likely caused it. The first prototype produced fluent, specific-sounding explanations that passed qualitative review. When I tested it against cases where I already knew the root cause, the explanation was wrong often enough to matter. The eval harness I built works in three parts. First, a synthetic ground truth dataset: Cases where the correct answer is known by construction. This meant introducing specific, controlled causes into a test pipeline — schema changes, transformation logic bugs, source system behavioral shifts — recording exactly what I introduced, and running the model against the resulting drift events. The correct answer for each case was the cause I had deliberately introduced. Getting the synthetic scenarios realistic enough to be useful required more care than I expected. Early versions were too clean — the drift signal was obvious in ways that real production drift events aren't. Adding realistic noise, overlapping signals, and cases where multiple plausible causes were present simultaneously was what made the synthetic set actually predictive of real-world performance. Second, a scoring function that evaluates ranked output. Binary correct/incorrect isn't sufficient when the model produces a ranked list of likely causes rather than a single answer. An explanation that correctly identifies the root cause as the third most likely candidate is meaningfully different from one that identifies it as the most likely. The scoring function evaluated two dimensions: Presence — did the correct answer appear in the output at all — and rank — how prominently was it featured relative to incorrect candidates. These were combined into a weighted score that rewarded both finding the right answer and ranking it appropriately. Third, systematic evaluation across the full synthetic dataset rather than spot-checking. Running the harness across the complete set reveals patterns that spot-checking misses: Which categories of problem the model handles reliably, which it consistently gets wrong, and which combinations of signals produce the highest rate of confident incorrect explanations. The results were more informative than any qualitative review could have been. Schema change scenarios scored well — the model was reliable at identifying upstream schema changes when the evidence was present and distinctive. Transformation logic bugs were harder — the model consistently identified the right general category but misattributed the specific change that caused the problem, particularly when multiple changes had been made close together. Overlapping-signal scenarios were the hardest — cases where two different causes occurred close in time produced the highest rate of confidently wrong explanations. That last finding is the one that qualitative review would never have surfaced. The model's expressed confidence didn't correlate with its accuracy — it was most confident in the cases where it was most wrong. Without the eval harness measuring against ground truth, that pattern would have been invisible.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">一个评估工具发现了定性审查所不能发现的：人工智能模型在错误时最有信心</div>
+      <div class="col-content">在大型语言模型（LLM）辅助工具的开发过程中，有一个步骤是大多数团队跳过的，因为它繁琐、耗时，并且不会产生最终用户可见的结果：验证模型所说的内容实际上是正确的。不流畅、不连贯、与主题不相关——正确的意思是准确识别工具为解决特定问题而构建的正确答案。“这个输出听起来对我来说是正确的”和“这个输出是可验证的正确的”之间的差距是大多数LLM辅助的企业工具悄无声息地失败的地方。他们通过了内部审查，因为输出听起来是正确的。他们在生产中失败了，因为这些人没有根据实际情况进行审查，而是根据他们对好答案的直觉进行审查。随着LLM辅助工具从生产力附件转向影响实际业务决策的组件，这种区别变得更加重要。如果你的人工智能辅助工具正在塑造分析师如何调查数据质量问题，合规审查人员如何决定是否升级标记的记录，或者运营团队如何对验证失败进行分类，那么其输出的准确性将产生真正的后果。“似乎合理”并不是一个足够的评价标准。企业工具中LLM输出的标准评估方法是定性的：由具有领域知识的人对输出样本进行审查，根据一个好答案的心理模型进行判断，如果太多的输出似乎不符合要求，则调整提示。这抓住了一类特定的问题：明显错误、格式不佳或偏离主题的输出。这些都是值得关注的现实问题。他们也是容易的。定性评估一直忽略的是一类错误的输出，如果不与外部因素进行核对，很难看到这些错误的输出。基于听起来合理的推理，用听起来权威的语言自信地确定错误的根本原因的解释——这通过了定性审查。当一个有正确背景的人对照实际发生的事情进行检查时，它就失败了。在一个价值主张取决于准确性的系统中，“听起来合理”与“正确”并不相同。两者可能存在显著差异，定性审查不会告诉你它们何时存在差异。另一种方法是构建一个评估工具，根据标记的地面真相对模型输出进行评分——这是一组已知正确答案的情况，你可以根据这些情况来衡量准确性而不是连贯性。我在开发数据迁移漂移的根本原因解释器时构建了这个工具：该工具接收检测到的漂移事件，并对最有可能导致漂移的原因进行排名解释。第一个原型产生了流畅、具体的解释，并通过了定性审查。当我在已经知道根本原因的情况下对其进行测试时，解释往往是错误的，这很重要。我构建的eval线束分为三个部分。首先，一个合成的地面真实数据集：通过构造知道正确答案的案例。这意味着将特定的、受控的原因引入测试管道——模式更改、转换逻辑错误、源系统行为变化——准确记录我引入的内容，并针对由此产生的漂移事件运行模型。每个案例的正确答案都是我故意介绍的原因。要使合成场景足够逼真以发挥作用，需要比我预期的更加谨慎。早期的版本太干净了——漂移信号以真实生产漂移事件所不具备的方式很明显。添加真实的噪声、重叠的信号以及同时存在多个合理原因的情况，使合成集实际上可以预测现实世界的性能。第二，评估排名输出的评分函数。当模型生成可能原因的排名列表而不是单个答案时，二进制正确/不正确是不够的。将根本原因正确识别为第三大可能候选者的解释与将其识别为最有可能的解释有意义的不同。评分函数评估了两个维度：在场——正确答案是否出现在输出中——以及排名——相对于不正确的候选人，正确答案的突出程度。这些被合并成一个加权分数，奖励找到正确答案并对其进行适当排名。第三，对整个合成数据集进行系统评估，而不是抽查。在整套系统中运行线束揭示了抽查遗漏的模式：模型可靠地处理了哪些类别的问题，它总是出错，以及哪些信号组合产生了最高的自信错误解释率。结果比任何定性审查都更有信息量。模式更改场景得分很高——当证据存在且与众不同时，该模型在识别上游模式更改方面是可靠的。转换逻辑错误更难解决——模型始终如一地识别出正确的一般类别，但错误地归因于导致问题的具体更改，特别是在多个更改紧密结合的情况下。重叠的信号场景是最难的——两个不同原因在时间上接近发生的情况产生了最高的错误解释率。最后一个发现是定性审查永远不会出现的。该模型表达的信心与其准确性无关——它在错误最多的情况下最有信心。如果没有与地面真相相对应的评估工具，这种模式将是看不见的。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/an-eval-harness-found-what-qualitative-review-couldnt-ai-models-are-most-confident-when-wrong" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
