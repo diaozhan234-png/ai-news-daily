@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-17 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-17</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Cutting RAG inference costs 6x starts with deciding what never reaches the LLM</div>
+      <div class="col-content">Most teams building retrieval augmented generation (RAG) systems for high stakes classification make the same architectural bet: Route every ambiguous case straight to the language model and trust the retrieved context to sort it out. This works fine in a demo. It falls apart the moment the system has to survive an audit, a regulator, or a compliance officer asking why a specific decision was made six months ago. I have spent the last year building RAG based classification systems in regulated enterprise settings, where the cost of a wrong answer is not a bad chatbot reply. A decision has to hold up to scrutiny long after the model produced it. This environment forces a different design philosophy than most AI engineering content assumes. Here is what changes when you cannot afford to be probabilistic about everything, and how a cascade architecture solves it. The appeal of routing everything through a large language model (LLM) is obvious: Fewer moving parts, faster iteration, the model handles unanticipated edge cases. The problem shows up later, in three places. First, auditability. "The model decided based on retrieved context" is not an acceptable answer. You need a decision path a human can reconstruct without rerunning inference and hoping for the same output. Second, cost at scale. If your system processes tens of thousands of cases a day and every one hits an LLM call with several retrieved documents in context, your inference bill and latency both scale with volume in a way that rule based logic does not. Third, and least discussed, model drift on the easy cases. LLMs are excellent at nuanced judgment calls. They are inconsistent, in ways that are hard to detect, on cases that should have a deterministic answer. A clear structured match against known criteria should never depend on a language model's mood. The fix: Stop treating the LLM as the front line and start treating it as the escalation path. In practice this means a three stage pipeline. Stage one is deterministic. Exact matches, structured field comparisons, and anything with a clear rule get resolved here with no model call at all. This stage should clear the majority of volume, often more than half depending on your data quality, and every decision is fully explainable because it is a lookup, not an inference. Stage two is where retrieval earns its keep. For cases that survive stage one — and I mean survive as in they were not clearly resolved — you build a retrieval layer that pulls the specific evidence relevant to the ambiguity: Prior reviewer decisions on similar cases, contextual documents that explain an apparent conflict, or historical precedent that clarifies an edge case. The retrieval step matters more than the generation step here. If you retrieve the wrong context, even the best language model in the world will produce a confident, well reasoned, wrong answer. Stage three is the LLM call , and it should only see the residue that stages one and two could not resolve. This is the part people skip when they design their first version, and it is the single biggest lever for both cost and quality. In one system I worked on, routing only the genuinely ambiguous 10 to 15% of cases to the LLM cut inference cost by roughly 6X compared to an all LLM baseline, while improving consistency on the deterministic majority to effectively perfect. Once a case reaches the LLM stage, most teams default to a neutral prompt: "Assess whether this case should be approved or flagged." That framing is wrong for high stakes classification because the cost of the two error types is not symmetric. Missing something that genuinely needed attention can mean real harm downstream. Incorrectly flagging something that was fine costs a reviewer's time and a delay. Those two outcomes are rarely equally bad, yet a neutral prompt asks the model to treat them as if they were. An asymmetric risk prompt makes that tradeoff explicit to the model rather than letting it guess at your risk tolerance. Concretely, this means instructing the model to treat uncertainty as a reason to escalate rather than clear, providing calibrated examples of both error types with their consequences spelled out, and asking for a confidence score alongside the classification rather than a binary answer. The confidence score becomes your second cascade point: Anything below a certain threshold goes to a human reviewer instead of being auto resolved, no matter what the model's classification says. This sounds like a small prompt engineering detail. In practice it is the difference between a system that reduces reviewer workload and one that quietly increases risk while looking like it is working. Standard RAG evaluation metrics were not built with this use case in mind, and using them without adaptation will give you a false sense of confidence. A few adjustments that matter. Retrieval quality needs to be measured separately from final classification accuracy. A system can have excellent retrieval ranking scores and still make bad final decisions if the generation step misweights the evidence. Track them independently. Your evaluation set needs deliberate oversampling of the cases that reach stage three, since that is where your system's judgment actually gets tested. If your eval set mirrors your production distribution, it will be dominated by the deterministic cases your cascade already handles well, and you will be blind to exactly the failures that matter most. LLM as judge evaluation works for this domain but only if the judge prompt encodes the same asymmetric risk framing as your production prompt. A judge that treats both error types equally will systematically favor the wrong tradeoff when you are tuning your system. Finally, build a feedback loop from confirmed outcomes back into your retrieval corpus. When a human reviewer overturns a model decision, that case and its correct resolution should become retrievable context for future similar cases.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">将RAG推理成本降低6倍，首先要确定什么永远不会达到LLM</div>
+      <div class="col-content">大多数构建用于高风险分类的检索增强生成（RAG）系统的团队都做出了同样的架构赌注：将每个模糊的情况直接路由到语言模型，并相信检索到的上下文会对其进行排序。这在演示中效果很好。当系统必须经受住审计、监管机构或合规官的考验，询问为什么六个月前做出了具体决定时，它就会崩溃。去年，我在受监管的企业环境中构建了基于RAG的分类系统，在那里，错误答案的成本并不是一个糟糕的聊天机器人回复。一个决定在模型产生后很长一段时间内都必须经过审查。这种环境迫使设计理念与大多数人工智能工程内容所假设的不同。以下是当你无法对所有事情都保持概率时会发生什么变化，以及级联架构是如何解决的。通过大型语言模型（LLM）路由所有事情的吸引力是显而易见的：更少的移动部件，更快的迭代，该模型处理意外的边缘情况。问题稍后在三个地方出现。第一，可审计性。“基于检索到的上下文确定的模型”是不可接受的答案。你需要一个人类可以重建的决策路径，而无需重新运行推理并希望得到相同的输出。第二，规模成本。如果您的系统每天处理数万个案例，并且每个案例都会在上下文中使用多个检索到的文档进行LLM调用，那么您的推理费用和延迟都会随着数量的增加而增加，而基于规则的逻辑则不会。第三，也是讨论最少的，模型在简单情况下漂移。法学硕士擅长微妙的判断。在应该有确定答案的情况下，它们是不一致的，而且很难被发现。与已知标准的清晰结构匹配不应取决于语言模型的语气。解决方法：停止将LLM视为前线，开始将其视为升级路径。在实践中，这意味着一个三级管道。第一阶段是决定性的。精确匹配、结构化字段比较以及任何具有明确规则的问题都可以在这里解决，根本不需要调用模型。这个阶段应该清除大部分的数据量，通常超过一半，具体取决于你的数据质量，每个决定都是可以完全解释的，因为这是一个查找，而不是推理。第二阶段是检索得以维持的阶段。对于在第一阶段幸存下来的案例——我的意思是在没有明确解决的情况下幸存下来——你构建了一个检索层，提取与歧义相关的具体证据：之前审查人员对类似案例的决定、解释明显冲突的背景文件，或澄清边缘案例的历史先例。在这里，检索步骤比生成步骤更重要。如果你检索到错误的上下文，即使是世界上最好的语言模型也会产生一个自信、合理、错误的答案。第三阶段是LLM调用，它应该只看到第一和第二阶段无法解决的残留物。这是人们在设计第一个版本时跳过的部分，也是成本和质量的最大杠杆。在我研究的一个系统中，与全LLM基线相比，只将真正模糊的10%到15%的案例路由到LLM可以将推理成本降低约6倍，同时提高确定性多数的一致性，以有效地完善。一旦案例达到LLM阶段，大多数团队默认为中性提示：“评估是否应该批准或标记此案例。”这种框架对于高风险分类是错误的，因为这两种错误类型的成本是不对称的。缺少真正需要关注的东西可能意味着下游的真正伤害。错误地标记一些好的东西会花费审稿人的时间和延误。这两种结果很少同样糟糕，但一个中立的提示会要求模型将其视为同样糟糕。不对称的风险提示使模型能够明确地进行权衡，而不是让它猜测你的风险承受能力。具体来说，这意味着指示模型将不确定性视为升级的原因，而不是明确的原因，提供两种错误类型的校准示例及其后果，并要求在分类的同时提供置信度评分，而不是二元答案。置信度得分成为你的第二个级联点：无论模型的分类如何，任何低于某个阈值的东西都会交给人类审阅者，而不是自动解决。这听起来像是一个小小的工程细节。在实践中，这是减少审阅者工作量的系统和在看起来正常工作的同时悄悄增加风险的系统之间的区别。标准的RAG评估指标并没有考虑到这个用例，如果不进行调整就使用它们，会给你一种错误的自信感。一些重要的调整。检索质量需要与最终分类准确性分开衡量。一个系统可以有很好的检索排名分数，但如果生成步骤对证据的权重错误，它仍然会做出糟糕的最终决定。独立跟踪他们。您的评估集需要对达到第三阶段的案例进行有意的过采样，因为这是您的系统判断实际得到测试的地方。如果你的eval集反映了你的生产分布，它将被你的级联已经很好地处理的确定性情况所主导，你将对最重要的失败视而不见。LLM法官评估适用于此领域，但前提是法官提示与您的生产提示编码相同的不对称风险框架。当你调整系统时，一个平等对待这两种错误类型的法官会系统地支持错误的权衡。最后，从确认的结果构建一个反馈循环，并将其返回到您的检索语料库中。当人类审阅者推翻模型决策时，该案例及其正确解决方案应成为未来类似案例的可检索上下文。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/cutting-rag-inference-costs-6x-starts-with-deciding-what-never-reaches-the-llm" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
