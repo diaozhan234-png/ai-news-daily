@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-19 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-19</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 88.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Large Language Models Show Metacognitive Sensitivity in Medical Reasoning</div>
+      <div class="col-content">arXiv:2608.14552v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly evaluated and used in medicine, but clinical usefulness depends on answer accuracy and whether confidence tracks evidence quality and uncertainty. We developed a controlled, psychophysics-inspired clinical benchmark to test diagnostic choice and confidence behavior in a medical LLM. The benchmark focused on probable Alzheimer-type neurocognitive disorder (AT-NCD) versus depression-related cognitive impairment (DRCI). We generated 45 synthetic vignettes varying evidence strength, conflicting evidence, and missing information. Each vignette was presented under three prompt variants, yielding 135 trials. In a pilot run with gpt-4.1-nano, all trials produced valid structured outputs. Across forced-choice trials, diagnostic accuracy was 93.5%, mean confidence was 78.4%, and AUROC2 was 0.876. Confidence increased with evidence distance from the diagnostic boundary, decreased when information was missing, and remained higher on correct than incorrect trials after adjustment for evidence strength and prompt format. These findings indicate partial metacognitive sensitivity rather than globally uninformative confidence. However, errors clustered in moderate, conflicting AT-NCD cases, where the model shifted toward DRCI and retained more confidence than empirical accuracy justified. Model comparison suggested that confidence quality should be measured directly rather than inferred from benchmark accuracy or model capability alone. This study establishes a reproducible framework for evaluating evidence sensitivity, metacognitive sensitivity, and localized calibration failure in medical LLMs.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">大型语言模型在医学推理中表现出元认知敏感性</div>
+      <div class="col-content">arXiv:2608.14552v1公告类型：新摘要：大型语言模型（LLM）在医学中的评估和使用越来越多，但临床实用性取决于答案的准确性以及置信度是否跟踪证据质量和不确定性。我们开发了一个受控的、受心理物理学启发的临床基准，以测试医学法学硕士的诊断选择和信心行为。该基准侧重于可能的阿尔茨海默型神经认知障碍（AT-NCD）与抑郁症相关认知障碍（DRCI）。我们生成了45个合成小插曲，包括不同的证据强度、相互矛盾的证据和缺失的信息。每个小插曲都以三种提示变体呈现，共进行了135次试验。在gpt-4.1-nano的试运行中，所有试验都产生了有效的结构化输出。在强制选择试验中，诊断准确率为93.5%，平均置信度为78.4%，AUROC2为0.876。置信度随着与诊断边界的证据距离的增加而增加，在信息缺失时降低，在调整证据强度和提示格式后，正确试验的置信度仍然高于错误试验。这些发现表明了部分元认知敏感性，而不是整体的无信息自信。然而，误差集中在中度、相互冲突的AT-NCD病例中，在这些病例中，模型转向DRCI，并保持了比经验准确性更高的置信度。模型比较表明，置信质量应直接衡量，而不是仅从基准精度或模型能力推断出来。本研究建立了一个可重复的框架，用于评估医学LLM中的证据敏感性、元认知敏感性和局部校准失败。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2608.14552" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
