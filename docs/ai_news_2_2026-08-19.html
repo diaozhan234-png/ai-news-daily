@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-19 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-19</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Block’s new Apache 2.0 agent workspace Berd works across models and harnesses, stores conversation history locally</div>
+      <div class="col-content">Block , the technology company founded by former Twitter CEO Jack Dorsey that owns Square, Cash App and the music streaming service Tidal, is open-sourcing Berd , a desktop application it originally built to give its own employees a single environment for working with AI agents across different models, tools and projects. Berd is a locally installed graphical desktop application rather than a browser-based workspace. It is available now on GitHub under a permissive Apache 2.0 license — meaning anyone can use, modify and redistribute it, including commercially — with free downloadable builds for macOS, Windows and Linux. The repository reached version 0.6.2 on Aug. 18, its seventh public release, and lists 91 contributors. “Berd is desktop-first because much of its value comes from working directly with projects, local files, tools, repositories, and agents running on or connected to the user’s computer,” Brad Axen, Head of AI Capabilities at Block, told VentureBeat in emailed responses. Block positions Berd as a “daily AI work surface”: a single place where users can start chats, attach files or folders, choose agents and models, work inside persistent projects, configure AI providers, manage skills and extensions, review session history and build automations. The design goal is not merely convenience. According to Berd’s product specification, users should always be able to tell which project, files, agent, model, provider and session state are actively shaping a conversation. That emphasis on visible operational state is what Block says separates Berd from a generic chatbot wrapper. Configuration — providers, extensions, skills, automations, projects — is treated as part of the workflow rather than buried in an administrative layer, and the interface is designed to expose failures, unavailable providers, and loading and streaming states plainly rather than smoothing them over with assistant-style friendliness. Berd grew out of a practical problem inside Block. Employees were already working with capable agents — Block’s own Goose, Anthropic’s Claude Code and OpenAI’s Codex — but the experience around them had become fragmented. “We had capable agents through goose, Claude Code, and Codex, but working across them meant navigating different interfaces, configuration systems, and ways of managing context,” Lucinda Bell, Technology Communications at Block, said in an email. Berd, she said, gives Block teams “one consistent desktop application across models and harnesses.” For enterprises, that layer may matter as much as another incremental gain in model capability. Persistent projects mean users can return to an established collection of files, instructions and agent configurations instead of reconstructing context for each task. Block also explicitly designed Berd to make agentic work accessible beyond engineering, letting people start with a conversation and add tools, context and structure as the work requires. Block is not positioning Berd as a mobile product. Axen said the company’s open source collaboration platform Buzz already provides a mobile experience and is Block’s preferred environment for work on the go. Berd takes an unusual approach to a problem most enterprise AI products leave implicit: how users tell one configured agent apart from another. Instead of treating every agent as another blank chat window, Berd gives agents roles, instructions, skills, tools and recognizable visual identities. Block created collections of animated characters — its flagship designs are called “Gloopies” — and Berd’s public site showcases predefined personas such as Berdy, Pushback, Choosey, Copycat, Tinker and Wildcard, each built around a different style of work: Pushback plays devil’s advocate on drafts, Choosey helps narrow decisions, Copycat learns to write in the user’s style. The visual layer is not meant to substitute personality for substance. Block’s own formulation, from a company blog post on Berd’s design , is functional: “The avatars make the agent recognizable. Its role, skills, and tools make it useful.” That distinction could grow more important as workers juggle several specialized agents at once. A recognizable identity serves as visible shorthand for an otherwise invisible package of instructions, tools and permissions — agents appear on the workspace as distinct animated characters rather than identical entries in a chat list, so users can tell them apart before opening a conversation. The product specification guards against the characters turning Berd into a novelty. It describes the intended personality as “focused, capable, companionable,” while explicitly rejecting toy-like presentation, oversized decorative UI and interfaces that hide operational state behind friendliness. Architecturally, Berd is neither a new foundation model nor a new agent runtime. The application is built with Tauri 2 and React 19 — frameworks for building lightweight desktop apps with web technologies — and communicates with Goose, the open source agent framework Block introduced in January 2025, through a standard called the Agent Client Protocol (ACP). Goose runs quietly alongside Berd as a bundled “sidecar” process and handles the underlying agent loop; Berd handles projects, sessions, context, agents and configuration on top. For readers unfamiliar with it, Goose is a model-agnostic agent framework and runtime, originally focused on software development workflows. It connects large language models to files, commands and outside systems — including through the Model Context Protocol (MCP), an open standard for wiring AI systems to external tools and data — so agents can take actions rather than merely generate text. Goose works with proprietary model providers as well as locally run open models.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Block的新Apache 2.0代理工作区Berd跨模型和线束工作，在本地存储对话历史记录</div>
+      <div class="col-content">Block是由前推特首席执行官杰克·多尔西创立的技术公司，拥有Square、Cash App和音乐流媒体服务Tidal，它正在开源Berd，这是一款桌面应用程序，最初是为了给自己的员工提供一个在不同模型、工具和项目中与人工智能代理合作的单一环境。Berd是一个本地安装的图形桌面应用程序，而不是基于浏览器的工作区。它现在可以在GitHub上以宽松的Apache 2.0许可证使用，这意味着任何人都可以使用、修改和重新分发它，包括商业用途，并提供适用于macOS、Windows和Linux的免费下载版本。该存储库于8月18日达到0.6.2版本，这是其第七次公开发布，并列出了91名贡献者。Block人工智能能力主管Brad Axen在电子邮件回复中告诉VentureBeat：“Berd是桌面优先的，因为它的大部分价值来自直接与用户计算机上运行或连接的项目、本地文件、工具、存储库和代理合作。”。Block将Berd定位为“日常AI工作平台”：用户可以在这里开始聊天、附加文件或文件夹、选择代理和模型、在持久项目中工作、配置AI提供商、管理技能和扩展、查看会话历史和构建自动化。设计目标不仅仅是方便。根据Berd的产品规范，用户应该始终能够分辨出哪个项目、文件、代理、模型、提供者和会话状态正在积极地塑造对话。Block说，Berd与通用聊天机器人包装器的区别在于对可见操作状态的强调。配置——提供者、扩展、技能、自动化、项目——被视为工作流程的一部分，而不是埋在管理层中，界面的设计是为了清楚地暴露故障、不可用的提供者以及加载和流状态，而不是用助手式的友好性来平滑它们。Berd源于Block内部的一个实际问题。员工们已经在与有能力的代理人合作——Block自己的Goose、Anthropic的Claude Code和OpenAI的Codex——但他们周围的经验已经变得支离破碎。Block技术通信公司的Lucinda Bell在一封电子邮件中表示：“我们通过鹅、克劳德代码和Codex拥有有能力的代理，但在它们之间工作意味着要导航不同的界面、配置系统和管理上下文的方式。”。她说，Berd为Block团队提供了“一个跨模型和线束的一致桌面应用程序”。对于企业来说，这一层可能与模型能力的另一个增量增长一样重要。持久项目意味着用户可以返回到已建立的文件、指令和代理配置集合，而不是为每个任务重建上下文。Block还明确设计了Berd，使代理工作可以在工程之外进行，让人们从对话开始，并根据工作需要添加工具、上下文和结构。Block并没有将Berd定位为移动产品。Axen表示，该公司的开源协作平台Buzz已经提供了移动体验，是Block在旅途中工作的首选环境。Berd采用了一种不同寻常的方法来解决大多数企业人工智能产品都隐含的问题：用户如何区分一个配置的代理。Berd没有将每个代理视为另一个空白聊天窗口，而是为代理提供角色、指令、技能、工具和可识别的视觉标识。Block创建的动画角色集合——其旗舰设计被称为“Gloopies”——Berd的公共网站展示了预定义的角色，如Berdy、Pushback、Choosey、Copycat、Tinker和Wildcard，每个角色都围绕不同的工作风格构建：Pushback在草稿中扮演魔鬼代言人，Choosey帮助做出狭隘的决定，Copycat学会以用户的风格写作。视觉层并不意味着用个性代替物质。Block自己的公式来自Berd设计的一篇公司博客文章，是功能性的：“化身使代理易于识别。它的角色、技能和工具使其有用。”随着员工同时处理多个专业代理，这种区别可能会变得更加重要。一个可识别的身份可以作为一组不可见的指令、工具和权限的可见简写——代理在工作区中显示为不同的动画角色，而不是聊天列表中的相同条目，因此用户可以在打开对话之前将它们区分开来。产品说明书防止了Berd变成新奇事物。它将预期的个性描述为“专注、有能力、友善”，同时明确拒绝玩具般的展示、超大的装饰性UI和隐藏在友好背后的操作状态的界面。从架构上讲，Berd既不是新的基础模型，也不是新的代理运行时。该应用程序使用Tauri 2和React 19构建，这两个框架用于使用web技术构建轻量级桌面应用程序，并通过一个名为代理客户端协议（ACP）的标准与2025年1月推出的开源代理框架Block Goose进行通信。Goose作为一个捆绑的“sidecar”进程与Berd一起安静地运行，并处理底层代理循环；Berd负责处理项目、会话、上下文、代理和配置。对于不熟悉它的读者来说，Goose是一个与模型无关的代理框架和运行时，最初专注于软件开发工作流程。它将大型语言模型连接到文件、命令和外部系统，包括通过模型上下文协议（MCP），这是一种将人工智能系统连接到外部工具和数据的开放标准，因此代理可以采取行动，而不仅仅是生成文本。Goose与专有模型提供商以及本地运行的开放模型合作。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/blocks-new-apache-2-0-agent-workspace-berd-works-across-models-and-harnesses-stores-conversation-history-locally" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
