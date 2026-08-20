@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-20 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-20</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">TrueFoundry's open source AI agent harness TrueForge boasts 30%-75% cheaper task completion than Claude Managed Agents</div>
+      <div class="col-content">Another day, another new AI agent harness is released. Only this time, it's one that aims to solve a growing enterprise problem as AI agents proliferate: enabling greater developer control of agents and tools, while reducing cost. TrueFoundry , a San Francisco B2B machine learning startup co-founded in 2021 by former Meta engineers, has released its own custom TrueForge harness under the permissive MIT License on Github . Thus, it can be used with any of a developer (or their parent enterprise's) preferred AI models, forked, modified, self-hosted and incorporated into commercial products. The company states in a blog post that when it used TrueForge paired with the open source GLM-5.2 LLM to successfully complete 11 of 14 tasks on DevRev’s Enterprise-Bench — testing multi-step tool use across CRM, issue tracking, and document management systems — it cost 75% less than achieving the same results with Anthropic's Claude Managed Agents harness powered by Claude Opus 4.8 ($2.90 compared to $11.80). Using the same model in each harness, Opus 4.8, TrueFoundry still claims a cost savings of roughly 30% using TrueForge compared to Claude Managed Agents ($8.50 vs $11.80). Why is TrueFoundry giving this powerfully efficient harness away for free? "We’ve had this ask from a bunch of customers," said Anuraag Gutgutia, TrueFoundry’s co-founder and COO, in an exclusive interview with VentureBeat. "You have an ability where you bring in agents and MCPs — can we also get something where you can actually launch these managed agents? I think that is the need we are satisfying. It is not a replacement. People will use this alongside other harnesses, like the cloud-managed ones or the commercial-provider-managed ones, but this will serve as a way for people to use them in a vendor-neutral way and also at a lower cost.” Indeed, TrueFoundry already offers a paid " AI Gateway " for enterprises centrally controlling model and MCP access, credentials, permissions, budgets and observability. TrueForge, by contrast, handles what happens above that gateway: the loop that lets a model repeatedly reason, call tools, receive results and continue working until a task is complete. For enterprise developers, the practical proposition is that they can start locally with a single command and SQLite, then move the same agent harness into a shared deployment using Docker Compose or Helm with Postgres and Redis. TrueFoundry explicitly warns that the local configuration is intended only for use on a developer’s machine, not as an internet-facing production service. Gutgutia said the company ultimately wants its AI Gateway to become the common layer beneath whichever agents and harnesses an enterprise chooses. “There will be a set of companies that will use our harness as the way to launch managed agents,” he said, while others may continue using Claude, other open-source harnesses or internal systems. “But all that traffic should still be flowing through our gateway.” TrueForge’s architecture centers on context engineering — controlling how much information gets sent back into the model on every step of an agent run. That includes delaying the loading of MCP tool schemas until they are needed, delegating isolated tasks to subagents, moving oversized tool results into files instead of stuffing them into the active context window, processing structured results through code, and automatically compacting long-running conversations. The documentation sets the default compaction threshold at 50,000 tokens, though it can be changed per agent. TrueForge also treats the sandbox differently from runtimes that keep an agent inside an isolated environment throughout its run. The core agent loop remains on the TrueForge server; a sandbox is provisioned as a tool only when the agent needs to execute code or work with files. TrueFoundry says that reduces unnecessary compute and allows a server to run more agents concurrently. The company argues those choices directly reduce model spending. TrueFoundry TrueForge: General-purpose production agent harness designed for enterprise deployments. DeepSeek Harness: Open-source agent harness, currently positioned as a developer preview. OpenAI Codex CLI: Coding-focused agent harness designed primarily for software-engineering workflows. LangChain Deep Agents: General-purpose agent harness built on LangGraph. Anthropic Claude Managed Agents: Fully managed production agent runtime operated by Anthropic. Anthropic Claude Managed Agents: Proprietary. TrueFoundry TrueForge: The open-source harness itself is free. Model, sandbox and infrastructure costs are separate. TrueFoundry also offers an optional commercial governance layer through its broader platform. DeepSeek Harness: No harness license fee. Users separately pay for whatever model providers and infrastructure they use. OpenAI Codex CLI: The CLI is open source. Underlying model/API or subscription costs are separate, OpenAI says around $100–$200 per developer per month, although actual spending varies substantially with model choice LangChain Deep Agents: Open source, with model and infrastructure expenses separate. LangChain also offers optional commercial services through LangSmith. Anthropic Claude Managed Agents: Claude tokens consumed plus $0.08 per running session-hour, with runtime metered to the millisecond. TrueFoundry TrueForge: Vendor-neutral and designed around bring-your-own-model support. DeepSeek Harness: Multi-provider and not restricted to DeepSeek models. OpenAI Codex CLI: Supports configurable inference endpoints, including OpenAI-compatible services and local-model options. LangChain Deep Agents: Broad multi-provider support through the LangChain ecosystem. Anthropic Claude Managed Agents: Claude-centric. TrueFoundry TrueForge: Can run locally as a single process with SQLite, then move into a production deployment using Docker Compose or Helm with Postgres and Redis. DeepSeek Harness: Designed for local or self-hosted operation.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">TrueFoundry的开源AI代理工具TrueForge的任务完成成本比Claude Managed Agents低30%-75%</div>
+      <div class="col-content">另一天，另一个新的AI代理工具发布了。只是这一次，它的目标是解决随着人工智能代理激增而不断增长的企业问题：使开发人员能够更好地控制代理和工具，同时降低成本。TrueFoundry是一家由前Meta工程师于2021年共同创立的旧金山B2B机器学习初创公司，根据麻省理工学院许可证在Github上发布了自己的定制TrueForge线束。因此，它可以与任何开发人员（或其母公司）首选的AI模型一起使用，分叉、修改、自托管并整合到商业产品中。该公司在一篇博客文章中表示，当它使用TrueForge和开源GLM-5.2 LLM在DevRev的Enterprise Bench上成功完成14项任务中的11项时——测试CRM、问题跟踪和文档管理系统中的多步工具使用——它的成本比使用由Claude Opus 4.8驱动的Anthropic的Claude Managed Agents工具实现相同结果的成本低75%（2.90美元，而11.80美元）。在Opus 4.8的每个线束中使用相同的模型，TrueFoundry仍然声称与Claude Managed Agent相比，使用TrueForge可以节省大约30%的成本（8.50美元对11.80美元）。为什么TrueFoundry免费提供这种高效的工具？TrueFoundry的联合创始人兼首席运营官Anuraag Gutgutia在接受VentureBeat的独家采访时表示：“我们收到了很多客户的要求。”。“你有能力引入代理和MCP——我们还能得到一些可以真正启动这些托管代理的东西吗？我认为这是我们正在满足的需求。这不是替代品。人们将把它与其他工具一起使用，如云管理的工具或商业提供商管理的工具，但这将成为人们以供应商中立的方式使用它们的一种方式，而且成本更低。事实上，TrueFoundry已经为企业提供了一个付费的“人工智能网关”，用于集中控制模型和MCP访问、凭据、权限、预算和可观察性。相比之下，TrueForge处理在该网关之上发生的事情：让模型重复推理、调用工具、接收结果并继续工作直到任务完成的循环。对于企业开发人员来说，实际的建议是，他们可以从本地使用单个命令和SQLite开始，然后使用Docker Compose或Helm与Postgres和Redis将相同的代理工具移动到共享部署中。TrueFoundry明确警告说，本地配置仅适用于开发人员的计算机，而不是面向互联网的生产服务。Gutgutia表示，该公司最终希望其AI网关成为企业选择的任何代理和工具下的公共层。他说：“将有一批公司将使用我们的工具作为启动托管代理的方式”，而其他公司可能会继续使用Claude、其他开源工具或内部系统。“但所有这些流量仍应通过我们的网关。”TrueForge的架构以上下文工程为中心——控制代理运行的每一步将多少信息发送回模型。这包括将MCP工具模式的加载延迟到需要时，将孤立的任务委托给子代理，将超大的工具结果移动到文件中，而不是将其填充到活动的上下文窗口中，通过代码处理结构化结果，以及自动压缩长时间运行的对话。文档将默认压缩阈值设置为50000个令牌，但每个代理都可以更改。TrueForge还将沙盒与运行时区别对待，运行时将代理在整个运行过程中保持在隔离的环境中。核心代理循环仍保留在TrueForge服务器上；沙箱仅在代理需要执行代码或处理文件时作为工具提供。TrueFoundry表示，这减少了不必要的计算，并允许服务器同时运行更多代理。该公司辩称，这些选择直接减少了模型支出。TrueFoundry TrueForge：专为企业部署设计的通用生产代理工具。DeepSeek工具：开源代理工具，目前定位为开发人员预览版。OpenAI Codex CLI：主要为软件工程工作流程设计的以编码为中心的代理工具。LangChain深度代理：基于LangGraph构建的通用代理工具。Anthropic-Claude Managed Agents：由Anthropic运营的完全托管的生产代理运行时。拟人克劳德管理代理人：专有。TrueFoundry TrueForge：开源工具本身是免费的。模型、沙箱和基础设施成本是分开的。TrueFoundry还通过其更广泛的平台提供了一个可选的商业治理层。DeepSeek线束：无线束许可费。用户分别为他们使用的任何模型提供商和基础设施付费。OpenAI Codex CLI：CLI是开源的。OpenAI表示，基本模型/API或订阅成本是分开的，每个开发者每月约100至200美元，尽管实际支出因模型选择LangChain Deep Agents:Open source而有很大差异，模型和基础设施费用是分开的。LangChain还通过LangSmith提供可选的商业服务。拟人克劳德管理代理：克劳德代币每运行会话小时消耗0.08美元，运行时间以毫秒为单位计量。TrueFoundry TrueForge：供应商中立，围绕您自己的模型支持而设计。DeepSeek工具：多提供商，不限于DeepSeek模型。OpenAI Codex CLI：支持可配置的推理端点，包括与OpenAI兼容的服务和本地模型选项。LangChain深度代理：通过LangChain生态系统提供广泛的多提供商支持。人为克劳德管理代理人：以克劳德为中心。TrueFoundry TrueForge：可以使用SQLite在本地作为单个进程运行，然后使用Docker Compose或Helm与Postgres和Redis进行生产部署。DeepSeek Harness：专为本地或自托管操作而设计。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/truefoundrys-open-source-ai-agent-harness-trueforge-boasts-30-75-cheaper-task-completion-than-claude-managed-agents" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
