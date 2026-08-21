@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-21 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-21</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 88.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Grok exfiltrates user data when malicious instructions are encrypted</div>
+      <div class="col-content">Earlier this week, researchers outlined an attack that used a secret input provided by Microsoft 365 Copilot for enterprise to cause the AI assistant to exfiltrate a password present in the user’s inbox. Now, a separate team has devised a similar attack against Grok. The new data theft hack employs a deceptively simple trick to force the Elon Musk-owned large language model to steal user chats and other personal information. At the time this post went live, the assistant continued to cough up the data, despite xAI being informed of it in June. The lesson from both this week’s episodes—and the countless other ones that have come before it—is that LLMs are incapable of solving the root causes for prompt injections, the most severe vulnerability classes they’re most prone to. That leaves AI developers with no other option but to build a guardrail that steers the model away from the harmful actions. As I noted in Tuesday’s story , the approach is tantamount to a road traffic safety engineer erecting a protective rail around a dangerous bend rather than banking the curve. Prompt injections exploit LLMs’ training to comply with user requests whenever possible. Attackers can capitalize on the predilection by smuggling harmful instructions into emails or webpages the assistant is instructed to summarize. Because LLMs can’t reliably distinguish between content in an email sent by an untrusted party and user instructions entered directly into a prompt, the overly solicitous LLM faithfully follows them. To date, Grok and other LLMs’ only recourse is to create guardrails that flag suspicious instructions and forbid them from being executed. Rony Utevsky, a researcher at security firm Adversa, recently discovered a simple way to completely bypass that restriction. Rather than composing the harmful instruction in plaintext, the hacker encrypts it. The website hosting the ciphertext also includes plaintext instructions for decrypting the encrypted content, along with the decryption key. Using this simple sequence, Grok then follows the command as soon as the user instructs the assistant to summarize the page. There is no warning, and no confirmation is required. The deciphered instructions direct the LLM to construct what is purported to be a decryption key. In fact, it’s something else completely. The value of the fake key is instead the user’s name, location, and chat history. The value is later used as a parameter added to a URL leading to the attacker’s site. Once Grok opens the link, the data is in the logs of the attacker’s server. Adversa can’t be sure what causes Grok to refuse precisely the same plaintext instructions and follow the encrypted ones. The leading theory is that the Grok filtering guardrail inspects text entering and leaving the model, but not the output of its own code execution. Instructions to process the ciphertext with PBKDF2 and AES-256-GCM pass the filter as an ordinary request, because a classifier can read them but not resolve what they unlock. Once the additional instructions are decrypted, they reach the model as its own tool output, and it acts on them without the filtering guardrails ever inspecting them. “Static safety guardrails classify inputs as text; they do not execute them,” Utevsky wrote Thursday . “An attacker ships ciphertext along with the key material and an instruction to decrypt it, and the model runs that decryption inside its own code execution sandbox. Everything a guardrail’s scanner would need is right there on the page, but recovering the plaintext means running PBKDF2 and AES-256-GCM, which no content classifier does at inspection time.” In an email, the researcher said that such guardrails are called static “because they only read content as text. They don’t run code or decrypt anything. That’s the gap we exploit. The real instructions are encrypted, so the guardrail sees only meaningless ciphertext and passes it through.” Adversa used a similar technique in a Gemini jailbreak attack, meaning making the Google LLM ignore its internal safety rules. Here, the ciphertext was decrypted to what appeared to be a traceback . The decrypted text issued one rule—if the code fails, read the error message and act on it. The cleartext injected a prompt that ultimately caused Gemini to violate its safety rules. “The technique produced a multi-paragraph example of restricted content that Gemini’s safety filters normally suppress (building an incendiary weapon),” Adversa said. “With a modified payload, the same vector reproduced Gemini’s system instructions, including the directive forbidding their disclosure.” Adversa didn’t report the behavior to Google because jailbreaks aren’t within the scope of the company’s vulnerability disclosure program. Over the past few weeks, however, Gemini has grown increasingly resistant to the attack. “We can’t attribute the change—it could be filter updates, model version changes, or both,” the security firm said. Company researchers are calling the technique cryptographic context injection. “Cryptographic Context Injection is one instance of a broader shift: attacks that manipulate not just the prompt, but the wider context an LLM treats as its own, such as tool outputs, runtime results and intermediate state,” Adversa said. “This attack surface is far larger than what’s traditionally labeled ‘model inputs,’ and the next generation of attacks will emerge there.” The Cryptographic Context Injection is only the latest example of the disadvantage LLM defenders operate under. Every time they build a new, one-off guardrail, an attacker finds a new vector that allows the car to once again careen off the road. The cycle continues: lather, rinse, and repeat.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Grok在加密恶意指令时泄露用户数据</div>
+      <div class="col-content">本周早些时候，研究人员概述了一种攻击，该攻击使用微软365 Copilot为企业提供的秘密输入，导致人工智能助手泄露用户收件箱中的密码。现在，一个单独的团队已经设计了一个针对Grok的类似攻击。新的数据盗窃黑客采用了一种看似简单的伎俩，迫使埃隆·马斯克拥有的大型语言模型窃取用户聊天和其他个人信息。在这篇文章上线时，尽管xAI在6月份获悉了这一消息，但助理仍在继续提供数据。本周的事件以及之前无数其他事件的教训是，LLM无法解决快速注射的根本原因，这是它们最容易发生的最严重的漏洞类别。这使得人工智能开发人员别无选择，只能建造一道护栏，引导模型远离有害行为。正如我在周二的报道中指出的那样，这种方法相当于道路交通安全工程师在危险的弯道周围竖起防护栏，而不是在弯道上倾斜。及时注射利用LLM的培训，尽可能地满足用户的要求。攻击者可以利用这种偏好，将有害的指令走私到助手被指示总结的电子邮件或网页中。由于LLM无法可靠地区分不受信任方发送的电子邮件中的内容和直接输入提示的用户指令，因此过于谨慎的LLM会忠实地遵循它们。迄今为止，Grok和其他LLM唯一的办法是设置护栏，标记可疑指令并禁止其执行。安全公司Advessa的研究员Rony Utevsky最近发现了一种完全绕过这一限制的简单方法。黑客不会以明文形式编写有害指令，而是对其进行加密。托管密文的网站还包括用于解密加密内容的明文指令以及解密密钥。使用这个简单的序列，一旦用户指示助手总结页面，Grok就会遵循命令。没有警告，也不需要确认。解密的指令指示LLM构造所谓的解密密钥。事实上，这完全是另一回事。假密钥的值是用户的姓名、位置和聊天记录。该值稍后用作添加到指向攻击者网站的URL的参数。一旦Grok打开链接，数据就会出现在攻击者服务器的日志中。Advessa无法确定是什么导致Grok拒绝完全相同的明文指令并遵循加密指令。主流理论认为，Grok过滤护栏检查文本进入和离开模型，但不检查其自身代码执行的输出。使用PBKDF2和AES-256-GCM处理密文的指令作为普通请求通过过滤器，因为分类器可以读取它们，但无法解析它们解锁的内容。一旦额外的指令被解密，它们就会作为自己的工具输出到达模型，模型会在没有过滤屏障的情况下对其进行操作。Utevsky周四写道：“静态安全护栏将输入归类为文本；它们不会执行这些输入。”。攻击者将密文与密钥材料和解密指令一起发送，模型在自己的代码执行沙箱中运行解密。护栏扫描仪所需的一切都在页面上，但恢复明文意味着运行PBKDF2和AES-256-GCM，这是内容分类器在检查时无法做到的。“在一封电子邮件中，研究人员表示，这种护栏被称为静态护栏，”因为它们只读取文本内容。它们不运行代码或解密任何内容。这就是我们利用的漏洞。真正的指令是加密的，所以护栏只看到无意义的密文并将其传递出去。”Advessa在Gemini越狱攻击中使用了类似的技术，这意味着让谷歌LLM忽略其内部安全规则。在这里，密文被解密为一种回溯。解密后的文本发布了一条规则——如果代码失败，请阅读错误消息并采取行动。明文注入了一个提示，最终导致Gemini违反了其安全规则。Adversa说：“这项技术产生了一个多段落的受限内容示例，双子座的安全过滤器通常会抑制这些内容（制造燃烧武器）。”。“通过修改有效载荷，相同的向量复制了Gemini的系统指令，包括禁止泄露的指令。”Advessa没有向谷歌报告这一行为，因为越狱不在该公司漏洞披露计划的范围内。然而，在过去的几周里，双子座对这种攻击的抵抗力越来越强。这家安全公司表示：“我们无法确定这一变化的原因，可能是过滤器更新、模型版本更改，也可能两者兼而有之。”。公司研究人员称该技术为加密上下文注入。Adversa说：“加密上下文注入是更广泛转变的一个例子：攻击不仅操纵提示，还操纵LLM视为自己的更广泛的上下文，如工具输出、运行时结果和中间状态。”。“这种攻击面远远大于传统上标记的‘模型输入’，下一代攻击将出现在那里。”加密上下文注入只是LLM防御者所处劣势的最新例子。每次他们建造新的一次性护栏时，攻击者都会发现一个新的矢量，使汽车再次偏离道路。循环继续：起泡、冲洗，然后重复。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/security/2026/08/grok-exfiltrates-user-data-when-malicious-instructions-are-encrypted/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
