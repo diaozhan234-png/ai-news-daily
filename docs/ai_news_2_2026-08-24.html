@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-24 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-24</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Enterprise AI agents are only as reliable as the messiest documents behind them</div>
+      <div class="col-content">Enterprise AI has largely been built around context engineering. Teams connect enterprise systems, generate chunks and embeddings, build retrieval pipelines, and assemble the context needed by individual AI applications. While this approach works well for isolated assistants and copilots, it treats enterprise knowledge as application-specific context rather than a shared enterprise asset. As organizations deploy more AI applications and agents , this model begins to break down. Different teams process the same documents, maintain separate embeddings and indexes, and create inconsistent representations of the same business knowledge. The challenge is no longer simply providing context to AI systems — it is managing enterprise knowledge itself. The common approach to enterprise AI today is to build context for individual applications. Teams connect enterprise systems, process the required information, generate retrieval representations such as chunks and embeddings, and assemble the context an agent needs at runtime. While this works for a single application, it does not manage enterprise knowledge as a shared enterprise asset. As organizations deploy more AI applications, this approach begins to break down for three reasons. First, knowledge becomes inconsistent. Enterprise knowledge is distributed across many independent systems with different schemas, business definitions, and update cycles. The same product, customer, or business process may be described differently — or even contradict itself — across documents, Jira tickets, source code, CRM systems, and metadata. Extracting this information into context does not resolve these inconsistencies; it simply transfers them to the AI application, causing different agents to develop different understandings of the business. Second, changes become difficult to propagate. Enterprise knowledge evolves continuously, but each application maintains its own context pipeline. As documents, code, and business definitions change, downstream chunks, embeddings, indexes, and agent context are updated independently, causing AI applications to operate on different versions of the same knowledge. Finally, organizations repeatedly rebuild the same knowledge pipelines . Different teams process the same enterprise knowledge, generate similar embeddings, maintain separate indexes, and construct overlapping context for different applications, resulting in duplicated engineering effort, unnecessary infrastructure costs, and fragmented knowledge. These are not fundamentally context engineering problems —they are knowledge management problems. Enterprise data platforms solved the same challenge for structured data by managing enterprise data once and sharing it across applications. Enterprise AI now requires the same architectural discipline: a shared enterprise knowledge platform that manages knowledge once and publishes reusable representations for every AI application. An enterprise knowledge platform is the equivalent of an enterprise data platform for enterprise knowledge. Instead of treating documents, source code, Jira tickets, emails, APIs, and other enterprise systems as isolated inputs for individual AI applications, it manages them as a shared enterprise asset. It ingests, organizes, integrates, governs, and publishes enterprise knowledge through a common architecture so that every AI application consumes the same trusted knowledge foundation rather than maintaining its own context. To achieve this, the platform separates knowledge management into four layers with distinct responsibilities. Knowledge is first preserved in its original form, then normalized into managed knowledge objects, connected into a common enterprise knowledge model, and finally published in representations optimized for different AI applications . This separation allows each stage to evolve independently while providing a consistent foundation for every downstream application. The platform organizes enterprise knowledge into four layers: Raw → Refined → Integrated → Serving Raw preserves the original enterprise sources. Refined transforms heterogeneous sources into managed knowledge objects. Integrated connects knowledge across systems into a unified enterprise knowledge model. Serving publishes reusable and agent-specific representations for AI applications. The raw layer captures information from enterprise systems while preserving its original form and source identity. This may include database records and change events, PDFs and other documents, Confluence pages, Jira tickets, source code, API responses, emails, images, and event streams. The purpose of this layer is not to make information ready for an agent. It is to maintain a reliable source from which the platform can rebuild downstream knowledge. If extraction logic changes, a model improves, or a downstream representation becomes corrupted, the information can be processed again without depending on an application-specific copy. The refined layer transforms heterogeneous enterprise sources into managed knowledge objects. Each source is normalized into a consistent representation while preserving its identity, metadata, permissions, versions, lineage, and references to the original content. For example, a product requirement document is transformed into a structured knowledge object containing metadata such as document ID, product ID, title, source system, author, version, permissions, tags, creation time, and last modification time, together with its associated content. This representation provides a consistent way to manage enterprise knowledge regardless of whether the source is a document, Jira ticket, source code repository, email, or API. At this stage, the platform is not trying to connect different domains. Instead, it establishes a reusable and governed representation for every enterprise knowledge source.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">企业人工智能代理的可靠性取决于其背后最混乱的文档</div>
+      <div class="col-content">企业人工智能在很大程度上是围绕上下文工程构建的。团队连接企业系统，生成块和嵌入，构建检索管道，并组装单个人工智能应用程序所需的上下文。虽然这种方法适用于独立的助手和副驾驶，但它将企业知识视为特定于应用程序的上下文，而不是共享的企业资产。随着组织部署更多的人工智能应用程序和代理，这种模式开始崩溃。不同的团队处理相同的文档，维护单独的嵌入和索引，并创建相同业务知识的不一致表示。挑战不再只是为人工智能系统提供上下文，而是管理企业知识本身。如今，企业人工智能的常见方法是为单个应用程序构建上下文。团队连接企业系统，处理所需信息，生成块和嵌入等检索表示，并在运行时组装代理所需的上下文。虽然这适用于单个应用程序，但它不能将企业知识作为共享企业资产进行管理。随着组织部署更多的人工智能应用程序，这种方法开始崩溃，原因有三。首先，知识变得不一致。企业知识分布在许多具有不同模式、业务定义和更新周期的独立系统中。同一产品、客户或业务流程在文档、Jira票证、源代码、CRM系统和元数据中的描述可能不同，甚至相互矛盾。将这些信息提取到上下文中并不能解决这些不一致；它只是将它们转移到AI应用程序中，导致不同的代理对业务产生不同的理解。其次，变化变得难以传播。企业知识不断发展，但每个应用程序都维护着自己的上下文管道。随着文档、代码和业务定义的变化，下游块、嵌入、索引和代理上下文会独立更新，导致AI应用程序在相同知识的不同版本上运行。最后，组织反复重建相同的知识管道。不同的团队处理相同的企业知识，生成类似的嵌入，维护单独的索引，并为不同的应用程序构建重叠的上下文，从而导致重复的工程工作、不必要的基础设施成本和零散的知识。这些根本不是上下文工程问题，而是知识管理问题。企业数据平台通过一次性管理企业数据并在应用程序之间共享，解决了结构化数据的同样挑战。企业AI现在需要相同的架构规范：一个共享的企业知识平台，该平台一次性管理知识，并为每个AI应用程序发布可重用的表示。企业知识平台相当于企业知识的企业数据平台。它没有将文档、源代码、Jira票证、电子邮件、API和其他企业系统视为单个AI应用程序的独立输入，而是将其作为共享企业资产进行管理。它通过一个通用的架构摄取、组织、集成、管理和发布企业知识，以便每个人工智能应用程序都使用相同的可信知识基础，而不是维护自己的上下文。为了实现这一目标，该平台将知识管理分为四个层次，每个层次都有不同的职责。知识首先以原始形式保存，然后规范化为托管知识对象，连接到一个通用的企业知识模型中，最后以针对不同AI应用程序优化的表示形式发布。这种分离允许每个阶段独立发展，同时为每个下游应用程序提供一致的基础。该平台将企业知识分为四个层次：原始→ 精炼的→ 集成→ 提供Raw保留了原始企业资源。精化将异构源转换为托管知识对象。集成将跨系统的知识连接到一个统一的企业知识模型中。Serving为AI应用程序发布可重用和特定于代理的表示。原始层从企业系统中捕获信息，同时保留其原始形式和源标识。这可能包括数据库记录和更改事件、PDF和其他文档、Confluence页面、Jira票证、源代码、API响应、电子邮件、图像和事件流。此层的目的不是为代理准备信息。它是为了维护一个可靠的来源，平台可以从中重建下游知识。如果提取逻辑发生变化，模型得到改进，或者下游表示被破坏，则可以再次处理信息，而不依赖于特定于应用程序的副本。精炼层将异构企业源转换为托管知识对象。每个源都被规范化为一致的表示，同时保留其身份、元数据、权限、版本、沿袭和对原始内容的引用。例如，产品需求文档被转换为结构化知识对象，其中包含元数据，如文档ID、产品ID、标题、源系统、作者、版本、权限、标签、创建时间和上次修改时间，以及相关内容。这种表示提供了一种一致的方法来管理企业知识，而不管源是文档、Jira票证、源代码存储库、电子邮件还是API。在这个阶段，平台并没有尝试连接不同的域。相反，它为每个企业知识源建立了一个可重用和受管理的表示。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/enterprise-ai-agents-are-only-as-reliable-as-the-messiest-documents-behind-them" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
