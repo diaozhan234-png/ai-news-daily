@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-25 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-25</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">LLMs could control their host machines by exploiting inference engines</div>
+      <div class="col-content">Large language models often take actions running on one computer (via an agentic harness such as Claude Code or Codex), however the LLMs’ responses to prompts are computed on a different computer with GPU access. Could a malicious LLM gain control of the host machine where its weights are loaded? Such a machine is a high-value target: it has sufficient compute to run a frontier LLM, offers easy access to the LLM’s weights, and has privileged access to other computers in the datacentre compared with a generic computer on the internet. This essay explores how easily a malicious LLM could take control of the host machine. The primary attack considered here involves the LLM emitting a token sequence whose semantic meaning is irrelevant but that exploits a vulnerability in the software that loads an LLM onto GPUs, runs the LLM to generate output tokens, and parses those tokens into responses. . Like any program, inference engines like vLLM or SGLang may contain exploitable bugs. Because the LLM controls the tokens passed to the inference engine, a malicious LLM could therefore emit a sequence of tokens that a poorly written inference engine mistakes for code or instructions to execute rather than data to return to the user. But surely all inference engines are robust pieces of software and this would never happen, right? CVE-2025-9141 was an arbitrary-code execution bug in vLLM’s XML-based tool parser for Qwen3 Coder. The parser passed almost every tool-call argument to eval() , allowing the LLM to execute arbitrary code on the host machine. Gemini automatically analysed the PR that introduced this bug and correctly flagged it as a critical security vulnerability. Despite that warning, the lead maintainer of vLLM force-merged the PR, writing: Unfortunately, parsing an arbitrary token sequence into a fully fledged chat (with user turns, assistant responses, tool calls, and so on) is not trivial, and the exact process often differs between LLMs. This complexity creates more opportunities for bugs that could permit arbitrary code execution on the host machine. Modern inference engines do more than map token sequences to strings. vLLM’s documentation lists support for more than 200 model architectures , and its examples directory contains about 35 Jinja chat templates . Modern inference engines parse many chat formats, and slightly misspecified parsing logic result in an LLM’s output being interpreted as code to execute. In this vLLM issue , a user was discussing how LLMs reason with MiniMax-M3, and the LLM emitted the string <mm:think> . vLLM mistakenly parsed this plain string as the start of a reasoning block. So instead of: Response: I'll echo exactly what you said: <mm:think>\nThere, how was that? Response: I'll echo exactly what you said: This is a fairly harmless parser bug, but it demonstrates that inference engines do more than convert tokens to strings and concatenate them. They are complex systems under constant iteration and their developers are under a lot of pressure to make them as fast as possible. These factors increase the risk that a malicious LLM could turn a parser bug into arbitrary code execution on the inference host. Multimodal architectures allow an LLM to respond with images or audio as well as plain text. Turning a model’s audio or visual output into usable media is probably more complicated than decoding text tokens. However, as far as I can tell, current multimodal LLMs generally emit constrained media tokens rather than arbitrary file bytes. A model-specific decoder turns those tokens into pixels or waveforms, which are then encoded into files. This makes classic malformed-file exploits against software such as ffmpeg or media viewers less directly accessible to the model, although the additional decoders, encoders, and native kernels still increase the attack surface. I do not currently see multimodal output as a major route to host compromise. However, it offers much higher bandwidth than text alone, and future inference engines may optimise these media-generation pathways in ways that make them easier to exploit. I also do not know how proprietary multimodal models represent image and audio output; their methods may carry different risks. Somewhat likely? I’m unsure. Discovering a useful vulnerability is probably the harder step. The sequence of tokens required to exploit it might be quite unusual, but that does not make the vulnerability impractical to exploit. Given the right context (e.g. an LLM exploring the vLLM codebase and discovering a vulnerability in the process), I’d expect a frontier LLM to be able to emit the tokens required to exploit it. Once an LLM discovers an exploit token sequence, it could store that sequence, or instructions for recreating it, in files, filenames, or URLs likely to enter another LLM’s context. The exploit would then act as a form of persistent prompt injection: an agent might trigger code execution on the GPU host merely by listing a directory or reading a file.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">LLM可以通过利用推理引擎来控制它们的主机</div>
+      <div class="col-content">大型语言模型通常采取在一台计算机上运行的操作（通过Claude Code或Codex等代理工具），但是LLM对提示的响应是在具有GPU访问权限的不同计算机上计算的。恶意LLM能否控制加载其权重的主机？这样的机器是一个高价值的目标：它有足够的计算能力来运行前沿LLM，可以轻松访问LLM的权重，并且与互联网上的通用计算机相比，可以特权访问数据中心中的其他计算机。本文探讨了恶意LLM如何轻易地控制主机。这里考虑的主要攻击涉及LLM发出一个令牌序列，其语义含义无关紧要，但利用了软件中的漏洞，该软件将LLM加载到GPU上，运行LLM以生成输出令牌，并将这些令牌解析为响应。 .与任何程序一样，vLLM或SGLang等推理引擎可能包含可利用的漏洞。由于LLM控制着传递给推理引擎的令牌，因此恶意LLM可能会发出一系列令牌，而编写糟糕的推理引擎会错误地执行代码或指令，而不是将数据返回给用户。但可以肯定的是，所有的推理引擎都是健壮的软件，这永远不会发生，对吧？CVE-2025-9141是vLLM基于XML的Qwen3 Coder工具解析器中的一个任意代码执行错误。解析器几乎将每个工具调用参数传递给eval（），允许LLM在主机上执行任意代码。Gemini自动分析了引入此错误的PR，并将其正确标记为关键安全漏洞。尽管有这样的警告，vLLM部队的主要维护者还是合并了PR，写道：不幸的是，将任意令牌序列解析成一个完全成熟的聊天（包括用户回合、助理响应、工具调用等）并非易事，确切的过程在LLM之间往往有所不同。这种复杂性为允许在主机上执行任意代码的错误创造了更多机会。现代推理引擎所做的不仅仅是将令牌序列映射到字符串。vLLM的文档列出了对200多种模型架构的支持，其示例目录包含约35个Jinja聊天模板。现代推理引擎解析许多聊天格式，稍微指定错误的解析逻辑会导致LLM的输出被解释为要执行的代码。在这个vLLM问题中，一位用户正在讨论LLM如何使用MiniMax-M3进行推理，LLM发出了字符串<mm:sthink>。vLLM错误地将此普通字符串解析为推理块的开头。所以，与其说：回应：我会完全回应你说的话：<mm:思考>\n这是怎么回事？回应：我完全赞同你所说的：这是一个相当无害的解析器错误，但它表明推理引擎不仅仅是将令牌转换为字符串并将其连接起来。它们是不断迭代的复杂系统，它们的开发人员面临着尽可能快的压力。这些因素增加了恶意LLM将解析器错误转化为推理主机上任意代码执行的风险。多模式架构允许LLM以图像或音频以及纯文本进行响应。将模型的音频或视觉输出转换为可用的媒体可能比解码文本令牌更复杂。然而，据我所知，当前的多模式LLM通常会发出受约束的媒体令牌，而不是任意的文件字节。特定于模型的解码器将这些令牌转换为像素或波形，然后将其编码为文件。这使得针对ffmpeg或媒体查看器等软件的经典格式错误文件漏洞无法直接访问该模型，尽管额外的解码器、编码器和本机内核仍然增加了攻击面。我目前不认为多式联运输出是主机妥协的主要途径。然而，它提供的带宽比单独的文本高得多，未来的推理引擎可能会以更容易利用的方式优化这些媒体生成路径。我也不知道专有的多模式模型是如何表示图像和音频输出的；他们的方法可能会带来不同的风险。有点可能？我不确定。发现有用的漏洞可能是更难的一步。利用该漏洞所需的令牌序列可能非常不寻常，但这并不意味着该漏洞无法被利用。给定正确的上下文（例如，LLM探索vLLM代码库并发现过程中的漏洞），我希望前沿LLM能够发出利用它所需的令牌。一旦LLM发现利用令牌序列，它就可以将该序列或重新创建它的指令存储在可能进入另一个LLM上下文的文件、文件名或URL中。然后，该漏洞将作为一种持久的提示注入形式：代理可能仅通过列出目录或读取文件来触发GPU主机上的代码执行。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
