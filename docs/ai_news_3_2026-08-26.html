@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-26 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-26</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 82.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Prompt injection ranks No. 1 with OWASP and No. 12 in the incident record. The attack itself is invisible to a scan.</div>
+      <div class="col-content">A CISO who sees a low CVE count and deprioritizes prompt injection is reading the scoreboard wrong. Prompt injection has held the No. 1 spot on the OWASP Top 10 for LLM Applications for three consecutive years . When two leaders of that list checked it against 6,639 labeled real-world incidents, it came back at No. 12. The drop measures visibility rather than danger, because the attack operates where a vulnerability scanner cannot see it. That finding belongs to Kyriakos “Rock” Lambros and Steve Wilson, two leaders of the OWASP Top 10 for LLM Applications project , who published it on arXiv on August 18 with the disclaimer attached. The analysis is exploratory, not peer reviewed, and not the official OWASP release, and the authors state it does not supersede the official list or its process. The machinery behind it is real: 7,714 LLM security incidents from CVE, GitHub Security Advisories, OSV, and the AIAAIC AI-harm database, 6,639 of them labeled against a 20-entry taxonomy, and a Bayesian model that corrects each count for classifier error before setting the data-driven ranking beside the expert vote. The comparison found no statistically detectable agreement between expert judgment and the public incident record. Cohen’s kappa comes in at 0.20 with a 90% interval running from negative 0.16 to 0.57. “The interval crosses zero, so we cannot rule out that the two rankings agree only by chance,” they write. “The honest bottom line: weak agreement, not confirmation.” Lambros, co-lead of the OWASP GenAI Security Project Top 10 for LLM Applications and director of AI standards and governance at Zenity, put the finding in evidentiary terms in written answers to VentureBeat. “We had two ways of measuring the same risk, expert judgment and the public incident record, and they disagree with each other. Neither one is the truth,” Lambros said. “Two witnesses are contradicting each other, and we can’t tell you which one is lying.” The gap is structural. Prompt injection hides instructions inside the content a model reads, anything from a log entry to a support ticket to a document pulled back by retrieval. The agent then makes the tool call the attacker wanted, using credentials it legitimately holds. Nothing in that chain is a product defect, so the attack leaves no CVE behind for a scanner to find. The defenses that catch it are adversarial tests against the deployed system and hard caps on what the agent can reach, so a fooled model cannot touch anything expensive. The same logic argues for funding agent memory and MCP tool boundaries now, on architecture, rather than waiting for advisory volume that will always arrive a cycle late. Wilson, Chief AI and Product Officer at Exabeam and project co-lead for the OWASP Top 10 for LLM Applications, named the control he would deploy first against exactly that chain, an agent that reads an attacker’s payload in a log file, treats it as an instruction, and rewrites DNS with a valid credential, in written responses to VentureBeat. “The first thing I’d do is put an authorization gate outside the model: the agent can propose the exact DNS change, but it cannot grant itself the authority to make it,” Wilson said. “Security rules written inside prompts may shape the model’s behavior, but they are still suggestions to the model, not enforceable security controls.” The gate has a price, and Wilson states it plainly. “The tradeoff is that the agent loses the ability to improvise arbitrary, high-impact infrastructure changes on its own, while retaining autonomous investigation and routine, bounded remediation,” he said. “Prompt injection is the best-understood LLM attack, and deployed systems defend against it actively,” the authors write, and they compress the whole divergence into one sentence. “Experts rank it first because the attack surface stays enormous even when the defenses mostly hold; the data sees the successes that got through.” Wilson has watched the gap from both sides of it. “Incident data is incredibly valuable, but it is inherently backward-looking and notoriously tricky to interpret,” he said. “It tells us what was observed, recognized, classified, and reported. It does not necessarily tell us what is most dangerous in the systems people are building right now.” He compares prompt injection to “death and taxes” and, increasingly, to “a law of physics for LLM systems,” because one model is being asked to interpret trusted instructions and untrusted content at the same time. Better defenses have not closed the case. “A control that works 99% of the time is not sufficient when the failure case gives an attacker meaningful access. And, frankly, I don’t think we are at 99%,” Wilson said. “The durable answer is not believing we can perfectly screen prompt injection out of existence. It is designing systems with the assumption that prompt injection will occur, understanding why it works, and limiting what an attacker can accomplish when it does.” A low advisory count can mean the defenses are working. It can just as easily mean nobody has looked, and the public record cannot tell a security team which one it is. The attempt volume is documented. CrowdStrike’s 2026 Global Threat Report found adversaries injected malicious prompts into legitimate GenAI tools at more than 90 organizations in 2025, stealing credentials and cryptocurrency, under a section titled “Prompts are the New Malware.” The telemetry shows pressure on the attack surface without proving defenses produced the No. 12 placement, but it is the pattern the mechanism predicts. Prompt injection is the headline case, and misinformation is the bigger one. The expert vote puts misinformation at No. 13, while the incident record places it at No. 2. The paper calls it “the widest disagreement between the two witnesses” and reports that its concordance flag “puts the probability that the two signals disagree at 99 percent.” The authors do not treat their own data as the winner.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">及时注射在OWASP中排名第一，在事件记录中排名第12。扫描无法看到攻击本身。</div>
+      <div class="col-content">一个首席信息安全官看到CVE计数低并降低了及时注入的优先级，这是在误读记分牌。快速注射连续三年在OWASP LLM应用程序前十名中排名第一。当该名单中的两位领导人将其与6639起标记为现实世界事件进行核对时，它回到了第12位。下降衡量的是可见性而不是危险性，因为攻击是在漏洞扫描程序无法看到的地方进行的。这一发现属于OWASP LLM应用程序前10名项目的两位负责人Kyriakos“Rock”Lambros和Steve Wilson，他们于8月18日在arXiv上发布了这一发现，并附上了免责声明。该分析是探索性的，不是同行评审的，也不是官方的OWASP版本，作者表示它不会取代官方列表或其流程。其背后的机制是真实的：来自CVE、GitHub security Advisers、OSV和AIAAIC AI伤害数据库的7714起LLM安全事件，其中6639起根据20条分类法进行标记，贝叶斯模型在将数据驱动的排名设置在专家投票旁边之前纠正每个分类错误计数。比较发现，专家判断和公共事件记录之间没有统计学上可检测的一致性。科恩的kappa值为0.20，90%的区间从负0.16到0.57。他们写道：“区间过零，所以我们不能排除这两个排名只是偶然一致。”。“诚实的底线是：协议薄弱，而不是确认。”OWASP GenAI安全项目LLM应用程序前十名联合负责人、Zenity人工智能标准和治理总监Lambros在给VentureBeat的书面答复中以证据的形式陈述了这一发现。兰布罗斯说：“我们有两种方法来衡量同样的风险，即专家判断和公共事件记录，但它们彼此不一致。两者都不是事实。”。“两个证人相互矛盾，我们无法告诉你哪一个在撒谎。”这种差距是结构性的。提示注入将指令隐藏在模型读取的内容中，从日志条目到支持票，再到通过检索撤回的文档。然后，代理使用其合法持有的凭据进行攻击者想要的工具调用。该链中没有任何内容是产品缺陷，因此攻击不会留下CVE供扫描程序查找。捕获它的防御措施是对部署的系统进行对抗性测试，并对代理可以达到的目标进行硬限制，因此被愚弄的模型无法触及任何昂贵的东西。同样的逻辑也支持现在在架构上为代理内存和MCP工具边界提供资金，而不是等待总是晚到一个周期的咨询量。Wilson是Exabeam的首席人工智能和产品官，也是LLM应用程序OWASP Top 10的项目联合负责人，他在给VentureBeat的书面回复中，指定了他将首先针对该链部署的控制，即一个在日志文件中读取攻击者有效载荷的代理，将其视为指令，并用有效凭据重写DNS。Wilson说：“我要做的第一件事是在模型之外设置一个授权门：代理可以提出确切的DNS更改，但它不能授予自己进行更改的权限。”。“写在提示中的安全规则可能会影响模型的行为，但它们仍然是对模型的建议，而不是可执行的安全控制。”门是有代价的，威尔逊明确地说。他说：“权衡的结果是，代理人失去了自行即兴应对任意、高影响的基础设施变化的能力，同时保留了自主调查和常规、有界的补救措施。”。作者写道：“及时注入是最容易理解的LLM攻击，部署的系统会积极防御它。”他们将整个分歧压缩成一句话。“专家们将其排在首位，因为即使防御措施基本保持不变，攻击面仍然巨大；数据也能看到成功的一面。”威尔逊观察到了两者之间的差距。“事件数据非常有价值，但它本质上是向后看的，而且很难解释，”他说。“它告诉我们观察、识别、分类和报告了什么。它不一定告诉我们人们目前正在构建的系统中最危险的是什么。”他将即时注射比作“死亡和税收”，越来越多地比作“LLM系统的物理定律”，因为一个模型被要求同时解释可信指令和不可信内容。更好的辩护并没有结案。Wilson说：“当失败案例为攻击者提供了有意义的访问时，99%有效的控制是不够的。坦率地说，我认为我们还没有达到99%。”。“持久的答案是，我们不能完全屏蔽即时注入的存在。它是在假设会发生即时注入的情况下设计系统，理解其工作原理，并限制攻击者在发生时可以完成的任务。”低咨询计数可能意味着防御正在起作用。这很容易意味着没有人看过，公共记录也无法告诉安全团队是哪一个。尝试量是有记录的。CrowdStrike的《2026年全球威胁报告》发现，在2025年，对手在90多个组织的合法GenAI工具中注入了恶意提示，窃取了凭证和加密货币，标题为“提示是新的恶意软件”。遥测数据显示，攻击面上的压力没有证明防御措施产生了第12位，但这是该机制预测的模式。及时注射是头条新闻，而错误信息是更大的。专家投票将错误信息排在第13位，而事件记录将其排在第2位。该论文称其为“两位证人之间最广泛的分歧”，并报告称其一致性标志“将两个信号不一致的概率定为99%”。作者并不将自己的数据视为赢家。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/prompt-injection-ranks-no-1-with-owasp-and-no-12-in-the-incident-record-the-attack-itself-is-invisible-to-a-scan" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
