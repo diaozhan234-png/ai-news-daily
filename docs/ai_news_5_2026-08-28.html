@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-28 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-28</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 85.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.</div>
+      <div class="col-content">Agent complexity is the insidious shadow lurking inside enterprises right now that needs a light shone on it. That’s because enterprises don't deploy a single agent and watch it run, they deploy fleets, each one calling APIs, calling other agents, reaching into applications that were never built with a machine decision-maker in mind. That's the failure mode that should keep you up at night: a windy, complicated system nobody can see clearly enough to govern. But why do things get so opaque so quickly? Add a second agent to a system, and you've added one connection. Add a tenth, and you haven't added ten connections, you've potentially added dozens, because now any agent might call any other, and each of those calls can trigger a call somewhere else. Complexity doesn't creep up with agent headcount. It compounds with the number of paths between agents, and nobody's job is to draw that graph. A support ticket that used to touch one system might now pass through four agents before a human ever lays eyes on it, and every one of those handoffs is a decision point nobody approved. Most enterprise AI programs stall when the humans responsible for their agents lose the thread. Ask a security team a simple question: which agents can reach which systems, and watch the silence. Ask which agent triggered which downstream action three hops ago. More silence. The instinct is to treat this like a checklist. Approve the agent. Log the agent. Move on. I'd argue this is the wrong instinct. A checklist checks a single point in time. Complexity runs across a chain, and you can't govern a chain with a stack of one-time approvals any more than you can call a diet successful because you had a vegetable once. So where does it actually break down? Permissions creep first. Somebody builds an agent to summarize support tickets, grants it broad API access because scoping it properly would've taken another sprint, and forgets about it. Six months later, that same agent has a path into the payments system. Nobody remembers signing off on that. Nobody did. And ownership thins out the further the chain runs. Five agents touch one workflow, something breaks at step four, and now you're asking who's responsible for a link nobody was ever assigned to own, because the org chart stopped at "deploy the agent" and never got to "name the human who answers for it." This is a story about governance infrastructure that hasn't caught up with how agents actually behave: interconnected, cascading, multiplying faster than the processes built to track them. Fixing the cluster starts with identity. Every agent needs to exist as its own entity, not a shadow permission borrowed from whoever deployed it. Its own name in the register. Its own scoped authority. A named human sponsor who answers for what it does. That part is necessary. But it is nowhere near sufficient. The harder piece is the oversight that holds across the entire chain, not just at each individual link in it. You need to see what an agent did, what it set off downstream, and where that trail ends in real time, not in a report someone pulls together once a quarter. Get agent-level identity right and stop there, and you end up with a filing cabinet full of perfectly documented agents operating inside a system nobody can actually explain. And oversight by itself only tells you what already happened. Watching a chain isn't the same as controlling it. Enforcement is the piece most programs skip: the ability to stop an out-of-policy call before it executes, not just log it for someone to find in a review three weeks later. A dashboard that shows you an agent breached its scope five minutes ago is a monitoring tool. A system that stops the breach from happening in the first place is governance. Enterprises serious about agent accountability need both, and most have only built the first. We're all running at blazing speed to ensure we're not the ones left behind in the race we've found ourselves in, and we're all too aware that there's a cost to slowing down. Every enterprise serious about agentic AI hits the complexity wall eventually. The ones that get past it are the ones who built enough visibility and accountability, so their fleet can keep growing without anyone losing the ability to answer one question: what is this system doing right now, and who's responsible for it. But don't miss the point. Complexity isn't a reason to pump the brakes. The enterprises getting this right aren't slowing down. They're building toward Human-Agent Harmony, where scale and accountability grow together instead of trading off against each other. The real risk was never a single agent doing exactly what it was built to do. It's a hundred of them doing exactly that, all at once, interacting in combinations nobody designed for. That kind of multiplication is what keeps enterprise AI stuck running pilots forever instead of running production. Solve for complexity and autonomy stops being the villain. It starts being the whole point. Rory Blundell is CEO at Gravitee. Sponsored articles are content produced by a company that is either paying for the post or has a business relationship with VentureBeat, and they’re always clearly marked. For more information, contact sales@venturebeat.com .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">企业人工智能的真正风险不是自主代理。这是他们之间的复杂性。</div>
+      <div class="col-content">代理复杂性是目前潜伏在企业内部的阴险阴影，需要一盏灯来照亮它。这是因为企业不会部署单个代理并观察它的运行，而是部署车队，每个车队都调用API，调用其他代理，进入从未考虑过机器决策者构建的应用程序。这就是应该让你彻夜难眠的失败模式：一个风大、复杂的系统，没有人能清楚地看到它来治理。但为什么事情会如此迅速地变得不透明呢？向系统中添加第二个代理，您就添加了一个连接。添加十分之一，您还没有添加十个连接，您可能已经添加了几十个连接，因为现在任何代理都可以呼叫任何其他代理，并且每个呼叫都可以在其他地方触发呼叫。复杂性不会随着代理人数的增加而增加。它与代理之间的路径数量相结合，没有人的工作是绘制该图。过去接触一个系统的支持票现在可能会在人类看到它之前通过四个代理，而每一次切换都是没有人批准的决策点。当负责代理的人失去线索时，大多数企业人工智能程序都会停滞不前。问安全团队一个简单的问题：哪些代理可以访问哪些系统，并观察沉默。询问三跳前哪个代理触发了哪个下游操作。更多的沉默。本能是把它当作一个清单。批准代理人。记录代理。继续。我认为这是错误的本能。检查表检查单个时间点。复杂性贯穿于一条链中，你不能用一堆一次性批准来管理一条链，就像你不能因为吃过一次蔬菜而称饮食成功一样。那么，它到底在哪里崩溃呢？权限先爬行。有人建立了一个代理来汇总支持票，授予它广泛的API访问权限，因为正确地确定其范围需要另一个冲刺，然后忘记了这一点。六个月后，同一个代理有了进入支付系统的路径。没有人记得签署了那件事。没有人做。所有权会使链条越长越薄。五个代理接触一个工作流程，在第四步发生故障，现在你问的是谁负责一个从未分配给任何人的链接，因为组织结构图停留在“部署代理”，而从来没有“说出为其负责的人的名字”。这是一个关于治理基础设施的故事，它没有跟上代理的实际行为：相互连接、级联、倍增速度比为跟踪它们而构建的流程快。修复集群从身份开始。每个代理都需要作为自己的实体存在，而不是从部署它的人那里借用的影子权限。它在注册表中有自己的名字。它自己的职权范围。一个有名字的人类赞助商，负责它的工作。这部分是必要的。但这远远不够。更难的是整个链条上的监督，而不仅仅是其中的每个环节。你需要实时查看代理做了什么，它在下游引发了什么，以及这条轨迹在哪里结束，而不是在一个季度汇总一次的报告中。正确地获得代理级别的身份并止步于此，你最终会得到一个文件柜，里面装满了在一个没有人能解释的系统中运行的记录完美的代理。监督本身只能告诉你已经发生了什么。观察链条并不等同于控制它。执行是大多数程序跳过的部分：在执行前停止策略外调用的能力，而不仅仅是在三周后的审查中记录下来供人查找。一个显示代理在五分钟前违反其范围的仪表板是一个监控工具。从一开始就阻止违规行为发生的系统是治理。认真对待代理责任的企业需要两者兼顾，而且大多数企业只建立了第一个。我们都在以极快的速度奔跑，以确保我们不会在我们发现自己的比赛中落后，我们都非常清楚放慢速度是有代价的。每个认真对待代理人工智能的企业最终都会遇到复杂性问题。那些通过它的人是那些建立了足够的可见性和问责制的人，这样他们的舰队就可以继续增长，而不会让任何人失去回答一个问题的能力：这个系统现在在做什么，谁对它负责。但不要错过重点。复杂性不是踩刹车的理由。正确处理这一问题的企业并没有放缓。他们正在朝着人类智能体和谐的方向发展，在这种和谐中，规模和责任感共同增长，而不是相互权衡。真正的风险从来不是单个代理完全按照它的设计去做。而是有一百个代理同时这样做，以没有人设计的组合进行交互。这种倍增使企业人工智能永远停留在运行飞行员而不是运行生产上。解决复杂性和自主性问题，不再是恶棍。这开始成为重点。罗里·布伦德尔是Gravitee的首席执行官。赞助文章是由一家公司制作的内容，该公司要么为帖子付费，要么与VentureBeat有业务关系，并且总是有明确的标记。如需更多信息，请联系sales@venturebeat.com .</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
