@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-28 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-28</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 88.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic's new hardware standard lets AI agents control the physical world</div>
+      <div class="col-content">For all the interest in and uptake of agentic AI systems over the past year or so , the world of automated AI has thus far been primarily limited to text, images, code, and other data and actions that take place inside a computer. Anthropic is now aiming to change that somewhat with what it’s calling the Model Hardware Standard (MHS), a set of standardized drivers designed to let AI agents easily interface with and control arbitrary devices. For now, the “research preview” of the MHS effort is being sold mainly as a way to help scientists streamline the arduous process of creating the custom software integrations that are often needed to get disparate components of an experiment working in concert. MHS can provide a common interface and common format for data sharing between these devices, Anthropic says, allowing them to talk to each other across a network “without needing a bespoke ‘translator’ program in between.” The standardized system could reduce weeks or months of exacting experimental setup down to “hours or minutes,” Anthropic writes. In a video posted alongside the announcement , Anthropic Technical Staffer Alek Kemeny says the MHS effort was inspired by observing neuroscientist Arco Bast work through an experiment on memory formation in the brain at the HHMI Janelia Research Campus in Ashburn, Virginia. Kemeny said Bast had worked out an interface to get the rotating laser beams, microscopes, cameras, and myriad other components of the experiment to coordinate through a common interface. “This idea could be used to have AI run any science experiment in the world,” Kemeny recalls thinking at the time. There’s nothing about a common machine interface language that requires the use of AI models, of course. And Anthropic says MHS devices can be controlled directly in real time via command-line prompts and API code files. But integrating an MHS system with an AI model through the Model Context Protocol lets scientists interact with devices using natural language, and lets models “reason through each step in an experiment, update parameters in real time, and, in some cases, recover from hardware errors without intervention,” Anthropic writes. Anthropic gave the example of a model like Claude adjusting a laser, checking the results via a separate camera, then repeating the process to automatically calibrate the whole system. MHS could also allow an AI model to focus a microscope, analyze the results, decide what part needs more observation, then automatically move the microscope to the relevant section to continue the experiment. In a video, Anthropic also showed Claude reasoning how to get a robotic arm to pick up an aluminum can even though it had not been specifically trained on the required steps. And rather than reasoning through each step each time, Anthropic says MHS-enabled models can sequence steps across instruments by writing API scripts and adjusting them as conditions require. Anthropic says MHS also includes a standardized tagging system to describe hardware’s real-world constraints for models that may have been trained more in the virtual world. That includes encoded information about the hardware’s physical characteristics (e.g., the weight and range of a robot arm) as well as its adjustable parameters, measurement options, and enforced safety limits. These tags can then be integrated into a reference file that can quickly provide an AI model with crucial information about a device it has no previous training experience with. For now, Anthropic says it is working with “a first group of scientific research labs and advanced manufacturers” during an MHS preview period, including Amazon Web Services ( Strands Robots ), Hugging Face ( LeRobot ), Raspberry Pi, Automata, and Universal Robots. These partners will help Anthropic “build safety evaluations and develop best practices for AI systems operating physical equipment,” the company writes. After that, the plan is for MHS to eventually become an open source and “agent agnostic” standard for integrating AI and physical systems. In early testing with scientific partners over the last year, Anthropic says it “saw MHS reduce the time it took to integrate devices, mak[ing] it possible to iterate faster in a variety of experimental settings.” “If you can test hypotheses faster, you could create general technologies faster,” Kemeny said in a promo video alongside the announcement. “This is how a century of progress can condense into a decade.”</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic的新硬件标准让AI代理控制物理世界</div>
+      <div class="col-content">尽管在过去一年左右的时间里，人们对代理人工智能系统的兴趣和接受程度很高，但迄今为止，自动化人工智能的世界主要局限于文本、图像、代码以及计算机内部发生的其他数据和操作。Anthropic现在的目标是通过它所谓的模型硬件标准（MHS）来改变这一点，MHS是一组标准化的驱动程序，旨在让AI代理轻松地与任意设备交互和控制。目前，MHS工作的“研究预览”主要是作为一种帮助科学家简化创建定制软件集成的艰巨过程的方式来销售的，这些集成通常是使实验的不同组件协同工作所必需的。Anthropic表示，MHS可以为这些设备之间的数据共享提供一个通用接口和通用格式，使它们能够通过网络相互通信，“而不需要在其间使用定制的‘翻译’程序”。Anthropics写道，标准化系统可以将数周或数月的严格实验设置缩短到“数小时或数分钟”。在公告旁边发布的一段视频中，Anthropic技术人员Alek Kemeny表示，MHS的工作灵感来自于观察神经科学家Arco Bast在弗吉尼亚州阿什本的HHMI Janelia研究园区进行的一项关于大脑记忆形成的实验。Kemeny说，巴斯特已经设计出一个接口，可以让旋转的激光束、显微镜、相机和实验的无数其他组件通过一个通用接口进行协调。“这个想法可以用来让人工智能运行世界上任何科学实验，”Kemeny回忆起当时的想法。当然，没有一种通用的机器界面语言需要使用人工智能模型。Anthropic表示，MHS设备可以通过命令行提示和API代码文件直接实时控制。但是，通过模型上下文协议将MHS系统与人工智能模型集成，可以让科学家使用自然语言与设备进行交互，并让模型“推理实验中的每一步，实时更新参数，在某些情况下，在不干预的情况下从硬件错误中恢复，”Anthropic写道。Anthropic举了一个例子，比如克劳德调整激光，通过单独的相机检查结果，然后重复这个过程来自动校准整个系统。MHS还可以让AI模型聚焦显微镜，分析结果，决定哪些部分需要更多观察，然后自动将显微镜移动到相关部分以继续实验。在一段视频中，Anthropic还向克劳德展示了如何让机器人手臂捡起铝罐，即使它没有经过所需步骤的专门训练。Anthropic表示，支持MHS的模型可以通过编写API脚本并根据条件进行调整，从而对各个仪器的步骤进行排序，而不是每次都对每个步骤进行推理。Anthropic表示，MHS还包括一个标准化的标记系统，用于描述硬件对可能在虚拟世界中训练过的模型的现实限制。这包括关于硬件物理特性的编码信息（例如，机器人手臂的重量和范围）及其可调参数、测量选项和强制安全限制。然后，这些标签可以集成到一个参考文件中，该文件可以快速为AI模型提供有关其以前没有训练经验的设备的关键信息。目前，Anthropic表示，在MHS预览期间，它正在与“第一批科研实验室和先进制造商”合作，包括亚马逊网络服务（Strands Robots）、拥抱脸（LeRobot）、Raspberry Pi、Automata和Universal Robots。该公司写道，这些合作伙伴将帮助Anthropic“为操作物理设备的人工智能系统建立安全评估并制定最佳实践”。在那之后，MHS的计划是最终成为一个开源和“与代理无关”的标准，用于集成人工智能和物理系统。Anthropic表示，在过去一年与科学合作伙伴的早期测试中，它“看到MHS减少了集成设备所需的时间，使其有可能在各种实验环境中更快地迭代。”Kemeny在公告旁边的宣传视频中说：“如果你能更快地测试假设，你就可以更快地创建通用技术。”。“一个世纪的进步就是这样浓缩成十年的。”</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/08/anthropics-new-hardware-standard-lets-ai-agents-control-the-physical-world/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
