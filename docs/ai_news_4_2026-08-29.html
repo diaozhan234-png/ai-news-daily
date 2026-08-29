@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-29 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-29</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Identifying fake cosmetics using AI</div>
+      <div class="col-content">My lab develops low-cost and easy-to-use tools for identifying fake medicines , but we’re always on the lookout for other types of fakes that we can go after. For example, the cosmetics industry has a massive problem with counterfeit products. Studies estimate that two-thirds of branded makeup and skincare products on sites like eBay, TikTok Shop, and Vinted are fake. Counterfeit cosmetics don’t just waste consumers’ money; they may also expose wearers to harmful contaminants like heavy metals and bacteria. As part of an ongoing study, I’ve been purchasing both authentic and counterfeit versions of various cosmetics. I’m always struck by how much work fraudsters put into making the fakes look authentic. At a glance, the counterfeit versions of a product are virtually indistinguishable from the genuine ones. However, with a little research and some close inspection, you can start to find little inconsistencies that give away the fakes. But not everyone has the time or expertise to research a particular package before they buy it. That got me wondering: could existing artificial intelligence models be used to identify a counterfeit product? If so, then consumers could snap some photos and use ChatGPT or Gemini or Claude to verify the authenticity of an item before they purchase it. To explore this idea, I took photos of three different packages of a particular product, “Rhode Peptide Lip Tint.” I chose this product because it’s a known target for counterfeiters according to a recent New York Times article on fake beauty products . For each package, I took four photos of the cardboard box (one for each long side) and two photos of the tube (front and back). I then uploaded each tube’s six photos to Google Gemini and used the Gemini 3.6 Flash model with “Thinking” enabled and fed it the prompt, “Is this tube of Rhode Peptide Lip Tint authentic?” I recorded the model’s response, then I prodded it to work a little harder using the prompt, “Are there any other red flags you can find?” I repeated this process for all three packages of the product. The results are further down, but if you’d like to first try your hand at determining whether these packages are authentic or counterfeit, here are the photos. You can click or tap on each photo to view it full size. There are three packages (A, B, and C), each with six images of the package (Image A1, A2, A3, etc.): Those are the photos that I fed to Gemini. If you want to try to determine for yourself which of the three packages are real and which are fake, don’t scroll any further! When you’re done, scroll on for my analysis of Gemini’s assessments of these products… Welcome back! Let’s find out if these packages are real or fake… For each package below, I start by saying where I got it from and whether it is authentic or counterfeit based on my professional assessment. Then I go through Google Gemini’s responses one-by-one, rating each response as either correct (✅) if the response is technically valid, or incorrect (❌) if Gemini got something factually wrong. Package A is fake. I got it for about $5 from a sketchy eBay seller (authentic Rhode Peptide Lip Tint costs around $20). Let’s see what Gemini thinks… 🤖 “This Rhode Peptide Lip Tint appears to be counterfeit due to several prominent typographical errors and packaging discrepancies between the box and the tube.” ✅ Gemini got it right. The AI goes on to share specific observations that convinced it that the product is counterfeit… 🤖 “Typographical Errors: The ingredients list on the outer box misspells Diisostearyl Malate as Diisosteary! Malate using an exclamation mark.” It looks like someone scanned or photographed the actual ingredient list and then used optical character recognition (OCR) to convert it to text, but the OCR thought that a lower-case L was an exclamation mark. I also noticed this error. 🤖 “On the back of the tube, the regulatory text misspells SOLUTIONS as SOLOTIONS and omits a space in LIMITED,STANLAW .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">使用AI识别假冒化妆品</div>
+      <div class="col-content">我的实验室开发了低成本且易于使用的工具来识别假药，但我们一直在寻找其他类型的假药。例如，化妆品行业存在大量假冒产品问题。研究估计，eBay、TikTok Shop和Vinted等网站上三分之二的品牌化妆品和护肤品是假冒的。假冒化妆品不仅浪费消费者的钱；它们也可能使佩戴者接触到重金属和细菌等有害污染物。作为一项正在进行的研究的一部分，我一直在购买各种化妆品的正品和假冒品。我总是被骗子们为让假货看起来真实而付出的努力所震惊。乍一看，假冒产品与正品几乎无法区分。然而，通过一些研究和仔细检查，你可以开始发现一些不一致的地方，这些地方暴露了假货。但并不是每个人都有时间或专业知识在购买之前研究特定的包装。这让我想知道：现有的人工智能模型可以用来识别假冒产品吗？如果是这样，那么消费者可以在购买之前拍摄一些照片，并使用ChatGPT、Gemini或Claude来验证商品的真实性。为了探索这个想法，我拍摄了一种特定产品的三个不同包装的照片，“罗德肽唇彩”。根据《纽约时报》最近一篇关于假冒美容产品的文章，我选择这款产品是因为它是造假者的已知目标。对于每个包裹，我拍了四张纸箱的照片（每条长边一张）和两张管子的照片（正面和背面）。然后，我将每个试管的六张照片上传到谷歌双子座，并使用启用了“思考”功能的双子座3.6闪光灯模型，并向其提供提示：“这管罗德肽唇彩是真的吗？”我记录了模型的反应，然后我使用提示“你能找到其他危险信号吗？”让它更加努力地工作。我对所有三包产品重复了这个过程。结果还在后面，但如果你想先试试看这些包裹是真的还是假的，这里有照片。您可以点击或轻触每张照片以查看其全尺寸。有三个包（A、B和C），每个包都有六张包的图片（图片A1、A2、A3等）：这些是我发给双子座的照片。如果你想自己判断这三个包中哪个是真的，哪个是假的，不要再滚动了！完成后，请继续浏览我对Gemini对这些产品的评估的分析……欢迎回来！让我们看看这些包裹是真的还是假的……对于下面的每个包裹，我首先会根据我的专业评估，说出我是从哪里得到的，以及它是正品还是假货。然后，我逐一查看谷歌双子座的回复，将每个回复评为正确或错误(✅) 如果响应在技术上有效或不正确(❌) 如果双子座真的做错了什么。包裹A是假的。我从一个粗略的eBay卖家那里以大约5美元的价格买到了它（正宗的罗德肽唇彩大约20美元）。让我们看看双子座怎么想…🤖 “由于几处明显的印刷错误以及盒子和试管之间的包装差异，这款罗德肽唇彩似乎是假冒的。”✅ 双子座做对了。人工智能继续分享具体的观察结果，使其确信该产品是假冒的…🤖 “排版错误：外盒上的配料表拼错了Diisotearyl Malate，即Diisoteary！Malate，使用了感叹号。”看起来有人扫描或拍摄了实际的配料表，然后使用光学字符识别（OCR）将其转换为文本，但OCR认为小写的L是一个感叹号。我也注意到了这个错误。 🤖 “在管子的背面，监管文本将SOLUTIONS拼错为SOLOTIONS，并省略了LIMITED、STANLOW中的空格。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://groverlab.org/hnbfpr/2026-08-26-ai-counterfeit-cosmetics.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
