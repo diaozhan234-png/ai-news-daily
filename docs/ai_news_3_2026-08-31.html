@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-08-31 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-08-31</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">AI agents need their own identity before they need a gateway</div>
+      <div class="col-content">Enterprise AI has entered a new era. Organizations are rapidly moving beyond assistants that answer questions to autonomous agents capable of reasoning, invoking tools, accessing enterprise applications, coordinating with other agents, and completing multi-step business workflows with minimal human intervention. This shift represents a fundamental change in how software operates. Traditional applications execute predefined logic written by developers. AI agents, however, dynamically determine how to achieve an objective. They decide which tools to use, which APIs to call, what information to retrieve, and how to sequence actions based on context. That flexibility unlocks enormous business value, but it also introduces a new class of security risks . Much of today's AI security discussion focuses on prompt injection, model vulnerabilities, and data leakage. These are important concerns, but they represent only part of the challenge. Once an AI agent has successfully authenticated and begins acting autonomously, traditional security controls provide very little visibility into whether it continues to operate safely. This is where enterprises need to adopt a new security mindset: runtime trust. Enterprise security has traditionally relied on three foundational questions: Who are you, what can you access, and what actions are you authorized to perform. Identity providers, multi-factor authentication (MFA), role-based access control, and zero trust architectures answer these questions effectively for human users and conventional applications, and NIST's zero trust guidance remains a solid reference point for how those principles are meant to work ( NIST SP 800-207 ). AI agents introduce a different problem. An AI agent may legitimately authenticate using an enterprise identity, receive valid API credentials, and be granted access to systems like Microsoft 365, ServiceNow, Salesforce, or GitHub. From an identity perspective, everything appears correct. The real challenge begins after authentication: During execution, the agent continuously reasons, interprets objectives, invokes tools, retrieves information, and adapts its behavior based on new context, and security teams must determine whether those actions remain aligned with the user's intent and organizational policy. Authentication verifies who an AI agent is. Runtime trust continuously verifies what it is doing. Modern AI agents increasingly interact with large language models (LLMs), Model Context Protocol (MCP) servers, retrieval-augmented generation (RAG) systems, vector databases, enterprise APIs, SaaS platforms, and internal knowledge repositories, as well as other AI agents. This interconnected ecosystem enables sophisticated automation but dramatically expands the attack surface: A single compromised tool, poisoned knowledge source, overly permissive API, or manipulated prompt can influence downstream decisions across an entire workflow, and unlike traditional software, these risks evolve during execution rather than being fixed at deployment. That expanding surface is exactly what a handful of runtime threats exploit. Goal drift happens when an agent begins with a legitimate objective but gradually deviates from the user's original intent while attempting to optimize outcomes. An agent tasked with preparing a customer report, for instance, might autonomously retrieve unrelated confidential information because it incorrectly determines that additional context would improve the response. Excessive tool invocation is what happens when autonomous agents with access to numerous enterprise tools call unnecessary APIs, modify configurations, access sensitive repositories, or perform administrative actions simply because the model believes those actions are useful, absent any runtime controls to stop it. Memory poisoning exploits the persistent memory that improves personalization: Attackers can intentionally insert misleading instructions into long-term memory or retrieval systems, causing future decisions to be influenced by malicious or outdated information. Context manipulation takes advantage of how heavily LLMs depend on context: If attackers influence retrieved documents, system prompts, conversation history, or external data sources, they can indirectly steer autonomous behavior without ever compromising the underlying model. MITRE's ATLAS framework catalogs this kind of adversarial behavior against AI systems in useful detail. Multi-agent amplification emerges as organizations deploy specialized AI agents that collaborate: If one agent behaves incorrectly, downstream agents may trust and amplify those actions, creating cascading failures across enterprise workflows. Runtime trust extends security beyond authentication by continuously validating AI behavior throughout execution. Rather than assuming authenticated agents remain trustworthy indefinitely, it continuously evaluates whether autonomous decisions remain aligned with organizational policy. A runtime trust architecture rests on several complementary capabilities. Intent validation evaluates, before executing sensitive actions, whether proposed behavior still matches the user's original objective: Is this action necessary? Is it expected? Does it exceed the requested scope? Would a reasonable human perform the same action? Behavioral monitoring observes tool usage, API activity, reasoning patterns, execution frequency, delegated actions, and abnormal workflows, so unexpected behavior becomes immediately visible rather than remaining hidden inside model reasoning. Policy enforcement means enterprise policies govern what AI agents can do, not merely what they can access — blocking financial transactions above approval thresholds, preventing privilege modifications, restricting administrative operations, limiting sensitive data retrieval, and requiring approval for high-risk actions. These controls function much like application firewalls for autonomous decision-making.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">AI代理在需要网关之前需要自己的身份</div>
+      <div class="col-content">企业AI进入了一个新时代。组织正在迅速超越回答问题的助手，转向能够推理、调用工具、访问企业应用程序、与其他代理协调，并在最少的人为干预下完成多步骤业务工作流程的自主代理。这种转变代表了软件运作方式的根本性变化。传统应用程序执行开发人员编写的预定义逻辑。然而，人工智能代理可以动态地确定如何实现目标。他们决定使用哪些工具，调用哪些API，检索哪些信息，以及如何根据上下文对操作进行排序。这种灵活性释放了巨大的商业价值，但也引入了一类新的安全风险。今天的大部分人工智能安全讨论都集中在快速注入、模型漏洞和数据泄漏上。这些都是重要的问题，但它们只是挑战的一部分。一旦人工智能代理成功通过身份验证并开始自主行动，传统的安全控制就很难看到它是否继续安全运行。这就是企业需要采用新的安全心态的地方：运行时信任。企业安全传统上依赖于三个基本问题：你是谁、你可以访问什么以及你被授权执行什么操作。身份提供者、多因素身份验证（MFA）、基于角色的访问控制和零信任架构有效地回答了人类用户和传统应用程序的这些问题，NIST的零信任指南仍然是这些原则如何运作的坚实参考点（NIST SP 800-207）。AI代理引入了一个不同的问题。人工智能代理可以使用企业身份合法验证，接收有效的API证书，并被授予访问Microsoft 365、ServiceNow、Salesforce或GitHub等系统的权限。从身份的角度来看，一切似乎都是正确的。真正的挑战始于身份验证之后：在执行过程中，代理不断地推理、解释目标、调用工具、检索信息，并根据新的上下文调整其行为，安全团队必须确定这些操作是否与用户的意图和组织策略保持一致。身份验证验证人工智能代理是谁。运行时信任不断验证它在做什么。现代人工智能代理越来越多地与大型语言模型（LLM）、模型上下文协议（MCP）服务器、检索增强生成（RAG）系统、向量数据库、企业API、SaaS平台和内部知识库以及其他人工智能代理进行交互。这种相互连接的生态系统实现了复杂的自动化，但极大地扩展了攻击面：单个受损的工具、中毒的知识源、过度宽松的API或被操纵的提示可以影响整个工作流程中的下游决策，与传统软件不同，这些风险在执行过程中不断演变，而不是在部署时得到修复。这种不断扩大的表面正是少数运行时威胁所利用的。当代理从一个合法的目标开始，但在试图优化结果时逐渐偏离用户的初衷时，就会发生目标漂移。例如，负责准备客户报告的代理可能会自主检索无关的机密信息，因为它错误地确定了额外的上下文将改善响应。过度工具调用是指当能够访问众多企业工具的自主代理调用不必要的API、修改配置、访问敏感存储库或执行管理操作时，仅仅因为模型认为这些操作是有用的，而没有任何运行时控制来阻止它。内存中毒利用了改善个性化的持久内存：攻击者可以故意将误导性指令插入长期内存或检索系统，导致未来的决策受到恶意或过时信息的影响。上下文操纵利用了LLM对上下文的依赖程度：如果攻击者影响检索到的文档、系统提示、对话历史或外部数据源，他们可以间接地引导自主行为，而不会损害底层模型。MITRE的ATLAS框架详细记录了这种针对人工智能系统的对抗行为。随着组织部署专门的人工智能代理进行协作，多代理放大出现了：如果一个代理行为不正确，下游代理可能会信任并放大这些行为，从而在企业工作流程中造成级联故障。运行时信任通过在整个执行过程中不断验证AI行为，将安全性扩展到身份验证之外。它不是假设经过身份验证的代理无限期地保持值得信赖，而是不断评估自主决策是否与组织策略保持一致。运行时信任架构依赖于几个互补的功能。意图验证在执行敏感操作之前评估所提出的行为是否仍然与用户的原始目标相匹配：此操作是否必要？这是意料之中的吗？是否超出了要求的范围？一个理性的人会做出同样的行为吗？行为监控观察工具使用情况、API活动、推理模式、执行频率、委托操作和异常工作流，因此意外行为立即可见，而不是隐藏在模型推理中。政策执行意味着企业政策管理人工智能代理可以做什么，而不仅仅是他们可以访问什么——阻止超过批准阈值的金融交易，防止特权修改，限制管理操作，限制敏感数据检索，并要求对高风险行动进行批准。这些控件的功能很像用于自主决策的应用程序防火墙。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/ai-agents-need-their-own-identity-before-they-need-a-gateway" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
