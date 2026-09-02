@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-02 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-02</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 88.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Introducing agentic video understanding with Gemini</div>
+      <div class="col-content">Our new agentic feature for video analysis cuts token consumption by up to 88%, reduces costs by up to 66%, and boosts quality by up to 7%. Senior Product Manager, Google DeepMind Research Director, Google DeepMind Your browser does not support the audio element. Google just launched agentic video understanding for Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite. This feature allows the model to dynamically scan video segments, which improves accuracy while cutting token usage by up to 88% and costs by up to 66%. You can start using this today by setting your API configuration to "agentic" in Google AI Studio or the Gemini Enterprise Agent Platform. Today, we’re launching agentic video understanding across our latest models: Gemini 3.7 Flash, 3.6 Flash and 3.5 Flash-Lite. This new capability improves accuracy while dramatically reducing token usage and costs for video analysis. Similar to agentic vision , which combines code execution with Gemini models’ native image understanding, agentic video understanding uses Gemini’s native video tools to improve performance and unlock new capabilities for video processing like sub-second moment retrieval, more accurate anomaly detection, precise counting and more. The feature is available today for video uploads and YouTube videos via the Gemini API in Google AI Studio and the Gemini Enterprise Agent Platform. Unlike current ‘static’ processing, where the model ingests the video at a fixed frames-per-second rate (default 1 FPS, adjustable via API), agentic video understanding pairs the model’s core reasoning with native video tools to dynamically search, scan, and inspect target video segments across visual frames, audio, and transcripts. Across standard video analysis benchmarks, Gemini models with agentic video understanding reduce analysis costs by up to 66% and token consumption by up to 88%, while improving accuracy by up to 7%. These efficiency gains are especially pronounced on long-form video (from 10-minute how-to guides to 90-minute lectures and multi-hour recordings), where static processing forces developers to choose between high token costs or techniques that drop critical details. Activating agentic video understanding drops token consumption by up to 88% and boosts accuracy by up to 7% with Gemini 3.7 Flash. While these gains span all three supported models, Gemini 3.7 Flash with agentic understanding offers the best possible quality overall and the best combination of quality and cost efficiency, putting it at the accuracy-to-cost pareto frontier among tested models for video understanding. Using agentic video understanding places Gemini 3.7 Flash at the accuracy-to-cost pareto frontier for video analysis. Instead of static processing where the model ingests media streams at a fixed frame rate, agentic video understanding enables Gemini to take an active, goal-directed role in determining what to watch, at what speed, and through which modality (frames, audio, or transcript), fetching only the moments and signals needed. While developers could previously do this manually, with agentic video understanding, Gemini can accomplish it through an agentic loop, invoking an internal tool to load the relevant part of the video file, significantly reducing development overheads. Agentic video understanding transforms how developers can process long-form video content across a variety of demanding applications. Token-efficient long-form video analysis See how Gemini 3.7 Flash performs with and without agentic video understanding on LongVideoBench, a long-form video understanding benchmark. Notice the large token reductions and accuracy improvements. Accurate fast action analysis with dynamic FPS With agentic video understanding, 3.7 Flash is able to accurately count a fast-paced movement by scanning and rewatching the video at different frames per second, as needed. Token-efficient needle-in-a-haystack search Using agentic video understanding, Gemini 3.7 is able to accurately answer complex questions based on the content of the video while consuming a significantly lower number of tokens compared to static analysis. Many of our early access partners saw strong performance while testing with agentic video understanding. Here’s what they have to say: Agentic video understanding is available via the Gemini API in Google AI Studio and Gemini Enterprise Agent Platform , launching across Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite. It uses standard Gemini API token pricing with no additional feature fee. To enable it, simply set processing to "agentic" in the API configuration. Read our developer guide to get more insights into the feature and how to get started. We are also bringing the efficiency and quality improvements of agentic video understanding to billions of users across Google products. The feature will roll out to all users in the Gemini app across Flash and Flash-Lite models soon. And in the coming months, agentic video understanding will also power YouTube's ‘ Ask YouTube’ feature on the video watch page, leveraging Gemini to deliver higher-quality answers grounded in the visuals. Acknowledgement for their contribution to this work: Sergi Caelles, Filip Pavetić, Ahmet Iscen, Suhas Yogin, and the Agentic Vision team.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">与Gemini一起介绍代理视频理解</div>
+      <div class="col-content">我们新的视频分析代理功能将令牌消耗量减少了88%，成本降低了66%，质量提高了7%。高级产品经理，谷歌DeepMind研究总监，谷歌DeepMind Your浏览器不支持音频元素。谷歌刚刚为Gemini 3.7 Flash、3.6 Flash和3.5 Flash Lite推出了代理视频理解。此功能允许模型动态扫描视频片段，从而提高了准确性，同时将令牌使用率降低了88%，成本降低了66%。今天，您可以通过在Google AI Studio或Gemini Enterprise Agent平台中将API配置设置为“代理”来开始使用它。今天，我们将在最新型号上推出代理视频理解：Gemini 3.7 Flash、3.6 Flash和3.5 Flash Lite。这种新功能提高了准确性，同时大大降低了令牌的使用和视频分析的成本。与将代码执行与Gemini模型的本地图像理解相结合的代理视觉类似，代理视频理解使用Gemini的本地视频工具来提高性能，并解锁视频处理的新功能，如亚秒级检索、更准确的异常检测、精确计数等。该功能今天可用于通过谷歌人工智能工作室和Gemini企业代理平台中的Gemini API上传视频和YouTube视频。与当前的“静态”处理不同，模型以固定的每秒帧数（默认为1 FPS，可通过API调整）摄取视频，代理视频理解将模型的核心推理与本地视频工具相结合，以动态搜索、扫描和检查视觉帧、音频和文字记录中的目标视频片段。在标准视频分析基准测试中，具有代理视频理解的Gemini模型将分析成本降低了66%，令牌消耗降低了88%，同时将准确性提高了7%。这些效率的提高在长篇视频（从10分钟的操作指南到90分钟的讲座和数小时的录音）中尤为明显，在这些视频中，静态处理迫使开发人员在高令牌成本或丢弃关键细节的技术之间做出选择。使用Gemini 3.7 Flash，激活代理视频理解可将令牌消耗量降低88%，并将准确性提高7%。虽然这些收益涵盖了所有三种支持的模型，但具有代理理解的Gemini 3.7 Flash提供了最佳的整体质量以及质量和成本效益的最佳组合，使其在视频理解测试模型中处于成本帕累托前沿的准确性。使用代理视频理解将Gemini 3.7 Flash置于视频分析的帕累托前沿的精度。与模型以固定帧率摄取媒体流的静态处理不同，代理视频理解使Gemini能够在确定观看内容、速度和通过哪种模式（帧、音频或转录）时发挥积极的、目标导向的作用，只获取所需的时刻和信号。虽然开发人员以前可以通过代理视频理解手动完成此操作，但Gemini可以通过代理循环来实现，调用内部工具来加载视频文件的相关部分，从而显著降低开发开销。代理视频理解改变了开发人员如何在各种要求苛刻的应用程序中处理长篇视频内容。令牌高效的长格式视频分析查看Gemini 3.7 Flash在长格式视频理解基准LongVideoBench上使用和不使用代理视频理解时的表现。请注意令牌的大幅减少和准确性的提高。通过动态FPS进行精确的快速动作分析借助代理视频理解，3.7 Flash能够根据需要以每秒不同的帧数扫描和重新观看视频，从而准确地计算快节奏的动作。使用代理视频理解，Gemini 3.7能够根据视频内容准确回答复杂问题，同时消耗的令牌数量比静态分析少得多。我们的许多早期访问合作伙伴在使用代理视频理解进行测试时都看到了强大的性能。以下是他们要说的：代理视频理解可以通过谷歌AI工作室和Gemini企业代理平台中的Gemini API获得，在Gemini 3.7 Flash、3.6 Flash和3.5 Flash-Lite上发布。它使用标准的Gemini API代币定价，无需额外的功能费。要启用它，只需在API配置中将处理设置为“代理”。阅读我们的开发人员指南，深入了解该功能以及如何开始使用。我们还将代理视频理解的效率和质量提升带给谷歌产品中的数十亿用户。该功能将很快在Gemini应用程序的Flash和Flash Lite型号中向所有用户推出。在接下来的几个月里，代理视频理解也将为YouTube视频观看页面上的“问YouTube”功能提供动力，利用Gemini在视觉效果的基础上提供更高质量的答案。感谢他们对这项工作的贡献：Sergi Caelles、Filip Pavetić、Ahmet Iscen、Suhas Yogin和Agentic Vision团队。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/introducing-agentic-video-in-gemini/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
