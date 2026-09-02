@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-02 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-02</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 84.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Frontier models can recover up to 65% of facts they can't directly recall — just by thinking longer</div>
+      <div class="col-content">When large language models (LLMs) hallucinate, developers typically assume the model lacks the required facts. Engineering teams diagnose the error as missing knowledge. The standard response is to increase model size, expand training data, or build complex retrieval architectures. A new study by researchers at Google Research and Technion demonstrates that the knowledge is often not missing. The model has the information encoded parametrically but fails to surface it during generation. Their experiments show that frontier models like GPT-5 and Gemini-3 encode 95-98% of tested facts. This indicates that in many cases, recall, rather than encoding, is the primary bottleneck for factual accuracy. By understanding how to unlock existing knowledge through inference-time computation, engineering teams can build more reliable applications without necessarily relying on larger models or external databases. To map this gap between storage and retrieval, the researchers propose shifting the evaluation focus from question-level accuracy to fact-level profiling. Instead of simply scoring whether an LLM answers an isolated prompt right or wrong, fact-level profiling tests a single underlying piece of information across multiple conditions, evaluating whether the fact is stored in the model's parameters at all, whether it can be queried from different directions and phrasings, and what computational effort is required to retrieve it. This framework distinguishes between whether a fact is parametrically "encoded" and whether it is "known". A model encodes a fact if it can accurately reproduce it when primed with its original training context. A model knows a fact if it can reliably answer questions about it across varied phrasings and directions. "Encoding and recall failures are indistinguishable under accuracy metrics, yet they imply different limitations and solutions,” the researchers write. “Encoding failures call for pre-training interventions, such as scaling model size or data coverage. Recall failures suggest post-training interventions that often improve how models utilize what they already encode." The paper illustrates this using a sample fact: Oasis played their first gig at the Boardwalk club. Based on how models process this information, the study categorizes knowledge into five distinct profiles: Direct recall: The model encodes the fact and readily accesses it to answer direct questions without extra inference compute. Encoding failure (empty shelves): The model neither encodes nor knows the fact. It cannot complete a Wikipedia-style sentence about Oasis’s early days, nor can it answer questions about the event. This signals a need for more pre-training data or greater model capacity. Recall failure (lost keys): The model has the fact encoded but cannot access it. It can seamlessly complete the original training text about Oasis, but fails to answer "Where did Oasis play their first show?" even when given time to think. Recall with thinking: The fact is encoded, but inaccessible to direct generation. It is only successfully recalled when the model uses inference-time computation, such as Chain-of-Thought, to bridge the gap. The researchers refer to this mechanism as recall facilitation. The model might initially fail to answer the direct question. By generating intermediate thoughts about the band's early history in Manchester, it structurally primes itself to locate and recall the locked answer. Inference without encoding: The model never explicitly encoded the Oasis fact. Instead, it successfully answers the question by making an educated guess or reasoning across other encoded facts it does know. It might deduce the answer by chaining together separate data points, such as "Oasis formed in Manchester," "the Boardwalk was a famous 90s music club there," and "the Boardwalk hosted early gigs by emerging bands.” The researchers evaluated 13 LLMs on over 4 million responses. They used WikiProfile, a benchmark containing 2,150 facts extracted from Wikipedia, testing each fact across formats ranging from exact context completion to multiple-choice verification. For frontier models like GPT-5 and Gemini-3, encoding is nearing saturation. These models successfully encode 95-98% of the tested facts. However, they still fail to directly recall 26-34% of those encoded facts without thinking. Inference-time thinking acts as a vital recovery mechanism. Providing models with extra computational effort successfully retrieves 40-65% of the encoded facts that models initially fail to directly recall. The researchers compare this to the human tip-of-the-tongue state, where deliberate effort, such as mentally retracing context, eventually helps remember the information. Scaling up model size does not automatically resolve this gap. In fact, companies often mistakenly try to solve recall failures by fine-tuning larger internal models—an expensive architectural misstep. "When facts come out wrong, the go-to move is to scale, meaning train a larger model or add more data," Nitay Calderon, Research Scientist at Google, told VentureBeat. "Both are expensive, and if the facts are already encoded, neither helps." For example, the researchers found that scaling the Gemma3 model from 1 billion to 27 billion parameters largely filled the "empty shelves" by decreasing encoding failures from 85% to 23%. But at the same time, the share of recall failures increased, peaking at 40% without thinking. This suggests that scaling mainly solves the storage problem rather than the access problem. As the model memorizes vastly more facts, a larger pool of knowledge becomes trapped in an "encoded but inaccessible" state. The bulk of model errors shifts from missing data to failed recall. "Our findings suggest that recall is tightly coupled to the conditions under which facts were learned, degrading when queries diverge from training-time patterns," the researchers write.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">前沿模型可以恢复高达65%的无法直接回忆的事实——只需思考更长时间</div>
+      <div class="col-content">当大型语言模型（LLM）产生幻觉时，开发人员通常会认为模型缺乏所需的事实。工程团队将错误诊断为知识缺失。标准的响应是增加模型大小、扩展训练数据或构建复杂的检索架构。谷歌研究院和Technion的研究人员的一项新研究表明，知识往往不会缺失。该模型具有参数化编码的信息，但在生成过程中无法将其显示出来。他们的实验表明，GPT-5和双子座-3等前沿模型编码了95-98%的测试事实。这表明，在许多情况下，回忆而不是编码是事实准确性的主要瓶颈。通过了解如何通过推理时间计算来解锁现有知识，工程团队可以构建更可靠的应用程序，而不必依赖于更大的模型或外部数据库。为了映射存储和检索之间的差距，研究人员建议将评估重点从问题级准确性转移到事实级分析。事实级分析不是简单地对LLM回答一个孤立的提示的对错进行评分，而是在多个条件下测试单个基础信息，评估事实是否存储在模型的参数中，是否可以从不同的方向和措辞进行查询，以及检索它所需的计算工作量。该框架区分了事实是否是参数化的“编码”和是否是“已知的”。如果一个模型在使用其原始训练上下文时能够准确地再现事实，那么它就会对事实进行编码。一个模型知道一个事实，如果它能在不同的措辞和方向上可靠地回答有关它的问题。研究人员写道：“在准确性指标下，编码和回忆失败是无法区分的，但它们意味着不同的局限性和解决方案。编码失败需要训练前的干预，如缩放模型大小或数据覆盖率。回忆失败表明训练后的干预通常会改善模型如何利用它们已经编码的内容。”这篇论文用一个示例事实来说明这一点：Oasis在Boardwalk俱乐部首次亮相。根据模型如何处理这些信息，该研究将知识分为五个不同的简档：直接回忆：模型对事实进行编码，并在没有额外推理计算的情况下轻松访问它来回答直接问题。编码失败（空架子）：模型既不编码也不知道事实。它无法完成维基百科式的关于Oasis早期的句子。，它也不能回答有关事件的问题。这表明需要更多的预训练数据或更大的模型容量。召回失败（丢失钥匙）：该模型对事实进行了编码，但无法访问它。它可以无缝地完成关于Oasis的原始培训文本，但即使有时间思考，也无法回答“Oasis在哪里首次演出？”。回想一下：事实是编码的，但无法直接生成。只有当模型使用推理时间计算（如思维链）来弥合差距时，才能成功地回忆起它。研究人员将这种机制称为回忆促进。该模型最初可能无法回答直接问题。通过对乐队在曼彻斯特的早期历史产生中间思考，它在结构上为自己定位和回忆锁定的答案做好了准备。无编码推理：该模型从未明确编码Oasis事实。相反，它通过对它所知道的其他编码事实进行有根据的猜测或推理，成功地回答了这个问题。它可能会通过将单独的数据点链接在一起来推断答案，例如“绿洲在曼彻斯特形成”，“木板路是那里著名的90年代音乐俱乐部”，以及“Boardwalk主持了新兴乐队的早期演出。”研究人员对400多万份回复中的13个LLM进行了评估。他们使用了WikiProfile，这是一个包含从维基百科中提取的2150个事实的基准，测试了从精确上下文完成到多项选择验证的各种格式中的每个事实。对于GPT-5和双子座-3等前沿模型，编码已接近饱和。这些模型成功地对95-98%的测试事实进行了编码。然而，他们仍然无法在不思考的情况下直接回想起26-34%的编码事实。推理时间思维是一种至关重要的恢复机制。为模型提供额外的计算工作，成功地检索了模型最初无法直接回忆的40-65%的编码事实州，在那里，刻意的努力，如精神上追溯背景，最终有助于记住信息。扩大模型尺寸并不能自动解决这一差距。事实上，公司经常错误地试图解决我们通过微调更大的内部模型来回忆失败，这是一个代价高昂的架构失误。谷歌研究科学家Nitay Calderon告诉VentureBeat：“当事实出现错误时，要采取的行动是扩大规模，这意味着训练一个更大的模型或添加更多的数据。”。“两者都很昂贵，如果事实已经编码，两者都没有帮助。”例如，研究人员发现，将Gemma3模型的参数从10亿扩展到270亿，通过将编码失败率从85%降低到23%，很大程度上填补了“空白货架”。但与此同时，召回失败的比例增加了，不假思索地达到了40%的峰值。这表明扩展主要解决存储问题，而不是访问问题。随着模型记忆的事实越来越多，更多的知识池陷入了“编码但无法访问”的状态。大部分模型错误从缺失数据转变为召回失败。研究人员写道：“我们的研究结果表明，回忆与学习事实的条件密切相关，当查询偏离训练时间模式时，回忆会降低。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/orchestration/frontier-models-can-recover-up-to-65-of-facts-they-cant-directly-recall-just-by-thinking-longer" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
