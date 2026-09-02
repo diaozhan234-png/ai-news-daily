@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-02 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-02</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Claude Fable 5.1 and Claude Mythos 5.1</div>
+      <div class="col-content">“In internal benchmarks, Claude Fable 5.1 solves more of our coding problems than Fable 5 or Opus 5, and achieves state of the art on trading intuition. While prior models became hard to follow the longer they worked, Fable 5.1 remains readable over long, multi-step tasks.” “We’re moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we’d kept on Opus, starting with code review.” “A particular piece of code had an extremely rare crash, about one in a million runs, that nobody on our team had explained in four to five years. Every model I tried, including Fable 5, missed it. Claude Fable 5.1 was the first to find it. It disassembled an external vendor library, matched it against the core dump, and traced the crash to a bug in that library. The time it would have taken to conduct that analysis is hard to justify.” “Claude Fable 5.1 built a complex prototype in about three days. It did initial research across all of our services code and documentation to produce a novel and extensible design. It then ran for hours unattended, with strong verification loops, to implement the entire prototype. I would wake up in the morning to the next phase finished, with a full visual walkthrough of what it built and clear evidence of its success.” “It’s friendly Fable. Fable-level intelligence, Opus-level price, Sonnet-speed. In our tests it was about twice as fast as Opus 5 and used half as many tokens, so for anyone used to using Opus as their daily driver it’s an obvious upgrade.” “On our research suite, Claude Fable 5.1 set new best scores. On one task it came up with a novel solution along a completely different axis than we’d seen from other models or from human researchers in the past, which took its results well above the previous plateau. It's better at creative problem solving and getting that flash of insight you need to solve a difficult problem.” “As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.” “We asked Claude Fable 5.1 to review a clinical research project for Rakuten Medical that three other frontier models had signed off on. It found a gap none of them had seen and insisted on testing it further. It then proposed a completely new hypothesis, turning a dataset we had written off into a new research direction in one afternoon. It’s the first time a frontier model like Claude has empowered us to explore new research in this way.” “Claude Fable 5.1 is very smart. On our 30-day simulated run-a-business eval, where the model gets full access to simulated Square tools, customers, employees, and vendors, it was far more efficient per token than Opus 5. We plan to use it to work through our most complex scenarios, the kind that used to take days of whiteboarding, so our engineering teams can keep moving fast.” “For anything research, greenfield or long-horizon, I would absolutely use Claude Fable 5.1 as the orchestrator. One unattended 38-hour run on a machine learning problem diagnosed a prior result as a label artifact, made the correction, kicked off six parallel experiments that ran overnight, and returned with a result and next steps. Given an open-ended prompt to find the highest-leverage problem nobody owned, it surfaced an unowned alert tied to a production outage, pulled the logs and prescribed the fix.” “The standout in Claude Fable 5.1 is the writing: more understandable, more meaningful, and it follows our writing guidance better. In blind tests against Fable 5, I preferred its writing and output. And in Canva Code it built a rhythm game with real music and on-beat gameplay matched to the level it generated, something no other model we tested delivered.” “On our PowerPoint eval, Claude Fable 5.1 produced the best decks of any model we’ve tested, both in slide craft and in fully answering our research topic. That same completeness showed up in our Citations eval, where it had the best fact recall over financial documents. And on complex, multi-part questions, it’s the first model we’ve seen answer every part.” “We had a change that touched more than eight services across three codebases. Claude Fable 5.1 mapped the whole workflow end to end, in extremely fine detail, from the incoming service call down to the individual function and the database tables and rows, and it was accurate all the way down. We appreciated the opportunity to test the model and provide feedback, helping us prepare for a new frontier where we can increasingly rely on these tools to take on bolder initiatives.” “Across our evaluation sets, our judges preferred Claude Fable 5.1’s answers roughly 2-to-1 over Fable 5 on everyday knowledge questions, high-intent research, and drafting and artifact work, all with improved response grounding over Fable. These results have made Fable 5.1 our go-to recommendation wherever Fable 5 was previously the choice.” “On the hardest problems we work on, Claude Fable 5.1 separates strongly from any other model we’ve tried. On a grand challenge-tier problem we‘ve used as a testbed for 18 months, it actually produced material progress. Rather than being trapped in stamp collecting, it made clear white-space connections I have yet to see elsewhere. It also optimized a compute kernel that Fable 5 had tapped out on by about 35%.” “On our hardest browser-agent benchmark, Claude Fable 5.1 completed 82% of tasks in about 10 minutes each, against 74% for Opus 5 and 57% for Fable 5, while using fewer tokens than either. It feels stronger than Fable 5 in every dimension we test.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">克劳德寓言5.1和克劳德神话5.1</div>
+      <div class="col-content">“在内部基准测试中，Claude Fable 5.1比Fable 5或Opus 5解决了更多的编码问题，并在交易直觉方面达到了最先进的水平。虽然之前的模型工作时间越长，就越难理解，但Fable 5.1在长时间、多步骤的任务中仍然可读。”我们团队在四到五年内就解释过了。我尝试过的每一个型号，包括Fable 5，都错过了。Claude Fable 5.1是第一个找到它的。它拆解了一个外部供应商库，将其与核心转储进行了匹配，并将崩溃追溯到该库中的一个错误。进行分析所需的时间很难证明是合理的。”“Claude Fable 5.1在大约三天内构建了一个复杂的原型。它对我们所有的服务代码和文档进行了初步研究，以产生一个新颖且可扩展的设计。然后，它在无人值守的情况下运行了几个小时，具有强大的验证循环，以实现整个原型。我会在早上醒来，完成下一阶段的工作，对它构建的内容进行完整的视觉演练，并清楚地证明它的成功。”“这是友好的Fable。Fable级智能，Opus级价格，Sonnet速度。在我们的测试中，它的速度大约是Opus 5的两倍，使用的令牌数量是Opus的一半，所以对于习惯于使用Opus作为日常驱动程序的人来说，这是一个明显的升级。”“在我们的研究套件中，Claude寓言5.1创造了新的最佳成绩。在一项任务中，它提出了一种新的解决方案，其轴线与我们过去从其他模型或人类研究人员那里看到的完全不同，其结果远高于之前的平稳期。它更善于创造性地解决问题，并获得解决难题所需的洞察力。“作为我们对人工智能模型持续评估的一部分，Claude Fable 5.1在我们的测试中取得了令人印象深刻的结果。使用Claude Code，它正确地识别了我们在所有努力水平上测试的每个失败构建的根本原因。它也比早期的Anthropic模型更有效地进行了沟通，更新更简洁、更容易遵循。”“我们让Claude Fable5.1审查了其他三个前沿模型签署的乐天医疗的临床研究项目。它发现了一个他们都没有看到的差距，并坚持进一步测试它。然后它提出了一个全新的假设，在一个下午将我们注销的数据集变成了一个新的研究方向。这是像Claude这样的前沿模型第一次为乐天医疗提供支持。我们将以这种方式探索新的研究。”“Claude Fable 5.1非常聪明。在我们为期30天的模拟企业运行评估中，该模型可以完全访问模拟的Square工具、客户、员工和供应商，每个代币的效率远远高于Opus 5。我们计划使用它来处理我们最复杂的场景，这种场景过去需要花费数天的白板时间，这样我们的工程团队就可以继续快速行动。“对于任何研究，无论是绿地还是远景，我绝对会使用克劳德·法贝尔5.1作为编排者。在一个无人值守的机器学习问题上进行了38小时的运行，将之前的结果诊断为标签伪影，进行了校正，启动了六个并行实验，这些实验在一夜之间运行，并返回了结果和下一步。给定一个开放式提示，以找到无人拥有的最高杠杆问题，它显示了一个与生产中断相关的无人拥有的警报，提取了日志并规定了修复方法。“Claude Fable 5.1的突出之处在于写作：更容易理解，更有意义，并且更好地遵循我们的写作指导。在对Fable 5的盲测中，我更喜欢它的写作和输出。在Canva Code中，它构建了一个节奏游戏，真实的音乐和节奏游戏与它所生成的水平相匹配，这是我们测试过的其他模型所没有提供的。”部分”“我们进行了一项更改，涉及三个代码库中的八个以上的服务。Claude Fable 5.1以极其精细的细节将整个工作流程进行了端到端的映射，从传入的服务调用到单个函数和数据库表和行，并且一直都是准确的。我们很高兴有机会测试该模型并提供反馈，帮助我们为新的前沿做好准备，在那里我们可以越来越依赖这些工具来采取更大胆的举措。“在我们的评估数据集中，我们的评委在日常知识问题、高意图研究、起草和人工制品工作方面更喜欢克劳德·法贝尔5.1的答案，大约是2比1，而不是法贝尔5的答案，所有这些都比法贝尔有更好的反应基础。这些结果使法贝尔5.1成为我们之前选择法贝尔5时的首选。”“在我们研究的最难的问题上，克劳德·法比尔5.1与我们尝试过的任何其他模型都截然不同。在我们用作测试台18个月的大挑战级问题上，它实际上取得了实质性的进展。它没有被困在集邮中，而是建立了我在其他地方还没有看到的明确的空白连接。它还优化了法贝尔5开发的计算内核。约35%”“在我们最难的浏览器代理基准测试中，Claude Fable 5.1在大约10分钟内完成了82%的任务，而Opus 5为74%，Fable 5为57%，同时使用的令牌比两者都少。在我们测试的每个维度上，它都比Fable 5强。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.anthropic.com/claude-fable-and-mythos-5-1" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
