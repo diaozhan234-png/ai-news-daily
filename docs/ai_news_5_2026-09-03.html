@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-03 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-03</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 VentureBeat</span>
+      <span class="badge">🔥 热度 83.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Google’s Gemini 3.8 Flash is built for agents, while its Cyber twin hunts vulnerabilities</div>
+      <div class="col-content">Google keeps cranking out Flash models: the company on Wednesday announced two versions of a new 3.8 Flash . The variants include a standard Flash, a “workhorse” model for agentic tasks, software development, and multi-step reasoning, and Flash Cyber optimized for vulnerability detection and mitigation. Google CEO Sundar Pichai said in an X post that 3.8 Flash delivers “significant leaps” from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning. For instance, it outperformed many large frontier models on the DeepSWE coding benchmark, at far lower cost. Meanwhile, Flash Cyber is the company’s “most capable” cybersecurity model, Pichai said; it also matches frontier-level performance when it comes to discovering vulnerabilities and patching them at scale. The model achieved 86.2% on the CyberGym cybersecurity benchmark and 47.2% on CWE-Bench, which evaluates AI patching abilities. In an internal Google benchmark, the model achieved a more than 70% success rate discovering vulnerabilities across 20 programming languages, Pichai said. 3.8 is Google’s third Flash release in six weeks and comes quickly on the heels of version 3.7. 3.8 Flash is available now in Gemini Enterprise; devs can try it out in the Gemini API via Google AI Studio, Google Antigravity, Android Studio, or generate UIs in Stitch. It is priced at $0.75 per million input tokens and $3.75 per million output tokens — the same introductory pricing as Gemini 3.7 Flash — and users can customize and adjust model effort levels based on their needs around quality, cost, and latency. For instance, when compute efficiency is a priority, they can adjust to lower token overhead, or simply continue working with 3.7 Flash, which is “fully supported for efficiency-first workloads,” Google senior product director Tulsee Doshi and Gemini security lead Raluca Ada Popa wrote in a blog post . “3.8 Flash works harder,” exhibiting “greater diligence” with complex tasks like executing extra reasoning steps, although at times it may use more tokens to maximize performance, Doshi and Popa note. The model has a 1M-token input window and a 64K-token output limit, and can ingest text as well as images, audio, video, and PDF files. 3.8 Flash was evaluated across numerous benchmarks testing coding, multimodal capabilities, computer use, long-context and knowledge work, and scientific reasoning. Google says it also does well in specialized knowledge domains requiring more in-depth analysis and reporting. For instance, the model outperformed its predecessor and other frontier models on benchmarks like Vals Finance Agent V2 for finance, and Harvey's Legal Agent Benchmark for law; it also scored 54.9% on Humanity’s Last Exam (HLE)-Verified, reflecting its ability to take on multi-step reasoning tasks across subjects like math, science, and humanities. In one example shared by Google, Gemini 3.8 Flash built a game with a simple prompt using looping techniques in Google’s Antigravity platform. The game uses puzzles, storytelling that changes based on the environment, and images and textures from Nano Banana to create a 3D experience (in this case a wizard navigating a castle). In other instances, the model created a fully-functional DOS version of Google Maps featuring interactive locations, directions, and street views; a 3D visualizer that automatically decomposed devices into layers for inspection with a slider capability; and a topographic map of famous geographical sites based on real datasets from the U.S. Geological Survey, complete with real-time cross-sections, 2D projections, and scientific explanations. According to Arena.ai, 3.8 Flash landed at No. 14 in Agent Arena , ranking above DeepSeek-V4-Pro, and showed a significant jump over Gemini 3.7 Flash (which sits all the way down at No. 32). It debuted at No. 7 in Text Arena, ahead of Claude Opus 5 and Gemini 3.7 Flash. It improved over 3.7 Flash in several areas: multi-turn requests, writing, literature, and language, longer queries, hard prompts, coding, instruction following, software and IT services, and business, management and financial ops. Flash Cyber is initially being rolled out to “trusted defenders” through Google’s Fairwind Program , which prioritizes government authorities, critical-infrastructure operators, and other partners looking for advanced cyber defense capabilities. Organizations can apply for access. Google says the model version has undergone “rigorous training” in the cybersecurity domain and represents a “significant leap in prompt injection robustness.” It is particularly adept at autonomous vulnerability discovery — at least, based on internal Gemini benchmarks — and automated patching. It is also very good at coding, Popa said in a video. The goal was to equip defenders with expert-level capabilities to give them a leg up over threat actors (whether malicious, fellow AI agents, or human hackers). “We have invested in vulnerability fixing from the start, and prioritized it over offensive capabilities like exploitation,” Doshi and Popa explain. The model ships a more permissive set of mitigations for cybersecurity safeguards — which is why, for now, it is only being shared with limited partners — and safeguards against misuse in cyber offense and areas like chemical, biological, radiological, and nuclear (CBRN). Google is already using 3.8 Flash Cyber to secure its own code; it produced 2.6 times more correct patches in Chrome vulnerabilities versus much larger commercial models. Wiz — which Google acquired earlier this year at a historic $32 billion — reported that 3.8 Flash Cyber had 7.5% to 9.7% higher recall of real-world vulnerabilities on an internal penetration testing benchmark at 2.3 to 5.2 times lower cost than leading frontier models. Similarly, Google’s Cloud Vulnerability Research found a critical foundational vulnerability in less than 2 hours with 3.8 Flash Cyber.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">谷歌的Gemini 3.8 Flash是为代理构建的，而其Cyber twin则寻找漏洞</div>
+      <div class="col-content">谷歌不断推出Flash模型：该公司周三宣布了两个版本的3.8 Flash。这些变体包括一个标准的Flash，一个用于代理任务、软件开发和多步推理的“主力”模型，以及为漏洞检测和缓解而优化的Flash Cyber。谷歌首席执行官桑达尔·皮查伊在一篇X帖子中表示，3.8 Flash在软件工程、代理任务和多步推理方面比3.7 Flash实现了“重大飞跃”。例如，它在DeepSWE编码基准上的表现优于许多大型前沿模型，成本要低得多。与此同时，Pichai表示，Flash Cyber是该公司“最有能力”的网络安全模式；在发现漏洞和大规模修补漏洞方面，它也与前沿级性能相匹配。该模型在CyberGym网络安全基准测试中达到了86.2%，在评估AI补丁能力的CWE Bench上达到了47.2%。Pichai说，在谷歌内部基准测试中，该模型在20种编程语言中发现漏洞的成功率超过70%。3.8是谷歌在六周内发布的第三个Flash版本，紧随3.7之后。3.8 Gemini Enterprise现已提供Flash；开发者可以通过Google AI Studio、Google Antigravity、Android Studio在Gemini API中试用，或者在Stitch中生成UI。它的定价为每百万输入令牌0.75美元，每百万输出令牌3.75美元，与Gemini 3.7 Flash的入门定价相同，用户可以根据质量、成本和延迟方面的需求定制和调整模型工作水平。例如，当计算效率是一个优先事项时，他们可以调整以降低令牌开销，或者简单地继续使用3.7 Flash，这“完全支持效率优先的工作负载”，谷歌高级产品总监Tulsee Doshi和Gemini安全负责人Raluca Ada Popa在一篇博客文章中写道。Doshi和Popa指出，“3.8 Flash工作更努力”，在执行额外推理步骤等复杂任务时表现出“更勤奋”，尽管有时它可能会使用更多令牌来最大限度地提高性能。该模型有一个1M的令牌输入窗口和64K的令牌输出限制，可以摄取文本以及图像、音频、视频和PDF文件。3.8 Flash在众多基准测试中进行了评估，测试了编码、多模式能力、计算机使用、长期背景和知识工作以及科学推理。谷歌表示，它在需要更深入分析和报告的专业知识领域也做得很好。例如，该模型在金融领域的Vals Finance Agent V2和法律领域的Harvey’s Legal Agent Benchmark等基准上的表现优于其前身和其他前沿模型；它在人类最后一次考试（HLE）-验证中也获得了54.9%的分数，这反映了它在数学、科学和人文等学科中承担多步骤推理任务的能力。在谷歌分享的一个例子中，Gemini 3.8 Flash在谷歌的Antigravity平台上使用循环技术构建了一个带有简单提示的游戏。游戏使用谜题、根据环境变化的故事讲述以及Nano Banana的图像和纹理来创建3D体验（在这种情况下是一个向导在城堡中导航）。在其他情况下，该模型创建了一个功能齐全的DOS版本的谷歌地图，具有交互式位置、方向和街景；3D可视化器，其利用滑块功能自动将设备分解为层以供检查；以及基于美国地质调查局真实数据集的著名地理遗址地形图，包括实时横截面、二维投影和科学解释。根据Arena.ai的数据，3.8 Flash在Agent Arena中排名第14位，高于DeepSeek-V4-Pro，并且明显超过了Gemini 3.7 Flash（一直排在第32位）。它在Text Arena中排名第7，领先于Claude Opus 5和Gemini 3.7 Flash。它在多个方面改进了3.7 Flash：多轮请求、写作、文献和语言、更长的查询、硬提示、编码、指令遵循、软件和It服务，以及业务、管理和财务运营。Flash Cyber最初是通过谷歌的Fairwind计划向“值得信赖的防御者”推出的，该计划优先考虑政府当局、关键基础设施运营商和其他寻求先进网络防御能力的合作伙伴。组织可以申请访问。谷歌表示，该模型版本在网络安全领域经过了“严格的训练”，代表了“快速注入鲁棒性的重大飞跃”。它特别擅长自主漏洞发现——至少是基于内部Gemini基准——和自动补丁。波帕在一段视频中说：“它也很擅长编码。”。目标是为防御者提供专家级的能力，让他们在威胁行为者（无论是恶意的、人工智能代理还是人类黑客）面前占上风。Doshi和Popa解释说：“我们从一开始就投资于漏洞修复，并将其置于攻击性能力（如利用漏洞）之上。”。该模型为网络安全保障提供了一套更宽松的缓解措施——这就是为什么目前它只与有限的合作伙伴共享——以及防止在网络犯罪和化学、生物、放射性和核（CBRN）等领域滥用的保障措施。谷歌已经在使用3.8 Flash Cyber来保护自己的代码；与更大的商业模型相比，它在Chrome漏洞中生成的正确补丁是后者的2.6倍。Wiz——谷歌今年早些时候以320亿美元的历史性价格收购了它——报告称，在内部渗透测试基准上，3.8 Flash Cyber对真实世界漏洞的召回率高出7.5%至9.7%，成本比领先的前沿模型低2.3至5.2倍。同样，谷歌的云漏洞研究在不到2小时的时间里发现了3.8 Flash Cyber的关键基础漏洞。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://venturebeat.com/security/googles-gemini-3-8-flash-is-built-for-agents-while-its-cyber-twin-hunts-vulnerabilities" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：VentureBeat · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
