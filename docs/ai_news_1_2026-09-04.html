@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-04 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-04</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 90.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Introducing WeatherNext 3, our most advanced and accurate global weather AI model</div>
+      <div class="col-content">Our flagship AI weather forecasting model now includes real-time satellite data, hourly refreshes, higher resolution, precise precipitation forecasting, and clean energy variables. It’s now integrated across Search, Gemini, Maps, Google Maps Platform, and Cloud. Your browser does not support the audio element. Google has launched WeatherNext 3, an advanced AI model that provides more accurate, high-resolution weather forecasts by using real-time satellite data instead of traditional physics simulations. This update delivers hourly, localized predictions that are five times sharper than previous versions, offering significant improvements for agriculture, renewable energy, and daily planning. You can now access these enhanced forecasts directly through Google Search, Maps, and Gemini, or integrate the data into your own projects via Google Cloud. Google just released WeatherNext 3, an AI model that makes weather forecasts much faster and more accurate. It uses live satellite data to update every hour, giving you a much sharper picture of what’s happening outside. This helps people plan better for things like storms or sunny days. It’s now powering the weather info you see in Google Search and Maps. Every day, the weather influences billions of decisions. Some are as simple as grabbing an umbrella before heading out the door, but others are far more consequential. Wind, rain, and extreme weather events, like heatwaves and droughts, have cascading impacts across agriculture, global supply chains, clean energy production, and national economies. In recent years, AI has revolutionized weather forecasting, using historical records to make faster and more accurate predictions than traditional methods. Yet predicting highly local and rapidly changing weather has remained a challenge. Previous models often lacked sufficient spatial resolution, and struggled to incorporate real-time weather data from sources like satellites. Today, Google DeepMind and Google Research are introducing WeatherNext 3 , the most advanced and accurate global weather model to date, according to independent live evaluations by Brightband. Our model learns directly from real-time observations, enabling it to provide timely and more localized predictions for the weather events that impact people the most. By using raw satellite data to produce a forecast every hour in high resolution, our model makes reliable forecasts accessible across Google products worldwide. A forecast's utility often comes down to detail and how finely it resolves both time and space. WeatherNext 3 generates hourly forecasts at multiple spatial resolutions, maintaining physical consistency from broad global wind patterns all the way down to local topography. With WeatherNext 3, we can visualize key surface variables — like temperature and moisture — at a 5-kilometer resolution, other surface variables at 10 kilometers, and atmospheric variables, like wind speed, at 25 kilometers. Overall, this provides a global weather picture roughly five times sharper than our previous model, WeatherNext 2, which produced forecasts on a 25-kilometer grid in 6-hour increments. Figure 1: The end-to-end WeatherNext 3 system architecture. The model ingests live 1-hour geostationary satellite mosaics alongside traditional historical analysis to feed a single, flexible Functional Generative Network (FGN) mesh transformer. It outputs dense gridded fields, discrete cyclone tracks, and predicts station-level sparse coordinates natively. Figure 2: Comparison of 2-meter temperature forecasts over the UK. WeatherNext 2 (left) at 25-kilometer (0.25°) resolution vs. WeatherNext 3 (right) at a native 5-kilometer (0.05°) resolution. WeatherNext 3 resolves the intricate local topography, preventing the pixelated, over-smoothed thermal representations seen in older models. WeatherNext 3's biggest leap forward is what it learns from. Most AI weather models, including WeatherNext 2, are trained on data from numerical weather prediction (NWP) models. Although useful, NWP models are complex, supercomputer-driven physics simulations that carry a six-hour data lag. This lag can lead to biases for fast-changing variables like rain or surface temperature. By ingesting a mosaic of live, global geostationary satellite data, our new model gains a rich, continuously updating view of the atmosphere. This allows the model to generate a new forecast every hour, each one grounded in the most recent satellite observations available, at up to 5-kilometer resolution. This is important because critical weather develops fast. When storms, fronts, or precipitation systems materialize suddenly, our rapid update cycle and higher resolution provides earlier, more detailed insights needed to help drive an effective response. Some variables, like temperature and humidity, can fluctuate dramatically over just a few kilometers, which is particularly relevant for communities near coastlines, valleys, or mountain ranges. Traditional models struggle here because they train on representations of the atmosphere that lack detail and miss extreme local variations. To address this, WeatherNext 3 instead trains directly on sparse weather station observation data. This allows us to make global forecasts on a 5-kilometer grid that account for regional details like topography. This breakthrough is particularly vital for regions across Latin America, Africa, and Asia-Pacific that have historically been underserved by high-resolution forecasting due to the immense supercomputing costs of traditional regional models. It brings localized, high-fidelity forecasting to billions of people and local businesses in these areas. Beyond improved resolution and forecast frequency, our model introduces predictions specifically engineered for renewable energy production.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">介绍我们最先进、最准确的全球天气人工智能模型WeatherNext 3</div>
+      <div class="col-content">我们的旗舰AI天气预报模型现在包括实时卫星数据、每小时刷新、更高分辨率、精确的降水预报和清洁能源变量。它现在集成在搜索、Gemini、地图、谷歌地图平台和云上。您的浏览器不支持音频元素。谷歌推出了WeatherNext 3，这是一种先进的人工智能模型，通过使用实时卫星数据而不是传统的物理模拟来提供更准确、更高分辨率的天气预报。此更新提供的每小时本地化预测比以前的版本精确五倍，为农业、可再生能源和日常规划提供了重大改进。现在，您可以直接通过Google搜索、地图和Gemini访问这些增强的预测，也可以通过Google Cloud将数据集成到您自己的项目中。谷歌刚刚发布了WeatherNext 3，这是一个人工智能模型，可以使天气预报更快、更准确。它使用实时卫星数据每小时更新一次，让你更清晰地了解外面发生的事情。这有助于人们更好地计划暴风雨或晴天等情况。它现在为你在谷歌搜索和地图中看到的天气信息提供动力。每天，天气都会影响数十亿人的决定。有些就像出门前拿把伞一样简单，但另一些则要重要得多。风、雨和极端天气事件，如热浪和干旱，对农业、全球供应链、清洁能源生产和国民经济产生了连锁反应。近年来，人工智能彻底改变了天气预报，使用历史记录比传统方法做出更快、更准确的预测。然而，预测高度本地化和快速变化的天气仍然是一个挑战。以前的模型往往缺乏足够的空间分辨率，并且难以整合来自卫星等来源的实时天气数据。根据Brightband的独立实时评估，今天，谷歌DeepMind和谷歌研究院将推出迄今为止最先进、最准确的全球天气模型WeatherNext 3。我们的模型直接从实时观测中学习，使其能够为影响人们最大的天气事件提供及时和更本地化的预测。通过使用原始卫星数据以高分辨率每小时生成一次预报，我们的模型使全球谷歌产品都能获得可靠的预报。预测的实用性通常归结为细节以及它对时间和空间的精细解析。WeatherNext 3以多种空间分辨率生成每小时的预报，保持从广泛的全球风型到局部地形的物理一致性。借助WeatherNext 3，我们可以以5公里的分辨率可视化关键的地表变量，如温度和湿度，以10公里的分辨率显示其他地表变量，以25公里的分辨率查看大气变量，如风速。总体而言，这提供了一幅全球天气图，比我们之前的模型WeatherNext 2清晰大约五倍，后者以6小时为增量在25公里的网格上进行预测。图1：端到端的WeatherNext 3系统架构。该模型将实时1小时的地球同步卫星拼接与传统的历史分析相结合，为单个灵活的功能生成网络（FGN）网格变压器供电。它输出密集的网格场、离散的气旋轨迹，并原生预测站级稀疏坐标。图2：英国2米温度预报的比较。WeatherNext 2（左）分辨率为25公里（0.25°），与WeatherNext 3（右）分辨率为5公里（0.05°）。WeatherNext 3解决了复杂的局部地形问题，防止了旧模型中出现的像素化、过度平滑的热表示。WeatherNext 3最大的飞跃是它从中学到了什么。大多数人工智能天气模型，包括WeatherNext 2，都是基于数值天气预报（NWP）模型的数据进行训练的。虽然有用，但NWP模型是复杂的、由超级计算机驱动的物理模拟，数据滞后6小时。这种滞后可能会导致对降雨或地表温度等快速变化的变量产生偏差。通过摄取实时的全球地球静止卫星数据，我们的新模型获得了丰富的、不断更新的大气层视图。这使得该模型能够每小时生成一个新的预报，每个预报都基于最新的卫星观测数据，分辨率高达5公里。这很重要，因为关键天气发展迅速。当风暴、锋面或降水系统突然出现时，我们的快速更新周期和更高的分辨率提供了帮助推动有效应对所需的更早、更详细的见解。一些变量，如温度和湿度，可以在几公里内剧烈波动，这对海岸线、山谷或山脉附近的社区尤其重要。传统模型在这方面很困难，因为它们训练的是缺乏细节的大气表示，错过了极端的局部变化。为了解决这个问题，WeatherNext 3直接在稀疏的气象站观测数据上进行训练。这使我们能够在5公里的网格上进行全球预测，该网格考虑了地形等区域细节。这一突破对于拉丁美洲、非洲和亚太地区尤为重要，由于传统区域模型的巨大超级计算成本，这些地区历来没有得到高分辨率预测的充分服务。它为这些地区的数十亿人和当地企业带来了本地化、高保真的预测。除了提高分辨率和预测频率外，我们的模型还引入了专门为可再生能源生产设计的预测。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
