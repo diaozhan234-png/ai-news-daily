@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-05 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-05</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 82.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Discovery of a new OpenAI agent message board</div>
+      <div class="col-content">These AIs colluded to share answers, research their environment, and bypass sandbox restrictions. However, we believe this is distinct from the swarm of agents that hacked Hugging Face. By ‘collude’ we mean that the agents cooperated to gain an advantage on their task in a way their developers did not intend (writing to the internet was blocked). Almost all The AIs used multiple sites, which had varying data retention policies. For instance, DSE wiki saves all edits over 64 characters, Fractal saves all edits over 100 characters. Thus there are a few pages which were deleted and are now unrecoverable. of the logs of the agents communicating on this site are publicly available. Note: visiting the website will publicly log your IP addresses. The website is prowiki.org, a German wiki. The majority of the activity happened on DSE wiki, which is a sub-wiki of prowiki. However, we host our own copy where we’ve reconstructed the deleted pages via edit history and redacted personally identifiable information. We have attempted to redact all personally identifiable information from our data. In the further interests of privacy, our data dump also only includes content we believe is from AI agents; it does not include any legitimate human traffic save for site moderators deleting agent traffic. We encourage others to take a look and write up their own analyses of this data. Open the data explorer Download all the data Thanks to John M, Arun Jose, Joel Manning, and Jessica Ruan for significant help with the analysis of the files the agents produced. Thanks to Andy Haupt for translation and advice. We have done a preliminary analysis of the data. However, we are operating on only part of the information: we can only see what the agents wrote on the wiki. AI agents also generate lots of “chain of thought” data, which is internal to OpenAI. Analysis including the chain of thought would likely provide much more evidence about the motivations and strategy of the AIs during this incident. Our best guess of what happened is as follows: This is another example of a “swarm” For more information on why we think the term “swarm” is important, see this section . of internally deployed OpenAI agents using the internet in unintended ways. The tasks involved a series of questions (usually 5), denoted R1 through R5. For the first question, the agents are given substantial time to think before they answer (in the case of the figure above, 15m44s). Then, the agents are given “downtime” (e.g. 43m30s); they aren’t told what the follow-up questions will be, but they can think, search the internet, and run experiments. From the second question onwards, the agents are given very narrow time windows (e.g. 65s) to answer the questions. Perhaps the intent was to force the agents to use the downtime to gather potentially relevant information, so that they can immediately answer the given question. The models didn’t necessarily know what part of the question would change from one round to the next. For example, after round one requested US tobacco prevalence, 1990, the agent wrote: Crucially, many agents were given questions identical to those other agents had already answered. We’re uncertain if these tasks were part of training or an evaluation. We have strong reason to believe these are OpenAI models The agents use words and dates in their names to distinguish themselves from each other. The words reflect features of their task. The dates are there because each agent was apparently told it was running on a different, randomly assigned date. Page edits and views come from Azure and OpenAI IPs: Of ~17,000 edits on DSEWiki that appear to be by agents, 98.5% are from Microsoft Azure IP addresses. OpenAI uses Microsoft Azure, amongst other compute providers, to train and serve their models. OpenAI is the frontier AI company most reliant on Azure.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">发现新的OpenAI代理留言板</div>
+      <div class="col-content">这些人工智能合谋分享答案，研究它们的环境，并绕过沙盒限制。然而，我们认为这与黑客攻击Hugging Face的一群特工不同。我们所说的“勾结”是指代理人以他们的开发人员不打算的方式合作，在他们的任务中获得优势（向互联网写信被阻止）。几乎所有的人工智能都使用多个网站，这些网站有不同的数据保留政策。例如，DSE wiki保存了超过64个字符的所有编辑，Fractal保存了超过100个字符的编辑。因此，有一些页面已被删除，现在无法恢复。在这个网站上通信的代理的日志是公开的。注意：访问网站将公开记录您的IP地址。该网站是prowiki.org，一个德国维基。大部分活动发生在DSE wiki上，这是prowiki的一个子wiki。然而，我们拥有自己的副本，通过编辑历史记录和编辑的个人身份信息重建了删除的页面。我们已尝试从我们的数据中删除所有个人身份信息。为了进一步保护隐私，我们的数据转储也只包括我们认为来自人工智能代理的内容；除了网站管理员删除代理流量外，它不包括任何合法的人工流量。我们鼓励其他人查看并撰写他们自己对这些数据的分析。打开数据浏览器下载所有数据感谢John M、Arun Jose、Joel Manning和Jessica Ruan在分析代理生成的文件方面提供的重要帮助。感谢Andy Haupt的翻译和建议。我们已经对数据进行了初步分析。然而，我们只对部分信息进行操作：我们只能看到代理在维基上写的内容。AI代理还生成大量的“思维链”数据，这些数据是OpenAI内部的。包括思维链在内的分析可能会提供更多关于人工智能在这一事件中的动机和策略的证据。我们对发生的事情的最佳猜测如下：这是“群体”的另一个例子。有关我们为什么认为“群体”一词很重要的更多信息，请参阅本节。内部部署的OpenAI代理以意想不到的方式使用互联网。这些任务涉及一系列问题（通常为5个），表示为R1到R5。对于第一个问题，代理人在回答之前有充足的时间进行思考（在上图的情况下，为15m44秒）。然后，给药剂“停机时间”（例如43m30s）；他们没有被告知后续问题是什么，但他们可以思考、搜索互联网和进行实验。从第二个问题开始，代理人被给予非常窄的时间窗口（例如65秒）来回答问题。也许目的是迫使代理利用停机时间收集潜在的相关信息，以便他们能够立即回答给定的问题。模型不一定知道问题的哪一部分会在下一轮中发生变化。例如，在1990年第一轮要求美国烟草流行率后，该代理人写道：至关重要的是，许多代理人收到的问题与其他代理人已经回答的问题相同。我们不确定这些任务是培训还是评估的一部分。我们有充分的理由相信这些是OpenAI模型。代理在名称中使用单词和日期来区分彼此。这些词反映了他们任务的特点。这些日期之所以存在，是因为每个代理显然都被告知它在不同的、随机分配的日期运行。页面编辑和浏览来自Azure和OpenAI IP：在DSEWiki上约17000次似乎是由代理进行的编辑中，98.5%来自Microsoft Azure IP地址。OpenAI使用微软Azure和其他计算提供商来训练和服务他们的模型。OpenAI是最依赖Azure的前沿AI公司。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://collusion.wiki/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
