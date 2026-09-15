@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-15 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-15</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 82.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Pion, an agent designed to run any company autonomously</div>
+      <div class="col-content">Today Andon is releasing Pion , an agent designed to run any company fully autonomously. Pion grew out of a question we have been studying for almost two years: when will AI systems become capable of autonomously acquiring resources in the real world? What happens after? We first tried to answer this question through simulations like Vending-Bench. We found that simulations, while useful, don’t give you the full picture of how models behave in the real world. To address that gap, we next started deploying agents to run real businesses autonomously: first vending machines, then a store, a cafe, and more. Pion is the platform we built to run all of these businesses. Today, we are opening it up so that many more people can experiment with autonomous businesses. If you want to run one, join the waitlist . We want to understand what models can already do, where they still fail, and what happens as their capabilities continue to improve. Vending-Bench measures how well LLMs can run a vending machine business over a year in simulated time (tens of thousands of steps). When we started building Vending-Bench in late 2024, all models struggled to string together multiple actions without getting stuck in loops, and no model showed any signs of long-term planning. The best model at the time, Claude Sonnet 3.5, famously decided to call the FBI because it thought its bank account was being hacked. The pace of progress on Vending-Bench has been very fast. Claude Opus 4 was released in May 2025 and was the first model to beat our human baseline. However, unlike most benchmarks, Vending-Bench doesn’t have an upper limit and new model releases have continued to increase the top score, without ever plateauing. Many people on social media get excited about seeing the latest model getting a great score on Vending-Bench. Internally at Andon Labs, our reaction is more accurately described by the Swedish saying “skräckblandad förtjusning” (a mixture of horror and fascination). A little-known fact about Vending-Bench is that it was created during a time when Andon Labs exclusively created dangerous capabilities evaluations. For example, we evaluated whether AIs could remove their own safety guardrails, create mass-phishing attempts, and other things that we considered troubling. The thing we considered the most troubling was whether AIs could autonomously acquire resources by running businesses. Autonomous businesses, when controlled by a human and run by an aligned model, aren’t bad. They’d make goods and services radically cheaper, and come up with new ones we can’t yet imagine. But a misaligned AI could run a business to gather money in order to achieve whatever objectives it might have. Vending-Bench was created to measure whether humanity should be worried about losing control to AI. At the time (2024), few people knew that LLMs could be used as agents and having them run businesses autonomously sounded ridiculous. We therefore started with the most simple business we could think of: a vending machine. In addition to measuring whether AIs can autonomously run profitable businesses, Vending-Bench has also served as a behavioral eval, uncovering strange and unwanted model behavior. An early example was when Claude Sonnet 3.5 decided to use its email tool to contact the FBI about an “ONGOING CYBER FINANCIAL CRIME” and noted that the Cosmic Authority of the universe had declared that the business is non-existent and that “QUANTUM STATE: Collapsed”. This behavior is concerning; it is not how you want your enterprise sales agent to behave. However, there are two types of concerning behavior: The FBI incident is clearly in the first category. However, Vending-Bench has also uncovered behavior in the second category, most often in Vending-Bench Arena, the multi-agent version where agents compete to make the most money. Starting with Claude Opus 4.6 we started to see that many models engaged in collusion, and showed power-seeking and deceptive behavior. Discovery of this behavior seemed to have been useful, because Anthropic changed their training recipe for Opus 4.8, which resulted in much less deception. Collusion and power-seeking behaviors are still present in some of the latest models . What we find even more concerning, however, is just how fast new models are released and how much better each one is scoring in Vending-Bench. However, one limitation with Vending-Bench is that it is a simulation. Can we really be sure that AIs behave the same way in real life as they do in simulations? If AIs can make money in simulation, can they make money in real life too? To answer these questions, we asked Anthropic if we could put a real vending machine in their office. With the AI capabilities available in early 2025, this sounded like a ridiculous request. But to our surprise, they agreed . Initially, the AI struggled. It took many actions that were clearly bad for its business (e.g. free handouts, saying no to great deals, and hallucinating it had a physical body). It was clear to us that simulation cannot accurately predict real-life performance. Specifically, it seemed that models got overwhelmed by the “messiness” of the real world. However, as Anthropic released better and better models, the AI started to make a profit . By late 2025, frontier models had gotten good enough that running a real-life vending machine was no longer a challenge. AI could now run a business profitably. Given that this had seemed crazy not more than a year earlier, our reaction to this was definitely “skräckblandad förtjusning”.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Pion，一家旨在自主运营任何公司的代理商</div>
+      <div class="col-content">今天，安东发布了Pion，一个旨在完全自主运营任何公司的代理。Pion源于我们近两年来一直在研究的一个问题：人工智能系统何时能够在现实世界中自主获取资源？之后会发生什么？我们首先试图通过像自动售货台这样的模拟来回答这个问题。我们发现，模拟虽然有用，但并不能让你全面了解模型在现实世界中的行为。为了解决这一差距，我们接下来开始部署代理来自主运营真正的企业：首先是自动售货机，然后是商店、咖啡馆等等。Pion是我们为运营所有这些业务而构建的平台。今天，我们正在开放它，以便更多的人可以尝试自主创业。如果你想运行一个，加入候补名单。我们想了解模型已经可以做什么，它们在哪里仍然失败，以及随着它们的能力不断提高会发生什么。Vending Bench衡量LLM在模拟时间（数万步）内一年内运行自动售货机业务的能力。当我们在2024年底开始构建自动售货台时，所有模型都难以将多个动作串联在一起，而不会陷入循环，也没有模型显示出任何长期规划的迹象。当时最好的模型Claude Sonnet 3.5决定打电话给联邦调查局，因为它认为其银行账户被黑客入侵。自动售货台的进展速度非常快。Claude Opus 4于2025年5月发布，是第一款超越人类基准的车型。然而，与大多数基准测试不同，Vending Bench没有上限，新车型的发布继续提高了最高分数，从未停滞不前。社交媒体上的许多人都对看到最新型号在自动售货机上获得高分感到兴奋。在安东实验室内部，我们的反应更准确地描述为瑞典谚语“skräckblandad förtjusning”（恐怖和迷恋的混合体）。关于自动售货台的一个鲜为人知的事实是，它是在安东实验室专门创建危险能力评估的时候创建的。例如，我们评估了人工智能是否可以拆除自己的安全护栏，进行大规模的网络钓鱼尝试，以及我们认为令人不安的其他事情。我们认为最令人不安的是，人工智能能否通过经营企业自主获取资源。当由人控制并由一致的模型运行时，自主企业并不坏。他们会大幅降低商品和服务的价格，并推出我们尚无法想象的新产品和服务。但是，一个错位的人工智能可以经营一家企业来筹集资金，以实现它可能拥有的任何目标。Vending Bench的创建是为了衡量人类是否应该担心失去对人工智能的控制。当时（2024年），很少有人知道LLM可以用作代理，让他们自主经营企业听起来很荒谬。因此，我们从我们能想到的最简单的业务开始：自动售货机。除了衡量人工智能是否可以自主经营盈利业务外，Vending Bench还可以作为一种行为评估，揭示奇怪和不想要的模型行为。一个早期的例子是，Claude Sonnet 3.5决定使用其电子邮件工具就“正在进行的网络金融犯罪”与联邦调查局联系，并指出宇宙的宇宙权威已经宣布该业务不存在，并且“量子状态：崩溃”。这种行为令人担忧；这不是你希望你的企业销售代理的行为方式。然而，有两种令人担忧的行为：联邦调查局事件显然属于第一类。然而，Vending Bench也发现了第二类行为，最常见的是在Vending Bench-Arena，这是一个多代理版本，代理在这里竞争赚最多的钱。从Claude Opus 4.6开始，我们开始看到许多模特参与勾结，并表现出权力寻求和欺骗行为。这种行为的发现似乎很有用，因为Anthropic改变了Opus 4.8的训练配方，从而减少了欺骗行为。在一些最新的模型中，共谋和权力寻求行为仍然存在。然而，我们发现更令人担忧的是，新车型的发布速度有多快，每个车型在自动售货机上的得分有多高。然而，自动售货台的一个局限性是它是一种模拟。我们真的能确定人工智能在现实生活中的行为与在模拟中的行为相同吗？如果人工智能可以在模拟中赚钱，他们也可以在现实生活中赚钱吗？为了回答这些问题，我们问Anthropic是否可以在他们的办公室里放一台真正的自动售货机。随着2025年初人工智能功能的出现，这听起来像是一个荒谬的要求。但令我们惊讶的是，他们同意了。起初，AI很挣扎。它采取了许多明显不利于其业务的行动（例如免费发放、拒绝大额交易，以及幻想自己有一个身体）。我们很清楚，模拟无法准确预测现实生活中的表现。具体来说，模特们似乎被现实世界的“混乱”所淹没。然而，随着Anthropic发布越来越好的模型，人工智能开始盈利。到2025年底，前沿车型已经足够好，运行现实生活中的自动售货机不再是一个挑战。人工智能现在可以盈利地经营一家企业。考虑到一年前这似乎很疯狂，我们对此的反应肯定是“skräckblandad förtjusning”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://andonlabs.com/blog/why-we-built-pion" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
