@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-18 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-18</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Bend – A language that blocks AI mistakes via proof, on CPU and GPU</div>
+      <div class="col-content">a fast language that blocks AI mistakes via proof C speed · CUDA parallelism · Lean proofs · Python syntax In the post-AGI economy, humans will eventually stop writing and reading code, but we still need an ambiguity-free way to tell the AIs building the world around us what we want done. With laws , our intents can be much more precise than natural language. With proofs , we can verify that the AI implemented our prompts correctly. And a fast compiler runs it at speed. Bend compiles to native code. On one core, it runs nearly as fast as C. The same binary also runs on sixteen cores, or on the GPU, running up to a hundred times faster than one core. Bend's type checker is a proof checker, as in Lean and Rocq. Those can take minutes on a mid-sized codebase. Bend takes a second at most, so an AI agent can check after every change. No threads, no locks, no kernels to write. Split the work in two, and Bend spreads the calls over every core it can find, then joins them back. Now watch pow2 run on 4,096 GPU cores: How can you trust code you never read? By demanding a proof . LAWS.bend is where you declare laws. From then on, no AI can ship one line that breaks them, ever. Watch it guard a game: Without LAWS.bend, the bug went live. With LAWS.bend, the AI had to retry until it built a wall and proved the law holds. Merging a bug is mathematically impossible: it is a theorem . LAWS.bend is AGENTS.md backed by proof . “Make no mistakes” is now type-checked . Hints: ask it to write laws for whatever should never break, and to parallelize everything you want running fast. Bend is young: if anything goes wrong, ask it to open an issue. Bend works best on the back-end, on Linux and on macOS. Enjoy! <3 Guide: GUIDE.md is the whole language; bend guide prints it. Paper: BendTT , an affine dependent type theory, Bend's core. Paper: BendRT , a parallel runtime for CPUs and GPUs, the VM. Bend is still evolving. Expect bugs, and please report them .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Bend——一种通过证明在CPU和GPU上阻止AI错误的语言</div>
+      <div class="col-content">一种通过证明C速度、CUDA并行性、精益证明、Python语法来阻止AI错误的快速语言在后AGI经济中，人类最终将停止编写和阅读代码，但我们仍然需要一种无歧义的方式来告诉构建我们周围世界的AI我们想做什么。有了法律，我们的意图可以比自然语言精确得多。通过证明，我们可以验证AI是否正确执行了我们的提示。一个快速的编译器会快速运行它。Bend编译为本机代码。在一个核心上，它的运行速度几乎和C一样快。同样的二进制文件也在16个核心上运行，或者在GPU上运行，比一个核心快一百倍。Bend的类型检查器是一个校对检查器，就像Lean和Rocq一样。对于中等规模的代码库，这些可能需要几分钟的时间。Bend最多只需要一秒钟，因此AI代理可以在每次更改后进行检查。没有线程，没有锁，没有要写的内核。将工作分成两部分，Bend将呼叫分散到它能找到的每个核心上，然后将它们重新连接起来。现在看看pow2在4096个GPU内核上运行：你怎么能相信你从未读过的代码？通过要求提供证据。LAWS.bend是你宣布法律的地方。从那时起，任何人工智能都无法发送一条线来打破它们。观看它守卫一场比赛：没有LAWS.bend，bug就上线了。使用LAWS.bend，人工智能必须重试，直到它筑起一堵墙并证明法律成立。合并一个bug在数学上是不可能的：这是一个定理。LAWS.bend是AGENTS.md，有证据支持。“不要犯错”现在已经过类型检查。提示：让它为任何不应该打破的东西写法律，并并行化你想要快速运行的一切。本德很年轻：如果出了什么问题，就让它打开一个问题。Bend在后端、Linux和macOS上效果最佳。享受！<3指南：Guide.md是整个语言；折弯导板打印出来。论文：BendTT，仿射依赖型理论，Bend的核心。论文：BendRT，CPU和GPU的并行运行时，VM。本德仍在不断发展。期待bug，并请报告它们。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://bend-lang.com/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
