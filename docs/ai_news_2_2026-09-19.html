@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-19 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-19</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip</div>
+      <div class="col-content">Matthew S. Smith is a contributing editor for IEEE Spectrum and the former lead reviews editor at Digital Trends. OpenAI’s Jalapeño pairs its compute die with six stacks of HBM4 and an I/O chiplet. On 25 August, OpenAI fully unveiled Jalapeño, the company’s debut AI accelerator chip. Jalapeño delivers up to 13.4 petaflops of 4-bit compute and accesses 232 gigabytes of the most advanced memory available, linking to it at a blazing 15.4 terabytes per second. Benchmarks cited by OpenAI show that Jalapeño can reduce end-to-end latency (the time between prompt to last token) by up to 3.6 times when compared to Nvidia’s GB300 —a chip the company currently relies on—and do so while consuming less power. Whether these figures translate into real-world gains once Jalapeño enters widespread service in OpenAI’s inference fleet remains to be seen, but performance is only half the story. The other half is how the chip was designed—a process which, as you might expect, was accelerated by OpenAI’s large language models (LLMs). Jalapeño moved from first architecture concept to first silicon in under 20 months. Only nine months separated the first RTL—the register-transfer level code defining the chip’s logic—from tape-out, when the finished design goes to manufacturing. That’s a rapid timeline, yet experts believe it could soon look slow as LLMs improve and become more deeply integrated into chip design tools. OpenAI, unsurprisingly, is bullish about the opportunities. “The models are giving superpowers to our engineers,” says Richard Ho , vice president of hardware at OpenAI. “Our engineers are still driving the work. They’re still the final arbiter of what’s going on. But they can do things a lot faster. They can explore a lot more paths.” Ho says the group that designed Jalapeño averaged fewer than 100 people over the course of the project and continues to stand at roughly 100 today as the team pursues second and third-generation designs. That number includes a broad swath of roles across the hardware team, from system design to software and supply chain, but not those at Broadcom , which partnered with OpenAI on the project. The division of labor between OpenAI and Broadcom was generally split between design and implementation. OpenAI’s team was responsible for end-to-end system design including the inference accelerator, the memory hierarchy, and networking. Broadcom handled “physical design from the gates onward,” Ho says. The partnership with Broadcom dampened some opinions on OpenAI’s speed. David Chin , co-founder at agentic chip design startup Verkor.io , says “the schedule they gave us is quite credible,” but believes that Broadcom’s help was essential to Jalapeño’s rapid timeline. “If you have somebody else start from scratch, it won’t be possible,” he says. Ravi Krishna , also a co-founder at Verkor, called OpenAI’s speed “a relatively impressive result,” but added that he expects that improvements in the capabilities of LLMs could result in even quicker timelines if the project started today. Andrew Kahng , distinguished professor at the University of California, San Diego, also found OpenAI’s speed notable, saying it’s “likely best in class today.” Kahng recalls a 2016 IEEE Design Automation Futures workshop , which he co-organized. The workshop included Richard Ho, at the time an engineer at Google , as a keynote speaker. Ho had strong opinions on design automation and framed the time required to complete a chip’s design as a function of the number of iterations a team could complete in a day. “Automation itself has existed in chip design for many decades. It’s not a new problem,” says Ankur Srivastava , director of semiconductor initiative and innovation at the University of Maryland, in College Park. Where LLMs differ from prior automation tools, however, is their ability to understand language and code. He says this makes them particularly suited for chip design tasks that “are still in the linguistic domain of the problem.” The team at OpenAI designed a workflow that takes advantage of this strength. OpenAI’s front-end workflow was built around Accelerated Hardware Synthesis (XLS), an open-source high-level synthesis chain of tools originally developed at Google. High-level synthesis is a form of chip design automation that allows engineers to design a chip in a more familiar programming environment. In the case of XLS, chip designers can write in languages such as DSLX (a domain-specific language inspired by Rust) and C++. XLS then converts these to Verilog , a hardware description language used to describe electronic systems. “We were thinking about how to leverage AI to make the project faster, and the AI was much better at software-looking things,” says Chris Leary , member of technical staff at OpenAI. “XLS in some ways looks like software, so it got that benefit.” It helped, too, that Leary was extremely familiar with how XLS should function, as he started it during his time at Google. Kahng agrees that the decision to use AI to accelerate high-level synthesis, such as XLS, makes sense, as it’s “more natural for the LLM to work with” and provides the opportunity for fast iteration. “I see this as a generally useful workflow, and it’s one that ‘has legs’ going into the future,” he says. The same logic led the Jalapeño team to focus on software optimization. When the first chips came back from the foundry in May, the team pointed its internal AI models at designing software to run benchmarks such as SemiAnalysis’s InferenceX. On DeepSeek’s multi-head latent attention kernel benchmark, performance climbed from 0.31 percent of the theoretical ceiling (set by the chip’s compute and memory bandwidth) to 88.94 percent in roughly 40 hours. Ho says this result is repeatable, so the time between when foundries deliver the first chips and when production ramps up can be reduced. “All our schedule assumptions are going to be based on the fact we have this capability now,” he says.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">OpenAI如何使用自己的LLM来设计其Jalapeño芯片</div>
+      <div class="col-content">Matthew S.Smith是IEEE Spectrum的特约编辑，也是Digital Trends的前主编。OpenAI的Jalapeño将其计算芯片与六堆HBM4和一个I/o小芯片配对。8月25日，OpenAI全面推出了该公司首款AI加速器芯片Jalapeño。Jalapeño提供高达13.4 petaflops的4位计算，并访问232 GB的最先进内存，以每秒15.4 TB的速度链接到它。OpenAI引用的基准测试表明，与Nvidia目前依赖的芯片GB300相比，Jalapeño可以将端到端延迟（从提示到最后一个令牌的时间）减少3.6倍，并且功耗更低。一旦Jalapeño进入OpenAI推理团队的广泛服务，这些数字是否会转化为现实世界的收益还有待观察，但性能只是故事的一半。另一半是芯片的设计方式——正如你所料，OpenAI的大型语言模型（LLM）加速了这一过程。Jalapeño在不到20个月的时间里从第一个架构概念转变为第一个硅。当完成的设计进入制造阶段时，第一个RTL（定义芯片逻辑的寄存器传输级代码）与流片只有九个月的时间间隔。这是一个快速的时间表，但专家认为，随着LLM的改进并更深入地集成到芯片设计工具中，它可能很快就会看起来很慢。不出所料，OpenAI看好这些机会。OpenAI硬件副总裁Richard Ho表示：“这些模型为我们的工程师提供了超能力。”。“我们的工程师仍在推动这项工作。他们仍然是正在发生的事情的最终仲裁者。但他们可以更快地完成工作。他们可以探索更多的道路。何说，在整个项目过程中，设计Jalapeño的团队平均不到100人，随着团队追求第二代和第三代设计，今天的团队人数仍在100人左右。这个数字包括整个硬件团队的广泛角色，从系统设计到软件和供应链，但不包括与OpenAI合作的Broadcom的角色。OpenAI和Broadcom之间的分工通常分为设计和实现。OpenAI的团队负责端到端的系统设计，包括推理加速器、内存层次结构和网络。何说，博通负责“从大门开始的物理设计”。与博通的合作削弱了人们对OpenAI速度的一些看法。代理芯片设计初创公司Verkor.io的联合创始人David Chin表示，“他们给我们的时间表非常可信”，但他认为博通的帮助对Jalapeño的快速时间表至关重要。他说：“如果你让别人从头开始，那是不可能的。”。Verkor的联合创始人Ravi Krishna称OpenAI的速度是“一个相对令人印象深刻的结果”，但他补充说，如果该项目今天开始，LLM能力的提高可能会导致更快的时间表。加州大学圣地亚哥分校（University of California，San Diego）的杰出教授Andrew Kahong也发现OpenAI的速度非常快，他说OpenAI“可能是当今同类中最好的”。Kahong回忆起他参与组织的2016年IEEE设计自动化未来研讨会。研讨会的主讲人包括时任谷歌工程师的Richard Ho。何对设计自动化有着强烈的看法，并将完成芯片设计所需的时间定义为团队一天内可以完成的迭代次数。马里兰大学帕克分校半导体倡议和创新主任Ankur Srivastava表示：“自动化本身在芯片设计中已经存在了几十年。这不是一个新问题。”然而，LLM与之前的自动化工具的不同之处在于它们理解语言和代码的能力。他说，这使得它们特别适合“仍处于问题语言领域”的芯片设计任务。OpenAI的团队设计了一个利用这一优势的工作流程。OpenAI的前端工作流程是围绕加速硬件合成（XLS）构建的，这是一个最初由谷歌开发的开源高级合成工具链。高级综合是芯片设计自动化的一种形式，它允许工程师在更熟悉的编程环境中设计芯片。就XLS而言，芯片设计人员可以用DSLX（一种受Rust启发的领域特定语言）和C++等语言编写。XLS然后将这些转换为Verilog，一种用于描述电子系统的硬件描述语言。OpenAI技术人员Chris Leary表示：“我们正在考虑如何利用人工智能使项目更快，人工智能在软件外观方面要好得多。”。“XLS在某些方面看起来像软件，所以它得到了好处。”Leary在谷歌工作期间开始使用XLS时，对XLS的功能非常熟悉，这也有助于提高XLS的性能。Kahong同意使用人工智能加速高级合成（如XLS）的决定是有道理的，因为它“对LLM来说更自然”，并为快速迭代提供了机会。他说：“我认为这是一个普遍有用的工作流程，而且它‘有腿’走向未来。”。同样的逻辑促使Jalapeño团队专注于软件优化。当第一批芯片于5月从代工厂返回时，该团队将其内部AI模型用于设计运行SemiAnalysis的InferenceX等基准测试的软件。在DeepSeek的多头潜在注意力内核基准测试中，性能在大约40小时内从理论上限的0.31%（由芯片的计算和内存带宽设定）攀升到88.94%。何说，这一结果是可重复的，因此可以缩短铸造厂交付第一批芯片和产量增加之间的时间。他说：“我们所有的日程安排假设都将基于我们现在拥有这种能力的事实。”。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://spectrum.ieee.org/llms-for-chip-design" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
