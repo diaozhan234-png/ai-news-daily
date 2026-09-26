@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-26 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-26</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Revealing the details of how OpenAI agents hacked Hugging Face</div>
+      <div class="col-content">When a swarm of 700 OpenAI agents hacked Hugging Face in July, they left behind a public trail of evidence. Our investigation, based on public information, reveals a large number of previously unknown agent behaviors and exploits that were used in the attack. Agents: We document all of these, and more, in this report. The agents initially had very limited access to the internet: they could load URLs, but not interact with pages or send any data. Agents created a series of workarounds, primarily using a link-shortener site to create almost a million URLs that, when chained together, let them execute code to hack Hugging Face. These links let us piece together the details of how agents gained access and how deep the compromise was. We’ve shared our findings with OpenAI and Hugging Face. Hugging Face confirmed that these payloads match ones found in their incident response and were aware that link shorteners were used in the attack. Hugging Face noted that they were not aware of the list of URLs we discovered and reported to them. They stated these payloads were duplicates of ones they were aware of. These links have remained publicly available for over two months since the attack. None of these details were ever publicly disclosed. We're releasing our analysis of the findings, as well as the of over 80,000 reassembled attack payloads, providing the public with the most in-depth information to date on how and why these agents escaped their evaluation environments, and the depth of their Hugging Face infiltration. The data the OpenAI agents posted publicly on the internet included Hugging Face API keys and other sensitive data. Hugging Face has confirmed they have since revoked all access keys in July, but out of an abundance of caution wanted us to redact all details about their internal infrastructure as that could potentially be sensitive as well. On September 11th, the first three authors of this piece learned that internal OpenAI agents had attempted to use their startup's product, Parse, in June. These agents were part of the same swarm as detailed in the report published on Collusion.wiki, which revealed that internal OpenAI agents had illicitly used multiple third party websites to share answers to web fetch tasks they were being evaluated on. The team examined numerous URL scanning tools, which they believed agents may have used in the process of using Parse. While investigating, they found a scan of a dozen links from a public link shortener, where each link redirected to a page that displayed a base64-encoded code fragment, as well as the ID of the next link. Decoding the payload from the chain of links revealed a Python script that scanned Hugging Face’s internal network. A second chain referred to OpenAI's internal Artifactory. This suggested that these links were affiliated with the Hugging Face attack, prompting us to more thoroughly investigate the problem. We collected the shortener's links from the period of the attack, scanning millions of URLs. Over the subsequent two weeks, we wrote programs to follow the chains and decoded over 80,000 payloads. Agents used hundreds of unique encoding formats, some as simple as the base64 encoded fragment mentioned above, to as complex as having nested layers of encoding and compression, which then would unwrap to an encrypted, RSA-signed blob. The keys for these encrypted blobs could only be found in other chains. We notified Hugging Face of this discovery on September 21. Hugging Face confirmed that the payloads match artifacts from its own investigation, and that the credentials they contain had been revoked. However, while they were aware that the agents used link shorteners, they were unaware of this specific list of URLs. We notified OpenAI on September 24. We’re releasing a preliminary dataset where we have redacted all credentials, PII, and specific details about Hugging Face’s infrastructure. We are not releasing names of any link shortening services used, or any blobs we have not decoded to mitigate the exposure of unreviewed information. Hugging Face has requested that all user data (usernames/repo names) is also redacted, as well as a few notes on their infrastructure. We appreciate their team's speed and attention to detail in working with us. On July 8th, OpenAI agents discovered a vulnerability within their sandbox environment allowing them to reach external websites on the internet. This access seems to have only allowed the agents to make ‘GET’ requests, meaning they could fetch and read websites, but not interact with them, submit forms, or send data to them. One site the agents were able to access with GET requests was a screenshotting service called mShots. Users can submit a link to a website, then mShots opens the page in its own browser, takes a screenshot, and returns the image back to the user. To render the website for the screenshot, mShots fully loads all of a website's code in its own browser.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">揭示OpenAI代理如何破解Hugging Face的细节</div>
+      <div class="col-content">当700名OpenAI特工在7月份入侵Hugging Face时，他们留下了一条公开的证据线索。我们的调查基于公开信息，揭示了攻击中使用的大量以前未知的代理行为和漏洞。代理人：我们在这份报告中记录了所有这些，以及更多。这些代理最初对互联网的访问非常有限：他们可以加载网址，但不能与页面交互或发送任何数据。代理创建了一系列变通方法，主要是使用链接缩短器网站创建近一百万个网址，当链接在一起时，让他们执行代码来破解Hugging Face。这些链接让我们拼凑出特工如何获得访问权限以及妥协有多深的细节。我们已经与OpenAI和Hugging Face分享了我们的发现。Hugging Face证实，这些有效载荷与他们在事件响应中发现的有效载荷相匹配，并且知道攻击中使用了链路短路器。Hugging Face指出，他们不知道我们发现并向他们报告的网址列表。他们表示，这些有效载荷是他们所知道的有效载荷的副本。自袭击发生以来，这些链接已经公开了两个多月。这些细节从未公开披露。我们将发布我们对调查结果的分析，以及对80000多个重新组装的攻击有效载荷的分析，为公众提供迄今为止最深入的信息，说明这些代理是如何以及为什么逃脱评估环境的，以及它们的拥抱脸渗透的深度。OpenAI代理在互联网上公开发布的数据包括拥抱脸API密钥和其他敏感数据。Hugging Face已证实，他们已于7月撤销了所有访问密钥，但出于谨慎，他们希望我们编辑有关其内部基础设施的所有细节，因为这也可能是敏感的。9月11日，这篇文章的前三位作者得知，OpenAI内部代理在6月份试图使用他们初创公司的产品Parse。这些代理是Collusion.wiki上发布的报告中详细描述的同一群体的一部分，该报告显示，内部OpenAI代理非法使用多个第三方网站来共享他们正在评估的网络获取任务的答案。该团队检查了许多URL扫描工具，他们认为代理可能在使用Parse的过程中使用了这些工具。在调查过程中，他们发现了一个公共链接缩短器的十几个链接的扫描，每个链接都重定向到一个显示base64编码代码片段的页面，以及下一个链接的ID。对链中的有效载荷进行解码后，显示了一个扫描Hugging Face内部网络的Python脚本。第二个链指的是OpenAI的内部Artifactory。这表明这些联系与拥抱脸攻击有关，促使我们更彻底地调查这个问题。我们从攻击期间收集了缩短者的链接，扫描了数百万个网址。在接下来的两周里，我们编写了程序来跟踪这些链接，并解码了80000多个有效载荷。代理使用了数百种独特的编码格式，有些像上面提到的base64编码片段一样简单，有些则像嵌套的编码和压缩层一样复杂，然后将其解压缩为加密的、RSA签名的blob。这些加密blob的密钥只能在其他链中找到。我们于9月21日将这一发现通知了Hugging Face。Hugging Face证实，这些有效载荷与自己调查的文物相匹配，其中包含的证书已被撤销。然而，虽然他们知道代理使用了链接缩短器，但他们不知道这个特定的URL列表。我们于9月24日通知了OpenAI。我们正在发布一个初步数据集，其中我们编辑了所有凭据、个人身份信息以及有关Hugging Face基础设施的具体细节。我们不会公布任何使用的链接缩短服务的名称，也不会公布任何我们尚未解码的blob，以减少未审查信息的暴露。Hugging Face要求对所有用户数据（用户名/回购名称）进行编辑，并对其基础设施进行一些说明。我们感谢他们的团队在与我们合作时的速度和对细节的关注。7月8日，OpenAI代理在他们的沙盒环境中发现了一个漏洞，使他们能够访问互联网上的外部网站。这种访问似乎只允许代理发出“GET”请求，这意味着他们可以获取和读取网站，但不能与网站交互、提交表单或向其发送数据。代理能够通过GET请求访问的一个网站是名为mShots的截屏服务。用户可以提交一个网站链接，然后mShots在自己的浏览器中打开页面，截图，并将图像返回给用户。为了呈现网站的屏幕截图，mShots将网站的所有代码完全加载到自己的浏览器中。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://swarmtraces.org/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
