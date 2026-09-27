@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-27 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-27</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 91.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">SMILESGNN: Interpretable Clinical Toxicity Prediction via SMILES-Graph Cross-Attention Fusion</div>
+      <div class="col-content">arXiv:2609.28553v1 Announce Type: new Abstract: Drug toxicity prediction is critical for reducing late-stage attrition in drug discovery, yet remains challenging due to severe class imbalance, scaffold-based generalization, and the clinical need for interpretable predictions. Single-modality approaches-SMILES Transformers or graph neural networks capture complementary aspects of molecular structure, while sequence-only models cannot directly provide graph-attributed explanations. We present SMILESGNN, a multimodal architecture that fuses a SMILES Transformer encoder and a GATv2 graph encoder via cross-attention, and SMILESGNN-PT, a variant using a ChemBERTa-2 pretrained backbone. The design retains an explicit graph branch within the predictive pipeline, supporting GNNExplainer-based analysis of substructures associated with toxic predictions. On ClinTox, SMILESGNN achieves AUC-ROC 0.987 and F1 0.906 with only 0.4M parameters, performing competitively with a strong SMILESTransformer and a larger ChemBERTa-2/GATv2 concat-fusion baseline. On Tox21 (12 tasks), SMILESGNN-PT obtains mean AUC-ROC 0.750, comparable to ChemBERTa-2 alone and the same-backbone concat-fusion baseline. Overall, the results suggest that cross-attention is a practical fusion alternative that preserves competitive predictive performance while enabling graph-based interpretability support.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">SMILESGNN：通过SMILES图交叉注意力融合进行可解释的临床毒性预测</div>
+      <div class="col-content">arXiv:2609.28553v1宣布类型：新摘要：药物毒性预测对于减少药物发现的后期损耗至关重要，但由于严重的类别不平衡、基于支架的泛化以及临床对可解释预测的需求，仍然具有挑战性。单模态方法SMILES变换器或图神经网络捕捉分子结构的互补方面，而仅序列模型不能直接提供图归因的解释。我们介绍了SMILESGNN，这是一种多模式架构，通过交叉注意力融合了SMILES Transformer编码器和GATv2图编码器，以及SMILESGNN-PT，一种使用ChemBERTa-2预训练骨干的变体。该设计在预测管道中保留了一个显式的图分支，支持基于GNNExplainer的有毒预测子结构分析。在ClinTox上，SMILESGNN仅用0.4M参数就实现了AUC-ROC 0.987和F1 0.906，与强大的SMILESTransformer和更大的ChemBERTa-2/GATv2 concat融合基线具有竞争力。在Tox21（12个任务）上，SMILESGNN-PT获得了平均AUC-ROC 0.750，与单独的ChemBERTa-2和相同的骨干-concat融合基线相当。总体而言，结果表明，交叉注意力是一种实用的融合替代方案，可以在保持竞争性预测性能的同时，实现基于图的可解释性支持。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2609.28553" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
