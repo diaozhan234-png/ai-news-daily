@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-09-28 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-09-28</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Faster prompt lookup drafting in llama.cpp</div>
+      <div class="col-content">[ homepage ] [ github ] [ twitter ] This article was originally published on 2026-09-26. TL;DR I make drafting for prompt lookup decoding in llama.cpp up to 42x faster while using up to 2.6x less memory through a set of simple performance optimizations largely based on the work of Daniel Lemire and Martin Ankerl . Update: Daniel Lemire sent in a PR that makes prompt lookup drafting upto 4.2x faster on top of my original optimizations. His work makes the overall speedup upto 140x. I discuss more below . Many popular inference engines including llama.cpp and vllm, and machine learning libraries such as hugging face's transformers library, support prompt lookup decoding (also called n-gram speculation ) for faster token generation. Prompt lookup decoding is technically a special case of speculative decoding that uses a really stupid draft model, an n-gram model. When prompt lookup decoding is used, the inference engine drafts the next $k$ tokens using the following rule. Let $x_1, \ldots, x_t$ be the current tokens of a model. An n-gram is a sequence of $n$ consecutive tokens. For example, a 3-gram would be $(x_1, x_2, x_3)$ or $(x_2, x_3, x_4)$ or, in general, $(x_i, x_{i+1}, x_{i+2})$ for any $i \in \{1, \ldots, t-2\}$. Now an n-gram model is a probabilistic model that predicts the next token based on the previous $n - 1$ tokens. The idea is extremely simple. You first select some corpus of text and parse it into n-grams. You then count the frequency of each n-gram. When your n-gram model needs to predict the next token after a sequence of $n-1$ tokens, you make the n-gram model select the token that most frequently follows that sequence of $n-1$ tokens in your corpus. llama.cpp maintains three types of n-gram caches . Let $\eta$ be any n-gram and $y$ be any token. An n-gram cache is a data structure that stores $c(\eta, y)$, i.e., the count of how many times the token $y$ follows the n-gram $\eta$, for all n-grams $\eta$ and all tokens $y$ in a given corpus and vocabulary. The three n-gram caches used by llama.cpp are the context cache, the dynamic cache, and the static cache. llama.cpp's context cache stores n-grams of sizes 1 to 4 for the current tokens $x_1, \ldots, x_t$ being processed by the model. The context cache is updated as the model generates new tokens. The dynamic cache stores the counts of n-grams from previous runs of the model, e.g., any earlier conversations. Finally, the static cache stores n-grams of size 2 from a static text corpus, built with llama-lookup-create . I denote the context, dynamic, and static caches by $c_{\text{ctx}}$, $c_{\text{dyn}}$, and $c_{\text{st}}$, respectively. llama.cpp drafts a new token using its n-gram caches in the following way. Let $X_n = (x_{t-n+1}, \ldots, x_t)$ be the previous $n$ tokens processed by the model. For all tokens $y$ in the vocabulary, llama.cpp computes a score using the formula where $f$ is either the context cache $c_{\text{ctx}}$ or the dynamic cache $c_{\text{dyn}}$. Note that the weight $w(y)$ favors tokens that also agree with the static cache. Without a static cache, $w(y) = 1$ for every token. For each $n$, llama.cpp takes the highest-scoring token $y^* = \arg\max_y s_n^{f}(y)$. Let $F(X_n) = \sum_y f(X_n, y)$ be the number of times $X_n$ appeared with a token after it. llama.cpp drafts $y^*$ based on two configurable thresholds $a_n$ and $p_n$ in the following way. In other words, $X_n$ must appear at least $a_n$ times and the token $y^*$ must have followed $X_n$ in at least a fraction $p_n$ of those occurrences for $y^*$ to be accepted as a draft token. As of release b11182 of llama.cpp, the thresholds are hard-coded as follows. For the context cache, $(a_1, a_2, a_3, a_4) = (2, 2, 1, 1)$ and $(p_1, p_2, p_3, p_4) = (0.66, 0.5, 0.5, 0.5)$. For the dynamic cache, $(a_1, a_2, a_3, a_4) = (4, 3, 2, 2)$ and $(p_1, p_2, p_3, p_4) = (0.75, 0.66, 0.66, 0.66)$. llama.cpp tries $n = 4, 3, 2, 1$ and drafts the first $y^*$ that passes the conditions above. It first scores with $c_{\text{ctx}}$. It scores with $c_{\text{dyn}}$ only when no candidate from $c_{\text{ctx}}$ passes for any $n$. If no candidate from $c_{\text{dyn}}$ passes either, llama.cpp falls back to relying only on the static cache (as opposed to only using it to reweight candidates in the other caches). As a side note, the static cache's thresholds in llama.cpp are the same values as the context cache's thresholds for the corresponding $n$, i.e., $n = 2$. Let $C_{\text{st}}(X_2) = \sum_y c_{\text{st}}(X_2, y)$. llama.cpp takes the token $y$ with the largest $c_{\text{st}}(X_2, y)$ and drafts it when $C_{\text{st}}(X_2) \ge a_2 = 2$ and $c_{\text{st}}(X_2, y) \ge p_2 \, C_{\text{st}}(X_2) = 0.5 \, C_{\text{st}}(X_2)$. If the static cache also fails, llama.cpp does not draft the next token. llama.cpp's repository includes an example for prompt lookup decoding here . It includes two tools I use: llama-lookup-create for building a static cache from a corpus and llama-lookup-stats for benchmarking prompt lookup decoding. llama-lookup-stats essentially reads a file and treats the file's tokens as the output of a model. It runs the drafting loop from llama.cpp over the simulated "model output" (i.e. the file) and records how many drafted tokens match the file, the time it took to draft the tokens, and the time it took to load the static ngram cache. I build the static caches using llama-lookup-create with WikiText-103 and then I replay the WikiText-103 test text through llama-lookup-stats . I borrowed this evaluation method from the PR by @JohannesGaessler that added the static n-gram cache to llama.cpp. Note that since I am not making any algorithmic modifications to how prompt lookup decoding works in llama.cpp, the dataset mainly matters for the acceptance rate, which my changes leave unchanged. Just to be safe, I make sure my changes still have almost identical acceptance rates to the original implementation.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">在llama.cpp中快速快速查找绘图</div>
+      <div class="col-content">[主页][github][twitter]本文最初发表于2026年9月26日。TL；DR I在很大程度上基于Daniel Lemire和Martin Ankerl的工作，通过一组简单的性能优化，使llama.cpp中的快速查找解码的起草速度提高了42倍，同时使用的内存减少了2.6倍。更新：Daniel Lemire发送了一份PR，在我最初的优化基础上，快速查找起草速度提高了4.2倍。他的工作使整体速度提高了140倍。我将在下面讨论更多。许多流行的推理引擎，包括llama.cpp和vllm，以及机器学习库，如拥抱脸的transformers库，都支持快速查找解码（也称为n-gram推测），以实现更快的令牌生成。从技术上讲，快速查找解码是推测解码的一个特例，它使用了一个非常愚蠢的草稿模型，一个n-gram模型。当使用提示查找解码时，推理引擎使用以下规则起草下一个$k$令牌。设$x_1，\ldots，x_t$是模型的当前令牌。n元语法是由$n$个连续标记组成的序列。例如，一个3克将是$（x_1，x_2，x_3）$或$（x_2，x_3，x_4）$，或者一般来说，对于任何$i \ in \{1，\ldots，t-2 \}$，$（x_i，x_{i+1}，x_{i+2}）$。现在，n元语法模型是一种概率模型，它基于前一个$n-1$令牌预测下一个令牌。这个想法非常简单。您首先选择一些文本语料库并将其解析为n元语法。然后计算每个n元语法的频率。当你的n-gram模型需要预测$n-1$令牌序列后的下一个令牌时，你让n-gram模型选择语料库中最频繁遵循该$n-1美元令牌序列的令牌。llama.cpp维护三种类型的n-gram缓存。设$\eta$是任何n元语法，$y$是任何符号。n元语法缓存是一种数据结构，用于存储$c（\eta，y）$，即给定语料库和词汇表中所有n元语法$\eta$和所有标记$y$跟随n元语法$\eta$的次数。llama.cpp使用的三个n-gram缓存是上下文缓存、动态缓存和静态缓存。llama.cpp的上下文缓存为模型正在处理的当前令牌$x1、\ldots、xt$存储大小为1到4的n-gram。当模型生成新令牌时，上下文缓存会更新。动态缓存存储模型先前运行的n元语法计数，例如任何早期对话。最后，静态缓存存储来自静态文本语料库的大小为2的n-gram，该语料库是用llama查找创建构建的。我分别用$c_{\text{ctx}}$、$c_{1\text{dyn}}$和$c_{\text{st}}$表示上下文、动态和静态缓存。llama.cpp使用其n-gram缓存以以下方式起草一个新令牌。设$X_n=（X_{t-n+1}，\ldots，X_t）$是模型处理的前一个$n$令牌。对于词汇表中的所有标记$y$，llama.cpp使用公式计算分数，其中$f$是上下文缓存$c_{\text{ctx}}$或动态缓存$c_3{\text{1yn}}$。请注意，权重$w（y）$有利于也与静态缓存一致的令牌。如果没有静态缓存，每个令牌的$w（y）=1$。对于每个$n$，llama.cpp取最高得分的令牌$y^*=\arg\max_ys_n^{f}（y）$。设$F（X_n）=\sum_y F（X_n，y）$是$X_n$之后出现令牌的次数。llama.cpp根据两个可配置的阈值$a_n$和$p_n$按以下方式起草$y^*$。换句话说，$X_n$必须至少出现$a_n$次，并且令牌$y^*$必须在这些出现次数的至少一小部分$p_n$中跟在$X_n美元后面，才能将$y^**$接受为草稿令牌。从llama.cpp的b11182版本开始，阈值硬编码如下。对于上下文缓存，$（a_1，a_2，a_3，a_4）=（2，2，1，1）$和$（p_1，p_2，p_3，p_4）=。对于动态缓存，$（a_1，a_2，a_3，a_4）=（4,3,2,2）$和$（p_1，p_2，p_3，p_4）=。llama.cpp尝试$n=4,3,2,1$，并起草通过上述条件的第一个$y^*$。它首先用$c_{\text{ctx}}$得分。只有当$c_{\text{dyn}}$中没有候选人通过任何$n$时，它才会得分$c_{\text{ctx}}$。如果$c_{\text{dyn}}$中的候选也没有通过，llama.cpp将退回到仅依赖静态缓存（而不是仅使用它来重新加权其他缓存中的候选）。另外，llama.cpp中的静态缓存阈值与相应$n$的上下文缓存阈值相同，即$n=2$。设$C_{\text{st}}（X_2）=\sum_y C_{\text{1st}}，（X_2，y）$。llama.cp取具有最大$c_{\text{st}}（X_2，y）$的令牌$y$，并在$c_{\text{1st}}，\gea_2=2$和$c_{\text{st}}（X2，y），\gep_2\，c_{text{st}｝（X2）=0.5\，c_{\text{1st}}，（X2）$时起草它。如果静态缓存也失败，llama.cpp不会起草下一个令牌。llama.cpp的存储库中包含一个提示查找解码的示例。它包括我使用的两个工具：用于从语料库构建静态缓存的llama查找创建和用于对提示查找解码进行基准测试的llama查询统计。llama查找统计本质上是读取文件，并将文件的标记视为模型的输出。它在模拟的“模型输出”（即文件）上运行来自llama.cpp的起草循环，并记录有多少起草的令牌与文件匹配，起草令牌所花费的时间，以及加载静态ngram缓存所花的时间。我使用WikiText-103创建的llama查找来构建静态缓存，然后通过llama查找统计来重放WikiText-10三测试文本。我从@JohannesGaessler的PR中借用了这种评估方法，该方法将静态n-gram缓存添加到llama.cpp中。请注意，由于我没有对llama.cpp中的快速查找解码的工作方式进行任何算法修改，因此数据集主要影响接受率，我的更改不会改变接受率。为了安全起见，我确保我的更改仍然具有与原始实现几乎相同的接受率。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://jadidbourbaki.github.io/blog/prompt-lookup-llama-cpp/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
