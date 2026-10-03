@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-03 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-03</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.7</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">With most information hidden, the game Stratego had stumped AI until now</div>
+      <div class="col-content">Deep Blue took down Garry Kasparov at chess in 1997, AlphaGo beat Lee Sedol at Go in 2016, and poker bots have been beating professionals for years. But one classic game called Stratego held out. Even DeepMind, with its exceptional budget, couldn’t build a machine that reliably beat the best human players. Now, a team of researchers from Carnegie Mellon, MIT, New York University, and Stanford University has done it. Their AI, called Ataraxos, beat Pim Niemeijer, arguably the best Stratego player of all time, 15 games to one, with four draws. And it took just 16 GPUs and a few thousand dollars to train it. In Stratego , each player gets 40 pieces representing military ranks, from a marshal down to a spy, plus bombs and a flag. You win by capturing the opponent’s flag. Your opponent knows where your pieces are, but not what they are. Identities are revealed only when two pieces collide in battle—the weaker one is removed, and the identity of the winner is revealed. That makes Stratego an imperfect-information game, just like poker, which computers cracked years ago. “There’s something super distinctive about Stratego , which is that it is a massive amount of hidden information that unfolds over a very long time scale,” said Eugene Vinitsky, a researcher at NYU and co-author of the study. In some forms of poker, the hidden information is tiny. In Texas Hold’em, “You only have two hidden cards,” said Gabriele Farina, an MIT computer scientist and another co-author. That leaves just 1,326 possible hands, few enough for a machine to weigh them all. “In Stratego , there’s 40 pieces on the board that could be in any order,” Farina said. That’s more than a decillion possible setups. Then there’s the game’s length. “In chess, usually the game lasts 40 moves, but in Stratego , a game can easily last 2,000 moves,” Farina said. On top of that, Stratego is a game of bluffing. Sometimes you move a weak piece as if it were a marshal, just to scare the opponent off. When players bluff too often, their threats mean nothing; when they never bluff, they become predictable. That balancing act, the team explains, is what stumped earlier AIs like DeepMind’s DeepNash, introduced in 2022. Just like DeepNash, Ataraxos learned by playing against itself—163 million games in total. In these self-play sessions, moves that led to wins were reinforced and played more often in future matches, while moves that led to losses were played less, which was the same simple training idea. The difference was in how much Ataraxos adjusted after each game, because hidden information tends to send self-play learning algorithms around in circles. The team addressed this by making big, bold changes in strategy early in training and small, careful ones later. The even bigger innovation was something DeepNash never had: thinking ahead before each move. AIs like AlphaGo refine their general strategy with a search just before acting. DeepMind couldn’t make that work in Stratego because the search space was too large, leaving it an open question whether it was worth trying. “This is one of the things that we did figure out how to do,” Farina said. The solution was a second neural network, a belief model, trained to guess the opponent’s hidden pieces based on how they had been moving. This way, instead of iterating through every possible arrangement, Ataraxos samples plausible ones, plays out candidate moves in each, and picks based on how they turned out. The name Ataraxos comes from the ancient Greek word for a state of calm. “It means somebody that’s calm and unbothered,” Farina explained. He suggests the structure of the AI and its lack of human emotions ensure it doesn’t react impulsively, “even in situations where a human would be losing their mind.” While the human might try big gambles to come back from a significant deficit, Ataraxos would work its way back into the game slowly and methodically. The strategy it developed also avoids drawing attention to any problems it faces. When Ataraxos estimates its opponent has no reason to suspect a weak spot, it leaves that spot alone, even if it might look like a disaster waiting to happen to anyone who can see both sides of the board. “For humans, it’s very hard when you know a secret to make decisions ignoring the fact that you know that secret,” Farina said. “For machines, it’s easy.” This, the team says, leads machines to make moves a human would only do while bluffing—and follow up on them much better than humans. “We would watch the bot ‘bluff’ its way back from like a two percent victory probability, very, very casually,” Vinitsky added. Niemeijer, the human player Ataraxos pulled these miraculous comebacks against, has four world championships and more than 600 weeks as the world’s top-ranked player. Over three weeks, Niemeijer played 20 online games against Ataraxos, earning $100 for each win. He knew the AI would not adapt to him, which gave him time to hunt for weaknesses. He managed to win just once. That loss, researchers claim, wasn’t really a flaw. Playing Stratego well requires randomizing the arrangement of your pieces, so luck always plays a role. “Even a perfect strategy, sometimes it will just lose,” Farina said. The human champion apparently got lucky, but it went both ways. “Sometimes we got lucky,” Vinitsky admitted. At the 2025 Stratego World Championship, attendees who challenged Ataraxos fared even worse. The AI won 38 of 40 games. In the process, it also changed how people play. “I think this bot has kind of skewed the metagame a little bit,” Farina said. Players were surprised, for example, by how often it tucked its flag into a corner behind just two bombs, a rarely played setup. But Ataraxos’s best trick was arguably its price tag. DeepNash was trained for two to three months on 1,024 of Google’s specialized chips, a run the Ataraxos team estimates would cost $3 million to $4.5 million at 2025 prices.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">由于大部分信息都是隐藏的，直到现在，《战略》游戏一直困扰着人工智能</div>
+      <div class="col-content">1997年，深蓝在国际象棋上击败了加里·卡斯帕罗夫，2016年，AlphaGo在围棋上击败了李世石，扑克机器人多年来一直在击败专业人士。但一款名为《战略》的经典游戏坚持了下来。即使是DeepMind，凭借其卓越的预算，也无法制造出能够可靠地击败最好的人类玩家的机器。现在，来自卡内基梅隆大学、麻省理工学院、纽约大学和斯坦福大学的一组研究人员已经做到了这一点。他们的人工智能名为Ataraxos，以15比1的比分击败了Pim Niemeijer，后者可以说是有史以来最好的Stratego球员，并取得了四场平局。训练它只需要16个GPU和几千美元。在《战略》中，每个玩家获得40个代表军衔的棋子，从元帅到间谍，再加上炸弹和一面旗帜。你通过夺取对手的旗帜获胜。你的对手知道你的棋子在哪里，但不知道它们是什么。只有当两块棋子在战斗中碰撞时，身份才会被揭示出来——较弱的一块会被移除，胜利者的身份也会被揭示出来。这使得Stratego成为一个不完美的信息游戏，就像多年前计算机破解的扑克一样。纽约大学研究员、该研究的合著者尤金·维尼茨基说：“Stratego有一个非常独特的地方，那就是它是在很长一段时间内展开的大量隐藏信息。”。在某些形式的扑克中，隐藏的信息很小。麻省理工学院计算机科学家、另一位合著者加布里埃尔·法里纳说，在德州扑克中，“你只有两张隐藏的牌。”。这只剩下1326只可能的手，很少有机器可以称量它们。法里纳说：“在《战略》中，棋盘上有40块棋子，可以按任何顺序排列。”。这是超过千万种可能的设置。然后是游戏的长度。法里纳说：“在国际象棋中，通常游戏持续40步，但在Stratego中，一场游戏很容易持续2000步。”。最重要的是，战略是一场虚张声势的游戏。有时，你移动一个弱项，就像移动一个元帅一样，只是为了吓跑对手。当玩家经常虚张声势时，他们的威胁毫无意义；当他们从不虚张声势时，他们就会变得可预测。该团队解释说，这种平衡行为是困扰早期人工智能的原因，比如2022年推出的DeepMind的DeepNash。就像DeepNash一样，Ataraxos通过与自己对抗来学习——总共1.63亿场比赛。在这些自我游戏中，导致胜利的动作得到了加强，并在未来的比赛中更频繁地发挥作用，而导致失败的动作则较少发挥作用，这也是同样的简单训练理念。不同之处在于Ataraxos在每场比赛后调整了多少，因为隐藏的信息往往会使自我游戏学习算法绕圈。该团队通过在训练初期对策略进行大胆的大改变和后期进行谨慎的小改变来解决这个问题。更大的创新是DeepNash从未有过的：在每次行动之前都要提前思考。像AlphaGo这样的人工智能在行动之前通过搜索来完善他们的总体策略。DeepMind无法在Stratego中实现这一点，因为搜索空间太大，这让它是否值得一试成为一个悬而未决的问题。法里纳说：“这是我们弄清楚该怎么做的事情之一。”。解决方案是第二个神经网络，一个信念模型，经过训练，根据对手的移动方式猜测对手的隐藏部分。这样，Ataraxos就不会迭代每一种可能的排列，而是对看似合理的排列进行采样，在每个排列中播放候选移动，并根据结果进行选择。Ataraxos这个名字来自古希腊语，意思是平静的状态。法里纳解释说：“这意味着一个冷静、不受约束的人。”。他认为，人工智能的结构及其缺乏人类情感的特点确保了它不会做出冲动的反应，“即使在人类会失去理智的情况下”。虽然人类可能会尝试大赌注来弥补巨大的赤字，但Ataraxos会缓慢而有条理地重返游戏。它制定的战略也避免了引起人们对其面临的任何问题的关注。当Ataraxos估计其对手没有理由怀疑其弱点时，它会放过这个弱点，即使这可能看起来像是一场灾难，即将发生在任何能看到董事会两面的人身上。法里纳说：“对于人类来说，当你知道一个秘密时，很难忽视你知道这个秘密的事实来做出决定。”。“对于机器来说，这很容易。”该团队表示，这使得机器能够做出人类只有在虚张声势时才会做的动作，并且比人类更好地跟进这些动作。Vinitsky补充道：“我们会非常非常随意地看着机器人从2%的胜利概率中‘虚张声势’回来。”。人类选手阿塔拉科索斯（Ataraxos）逆转了这些奇迹般的逆转，尼梅杰（Niemeijer）作为世界排名第一的选手，已经获得了四次世界冠军和600多周的时间。在三周的时间里，Niemeijer与Ataraxos进行了20场网络游戏，每场胜利赚100美元。他知道人工智能不会适应他，这让他有时间寻找弱点。他只赢了一次。研究人员声称，这种损失并不是一个缺陷。玩好Stratego需要随机化你的棋子排列，所以运气总是起作用的。法里纳说：“即使是一个完美的策略，有时也会失败。”。人类冠军显然很幸运，但它是双向的。“有时候我们很幸运，”Vinitsky承认。在2025年的Stratego世界锦标赛上，挑战Ataraxos的参赛者表现更差。AI赢得了40场比赛中的38场。在这个过程中，它也改变了人们的游戏方式。法里纳说：“我认为这个机器人有点扭曲了元游戏。”。例如，玩家们惊讶地发现，它经常将旗帜插在两枚炸弹后面的角落里，这是一种很少使用的设置。但Ataraxos最好的伎俩可以说是它的价格标签。DeepNash在谷歌的1024个专用芯片上训练了两到三个月，Ataraxos团队估计，按2025年的价格计算，这一运行将花费300万到450万美元。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
