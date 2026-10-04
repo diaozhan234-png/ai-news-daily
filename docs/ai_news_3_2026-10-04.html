@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-04 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-04</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 85.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Apple changes full-disk access permissions to curb abuse from AI agents</div>
+      <div class="col-content">Apple says it is changing its macOS privacy settings to stop third-party app developers from misusing them to access message histories. Friday’s announcement comes two weeks after tech columnist Jason Aten said that Meta’s new general-purpose AI agent Muse sent him an unsolicited notification referencing a thread between him and a co-worker over Apple Messages. Aten said he never granted Muse permissions to read his messages and had assumed they were off-limits. Social media last week blew up with masses of people who agreed and said the incident showed that AI assistants given access to calendars, emails, messages, shopping accounts, and other resources are akin to a skill saw or other power tool. While potentially useful, they can do real damage if not used carefully. Meta CTO David Singleton joined the fray with a rebuttal that appeared solid. For Muse to access Apple Messages, a user must manually give it two privileges. One is full-disk access, a macOS system-level permission. The other is to enable a Messages connector setting in Muse. “The Messages integration in the Muse Mac app is opt in,” Singleton said. “Your Muse can only read Messages content if macOS system-level Full Disk Access is granted and the Messages connector is enabled.” Singleton’s implication was clear. Muse could have read Aten’s Messages communications only if he had enabled both settings, and if so, the columnist had only himself—and certainly not Meta—to blame. Earlier this week, I spoke to macOS security expert Patrick Wardle, who questioned Singleton’s denial. His reasoning: “From a technical point of view, with FDA (full-disk access), any (non-root file), is readable, browsing history, browser cookies, chats, etc etc etc.” I asked Meta how Muse couldn’t read messages when the app had full disk access, while every other app with that privilege could. Meta PR’s only response was to requote Singleton saying: “The Messages integration in the Muse Mac App is opt-in. Your Muse can only read Messages content if macOS system-level Full Disk Access is granted and the Messages connector is enabled.” Now, Apple is setting the record straight. In explaining why it was going to make changes to the FDA permission setting, the company wrote: Some developers are using Full Disk Access in ways that could put users at risk, exposing everything on their systems—including files, mail, messages, and even browsing history—without users’ full knowledge and understanding. For communication apps, this can also compromise the privacy of the people users are communicating with. As AI agents become increasingly capable and autonomous, the risks associated with this level of access will grow substantially. We are committed to ensuring users clearly understand these risks before granting such access, so they can make informed decisions about their own data and privacy. Apple didn’t name Meta, Muse, or any other app or developer by name. Even though there are no known reports of other apps abusing FDA to read messages and browsing history, it’s certainly possible Friday’s statement wasn’t referring to the Muse incident. Then again, the timing of the announcement—coming on the heels of a major social media uproar—makes the possibility likely. And at a minimum, Apple’s statements seem to contradict Singleton’s denial that it’s not possible for Muse to read Messages content without the connector enabled. Meta PR didn’t respond to questions sent Friday. Apple’s announcement came 11 days after Wardle disclosed a Muse configuration that allowed any app or code running on a Mac—including commands injected through the increasingly effective ClickFix attacks—to take full control of the AI assistant . From there, the attacker could access the same resources Muse could. It also comes after Amazon blocked Muse from its platform because, Amazon said, all such apps “should operate openly and respect service provider decisions about whether or not to participate.” Taken together, the events suggest that Muse may not be worthy of the extraordinary access it must have to work as billed by Meta. People who use the assistant should configure permissions carefully, though as Aten’s experience suggests, that precaution only goes so far.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">苹果更改了完整磁盘访问权限，以遏制AI代理的滥用</div>
+      <div class="col-content">苹果公司表示，它正在更改其macOS隐私设置，以阻止第三方应用程序开发人员滥用这些设置来访问消息历史记录。周五的公告发布两周前，科技专栏作家Jason Aten表示，Meta的新通用人工智能代理Muse向他发送了一条未经请求的通知，引用了他与同事之间在Apple Messages上的一条帖子。阿顿说，他从未授权缪斯阅读他的信息，并认为这些信息是禁止的。上周，社交媒体上爆发了大量同意的人，他们表示，这一事件表明，获得日历、电子邮件、消息、购物账户和其他资源的人工智能助手类似于技能锯或其他电动工具。虽然它们可能有用，但如果不小心使用，它们可能会造成真正的损害。Meta首席技术官大卫·辛格尔顿（David Singleton）加入了这场争论，他的反驳似乎很有力。Muse要访问Apple Messages，用户必须手动授予它两个权限。一种是全磁盘访问，这是macOS系统级权限。另一种是在Muse中启用消息连接器设置。Singleton说：“Muse Mac应用程序中的Messages集成是可选的。”。“只有在授予macOS系统级全磁盘访问权限并且启用了Messages连接器的情况下，您的Muse才能读取Messages内容。”Singleton的含义很明确。Muse只有在启用了这两种设置的情况下才能阅读Aten的消息通信，如果是这样，专栏作家只能怪自己，当然不能怪Meta。本周早些时候，我与macOS安全专家Patrick Wardle进行了交谈，他对Singleton的否认表示质疑。他的推理是：“从技术角度来看，使用FDA（全磁盘访问），任何（非根文件）都是可读的，浏览历史、浏览器Cookie、聊天等。”我问Meta，当应用程序具有全磁盘访问权限时，Muse如何无法读取消息，而其他具有该权限的应用程序则可以。Meta PR的唯一回应是重新引用Singleton的话：“Muse Mac应用程序中的Messages集成是可选择的。只有在授予macOS系统级全磁盘访问权限并启用Messages连接器的情况下，您的Muse才能读取Messages内容。”现在，苹果正在澄清这一事实。在解释为什么要更改美国食品药品监督管理局的许可设置时，该公司写道：一些开发人员使用全磁盘访问的方式可能会让用户面临风险，在用户不完全了解和理解的情况下，暴露他们系统上的所有内容，包括文件、邮件、消息，甚至浏览历史记录。对于通信应用程序，这也会损害用户与之通信的人的隐私。随着人工智能代理变得越来越有能力和自主性，与这种访问级别相关的风险将大幅增加。我们致力于确保用户在授予此类访问权限之前清楚地了解这些风险，以便他们能够就自己的数据和隐私做出明智的决定。苹果公司没有点名Meta、Muse或任何其他应用程序或开发人员。尽管目前还没有其他应用程序滥用FDA读取消息和浏览历史的报道，但周五的声明肯定不是指Muse事件。再者，在社交媒体上引发轩然大波之后，宣布这一消息的时机使这种可能性成为可能。至少，苹果的声明似乎与辛格尔顿的否认相矛盾，辛格尔顿否认Muse在没有启用连接器的情况下无法阅读Messages内容。Meta PR没有回复周五发送的问题。苹果公司宣布这一消息的11天前，Wardle披露了一种Muse配置，该配置允许在Mac上运行的任何应用程序或代码（包括通过日益有效的ClickFix攻击注入的命令）完全控制人工智能助手。从那里，攻击者可以访问Muse可以访问的相同资源。此前，亚马逊将Muse从其平台上屏蔽，因为亚马逊表示，所有此类应用程序“都应该公开运行，并尊重服务提供商关于是否参与的决定”。总的来说，这些事件表明，Muse可能不值得Meta所宣称的它必须拥有的非凡访问权限。使用该助手的人应该仔细配置权限，尽管正如Aten的经验所表明的那样，这种预防措施只能到此为止。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/security/2026/10/apple-changes-full-disk-access-permissions-to-curb-abuse-from-ai-agents/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
