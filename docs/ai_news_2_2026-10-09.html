@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-09 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-09</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 88.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Nvidia's big bet on physical AI aims for safer robotaxis, humanoid robots</div>
+      <div class="col-content">Investors bullish on AI data centers may be fueling Nvidia’s multitrillion-dollar market capitalization, but the AI chipmaker has also bet billions of dollars on physical AI technologies such as robotics and self-driving cars. Part of that gambit has involved developing a full-stack safety system that companies can build upon to reduce the risk of their machines harming nearby people. Nvidia’s Halos system launched in 2025 with hardware and software tools to help developers implement guardrails in self-driving cars and other autonomous vehicles. Then the company expanded its safety architecture to more physical AI technologies by announcing Nvidia Halos for Robotics in June 2026—with the goal of enabling safe deployments of autonomous mobile robots in warehouses, humanoid robots walking around inside a factory, or even surgical robots. “Now the AI models are getting capable, the robot hardware is getting capable, and a thing we thought is going to be the next bottleneck is safety,” Amit Goel , head of robotics ecosystem and edge computing at Nvidia, told Ars. “So that’s why we launched our Halos for Robotics to unlock the capability of these systems.” The expanded safety offering for robotics comes as Nvidia CEO Jensen Huang described the physical AI business as already driving nearly $10 billion in annual revenue for the company during an appearance on the All-In Podcast in March 2026. Huang began highlighting physical AI as Nvidia’s second-most important growth category in 2025. The tech giant has also invested directly in multiple robotics companies, including the humanoid robotics startups Agility Robotics and Figure AI, along with companies developing robotics foundation models. Nvidia has even partnered with the Chinese humanoid robotics company Unitree to provide an “open humanoid robot reference design” for researchers. So what does Nvidia’s full-stack safety system for robotics involve? It starts with hardware, such as the Nvidia IGX Thor computing module for robotics and industrial applications that has an independent processor dedicated to safety-related workloads. “In the context of physical AI, you need to have your functional system and your safety system all running on the same silicon,” Goel said. On the software side, the Halos operating system was designed to enable constant monitoring of “every hardware block” and “every software library” to swiftly spot any failures, Goel explained. The system also isolates safety-critical computing workloads to avoid any potential interference. The system also includes the Nvidia Holoscan Sensor Bridge that connects sensor data with safety-related computer processing in a way that can easily identify corrupted data. This can be embedded in individual hardware components, like a microcontroller or Field Programmable Gate Array. Last but not least, the Halos package also includes Nvidia’s simulations for testing robots in virtual environments, and an inspection lab program that allows robotics companies and other partners to get quick feedback on any safety “artifacts” that arise during robotic development. However, adapting Nvidia Halos from autonomous vehicles to robotics required accommodating many different definitions of safety. The definition of functional safety for autonomous driving generally remains the same across different automotive companies and countries, Goel explained. But a robotic vacuum cleaning a hallway will have very different safety considerations compared to a robotic forklift handling heavy payloads in a warehouse loading dock. “We had to reimagine and do a lot of foundational work to build a platform that is programmable, that gives all the hooks to the developers to actually define custom safety functions, but at the same time not break the underlying infrastructure that we built,” Goel told Ars. “Because giving flexibility can come at the cost of losing some control over the stack.” Custom safety functions are also necessary because robots may operate in complex, diverse environments. “If you are a robot coming down an aisle at six miles per hour, your senses do not see what are the blind spots and what is coming around the corner,” Gold said. “What the robots do is almost come to a halt before the turn, because they really don’t know what’s happening in all these factories, warehouses and hospitals—they’re unstructured environments and things can come from anywhere.” The US startup Agility Robotics was first to incorporate Nvidia Halos into its latest Digit 5 humanoid robot, which is designed to work safely near people without requiring isolated workstations or physical barriers. The Nvidia system helped Agility bring all the relevant safety sensors and hardware inside the robot, whereas previous Digit robot operations have also relied on external sensors placed around the robot’s work cell to ensure safety. “Now the robot is literally unchained—the safety goes with the robot wherever it goes,” Goel told Ars. “Now they can operate everywhere in a factory or a warehouse without having to set up a brand new infrastructure every time they want to do a new task.” The Massachusetts-based robotics company Boston Dynamics has also been an early partner in the Nvidia Halos safety accreditation program , with a focus on building a safety platform that encompasses their Spot robot dogs, wheeled Stretch robots with a large robotic arm, and Atlas humanoid robots that could start deploying in the automotive factories of parent company Hyundai by 2028. Other companies working to incorporate Nvidia Halos include the German company KION Group that deploys self-driving forklifts and other autonomous mobile robots, along with the South Korean company LG that is developing its own humanoid robot based on Nvidia’s IAI foundation model for humanoid robots called Isaac GROOT. It remains to be seen if humanoid robots can become autonomous, general-purpose robot workers capable of handling practically any human task.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Nvidia在物理人工智能上的巨大赌注旨在实现更安全的机器人轴，人形机器人</div>
+      <div class="col-content">看好人工智能数据中心的投资者可能正在推动英伟达数万亿美元的市值，但这家人工智能芯片制造商也在机器人和自动驾驶汽车等物理人工智能技术上投入了数十亿美元。该策略的一部分涉及开发一个全栈安全系统，公司可以在此基础上降低机器伤害附近人员的风险。英伟达的Halos系统于2025年推出，其硬件和软件工具可帮助开发人员在自动驾驶汽车和其他自动驾驶汽车中实施护栏。随后，该公司于2026年6月宣布推出Nvidia Halos for Robotics，将其安全架构扩展到更多的物理人工智能技术，目标是在仓库中安全部署自主移动机器人、在工厂内行走的人形机器人，甚至手术机器人。英伟达机器人生态系统和边缘计算主管Amit Goel告诉Ars：“现在人工智能模型越来越强大，机器人硬件也越来越强大了，我们认为下一个瓶颈是安全。”。“这就是为什么我们推出了机器人光环，以释放这些系统的能力。”随着英伟达首席执行官黄仁勋在2026年3月的All-in播客上表示，实体人工智能业务已经为公司带来了近100亿美元的年收入，我们扩大了机器人的安全产品。黄开始强调物理人工智能是英伟达2025年第二大增长类别。这家科技巨头还直接投资了多家机器人公司，包括人形机器人初创公司Agility robotics和Figure AI，以及开发机器人基础模型的公司。英伟达甚至与中国人形机器人公司Unitree合作，为研究人员提供“开放式人形机器人参考设计”。那么，Nvidia的全栈机器人安全系统涉及哪些方面呢？它从硬件开始，例如用于机器人和工业应用的英伟达IGX Thor计算模块，该模块具有专门用于安全相关工作负载的独立处理器。“在物理人工智能的背景下，你需要让你的功能系统和安全系统都在同一个芯片上运行，”Goel说。Goel解释说，在软件方面，Halos操作系统旨在持续监控“每个硬件块”和“每个软件库”，以迅速发现任何故障。该系统还隔离了安全关键的计算工作负载，以避免任何潜在的干扰。该系统还包括英伟达Holoscan传感器桥，该传感器桥将传感器数据与安全相关的计算机处理连接起来，可以轻松识别损坏的数据。这可以嵌入到单个硬件组件中，如微控制器或现场可编程门阵列。最后但同样重要的是，Halos软件包还包括Nvidia在虚拟环境中测试机器人的模拟，以及一个检查实验室程序，该程序允许机器人公司和其他合作伙伴对机器人开发过程中出现的任何安全“伪影”获得快速反馈。然而，将Nvidia Halos从自动驾驶汽车应用于机器人需要适应许多不同的安全定义。Goel解释说，自动驾驶功能安全的定义在不同的汽车公司和国家通常保持不变。但是，与在仓库装卸码头搬运重型有效载荷的机器人叉车相比，机器人吸尘器清洁走廊将有非常不同的安全考虑。Goel告诉Ars：“我们必须重新构想并做大量基础工作来构建一个可编程的平台，该平台为开发人员提供了所有钩子，以实际定义自定义安全功能，但同时又不会破坏我们构建的底层基础设施。”。“因为给予灵活性可能会以失去对堆栈的一些控制为代价。”定制安全功能也是必要的，因为机器人可能在复杂多样的环境中运行。戈尔德说：“如果你是一个以每小时6英里的速度走过过道的机器人，你的感官不会看到盲点和即将到来的东西。”。“机器人在转弯前几乎停止了工作，因为它们真的不知道所有这些工厂、仓库和医院发生了什么——它们是非结构化的环境，东西可以来自任何地方。”美国初创公司Agility Robotics率先将Nvidia Halos整合到其最新的Digit 5人形机器人中，该机器人旨在安全地在人附近工作，而不需要隔离的工作站或物理障碍。英伟达系统帮助安捷伦将所有相关的安全传感器和硬件引入机器人，而之前的Digit机器人操作也依赖于放置在机器人工作单元周围的外部传感器来确保安全。Goel告诉Ars：“现在机器人真的不受束缚了——无论机器人走到哪里，安全都会随之而来。”。“现在，他们可以在工厂或仓库的任何地方工作，而无需在每次想要完成新任务时建立全新的基础设施。”总部位于马萨诸塞州的机器人公司波士顿动力公司（Boston Dynamics）也是英伟达光环安全认证计划的早期合作伙伴，其重点是建立一个安全平台，包括Spot机器狗、带大型机械臂的轮式Stretch机器人和Atlas人形机器人，这些机器人可能在2028年前开始在母公司现代的汽车工厂部署。其他致力于整合Nvidia Halos的公司包括德国公司KION Group，该公司部署了自动驾驶叉车和其他自动移动机器人，以及韩国公司LG，该公司正在基于Nvidia的IAI人形机器人基础模型Isaac GROOT开发自己的人形机器人。人形机器人能否成为能够处理几乎任何人类任务的自主、通用的机器人工人还有待观察。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/10/nvidias-big-bet-on-physical-ai-aims-for-safer-robotaxis-humanoid-robots/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
