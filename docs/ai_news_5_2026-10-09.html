@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-09 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-09</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Why isn't the industry freaking out about DeepSeek 4.1 Flash?</div>
+      <div class="col-content">I have been using DeepSeek 4.1 Flash for about a month, heavily, across a dozen projects. It is super capable, and orders of magnitude cheaper than the "frontier" models. When I'm mid-session, if I don't look at the model name, I honestly could not tell you if I'm using DeepSeek or Opus. Whether it's our conversations, the work, or the speed, I don't notice a difference. I don't care that there is no 4.1 "Pro". I treat this like a frontier model because it behaves like one . I'm coming at this from my subjective usage experience, but you can see more complete benchmarks here if that floats your boat. So why aren't the frontier labs freaking out right now? China is going to eat their lunch. They may be a month or two behind Anthropic/OpenAI, but these distilled Chinese models can handle the same workloads. Sure, they stole Claude's training , and Anthropic stole it from other people. I'm not getting into the whole who-owns-whose-data debate, because most developers aren't thinking like that. They're just trying to get the most bang for their buck. Good Enough Changes How You Work Today's models are now good enough for high-quality unattended tasks. Chasing the latest and greatest is silly. It is fun to see the new Fable capabilities, but the tasks we throw at them are usually ridiculous (maybe even insulting) if you believe in LLM sentience. It's like asking a math PhD to organize the files on your desktop. With my OpenCode Go sub of $10/month, DeepSeek is basically unlimited. This has completely changed my way of developing. There is no shame now in spinning up mindless tasks, or exploratory UI monkey testing. And sure, go ahead and reorganize your desktop files. That will cost $0.003 instead of $1. I have rarely exceeded $1 in expected costs in a session. I try to keep my sessions tight, but sometimes they run for most of a day. I even lean on 4.1 Flash for complex planning and research. For occasional critical tasks , I sometimes pull in Opus 5.5 to do a final code review, which will catch a few edge cases. Then I have DeepSeek execute the fixes. Even when I call up Opus or GLM (which seems to be drinking the same Chinese Kool-Aid as DeepSeek), it's less about quality and capabilities and more about getting new eyes on a problem. Cache Magic DeepSeek shrank the KV cache by roughly 437x compared to their V1 model. Holding that cache in GPU memory is one of the biggest costs of running long coding sessions. That's how my all-day sessions stay under a dollar. It must be better for the environment too. Using Claude almost feels wasteful, and not just on cost: its caching means DeepSeek must be using less water and electricity. This cache magic is also how Opus 5.5 quietly got its own efficiency boost. Yes, I have frontier subscriptions. My work provides Claude, Cursor, and others. I'm not nickel-and-diming here. I'm thinking more about long-term planning, sustainability, and democratizing access to high intelligence. This is a game changer. These wins are lost on the tech industry, which thinks that if you're not paying top dollar, it's not worth it. FAANG wants to spend the most money for the highest intelligence. Forget it if it's unethical, expensive, or bad for the environment or the economy. This is dog-eat-dog capitalism. This leads to people having crazy setups to load balance a dozen Claude Max subs , and complaining when they can't get more . And to the self-hosters out there, the economics of 4.1 Flash mean self-hosting is not worth it. If saving money is your goal, you will never recoup the costs. But if your concern is privacy, just wait. These cache optimizations are coming to you, and this cache magic will soon run entirely locally. Even now, 4.1 Flash is technically self-hostable, even if not practically so. Any day now. I have been using DeepSeek 4.1 Flash for about a month, heavily, across a dozen projects. It is super capable, and orders of magnitude cheaper than the "frontier" models. When I'm mid-session, if I don't look at the model name, I honestly could not tell you if I'm using DeepSeek or Opus. Whether it's our conversations, the work, or the speed, I don't notice a difference. I don't care that there is no 4.1 "Pro". I treat this like a frontier model because it behaves like one . I'm coming at this from my subjective usage experience, but you can see more complete benchmarks here if that floats your boat. So why aren't the frontier labs freaking out right now? China is going to eat their lunch. They may be a month or two behind Anthropic/OpenAI, but these distilled Chinese models can handle the same workloads. Sure, they stole Claude's training , and Anthropic stole it from other people. I'm not getting into the whole who-owns-whose-data debate, because most developers aren't thinking like that. They're just trying to get the most bang for their buck. Today's models are now good enough for high-quality unattended tasks. Chasing the latest and greatest is silly. It is fun to see the new Fable capabilities, but the tasks we throw at them are usually ridiculous (maybe even insulting) if you believe in LLM sentience. It's like asking a math PhD to organize the files on your desktop. With my OpenCode Go sub of $10/month, DeepSeek is basically unlimited. This has completely changed my way of developing. There is no shame now in spinning up mindless tasks, or exploratory UI monkey testing. And sure, go ahead and reorganize your desktop files. That will cost $0.003 instead of $1. I have rarely exceeded $1 in expected costs in a session. I try to keep my sessions tight, but sometimes they run for most of a day. I even lean on 4.1 Flash for complex planning and research. For occasional critical tasks , I sometimes pull in Opus 5.5 to do a final code review, which will catch a few edge cases. Then I have DeepSeek execute the fixes.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">为什么业界对DeepSeek 4.1 Flash不感到恐慌？</div>
+      <div class="col-content">我已经在十几个项目中大量使用DeepSeek 4.1 Flash大约一个月了。它性能超强，比“前沿”型号便宜几个数量级。当我在训练中时，如果我不看模型名称，老实说，我无法告诉你我是在使用DeepSeek还是Opus。无论是我们的谈话、工作还是速度，我都没有注意到有什么不同。我不在乎是否有4.1“Pro”。我将其视为前沿模型，因为它的行为与前沿模型相似。我是根据我的主观使用经验来做这件事的，但如果这能让你满意，你可以在这里看到更完整的基准测试。那么，为什么前沿实验室现在没有吓坏呢？中国将吃他们的午餐。它们可能落后于Anthropic/OpenAI一两个月，但这些经过提炼的中国模型可以处理相同的工作负载。当然，他们偷了克劳德的训练，Anthropic也从别人那里偷了。我没有参与谁拥有谁的数据的辩论，因为大多数开发人员都没有这样想。他们只是想得到最大的回报。足够好的改变你的工作方式今天的模型现在足以完成高质量的无人值守任务。追逐最新、最伟大的东西是愚蠢的。看到新的寓言功能很有趣，但如果你相信LLM的感知能力，我们给他们的任务通常是荒谬的（甚至可能是侮辱性的）。这就像让数学博士组织你桌面上的文件。我的OpenCode Go订阅每月10美元，DeepSeek基本上是无限的。这完全改变了我的发展方式。现在，启动无脑任务或探索性UI猴子测试并不可耻。当然，请继续重新组织您的桌面文件。这将花费0.003美元，而不是1美元。我很少在一次会议中超过1美元的预期成本。我尽量让我的课程紧凑，但有时它们会持续一天的大部分时间。我甚至依靠4.1 Flash进行复杂的规划和研究。对于偶尔的关键任务，我有时会使用Opus 5.5进行最终的代码审查，这将发现一些边缘情况。然后我让DeepSeek执行修复。即使我打电话给Opus或GLM（似乎和DeepSeek喝的是同样的中国Kool-Aid），它也不是关于质量和能力，而是关于让新的眼光看待问题。与V1型号相比，Cache Magic DeepSeek将KV缓存缩小了大约437倍。将缓存保存在GPU内存中是运行长编码会话的最大成本之一。这就是我的全天课程保持在一美元以下的原因。它也必须对环境更好。使用Claude几乎感觉浪费，而且不仅仅是成本：它的缓存意味着DeepSeek必须使用更少的水和电。这种缓存魔法也是Opus 5.5悄悄提高效率的原因。是的，我有边境订阅。我的作品提供了克劳德、Cursor和其他人。我不是镍币和diming在这里。我更多地考虑的是长期规划、可持续性和高智商获取的民主化。这将改变游戏规则。这些胜利都输给了科技行业，科技行业认为，如果你不支付高价，就不值得。FAANG想花最多的钱获得最高的情报。如果这是不道德的、昂贵的，或者对环境或经济不利，那就算了。这是狗咬狗的资本主义。这导致人们为了平衡十几个Claude Max潜艇而进行疯狂的设置，并在无法获得更多潜艇时抱怨。对于那里的自托管商来说，4.1 Flash的经济性意味着自托管不值得。如果省钱是你的目标，你永远无法收回成本。但如果你担心的是隐私，那就等着吧。这些缓存优化即将到来，这种缓存魔法很快就会完全在本地运行。即使现在，4.1 Flash在技术上也是可自托管的，即使实际上不是这样。我已经在十几个项目中大量使用DeepSeek 4.1 Flash大约一个月了。它性能超强，比“前沿”型号便宜几个数量级。当我在训练中时，如果我不看模型名称，老实说，我无法告诉你我是在使用DeepSeek还是Opus。无论是我们的谈话、工作还是速度，我都没有注意到有什么不同。我不在乎是否有4.1“Pro”。我将其视为前沿模型，因为它的行为与前沿模型相似。我是根据我的主观使用经验来做这件事的，但如果这能让你满意，你可以在这里看到更完整的基准测试。那么，为什么前沿实验室现在没有吓坏呢？中国将吃他们的午餐。它们可能落后于Anthropic/OpenAI一两个月，但这些经过提炼的中国模型可以处理相同的工作负载。当然，他们偷了克劳德的训练，Anthropic也从别人那里偷了。我没有参与谁拥有谁的数据的辩论，因为大多数开发人员都没有这样想。他们只是想得到最大的回报。今天的模型已经足够用于高质量的无人值守任务。追逐最新、最伟大的东西是愚蠢的。看到新的寓言功能很有趣，但如果你相信LLM的感知能力，我们给他们的任务通常是荒谬的（甚至可能是侮辱性的）。这就像让数学博士组织你桌面上的文件。我的OpenCode Go订阅每月10美元，DeepSeek基本上是无限的。这完全改变了我的发展方式。现在，启动无脑任务或探索性UI猴子测试并不可耻。当然，请继续重新组织您的桌面文件。这将花费0.003美元，而不是1美元。我很少在一次会议中超过1美元的预期成本。我尽量让我的课程紧凑，但有时它们会持续一天的大部分时间。我甚至依靠4.1 Flash进行复杂的规划和研究。对于偶尔的关键任务，我有时会使用Opus 5.5进行最终的代码审查，这将发现一些边缘情况。然后我让DeepSeek执行修复。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
