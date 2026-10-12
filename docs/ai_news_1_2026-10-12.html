@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-12 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-12</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 The Verge</span>
+      <span class="badge">🔥 热度 88.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Learning to use local AI is exciting, overwhelming, and frustrating</div>
+      <div class="col-content">It’s like using cloud-based AI tools, but the privacy makes it more appealing.﻿ It’s like using cloud-based AI tools, but the privacy makes it more appealing.﻿ I’m embarking on a journey I’ve so far been hesitant to go on: actually using AI on the regular. Giving my most personal data to cloud services has been a major hold up for me, but it’s increasingly possible to run powerful models locally to see what they’re capable of. Is this tech so useful that it’s worth throwing gobs of money at a computer or a laptop with lots of overpriced RAM? I’ll try to help you find out. I’m not an AI expert, it’s going to be a journey for me, but maybe I can help you see if that journey is worth taking — and I’ll be posting my way through it. A big part of Apple’s pitch for its new Mac desktops is how good they are for local AI, and there’s an entire line of new RTX Spark Windows machines landing imminently with up to 128GB of RAM aimed at using agentic AI. Local AI and agents are just, like, so hot right now. But, in all seriousness, the thought of having a little gofer living solely in the box on my desk that answers only to me and not overlords from OpenAI, Google, Microsoft, or Anthropic hits a bit different than trusting cloud services or subscribing to a chatbot. Don’t get me wrong, there’s still no way I’m gonna have it write for me, edit for me, or generate ugly fliers . But now, with some privacy on my side maybe I can finally think of useful busy work to “trust” it with. So as part of my ongoing testing of the M5 Ultra Mac Studio , as well as experimenting on other Mac and Windows systems, I’ve installed some local LLMs and I’m beginning to tinker. Here’s how things are going. I started by installing the open-source Hermes Agent on the Mac Studio. Hermes is a self-hosted AI agent desktop app that works on macOS, Windows, and Linux. It’s completely free to use if you stick to local LLMs. Since this M5 Ultra Mac Studio has 256GB of unified memory, I could run just about any model I want. This is how things quickly get overwhelming. There are more models out there than I can count , and some have specialized uses. Generally, models with many billions of parameters are able to do more than smaller ones with only a few billion. And since we don’t have to worry about paying for tokens when running a model locally, I figured I’d go big to start. Using Hermes’ straightforward onboarding interface and model picker, I chose the Qwen 3.8 Flash Next model — a 125-billion parameter model that’s around 105GB in size. I also plan on spending some time with much smaller Qwen models on devices like an M6 Mac Mini, M5 MacBook Air, an Asus TUF Gaming A14 with AMD Strix Halo processor, and, eventually, RTX Spark. (Care to share what local models and hardware you use? You know where to leave your comments. 🫡) It wasn’t long to get up and running with Hermes and Qwen, and even make them controllable via my phone by using a Telegram bot . But then, I was presented with my usual nemesis when it comes to using AI: the text box. First up, to get things going, I followed some helpful YouTube advice and had Hermes make me a daily morning briefing — to just start small with a cron job and ensure things are working. It scans my email and calendar, tells me anything worth my immediate attention, and gives me a short weather report. It’s not all that useful, and you obviously don’t need a $12,000 computer to build it, but it’s something I can develop over time. The brief kept failing to generate at first, but then I eventually figured out that macOS couldn’t be asleep when the job fired up at 7:30am. Duh! It works like clockwork now, but I have to think of more info for it to pull for me to make the results more helpful. A more useful task was reorganizing my Steam library. I have over 400 games on Steam, and I recently started categorizing them for when I want to play something new on a whim. Steam doesn’t categorize your games for you, so you instead have to do it manually, one-by-one. But here’s where an agentic lackey could fit right in. I asked, “Can you reorganize my Steam library?” Hermes could see most of my games by just viewing the already installed Steam client. It quickly came up with some organization options for me. I decided to have it organize my games by genre, but leave some of my own specialized categories(favorites, co-op titles, party games, games to play with my wife, etc.). You have to give a local AI some permissions over your machine for it to take actions for you, and in the case of my game library I had to register a Steam web API key and give it to Hermes. Once it had that access, it only took a few minutes for it to churn through sorting all the games into categories. And the API key was easy to revoke right after, since I don’t need it further. The idea is for it to just do this heavy lifting for me once, and then I’ll file new games into the categories as I eventually buy them. It did a fine job overall, and now my Steam library is easily browsable. Another simple thing I did was data analysis. I had Hermes take a look at financial records to crunch some numbers for me, and I also had it make me a spec comparison spreadsheet for a new laptop. These are small things, but they’re both tasks I cannot or will not trust with any cloud service — I don’t want to upload that sensitive data to the cloud, and in the case of a new laptop, that info was under embargo. Keeping them on my computer was the difference in me using this tool or not. The bigger bit of automation I’m currently working on is a script to run a series of laptop benchmark tests. I run all our benchmarks manually, and tending to a laptop to run a dozen or so tests — three times over, to take the average — is incredibly time-consuming. I’d love to automate at least some of it.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">学习使用本地人工智能是令人兴奋、压倒性和沮丧的</div>
+      <div class="col-content">这就像使用基于云的人工智能工具，但隐私使其更具吸引力。﻿ 这就像使用基于云的人工智能工具，但隐私使其更具吸引力。﻿ 我正在开始一段我迄今为止一直犹豫不决的旅程：真正经常使用人工智能。将我的大部分个人数据提供给云服务一直是我的主要障碍，但越来越有可能在本地运行强大的模型来了解它们的能力。这项技术如此有用，值得花大把的钱买一台RAM价格过高的电脑或笔记本电脑吗？我会尽力帮你找出答案。我不是人工智能专家，这对我来说将是一段旅程，但也许我可以帮助你看看这段旅程是否值得一走——我会把我的路贴出来。苹果公司对其新Mac台式机的宣传很大一部分是它们对本地人工智能有多好，而且有一系列新的RTX Spark Windows机器即将登陆，其内存高达128GB，旨在使用代理人工智能。本地人工智能和代理现在非常热门。但是，说真的，让一个小家伙只住在我桌子上的盒子里，只对我负责，而不是OpenAI、谷歌、微软或Anthropic的霸主，这与信任云服务或订阅聊天机器人有点不同。不要误会我的意思，我仍然不可能让它为我写，为我编辑，或者生成丑陋的传单。但现在，有了一些隐私，也许我终于可以想出一些有用的繁忙工作来“信任”它了。因此，作为我正在进行的M5 Ultra Mac Studio测试的一部分，以及在其他Mac和Windows系统上的实验，我安装了一些本地LLM，并开始进行修补。事情是这样的。我首先在Mac Studio上安装了开源的Hermes Agent。Hermes是一个可在macOS、Windows和Linux上运行的自托管AI代理桌面应用程序。如果你坚持使用当地的LLM，它是完全免费的。由于这款M5 Ultra Mac Studio具有256GB的统一内存，我几乎可以运行任何我想要的型号。事情就是这样迅速变得势不可挡的。市面上的型号多得数不清，有些还具有特殊用途。一般来说，具有数十亿个参数的模型能够比只有几十亿个参数的较小模型做得更多。既然我们在本地运行模型时不必担心支付代币费用，我想我会从一开始就做得很大。使用Hermes的简单入门界面和模型选择器，我选择了Qwen 3.8 Flash Next模型——一个1250亿参数的模型，大小约为105GB。我还计划花一些时间在M6 Mac Mini、M5 MacBook Air、配备AMD Strix Halo处理器的华硕TUF Gaming A14以及最终的RTX Spark等设备上使用更小的Qwen型号。（想分享你使用的本地型号和硬件吗？你知道在哪里发表评论。🫡) 没过多久，我就可以开始使用Hermes和Qwen，甚至可以通过Telegram机器人通过我的手机控制它们。但后来，在使用人工智能时，我遇到了我通常的对手：文本框。首先，为了让事情顺利进行，我遵循了一些有用的YouTube建议，让Hermes每天早上给我做一个简报——从一个小任务开始，确保一切正常。它扫描我的电子邮件和日历，告诉我任何值得我立即关注的事情，并给我一份简短的天气报告。它并不是那么有用，而且你显然不需要一台12000美元的电脑来构建它，但随着时间的推移，我可以开发它。起初，简报一直未能生成，但后来我最终发现，当作业在早上7:30启动时，macOS无法入睡。啊！它现在像钟表一样工作，但我必须想更多的信息，让它为我提供帮助，使结果更有帮助。一个更有用的任务是重新组织我的Steam库。我在Steam上有400多个游戏，我最近开始对它们进行分类，以便在我想突发奇想玩新东西的时候玩。Steam不会为你的游戏分类，所以你必须一个接一个地手动操作。但这就是一个代理走狗可以适应的地方。我问：“你能重组我的Steam库吗？”Hermes只需查看已经安装的Steam客户端就可以看到我的大部分游戏。它很快为我想出了一些组织选项。我决定让它按流派组织我的游戏，但留下一些我自己的专业类别（收藏夹、合作游戏、派对游戏、和我妻子玩的游戏等）。你必须给本地人工智能一些权限，让它对你的机器采取行动，在我的游戏库的情况下，我必须注册Steam web API密钥，并将其交给爱马仕。一旦它获得了访问权限，它只需要几分钟就可以将所有游戏分类。而且API密钥很容易被立即撤销，因为我不需要它了。这个想法是，它只为我做一次繁重的工作，然后我会在最终购买时将新游戏归入各个类别。总体而言，它做得很好，现在我的Steam库很容易浏览。我做的另一件简单的事情是数据分析。我让Hermes查看了财务记录，为我计算了一些数字，还让它为我制作了一个新笔记本电脑的规格比较电子表格。这些都是小事，但它们都是我不能或不会信任任何云服务的任务——我不想将敏感数据上传到云端，而且对于新笔记本电脑来说，这些信息是被禁止的。把它们放在我的电脑上是我使用这个工具与否的区别。我目前正在开发的更大的自动化是一个运行一系列笔记本电脑基准测试的脚本。我手动运行所有的基准测试，用笔记本电脑运行十几个测试——三次以上，取平均值——非常耗时。我很想至少自动化其中的一部分。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：The Verge · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
