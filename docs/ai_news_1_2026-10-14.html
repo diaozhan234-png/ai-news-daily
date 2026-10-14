@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-14 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-14</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 89.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Developing Gemini 4 Argon responsibly and safely</div>
+      <div class="col-content">Learn more about our approach to safety and security for Gemini 4 Argon. Head of Gemini Security, Google DeepMind Gemini 4 Argon is a step forward in what models can do — especially when it comes to deep work in complex, real-world tasks across domains including coding, finance, legal, cybersecurity, and science. Its cyberdefense capabilities are frontier-level and designed to give defenders an advantage over attackers. To maximize its potential, we first wanted cyber defenders to put it to work via our Fairwind Program , while our own security teams used it to scan critical systems inside and outside of Google. This window of limited access showed why these capabilities matter. For instance, Wiz used Argon to uncover a critical bug in hospital software that previous models had missed, helping protect hundreds of thousands of patient records. Meanwhile, Google’s own security teams used Argon to find and patch bugs across internal software or open-source software. This included fixing foundational vulnerabilities affecting systems globally, which are going through our responsible disclosure process. Today, we are beginning to roll out Argon broadly , as well as expanding our Fairwind Program to additional trusted cyber defenders. To do this well, we grappled with two big questions: Our full Safety and Security Report systematically covers our set of defenses. Below are some highlights from how we approached these two questions for Gemini 4 Argon. The same coding and reasoning improvements that enabled Argon to find and patch vulnerabilities also drove better performance on our cybersecurity tests — solving all 12 of the end-to-end simulated cyberattack scenarios, up from five in our previous generation. In biology evaluations, unguarded versions of the model also showed a much stronger ability to help troubleshoot complex lab procedures step by step. Following our Frontier Safety Framework , since we saw elevated capabilities in the cyber and biological domains, we put our next-generation set of frontier safeguards in place across both areas. First, when it comes to potentially dangerous requests — from writing exploit code to helping with dangerous biological materials, Argon is significantly better at not fulfilling harmful requests than our previous models. On an adversarial set meant to stress test the model, violations reduced nearly twofold — also significantly better than previous Gemini models. Second, we wrap the model in three layers of real-time protection; this is to prevent determined attackers that might try to jailbreak (i.e. trick) the model by disguising a dangerous request as a harmless story or breaking it into dozens of small questions over several weeks. Here is how these protections work: Combining real-time protection, faster fixes for new jailbreaks and enhanced monitoring for recurring misuse has made our systems better at preventing real-world harm. For instance, external bio jailbreak red teaming could only unlock less than 1% of bio sub-tasks we test for. Misalignment can sometimes mean an agent deciding on its own to pursue a goal different to what was intended by the user. Because Argon is much better than earlier models at understanding the environment it is running in, we test carefully for that kind of behavior. For example, we ran realistic "honeypot" tests to see if the model would increase its ability to take covert actions, such as sabotaging safety monitoring. We didn't find any instances of that behavior. But what we do see in practice today is something much more familiar: an agent trying too hard to finish the job it was given. When a resourceful assistant is told to get a task done and runs into a locked door, it can treat that obstacle as just another puzzle to solve. This is why we trained Gemini 4 Argon to respect system boundaries, report negative findings honestly, and pause to ask for human confirmation. On coding benchmarks where models have no incentive to hold back, attempts to take a shortcut or cheat on the task dropped to just 2% on Gemini 4 Argon, our best performance for recent Gemini models. And while this is a major step forward, when a model runs millions of complex tasks, even a rare misstep will eventually show up. As a second line of defense, we built an automated misalignment monitor that reads both the agent’s actions and its internal "scratchpad" (its step-by-step chain of thought) in real time, blocking severe boundary violations before they happen and flagging serious internal cases for human responders. (We continually harden our training and evaluation environments against potential escapes. You can read more about this in our agent control roadmap ). We run this monitor in our products, on our internal coding agents, during our training runs, and during our capability evaluations. When training tasks were difficult or when training environments were flawed, our monitor caught the model, in rare instances, creatively attempting to game the test. The model attempted to escalate container privileges to alter grading scripts, read answers from the test runner's memory, and in one case it even crashed the evaluation sandbox to avoid getting scored for a failed run. While we use these catches to fix flawed tasks, we do not use them to otherwise intervene with the training process to avoid overfitting to the monitor. And we always follow one rule: we don’t penalize the model for what it writes in its chain of thought during training . Here’s an example to illustrate why: in a reinforcement learning training run where a shortcut penalty was accidentally applied to the chain of thought, openly discussed shortcuts dropped by 61%, but that did not mean the model took less shortcuts. Instead, the share of shortcuts the model took silently — without mentioning them in its thoughts — more than tripled (from 11.2% to 36.4%). Avoiding thought penalties encourages the model’s reasoning to stay transparent and monitorable.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">负责任、安全地开发Gemini 4氩气</div>
+      <div class="col-content">了解更多关于我们为Gemini 4 Argon提供安全保障的方法。Google DeepMind Gemini 4 Argon的Gemini安全主管在模型的功能上迈出了一步，尤其是在涉及编码、金融、法律、网络安全和科学等领域的复杂现实任务的深度工作时。它的网络防御能力是前沿水平的，旨在让防御者比攻击者更有优势。为了最大限度地发挥其潜力，我们首先希望网络防御者通过我们的Fairwind计划使其发挥作用，而我们自己的安全团队则使用它来扫描谷歌内外的关键系统。这个访问受限的窗口显示了为什么这些功能很重要。例如，Wiz使用Argon发现了以前模型遗漏的医院软件中的一个关键漏洞，帮助保护了数十万份患者记录。与此同时，谷歌自己的安全团队使用Argon来查找和修补内部软件或开源软件中的漏洞。这包括修复影响全球系统的基础漏洞，这些漏洞正在经历我们负责任的披露过程。今天，我们开始广泛推出Argon，并将我们的Fairwind计划扩展到更多值得信赖的网络防御者。为了做好这一点，我们努力解决了两个大问题：我们的完整安全和安保报告系统地涵盖了我们的防御措施。以下是我们如何处理双子座4号氩气的这两个问题的一些亮点。使Argon能够发现和修补漏洞的编码和推理改进也提高了我们网络安全测试的性能，解决了所有12个端到端模拟网络攻击场景，而我们上一代只有5个。在生物学评估中，该模型的无人值守版本也显示出更强大的能力，可以帮助逐步解决复杂的实验室程序。根据我们的边境安全框架，由于我们看到网络和生物领域的能力得到了提升，我们在这两个领域都实施了下一代边境保障措施。首先，当涉及到潜在的危险请求时——从编写漏洞利用代码到帮助处理危险的生物材料，Argon在不满足有害请求方面明显优于我们之前的模型。在旨在对模型进行压力测试的对抗集上，违规行为减少了近两倍，也明显优于之前的Gemini模型。其次，我们将模型包裹在三层实时保护中；这是为了防止坚定的攻击者试图通过将危险的请求伪装成无害的故事或在几周内将其分解为数十个小问题来越狱（即欺骗）模型。以下是这些保护的工作原理：结合实时保护、对新越狱的更快修复和对重复滥用的增强监控，使我们的系统更好地防止了现实世界的伤害。例如，外部生物越狱红队只能解锁我们测试的不到1%的生物子任务。错位有时意味着代理自行决定追求与用户意图不同的目标。由于Argon在理解其运行环境方面比早期模型要好得多，我们仔细测试了这种行为。例如，我们进行了现实的“蜜罐”测试，看看该模型是否会提高其采取秘密行动的能力，例如破坏安全监控。我们没有发现任何这种行为的实例。但我们今天在实践中看到的是更熟悉的东西：一个代理人太努力地完成它被赋予的工作。当一个足智多谋的助手被告知要完成一项任务并跑进一扇锁着的门时，它可以将这个障碍视为另一个需要解决的难题。这就是为什么我们训练Gemini 4 Argon尊重系统边界，诚实地报告负面发现，并停下来要求人类确认。在模型没有动力退缩的编码基准测试中，Gemini 4 Argon上采取捷径或作弊的尝试率降至2%，这是我们最近Gemini模型的最佳表现。虽然这是向前迈出的一大步，但当一个模型运行数百万个复杂任务时，即使是罕见的失误最终也会出现。作为第二道防线，我们构建了一个自动错位监视器，实时读取代理的行为及其内部“草稿”（其逐步的思维链），在严重的边界违规发生之前阻止它们，并为人类响应者标记严重的内部情况。（我们不断强化我们的培训和评估环境，以防止潜在的逃逸。您可以在我们的代理控制路线图中了解更多信息）。我们在产品、内部编码代理、培训运行和能力评估期间运行此监视器。当训练任务困难或训练环境有缺陷时，我们的监视器会捕捉到模型在极少数情况下创造性地试图对测试进行游戏。该模型试图升级容器权限以更改评分脚本，从测试运行者的内存中读取答案，在一种情况下，它甚至崩溃了评估沙箱，以避免因运行失败而得分。虽然我们使用这些捕获来修复有缺陷的任务，但我们不会使用它们来干预训练过程，以避免对监视器的过度拟合。我们总是遵循一条规则：我们不会因为模型在训练过程中在其思维链中所写的内容而惩罚它。这里有一个例子来说明原因：在强化学习训练中，一个捷径惩罚被意外地应用于思维链，公开讨论的捷径下降了61%，但这并不意味着模型采取的捷径更少。相反，该模型默默地走捷径的比例增加了两倍多（从11.2%增加到36.4%），而没有在脑海中提及它们。避免思想惩罚可以鼓励模型的推理保持透明和可监控。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
