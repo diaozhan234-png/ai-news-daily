@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-15 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-15</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 85.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Researchers use AI to design proteins that cut up other proteins</div>
+      <div class="col-content">A protein is a chain of amino acids held together by what are called peptide bonds. On their own, those bonds are extremely stable; they’re estimated to have a half-life of several hundred years. But in Earth’s environment, most proteins don’t last nearly that long. That’s because organisms have evolved a handful of ways to catalyze the break-up of peptide bonds, which have diversified into countless specialized protein-digesting enzymes. Proteases are everywhere and generally make short work of any proteins that find their way into the environment. Now, researchers have basically short-circuited the diversification process, using AI-based protein design tools to take the catalytic core of two types of protease and replace the entire rest of the protein. The resulting enzymes could be tuned to cut specific proteins in half, and the researchers demonstrated their effectiveness by using them to cut proteins associated with neurological diseases. The basic peptide bond isn’t especially interesting-looking—it’s what you get when you link an amino group to an acid, releasing a water molecule in the process. As their name implies, amino acids have both an amino and an acid group, allowing them to form peptide bonds on two sides of the amino acid. This is critical for building up the long chains found in proteins. (The amino acids also have side chains with distinctive chemistry, which gives a backbone specific properties.) Breaking these bonds apart simply reverses the process by breaking apart the peptide bond and a water molecule, and linking their parts. Because both components are chemically stable, the reaction requires an enzyme to occur with any frequency. Without an enzyme, a typical peptide bond would be stable for hundreds of years in water. Life has evolved a handful of enzyme mechanisms that manage this catalysis. The research at issue here relied on two different ones. One is a zinc protease , where the positive charge of the zinc atom coordinates the peptide bond that’s being broken, key parts of the protease, and a water molecule. The protease partially pulls a proton off the water molecule, activating it to attack and break up the peptide bond. The second protease the researchers use is called a cysteine protease . In this case, a cysteine (one of the amino acids) in the enzyme is activated to attack the peptide bond, creating a temporary intermediate where part of the protein being cut is chemically linked to the enzyme. A water molecule eventually breaks this intermediate apart, releasing the second part of the cut protein. Both of these mechanisms require a handful of specific amino acids from the protease to be located in close proximity within the catalytic center of the protease. Other amino acids in the protease help ensure these key catalytic amino acids are brought together in the right place with the right orientation. The rest of the protease may also enforce a degree of specificity on what proteins get cut. Some proteases, like the ones active in our digestive system, can make cuts next to any amino acid. Others are slightly more selective, preferring to cut near positively or negatively charged amino acids. And a few are very highly specific, such as the protease that activates insulin, which only cuts near a very specific series of amino acids. The people behind the new work, primarily from Nobel-winner David Baker’s lab at the University of Washington, viewed designing a protease as a challenge. For one, the stability of the peptide bonds means that reactions wouldn’t take place without an effective catalyst. And to get that catalyst requires an extremely precise arrangement of specific amino acids. So it wasn’t obvious that the AI protein design tools the lab developed were up to the task. Both projects took a similar approach. Just like evolution, they started with an existing protease. One was a zinc protease used in a crayfish’s digestive system. The other was a cysteine protease from yeast. In both cases, the protein structure was known, as were the key amino acids that catalyze cleaving other proteins. The design process started with these amino acids. The design process started with software called RFdiffusion2, which creates a backbone for the enzyme (the backbone consists of the protein’s repeated peptide bonds). The researchers gave RFdiffusion2 a number of constraints. To start, any backbone it designed had to bring together the key catalytic amino acids needed for a functional protease. They also gave it a target amino acid sequence where the protease would eventually cut. The backbone had to accommodate that target sequence in close proximity to the catalytic center. With a backbone laid out, the process next moved to ProteinMPNN, a tool that works along the backbone, populating it with specific amino acids. (That tool featured in Google’s efforts to watermark AI-designed proteins.) ProteinMPNN selects each amino acid based on a series of constraints. For starters, the amino acid must be compatible with the backbone folding up into its planned structure. Next, in critical areas, each amino acid chosen needs to be compatible with the formation of the enzyme’s catalytic site. And finally, in nearby areas, it has to be compatible with latching on to the intended target. The researchers repeated this process dozens of times for both the cysteine and zinc proteases. For the cysteine protease, they made 12 different backbones and populated them with 69 different sets of amino acids. For the zinc project, they tried 135 different protein designs. They used AlphaFold3 to predict the structures of many of these designs and found nothing in the databases that looked much like them, confirming their tools weren’t simply stealing previously identified structures. The researchers started by making a single, long protein that contained the protease, the sequence it was designed to target, and a fluorescent protein.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">研究人员利用人工智能设计切割其他蛋白质的蛋白质</div>
+      <div class="col-content">蛋白质是由肽键连接在一起的氨基酸链。就其本身而言，这些债券非常稳定；据估计，它们的半衰期为几百年。但在地球环境中，大多数蛋白质的寿命都不长。这是因为生物体已经进化出几种催化肽键断裂的方法，肽键已经多样化为无数专门的蛋白质消化酶。蛋白酶无处不在，通常对进入环境的任何蛋白质都起作用。现在，研究人员基本上缩短了多样化的过程，使用基于人工智能的蛋白质设计工具，以两种蛋白酶的催化核心取代了其余的蛋白质。由此产生的酶可以被调整为将特定蛋白质减半，研究人员通过使用它们来切割与神经系统疾病相关的蛋白质来证明它们的有效性。基本的肽键看起来并不特别有趣——它是当你将一个氨基连接到一个酸上，在这个过程中释放出一个水分子时得到的。正如它们的名字所暗示的，氨基酸既有氨基又有酸基，使它们能够在氨基酸的两侧形成肽键。这对于构建蛋白质中的长链至关重要。（氨基酸也有具有独特化学性质的侧链，这赋予了骨架特定的性质。）分解这些键只会通过分解肽键和水分子并连接它们的部分来逆转这一过程。因为这两种成分在化学上都是稳定的，所以反应需要酶以任何频率发生。如果没有酶，一个典型的肽键在水中可以稳定数百年。生命已经进化出了一些管理这种催化作用的酶机制。这里的研究依赖于两个不同的研究。一种是锌蛋白酶，其中锌原子的正电荷协调被破坏的肽键、蛋白酶的关键部分和水分子。蛋白酶部分地从水分子中提取质子，激活它来攻击和破坏肽键。研究人员使用的第二种蛋白酶称为半胱氨酸蛋白酶。在这种情况下，酶中的半胱氨酸（一种氨基酸）被激活以攻击肽键，从而产生一个临时中间体，其中被切割的蛋白质的一部分与酶化学连接。水分子最终将这种中间体分解，释放出被切割蛋白质的第二部分。这两种机制都需要蛋白酶中的少数特定氨基酸位于蛋白酶催化中心附近。蛋白酶中的其他氨基酸有助于确保这些关键的催化氨基酸以正确的方向聚集在正确的位置。蛋白酶的其余部分也可能对被切割的蛋白质施加一定程度的特异性。一些蛋白酶，比如我们消化系统中活跃的蛋白酶，可以在任何氨基酸旁边切割。其他人则稍微更有选择性，更喜欢切割带正电或负电的氨基酸。还有一些是非常高特异性的，比如激活胰岛素的蛋白酶，它只切割一系列非常特定的氨基酸。这项新工作背后的人，主要来自诺贝尔奖获得者华盛顿大学大卫·贝克的实验室，认为设计蛋白酶是一项挑战。首先，肽键的稳定性意味着如果没有有效的催化剂，反应就不会发生。为了得到这种催化剂，需要对特定的氨基酸进行极其精确的排列。因此，实验室开发的人工智能蛋白质设计工具是否能够胜任这项任务并不明显。这两个项目都采取了类似的方法。就像进化一样，他们从现有的蛋白酶开始。一种是小龙虾消化系统中使用的锌蛋白酶。另一种是来自酵母的半胱氨酸蛋白酶。在这两种情况下，蛋白质结构是已知的，催化切割其他蛋白质的关键氨基酸也是已知的。设计过程从这些氨基酸开始。设计过程始于名为RFdiffusion2的软件，该软件为酶创建了一个骨架（骨架由蛋白质的重复肽键组成）。研究人员对RFdiffusion2施加了许多约束。首先，它设计的任何骨架都必须将功能性蛋白酶所需的关键催化氨基酸结合在一起。他们还为其提供了蛋白酶最终切割的目标氨基酸序列。骨架必须在催化中心附近容纳该靶序列。在骨架布局之后，该过程接下来转移到ProteinMPNN，这是一种沿着骨架工作的工具，用特定的氨基酸填充它。（该工具在谷歌为人工智能设计的蛋白质添加水印的努力中发挥了重要作用。）ProteinMPNN根据一系列约束选择每个氨基酸。首先，氨基酸必须与折叠成其计划结构的骨架相容。接下来，在关键区域，所选的每个氨基酸都需要与酶催化位点的形成相容。最后，在附近地区，它必须与锁定预期目标兼容。研究人员对半胱氨酸和锌蛋白酶重复了数十次这一过程。对于半胱氨酸蛋白酶，他们制造了12种不同的骨架，并为其填充了69组不同的氨基酸。在锌项目中，他们尝试了135种不同的蛋白质设计。他们使用AlphaFold3预测了许多这些设计的结构，但在数据库中没有发现任何与它们非常相似的东西，这证实了他们的工具不仅仅是窃取了之前识别的结构。研究人员首先制造了一种含有蛋白酶、其设计靶向序列和荧光蛋白的单一长蛋白。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
