@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-16 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-16</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 81.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Neural networks are clean</div>
+      <div class="col-content">The cause of polysemanticity in early model organisms wasn’t superposition, but several ordinary, mostly fixable issues. We can now understand most neurons in models up to trillions of parameters, and think the outlook for mechanistic interpretability may be far better than we thought. A working hypothesis · 65-minute read · Text version I think I have good news about the nature of neural networks. After many months studying neurons and circuits in image and language models, I’ve come to believe a network’s own mechanisms are its legible building blocks, and that the outlook for mechanistic interpretability may be far better than I’d feared. The canonical evidence of polysemanticity and superposition that convinced much of the field, including me, that networks pack concepts arbitrarily was misread. What looked like arbitrary packing was mostly a motif I’ll call recursive generalization, which is much less concerning. This means we can study networks directly, instead of first untangling them. Neural networks are already clean. There are at least two ways to approach mechanistic interpretability. The first is rapid normal science on the network itself: look at a network’s neurons and circuits, study how they relate, watch data flow through them, and run experiments at agentic scale to test explanations. The second starts from a list of hypothesized features and tries to extract them all, designing increasingly sophisticated reconstruction objectives and usually ignoring the original. The field began with the first approach and fell back to the second because neural networks seemed to be tangled knots. We had canonical examples of polysemantic neurons, the broad name for a neuron that appears to have multiple unrelated jobs or that looks impossible to understand. The most famous one, in an image model, responded to both cat faces and the fronts of cars. And the last layer of the early field’s model organism, InceptionV1, seemed so full of arbitrary mixtures it wasn’t clear how to study it: almost none of the neurons were easily interpretable. The leading explanation for polysemanticity was superposition. This proposed a new learning principle: when a neural network runs out of neurons, it stops grouping related things together and instead begins folding unrelated things together, simply because they don’t interfere. The result is a kind of knot: the network could have folded in many almost equally good ways, so which things a neuron groups together tells you almost nothing. You have to unfold the knot before you can study anything. In practice that means training a second model – a decomposition such as a sparse autoencoder – to approximate the network as it would look unfolded and studying that instead. If the network really is knotted, there may be no alternative. One main result is that superposition was the wrong explanation for InceptionV1. Architectural problems made later layers overflow. Weak interpretability tools amplified these problems, making the late layers seem incoherent. Since then, architectural changes designed to help deep layers learn better have had the unintended effect of making them more interpretable. When we first studied InceptionV1, we found almost no interpretable neurons in its last layer. But with these ordinary improvements, and no change to model size or training data, 99-100% of neurons in that last layer are easily interpretable and the model is broadly legible the whole way through. It’s the first non-trivial neural network I feel I mostly understand; you can browse it here . I trained versions of it across a 300× range in size, and it’s broadly legible at every scale. With less room, the network doesn’t fold unrelated things together; its neurons just cover coarser-grained concepts, like one car neuron covering many kinds of car. With more room, that neuron differentiates into many specific cars. So the problem wasn’t the presence of a second learning principle, it was just an ordinary learning failure of the first one, and it’s easy to fix. The canonical vision examples of polysemanticity and superposition were errors too. In 2019, Chris Olah and I found the circuit that was originally introduced as the superposition phenomenon in Zoom In [4] Zoom In: An Introduction to Circuits Olah, C., Cammarata, N., Schubert, L., Goh, G., Petrov, M. and Carter, S., 2020. Distill. References ↓ . It showed a car feature appearing to spread into a set of unrelated dog neurons. It was the only one we showed, and the only one I ever saw. We read it as the network placing the car in a high-dimensional hiding place, for downstream neurons to read back out. But nothing reads that combination. It wasn’t hiding anything; it was ordinary generalization and composition. To my knowledge, no one has published a second circuit with the right shape. Modern language models are also far more interpretable than generally believed. Anthropic’s Towards Monosemanticity [10] Towards Monosemanticity: Decomposing Language Models With Dictionary Learning Bricken, T., Templeton, A., Batson, J., et al., 2023. Transformer Circuits Thread. References ↓ (2023), studying a small one-layer model, gave the median neuron a 0 on its rubric out of a possible 14, meaning the rater couldn’t form any hypothesis. The automated interpretability project [8] Language Models Can Explain Neurons in Language Models Bills, S., Cammarata, N., Mossing, D., et al., 2023. OpenAI. References ↓ I started at OpenAI (also 2023) found about 1.7% of neurons interpretable by our most generous measure. With better tools and modern models, the situation looks quite different.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">神经网络是干净的</div>
+      <div class="col-content">早期模式生物多义的原因不是叠加，而是几个常见的、大多可以解决的问题。我们现在可以理解多达数万亿个参数的模型中的大多数神经元，并认为机械可解释性的前景可能比我们想象的要好得多。一个可行的假设·65分钟阅读·文本版本我想我对神经网络的性质有好消息。经过数月对图像和语言模型中的神经元和电路的研究，我开始相信网络自身的机制是其清晰的构建块，并且机械可解释性的前景可能比我担心的要好得多。多义性和叠加的典型证据使包括我在内的许多人相信，网络任意包装概念是误读的。看起来像是任意包装的东西主要是一个我称之为递归泛化的主题，这并不那么令人担忧。这意味着我们可以直接研究网络，而不是先解开它们。神经网络已经很干净了。至少有两种方法可以接近机械可解释性。第一种是网络本身的快速常规科学：观察网络的神经元和电路，研究它们之间的关系，观察通过它们的数据流，并在代理尺度上进行实验以测试解释。第二种方法从一系列假设特征开始，试图提取所有特征，设计越来越复杂的重建目标，通常忽略原始特征。该领域从第一种方法开始，又回到了第二种方法，因为神经网络似乎是纠结的节点。我们有多义性神经元的典型例子，这是一个似乎有多个不相关的工作或看起来不可能理解的神经元的广义名称。最著名的一个是图像模型，它对猫的脸和汽车的前部都有反应。早期领域模型生物的最后一层InceptionV1似乎充满了任意的混合物，因此不清楚如何研究它：几乎没有一个神经元是容易解释的。多义现象的主要解释是叠加。这提出了一个新的学习原理：当神经网络耗尽神经元时，它停止将相关的东西分组在一起，而是开始将不相关的东西折叠在一起，仅仅是因为它们不会干扰。结果是一个结：网络可能以许多几乎同样好的方式折叠，所以神经元组合在一起的东西几乎什么都不告诉你。你必须先解开这个结，然后才能研究任何东西。在实践中，这意味着训练第二个模型——稀疏自动编码器等分解——来近似网络的展开状态，并研究它。如果网络真的打结了，可能别无选择。一个主要的结果是，叠加是对InceptionV1的错误解释。架构问题导致后续层溢出。弱的可解释性工具放大了这些问题，使后期层看起来不连贯。从那时起，旨在帮助深层学习的架构更改产生了意想不到的效果，使它们更具可解释性。当我们第一次研究InceptionV1时，我们在它的最后一层几乎没有发现可解释的神经元。但是，通过这些普通的改进，并且不改变模型大小或训练数据，最后一层中99-100%的神经元很容易解释，模型在整个过程中都是清晰可辨的。这是我觉得我最了解的第一个非平凡的神经网络；你可以在这里浏览。我在300倍的尺寸范围内训练了它的版本，它在每个尺度上都清晰可辨。由于空间较小，网络不会将无关的东西折叠在一起；它的神经元只覆盖了更粗粒度的概念，就像一个汽车神经元覆盖了多种汽车。有了更多的空间，这个神经元就会分化成许多特定的汽车。所以问题不在于第二个学习原则的存在，而只是第一个原则的普通学习失败，很容易解决。多义和叠加的典型视觉例子也是错误的。2019年，Chris Olah和我在《放大：电路导论》[4]中发现了最初作为叠加现象引入的电路。Olah，C.，Cammarata，N.，Schubert，L.，Goh，G.，Petrov，M.和Carter，S.，2020。蒸馏。参考文献↓ . 它显示出一种汽车特征似乎扩散到一组无关的狗神经元中。这是我们唯一展示的，也是我唯一见过的。我们将其解读为将汽车放置在高维隐藏位置的网络，以便下游神经元重新读取。但没有什么能读懂这种组合。它没有隐瞒任何事情；这是普通的概括和组合。据我所知，还没有人发表过形状正确的第二条赛道。现代语言模型也比人们普遍认为的更具可解释性。Anthropic's Towards Monosentity[10]走向单义性：用词典学习分解语言模型Bricken，T.，Templeton，A.，Batson，J.等人，2023。变压器电路螺纹。参考文献↓ （2023）在研究一个小型单层模型时，在可能的14分中，给中值神经元的评分为0，这意味着评分者无法形成任何假设。自动可解释性项目[8]语言模型可以解释语言模型中的神经元Bill，S.，Cammarata，N.，Mossing，D.等人，2023。OpenAI。参考文献↓ 我从OpenAI（也是2023年）开始，发现大约1.7%的神经元可以用我们最慷慨的衡量标准来解释。有了更好的工具和现代模型，情况看起来就大不一样了。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://already-clean.goodfire.com/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
