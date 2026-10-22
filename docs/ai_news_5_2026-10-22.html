@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-22 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-22</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor</div>
+      <div class="col-content">The LiteLLM 1.107.0 release on PyPI carries a credential stealer and a remote code execution backdoor. All seven wheels (Linux, macOS, Windows) install them as three files in site-packages . Both run when any Python process starts on the host, even one that never imports litellm . The upstream GitHub source does not contain them. PyPI has since removed the release. Versions 1.106.2, 1.107.0rc1, and 1.107.0rc2 are clean. The companion packages that 1.107.0 pins, litellm-proxy-extras==0.4.110 and litellm-enterprise==0.1.78 , are also clean. Installing litellm==1.107.0 places three files in site-packages . Python loads two of them each time it starts. The pyproject.toml in the 1.107.0 source distribution (sdist) has one extra line in the maturin build section: The maturin data = "cook" setting copies a cook/ folder into litellm-1.107.0.data/purelib/ in the wheel. pip installs that folder into site-packages . The sdist leaves out the cook/ folder, so this line is the only visible change. No public commit in BerriAI/litellm contains data = "cook" or a cook/ folder. The wheel RECORD lists the three added files: The tag v1.107.0 points to commit 66c8f5b (06:59 UTC). Its pyproject.toml says version = "1.108.0" . SafeDep compared every sdist file with the git trees by blob hash. The sdist matches a later main commit, a8113b0 (08:50 UTC), plus five edited files and the cook/ folder. Four of the edited files are Cargo.toml files that gain a readme = "README.md" line. The legitimate 1.106.2 and rc2 releases have the same edit. The fifth is pyproject.toml , compared here with a8113b0 : The edit sets the version back to 1.107.0 and pins the companion packages to the rc2 values. As a result, a dependency diff against rc2 shows nothing unusual. The legitimate 1.106.2 sdist matches its tag commit 49943cd except for the Cargo.toml readme lines. The malicious wheels match the output of the normal BerriAI release pipeline: No public GitHub Actions run built or published the release. SafeDep checked all 539 runs between 09:30 and 12:30 UTC. At 11:50 UTC, about 10 minutes after the PyPI upload, litellm-dispatcher[bot] published the GitHub release v1.107.0 . The same delay occurred for 1.106.2. PyPI has no provenance attestations for 1.107.0, 1.106.2, or rc2. SafeDep assesses, with moderate to high confidence, that BerriAI’s private release pipeline built these wheels from an attacker-modified git source. The attacker could have used a compromised maintainer or bot credential, a private branch or mirror, or the reference the pipeline builds from. A stolen PyPI token used from the attacker’s own machines fits the evidence less well. Only BerriAI’s pipeline logs can confirm the cause. At startup, Python runs each line that starts with import in a .pth file in site-packages . cook.pth contains import cook , so the stealer runs in every Python process on the host: the application, pip, IDE language servers, and CI jobs. cook.py wraps about 61 KB of Python in one layer of exec(zlib.decompress(base64.b64decode('...'))) . The decoded code starts with this configuration:</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">PyPI上受损的LiteLLM 1.107.0安装了一个凭证窃取器和后门</div>
+      <div class="col-content">PyPI上的LiteLLM 1.107.0版本包含一个凭证窃取程序和一个远程代码执行后门。所有七个轮子（Linux、macOS、Windows）都将它们作为三个文件安装在站点包中。两者都在主机上启动任何Python进程时运行，即使是从不导入litellm的进程。上游GitHub源代码不包含它们。此后，PyPI删除了该版本。版本1.106.2、1.107.0rc1和1.107.0rc2是干净的。1.107.0引脚、litellm代理额外==0.4.110和litellm企业==0.1.78的配套包也很干净。安装litellm==1.107.0会在站点包中放置三个文件。Python每次启动时都会加载其中两个。1.107.0源代码发行版（sdist）中的pyproject.toml在maturin构建部分多了一行：maturin data=“cook”设置将cook/文件夹复制到控制盘中的litellm-1.107.0.dat/purelib/中。pip将该文件夹安装到站点包中。sdist省略了cook/文件夹，因此此行是唯一可见的更改。BerriAI/litellm中没有公开提交包含data=“cook”或cook/文件夹。轮盘记录列出了三个添加的文件：标签v1.107.0指向提交66c8f5b（06:59 UTC）。它的pyproject.toml显示版本=“1.108.0”。SafeDep通过blob哈希将每个sdist文件与git树进行比较。sdist匹配稍后的主提交a8113b0（08:50 UTC），加上五个编辑过的文件和cook/文件夹。四个编辑过的文件是Cargo.toml文件，其中包含readme=“readme.md”行。合法的1.106.2和rc2版本具有相同的编辑。第五个是pyproject.toml，与a8113b0相比：编辑将版本设置回1.107.0，并将配套包固定为rc2值。因此，对rc2的依赖差异没有显示出任何异常。合法的1.106.2 sdist与其标记commit 49943cd匹配，但Cargo.toml自述文件行除外。恶意轮与正常BerriAI发布管道的输出相匹配：没有构建或发布公共GitHub Actions。SafeDep检查了09:30至12:30 UTC之间的所有539次运行。UTC时间11:50，PyPI上传约10分钟后，litellm dispatcher[bot]发布了GitHub版本v1.107.0。1.106.2也出现了同样的延迟。PyPI没有1.107.0、1.106.2或rc2的来源证明。SafeDep以中度到高度的信心评估，BerriAI的私有发布管道是从攻击者修改的git源构建这些轮子的。攻击者可能使用了受损的维护者或机器人凭据、私有分支或镜像，或管道构建的引用。从攻击者自己的机器上使用的被盗PyPI令牌与证据不太吻合。只有BerriAI的管道日志可以确认原因。启动时，Python在站点包中的.pth文件中运行以import开头的每一行。cook.pt包含import cook，因此stealer在主机上的每个Python进程中运行：应用程序、pip、IDE语言服务器和CI作业。cook.py将大约61KB的Python封装在一个exec层中（zlib.dexpress（base64.b64decode（'…'）））。解码后的代码从以下配置开始：</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
