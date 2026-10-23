@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-23 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-23</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">LLMs are making formal software verification feasible at a much larger scale</div>
+      <div class="col-content">01 RISC-V is a processor design, like x86 or ARM, that defines the assembly instructions (the basic commands a chip carries out) that software is compiled into. 02 An entry point is a front door into the code, provided by its authors for testing. Any input to the entry point that causes a crash is a bug the authors care about. 03 Increasing this requires trivial human effort to change the parameter and regenerate the spec, then have Claude reprove the statement. 04 AddressSanitizer is a compiler tool that adds checks to a program so that memory errors, such as buffer overflows and use-after-free, are detected and reported the moment they occur at runtime. 05 This technically also means we have to trust the hardware, OS, OCaml compiler that the Rocq proof checker relies on. 06 Note this leaves open the door to reward hacking. Reward hacking is when an AI model finds a shortcut that technically meets the goal it was given without doing what was actually intended, like a student who passes an exam by memorizing the answer key instead of learning the material. In this context, Claude could make any theorem provable by rewriting the program into one that trivially never crashes. To discourage this, we penalized any patch and offered extra credit for proving which inputs it changes and how few they are. We also logged and audited the patches for these failure modes. 07 We think that the ability of Claude to—entirely autonomously—generate the formal semantics of an ISA is a separate interesting lesson. While we can not be sure our semantics themselves are perfect, empirically we have found that single-stepping through our semantics can boot an Ubuntu userspace on top of a Linux kernel. Generating these semantics also identified hundreds of mistakes in the official reference documentation, along with a smaller number of bugs in the hardware itself.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">LLM正在使正式的软件验证在更大的范围内变得可行</div>
+      <div class="col-content">01 RISC-V是一种处理器设计，类似于x86或ARM，它定义了软件编译成的汇编指令（芯片执行的基本命令）。02入口点是代码的前门，由其作者提供用于测试。任何导致崩溃的入口点输入都是作者关心的bug。03增加此值需要微不足道的人力来更改参数并重新生成规范，然后让Claude重新编写语句。04 AddressSanitizer是一种编译器工具，它向程序添加检查，以便在运行时检测并报告内存错误，如缓冲区溢出和空闲后使用。05从技术上讲，这也意味着我们必须信任Rocq证明检查器所依赖的硬件、操作系统、OCaml编译器。06请注意，这为奖励黑客行为敞开了大门。奖励黑客是指人工智能模型在不做实际意图的情况下找到了一条技术上符合其目标的捷径，比如一个学生通过记忆答案而不是学习材料来通过考试。在这种情况下，克劳德可以通过将程序重写为一个永远不会崩溃的程序来证明任何定理。为了阻止这种情况，我们对任何补丁都进行了处罚，并为证明它改变了哪些输入以及它们有多少提供了额外的学分。我们还记录并审核了这些故障模式的补丁。07我们认为，Claude完全自主生成ISA形式语义的能力是一个单独有趣的教训。虽然我们不能确定我们的语义本身是否完美，但根据经验，我们发现，单步通过我们的语义可以在Linux内核上启动Ubuntu用户空间。生成这些语义还发现了官方参考文档中的数百个错误，以及硬件本身中的少量错误。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.anthropic.com/research/formal-verification" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
