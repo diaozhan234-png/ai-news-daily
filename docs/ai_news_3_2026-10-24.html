@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-24 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-24</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Kimi K3.1 Pro and K3.1 Pro Highspeed</div>
+      <div class="col-content">We're introducing Kimi K3.1 Pro , the first model in our new K3.1 series and our most capable 3T-class open-weight model to date, with a 1-million-token context window. It delivers substantial improvements across coding, 3D creation, financial research, and other agentic capabilities. We are also releasing Kimi K3.1 Pro Highspeed , which delivers 2-3× the speed of K3.1 Pro for more responsive interactions. Kimi K3.1 Pro and Kimi K3.1 Pro Highspeed are available today on Kimi.ai , Kimi Work , Kimi Code , and the Kimi API . The full model weights will be released by Nov 4. Kimi K3.1 Pro is a post-trained version of Kimi K3, with substantially larger post-training compute. To enable large-scale joint RL across hundreds of downstream domains , we optimized every layer of the stack — the RL framework, long-context inference, training efficiency, sandbox infrastructure, rollout scheduling, and a shared platform for environment quality checks — so that each increment of RL compute delivers stable, predictable returns. As a result, K3.1 Pro achieves consistent gains in every domain. Across coding, agentic, and knowledge benchmarks, K3.1 Pro matches or approaches the strongest proprietary models. On Terminal-Bench 4.0 , which evaluates coding agents on realistic, resource-constrained terminal tasks using strict task-specific tests, K3.1 Pro scores 65.7%, ahead of GPT-6 Astra (58.2%) and narrowly behind Claude Opus 5.5 (66.4%) . And on Kimi Code Bench 3.0 Long-horizon , our internal benchmark that tests coding agents' multi-step execution, tool use, and end-to-end problem solving across diverse engineering domains, K3.1 Pro scores 61.2% , above K3's 55.95% . K3.1 Pro covers the full range of coding work, from quick fixes in real codebases to full-project builds. It also brings a more considered visual style to games and web experiences, and knows how to build them with the right tools. K3.1 Pro works effectively across game engines such as Unity, Unreal Engine, and Godot , combining them with web search and 3D generation to create complete experiences. Its front-end pages, interactive Three.js scenes, and 3D assets show stronger composition, typography, animation, and polish. The examples below were created end to end by K3.1 Pro: K3.1 Pro's long-horizon coding capabilities are also strengthened through large-scale reinforcement learning. In one internal test, it built a human walking dynamics simulator with integrated training and evaluation pipelines on top of human-atlas , an open-source anatomical model of the human body comprising 296 skeletal components, including cartilage, and 402 muscle components. Across 167 missions and 420 independent reviews, it analyzed experimental results, diagnosed problems, and iteratively refined the walking controller, enabling the simulated human to go from collapsing within seconds to walking continuously with alternating strides for 11.2 seconds. When reward shaping failed to improve arm motion, K3.1 Pro did not simply keep adjusting the reward: it ran open-loop probes of the simulator's dynamics, identified and corrected 36 errors in shoulder-muscle moment-arm calculations, and then retrained the controller. K3.1 Pro is strong at 3D creation and spatial reasoning. On BenchCAD , which tests 3D reconstruction from multi-view renderings through CAD code generation, K3.1 Pro scores 92.7% with tools , approaching the performance of Claude Opus 5.5 (96.2%) and GPT-6 Astra (95.9%) . From a text brief, sketch, or reference image, it can infer shape, proportions, and spatial relationships to create usable 3D models. It also has a stronger grasp of existing asset libraries and model collections. K3.1 Pro particularly excels at parametric modeling, from mechanical parts and architectural models to configurable products and custom furniture. Without MCP connectors, it can write and run scripts for tools like Blender and CAD software to build and refine assets, edit components, and adjust geometry, materials, and scene layout. Below are examples of 3D assets K3.1 Pro created for brand films, games, and interactive web experiences: 3D Make is now live on kimi.ai and the Kimi app — preview and edit your 3D models online, download them ready for 3D printing, or export them as videos or Live Photos to share anywhere. With stronger reasoning and agentic capability, K3.1 Pro is capable of end-to-end delivery of complete financial workflows. K3.1 Pro achieves state-of-the-art results on OfficeQA Pro v2 (64.4), which tests complex fiscal data analysis over real financial documents through retrieval, cross-document verification, and multi-step numerical reasoning. K3.1 Pro also improves over K3 on Frontier Finance, which measures support for complete investment workflows from screening to profitability analysis. K3.1 Pro also improves significantly across all our internal finance benchmarks: Financial analysis and investment research demand a high degree of factual accuracy. To address this, we made targeted improvements to K3.1 Pro's factual accuracy on real-world tasks and challenging prompts. On Kimi Hallu Bench Hard bench, an internal benchmark designed to stress-test factual accuracy, its claim-level hallucination rate fell from 23.4% for K3 to 8.3%, while the share of responses containing at least one factual error was just 42.4% of its predecessor's rate. (The evaluation is a stress test for factual accuracy, with examples deliberately crafted to probe situations where models are prone to errors. The reported rates do not represent overall error rates in daily use.)</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Kimi K3.1 Pro和K3.1 Pro高速版</div>
+      <div class="col-content">我们将推出Kimi K3.1 Pro，这是我们新K3.1系列的第一款型号，也是迄今为止功能最强大的3T级开放式重量型号，具有100万个令牌上下文窗口。它在编码、3D创建、金融研究和其他代理功能方面提供了实质性的改进。我们还发布了Kimi K3.1 Pro Highspeed，其速度是K3.1 Pro的2-3倍，可实现更灵敏的交互。Kimi K3.1 Pro和Kimi K3.1Pro高速今天在Kimi.ai、Kimi Work、Kimi Code和Kimi API上提供。完整的模型重量将于11月4日公布。Kimi K3.1 Pro是Kimi K3的训练后版本，具有更大的训练后计算能力。为了实现跨数百个下游域的大规模联合RL，我们优化了堆栈的每一层——RL框架、长上下文推理、训练效率、沙箱基础设施、部署调度和用于环境质量检查的共享平台——以便RL计算的每一增量都能提供稳定、可预测的回报。因此，K3.1 Pro在每个领域都获得了一致的收益。在编码、代理和知识基准测试中，K3.1 Pro与最强的专有模型相匹配或接近。在Terminal Bench 4.0上，K3.1 Pro的得分为65.7%，领先于GPT-6 Astra（58.2%），勉强落后于Claude Opus 5.5（66.4%）。在Kimi Code Bench 3.0 Long horizon上，我们的内部基准测试了编码代理在不同工程领域的多步执行、工具使用和端到端问题解决能力，K3.1 Pro的得分为61.2%，高于K3的55.95%。K3.1 Pro涵盖了从真实代码库的快速修复到完整项目构建的全方位编码工作。它还为游戏和网络体验带来了更周到的视觉风格，并且知道如何使用正确的工具构建它们。K3.1 Pro可在Unity、虚幻引擎和Godot等游戏引擎上有效运行，将它们与网络搜索和3D生成相结合，以创建完整的体验。它的前端页面、交互式Three.js场景和3D资产显示了更强的构图、排版、动画和润色。以下示例由K3.1 Pro端到端创建：K3.1 Pro的长期编码能力也通过大规模强化学习得到了加强。在一次内部测试中，它在人体图谱之上构建了一个具有集成训练和评估管道的人体行走动力学模拟器，人体图谱是一个开源的人体解剖模型，由296个骨骼组件（包括软骨）和402个肌肉组件组成。在167次任务和420次独立审查中，它分析了实验结果，诊断了问题，并迭代地改进了行走控制器，使模拟的人类能够在几秒钟内从崩溃到以交替的步幅连续行走11.2秒。当奖励整形未能改善手臂运动时，K3.1 Pro并没有简单地不断调整奖励：它运行了模拟器动力学的开环探头，识别并纠正了肩部肌肉力矩臂计算中的36个错误，然后重新训练了控制器。K3.1 Pro擅长3D创建和空间推理。在BenchCAD上，通过CAD代码生成测试多视图渲染的3D重建，K3.1 Pro在工具上的得分为92.7%，接近Claude Opus 5.5（96.2%）和GPT-6 Astra（95.9%）的性能。从文本摘要、草图或参考图像中，它可以推断形状、比例和空间关系，以创建可用的3D模型。它还对现有的资产库和模型集合有更深入的了解。K3.1 Pro尤其擅长参数化建模，从机械零件和建筑模型到可配置产品和定制家具。没有MCP连接器，它可以为Blender和CAD软件等工具编写和运行脚本，以构建和优化资源、编辑组件以及调整几何体、材质和场景布局。以下是为品牌电影、游戏和互动网络体验创建的3D资产K3.1 Pro的示例：3D Make现在已在kimi.ai和kimi应用程序上上线——在线预览和编辑您的3D模型，下载它们以备3D打印，或将其导出为视频或实时照片以在任何地方共享。凭借更强的推理和代理能力，K3.1 Pro能够端到端地交付完整的财务工作流程。K3.1 Pro在OfficeQA Pro v2（64.4）上实现了最先进的结果，该版本通过检索、跨文档验证和多步数值推理，在真实财务文档上测试复杂的财务数据分析。K3.1 Pro在Frontier Finance上也比K3有所改进，后者衡量了对从筛选到盈利能力分析的完整投资工作流程的支持。K3.1 Pro在我们所有的内部财务基准上也有了显著提高：财务分析和投资研究需要高度的事实准确性。为了解决这个问题，我们对K3.1 Pro在现实世界任务和具有挑战性的提示中的事实准确性进行了有针对性的改进。在Kimi Hallu Bench Hard Bench上，一个旨在强调事实准确性的内部基准，其声称水平的幻觉率从K3的23.4%下降到8.3%，而包含至少一个事实错误的回答比例仅为其前身的42.4%。（该评估是对事实准确性的压力测试，通过精心制作的示例来探究模型容易出错的情况。报告的错误率并不代表日常使用中的总体错误率。）</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
