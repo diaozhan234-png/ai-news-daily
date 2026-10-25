@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-25 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-25</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.6</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Neural chip decodes interactions between brain regions</div>
+      <div class="col-content">Deep brain stimulation (DBS) is a therapeutic technique that delivers electrical pulses to specific areas of the brain via an implant to modulate neural activity. It is already widely used for movement disorders such as Parkinson’s disease, and researchers are increasingly exploring its potential for severe psychiatric illnesses including major depression, post-traumatic stress disorder, and obsessive-compulsive disorder. However, most existing DBS systems operate in what engineers call an “open loop” manner: stimulation is delivered according to predefined settings rather than continuously adapting to the patient’s brain activity. Even among closed-loop, or adaptive systems, many rely on signals recorded from a single brain region. This is a major limitation for psychiatric disorders, where clinically relevant information may be distributed across networks of interacting brain regions. “Our work is based on the growing body of research suggesting that psychiatric disorders arise more from disruptions in communication between brain regions than from dysfunction of any single region,” explains Mahsa Shoaran, head of the Integrated Neurotechnologies Lab in EPFL’s School of Engineering and Neuro-X Institute. Shoaran and her team have developed a low-power, implantable neural system-on-chip. Dubbed LogSync, it records brain activity and extracts biomarkers that describe the strength of brain waves (oscillations) and synchrony between signals from different brain regions. A machine-learning algorithm then analyzes these network-level biomarkers to distinguish cognitive and emotional states, and generate stimulation triggers when specific states are detected. The work, published in the IEEE Journal of Solid-State Circuits , was developed as part of a CHF 6.6 million grant from the US National Institute for Mental health (NIMH) to develop implantable systems capable of measuring and controlling oscillatory brain networks for severe psychiatric illnesses, particularly mood and anxiety disorders. It builds on the lab's previous work on brain-to-text decoding and closed-loop neuromodulation , extending these concepts to network-level biomarkers and adaptive decoding for future psychiatric therapies. The researchers evaluated LogSync using human brain recordings from previous psychiatric experiments. One dataset captured changes in cognitive engagement while performing a mental task, while another captured emotional arousal as participants viewed video clips. The algorithm distinguished these cognitive and emotional states from the neural recordings alone. In further experiments conducted in rats at the University of Minnesota, the implant tracked ongoing oscillations and generated stimulation triggers at predefined phases of brain activity. Shoaran says that major challenge was achieving all this functionality while working within the very limited power budget of an implantable system. “Our entire system is co-designed, meaning the algorithms and hardware are developed together with the constraints of implant in mind. This approach helped us achieve network-level neural signal processing and decoding on a single chip, while keeping power consumption under 200 microwatts — a fraction of that typically required by many implantable neural-interface systems,” she says. Another innovation is LogSync’s use of logarithmic computations, which simplify the complex operations needed for brain-network analysis and real-time biomarker extraction and decoding. LogSync's initial validation focused on psychiatric applications. But the capability to extract brain-network biomarkers to trigger precisely timed stimulation is broadly applicable across next-generation neurotechnology, including adaptive DBS for movement disorders, closed-loop non-invasive stimulation, and emerging focused-ultrasound interfaces. In parallel, the laboratory is developing new machine-learning methods that learn directly from neural recordings rather than predefined biomarkers. Their recent ICML 2026 work, which uses self-supervised learning to capture neural activity across regions, channels, and time, supports broader efforts to bring intelligent neural interfaces closer to clinical applications, including through Infera Neuro , an EPFL spin-off co-founded by Shoaran. United States National Institute of Mental Health Swiss State Secretariat for Education, Research, and Innovation (SERI)-funded ERC Starting Grant D. Alex et al., "LogSync: A Low-Power Logarithmic SoC for Cross-Regional Synchrony Extraction and Adaptive Psychiatric State Classification," IEEE Journal of Solid-State Circuits (JSSC), Sept 2026 doi: 10.1109/JSSC.2026.3728617 . J. Liu and M. Shoaran, “RECTOR: Masked Region-Channel-Temporal Modeling for Affective and Cognitive Representation Learning”, International Conference on Machine Learning (ICML), 2026 https://proceedings.mlr.press/v306/liu26dt.html D. Alex et al., "A 32-Channel 196-μW Logarithmic SoC for Brain Network Connectivity Extraction and Adaptive Psychiatric Symptom Classification," 2025 Symposium on VLSI Technology and Circuits (VLSI Technology and Circuits), Kyoto, Japan, 2025, pp. 1-3, doi: 10.23919/VLSITechnologyandCir65189.2025.11075022 .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">神经芯片解码大脑区域之间的相互作用</div>
+      <div class="col-content">深部脑刺激（DBS）是一种治疗技术，通过植入物将电脉冲传递到大脑的特定区域以调节神经活动。它已经被广泛用于帕金森氏症等运动障碍，研究人员越来越多地探索其治疗严重精神疾病的潜力，包括重度抑郁症、创伤后应激障碍和强迫症。然而，大多数现有的DBS系统都以工程师所谓的“开环”方式运行：根据预定义的设置提供刺激，而不是不断适应患者的大脑活动。即使在闭环或自适应系统中，许多系统也依赖于从单个大脑区域记录的信号。这是精神疾病的一个主要限制，其中临床相关信息可能分布在相互作用的大脑区域网络中。EPFL工程学院和神经X研究所综合神经技术实验室主任Mahsa Shoaran解释说：“我们的工作是基于越来越多的研究表明，精神疾病更多地是由大脑区域之间的交流中断引起的，而不是由任何单一区域的功能障碍引起的。”。Shoaran和她的团队开发了一种低功耗、可植入的芯片上神经系统。它被称为LogSync，记录大脑活动并提取生物标志物，描述脑电波（振荡）的强度以及来自不同大脑区域的信号之间的同步性。然后，机器学习算法分析这些网络级生物标志物，以区分认知和情绪状态，并在检测到特定状态时生成刺激触发器。该研究发表在《IEEE固态电路杂志》上，是美国国家心理健康研究所（NIMH）660万瑞士法郎资助的一部分，用于开发能够测量和控制严重精神疾病（尤其是情绪和焦虑障碍）的振荡脑网络的可植入系统。它建立在实验室先前在脑-文本解码和闭环神经调控方面的工作基础上，将这些概念扩展到网络级生物标志物和未来精神疗法的自适应解码。研究人员使用之前精神病学实验的人脑记录对LogSync进行了评估。一个数据集捕捉了执行心理任务时认知参与的变化，而另一个数据集中捕捉了参与者观看视频片段时的情绪唤醒。该算法将这些认知和情绪状态与单独的神经记录区分开来。在明尼苏达大学对大鼠进行的进一步实验中，植入物追踪了持续的振荡，并在大脑活动的预定阶段产生了刺激触发器。Shoaran说，主要的挑战是在植入式系统非常有限的功率预算内实现所有这些功能。她说：“我们的整个系统是共同设计的，这意味着算法和硬件是在考虑植入限制的情况下开发的。这种方法帮助我们在单个芯片上实现了网络级神经信号处理和解码，同时将功耗控制在200微瓦以下，这是许多可植入神经接口系统通常所需功耗的一小部分。”。另一项创新是LogSync使用对数计算，简化了大脑网络分析和实时生物标志物提取和解码所需的复杂操作。LogSync的初步验证侧重于精神病学应用。但是，提取大脑网络生物标志物以触发精确定时刺激的能力广泛适用于下一代神经技术，包括用于运动障碍的自适应DBS、闭环非侵入性刺激和新兴的聚焦超声接口。与此同时，该实验室正在开发新的机器学习方法，直接从神经记录中学习，而不是从预定义的生物标志物中学习。他们最近的ICML 2026工作使用自监督学习来捕捉跨区域、通道和时间的神经活动，支持更广泛的努力，使智能神经接口更接近临床应用，包括通过Shoaran共同创立的EPFL分拆公司Infera Neuro。美国国家心理健康研究所瑞士国家教育、研究和创新秘书处（SERI）资助的ERC启动基金D.Alex等人，“LogSync:一种用于跨区域同步提取和自适应精神状态分类的低功耗对数SoC”，IEEE固态电路杂志（JSSC），2026年9月doi:10.109/JSSC.2026.3728617。J.Liu和M.Shoaran，“RECTOR：用于情感和认知表征学习的掩蔽区域通道时间建模”，国际机器学习会议（ICML），2026年https://proceedings.mlr.press/v306/liu26dt.htmlDAlex等人，“用于脑网络连接提取和自适应精神症状分类的32通道196-μW对数SoC”，2025年VLSI技术和电路研讨会（VLSI技术与电路），日本京都，2025年，第1-3页，doi:10.23919/VLSITechnology and Cir65189.2025.11075022。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
