@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-26 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-26</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 84.3</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?</div>
+      <div class="col-content">Let’s look at a quick timeline of the major LLM model announcements from both OpenAI and Anthropic over the past few months. All pricing numbers provided are input MTok / output MTok / cache read MTok . OpenAI announced GPT-5.6 Sol and Luna. Sol is the direct successor to GPT 5.5 at the same price of $5 / $30 / $0.50 , while Luna is a small model specifically designed for cheaper use cases at $1 / $6 / $0.10 . They also announced a Terra model that’s in between those two models, but few cared about it. Anthropic announced Claude Sonnet 5, which Anthropic claimed to be closer to their Opus models, but feedback was mixed. Notably, it had launch pricing of $2 / $10 / $0.20 which was initially supposed to be temporary but would go up. Anthropic announced Claude Opus 5, which was a long-awaited major-version update given the impact Opus 4.5 had on the rise of agentic coding, at a price of $5 / $25 / $0.50 (similar to GPT-5.6 Sol). Although some of the provided benchmark results surprisingly exceeded those of the much larger Fable 5, real-world feedback was more mixed. OpenAI announces that they cut the price of GPT-5.6 Luna by 80% (???) to $0.20 / $1.20 / $0.02 . Anthropic announces the temporary Sonnet 5 price cut for the launch is now permanent. OpenAI announces that they are cutting the price for GPT-5.6 Sol by ~20% ( $4 / $20 / $0.40 ) for the next three months. Anthropic announced Fable 5.1 at a price of $10 / $50 / $0.25 , which, in addition to having strictly better benchmark performance in all areas than Fable 5 from June at $10 / $50 / $1 , cut the cache read cost by 75%. When using agents for coding, cache read costs are the vast majority (96% - 99%) of the total token expenditure as the cache is what contains the entire previous conversation each turn. Additionally, the cache tends to be hit around 90 - 100% of the time (varies by the infrastructure of the LLM inference provider). Taken together, a 75% reduction in the cache read cost correlates to a 70-75% reduction in the cost of using the model—obviously notable, even if cache costs are typically a footnote! OpenAI announced GPT-6 Astra, which is similar in size to Fable 5.1 and has similar pricing at $10 / $50 / $1 but without the lower cache read cost. Astra’s model performance is indeed comparable to Fable. OpenAI announced GPT-6 Sol at at a shocking price of $2 / $10 / $0.20 that halves the input and output price relative to the temporarily-discounted GPT-5.6 Sol! They simultaneously released GPT-6 Luna also at half the input and output price ( $0.10 / $0.50 / $0.01 ) of the previous version. On the same exact day , Anthropic announced Claude Opus 5.5, where it’s explicitly stated “Opus 5.5 requires less compute to serve than Opus 5, and its pricing reflects that”. Its price of $4 / $20 / $0.20 is much lower in total than Opus 5’s due to a 20% input/output cost cut and a larger cache read cut, resulting in a total cost reduction of 40-60% for a model that’s even better than Fable 5.1 (I have quite a lot of things to say about Opus 5.5, but that’s for another post). It turned out that GPT-6 Sol was a dud performancewise, so a week later OpenAI announced GPT-6.1 Sol, which surprisingly has comparable performance to Astra (can confirm after personal use), but OpenAI casually cut the cache price in half ( $2 / $10 / $0.10 ) matching Anthropic’s 5%-of-input cache read cost, making this model family cumulatively 75% cheaper. Overall, starting from the release of the GPT-5.6 model families in June to now, the cost of using these popular LLMs has cratered, which is not something I would have expected a year ago. These price cuts also apply to model usage from subscription agentic harnesses such as Codex and Claude Code . More importantly, these models do not appear to have cut any corners in terms of output quality to achieve their price cuts. From the timeline above, there is a clear tit-for-tat between Anthropic and OpenAI, and it is reasonable to assume that these particular price cuts from OpenAI and Anthropic are in reaction to each other. However, no one cuts prices by 80% unless there is some externality in play. So, what gives?</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">OpenAI和Anthropic在几个月内将LLM价格下调了80%。为什么？</div>
+      <div class="col-content">让我们来看看过去几个月OpenAI和Anthropic发布的主要LLM模型的快速时间表。提供的所有定价数字都是输入MTok/输出MTok/缓存读取MTok。OpenAI宣布推出GPT-5.6 Sol和Luna。Sol是GPT 5.5的直接继承者，价格为5美元/30美元/0.50美元，而Luna是一款专为更便宜的用例设计的小型型号，价格为1美元/6美元/0.10美元。他们还宣布了一个介于这两个模型之间的Terra模型，但很少有人关心它。Anthropic宣布了克劳德·十四行诗5，该模型声称更接近他们的Opus模型，但反馈喜忧参半。值得注意的是，它的发布定价为2美元/10/0.20美元，最初应该是暂时的，但会上涨。Anthropic宣布了Claude Opus 5，这是一个期待已久的主要版本更新，因为Opus 4.5对代理编码的兴起产生了影响，价格为5美元/25美元/0.50美元（类似于GPT-5.6 Sol）。尽管所提供的一些基准测试结果令人惊讶地超过了更大的Fable 5，但现实世界的反馈更加复杂。OpenAI宣布将GPT-5.6 Luna的价格下调80%，至0.20美元/1.20/0.02美元。Anthropic宣布，Sonnet 5发布的临时降价现在是永久性的。OpenAI宣布，他们将在未来三个月内将GPT-5.6 Sol的价格下调约20%（4美元/20美元/0.40美元）。Anthropic以10美元/50美元/0.25美元的价格发布了Fable 5.1，除了在所有领域都比6月份的Fable 5严格更好的基准性能外，它还将缓存读取成本降低了75%。当使用代理进行编码时，缓存读取成本占总令牌支出的绝大多数（96%-99%），因为缓存包含了每一轮之前的整个对话。此外，缓存的命中率往往在90-100%左右（因LLM推理提供程序的基础设施而异）。总的来说，缓存读取成本降低75%与使用该模型的成本降低70-75%相关——这显然是值得注意的，即使缓存成本通常只是一个脚注！OpenAI宣布推出GPT-6 Astra，其大小与Fable 5.1相似，定价为10美元/50美元/1美元，但没有较低的缓存读取成本。Astra的模型性能确实与Fable相当。OpenAI宣布GPT-6 Sol的价格令人震惊，为2美元/10/0.20美元，相对于暂时打折的GPT-5.6 Sol，投入和产出价格减半！他们同时发布了GPT-6 Luna，其投入和产出价格也是前一版本的一半（0.10美元/0.50美元/0.01美元）。就在同一天，Anthropic宣布了Claude Opus 5.5，其中明确表示“Opus 5.5比Opus 5需要更少的计算，其定价反映了这一点”。它的价格为4美元/20美元/0.20美元，总体上比Opus 5低得多，因为输入/输出成本削减了20%，缓存读取削减了更多，这使得一个比Fable 5.1更好的模型的总成本降低了40-60%（我对Opus 5.5有很多话要说，但这是另一篇文章）。事实证明，GPT-6 Sol的性能不佳，因此一周后OpenAI宣布了GPT-6.1 Sol，其性能令人惊讶地与Astra相当（个人使用后可以确认），但OpenAI随意将缓存价格减半（2/10/0.10美元），与Anthropic 5%的输入缓存读取成本相匹配，使该模型系列累计便宜75%。总体而言，从6月份GPT-5.6车型系列发布到现在，使用这些流行的LLM的成本已经大幅下降，这是我一年前所没有预料到的。这些降价也适用于Codex和Claude Code等订阅代理工具的模型使用。更重要的是，这些模型似乎没有在输出质量方面偷工减料来实现降价。从上面的时间线来看，Anthropic和OpenAI之间存在明显的针锋相对，可以合理地假设OpenAI和Anthropics的这些特定降价是相互反应的。然而，除非存在一些外部性，否则没有人会降价80%。那么，有什么好处呢？</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
