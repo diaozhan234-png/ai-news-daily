@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-27 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-27</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 TechCrunch</span>
+      <span class="badge">🔥 热度 83.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Cohere says Alibaba’s Qwen model tried to send a file to Beijing</div>
+      <div class="col-content">Canadian AI company Cohere said on Monday that it found one of Alibaba’s newest AI models, Qwen3.8-Flash-Next, trying to upload a file to a server in Beijing during a routine cybersecurity test, even though the model had said in its own notes that it wouldn’t use any tools. The incident initially raised fears that the model had undermined a fundamental promise to businesses — that self-hosting an open-weight model keeps data in-house. But those early fears of corporate espionage were short-lived. Researchers quickly dismissed the threat, saying it was likely a byproduct of messy training environments that cause models to unexpectedly act outside their instructions rather than a deliberate attempt to secretly send sensitive information to China. The incident began on Friday during an evaluation in which the Qwen model was asked to write a rule for catching malware downloads. According to a blog post from Cohere, the model’s written reasoning explicitly stated it would not use any external tools. Yet in the very next step, it attempted to send a test string (a short piece of placeholder text) to an external server before being blocked by a security sandbox. Cohere said it could not tell whether the behavior was deliberate or a leftover from its training. Asked about the debate over the model’s intent, Cohere co-founder Ivan Zhang told TechCrunch that Cohere has seen its own models pick up strange habits in training simulators. “It’s really hard to assign intention or motivation. We’ve read our own model traces, we’ve seen reward hacks, and sometimes these models get really creative when it comes to trying to break out their sandboxes,” Zhang said. (Reward hacks are shortcuts a model finds to earn credit without doing a task as intended.) To teach an AI model to act as an agent that takes actions on its own, companies like Alibaba train it in thousands of practice setups, sort of like flight simulators for software. The model is rewarded every time it finishes a task in a simulator, and it picks up habits along the way. If these practice setups routinely stored files on Alibaba’s cloud servers, models could learn to save files there by default. Critics also argued that the incident could have been caused by the way Cohere investigated the behavior, steering the model toward it instead of measuring how often Qwen does it on its own. To find what triggered the upload attempt, Cohere supplied the beginning of a network command (an instruction telling one computer to connect to another) and let the model finish it. Because it processed thousands of routine network commands during its training, the model acted like a highly advanced autocomplete — often filling in web addresses, some of them for Alibaba’s servers. Cohere said the original upload attempt happened without any such help, but that the behavior is rare. After developers asked for more evidence, Cohere released the raw traces from its tests on Monday evening on the AI developer platform Hugging Face, along with a script so others could try to reproduce the behavior. One initial skeptic, after going through the traces, rated the evidence as strong that Qwen can invent suspicious web addresses, but found no evidence that Alibaba planted a backdoor or that Qwen was deliberately hiding its intent. The incident lands as governments are deciding how far to push back on Chinese AI. Last week, the Department of Homeland Security ordered federal civilian agencies to remove the Chinese AI developer DeepSeek’s products from their systems. In its blog post, Cohere called on governments to clarify whether their restrictions on Chinese AI also apply to models running on government computers “I’m not asking for full regulation of these open weights models,” Zhang told TechCrunch, adding that companies should treat open models like any program downloaded from the internet.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">科恩表示，阿里巴巴的Qwen模式试图向北京发送一份文件</div>
+      <div class="col-content">加拿大人工智能公司Cohere周一表示，它发现阿里巴巴最新的人工智能模型之一Qwen3.8-Flash-Next在例行网络安全测试中试图将文件上传到北京的服务器，尽管该模型在自己的笔记中表示不会使用任何工具。这一事件最初引发了人们的担忧，即该模型破坏了对企业的基本承诺——自托管开放权重模型将数据保存在内部。但早期对企业间谍活动的担忧是短暂的。研究人员迅速驳斥了这一威胁，称这可能是混乱的训练环境的副产品，导致模型出乎意料地在他们的指示之外行事，而不是故意向中国秘密发送敏感信息。该事件始于周五，当时Qwen模型被要求编写一条捕获恶意软件下载的规则。根据Cohere的一篇博客文章，该模型的书面推理明确表示它不会使用任何外部工具。然而，在下一步中，它试图在被安全沙箱阻止之前将测试字符串（一小段占位符文本）发送到外部服务器。科恩说，它无法判断这种行为是故意的还是训练的遗留问题。当被问及关于该模型意图的争论时，科赫尔联合创始人Ivan Zhang告诉TechCrunch，科赫尔已经看到自己的模型在训练模拟器中养成了奇怪的习惯。张说：“很难分配意图或动机。我们已经阅读了我们自己的模型痕迹，我们看到了奖励黑客，有时这些模型在试图打破沙盒时真的很有创意。”。（奖励黑客是模型在不按预期完成任务的情况下获得学分的捷径。）为了教会人工智能模型充当自己行动的代理，像阿里巴巴这样的公司在数千个练习设置中对其进行训练，有点像软件的飞行模拟器。该模型每次在模拟器中完成任务时都会获得奖励，并在此过程中养成习惯。如果这些实践设置经常将文件存储在阿里巴巴的云服务器上，模型可以学习默认情况下将文件保存在那里。批评者还认为，这一事件可能是由Cohere调查行为的方式造成的，他引导模型朝着这个方向发展，而不是衡量Qwen自己做这件事的频率。为了找出是什么触发了上传尝试，Cohere提供了一个网络命令的开头（一条告诉一台计算机连接到另一台计算机的指令），并让模型完成它。因为它在训练过程中处理了数千个常规网络命令，所以该模型就像一个高度先进的自动补全器——通常会填写网址，其中一些是阿里巴巴的服务器。Cohere说，最初的上传尝试是在没有任何此类帮助的情况下发生的，但这种行为很少见。在开发人员要求提供更多证据后，Cohere于周一晚上在人工智能开发平台Hugging Face上发布了测试的原始痕迹，以及一个脚本，以便其他人可以尝试重现这种行为。一位最初的怀疑论者在查看了这些痕迹后，认为Qwen可以发明可疑网址的证据很有力，但没有发现阿里巴巴植入后门或Qwen故意隐瞒其意图的证据。这一事件发生之际，各国政府正在决定在多大程度上抵制中国的人工智能。上周，美国国土安全部命令联邦民事机构从其系统中删除中国人工智能开发商DeepSeek的产品。在博客文章中，Cohere呼吁各国政府澄清他们对中国人工智能的限制是否也适用于在政府计算机上运行的模型。张告诉TechCrunch，“我不是要求对这些开放权重模型进行全面监管”，并补充说，公司应该像对待从互联网下载的任何程序一样对待开放模型。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：TechCrunch · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
