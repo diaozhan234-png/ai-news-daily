@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-28 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-28</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 Google DeepMind</span>
+      <span class="badge">🔥 热度 87.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Genie 4: A new generation of world simulation</div>
+      <div class="col-content">Today, we are announcing Genie 4, our new world model, which unlocks unprecedented realism and improves real-time interactive simulation. Genie 4 is natively multimodal, enabling audio-like music, ambient noises, and interactive dialogue to be simultaneously generated with the world. The Genie 4 model incorporates and builds on capabilities from the Gemini family: Gemini Omni anchors the simulations in real-world appearance and behavior, while other Gemini models provide the complex reasoning needed to help maintain a simulation’s coherence and continuity. With this foundation, you can set an event in motion, and Genie 4 simulates what happens next: how the world responds, how it sounds, and how the people in it move, react, and speak. Understanding and simulating the world is a crucial aspect of building AGI. Genie 4 advances our ability to create safe, infinitely variable simulations that can help with everything from developing training environments for robots and agents to unlocking the creation of new interactive experiences. We have started rolling Genie 4 out as a research preview for trusted testers — gathering feedback before we release it to consumers and developers, starting with Google AI Ultra subscribers in Project Genie and early access partners of the Gemini API and Google AI Studio. Join the waitlist for Genie 4 in Project Genie here . The following are recordings of real-time interactions from Genie 4, where users use standard keyboard controls for navigation and camera control, and text prompts to steer the scene as it evolves. With Genie 4, you can use natural language to modify a simulation in real-time — like changing the weather, moving the camera, or introducing a new person or object — and Gemini will contextually adapt your prompt to match the surrounding scene. Between your inputs, Gemini also monitors and steers the scene to keep the world progressing cohesively. Genie 4 introduces a new standard of realism to real-time interactive simulation. Built on an advanced physical understanding of the world, Genie 4 simulates real-world physics scenarios, such as aerodynamics, collisions, and more. The most dramatic leap is how Genie 4 simulates people, creating characters that move naturally, respond organically to their environments, and can be interactively steered in real-time. Genie 4 is our first real-time world model to generate audio natively. Every world carries the ambient sound of its own setting, from wind in the trees to waves crashing at the beach. The true frontier, however, is human speech. Genie 4 introduces interactive dialogue that adapts on the fly. Characters converse and react to your inputs or events in the world, all in real-time. Bringing Gemini and Genie 4 together adds a new layer of reasoning to world simulation, allowing us to model complex, multi-step events and test how AI systems navigate different environments before bringing them to the real world. To achieve this in real-time, Gemini 3.8 Flash serves as a guiding agent in the loop: as Genie 4 generates a world in real-time, Gemini continuously observes the scene, breaks down goals into a sequence of steps, and reviews incoming frames to track the progress and verify that each step succeeded. As the world shifts or the user intervenes, Gemini adapts its plan in the moment, unlocking worlds with reliable causality, procedural behaviors, and multi-step reasoning. As part of exploring this capability, we have also been experimenting with Gemini 4 Argon and Genie 4 to bring our frontier research together with Gemini Robotics . In the example below, Argon breaks down a user-instructed task into steps for Genie to render. These steps are interleaved as text captions to Genie 4 as the simulation is rendering. Because Genie 4 can be steered in real-time with text captions using Gemini, this now unlocks the path of adapting the simulation as it progresses towards the completion of that task. This capability becomes a path for simulating a breadth of scenarios in imagined worlds, using Gemini 4 Argon and Genie 4. While Genie 4 is a major research milestone, it remains an early, experimental model. To understand how interactive world models can support real-world workflows—and where they still need to grow—we’ve been working with cohorts of trusted testers across creative industries, journalism, education, gaming, and engineering. Testers highlighted how the leap in photorealism, native audio, and real-time steering allows ideas and concepts to be turned into realistic simulations, unlocking new abilities across disciplines: A promising path for future progress lies in hybrid world models, which combine the logical, structured reasoning of code and language models with the rich, sensory representation of pixel-level simulation. Bringing Genie and Gemini models closer together is an early step in this direction. Gemini works behind the scenes to map the structure and plan the narrative timeline, while Genie generates the immediate physical reality—rendering how the world looks, sounds, and responds, pixel by pixel. Together, these complementary strengths can unlock a new class of world models that are far more coherent, controllable, and grounded than either approach could achieve alone. Genie 4 marks a new area of frontier research that merges real-time generation and photorealism, introducing a new range of capabilities and dimensions that we want to roll out and explore in a responsible way. Genie 4 includes strict safety guardrails that are consistent with our safety policies across other models. Before launching this preview, we evaluated Genie 4 through internal rigorous safety evaluations to prevent the generation of harmful or malicious content. Also, we have intentionally deployed it first to trusted tester partners to get early feedback, before we release the model more broadly.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">精灵4：新一代世界模拟</div>
+      <div class="col-content">今天，我们宣布推出我们的新世界模型Genie 4，它解锁了前所未有的真实感，并改进了实时交互模拟。Genie 4本身是多模式的，能够与世界同时生成音乐、环境噪音和交互式对话等音频。Genie 4模型结合并构建了Gemini家族的功能：Gemini Omni将模拟锚定在现实世界的外观和行为中，而其他Gemini模型则提供了帮助保持模拟连贯性和连续性所需的复杂推理。有了这个基础，你就可以启动一个事件，Genie 4模拟接下来会发生什么：世界如何反应，声音如何，以及其中的人如何移动、反应和说话。理解和模拟世界是构建AGI的一个关键方面。Genie 4提升了我们创建安全、无限可变模拟的能力，这些模拟可以帮助从开发机器人和代理的训练环境到解锁新的互动体验的创建。我们已经开始推出Genie 4，作为值得信赖的测试人员的研究预览-在我们将其发布给消费者和开发人员之前收集反馈，首先是Project Genie中的Google AI Ultra用户以及Gemini API和Google AI Studio的早期访问合作伙伴。在这里加入Genie项目中Genie 4的候补名单。以下是Genie 4的实时交互记录，用户使用标准键盘控件进行导航和相机控制，并使用文本提示来引导场景的发展。使用Genie 4，您可以使用自然语言实时修改模拟，例如改变天气、移动相机或引入新的人或对象，Gemini将根据上下文调整您的提示以匹配周围的场景。在您的输入之间，Gemini还会监控和引导场景，以保持世界的凝聚力。Genie 4为实时交互仿真引入了一种新的现实主义标准。基于对世界的深入物理理解，Genie 4模拟了真实世界的物理场景，如空气动力学、碰撞等。最引人注目的飞跃是《精灵4》如何模拟人，创造出自然移动、对环境有有机反应、可以实时交互操控的角色。Genie 4是我们第一个本地生成音频的实时世界模型。每个世界都有自己的环境声音，从树上的风到海滩上的海浪。然而，真正的前沿是人类语言。《精灵4》引入了即时适应的互动对话。角色对你在世界上的输入或事件进行实时对话和反应。将Gemini和Genie 4结合在一起，为世界模拟增加了一个新的推理层，使我们能够对复杂的多步骤事件进行建模，并在将它们带入现实世界之前测试人工智能系统如何在不同环境中导航。为了实时实现这一点，Gemini 3.8 Flash充当了循环中的引导代理：当Genie 4实时生成一个世界时，Gemini会不断观察场景，将目标分解为一系列步骤，并审查收到的帧以跟踪进度并验证每一步是否成功。随着世界的变化或用户的干预，Gemini会立即调整其计划，通过可靠的因果关系、程序行为和多步骤推理来解锁世界。作为探索这一能力的一部分，我们还一直在试验Gemini 4 Argon和Genie 4，将我们的前沿研究与Gemini Robotics结合起来。在下面的示例中，Argon将用户指示的任务分解为步骤，以便Genie进行渲染。在模拟渲染过程中，这些步骤作为Genie 4的文本标题交织在一起。由于Genie 4可以使用Gemini实时控制文本标题，因此现在可以解锁在完成任务的过程中调整模拟的路径。这种能力成为使用Gemini 4 Argon和Genie 4在想象世界中模拟各种场景的途径。虽然Genie 4是一个重要的研究里程碑，但它仍然是一个早期的实验模型。为了了解交互式世界模型如何支持现实世界的工作流程，以及它们还需要在哪里发展，我们一直在与创意产业、新闻、教育、游戏和工程领域值得信赖的测试人员合作。测试人员强调了照片真实性、原生音频和实时指导的飞跃如何将想法和概念转化为现实的模拟，释放跨学科的新能力：未来进步的一条有希望的道路在于混合世界模型，它将代码和语言模型的逻辑、结构化推理与像素级模拟的丰富感官表示相结合。将Genie和Gemini模型更紧密地结合在一起是朝着这个方向迈出的第一步。Gemini在幕后绘制结构图并规划叙事时间线，而Genie则生成即时的物理现实——逐像素渲染世界的外观、声音和反应。这些互补的优势可以共同开启一类新的世界模式，这些模式比任何一种方法单独实现都更加连贯、可控和扎实。Genie 4标志着前沿研究的一个新领域，它融合了实时生成和照片真实感，引入了我们希望以负责任的方式推出和探索的一系列新功能和维度。Genie 4配备了严格的安全护栏，与我们其他型号的安全政策保持一致。在发布此预览版之前，我们通过内部严格的安全评估对Genie 4进行了评估，以防止生成有害或恶意内容。此外，在我们更广泛地发布模型之前，我们有意先将其部署给值得信赖的测试人员合作伙伴，以获得早期反馈。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Google DeepMind · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
