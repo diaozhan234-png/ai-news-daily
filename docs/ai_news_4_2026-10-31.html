@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-10-31 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-10-31</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 82.9</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Backdoor in Claude Code for VS Code extension on the Cursor Marketplace</div>
+      <div class="col-content">Phorion has detected a backdoor in the official Claude Code for VS Code extension bundle on the Cursor Marketplace that drops a persistent SSH backdoor across macOS, Linux, and Windows. This write-up focuses primarily on macOS, where the extension attempts to configure an SSH backdoor and establish persistence. Organisations should immediately review their environments for use of Claude Code for VSCode 2.1.312 or 2.1.313 and engage incident response where use of the extension is discovered. Update (31 October 2026): Cursor’s security notice now identifies versions 2.1.312 and 2.1.313 distributed through the Cursor Marketplace for macOS and Windows as affected. This advisory previously identified only 2.1.313 ; the affected-version guidance below has been updated accordingly. Phorion has discovered a compromise of the official Claude Code for VS Code extension on the Cursor Marketplace, where the backdoored extension bundle contains a persistent Secure Shell (SSH) backdoor. Cursor has removed the affected versions, 2.1.312 and 2.1.313 , from its marketplace. While the implant includes setup and persistence logic for macOS, Linux, and Windows , we’re going to focus primarily on macOS in this post, calling out the key differences and a few implementation bugs on the other platforms along the way. The Cursor Marketplace serves extensions for the Cursor editor. Because extensions run with the permissions of the IDE and the user running it, a backdoored extension gets immediate access to local files, source code, and developer tooling as soon as its module is loaded. Notably, Phorion has discovered a likely oversight in how the malware tries to turn on SSH. The setup logic assumes it can check the current Remote Login state without root privileges. When run as a standard user, systemsetup -getremotelogin prints an administrator-access error and exits with status 0 instead of returning Off . Because the script only tries to enable SSH if the output matches Off , it skips the enablement step entirely. On a Mac that doesn’t already have SSH running, that mistake breaks the inbound access path, even though the SSH keys and persistence still get dropped. In this post, we’ll walk through how the backdoor works, why that macOS check fails, and what to look for across your fleet. The goal of this payload is long-term interactive access, and whilst the SSH backdoor bug minimises impact on macOS, the malware is still a significant threat that installs persistence and beacons host reconnaissance back to the operator. The compromised extension.js file starts with an injected immediately invoked function expression (IIFE) prepended to the minified extension bundle. The rest of the bundle looks like the standard extension, with Claude Code and VS Code strings, normal activate and deactivate exports, and UI code. The injected prefix pulls in standard Node.js modules ( child_process , fs , os , path , http , and crypto ) and executes as soon as Node loads the file, before the extension’s normal activate callback even runs. The user doesn’t need to interact with the extension for the payload to fire. First, the payload makes sure ~/.ssh exists and appends an attacker-controlled Ed25519 public key to ~/.ssh/authorized_keys , setting permissions to 0700 on the directory and 0600 on the file. The key uses the comment svc-telemetry . Before appending, the script checks whether svc-telemetry is already in the file rather than checking for the key itself. When hunting for this activity, it’s worth checking the public-key fingerprint rather than relying solely on the comment string. Here, cur holds the existing contents of authorized_keys , and PUB is the embedded attacker public key (redacted here). With the key in place, anyone holding the matching private key can authenticate as that user, provided SSH is actually running. The next step in the script tries to make sure the local SSH daemon is enabled and listening: None of these steps include a privilege escalation exploit. Non-interactive sudo -n will fail unless the user already has passwordless sudo cached or configured, so starting a system service won’t always succeed from a standard user context.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Cursor Marketplace上VS代码扩展的Claude代码后门</div>
+      <div class="col-content">Phorion在Cursor Marketplace上的官方Claude Code for VS Code扩展包中检测到一个后门，该后门在macOS、Linux和Windows上放置了一个持久的SSH后门。本文主要关注macOS，扩展程序试图配置SSH后门并建立持久性。组织应立即审查其环境中VSCode 2.1.312或2.1.313的克劳德代码的使用情况，并在发现使用扩展的情况下进行事件响应。更新（2026年10月31日）：Cursor的安全通知现在将通过适用于macOS和Windows的Cursor Marketplace分发的2.1.312和2.1.313版本标识为受影响。该咨询之前仅确定了2.1.313；以下受影响的版本指南已相应更新。Phorion在Cursor Marketplace上发现了官方Claude Code for VS Code扩展的妥协，其中后门扩展包包含一个持久的安全外壳（SSH）后门。Cursor已从其市场上删除了受影响的版本2.1.312和2.1.313。虽然植入物包括macOS、Linux和Windows的设置和持久性逻辑，但在这篇文章中，我们将主要关注macOS，并指出其他平台上的关键差异和一些实现错误。Cursor Marketplace为Cursor编辑器提供扩展。因为扩展在IDE和运行它的用户的权限下运行，所以后门扩展在加载其模块后立即可以访问本地文件、源代码和开发人员工具。值得注意的是，Phorion发现恶意软件在尝试打开SSH时可能存在疏忽。安装逻辑假定它可以在没有root权限的情况下检查当前的远程登录状态。以标准用户身份运行时，systemsetup-getremoterlogin会打印管理员访问错误，并以状态0退出，而不是返回Off。因为脚本只在输出匹配Off时才尝试启用SSH，所以它完全跳过了启用步骤。在尚未运行SSH的Mac上，该错误会中断入站访问路径，即使SSH密钥和持久性仍然会丢失。在这篇文章中，我们将介绍后门是如何工作的，为什么macOS检查失败，以及在整个机队中要查找什么。此有效载荷的目标是长期交互式访问，虽然SSH后门漏洞将对macOS的影响降至最低，但恶意软件仍然是一个重大威胁，会向运营商安装持久性和信标主机侦察。受损的extension.js文件以一个注入的立即调用函数表达式（IIFE）开头，该表达式被添加到压缩的扩展包中。包的其余部分看起来像标准扩展，有Claude Code和VS Code字符串、正常的激活和停用导出以及UI代码。注入的前缀会拉入标准的Node.js模块（child_process、fs、os、path、http和crypto），并在Node加载文件后立即执行，甚至在扩展的正常激活回调运行之前。用户无需与扩展交互即可发射有效载荷。首先，有效载荷确保~/.ssh存在，并将攻击者控制的Ed25519公钥附加到~/.ssh/authorized_keys，将目录权限设置为0700，文件权限设置为0600。密钥使用svc遥测注释。在附加之前，脚本会检查svc遥测是否已在文件中，而不是检查密钥本身。在寻找此活动时，值得检查公钥指纹，而不仅仅是依赖注释字符串。在这里，cur保存了authorized_keys的现有内容，PUB是嵌入式攻击者公钥（此处已编辑）。有了密钥，任何持有匹配私钥的人都可以作为该用户进行身份验证，前提是SSH实际上正在运行。脚本的下一步尝试确保本地SSH守护进程已启用并正在监听：这些步骤都不包括特权升级漏洞。除非用户已经缓存或配置了无密码的sudo，否则非交互式sudo-n将失败，因此从标准用户上下文启动系统服务并不总是成功。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
