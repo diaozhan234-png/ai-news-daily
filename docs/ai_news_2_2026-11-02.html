@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-02 · 第2条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-02</span>
+      <span class="badge">第 2 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">The AI cost of JavaScript frameworks</div>
+      <div class="col-content">One of my pet peeves with the web development community is that so many of the decisions we make are vibes-based. Frameworks are “blazing fast,” tools will “supercharge” your development, the right abstraction will benefit both you and your users ( DX and UX all in one!). All of this breathless boasting is usually offered with zero evidence. Alex Russell has called this “frontend’s lost decade” , Baldur Bjarnason has called programming a pop culture , and I’ve tried to counter this trend in my blog with facts and benchmarks (at my best, anyway). For a long time it seemed like our community’s allergy to evidence was driven by the desire for greater DX . In other words, devs just liked the way it felt to type JSX in React, and the arguments promoting React or related tools (“the virtual DOM is fast!”) were largely post-hoc rationalizations to justify those initial gut feelings. ( Jonathan Haidt would likely agree with this assessment.) But in the agentic era, when developers are no longer typing code by hand and are thus less constrained by DX, I still see vibes ruling the day (and not just in the sense of “vibe-coding”). Frontends are rewritten because some framework or another is “better for agents.” (Did anyone think to ask the agents?) The resulting code is “faster,” the agents make “fewer mistakes,” etc. Once again, these claims are often made without evidence. Whenever I read one of these accounts, I think to myself, “Where are the benchmarks?” Well I got curious, so I wrote a benchmark. The structure of this benchmark is pretty straightforward: The app is fairly simple: you’ve got a list of Pokémon with their types, moves, and data from various games. You can search, filter, etc.: I should start off with some caveats: this is not a perfect experiment. This app represents only one holotype – it’s a relatively content-based site with little interactivity, closer to a Wikipedia than a Figma, GMail, etc. That said, I had to choose some app to build, and this one is at least easy to understand at a high level, and relatively straightforward to spec out and test. To try to even the playing field, I had each framework/meta-framework use the official MCP or skills for that tool. I wanted to avoid accusations of “this framework is not well-represented in the training data, that’s why we built our MCP, we expect people to use it,” etc. I also didn’t over-specify the exact architecture to use (e.g. SSR vs CSR ), nor did I specify that the app should be as performant as possible. I simply gave the spec to Opus 5.5 with high effort and told it to use the latest version of the given framework. Each agent ran in a sandbox and without any knowledge that it would be tested in Lighthouse on performance and accessibility, although it was given the conformance test suite. Note I also didn’t mandate any CSS methodology, except to avoid using Tailwind, Bootstrap, or any other component framework, and to design based on a set of spec tokens to enforce some visual consistency. I didn’t want to make this test all about CSS, but instead about JS frameworks, CSR vs SSR, SPAs vs MPAs , etc. The resulting app is tested against a conformance suite based on the accessibility tree rather than the raw DOM to avoid mandating any particular HTML structure – one framework uses web components which rely on shadow DOM, so this was required. One thing I learned from this experiment is that everything I’m measuring is very stochastic. LLMs are random-word generators, so sometimes you get a low dice-roll and an agent goes off on some weird tangent wasting a bunch of tokens, through no fault of the framework or its tools. Lighthouse itself can give inconsistent results as well: Largest Contentful Paint (LCP) may decide that one image is the “largest” element, then pick another one on the next run. It’s hard to have a perfectly fair experiment, but running multiple iterations did help, and I’ve tried to be honest about the variance. With all that throat-clearing out of the way, let’s get to the results. I’m going to break this down by multiple dimensions: cost to build, quality, and maintainability. For each framework/meta-framework, I took the median of 5 runs: in other words, I built the same app 5 times in the same framework. (Yes, this is the kind of zany thing you can do with coding agents these days.) The exception was Angular, which failed to create a measurable app twice, so I took 3 iterations instead for some metrics. (This is explained below.) Note that this quotes the API prices directly from Claude Code and doesn’t actually represent how much money I spent. I’m on a Max plan, so this was just part of my overall $100/month. Note also the variance: React Router’s median is roughly $1 worse than that of Hono+htmx, but the cheapest version of React Router ($2.82) is still cheaper than the most expensive version of Hono+htmx ($3.19). However some reliable patterns do emerge. Most clearly, SvelteKit, Gracile+Lit, and Angular are more expensive to build than the other frameworks. For SvelteKit, this may be due to the fact that the agents read the SvelteKit v3 migration guide in every run, likely because it’s too new to be in Opus 5.5’s training data. Similarly for Gracile, the agents didn’t know the framework very well and either cloned the Gracile repo or read its compiled source from node_modules . For Angular it seems to be a function of the total code size (see below).</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">JavaScript框架的人工智能成本</div>
+      <div class="col-content">我对web开发社区的一个不满是，我们做出的许多决定都是基于共鸣的。框架“非常快”，工具将“加速”你的开发，正确的抽象将使你和你的用户都受益（DX和UX合二为一！）。所有这些令人窒息的吹嘘通常都是在没有证据的情况下提供的。Alex Russell称这是“前端失去的十年”，Baldur Bjarnason称编程是一种流行文化，我试图在我的博客中用事实和基准来对抗这一趋势（无论如何，在我最好的时候）。很长一段时间以来，我们社区对证据的过敏似乎是由对更大DX的渴望驱动的。换句话说，开发人员只是喜欢在React中键入JSX的感觉，而推广React或相关工具的论点（“虚拟DOM很快！”）在很大程度上是事后的合理化，以证明这些最初的直觉。（Jonathan Haidt可能会同意这一评估。）但在代理时代，当开发人员不再手工输入代码，因此不那么受DX的约束时，我仍然看到了主导这一天的氛围（而不仅仅是“氛围编码”的意义）。重写前端是因为某些框架或其他框架“更适合代理”。（有人想过问代理吗？）由此产生的代码“更快”，代理“犯的错误更少”，等等。这些说法往往是在没有证据的情况下提出的。每当我读到这些账户时，我都会想，“基准在哪里？”好吧，我很好奇，所以我写了一个基准。这个基准的结构非常简单：这个应用程序相当简单：你有一个口袋妖怪的列表，上面有它们的类型、动作和各种游戏的数据。你可以搜索、过滤等：我应该从一些警告开始：这不是一个完美的实验。这个应用程序只代表一个原型——它是一个相对基于内容的网站，交互性很小，比Figma、GMail等更接近维基百科。也就是说，我必须选择一些应用程序来构建，而这个应用程序至少在高层次上易于理解，并且相对易于规范和测试。为了平衡竞争环境，我让每个框架/元框架使用该工具的官方MCP或技能。我想避免指责“这个框架在训练数据中没有得到很好的体现，这就是我们构建MCP的原因，我们希望人们使用它”等。我也没有过多地指定要使用的确切架构（例如SSR与CSR），也没有指定应用程序应该尽可能高性能。我只是费力地将规范提供给Opus 5.5，并告诉它使用给定框架的最新版本。每个代理都在沙箱中运行，并且不知道它将在Lighthouse中进行性能和可访问性测试，尽管它被提供了一致性测试套件。注意：我也没有强制要求任何CSS方法，除了避免使用Tailwind、Bootstrap或任何其他组件框架，并基于一组规范令牌进行设计以强制实现一些视觉一致性。我不想让这个测试都是关于CSS的，而是关于JS框架、CSR与SSR、SPA与MPA等。生成的应用程序是根据基于可访问性树而不是原始DOM的一致性套件进行测试的，以避免强制要求任何特定的HTML结构——一个框架使用依赖于影子DOM的web组件，因此这是必需的。我从这个实验中学到的一件事是，我所测量的一切都是非常随机的。LLM是随机的单词生成器，所以有时你会得到一个低骰子，一个代理在一些奇怪的切线上运行，浪费了一堆令牌，这并不是框架或其工具的错。Lighthouse本身也会给出不一致的结果：最大内容绘画（LCP）可能会决定一个图像是“最大”的元素，然后在下一次运行中选择另一个。很难有一个完全公平的实验，但运行多次迭代确实有所帮助，我试图诚实地对待差异。把喉咙都清了，让我们来看看结果。我将从多个维度对其进行细分：构建成本、质量和可维护性。对于每个框架/元框架，我取了5次运行的中位数：换句话说，我在同一个框架中构建了5次相同的应用程序。（是的，这是你现在可以用编码代理做的那种滑稽的事情。）Angular是个例外，它两次都没能创建一个可测量的应用程序，所以我对一些指标进行了3次迭代。（这将在下面解释。）请注意，这直接从Claude Code中引用了API价格，而实际上并不代表我花了多少钱。我正在使用Max计划，所以这只是我每月100美元的一部分。另请注意差异：React Router的中位数比Hono+htmx差大约1美元，但最便宜的React Router版本（2.82美元）仍然比最昂贵的Hono+htmx版本（3.19美元）便宜。然而，一些可靠的模式确实出现了。最明显的是，SvelteKit、Gracile+Lit和Angular的构建成本比其他框架更高。对于SvelteKit来说，这可能是因为代理在每次运行中都会阅读SvelteKitv3迁移指南，可能是因为它太新了，无法纳入Opus 5.5的训练数据中。同样，对于Gracile，代理也不太了解该框架，要么克隆了Gracile仓库，要么从node_modules读取其编译源代码。对于Angular来说，它似乎是总代码大小的函数（见下文）。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
