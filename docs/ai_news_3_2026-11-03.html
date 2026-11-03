@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-03 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-03</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 Ars Technica</span>
+      <span class="badge">🔥 热度 84.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Claude’s new rules against game cloning won’t stop the AI copying boom</div>
+      <div class="col-content">Last week, Anthropic introduced a new system prompt designed to stop its Claude models from re-creating specific, existing video games. While that move could help shield Anthropic from some liability, it’s unlikely to slow much of the massive wave of AI-assisted game porting and copying that has emerged in recent months. A social media user and AI decompilation enthusiast going by the name “chasm” was among the first to note the prompt change late last week, saying a new rule seemed to be added to the Claude Code prompt on or around October 27. That rule—included in a json file under the name “tengu_heron_brook”—reads as follows: Do build original games, games in a genre, and games from the user’s own designs and assets. Don’t build a recreation of a specific existing game, even if it is renamed or called original. XDA later independently verified that the new rule appears in version 2.1.314 of the Claude Code binary, which was released on October 30 . XDA also reported that the “tengu_heron_brook” rule had been used for other purposes in earlier versions and that the Claude Opus 5.5 model specifically seemed to have its own distinct and independent instructions restricting game recreations as part of its system prompt bundle. Following chasm’s initial report, Anthropic software engineer Addy Osmani confirmed on social media that the company had “added two sentences to Claude Code’s prompt on Opus 5.5 to steer it away from recreating someone else’s specific game because using Claude to infringe IP is against our usage policy.” He added that the new prompt was designed to still allow “original games, genre games, and games built from your own designs and assets,” even as a handful of issue reports on Anthropic’s GitHub suggest the new prompt is getting in the way of some game development use cases. We added two sentences to Claude Code’s prompt on Opus 5.5 to steer it away from recreating someone else’s specific game because using Claude to infringe IP is against our usage policy. Original games, genre games, and games built from your own designs and assets are meant to keep working. We’ll continue to iterate to ensure we’re striking the right balance. In the meantime, if Claude turns down something that’s yours, send it my way. — Addy Osmani (@addyosmani) October 30, 2026 Anthropic’s new prompt comes as AI coding tools are powering a deluge of game projects based on existing work in one way or another. That includes thrown-together copies of game demos that are making some developers afraid to show their early work publicly , as well as thousands of AI-powered decompilation and porting projects for retro games. Thanks to AI tools, what used to be a time-consuming process requiring painstaking human effort is now orders of magnitude more efficient (though some veteran coders complain that these vibe-coded ports and decomp projects fail to clear the same quality bar as human-centered efforts ). The trend has gotten so bad that decomp.dev—a years-old community devoted to the “brutally difficult, time-consuming task” of game decompilation— announced it was shutting down last month. Community maintainer Luke Street wrote that quickly improving AI tools had made it clear that “community aspect of decompilation has been broken” as newcomers “rac[e] to port games, especially utilizing decompilations that they did not contribute to.” “Decomp.dev was originally designed to gamify decompilation: watching the progress go up was a fun way to stay motivated when every fraction of a percent took real human effort,” Street wrote. “Today, that same idea has warped decompilation into a hollow numbers game, exacerbated by folks who just want to burn tokens to make number go up or ‘port game to PC,’ all else be damned. While Anthropic’s new prompt can be seen as a noble effort to push back against the flood of AI-powered, vibe-coded copying, it seems unlikely to have much impact overall. That’s primarily because eager game copiers can simply shift to any of the other frontier models that haven’t introduced such restrictions. And even if the AI industry as a whole began to bar this kind of use case, coders could switch to cheaper open-weight models that aren’t subject to these kinds of restrictions and are not all that far behind in capabilities . The prompt may have a more immediate benefit for Anthropic, helping protect the company from potential liability for copyright infringement in these projects. We’ve seen how AI companies face legal headaches if their models generate images based on copyrighted works , for instance. As Osmani noted in confirming the new anti-game copying prompt, “Using Claude to infringe IP is against our usage policy”—a policy that’s surely in place to protect the company legally. Decompilation efforts based on reverse engineering code generally pass legal muster as long as “expressive elements” like art and sound assets are not included in the project. But there’s no guarantee that individual vibe-coders using Claude would be so careful with their efforts, even with Anthropic guardrails against IP theft in place. On the other hand, there’s a risk that Anthropic’s efforts could prove too restrictive, limiting transformative game projects that build off existing work. Take, for instance, the increasingly popular trend of using AI to merge two different game concepts into one , adding Mario to Elden Ring or Spider-Man to Batman: Arkham Knight , for instance.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">克劳德反对游戏克隆的新规定不会阻止人工智能复制热潮</div>
+      <div class="col-content">上周，Anthropic推出了一个新的系统提示，旨在阻止其克劳德模型重新创建特定的现有视频游戏。虽然此举可能有助于保护Anthropic免于承担一些责任，但它不太可能减缓近几个月来出现的大规模人工智能辅助游戏移植和复制浪潮。上周晚些时候，一位名为“深渊”的社交媒体用户和人工智能反编译爱好者率先注意到了这一提示变化，他说，似乎在10月27日左右，克劳德代码提示中增加了一条新规则。该规则包含在一个名为“tengu_heron_brook”的json文件中，内容如下：一定要从用户自己的设计和资产中构建原创游戏、流派游戏和游戏。不要重建特定的现有游戏，即使它被重命名或称为原始游戏。XDA后来独立验证了新规则出现在10月30日发布的Claude Code二进制文件的2.1.314版本中。XDA还报告称，在早期版本中，“tengu_heron_brook”规则已被用于其他目的，而Claude Opus 5.5模型似乎有自己独特而独立的指令，作为其系统提示包的一部分，限制游戏的再创造。在Divorm的初步报告之后，Anthropic软件工程师Addy Osmani在社交媒体上证实，该公司“在Opus 5.5的Claude Code提示中添加了两句话，以引导其避免重新创建他人的特定游戏，因为使用Claude侵犯知识产权违反了我们的使用政策。”他补充说，新提示的设计仍然允许“原创游戏、流派游戏和基于自己的设计和资产构建的游戏”，尽管Anthropics GitHub上的一些问题报告表明，新提示正在阻碍一些游戏开发用例。我们在Opus 5.5的Claude Code提示中添加了两句话，以避免重新创建他人的特定游戏，因为使用Claude侵犯IP违反了我们的使用政策。原创游戏、流派游戏以及基于你自己的设计和资产构建的游戏都是为了继续工作。我们将继续迭代，以确保我们达到正确的平衡。与此同时，如果克劳德拒绝了你的东西，就把它寄给我。Addy Osmani（@addyosmani）2026年10月30日，Anthropic的新提示发布之际，人工智能编码工具正在以某种方式为基于现有工作的大量游戏项目提供动力。这包括拼凑在一起的游戏演示副本，这些副本让一些开发人员不敢公开展示他们的早期作品，以及数千个基于人工智能的复古游戏反编译和移植项目。多亏了人工智能工具，过去需要艰苦的人工努力才能完成的耗时过程现在效率提高了几个数量级（尽管一些资深程序员抱怨说，这些氛围编码的端口和反编译项目未能像以人为中心的工作一样清洁质量标准）。这一趋势已经变得如此糟糕，以至于decodev.dev——一个致力于游戏反编译这一“极其困难、耗时的任务”的有着多年历史的社区——上个月宣布关闭。社区维护者Luke Street写道，快速改进的人工智能工具已经清楚地表明，“反编译的社区方面已经被打破”，因为新来者“争相移植游戏，特别是利用他们没有贡献的反编译”。“Decomp.dev最初是为了将反编译游戏化而设计的：当每一个百分之一的分数都需要真正的人力时，看着进度上升是一种保持动力的有趣方式，”Street写道。 “今天，同样的想法已经将反编译扭曲成了一个空洞的数字游戏，而那些只想燃烧代币来增加数字或‘将游戏移植到PC’的人加剧了这种情况，其他一切都见鬼去了。虽然Anthropic的新提示可以被视为一种抵制人工智能驱动的、氛围编码的复制洪流的崇高努力，但总体而言似乎不太可能产生太大影响。这主要是因为渴望复制游戏的人可以简单地转向任何其他没有引入此类限制的前沿模型。即使整个人工智能行业开始禁止这种用例，程序员也可以转向不受这些限制的更便宜的开放权重模型，而且在能力上也并不落后。。提示可能对Anthropic有更直接的好处，有助于保护公司免受这些项目中侵犯版权的潜在责任。我们已经看到，如果人工智能公司的模型基于受版权保护的作品生成图像，例如e正如Osmani在确认新的反游戏复制提示时所指出的那样，“使用克劳德侵犯知识产权违反了我们的使用政策”——这一政策肯定是为了合法保护公司。只要项目中不包括艺术和声音资产等“表现元素”，基于逆向工程代码的反编译工作通常都能通过法律审查。但是，即使有针对知识产权盗窃的Anthropic护栏，也不能保证使用Claude的个人氛围程序员会如此小心。另一方面，Anthropic的努力可能会被证明过于严格，限制了基于现有工作的变革性游戏项目。例如，使用人工智能将两个不同的游戏概念合并为一个的趋势越来越流行，例如将马里奥添加到《埃尔登指环》中，或将蜘蛛侠添加到《蝙蝠侠：阿卡姆骑士》中。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：Ars Technica · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
