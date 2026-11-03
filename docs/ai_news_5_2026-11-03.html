@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-03 · 第5条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-03</span>
+      <span class="badge">第 5 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Astra can read and write weights to improve Qwen</div>
+      <div class="col-content">We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights , well past what we’d expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do . And without any environment feedback, it has no trouble writing, from scratch, small game-playing networks that outplay networks trained with PPO for 100 million steps. Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra identifies an issue in its weights causing reasoning loops that Qwen’s own model card warns about, and fixes this by natively editing 0.016% of the weights . With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x. All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this Weight-Space Programming . Throughout the history of deep learning, we encoded our simplistic inductive biases into tiny symbolic optimizers like Adam or Muon. This is changing: our neural network weights will soon be natively optimized by LLMs that deliberately reason about their weights . If you were asked to handcraft a neural network that plays Go, what would you do? If you were handed raw neural network weights and asked to predict their behavior, where would you even start? For almost any human, this is practically impossible. Today, weights are written by optimization , by custom networks trained to write them , or by compilers from formal programs . In this post, we find that the current generation of frontier LLMs, used natively in natural language, are starting to become eerily good at understanding and crafting neural network weights around natural-language goals. For a few years now, we’ve all been using LLMs to optimize text artifacts like prompts and the programs built around them . More recently, we’ve started using them to optimize whole harnesses and the training code and hyperparameters that train ML models . We often justified these methods by reference to the fact that we don’t know other principled ways to hill-climb on text artifacts, unlike for updating the weights of differentiable neural networks . After all, humans can “optimize” code by hand, for example, so it made sense to ask LLMs to do it, but they can’t “optimize” neural weights by hand, so those remained largely in the realm of symbolic algorithms. In this post, we share very early results that allow us to argue that the paradigm of reasoning-driven optimization is now coming even for differentiable neural networks . In Weight-Space Programming , a general-purpose LLM reads and writes a network’s weights directly (i.e., not through an optimizer, and in particular not with gradient descent) around some natural language spec, sometimes even with no environment feedback at all. In natural language, it’s becoming possible to “just ask” an LLM to natively find a hidden trait or failure inside the weights of a neural network, to fix that failure, or to write a new network from scratch . We report early, exciting results on each of these below, first on small networks and then even on real language models: We start with a small-scale experiment to see if LLMs can understand the continuous weight space, which is essentially just a list of numbers. In our first experiments, we train some neural network with some algorithm. It would be extremely exciting if the LLM is able to tell its behavior just from the weights. We trained neural network policies with PPO to play four computer games. All four networks take the same input channels, choose from the same actions, and have exactly the same network dimensions, so that it is not able to tell unless the weights are read.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">阿斯特拉可以读写权重来提高Qwen</div>
+      <div class="col-content">我们发现，前沿LLM在原生读取和写入神经网络权重方面表现出色，远远超出了我们对人类或传统算法的预期。这对优化和可解释性来说可能都是一件大事。只需查看原始权重，GPT-6 Astra就可以知道网络被训练做了什么。在没有任何环境反馈的情况下，它可以从头开始编写小型游戏网络，比用PPO训练了1亿步的网络更出色。同样，当被要求使Qwen3.5-0.8B在没有梯度的情况下更好地进行数学运算时，Astra发现了其权重中的一个问题，导致了Qwen自己的模型卡警告的推理循环，并通过本机编辑0.016%的权重来解决这个问题。在相同的采样设置下，该权重校正将MATH-500从7.9%提高到48.1%，并将开箱即用的方法推广到指令，将IFEval提高了3倍。所有这一切都可以在不允许Astra编写训练循环的情况下实现。它使用其推理来找出神经网络的每个部分计算或应该计算什么，并相应地改变权重。我们称之为权重空间规划。纵观深度学习的历史，我们将简单的归纳偏差编码到像Adam或Muon这样的微小符号优化器中。这种情况正在发生变化：我们的神经网络权重很快将由LLM进行原生优化，LLM会故意对其权重进行推理。如果你被要求手工制作一个玩围棋的神经网络，你会怎么做？如果你被赋予原始的神经网络权重，并被要求预测它们的行为，你会从哪里开始？对于几乎所有人来说，这几乎是不可能的。如今，权重是通过优化、经过训练的自定义网络或正式程序的编译器编写的。在这篇文章中，我们发现，在自然语言中原生使用的当前一代前沿LLM开始变得非常善于理解和围绕自然语言目标构建神经网络权重。几年来，我们一直在使用LLM来优化提示等文本工件以及围绕它们构建的程序。最近，我们开始使用它们来优化整个线束以及训练ML模型的训练代码和超参数。我们经常引用这样一个事实来证明这些方法的合理性，即我们不知道在文本伪影上爬山的其他原则性方法，这与更新可微神经网络的权重不同。毕竟，例如，人类可以手动“优化”代码，因此让LLM来做这件事是有意义的，但他们不能手工“优化”神经权重，因此这些权重在很大程度上仍属于符号算法领域。在这篇文章中，我们分享了非常早期的结果，这些结果使我们能够论证推理驱动优化的范式现在甚至适用于可微神经网络。在权重空间编程中，通用LLM直接（即，不通过优化器，特别是不使用梯度下降）围绕一些自然语言规范读取和写入网络的权重，有时甚至根本没有环境反馈。在自然语言中，可以“只要求”LLM在神经网络的权重中发现隐藏的特征或故障，修复故障，或者从头开始编写一个新的网络。我们在下面的每一个方面都报告了早期令人兴奋的结果，首先是在小型网络上，然后甚至是在真实的语言模型上：我们从一个小规模的实验开始，看看LLM是否能理解连续的权重空间，它本质上只是一个数字列表。在我们的第一个实验中，我们用一些算法训练了一些神经网络。如果LLM能够仅通过权重来判断其行为，那将是非常令人兴奋的。我们用PPO训练神经网络策略来玩四个电脑游戏。所有四个网络都采用相同的输入通道，从相同的动作中进行选择，并且具有完全相同的网络维度，因此除非读取权重，否则无法分辨。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
