@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-04 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-04</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 TechCrunch</span>
+      <span class="badge">🔥 热度 84.2</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic is working on a system to prove AI models’ identity</div>
+      <div class="col-content">Anthropic is working on an open source system to verify which AI model produced a given output, according to a blog post published Tuesday. The system, called FlashProve , is built to provide what researchers call “provable inference” — a cryptographic proof, essentially a mathematical guarantee, that a given output came from a specific model. It’s meant to let users confirm that the answer they received really came from the model they think they’re using. Similar to cryptographic email signatures that let recipients confirm a message really came from its claimed sender, FlashProve would be robust against impostors attempting to disguise one model as another, even when the impostor is the lab that built and runs the model. In particular, the researchers note that the system could be used to prevent an AI company from secretly swapping in a cheaper model to cut costs, or a more expensive model to inflate its performance results. FlashProve could also be used to verify claims by third parties that a specific task was done by an advanced model. “A developer might claim that their software library was scanned for vulnerabilities by a frontier cybersecurity model, or a company might claim that its business plan was given the go-ahead by an appropriate model,” the researchers write. “How can a user verify these claims?” To work, the system requires AI labs to publish a “fingerprint” of each model they release that can later be matched to specific outputs and verified cryptographically. Crucially, the fingerprints don’t reveal a model’s weights, the internal numbers that define how it behaves and which closed-model makers like Anthropic and OpenAI keep private. That means labs could publish the fingerprints without giving up their most valuable asset, enabling the system to work with commercial models, too. The system is also designed to be lightweight, so verification could be performed on a local device. As part of the announcement, researchers released a detailed technical specification and working code for various elements of the system, which is publicly available under an open source license on GitHub . Research in the system is ongoing, and there are no plans to deploy it at Anthropic or any other lab. “This research post is meant to share intermediate progress, and not a completed research agenda,” researchers explain in the announcement post. “We are sharing this explicitly with the goal that others look at what we have done, take it, and improve it.” When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic正在开发一个系统来证明人工智能模型的身份</div>
+      <div class="col-content">根据周二发表的一篇博客文章，Anthropic正在开发一个开源系统，以验证哪个AI模型产生了给定的输出。该系统名为FlashProve，旨在提供研究人员所谓的“可证明推理”——一种加密证明，本质上是一种数学保证，即给定的输出来自特定的模型。它的目的是让用户确认他们收到的答案确实来自他们认为自己正在使用的模型。类似于让收件人确认消息确实来自其声称的发件人的加密电子邮件签名，FlashProve将对试图将一个模型伪装成另一个模型的冒名顶替者具有强大的抵抗力，即使冒名者是构建和运行模型的实验室。特别是，研究人员指出，该系统可用于防止人工智能公司秘密更换更便宜的模型来降低成本，或更换更昂贵的模型来夸大其性能结果。FlashProve还可用于验证第三方关于特定任务由高级模型完成的声明。研究人员写道：“开发人员可能会声称他们的软件库被前沿网络安全模型扫描了漏洞，或者公司可能会声称其商业计划得到了适当模型的批准。”。“用户如何验证这些说法？”为了发挥作用，该系统要求人工智能实验室发布他们发布的每个模型的“指纹”，这些指纹稍后可以与特定的输出相匹配并进行加密验证。至关重要的是，指纹并不能揭示模型的权重、定义其行为的内部数字以及Anthropic和OpenAI等封闭模型制造商的隐私。这意味着实验室可以在不放弃其最宝贵资产的情况下发布指纹，使该系统也能与商业模型配合使用。该系统还设计为轻量级，因此可以在本地设备上进行验证。作为公告的一部分，研究人员发布了该系统各个元素的详细技术规范和工作代码，该规范和代码在GitHub上以开源许可证公开。该系统的研究正在进行中，没有计划在Anthropic或任何其他实验室部署它。“这篇研究文章旨在分享中期进展，而不是一个完整的研究议程，”研究人员在公告文章中解释道。“我们明确分享这一点，目的是让其他人看看我们做了什么，接受并改进它。”当你通过我们文章中的链接购买时，我们可能会获得一小笔佣金。这并不影响我们的编辑独立性。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：TechCrunch · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
