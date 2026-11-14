@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-14 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-14</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 83.4</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free</div>
+      <div class="col-content">Anthropic has updated Claude Code Projects with proactive coordinator messages, read-only thread sharing, reminders, branching commands, and improved artifact navigation. The changes reduce the monitoring required when several cloud sessions work in parallel. Each project is a long-running conversation with a coordinator that assigns work to threads. Every thread runs as an independent Claude Code cloud session with its own repository copy and Git branch. The coordinator directs the project from thread reports, while overlapping code changes surface as standard Git merge conflicts when branches are combined. The coordinator now answers questions directly in project chat and posts status updates as threads progress. Previously, developers had to monitor the thread list to find sessions waiting for input. The updated behavior brings pending decisions, completed tasks, and blocked work into the main conversation. Individual threads can now be shared through read-only links with anyone signed in to Claude. A developer can open the thread menu, select Share , and send the generated URL without exposing the rest of the project. Threads that accessed a local computer remain unshareable. The restriction prevents shared transcripts from exposing local file contents, shell output, or other machine data gathered during the session. The two slash commands were already available in regular Claude Code sessions. Their addition to Projects brings the same branching workflow to coordinated, multi-thread work. The threads panel now places recently opened, updated, and pinned threads in a row at the top. Each thread can also display thumbnails for generated documents, diagrams, and other artifacts, with the previews controlled through view settings. The redesign simplifies project settings and local-folder access as well. Anthropic has released the changes on the web, desktop clients, and the latest mobile app. Anthropic introduced the public beta on September 17 for Pro and Max subscribers who joined the waitlist. Team and Enterprise plans remain unsupported. Eligible subscribers who lack access can still join the waitlist . Projects carry no separate fee, but every worker consumes the subscriber’s existing Claude Code allowance. Anthropic limits accounts to 200 new threads per day across all projects. A thread that reaches a usage limit pauses and resumes automatically when capacity becomes available. Project usage appears separately in the usage controls, and developers can choose the model and effort level for the coordinator and worker threads. New projects default to Opus for both roles, with low effort for the coordinator and high effort for workers. Several high-effort sessions running at once can exhaust plan limits faster than a single Claude Code session. Projects fit engineering work that can be divided into independent tasks and reconciled through branches and pull requests. Anthropic’s examples include: Tasks with strict dependencies still require developers to sequence pull requests and resolve conflicts. Projects also remain cloud-only and limited to Claude Code, while parallel workers draw from the same plan limits. Small changes that fit one branch and one context window generally consume fewer resources in a regular Claude Code session.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Anthropic升级了Claude代码项目，使并行人工智能工作者可以免提运行</div>
+      <div class="col-content">Anthropic用主动协调器消息、只读线程共享、提醒、分支命令和改进的工件导航更新了Claude Code Projects。这些变化减少了多个云会话并行工作时所需的监控。每个项目都是一个与协调器的长时间对话，协调器将工作分配给线程。每个线程都作为一个独立的Claude Code云会话运行，具有自己的存储库副本和Git分支。协调器从线程报告中指导项目，而当分支组合时，由于标准Git合并冲突，重叠代码会发生变化。协调员现在可以直接在项目聊天中回答问题，并在线程进行时发布状态更新。以前，开发人员必须监视线程列表以查找等待输入的会话。更新后的行为将未决决策、已完成任务和被阻止的工作带入主对话。现在可以通过只读链接与登录到Claude的任何人共享单个线程。开发人员可以打开线程菜单，选择共享，并发送生成的URL，而不会暴露项目的其余部分。访问本地计算机的线程仍然不可共享。该限制防止共享转录暴露本地文件内容、shell输出或会话期间收集的其他计算机数据。这两个斜线命令在常规的Claude Code会话中已经可用。它们添加到项目中，为协调的多线程工作带来了相同的分支工作流。线程面板现在将最近打开、更新和固定的线程放在顶部的一行中。每个线程还可以显示生成的文档、图表和其他工件的缩略图，并通过视图设置控制预览。重新设计简化了项目设置和本地文件夹访问。Anthropic已经在网络、桌面客户端和最新的移动应用程序上发布了这些更改。Anthropic于9月17日为加入候补名单的Pro和Max用户推出了公测版。团队和企业计划仍然不受支持。没有访问权限的合格订阅者仍然可以加入候补名单。项目不收取单独的费用，但每个员工都会消耗订阅者现有的克劳德代码津贴。Anthropic将所有项目的帐户限制为每天200个新线程。达到使用限制的线程会暂停，并在容量可用时自动恢复。项目使用情况在使用控制中单独显示，开发人员可以为协调器和工作线程选择模型和工作级别。新项目默认为两个角色都使用Opus，协调员的工作量低，工人的工作量高。同时运行多个高强度会话可能比单个Claude Code会话更快地耗尽计划限制。项目适合可以划分为独立任务并通过分支和拉取请求进行协调的工程工作。Anthropic的例子包括：具有严格依赖关系的任务仍然需要开发人员对拉取请求进行排序并解决冲突。项目仍然仅限于云计算，仅限于Claude Code，而并行工作人员则遵循相同的计划限制。适合一个分支和一个上下文窗口的小更改通常会在常规的Claude Code会话中消耗更少的资源。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://alphasignal.ai/news/anthropic-upgrades-claude-code-projects-to-run-parallel-ai-workers-hands-free" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
