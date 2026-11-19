@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-19 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-19</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 arXiv 学术论文</span>
+      <span class="badge">🔥 热度 88.1</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models</div>
+      <div class="col-content">arXiv:2611.21682v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly being explored for knowledge-intensive and safety-critical applications in nuclear engineering. However, existing nuclear-domain benchmarks provide limited content coverage or focus primarily on answer accuracy without systematically evaluating the quality of the underlying reasoning. This study introduces NEBench R1, a reasoning-oriented benchmark comprising 7,546 unique multiple-choice questions extracted from U.S. Nuclear Regulatory Commission (NRC) reactor operator licensing examinations covering 18 nuclear facilities. Each question is classified according to the NRC Knowledge and Abilities catalogs and accompanied by an official explanation serving as a reference for reasoning evaluation. Six LLMs were evaluated, with overall accuracy ranging from 34.0% to 73.9% across three distinct performance tiers. To assess reasoning quality, an LLM-based judge evaluated correctly answered responses using a multidimensional rubric. Although responses generally demonstrated strong problem comprehension, they scored lower in factual and procedural accuracy and distractor analysis, indicating that correct answers were not necessarily supported by technically sound justifications. Response clarity was also weakly indicative of technical quality. Furthermore, longer reasoning traces were associated with lower accuracy in both frontier reasoning models, suggesting that reasoning length may reflect question difficulty rather than improved problem-solving performance. Reasoning-token consumption may therefore provide an additional signal for identifying potentially unreliable responses. NEBench R1 establishes a benchmark for evaluating both answer accuracy and reasoning quality, providing a foundation for assessing the domain competence and reliability of LLMs in nuclear engineering.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">NEBench R1：评估大型语言模型核领域能力的推理基准</div>
+      <div class="col-content">arXiv:2611.21682v1公告类型：新摘要：大型语言模型（LLM）正越来越多地被探索用于核工程中的知识密集型和安全关键应用。然而，现有的核领域基准提供了有限的内容覆盖或主要关注答案准确性，而没有系统地评估底层推理的质量。本研究介绍了NEBench R1，这是一个以推理为导向的基准，包括从美国核管理委员会（NRC）反应堆操作员执照考试中提取的7546个独特的多项选择题，涵盖18个核设施。每个问题都根据NRC知识和能力目录进行分类，并附有官方解释，作为推理评估的参考。对六个LLM进行了评估，在三个不同的性能级别上，总体准确率从34.0%到73.9%不等。为了评估推理质量，基于LLM的法官使用多维量规评估了正确回答的答案。尽管回答通常表现出很强的问题理解能力，但在事实和程序准确性以及干扰因素分析方面得分较低，这表明正确的答案不一定有技术上合理的理由支持。反应的清晰度也不能很好地反映技术质量。此外，在两种前沿推理模型中，较长的推理轨迹与较低的准确性相关，这表明推理长度可能反映了问题的难度，而不是提高了解决问题的能力。因此，推理令牌消费可以提供用于识别潜在不可靠响应的额外信号。NEBench R1建立了一个评估答案准确性和推理质量的基准，为评估核工程中LLM的领域能力和可靠性提供了基础。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2611.21682" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：arXiv 学术论文 · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
