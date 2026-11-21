@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-21 · 第4条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-21</span>
+      <span class="badge">第 4 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 79.5</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Vibecoding an inference chip</div>
+      <div class="col-content">Or rather, I vibe-coded an FPGA into running an LLM. And it… just worked. One of the more entertaining things about programming recently is that coding agents let me work in entirely new domains by giving me access to new programming languages and paradigms. Lately, that has meant hacking on hardware, now that writing low-level software is much easier. So, in this blog post, I’m going to try to recount the experience of vibe coding an FPGA, going through a series of “oh shit” moments several times, and giving myself a new appreciation for what’s possible if you have a large token budget (thanks YC) and interesting problems to point the models at. I overheard some founders recently talk about how FPGAs work. I’ll admit I was relatively naive about them. I’d never really experimented with them in my startup or in college, so I knew little about them before. The basic idea I was familiar with: you can program a circuit into a reprogrammable chip. So rather than having a general purpose computing architecture (like a CPU) you can have a reprogrammable one, i.e. the configuration loaded onto the chip determines how its logic and routing are connected, and that (in theory) enables performance advantages. I also know that it took a mountain of C++ to write and involved manually analyzing waveforms for simulation and verification. I had never done this before though and it seemed cumbersome. That’s about what I knew going into this. Naturally, my ML brain thought “could we use these for AI inference”. I’m not the first to think this — there are a few repos attempting to port ML models to FPGAs on Github. But I hadn’t actually seen a writeup on whether coding agents are good at writing the low level C++ and Verilog code to program them and verifying the outputs so that they actually run accurately. (Spoiler alert, they are incredible at programming them.) So I decided I needed to get my hands on one. AWS has F2 instances with FPGA hardware, and that seemed easier than going and buying physical hardware, so I asked Codex to spin up a reservation and got cooking. It had a relatively limited memory of 16 GB of FPGA HBM. Around the same time, I was working with the DeepGrove founders who were discussing their new ternary weight architecture that is well suited for memory limited cases. It’s SOTA on Mac hardware with actual agentic tool calling, so I figured why not, let’s see if I can get this working on an FPGA and fast enough to be useful. What followed was a cloud agent running in Conductor for several days with me mostly just encouraging it periodically while it both (1) got a model fully running and (2) increased its speed by 33× from the first full-model bit-exact baseline to get it to a real-time relevant speed. It was one of the most mind blowing autoresearch loops I’ve run, ultimately writing roughly 3M lines across the experiment history and parsing 30M lines of output files, burning only $10,000 in Claude and OpenAI tokens to run hundreds of experiments. Most of the code is C++ and some Verilog. It’s been probably a decade since the last time I wrote any serious amount of C++ and I’ve never written Verilog. I honestly don’t know the first thing about Verilog. Most of my prompts were not particularly clever: they consisted mostly of me saying things like “you’re a superintelligent model, time to be more creative” and “let’s go for 2x faster, you got this”. Sometimes I brought some ML knowhow like “hey it’s time to consider speculative decoding” or “why is that running on CPU, you should port it”. But for the most part, it was just vibes and I’m pretty sure that with enough time the model would have figured out those things. Also, it seemed that both Astra and Opus (new Fable wasn’t out yet) were pretty capable at this and I could use them interchangeably. I’m sure someone has a good benchmark for which is smarter but both passed my smart-enough threshold. The chart follows the measured optimization sequence: 6 → 213 tokens/s , or 33× the baseline. At one point, around when it got to 10 TPS, I messaged the DeepGrove founders about this, and they replied surprised that it was working so easily, saying they had tried this a few months back and the models were not quite good enough to be particularly effective. They sent me a prompt that summarizes some of their lessons and I copy-pasted it into my session to see if it’d matter. It was essentially the most significant piece of actual guidance I added to this session. The prompt is reproduced below. here is what someone else did for a dense bs=1 decode optimized fpga implementation for a dense qwen style model with ternary weights. you should take this with a grain of salt and pick things that you believe are acutally useful to add to your plan. Please also dont do things if you dont think is useful that take a lot of times like runnning really long test of a cycle accurate simulation etc or like physical design since those can take like hours. here are some ideas please pick and choose use this as context and not somehting that you shoudl be strictly guided by somethings that could help. prioritiize speed of like getting this up and running though.. The coding agent diligently considered these asks, but it didn’t seem to make all that much of a difference qualitatively. Indeed, when I asked it later to read all of the logs and determine which of these instructions it actually used, it said: Its biggest design ideas were already in my plan before you pasted it. You pasted it on Oct 29 at 21:50 UTC: 4,741 characters describing what someone else did for a dense, batch-1, ternary FPGA decoder. Within 70 seconds I had sorted it into ten ideas to adopt and five to reject, and written that into every design agent’s brief. The shorter remark from your friend Edward, about using lookup tables as logic gates, came 24 minutes earlier and left nothing on the speed line. Design ideas I adopted: mostly confirmation.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">Vibecoding推理芯片</div>
+      <div class="col-content">或者更确切地说，我将FPGA编码为运行LLM。它…刚刚奏效。最近关于编程的一个更有趣的事情是，编码代理让我能够在全新的领域工作，让我接触到新的编程语言和范式。最近，这意味着黑客攻击硬件，现在编写低级软件要容易得多。因此，在这篇博客文章中，我将尝试讲述对FPGA进行vibe编码的经历，经历几次“哦，该死”的时刻，并让自己重新认识到，如果你有一个庞大的代币预算（感谢YC）和有趣的问题来指向模型，可能会发生什么。我最近无意中听到一些创始人谈论FPGA是如何工作的。我承认我对它们相对天真。我在创业公司或大学里从未真正尝试过它们，所以我以前对它们知之甚少。我熟悉的基本想法是：你可以将电路编程到可重新编程的芯片中。因此，与其使用通用计算架构（如CPU），不如使用可重新编程的架构，即加载到芯片上的配置决定了其逻辑和路由的连接方式，这（理论上）可以带来性能优势。我也知道，编写C++需要花费大量时间，并且需要手动分析波形以进行模拟和验证。不过，我以前从未做过这件事，而且看起来很麻烦。这就是我所知道的。自然地，我的机器学习大脑认为“我们能把这些用于人工智能推理吗”。我不是第一个想到这一点的人——有一些仓库试图将ML模型移植到Github上的FPGA上。但我实际上并没有看到一篇关于编码代理是否擅长编写低级C++和Verilog代码来对其进行编程并验证输出以使其实际准确运行的文章。（剧透警告，他们在编程方面非常出色。）所以我决定我需要得到一个。AWS有带FPGA硬件的F2实例，这似乎比购买物理硬件更容易，所以我让Codex提前预订并开始烹饪。它的FPGA HBM内存相对有限，只有16GB。大约在同一时间，我与DeepGrove的创始人一起讨论了他们新的三元权重架构，该架构非常适合内存有限的情况。它是Mac硬件上的SOTA，带有实际的代理工具调用，所以我想为什么不呢，让我们看看我是否可以在FPGA上快速地实现它。接下来是一个在Conductor中运行了几天的云代理，我主要是定期鼓励它，同时它（1）让模型完全运行，（2）从第一个完整的模型位精确基线将其速度提高了33倍，使其达到实时相关的速度。这是我运行过的最令人兴奋的自动搜索循环之一，最终在实验历史中写了大约300万行，解析了3000万行输出文件，只消耗了1万美元的Claude和OpenAI代币来运行数百个实验。大部分代码是C++和一些Verilog。我上一次写大量的C++可能已经十年了，但我从未写过Verilog。老实说，我对Verilog一无所知。我的大多数提示都不是特别聪明：它们主要是我说“你是一个超级智能模型，是时候更有创造力了”和“让我们以2倍的速度前进，你明白了”之类的话。有时我会带来一些机器学习技术，比如“嘿，是时候考虑推测解码了”或“为什么它在CPU上运行，你应该移植它”。但在大多数情况下，这只是一种共鸣，我很确定，如果有足够的时间，模型会解决这些问题。此外，Astra和Opus（新寓言尚未推出）在这方面似乎都很有能力，我可以互换使用它们。我相信有人有一个很好的基准，它更聪明，但两者都超过了我足够聪明的门槛。该图表遵循测量的优化顺序：6→ 213 令牌/秒，或基线的33倍。有一次，当它达到10 TPS时，我给DeepGrove的创始人发了一条消息，他们回复说很惊讶它这么容易工作，说他们几个月前就试过了，模型还不够好，不能特别有效。他们给我发了一个提示，总结了他们的一些经验教训，我把它复制粘贴到我的会话中，看看这是否重要。这基本上是我为本次会议添加的最重要的实际指导。提示如下。这是其他人为具有三元权重的密集qwen风格模型的密集bs=1解码优化fpga实现所做的工作。你应该对此持保留态度，选择你认为对你的计划真正有用的东西。如果你认为没有用，也请不要做需要很多时间的事情，比如运行周期精确模拟的长时间测试等，或者像物理设计一样，因为这些可能需要几个小时。这里有一些想法，请挑选并使用这些作为背景，而不是一些你应该严格遵循的东西。不过，要优先考虑启动和运行的速度。。编码代理认真考虑了这些问题，但在质量上似乎没有太大区别。事实上，当我稍后要求它阅读所有日志并确定它实际使用了哪些指令时，它说：在你粘贴它之前，它最大的设计思想已经在我的计划中了。你在10月29日21:50 UTC粘贴了它：4741个字符描述了其他人为密集的批1三元FPGA解码器所做的工作。在70秒内，我将其分为10个可采纳的想法和5个可拒绝的想法，并将其写进每个设计代理的简报中。你的朋友爱德华关于使用查找表作为逻辑门的简短评论在24分钟前就出现了，没有留下任何东西。我采用的设计理念：主要是确认。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://ankitg.me/blog/vibecoding-inference-chip/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
