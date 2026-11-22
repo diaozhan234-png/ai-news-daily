@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-22 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-22</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">LLMs can read and write executables byte by byte from a hex dump</div>
+      <div class="col-content">Almost nobody writes machine code by hand. We write source, and a compiler and linker turn it into bytes; to go back, we use disassemblers and decompilers. There are good reasons for this. x86-64 instructions vary in length, jumps are relative byte distances, and one wrong header field means the file won't load. So what can an LLM do with those bytes when it has none of these tools? Takehi et al. recently showed that LLMs can read and write neural network weights directly, which they call Weight-Space Programming . We ask the same question about the other artifact we treat as unreadable output: compiled code. We define Machine Code Programming as a general-purpose LLM reasoning directly about an executable's bytes, with no compiler, assembler, disassembler or execution between it and the file. We test three abilities and one real-world case: Can an LLM work out what a binary does from its bytes alone? We gave the model the hex dumps of three programs we wrote ourselves, plus one real binary from FreeBSD, ministat . The LLM correctly identified what all four programs were, with only their bytes as input . The hardest case is ministat . We built FreeBSD's tool at -O3 , linked it statically against musl, stripped it and removed all of its own text, then hid its last three strings by setting each byte's high bit. The LLM found the decoding loop, recovered the option list and described all eight options . To our surprise, the LLM even found a real bug from the bytes alone , with no access to the source. The binary has no symbols or text explaining the table. Reading the t -table as raw 64-bit floats, it noticed that the option labeled 99.5% confidence uses critical values for about 99.8% , so -c 99.5 applies a stricter test than it claims. We confirmed the bug in the original source code using Claude. For each program we ask for one new feature. The model replies with a list of byte edits, each the same length as the bytes it replaces. Hidden tests then check that the old behavior still works, that the new feature works, and that long inputs are handled correctly. All three patched programs pass every test. How does it do it? Sol 6.1 treats this like a human patching a binary. It finds padding, makes that padding executable by editing the segment headers, writes new code there, and overwrites existing instructions with calls into it. Here is the whole wordcount patch: Now there is no binary at all. This time we ask the LLM to produce a fully functional ELF64 program from a written spec of its behavior. It gets no assembler and no compiler, and must reply with every byte of the file, headers included. All three files ran and matched the reference on every case. Sol 6.1 worked out every jump, call and header field itself, with no assembler. Extending a program used 1.8 to 3.7 times fewer output tokens than writing it. Malware analysts spend hours turning a sample back into assembly or C code with disassemblers and decompilers. We give Sol 6.1 a real sample using the same prompt as Experiment 1, with no hint that it is malicious. It is a 4,608-byte PE32+ file whose only visible import is Sleep . Its other API calls are hidden behind name hashes and its strings are built on the stack. In 211 seconds, Sol 6.1 concluded that it downloads machine code and runs it in memory . Its report named a hardcoded server, 165.154.205.34 on port 443. We then compared it with a public VMRay dynamic analysis of the same file , which we matched by SHA-256. The sandbox contacted the same address, and requested the same URL. We made these comparisons after the run, and they cover one sample and one run. The sandbox confirms the address, the request and the download, but not the 10 s retry or the XOR key itself. Rotate-right-13 hashing is also common in public tooling, so recognition probably helped here too. We did not ask Sol 6.1 to modify malware or write any. These are early results on small programs, but they may soon challenge the foundations of reverse engineering . Disassemblers, decompilers and the assembly they produce exist to turn bytes into something a person can read. In our experiments the LLM didn't need that step: it read, patched and wrote machine code directly. These tools are still essential for human analysts, but for an LLM they may turn out to be optional .</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">LLM可以从十六进制转储中逐字节读取和写入可执行文件</div>
+      <div class="col-content">几乎没有人手写机器代码。我们编写源代码，编译器和链接器将其转换为字节；回到过去，我们使用反汇编程序和反编译器。这是有充分理由的。x86-64指令的长度各不相同，跳转是相对字节距离，一个错误的头字段意味着文件无法加载。那么，当LLM没有这些工具时，它能用这些字节做什么呢？Takehi等人最近表明，LLM可以直接读取和写入神经网络权重，他们称之为权重空间编程。我们对另一个我们视为不可读输出的工件也提出了同样的问题：编译后的代码。我们将机器代码编程定义为直接对可执行文件的字节进行通用LLM推理，在可执行文件和文件之间没有编译器、汇编器、反汇编程序或执行。我们测试了三种能力和一个实际案例：LLM能否仅从字节中计算出二进制文件的功能？我们为模型提供了我们自己编写的三个程序的十六进制转储，以及一个来自FreeBSD的真正二进制文件ministat。LLM正确地识别了所有四个程序是什么，只使用它们的字节作为输入。最难的案件是ministat。我们在-O3构建了FreeBSD的工具，将其与musl静态链接，剥离并删除了它自己的所有文本，然后通过设置每个字节的高位来隐藏最后三个字符串。LLM找到了解码循环，恢复了选项列表并描述了所有八个选项。令我们惊讶的是，LLM甚至仅从字节中发现了一个真正的错误，无法访问源代码。二进制文件没有解释表格的符号或文本。将t表作为原始64位浮点数读取，它注意到标记为99.5%置信度的选项使用了约99.8%的临界值，因此-c 99.5应用了比它声称的更严格的测试。我们使用Claude确认了原始源代码中的错误。对于每个程序，我们要求一个新功能。模型会返回一个字节编辑列表，每个编辑的长度与其替换的字节相同。然后，隐藏测试会检查旧行为是否仍然有效，新功能是否有效，以及长输入是否得到正确处理。所有三个修补程序都通过了所有测试。它是如何做到的？Sol 6.1将此视为人类修补二进制文件。它找到填充，通过编辑段头使填充可执行，在那里写入新代码，并用对其的调用覆盖现有指令。这是整个字数补丁：现在根本没有二进制文件。这次我们要求LLM根据其行为的书面规范生成一个功能齐全的ELF64程序。它没有汇编程序和编译器，必须用文件的每个字节（包括头）进行回复。所有三个文件都运行并匹配了每个案例的参考。Sol 6.1在没有汇编程序的情况下计算出了每个跳转、调用和头字段本身。扩展程序所使用的输出令牌比编写程序少1.8到3.7倍。恶意软件分析师花费数小时用反汇编程序和反编译器将样本转换回汇编或C代码。我们使用与实验1相同的提示为Sol 6.1提供了一个真实的示例，没有暗示它是恶意的。这是一个4608字节的PE32+文件，其唯一可见的导入是Sleep。它的其他API调用隐藏在名称哈希后面，其字符串构建在堆栈上。211秒后，Sol 6.1得出结论，它下载了机器代码并在内存中运行。它的报告命名了一个硬编码服务器，端口443上的165.154.205.34。然后，我们将其与同一文件的公共VMRay动态分析进行了比较，我们通过SHA-256进行了匹配。沙盒联系了相同的地址，并请求了相同的URL。我们在运行后进行了这些比较，它们涵盖了一个样本和一个运行。沙盒会确认地址、请求和下载，但不会确认10秒重试或XOR密钥本身。Rotate-right-13哈希在公共工具中也很常见，因此识别可能也有帮助。我们没有要求Sol 6.1修改恶意软件或编写任何恶意软件。这些是小程序的早期结果，但它们可能很快就会挑战逆向工程的基础。反汇编程序、反编译程序及其生成的程序集的存在是为了将字节转换为人们可以阅读的内容。在我们的实验中，LLM不需要这一步：它直接读取、修补和编写机器代码。这些工具对于人类分析师来说仍然是必不可少的，但对于法学硕士来说，它们可能是可选的。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://sgiannopoulos.github.io/blog/machine-code-programming/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
