@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-25 · 第3条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-25</span>
+      <span class="badge">第 3 条</span>
+      <span class="badge">📡 HackerNews</span>
+      <span class="badge">🔥 热度 80.8</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Hierarchical Bayesian Neural Networks: When Structure Meets Flexibility</div>
+      <div class="col-content">Christopher Peters · Bayesian Methods · March 2026 In a previous post , we showed that Bayesian hierarchical models (BHMs) win when group structure is describable, Bayesian neural networks (BNNs) win when the signal is complex, and their ensemble hedges across both scenarios. But what about the case where your data has both — known group structure and complex nonlinear signal? Neither the BHM nor the BNN is ideal: Enter the hierarchical Bayesian neural network (HBNN) — a model that combines partial pooling over groups with a flexible neural network function class. This post adds the HBNN to our comparison and shows when each of the four approaches excels. The HBNN adds partially-pooled group intercepts to the neural network. The non-centered parameterization lets Stan explore the posterior efficiently: Line by line, this is a BNN with one addition: alpha[g[n]] — a group-specific intercept drawn from a learned population distribution. The neural network learns the shared nonlinear signal f(x) , and the hierarchical intercepts capture group-level shifts. Each component does what it's best at. The signal is linear and the heterogeneity is in group-specific intercepts and slopes. The BHM is perfectly specified — its functional form matches the DGP exactly. The HBNN's neural network component adds unnecessary flexibility here, making it a close second but slightly less efficient due to the additional parameters. No group-level heterogeneity — the group labels are noise. Both the BHM and the HBNN waste capacity estimating group intercepts that don't exist, but the BNN focuses entirely on learning the nonlinear signal. The HBNN is close because partial pooling drives the unnecessary group intercepts toward zero, but the BNN's simpler parameterization gives it an edge. Now the data has both group-specific offsets and a complex nonlinear signal. This is the scenario the HBNN was built for: ↓ Lower CRPS = lower out-of-sample prediction error (winner) The HBNN isn't always the best model — it's the best model when the data has the structure it's designed for . That's the No Free Lunch theorem in action: every model has a niche, and the art is matching the model to the problem. In domains like portfolio optimization , clinical trials , and marketing mix modeling , the data often has exactly this structure: known grouping variables (sectors, treatment arms, channels) with complex nonlinear effects. The HBNN architecture — encoding the structure you know and learning the rest — represents a principled middle ground between pure specification and pure flexibility. The complete R script is available at hbnn_comparison_reprex.R . It requires cmdstanr , scoringRules , and tidyverse. Runtime is approximately 4–5 minutes.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">分层贝叶斯神经网络：当结构满足灵活性时</div>
+      <div class="col-content">Christopher Peters·贝叶斯方法·2026年3月在之前的一篇文章中，我们表明，当组结构可描述时，贝叶斯层次模型（BHM）获胜，当信号复杂时，贝叶斯神经网络（BNN）获胜，并且它们的集成在这两种情况下都起到了对冲作用。但是，如果你的数据同时具有已知的群结构和复杂的非线性信号，那该怎么办呢？BHM和BNN都不是理想的：进入分层贝叶斯神经网络（HBNN）——一种将组上的部分池与灵活的神经网络函数类相结合的模型。这篇文章将HBNN添加到我们的比较中，并显示了四种方法中的每种方法何时表现出色。HBNN将部分合并的组截距添加到神经网络中。非中心参数化使Stan能够有效地探索后验：逐行，这是一个添加了一个参数的BNN：alpha[g[n]——从学习到的总体分布中提取的特定于组的截距。神经网络学习共享的非线性信号f（x），分层截距捕获组级偏移。每个组件都做它最擅长的事情。信号是线性的，异质性是特定于组的截距和斜率。BHM是完美指定的——它的函数形式与DGP完全匹配。HBNN的神经网络组件在这里增加了不必要的灵活性，使其接近第二，但由于额外的参数，效率略低。没有群体层面的异质性——群体标签是噪音。BHM和HBNN的废物容量估计组截距都不存在，但BNN完全专注于学习非线性信号。HBNN很接近，因为部分池化将不必要的组截距推向零，但BNN更简单的参数化使其具有优势。现在，数据既有特定组的偏移，也有复杂的非线性信号。这是HBNN构建的场景：↓ 较低的CRPS=较低的样本外预测误差（获胜者）HBNN并不总是最好的模型——当数据具有其设计的结构时，它是最好的模型。这就是“没有免费的午餐”定理：每个模型都有一个利基，而艺术就是将模型与问题相匹配。在投资组合优化、临床试验和营销组合建模等领域，数据通常具有这种结构：具有复杂非线性效应的已知分组变量（部门、治疗部门、渠道）。HBNN架构——对您所知道的结构进行编码并学习其余部分——代表了纯规范和纯灵活性之间的原则性中间地带。完整的R脚本可以在hbnn_comparison_repx上找到。R它需要cmdstarn、评分规则和tidyverse。运行时间约为4-5分钟。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://statwonk.com/hierarchical-bayesian-neural-network.html" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：HackerNews · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
