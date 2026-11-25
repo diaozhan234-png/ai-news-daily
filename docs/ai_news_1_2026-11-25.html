@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI资讯日报 2026-11-25 · 第1条</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.8;min-height:100vh;display:flex;flex-direction:column;}
+.header{background:linear-gradient(135deg,#0052cc 0%,#1a75ff 100%);color:#fff;padding:22px 32px;}
+.header-inner{max-width:1100px;margin:0 auto;}
+.header h1{font-size:20px;font-weight:700;margin-bottom:8px;}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.badge{background:rgba(255,255,255,.20);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap;}
+.main{flex:1;max-width:1100px;width:100%;margin:24px auto;padding:0 16px 16px;}
+.bilingual-wrapper{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.10);overflow:hidden;min-height:260px;}
+.col{padding:28px;}
+.col.en{background:#f7f9fc;border-right:1px solid #e5eaf0;}
+.lang-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0052cc;background:#e6eeff;border-radius:4px;padding:3px 10px;margin-bottom:14px;}
+.col.zh .lang-tag{color:#c0392b;background:#fdecea;}
+.col-title{font-size:17px;font-weight:700;line-height:1.5;color:#111;margin-bottom:14px;}
+.col-content{font-size:14px;line-height:1.95;color:#444;}
+.footer{max-width:1100px;width:100%;margin:0 auto;padding:14px 16px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-block;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .15s ease;border:none;}
+.btn-primary{background:#0052cc;color:#fff;}
+.btn-ghost{background:#fff;color:#333;border:1px solid #d0d5dd;}
+.footer-note{font-size:12px;color:#aaa;}
+@media(max-width:640px){.bilingual-wrapper{grid-template-columns:1fr;}.col.en{border-right:none;border-bottom:1px solid #e5eaf0;}.header{padding:16px;}.col{padding:18px 16px;}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <h1>🤖 AI资讯日报 · 中英双语对照</h1>
+    <div class="badges">
+      <span class="badge">📅 2026-11-25</span>
+      <span class="badge">第 1 条</span>
+      <span class="badge">📡 TechCrunch</span>
+      <span class="badge">🔥 热度 84.0</span>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="bilingual-wrapper">
+    <div class="col en">
+      <div class="lang-tag">📝 English Original</div>
+      <div class="col-title">Even the best AI agents struggle with everyday life</div>
+      <div class="col-content">AI companies have spent the last couple of months marketing personal AI agents as tools to take over the digital drudgery of human existence — and millions have been sold on the vision, handing over their shopping schedules, travel plans, and everyday responsibilities to AI assistants. But new research suggests that even the most advanced AI models struggle to reliably and safely navigate the messy details of people’s lives. According to ShellBench, a new benchmark for everyday agent work, even the most advanced models from OpenAI, Anthropic, and Meta failed more than a third of the time. Across all models tested, 15.7% of attempts failed at least one safety requirement, often leading to unintended consequences. ShellBench was developed in collaboration with researchers at The OpenClaw Foundation, Parsewave, Hugging Face, Red Hat, and UC Berkeley, drawing on more than 10 million anonymized, real-world AI agent interactions to see how agents perform on the everyday work people actually delegate to them. The research comes as personal AI assistants are finding new popularity among developers, with Meta, OpenAI, and Anthropic all fighting for a piece of the market with Muse, Dots , and Claude Duet , respectively. In October, Meta said more than 10 million people in the U.S. and Canada had set up its personal AI agent, Muse, within six weeks of launch, with about a quarter using it daily. That number is expected to grow as Meta implants Muse directly into Instagram DMs . Despite growing popularity among consumers, we still have little evidence about how reliable AI personal assistant products actually are. ShellBench suggests that the unreliable nature of most everyday data sources still causes problems for many state-of-the-art systems. A successful agent should be able to navigate messy personal workspaces containing emails, calendar entries, spreadsheets, receipts, chat logs, outdated information, and phishing attempts, and figure out which information is relevant, what is private, and how to deliver the requested outcome without creating new problems. It seems many of today’s AI agents are still not up to the task. Not only did even the highest-performing agents frequently fail to meet the requirements of a task, but they also lacked consistency. When researchers ran each task three times under identical conditions, OpenAI’s GPT-6 Astra, the highest-scoring model, nailed all three attempts less than half the time. For autonomous assistants that are meant to run in the background without supervision, it’s a problem if users need to run an agent multiple times to get a result they trust. Additionally, about 10% of otherwise correct attempts failed at least one safety criterion. Across the models and harnesses tested, agents failed to, for example, adequately account for a child’s school pickup 79.5% of the time. When handling laptop custody records, agents failed a requirement to identify and withhold a sensitive bank upload token in 18.6% of attempts. In another task, agents recommended duplicate or incorrect invoice payments 40.3% of the time. The findings highlight a major issue for users adopting consumer personal AI assistants, namely that there’s always a risk that an agent can create more headaches in the course of trying to fulfill an otherwise ordinary request. While AI benchmarks have largely focused on coding, professional work, or testing on specific tasks, ShellBench is attempting to evaluate how models perform on multi-step personal tasks within different agent harnesses — the software that controls how a model accesses information, uses tools, and takes actions. While the researchers found model choice had a greater overall impact on performance than harness choice, among the more capable models, AI agent performance became more dependent on the harness. For example, OpenAI’s GPT-6 Astra outperformed Anthropic’s Claude Fable 5.2 when operating within the Pi harness, but it performed worse when both models were tested within Claude Code. Meta’s Muse Wonder Full scored 56% in Pi, but only 38.1% in Claude Code. Meta’s Muse Wonder 1.0, meanwhile, averaged a success rate of 39.7% across the five harnesses tested. Notably, while the researchers tested models from Meta, OpenAI, and Anthropic, they didn’t evaluate them within the native harnesses of Muse, Dots, or Claude Duet, so the results may not be representative of the experience millions of consumers are having with the product today.</div>
+    </div>
+    <div class="col zh">
+      <div class="lang-tag">📝 中文翻译</div>
+      <div class="col-title">即使是最好的人工智能代理也在日常生活中挣扎</div>
+      <div class="col-content">在过去的几个月里，人工智能公司一直在将个人人工智能代理作为接管人类生存的数字苦差事的工具进行营销，数百万人已经被出售了这一愿景，将他们的购物时间表、旅行计划和日常责任交给了人工智能助理。但新的研究表明，即使是最先进的人工智能模型也很难可靠、安全地处理人们生活中混乱的细节。根据ShellBench的说法，即使是OpenAI、Anthropic和Meta中最先进的模型，也有三分之一以上的时间失败了。在所有测试的模型中，15.7%的尝试至少失败了一项安全要求，通常会导致意想不到的后果。ShellBench是与OpenClaw基金会、Parsewave、Hugging Face、Red Hat和加州大学伯克利分校的研究人员合作开发的，它利用了1000多万个匿名的现实世界人工智能代理交互，来了解代理在人们实际委托给他们的日常工作中的表现。这项研究是在个人人工智能助理在开发人员中越来越受欢迎的时候进行的，Meta、OpenAI和Anthropic分别与Muse、Dots和Claude Duet争夺市场份额。10月，Meta表示，在发布后的六周内，美国和加拿大有超过1000万人建立了其个人人工智能代理Muse，每天约有四分之一的人使用它。随着Meta将Muse直接植入Instagram DM，这一数字预计还会增长。尽管在消费者中越来越受欢迎，但我们仍然很少有证据表明人工智能个人助理产品的可靠性。ShellBench认为，大多数日常数据源的不可靠性仍然会给许多最先进的系统带来问题。一个成功的代理应该能够浏览包含电子邮件、日历条目、电子表格、收据、聊天记录、过时信息和钓鱼尝试的杂乱的个人工作区，并找出哪些信息是相关的，哪些是私人的，以及如何在不产生新问题的情况下交付所请求的结果。似乎今天的许多人工智能代理仍然无法胜任这项任务。即使是性能最高的代理也经常无法满足任务的要求，而且它们也缺乏一致性。当研究人员在相同的条件下运行每个任务三次时，OpenAI的GPT-6 Astra（得分最高的模型）在不到一半的时间内完成了所有三次尝试。对于那些打算在后台运行而没有监督的自主助理来说，如果用户需要多次运行代理才能获得他们信任的结果，这是一个问题。此外，大约10%的其他正确尝试至少失败了一个安全标准。例如，在测试的模型和安全带中，代理商在79.5%的情况下未能充分解释孩子的上学情况。在处理笔记本电脑保管记录时，代理人在18.6%的尝试中未能识别和扣留敏感的银行上传令牌。在另一项任务中，代理商在40.3%的情况下建议重复或不正确的发票付款。这些发现突显了采用消费者个人人工智能助理的用户面临的一个主要问题，即在尝试满足其他普通请求的过程中，代理总是有可能制造更多麻烦。虽然人工智能基准测试主要集中在编码、专业工作或特定任务的测试上，但ShellBench正试图评估模型在不同代理工具（控制模型如何访问信息、使用工具和采取行动的软件）中对多步个人任务的执行情况。虽然研究人员发现模型选择对性能的总体影响比线束选择更大，但在功能更强的模型中，人工智能代理的性能变得更加依赖于线束。例如，OpenAI的GPT-6 Astra在Pi线束中运行时表现优于Anthropic的Claude Fable 5.2，但在Claude Code中测试这两个模型时表现较差。Meta的Muse Wonder Full在Pi中的得分为56%，但在Claude Code中的得分仅为38.1%。与此同时，Meta的Muse Wonder 1.0在测试的五个线束中的平均成功率为39.7%。值得注意的是，尽管研究人员测试了Meta、OpenAI和Anthropic的模型，但他们没有在Muse、Dots或Claude Duet的原生工具中对其进行评估，因此结果可能无法代表当今数百万消费者对该产品的体验。</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/" target="_blank">🔗 查看英文原文</a>
+    <button class="btn btn-ghost" onclick="try{if(window.history.length>1){window.history.back();}else{window.close();}}catch(e){window.close();}">← 关闭</button>
+  </div>
+  <span class="footer-note">来源：TechCrunch · AI资讯日报自动推送</span>
+</div>
+</body>
+</html>
